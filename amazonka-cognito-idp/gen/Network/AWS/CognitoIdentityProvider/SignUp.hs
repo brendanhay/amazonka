@@ -1,240 +1,412 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SignUp
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the user in the specified user pool and creates a user name, password, and user attributes.
---
---
+-- Registers the user in the specified user pool and creates a user name,
+-- password, and user attributes.
 module Network.AWS.CognitoIdentityProvider.SignUp
-    (
-    -- * Creating a Request
-      signUp
-    , SignUp
+  ( -- * Creating a Request
+    SignUp (..),
+    newSignUp,
+
     -- * Request Lenses
-    , suAnalyticsMetadata
-    , suUserContextData
-    , suUserAttributes
-    , suSecretHash
-    , suValidationData
-    , suClientId
-    , suUsername
-    , suPassword
+    signUp_clientMetadata,
+    signUp_userContextData,
+    signUp_secretHash,
+    signUp_userAttributes,
+    signUp_validationData,
+    signUp_analyticsMetadata,
+    signUp_clientId,
+    signUp_username,
+    signUp_password,
 
     -- * Destructuring the Response
-    , signUpResponse
-    , SignUpResponse
+    SignUpResponse (..),
+    newSignUpResponse,
+
     -- * Response Lenses
-    , sursCodeDeliveryDetails
-    , sursResponseStatus
-    , sursUserConfirmed
-    , sursUserSub
-    ) where
+    signUpResponse_codeDeliveryDetails,
+    signUpResponse_httpStatus,
+    signUpResponse_userConfirmed,
+    signUpResponse_userSub,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to register a user.
 --
---
---
--- /See:/ 'signUp' smart constructor.
+-- /See:/ 'newSignUp' smart constructor.
 data SignUp = SignUp'
-  { _suAnalyticsMetadata :: !(Maybe AnalyticsMetadataType)
-  , _suUserContextData   :: !(Maybe UserContextDataType)
-  , _suUserAttributes    :: !(Maybe [AttributeType])
-  , _suSecretHash        :: !(Maybe (Sensitive Text))
-  , _suValidationData    :: !(Maybe [AttributeType])
-  , _suClientId          :: !(Sensitive Text)
-  , _suUsername          :: !(Sensitive Text)
-  , _suPassword          :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | A map of custom key-value pairs that you can provide as input for any
+    -- custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user
+    -- pool triggers. When you use the SignUp API action, Amazon Cognito
+    -- invokes any functions that are assigned to the following triggers: /pre
+    -- sign-up/, /custom message/, and /post confirmation/. When Amazon Cognito
+    -- invokes any of these functions, it passes a JSON payload, which the
+    -- function receives as input. This payload contains a @clientMetadata@
+    -- attribute, which provides the data that you assigned to the
+    -- ClientMetadata parameter in your SignUp request. In your function code
+    -- in AWS Lambda, you can process the @clientMetadata@ value to enhance
+    -- your workflow for your specific needs.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+    -- in the /Amazon Cognito Developer Guide/.
+    --
+    -- Take the following limitations into consideration when you use the
+    -- ClientMetadata parameter:
+    --
+    -- -   Amazon Cognito does not store the ClientMetadata value. This data is
+    --     available only to AWS Lambda triggers that are assigned to a user
+    --     pool to support custom workflows. If your user pool configuration
+    --     does not include triggers, the ClientMetadata parameter serves no
+    --     purpose.
+    --
+    -- -   Amazon Cognito does not validate the ClientMetadata value.
+    --
+    -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
+    --     don\'t use it to provide sensitive information.
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    userContextData :: Prelude.Maybe UserContextDataType,
+    -- | A keyed-hash message authentication code (HMAC) calculated using the
+    -- secret key of a user pool client and username plus the client ID in the
+    -- message.
+    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | An array of name-value pairs representing user attributes.
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the
+    -- attribute name.
+    userAttributes :: Prelude.Maybe [AttributeType],
+    -- | The validation data in the request to register a user.
+    validationData :: Prelude.Maybe [AttributeType],
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @SignUp@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | The ID of the client associated with the user pool.
+    clientId :: Core.Sensitive Prelude.Text,
+    -- | The user name of the user you wish to register.
+    username :: Core.Sensitive Prelude.Text,
+    -- | The password of the user you wish to register.
+    password :: Core.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SignUp' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SignUp' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'suAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'suUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+-- 'clientMetadata', 'signUp_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
+-- custom workflows that this action triggers.
 --
--- * 'suUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+-- You create custom workflows by assigning AWS Lambda functions to user
+-- pool triggers. When you use the SignUp API action, Amazon Cognito
+-- invokes any functions that are assigned to the following triggers: /pre
+-- sign-up/, /custom message/, and /post confirmation/. When Amazon Cognito
+-- invokes any of these functions, it passes a JSON payload, which the
+-- function receives as input. This payload contains a @clientMetadata@
+-- attribute, which provides the data that you assigned to the
+-- ClientMetadata parameter in your SignUp request. In your function code
+-- in AWS Lambda, you can process the @clientMetadata@ value to enhance
+-- your workflow for your specific needs.
 --
--- * 'suSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
+-- For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- in the /Amazon Cognito Developer Guide/.
 --
--- * 'suValidationData' - The validation data in the request to register a user.
+-- Take the following limitations into consideration when you use the
+-- ClientMetadata parameter:
 --
--- * 'suClientId' - The ID of the client associated with the user pool.
+-- -   Amazon Cognito does not store the ClientMetadata value. This data is
+--     available only to AWS Lambda triggers that are assigned to a user
+--     pool to support custom workflows. If your user pool configuration
+--     does not include triggers, the ClientMetadata parameter serves no
+--     purpose.
 --
--- * 'suUsername' - The user name of the user you wish to register.
+-- -   Amazon Cognito does not validate the ClientMetadata value.
 --
--- * 'suPassword' - The password of the user you wish to register.
-signUp
-    :: Text -- ^ 'suClientId'
-    -> Text -- ^ 'suUsername'
-    -> Text -- ^ 'suPassword'
-    -> SignUp
-signUp pClientId_ pUsername_ pPassword_ =
+-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
+--     don\'t use it to provide sensitive information.
+--
+-- 'userContextData', 'signUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+--
+-- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
+--
+-- 'userAttributes', 'signUp_userAttributes' - An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the
+-- attribute name.
+--
+-- 'validationData', 'signUp_validationData' - The validation data in the request to register a user.
+--
+-- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @SignUp@ calls.
+--
+-- 'clientId', 'signUp_clientId' - The ID of the client associated with the user pool.
+--
+-- 'username', 'signUp_username' - The user name of the user you wish to register.
+--
+-- 'password', 'signUp_password' - The password of the user you wish to register.
+newSignUp ::
+  -- | 'clientId'
+  Prelude.Text ->
+  -- | 'username'
+  Prelude.Text ->
+  -- | 'password'
+  Prelude.Text ->
+  SignUp
+newSignUp pClientId_ pUsername_ pPassword_ =
   SignUp'
-    { _suAnalyticsMetadata = Nothing
-    , _suUserContextData = Nothing
-    , _suUserAttributes = Nothing
-    , _suSecretHash = Nothing
-    , _suValidationData = Nothing
-    , _suClientId = _Sensitive # pClientId_
-    , _suUsername = _Sensitive # pUsername_
-    , _suPassword = _Sensitive # pPassword_
+    { clientMetadata = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
+      secretHash = Prelude.Nothing,
+      userAttributes = Prelude.Nothing,
+      validationData = Prelude.Nothing,
+      analyticsMetadata = Prelude.Nothing,
+      clientId = Core._Sensitive Lens.# pClientId_,
+      username = Core._Sensitive Lens.# pUsername_,
+      password = Core._Sensitive Lens.# pPassword_
     }
 
+-- | A map of custom key-value pairs that you can provide as input for any
+-- custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user
+-- pool triggers. When you use the SignUp API action, Amazon Cognito
+-- invokes any functions that are assigned to the following triggers: /pre
+-- sign-up/, /custom message/, and /post confirmation/. When Amazon Cognito
+-- invokes any of these functions, it passes a JSON payload, which the
+-- function receives as input. This payload contains a @clientMetadata@
+-- attribute, which provides the data that you assigned to the
+-- ClientMetadata parameter in your SignUp request. In your function code
+-- in AWS Lambda, you can process the @clientMetadata@ value to enhance
+-- your workflow for your specific needs.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- in the /Amazon Cognito Developer Guide/.
+--
+-- Take the following limitations into consideration when you use the
+-- ClientMetadata parameter:
+--
+-- -   Amazon Cognito does not store the ClientMetadata value. This data is
+--     available only to AWS Lambda triggers that are assigned to a user
+--     pool to support custom workflows. If your user pool configuration
+--     does not include triggers, the ClientMetadata parameter serves no
+--     purpose.
+--
+-- -   Amazon Cognito does not validate the ClientMetadata value.
+--
+-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
+--     don\'t use it to provide sensitive information.
+signUp_clientMetadata :: Lens.Lens' SignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+signUp_clientMetadata = Lens.lens (\SignUp' {clientMetadata} -> clientMetadata) (\s@SignUp' {} a -> s {clientMetadata = a} :: SignUp) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
-suAnalyticsMetadata :: Lens' SignUp (Maybe AnalyticsMetadataType)
-suAnalyticsMetadata = lens _suAnalyticsMetadata (\ s a -> s{_suAnalyticsMetadata = a})
+-- | Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+signUp_userContextData :: Lens.Lens' SignUp (Prelude.Maybe UserContextDataType)
+signUp_userContextData = Lens.lens (\SignUp' {userContextData} -> userContextData) (\s@SignUp' {} a -> s {userContextData = a} :: SignUp)
 
--- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-suUserContextData :: Lens' SignUp (Maybe UserContextDataType)
-suUserContextData = lens _suUserContextData (\ s a -> s{_suUserContextData = a})
+-- | A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
+signUp_secretHash :: Lens.Lens' SignUp (Prelude.Maybe Prelude.Text)
+signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Core._Sensitive
 
--- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-suUserAttributes :: Lens' SignUp [AttributeType]
-suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce
-
--- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
-suSecretHash :: Lens' SignUp (Maybe Text)
-suSecretHash = lens _suSecretHash (\ s a -> s{_suSecretHash = a}) . mapping _Sensitive
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the
+-- attribute name.
+signUp_userAttributes :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
+signUp_userAttributes = Lens.lens (\SignUp' {userAttributes} -> userAttributes) (\s@SignUp' {} a -> s {userAttributes = a} :: SignUp) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The validation data in the request to register a user.
-suValidationData :: Lens' SignUp [AttributeType]
-suValidationData = lens _suValidationData (\ s a -> s{_suValidationData = a}) . _Default . _Coerce
+signUp_validationData :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
+signUp_validationData = Lens.lens (\SignUp' {validationData} -> validationData) (\s@SignUp' {} a -> s {validationData = a} :: SignUp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @SignUp@ calls.
+signUp_analyticsMetadata :: Lens.Lens' SignUp (Prelude.Maybe AnalyticsMetadataType)
+signUp_analyticsMetadata = Lens.lens (\SignUp' {analyticsMetadata} -> analyticsMetadata) (\s@SignUp' {} a -> s {analyticsMetadata = a} :: SignUp)
 
 -- | The ID of the client associated with the user pool.
-suClientId :: Lens' SignUp Text
-suClientId = lens _suClientId (\ s a -> s{_suClientId = a}) . _Sensitive
+signUp_clientId :: Lens.Lens' SignUp Prelude.Text
+signUp_clientId = Lens.lens (\SignUp' {clientId} -> clientId) (\s@SignUp' {} a -> s {clientId = a} :: SignUp) Prelude.. Core._Sensitive
 
 -- | The user name of the user you wish to register.
-suUsername :: Lens' SignUp Text
-suUsername = lens _suUsername (\ s a -> s{_suUsername = a}) . _Sensitive
+signUp_username :: Lens.Lens' SignUp Prelude.Text
+signUp_username = Lens.lens (\SignUp' {username} -> username) (\s@SignUp' {} a -> s {username = a} :: SignUp) Prelude.. Core._Sensitive
 
 -- | The password of the user you wish to register.
-suPassword :: Lens' SignUp Text
-suPassword = lens _suPassword (\ s a -> s{_suPassword = a}) . _Sensitive
+signUp_password :: Lens.Lens' SignUp Prelude.Text
+signUp_password = Lens.lens (\SignUp' {password} -> password) (\s@SignUp' {} a -> s {password = a} :: SignUp) Prelude.. Core._Sensitive
 
-instance AWSRequest SignUp where
-        type Rs SignUp = SignUpResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 SignUpResponse' <$>
-                   (x .?> "CodeDeliveryDetails") <*> (pure (fromEnum s))
-                     <*> (x .:> "UserConfirmed")
-                     <*> (x .:> "UserSub"))
+instance Core.AWSRequest SignUp where
+  type AWSResponse SignUp = SignUpResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SignUpResponse'
+            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "UserConfirmed")
+            Prelude.<*> (x Core..:> "UserSub")
+      )
 
-instance Hashable SignUp where
+instance Prelude.Hashable SignUp
 
-instance NFData SignUp where
+instance Prelude.NFData SignUp
 
-instance ToHeaders SignUp where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.SignUp" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders SignUp where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.SignUp" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON SignUp where
-        toJSON SignUp'{..}
-          = object
-              (catMaybes
-                 [("AnalyticsMetadata" .=) <$> _suAnalyticsMetadata,
-                  ("UserContextData" .=) <$> _suUserContextData,
-                  ("UserAttributes" .=) <$> _suUserAttributes,
-                  ("SecretHash" .=) <$> _suSecretHash,
-                  ("ValidationData" .=) <$> _suValidationData,
-                  Just ("ClientId" .= _suClientId),
-                  Just ("Username" .= _suUsername),
-                  Just ("Password" .= _suPassword)])
+instance Core.ToJSON SignUp where
+  toJSON SignUp' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("UserContextData" Core..=)
+              Prelude.<$> userContextData,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
+            ("UserAttributes" Core..=)
+              Prelude.<$> userAttributes,
+            ("ValidationData" Core..=)
+              Prelude.<$> validationData,
+            ("AnalyticsMetadata" Core..=)
+              Prelude.<$> analyticsMetadata,
+            Prelude.Just ("ClientId" Core..= clientId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("Password" Core..= password)
+          ]
+      )
 
-instance ToPath SignUp where
-        toPath = const "/"
+instance Core.ToPath SignUp where
+  toPath = Prelude.const "/"
 
-instance ToQuery SignUp where
-        toQuery = const mempty
+instance Core.ToQuery SignUp where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server for a registration request.
 --
---
---
--- /See:/ 'signUpResponse' smart constructor.
+-- /See:/ 'newSignUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-  { _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-  , _sursResponseStatus      :: !Int
-  , _sursUserConfirmed       :: !Bool
-  , _sursUserSub             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The code delivery details returned by the server response to the user
+    -- registration request.
+    codeDeliveryDetails :: Prelude.Maybe CodeDeliveryDetailsType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A response from the server indicating that a user registration has been
+    -- confirmed.
+    userConfirmed :: Prelude.Bool,
+    -- | The UUID of the authenticated user. This is not the same as @username@.
+    userSub :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SignUpResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SignUpResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sursCodeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sursResponseStatus' - -- | The response status code.
+-- 'codeDeliveryDetails', 'signUpResponse_codeDeliveryDetails' - The code delivery details returned by the server response to the user
+-- registration request.
 --
--- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
+-- 'httpStatus', 'signUpResponse_httpStatus' - The response's http status code.
 --
--- * 'sursUserSub' - The UUID of the authenticated user. This is not the same as @username@ .
-signUpResponse
-    :: Int -- ^ 'sursResponseStatus'
-    -> Bool -- ^ 'sursUserConfirmed'
-    -> Text -- ^ 'sursUserSub'
-    -> SignUpResponse
-signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
-  SignUpResponse'
-    { _sursCodeDeliveryDetails = Nothing
-    , _sursResponseStatus = pResponseStatus_
-    , _sursUserConfirmed = pUserConfirmed_
-    , _sursUserSub = pUserSub_
-    }
+-- 'userConfirmed', 'signUpResponse_userConfirmed' - A response from the server indicating that a user registration has been
+-- confirmed.
+--
+-- 'userSub', 'signUpResponse_userSub' - The UUID of the authenticated user. This is not the same as @username@.
+newSignUpResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'userConfirmed'
+  Prelude.Bool ->
+  -- | 'userSub'
+  Prelude.Text ->
+  SignUpResponse
+newSignUpResponse
+  pHttpStatus_
+  pUserConfirmed_
+  pUserSub_ =
+    SignUpResponse'
+      { codeDeliveryDetails =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        userConfirmed = pUserConfirmed_,
+        userSub = pUserSub_
+      }
 
+-- | The code delivery details returned by the server response to the user
+-- registration request.
+signUpResponse_codeDeliveryDetails :: Lens.Lens' SignUpResponse (Prelude.Maybe CodeDeliveryDetailsType)
+signUpResponse_codeDeliveryDetails = Lens.lens (\SignUpResponse' {codeDeliveryDetails} -> codeDeliveryDetails) (\s@SignUpResponse' {} a -> s {codeDeliveryDetails = a} :: SignUpResponse)
 
--- | The code delivery details returned by the server response to the user registration request.
-sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
-sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a})
+-- | The response's http status code.
+signUpResponse_httpStatus :: Lens.Lens' SignUpResponse Prelude.Int
+signUpResponse_httpStatus = Lens.lens (\SignUpResponse' {httpStatus} -> httpStatus) (\s@SignUpResponse' {} a -> s {httpStatus = a} :: SignUpResponse)
 
--- | -- | The response status code.
-sursResponseStatus :: Lens' SignUpResponse Int
-sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a})
+-- | A response from the server indicating that a user registration has been
+-- confirmed.
+signUpResponse_userConfirmed :: Lens.Lens' SignUpResponse Prelude.Bool
+signUpResponse_userConfirmed = Lens.lens (\SignUpResponse' {userConfirmed} -> userConfirmed) (\s@SignUpResponse' {} a -> s {userConfirmed = a} :: SignUpResponse)
 
--- | A response from the server indicating that a user registration has been confirmed.
-sursUserConfirmed :: Lens' SignUpResponse Bool
-sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a})
+-- | The UUID of the authenticated user. This is not the same as @username@.
+signUpResponse_userSub :: Lens.Lens' SignUpResponse Prelude.Text
+signUpResponse_userSub = Lens.lens (\SignUpResponse' {userSub} -> userSub) (\s@SignUpResponse' {} a -> s {userSub = a} :: SignUpResponse)
 
--- | The UUID of the authenticated user. This is not the same as @username@ .
-sursUserSub :: Lens' SignUpResponse Text
-sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a})
-
-instance NFData SignUpResponse where
+instance Prelude.NFData SignUpResponse

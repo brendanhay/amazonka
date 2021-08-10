@@ -1,14 +1,6 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE ViewPatterns      #-}
-{-# LANGUAGE CPP               #-}
-
 -- |
 -- Module      : Network.AWS.Env
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -17,162 +9,49 @@
 -- Environment and AWS specific configuration for the
 -- 'Network.AWS.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
 module Network.AWS.Env
-    (
-    -- * Creating the Environment
-      newEnv
-    , newEnvWith
-
-    , Env      (..)
-    , HasEnv   (..)
+  ( -- * Creating the Environment
+    newEnv,
+    newEnvWith,
+    Env (..),
 
     -- * Overriding Default Configuration
-    , override
-    , configure
+    override,
+    configure,
 
     -- * Scoped Actions
-    , reconfigure
-    , within
-    , once
-    , timeout
+    within,
+    once,
+    timeout,
 
     -- * Retry HTTP Exceptions
-    , retryConnectionFailure
-    ) where
+    retryConnectionFailure,
+  )
+where
 
-import Control.Monad.Catch
-import Control.Monad.IO.Class
-import Control.Monad.Reader
-
-import Data.Function (on)
-import Data.IORef
-import Data.Maybe    (fromMaybe)
-import Data.Monoid
-
+import qualified Data.Function as Function
+import Data.Monoid (Dual (..), Endo (..))
 import Network.AWS.Auth
-import Network.AWS.Internal.Logger
-import Network.AWS.Lens            (Getter, Lens')
-import Network.AWS.Lens            (lens, to)
-import Network.AWS.Lens            ((.~), (<>~), (?~))
+import Network.AWS.Lens ((.~), (?~))
+import Network.AWS.Logger
+import Network.AWS.Prelude
 import Network.AWS.Types
-import Network.HTTP.Conduit
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Conduit as Client.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
-    { _envRegion     :: !Region
-    , _envLogger     :: !Logger
-    , _envRetryCheck :: !(Int -> HttpException -> Bool)
-    , _envOverride   :: !(Dual (Endo Service))
-    , _envManager    :: !Manager
-    , _envEC2        :: !(IORef (Maybe Bool))
-    , _envAuth       :: !Auth
-    }
-
--- Note: The strictness annotations aobe are applied to ensure
--- total field initialisation.
-
-class HasEnv a where
-    environment   :: Lens' a Env
-    {-# MINIMAL environment #-}
-
-    -- | The current region.
-    envRegion     :: Lens' a Region
-
-    -- | The function used to output log messages.
-    envLogger     :: Lens' a Logger
-
-    -- | The function used to determine if an 'HttpException' should be retried.
-    envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
-
-    -- | The currently applied overrides to all 'Service' configuration.
-    envOverride   :: Lens' a (Dual (Endo Service))
-
-    -- | The 'Manager' used to create and manage open HTTP connections.
-    envManager    :: Lens' a Manager
-
-    -- | The credentials used to sign requests for authentication with AWS.
-    envAuth       :: Lens' a Auth
-
-    -- | A memoised predicate for whether the underlying host is an EC2 instance.
-    envEC2        :: Getter a (IORef (Maybe Bool))
-
-    envRegion     = environment . lens _envRegion     (\s a -> s { _envRegion     = a })
-    envLogger     = environment . lens _envLogger     (\s a -> s { _envLogger     = a })
-    envRetryCheck = environment . lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
-    envOverride   = environment . lens _envOverride   (\s a -> s { _envOverride   = a })
-    envManager    = environment . lens _envManager    (\s a -> s { _envManager    = a })
-    envAuth       = environment . lens _envAuth       (\s a -> s { _envAuth       = a })
-    envEC2        = environment . to _envEC2
-
-instance HasEnv Env where
-    environment = id
-
-instance ToLog Env where
-    build Env{..} = b <> "\n" <> build _envAuth
-      where
-        b = buildLines
-            [ "[Amazonka Env] {"
-            , "  region = " <> build _envRegion
-            , "}"
-            ]
-
--- | Provide a function which will be added to the existing stack
--- of overrides applied to all service configuration.
---
--- To override a specific service, it's suggested you use
--- either 'configure' or 'reconfigure' with a modified version of the default
--- service, such as @Network.AWS.DynamoDB.dynamoDB@.
-override :: HasEnv a => (Service -> Service) -> a -> a
-override f = envOverride <>~ Dual (Endo f)
-
--- | Configure a specific service. All requests belonging to the
--- supplied service will use this configuration instead of the default.
---
--- It's suggested you use a modified version of the default service, such
--- as @Network.AWS.DynamoDB.dynamoDB@.
---
--- /See:/ 'reconfigure'.
-configure :: HasEnv a => Service -> a -> a
-configure s = override f
-  where
-    f x | on (==) _svcAbbrev s x = s
-        | otherwise              = x
-
--- | Scope an action such that all requests belonging to the supplied service
--- will use this configuration instead of the default.
---
--- It's suggested you use a modified version of the default service, such
--- as @Network.AWS.DynamoDB.dynamoDB@.
---
--- /See:/ 'configure'.
-reconfigure :: (MonadReader r m, HasEnv r) => Service -> m a -> m a
-reconfigure = local . configure
-
--- | Scope an action within the specific 'Region'.
-within :: (MonadReader r m, HasEnv r) => Region -> m a -> m a
-within r = local (envRegion .~ r)
-
--- | Scope an action such that any retry logic for the 'Service' is
--- ignored and any requests will at most be sent once.
-once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = local (override (serviceRetry . retryAttempts .~ 0))
-
--- | Scope an action such that any HTTP response will use this timeout value.
---
--- Default timeouts are chosen by considering:
---
--- * This 'timeout', if set.
---
--- * The related 'Service' timeout for the sent request if set. (Usually 70s)
---
--- * The 'envManager' timeout if set.
---
--- * The default 'ClientRequest' timeout. (Approximately 30s)
-timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = local (override (serviceTimeout ?~ s))
+  { envRegion :: Region,
+    envLogger :: Logger,
+    envRetryCheck :: Int -> Client.HttpException -> Bool,
+    envOverride :: Dual (Endo Service),
+    envManager :: Client.Manager,
+    envAuth :: Auth
+  }
+  deriving stock (Generic)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
--- Lenses from 'HasEnv' can be used to further configure the resulting 'Env'.
+-- Lenses from 'AWSEnv' can be used to further configure the resulting 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -188,12 +67,14 @@ timeout s = local (override (serviceTimeout ?~ s))
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
 -- /See:/ 'newEnvWith'.
-newEnv :: (Applicative m, MonadIO m, MonadCatch m)
-       => Credentials -- ^ Credential discovery mechanism.
-       -> m Env
+newEnv ::
+  MonadIO m =>
+  -- | Credential discovery mechanism.
+  Credentials ->
+  m Env
 newEnv c =
-    liftIO (newManager tlsManagerSettings)
-        >>= newEnvWith c Nothing
+  liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
+    >>= newEnvWith c
 
 -- | /See:/ 'newEnv'
 --
@@ -202,38 +83,70 @@ newEnv c =
 -- the check to be skipped and the host treated as an EC2 instance.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
-           => Credentials -- ^ Credential discovery mechanism.
-           -> Maybe Bool  -- ^ Preload the EC2 instance check.
-           -> Manager
-           -> m Env
-newEnvWith c p m = do
-    (a, fromMaybe NorthVirginia -> r) <- getAuth m c
-    Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m
-        <$> liftIO (newIORef p)
-        <*> pure a
+newEnvWith ::
+  MonadIO m =>
+  -- | Credential discovery mechanism.
+  Credentials ->
+  -- | Preload the EC2 instance check.
+  Client.Manager ->
+  m Env
+newEnvWith c m = do
+  (a, fromMaybe NorthVirginia -> r) <- getAuth m c
+
+  pure $ Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m a
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
-retryConnectionFailure :: Int -> Int -> HttpException -> Bool
-#if MIN_VERSION_http_client(0,5,0)
-retryConnectionFailure _     _ InvalidUrlException {}      = False
-retryConnectionFailure limit n (HttpExceptionRequest _ ex)
-    | n >= limit = False
-    | otherwise  =
-        case ex of
-            NoResponseDataReceived -> True
-            ConnectionTimeout      -> True
-            ConnectionClosed       -> True
-            ConnectionFailure {}   -> True
-            InternalException {}   -> True
-            _                      -> False
-#else
+retryConnectionFailure :: Int -> Int -> Client.HttpException -> Bool
 retryConnectionFailure limit n = \case
-    _ | n >= limit                -> False
-    NoResponseDataReceived        -> True
-    FailedConnectionException  {} -> True
-    FailedConnectionException2 {} -> True
-    TlsException               {} -> True
-    _                             -> False
-#endif
+  Client.InvalidUrlException {} -> False
+  Client.HttpExceptionRequest _ ex
+    | n >= limit -> False
+    | otherwise ->
+      case ex of
+        Client.NoResponseDataReceived -> True
+        Client.ConnectionTimeout -> True
+        Client.ConnectionClosed -> True
+        Client.ConnectionFailure {} -> True
+        Client.InternalException {} -> True
+        _other -> False
+
+-- | Provide a function which will be added to the existing stack
+-- of overrides applied to all service configurations.
+override :: (Service -> Service) -> Env -> Env
+override f env = env {envOverride = envOverride env <> Dual (Endo f)}
+
+-- | Configure a specific service. All requests belonging to the
+-- supplied service will use this configuration instead of the default.
+--
+-- It's suggested you modify the default service configuration,
+-- such as @Network.AWS.DynamoDB.dynamoDB@.
+configure :: Service -> Env -> Env
+configure s = override f
+  where
+    f x
+      | Function.on (==) _serviceAbbrev s x = s
+      | otherwise = x
+
+-- | Scope an action within the specific 'Region'.
+within :: Region -> Env -> Env
+within r env = env {envRegion = r}
+
+-- | Scope an action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
+once :: Env -> Env
+once = override (serviceRetry . retryAttempts .~ 0)
+
+-- | Scope an action such that any HTTP response will use this timeout value.
+--
+-- Default timeouts are chosen by considering:
+--
+-- * This 'timeout', if set.
+--
+-- * The related 'Service' timeout for the sent request if set. (Usually 70s)
+--
+-- * The 'envManager' timeout if set.
+--
+-- * The default 'ClientRequest' timeout. (Approximately 30s)
+timeout :: Seconds -> Env -> Env
+timeout n = override (serviceTimeout ?~ n)

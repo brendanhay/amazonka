@@ -1,221 +1,314 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Config.DescribeComplianceByResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indicates whether the specified AWS resources are compliant. If a resource is noncompliant, this action returns the number of AWS Config rules that the resource does not comply with.
+-- Indicates whether the specified AWS resources are compliant. If a
+-- resource is noncompliant, this action returns the number of AWS Config
+-- rules that the resource does not comply with.
 --
+-- A resource is compliant if it complies with all the AWS Config rules
+-- that evaluate it. It is noncompliant if it does not comply with one or
+-- more of these rules.
 --
--- A resource is compliant if it complies with all the AWS Config rules that evaluate it. It is noncompliant if it does not comply with one or more of these rules.
+-- If AWS Config has no current evaluation results for the resource, it
+-- returns @INSUFFICIENT_DATA@. This result might indicate one of the
+-- following conditions about the rules that evaluate the resource:
 --
--- If AWS Config has no current evaluation results for the resource, it returns @INSUFFICIENT_DATA@ . This result might indicate one of the following conditions about the rules that evaluate the resource:
+-- -   AWS Config has never invoked an evaluation for the rule. To check
+--     whether it has, use the @DescribeConfigRuleEvaluationStatus@ action
+--     to get the @LastSuccessfulInvocationTime@ and
+--     @LastFailedInvocationTime@.
 --
---     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .
+-- -   The rule\'s AWS Lambda function is failing to send evaluation
+--     results to AWS Config. Verify that the role that you assigned to
+--     your configuration recorder includes the @config:PutEvaluations@
+--     permission. If the rule is a custom rule, verify that the AWS Lambda
+--     execution role includes the @config:PutEvaluations@ permission.
 --
---     * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.
---
---     * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
---
---
---
+-- -   The rule\'s AWS Lambda function has returned @NOT_APPLICABLE@ for
+--     all evaluation results. This can occur if the resources were deleted
+--     or removed from the rule\'s scope.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByResource
-    (
-    -- * Creating a Request
-      describeComplianceByResource
-    , DescribeComplianceByResource
+  ( -- * Creating a Request
+    DescribeComplianceByResource (..),
+    newDescribeComplianceByResource,
+
     -- * Request Lenses
-    , dcbrResourceId
-    , dcbrResourceType
-    , dcbrComplianceTypes
-    , dcbrNextToken
-    , dcbrLimit
+    describeComplianceByResource_resourceId,
+    describeComplianceByResource_nextToken,
+    describeComplianceByResource_complianceTypes,
+    describeComplianceByResource_resourceType,
+    describeComplianceByResource_limit,
 
     -- * Destructuring the Response
-    , describeComplianceByResourceResponse
-    , DescribeComplianceByResourceResponse
+    DescribeComplianceByResourceResponse (..),
+    newDescribeComplianceByResourceResponse,
+
     -- * Response Lenses
-    , dcbrrsComplianceByResources
-    , dcbrrsNextToken
-    , dcbrrsResponseStatus
-    ) where
+    describeComplianceByResourceResponse_nextToken,
+    describeComplianceByResourceResponse_complianceByResources,
+    describeComplianceByResourceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeComplianceByResource' smart constructor.
+-- /See:/ 'newDescribeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-  { _dcbrResourceId      :: !(Maybe Text)
-  , _dcbrResourceType    :: !(Maybe Text)
-  , _dcbrComplianceTypes :: !(Maybe [ComplianceType])
-  , _dcbrNextToken       :: !(Maybe Text)
-  , _dcbrLimit           :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the AWS resource for which you want compliance information.
+    -- You can specify only one resource ID. If you specify a resource ID, you
+    -- must also specify a type for @ResourceType@.
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by compliance.
+    --
+    -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
+    -- @INSUFFICIENT_DATA@.
+    complianceTypes :: Prelude.Maybe [ComplianceType],
+    -- | The types of AWS resources for which you want compliance information
+    -- (for example, @AWS::EC2::Instance@). For this action, you can specify
+    -- that the resource type is an AWS account by specifying @AWS::::Account@.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of evaluation results returned on each page. The
+    -- default is 10. You cannot specify a number greater than 100. If you
+    -- specify 0, AWS Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeComplianceByResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeComplianceByResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcbrResourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcbrResourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- 'resourceId', 'describeComplianceByResource_resourceId' - The ID of the AWS resource for which you want compliance information.
+-- You can specify only one resource ID. If you specify a resource ID, you
+-- must also specify a type for @ResourceType@.
 --
--- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+-- 'nextToken', 'describeComplianceByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
--- * 'dcbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- 'complianceTypes', 'describeComplianceByResource_complianceTypes' - Filters the results by compliance.
 --
--- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-describeComplianceByResource
-    :: DescribeComplianceByResource
-describeComplianceByResource =
+-- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
+-- @INSUFFICIENT_DATA@.
+--
+-- 'resourceType', 'describeComplianceByResource_resourceType' - The types of AWS resources for which you want compliance information
+-- (for example, @AWS::EC2::Instance@). For this action, you can specify
+-- that the resource type is an AWS account by specifying @AWS::::Account@.
+--
+-- 'limit', 'describeComplianceByResource_limit' - The maximum number of evaluation results returned on each page. The
+-- default is 10. You cannot specify a number greater than 100. If you
+-- specify 0, AWS Config uses the default.
+newDescribeComplianceByResource ::
+  DescribeComplianceByResource
+newDescribeComplianceByResource =
   DescribeComplianceByResource'
-    { _dcbrResourceId = Nothing
-    , _dcbrResourceType = Nothing
-    , _dcbrComplianceTypes = Nothing
-    , _dcbrNextToken = Nothing
-    , _dcbrLimit = Nothing
+    { resourceId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      complianceTypes = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | The ID of the AWS resource for which you want compliance information.
+-- You can specify only one resource ID. If you specify a resource ID, you
+-- must also specify a type for @ResourceType@.
+describeComplianceByResource_resourceId :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_resourceId = Lens.lens (\DescribeComplianceByResource' {resourceId} -> resourceId) (\s@DescribeComplianceByResource' {} a -> s {resourceId = a} :: DescribeComplianceByResource)
 
--- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
-dcbrResourceId :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceId = lens _dcbrResourceId (\ s a -> s{_dcbrResourceId = a})
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeComplianceByResource_nextToken :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_nextToken = Lens.lens (\DescribeComplianceByResource' {nextToken} -> nextToken) (\s@DescribeComplianceByResource' {} a -> s {nextToken = a} :: DescribeComplianceByResource)
 
--- | The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
-dcbrResourceType :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a})
+-- | Filters the results by compliance.
+--
+-- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
+-- @INSUFFICIENT_DATA@.
+describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe [ComplianceType])
+describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Prelude.. Lens.mapping Lens._Coerce
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
-dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
-dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce
+-- | The types of AWS resources for which you want compliance information
+-- (for example, @AWS::EC2::Instance@). For this action, you can specify
+-- that the resource type is an AWS account by specifying @AWS::::Account@.
+describeComplianceByResource_resourceType :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_resourceType = Lens.lens (\DescribeComplianceByResource' {resourceType} -> resourceType) (\s@DescribeComplianceByResource' {} a -> s {resourceType = a} :: DescribeComplianceByResource)
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcbrNextToken :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrNextToken = lens _dcbrNextToken (\ s a -> s{_dcbrNextToken = a})
+-- | The maximum number of evaluation results returned on each page. The
+-- default is 10. You cannot specify a number greater than 100. If you
+-- specify 0, AWS Config uses the default.
+describeComplianceByResource_limit :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Natural)
+describeComplianceByResource_limit = Lens.lens (\DescribeComplianceByResource' {limit} -> limit) (\s@DescribeComplianceByResource' {} a -> s {limit = a} :: DescribeComplianceByResource)
 
--- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-dcbrLimit :: Lens' DescribeComplianceByResource (Maybe Natural)
-dcbrLimit = lens _dcbrLimit (\ s a -> s{_dcbrLimit = a}) . mapping _Nat
+instance Core.AWSPager DescribeComplianceByResource where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeComplianceByResourceResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeComplianceByResourceResponse_complianceByResources
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeComplianceByResource_nextToken
+          Lens..~ rs
+          Lens.^? describeComplianceByResourceResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeComplianceByResource where
-        page rq rs
-          | stop (rs ^. dcbrrsNextToken) = Nothing
-          | stop (rs ^. dcbrrsComplianceByResources) = Nothing
-          | otherwise =
-            Just $ rq & dcbrNextToken .~ rs ^. dcbrrsNextToken
+instance Core.AWSRequest DescribeComplianceByResource where
+  type
+    AWSResponse DescribeComplianceByResource =
+      DescribeComplianceByResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeComplianceByResourceResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ComplianceByResources"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeComplianceByResource
-         where
-        type Rs DescribeComplianceByResource =
-             DescribeComplianceByResourceResponse
-        request = postJSON config
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeComplianceByResourceResponse' <$>
-                   (x .?> "ComplianceByResources" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    DescribeComplianceByResource
 
-instance Hashable DescribeComplianceByResource where
+instance Prelude.NFData DescribeComplianceByResource
 
-instance NFData DescribeComplianceByResource where
+instance Core.ToHeaders DescribeComplianceByResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeComplianceByResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StarlingDoveService.DescribeComplianceByResource"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeComplianceByResource where
+  toJSON DescribeComplianceByResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ComplianceTypes" Core..=)
+              Prelude.<$> complianceTypes,
+            ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToJSON DescribeComplianceByResource where
-        toJSON DescribeComplianceByResource'{..}
-          = object
-              (catMaybes
-                 [("ResourceId" .=) <$> _dcbrResourceId,
-                  ("ResourceType" .=) <$> _dcbrResourceType,
-                  ("ComplianceTypes" .=) <$> _dcbrComplianceTypes,
-                  ("NextToken" .=) <$> _dcbrNextToken,
-                  ("Limit" .=) <$> _dcbrLimit])
+instance Core.ToPath DescribeComplianceByResource where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeComplianceByResource where
-        toPath = const "/"
-
-instance ToQuery DescribeComplianceByResource where
-        toQuery = const mempty
+instance Core.ToQuery DescribeComplianceByResource where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeComplianceByResourceResponse' smart constructor.
+-- /See:/ 'newDescribeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-  { _dcbrrsComplianceByResources :: !(Maybe [ComplianceByResource])
-  , _dcbrrsNextToken             :: !(Maybe Text)
-  , _dcbrrsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The string that you use in a subsequent request to get the next page of
+    -- results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the specified AWS resource complies with all of the
+    -- AWS Config rules that evaluate it.
+    complianceByResources :: Prelude.Maybe [ComplianceByResource],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeComplianceByResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeComplianceByResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcbrrsComplianceByResources' - Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcbrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- 'nextToken', 'describeComplianceByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
 --
--- * 'dcbrrsResponseStatus' - -- | The response status code.
-describeComplianceByResourceResponse
-    :: Int -- ^ 'dcbrrsResponseStatus'
-    -> DescribeComplianceByResourceResponse
-describeComplianceByResourceResponse pResponseStatus_ =
+-- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified AWS resource complies with all of the
+-- AWS Config rules that evaluate it.
+--
+-- 'httpStatus', 'describeComplianceByResourceResponse_httpStatus' - The response's http status code.
+newDescribeComplianceByResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeComplianceByResourceResponse
+newDescribeComplianceByResourceResponse pHttpStatus_ =
   DescribeComplianceByResourceResponse'
-    { _dcbrrsComplianceByResources = Nothing
-    , _dcbrrsNextToken = Nothing
-    , _dcbrrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      complianceByResources =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+describeComplianceByResourceResponse_nextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe Prelude.Text)
+describeComplianceByResourceResponse_nextToken = Lens.lens (\DescribeComplianceByResourceResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByResourceResponse' {} a -> s {nextToken = a} :: DescribeComplianceByResourceResponse)
 
--- | Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
-dcbrrsComplianceByResources :: Lens' DescribeComplianceByResourceResponse [ComplianceByResource]
-dcbrrsComplianceByResources = lens _dcbrrsComplianceByResources (\ s a -> s{_dcbrrsComplianceByResources = a}) . _Default . _Coerce
+-- | Indicates whether the specified AWS resource complies with all of the
+-- AWS Config rules that evaluate it.
+describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe [ComplianceByResource])
+describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-dcbrrsNextToken :: Lens' DescribeComplianceByResourceResponse (Maybe Text)
-dcbrrsNextToken = lens _dcbrrsNextToken (\ s a -> s{_dcbrrsNextToken = a})
+-- | The response's http status code.
+describeComplianceByResourceResponse_httpStatus :: Lens.Lens' DescribeComplianceByResourceResponse Prelude.Int
+describeComplianceByResourceResponse_httpStatus = Lens.lens (\DescribeComplianceByResourceResponse' {httpStatus} -> httpStatus) (\s@DescribeComplianceByResourceResponse' {} a -> s {httpStatus = a} :: DescribeComplianceByResourceResponse)
 
--- | -- | The response status code.
-dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
-dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a})
-
-instance NFData DescribeComplianceByResourceResponse
-         where
+instance
+  Prelude.NFData
+    DescribeComplianceByResourceResponse

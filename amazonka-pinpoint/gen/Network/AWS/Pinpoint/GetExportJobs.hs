@@ -1,151 +1,193 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetExportJobs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about your export jobs.
+-- Retrieves information about the status and settings of all the export
+-- jobs for an application.
 module Network.AWS.Pinpoint.GetExportJobs
-    (
-    -- * Creating a Request
-      getExportJobs
-    , GetExportJobs
+  ( -- * Creating a Request
+    GetExportJobs (..),
+    newGetExportJobs,
+
     -- * Request Lenses
-    , gejsToken
-    , gejsPageSize
-    , gejsApplicationId
+    getExportJobs_pageSize,
+    getExportJobs_token,
+    getExportJobs_applicationId,
 
     -- * Destructuring the Response
-    , getExportJobsResponse
-    , GetExportJobsResponse
+    GetExportJobsResponse (..),
+    newGetExportJobsResponse,
+
     -- * Response Lenses
-    , gejrsResponseStatus
-    , gejrsExportJobsResponse
-    ) where
+    getExportJobsResponse_httpStatus,
+    getExportJobsResponse_exportJobsResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getExportJobs' smart constructor.
+-- | /See:/ 'newGetExportJobs' smart constructor.
 data GetExportJobs = GetExportJobs'
-  { _gejsToken         :: !(Maybe Text)
-  , _gejsPageSize      :: !(Maybe Text)
-  , _gejsApplicationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to include in each page of a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetExportJobs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetExportJobs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gejsToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gejsPageSize' - The number of entries you want on each page in the response.
+-- 'pageSize', 'getExportJobs_pageSize' - The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
--- * 'gejsApplicationId' - Undocumented member.
-getExportJobs
-    :: Text -- ^ 'gejsApplicationId'
-    -> GetExportJobs
-getExportJobs pApplicationId_ =
+-- 'token', 'getExportJobs_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
+-- 'applicationId', 'getExportJobs_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetExportJobs ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetExportJobs
+newGetExportJobs pApplicationId_ =
   GetExportJobs'
-    { _gejsToken = Nothing
-    , _gejsPageSize = Nothing
-    , _gejsApplicationId = pApplicationId_
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
+      applicationId = pApplicationId_
     }
 
+-- | The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getExportJobs_pageSize :: Lens.Lens' GetExportJobs (Prelude.Maybe Prelude.Text)
+getExportJobs_pageSize = Lens.lens (\GetExportJobs' {pageSize} -> pageSize) (\s@GetExportJobs' {} a -> s {pageSize = a} :: GetExportJobs)
 
--- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-gejsToken :: Lens' GetExportJobs (Maybe Text)
-gejsToken = lens _gejsToken (\ s a -> s{_gejsToken = a})
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getExportJobs_token :: Lens.Lens' GetExportJobs (Prelude.Maybe Prelude.Text)
+getExportJobs_token = Lens.lens (\GetExportJobs' {token} -> token) (\s@GetExportJobs' {} a -> s {token = a} :: GetExportJobs)
 
--- | The number of entries you want on each page in the response.
-gejsPageSize :: Lens' GetExportJobs (Maybe Text)
-gejsPageSize = lens _gejsPageSize (\ s a -> s{_gejsPageSize = a})
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getExportJobs_applicationId :: Lens.Lens' GetExportJobs Prelude.Text
+getExportJobs_applicationId = Lens.lens (\GetExportJobs' {applicationId} -> applicationId) (\s@GetExportJobs' {} a -> s {applicationId = a} :: GetExportJobs)
 
--- | Undocumented member.
-gejsApplicationId :: Lens' GetExportJobs Text
-gejsApplicationId = lens _gejsApplicationId (\ s a -> s{_gejsApplicationId = a})
+instance Core.AWSRequest GetExportJobs where
+  type
+    AWSResponse GetExportJobs =
+      GetExportJobsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetExportJobsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
 
-instance AWSRequest GetExportJobs where
-        type Rs GetExportJobs = GetExportJobsResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetExportJobsResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+instance Prelude.Hashable GetExportJobs
 
-instance Hashable GetExportJobs where
+instance Prelude.NFData GetExportJobs
 
-instance NFData GetExportJobs where
+instance Core.ToHeaders GetExportJobs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetExportJobs where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToPath GetExportJobs where
+  toPath GetExportJobs' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Core.toBS applicationId,
+        "/jobs/export"
+      ]
 
-instance ToPath GetExportJobs where
-        toPath GetExportJobs'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gejsApplicationId,
-               "/jobs/export"]
+instance Core.ToQuery GetExportJobs where
+  toQuery GetExportJobs' {..} =
+    Prelude.mconcat
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
-instance ToQuery GetExportJobs where
-        toQuery GetExportJobs'{..}
-          = mconcat
-              ["token" =: _gejsToken, "page-size" =: _gejsPageSize]
-
--- | /See:/ 'getExportJobsResponse' smart constructor.
+-- | /See:/ 'newGetExportJobsResponse' smart constructor.
 data GetExportJobsResponse = GetExportJobsResponse'
-  { _gejrsResponseStatus     :: !Int
-  , _gejrsExportJobsResponse :: !ExportJobsResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    exportJobsResponse :: ExportJobsResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetExportJobsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetExportJobsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gejrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gejrsExportJobsResponse' - Undocumented member.
-getExportJobsResponse
-    :: Int -- ^ 'gejrsResponseStatus'
-    -> ExportJobsResponse -- ^ 'gejrsExportJobsResponse'
-    -> GetExportJobsResponse
-getExportJobsResponse pResponseStatus_ pExportJobsResponse_ =
-  GetExportJobsResponse'
-    { _gejrsResponseStatus = pResponseStatus_
-    , _gejrsExportJobsResponse = pExportJobsResponse_
-    }
+-- 'httpStatus', 'getExportJobsResponse_httpStatus' - The response's http status code.
+--
+-- 'exportJobsResponse', 'getExportJobsResponse_exportJobsResponse' - Undocumented member.
+newGetExportJobsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'exportJobsResponse'
+  ExportJobsResponse ->
+  GetExportJobsResponse
+newGetExportJobsResponse
+  pHttpStatus_
+  pExportJobsResponse_ =
+    GetExportJobsResponse'
+      { httpStatus = pHttpStatus_,
+        exportJobsResponse = pExportJobsResponse_
+      }
 
-
--- | -- | The response status code.
-gejrsResponseStatus :: Lens' GetExportJobsResponse Int
-gejrsResponseStatus = lens _gejrsResponseStatus (\ s a -> s{_gejrsResponseStatus = a})
+-- | The response's http status code.
+getExportJobsResponse_httpStatus :: Lens.Lens' GetExportJobsResponse Prelude.Int
+getExportJobsResponse_httpStatus = Lens.lens (\GetExportJobsResponse' {httpStatus} -> httpStatus) (\s@GetExportJobsResponse' {} a -> s {httpStatus = a} :: GetExportJobsResponse)
 
 -- | Undocumented member.
-gejrsExportJobsResponse :: Lens' GetExportJobsResponse ExportJobsResponse
-gejrsExportJobsResponse = lens _gejrsExportJobsResponse (\ s a -> s{_gejrsExportJobsResponse = a})
+getExportJobsResponse_exportJobsResponse :: Lens.Lens' GetExportJobsResponse ExportJobsResponse
+getExportJobsResponse_exportJobsResponse = Lens.lens (\GetExportJobsResponse' {exportJobsResponse} -> exportJobsResponse) (\s@GetExportJobsResponse' {} a -> s {exportJobsResponse = a} :: GetExportJobsResponse)
 
-instance NFData GetExportJobsResponse where
+instance Prelude.NFData GetExportJobsResponse

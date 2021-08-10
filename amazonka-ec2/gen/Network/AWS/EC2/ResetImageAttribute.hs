@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ResetImageAttribute
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,106 +22,136 @@
 --
 -- Resets an attribute of an AMI to its default value.
 --
---
+-- The productCodes attribute can\'t be reset.
 module Network.AWS.EC2.ResetImageAttribute
-    (
-    -- * Creating a Request
-      resetImageAttribute
-    , ResetImageAttribute
+  ( -- * Creating a Request
+    ResetImageAttribute (..),
+    newResetImageAttribute,
+
     -- * Request Lenses
-    , resDryRun
-    , resAttribute
-    , resImageId
+    resetImageAttribute_dryRun,
+    resetImageAttribute_attribute,
+    resetImageAttribute_imageId,
 
     -- * Destructuring the Response
-    , resetImageAttributeResponse
-    , ResetImageAttributeResponse
-    ) where
+    ResetImageAttributeResponse (..),
+    newResetImageAttributeResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ResetImageAttribute.
 --
---
---
--- /See:/ 'resetImageAttribute' smart constructor.
+-- /See:/ 'newResetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
-  { _resDryRun    :: !(Maybe Bool)
-  , _resAttribute :: !ResetImageAttributeName
-  , _resImageId   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The attribute to reset (currently you can only reset the launch
+    -- permission attribute).
+    attribute :: ResetImageAttributeName,
+    -- | The ID of the AMI.
+    imageId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResetImageAttribute' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'resDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'resAttribute' - The attribute to reset (currently you can only reset the launch permission attribute).
+-- 'dryRun', 'resetImageAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'resImageId' - The ID of the AMI.
-resetImageAttribute
-    :: ResetImageAttributeName -- ^ 'resAttribute'
-    -> Text -- ^ 'resImageId'
-    -> ResetImageAttribute
-resetImageAttribute pAttribute_ pImageId_ =
+-- 'attribute', 'resetImageAttribute_attribute' - The attribute to reset (currently you can only reset the launch
+-- permission attribute).
+--
+-- 'imageId', 'resetImageAttribute_imageId' - The ID of the AMI.
+newResetImageAttribute ::
+  -- | 'attribute'
+  ResetImageAttributeName ->
+  -- | 'imageId'
+  Prelude.Text ->
+  ResetImageAttribute
+newResetImageAttribute pAttribute_ pImageId_ =
   ResetImageAttribute'
-    {_resDryRun = Nothing, _resAttribute = pAttribute_, _resImageId = pImageId_}
+    { dryRun = Prelude.Nothing,
+      attribute = pAttribute_,
+      imageId = pImageId_
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+resetImageAttribute_dryRun :: Lens.Lens' ResetImageAttribute (Prelude.Maybe Prelude.Bool)
+resetImageAttribute_dryRun = Lens.lens (\ResetImageAttribute' {dryRun} -> dryRun) (\s@ResetImageAttribute' {} a -> s {dryRun = a} :: ResetImageAttribute)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
-resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a})
-
--- | The attribute to reset (currently you can only reset the launch permission attribute).
-resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
-resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a})
+-- | The attribute to reset (currently you can only reset the launch
+-- permission attribute).
+resetImageAttribute_attribute :: Lens.Lens' ResetImageAttribute ResetImageAttributeName
+resetImageAttribute_attribute = Lens.lens (\ResetImageAttribute' {attribute} -> attribute) (\s@ResetImageAttribute' {} a -> s {attribute = a} :: ResetImageAttribute)
 
 -- | The ID of the AMI.
-resImageId :: Lens' ResetImageAttribute Text
-resImageId = lens _resImageId (\ s a -> s{_resImageId = a})
+resetImageAttribute_imageId :: Lens.Lens' ResetImageAttribute Prelude.Text
+resetImageAttribute_imageId = Lens.lens (\ResetImageAttribute' {imageId} -> imageId) (\s@ResetImageAttribute' {} a -> s {imageId = a} :: ResetImageAttribute)
 
-instance AWSRequest ResetImageAttribute where
-        type Rs ResetImageAttribute =
-             ResetImageAttributeResponse
-        request = postQuery ec2
-        response = receiveNull ResetImageAttributeResponse'
+instance Core.AWSRequest ResetImageAttribute where
+  type
+    AWSResponse ResetImageAttribute =
+      ResetImageAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull ResetImageAttributeResponse'
 
-instance Hashable ResetImageAttribute where
+instance Prelude.Hashable ResetImageAttribute
 
-instance NFData ResetImageAttribute where
+instance Prelude.NFData ResetImageAttribute
 
-instance ToHeaders ResetImageAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders ResetImageAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ResetImageAttribute where
-        toPath = const "/"
+instance Core.ToPath ResetImageAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery ResetImageAttribute where
-        toQuery ResetImageAttribute'{..}
-          = mconcat
-              ["Action" =: ("ResetImageAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _resDryRun, "Attribute" =: _resAttribute,
-               "ImageId" =: _resImageId]
+instance Core.ToQuery ResetImageAttribute where
+  toQuery ResetImageAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ResetImageAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "ImageId" Core.=: imageId
+      ]
 
--- | /See:/ 'resetImageAttributeResponse' smart constructor.
-data ResetImageAttributeResponse =
-  ResetImageAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newResetImageAttributeResponse' smart constructor.
+data ResetImageAttributeResponse = ResetImageAttributeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResetImageAttributeResponse' with all optional fields omitted.
 --
-resetImageAttributeResponse
-    :: ResetImageAttributeResponse
-resetImageAttributeResponse = ResetImageAttributeResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newResetImageAttributeResponse ::
+  ResetImageAttributeResponse
+newResetImageAttributeResponse =
+  ResetImageAttributeResponse'
 
-
-instance NFData ResetImageAttributeResponse where
+instance Prelude.NFData ResetImageAttributeResponse

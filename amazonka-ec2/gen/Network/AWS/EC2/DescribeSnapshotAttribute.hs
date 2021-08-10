@@ -1,186 +1,222 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
+-- Describes the specified attribute of the specified snapshot. You can
+-- specify only one attribute at a time.
 --
---
--- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
---
+-- For more information about EBS snapshots, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS snapshots>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeSnapshotAttribute
-    (
-    -- * Creating a Request
-      describeSnapshotAttribute
-    , DescribeSnapshotAttribute
+  ( -- * Creating a Request
+    DescribeSnapshotAttribute (..),
+    newDescribeSnapshotAttribute,
+
     -- * Request Lenses
-    , dsaDryRun
-    , dsaAttribute
-    , dsaSnapshotId
+    describeSnapshotAttribute_dryRun,
+    describeSnapshotAttribute_attribute,
+    describeSnapshotAttribute_snapshotId,
 
     -- * Destructuring the Response
-    , describeSnapshotAttributeResponse
-    , DescribeSnapshotAttributeResponse
+    DescribeSnapshotAttributeResponse (..),
+    newDescribeSnapshotAttributeResponse,
+
     -- * Response Lenses
-    , dsarsCreateVolumePermissions
-    , dsarsProductCodes
-    , dsarsSnapshotId
-    , dsarsResponseStatus
-    ) where
+    describeSnapshotAttributeResponse_productCodes,
+    describeSnapshotAttributeResponse_createVolumePermissions,
+    describeSnapshotAttributeResponse_snapshotId,
+    describeSnapshotAttributeResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DescribeSnapshotAttribute.
---
---
---
--- /See:/ 'describeSnapshotAttribute' smart constructor.
+-- | /See:/ 'newDescribeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-  { _dsaDryRun     :: !(Maybe Bool)
-  , _dsaAttribute  :: !SnapshotAttributeName
-  , _dsaSnapshotId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The snapshot attribute you would like to view.
+    attribute :: SnapshotAttributeName,
+    -- | The ID of the EBS snapshot.
+    snapshotId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSnapshotAttribute' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsaAttribute' - The snapshot attribute you would like to view.
+-- 'dryRun', 'describeSnapshotAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dsaSnapshotId' - The ID of the EBS snapshot.
-describeSnapshotAttribute
-    :: SnapshotAttributeName -- ^ 'dsaAttribute'
-    -> Text -- ^ 'dsaSnapshotId'
-    -> DescribeSnapshotAttribute
-describeSnapshotAttribute pAttribute_ pSnapshotId_ =
+-- 'attribute', 'describeSnapshotAttribute_attribute' - The snapshot attribute you would like to view.
+--
+-- 'snapshotId', 'describeSnapshotAttribute_snapshotId' - The ID of the EBS snapshot.
+newDescribeSnapshotAttribute ::
+  -- | 'attribute'
+  SnapshotAttributeName ->
+  -- | 'snapshotId'
+  Prelude.Text ->
+  DescribeSnapshotAttribute
+newDescribeSnapshotAttribute pAttribute_ pSnapshotId_ =
   DescribeSnapshotAttribute'
-    { _dsaDryRun = Nothing
-    , _dsaAttribute = pAttribute_
-    , _dsaSnapshotId = pSnapshotId_
+    { dryRun =
+        Prelude.Nothing,
+      attribute = pAttribute_,
+      snapshotId = pSnapshotId_
     }
 
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
-dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSnapshotAttribute_dryRun :: Lens.Lens' DescribeSnapshotAttribute (Prelude.Maybe Prelude.Bool)
+describeSnapshotAttribute_dryRun = Lens.lens (\DescribeSnapshotAttribute' {dryRun} -> dryRun) (\s@DescribeSnapshotAttribute' {} a -> s {dryRun = a} :: DescribeSnapshotAttribute)
 
 -- | The snapshot attribute you would like to view.
-dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
-dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a})
+describeSnapshotAttribute_attribute :: Lens.Lens' DescribeSnapshotAttribute SnapshotAttributeName
+describeSnapshotAttribute_attribute = Lens.lens (\DescribeSnapshotAttribute' {attribute} -> attribute) (\s@DescribeSnapshotAttribute' {} a -> s {attribute = a} :: DescribeSnapshotAttribute)
 
 -- | The ID of the EBS snapshot.
-dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a})
+describeSnapshotAttribute_snapshotId :: Lens.Lens' DescribeSnapshotAttribute Prelude.Text
+describeSnapshotAttribute_snapshotId = Lens.lens (\DescribeSnapshotAttribute' {snapshotId} -> snapshotId) (\s@DescribeSnapshotAttribute' {} a -> s {snapshotId = a} :: DescribeSnapshotAttribute)
 
-instance AWSRequest DescribeSnapshotAttribute where
-        type Rs DescribeSnapshotAttribute =
-             DescribeSnapshotAttributeResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeSnapshotAttributeResponse' <$>
-                   (x .@? "createVolumePermission" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*>
-                     (x .@? "productCodes" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (x .@? "snapshotId")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeSnapshotAttribute where
+  type
+    AWSResponse DescribeSnapshotAttribute =
+      DescribeSnapshotAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeSnapshotAttributeResponse'
+            Prelude.<$> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> ( x Core..@? "createVolumePermission"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "snapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeSnapshotAttribute where
+instance Prelude.Hashable DescribeSnapshotAttribute
 
-instance NFData DescribeSnapshotAttribute where
+instance Prelude.NFData DescribeSnapshotAttribute
 
-instance ToHeaders DescribeSnapshotAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeSnapshotAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeSnapshotAttribute where
-        toPath = const "/"
+instance Core.ToPath DescribeSnapshotAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeSnapshotAttribute where
-        toQuery DescribeSnapshotAttribute'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeSnapshotAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _dsaDryRun, "Attribute" =: _dsaAttribute,
-               "SnapshotId" =: _dsaSnapshotId]
+instance Core.ToQuery DescribeSnapshotAttribute where
+  toQuery DescribeSnapshotAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeSnapshotAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "SnapshotId" Core.=: snapshotId
+      ]
 
--- | Contains the output of DescribeSnapshotAttribute.
---
---
---
--- /See:/ 'describeSnapshotAttributeResponse' smart constructor.
+-- | /See:/ 'newDescribeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-  { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-  , _dsarsProductCodes            :: !(Maybe [ProductCode])
-  , _dsarsSnapshotId              :: !(Maybe Text)
-  , _dsarsResponseStatus          :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
+    -- | The users and groups that have the permissions for creating volumes from
+    -- the snapshot.
+    createVolumePermissions :: Prelude.Maybe [CreateVolumePermission],
+    -- | The ID of the EBS snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSnapshotAttributeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsarsCreateVolumePermissions' - A list of permissions for creating volumes from the snapshot.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsarsProductCodes' - A list of product codes.
+-- 'productCodes', 'describeSnapshotAttributeResponse_productCodes' - The product codes.
 --
--- * 'dsarsSnapshotId' - The ID of the EBS snapshot.
+-- 'createVolumePermissions', 'describeSnapshotAttributeResponse_createVolumePermissions' - The users and groups that have the permissions for creating volumes from
+-- the snapshot.
 --
--- * 'dsarsResponseStatus' - -- | The response status code.
-describeSnapshotAttributeResponse
-    :: Int -- ^ 'dsarsResponseStatus'
-    -> DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pResponseStatus_ =
+-- 'snapshotId', 'describeSnapshotAttributeResponse_snapshotId' - The ID of the EBS snapshot.
+--
+-- 'httpStatus', 'describeSnapshotAttributeResponse_httpStatus' - The response's http status code.
+newDescribeSnapshotAttributeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSnapshotAttributeResponse
+newDescribeSnapshotAttributeResponse pHttpStatus_ =
   DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions = Nothing
-    , _dsarsProductCodes = Nothing
-    , _dsarsSnapshotId = Nothing
-    , _dsarsResponseStatus = pResponseStatus_
+    { productCodes =
+        Prelude.Nothing,
+      createVolumePermissions =
+        Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The product codes.
+describeSnapshotAttributeResponse_productCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [ProductCode])
+describeSnapshotAttributeResponse_productCodes = Lens.lens (\DescribeSnapshotAttributeResponse' {productCodes} -> productCodes) (\s@DescribeSnapshotAttributeResponse' {} a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of permissions for creating volumes from the snapshot.
-dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default . _Coerce
-
--- | A list of product codes.
-dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default . _Coerce
+-- | The users and groups that have the permissions for creating volumes from
+-- the snapshot.
+describeSnapshotAttributeResponse_createVolumePermissions :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [CreateVolumePermission])
+describeSnapshotAttributeResponse_createVolumePermissions = Lens.lens (\DescribeSnapshotAttributeResponse' {createVolumePermissions} -> createVolumePermissions) (\s@DescribeSnapshotAttributeResponse' {} a -> s {createVolumePermissions = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the EBS snapshot.
-dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
-dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a})
+describeSnapshotAttributeResponse_snapshotId :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotAttributeResponse_snapshotId = Lens.lens (\DescribeSnapshotAttributeResponse' {snapshotId} -> snapshotId) (\s@DescribeSnapshotAttributeResponse' {} a -> s {snapshotId = a} :: DescribeSnapshotAttributeResponse)
 
--- | -- | The response status code.
-dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a})
+-- | The response's http status code.
+describeSnapshotAttributeResponse_httpStatus :: Lens.Lens' DescribeSnapshotAttributeResponse Prelude.Int
+describeSnapshotAttributeResponse_httpStatus = Lens.lens (\DescribeSnapshotAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeSnapshotAttributeResponse' {} a -> s {httpStatus = a} :: DescribeSnapshotAttributeResponse)
 
-instance NFData DescribeSnapshotAttributeResponse
-         where
+instance
+  Prelude.NFData
+    DescribeSnapshotAttributeResponse

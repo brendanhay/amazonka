@@ -1,144 +1,183 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.
---
---
+-- Provides cluster configuration information about the specified
+-- Elasticsearch domain, such as the state, creation date, update version,
+-- and update date for cluster options.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
-    (
-    -- * Creating a Request
-      describeElasticsearchDomainConfig
-    , DescribeElasticsearchDomainConfig
+  ( -- * Creating a Request
+    DescribeElasticsearchDomainConfig (..),
+    newDescribeElasticsearchDomainConfig,
+
     -- * Request Lenses
-    , dedcDomainName
+    describeElasticsearchDomainConfig_domainName,
 
     -- * Destructuring the Response
-    , describeElasticsearchDomainConfigResponse
-    , DescribeElasticsearchDomainConfigResponse
+    DescribeElasticsearchDomainConfigResponse (..),
+    newDescribeElasticsearchDomainConfigResponse,
+
     -- * Response Lenses
-    , dedcrsResponseStatus
-    , dedcrsDomainConfig
-    ) where
+    describeElasticsearchDomainConfigResponse_httpStatus,
+    describeElasticsearchDomainConfigResponse_domainConfig,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @DescribeElasticsearchDomainConfig@ operation. Specifies the domain name for which you want configuration information.
+-- | Container for the parameters to the @DescribeElasticsearchDomainConfig@
+-- operation. Specifies the domain name for which you want configuration
+-- information.
 --
+-- /See:/ 'newDescribeElasticsearchDomainConfig' smart constructor.
+data DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
+  { -- | The Elasticsearch domain that you want to get information about.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeElasticsearchDomainConfig' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'describeElasticsearchDomainConfig' smart constructor.
-newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
-  { _dedcDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeElasticsearchDomainConfig' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dedcDomainName' - The Elasticsearch domain that you want to get information about.
-describeElasticsearchDomainConfig
-    :: Text -- ^ 'dedcDomainName'
-    -> DescribeElasticsearchDomainConfig
-describeElasticsearchDomainConfig pDomainName_ =
-  DescribeElasticsearchDomainConfig' {_dedcDomainName = pDomainName_}
-
-
--- | The Elasticsearch domain that you want to get information about.
-dedcDomainName :: Lens' DescribeElasticsearchDomainConfig Text
-dedcDomainName = lens _dedcDomainName (\ s a -> s{_dedcDomainName = a})
-
-instance AWSRequest DescribeElasticsearchDomainConfig
-         where
-        type Rs DescribeElasticsearchDomainConfig =
-             DescribeElasticsearchDomainConfigResponse
-        request = get elasticSearch
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeElasticsearchDomainConfigResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
-
-instance Hashable DescribeElasticsearchDomainConfig
-         where
-
-instance NFData DescribeElasticsearchDomainConfig
-         where
-
-instance ToHeaders DescribeElasticsearchDomainConfig
-         where
-        toHeaders = const mempty
-
-instance ToPath DescribeElasticsearchDomainConfig
-         where
-        toPath DescribeElasticsearchDomainConfig'{..}
-          = mconcat
-              ["/2015-01-01/es/domain/", toBS _dedcDomainName,
-               "/config"]
-
-instance ToQuery DescribeElasticsearchDomainConfig
-         where
-        toQuery = const mempty
-
--- | The result of a @DescribeElasticsearchDomainConfig@ request. Contains the configuration information of the requested domain.
---
---
---
--- /See:/ 'describeElasticsearchDomainConfigResponse' smart constructor.
-data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
-  { _dedcrsResponseStatus :: !Int
-  , _dedcrsDomainConfig   :: !ElasticsearchDomainConfig
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dedcrsResponseStatus' - -- | The response status code.
---
--- * 'dedcrsDomainConfig' - The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
-describeElasticsearchDomainConfigResponse
-    :: Int -- ^ 'dedcrsResponseStatus'
-    -> ElasticsearchDomainConfig -- ^ 'dedcrsDomainConfig'
-    -> DescribeElasticsearchDomainConfigResponse
-describeElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
-  DescribeElasticsearchDomainConfigResponse'
-    { _dedcrsResponseStatus = pResponseStatus_
-    , _dedcrsDomainConfig = pDomainConfig_
+-- 'domainName', 'describeElasticsearchDomainConfig_domainName' - The Elasticsearch domain that you want to get information about.
+newDescribeElasticsearchDomainConfig ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DescribeElasticsearchDomainConfig
+newDescribeElasticsearchDomainConfig pDomainName_ =
+  DescribeElasticsearchDomainConfig'
+    { domainName =
+        pDomainName_
     }
 
+-- | The Elasticsearch domain that you want to get information about.
+describeElasticsearchDomainConfig_domainName :: Lens.Lens' DescribeElasticsearchDomainConfig Prelude.Text
+describeElasticsearchDomainConfig_domainName = Lens.lens (\DescribeElasticsearchDomainConfig' {domainName} -> domainName) (\s@DescribeElasticsearchDomainConfig' {} a -> s {domainName = a} :: DescribeElasticsearchDomainConfig)
 
--- | -- | The response status code.
-dedcrsResponseStatus :: Lens' DescribeElasticsearchDomainConfigResponse Int
-dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseStatus = a})
+instance
+  Core.AWSRequest
+    DescribeElasticsearchDomainConfig
+  where
+  type
+    AWSResponse DescribeElasticsearchDomainConfig =
+      DescribeElasticsearchDomainConfigResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeElasticsearchDomainConfigResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "DomainConfig")
+      )
 
--- | The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
-dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
-dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a})
+instance
+  Prelude.Hashable
+    DescribeElasticsearchDomainConfig
 
-instance NFData
-           DescribeElasticsearchDomainConfigResponse
-         where
+instance
+  Prelude.NFData
+    DescribeElasticsearchDomainConfig
+
+instance
+  Core.ToHeaders
+    DescribeElasticsearchDomainConfig
+  where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance
+  Core.ToPath
+    DescribeElasticsearchDomainConfig
+  where
+  toPath DescribeElasticsearchDomainConfig' {..} =
+    Prelude.mconcat
+      [ "/2015-01-01/es/domain/",
+        Core.toBS domainName,
+        "/config"
+      ]
+
+instance
+  Core.ToQuery
+    DescribeElasticsearchDomainConfig
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The result of a @DescribeElasticsearchDomainConfig@ request. Contains
+-- the configuration information of the requested domain.
+--
+-- /See:/ 'newDescribeElasticsearchDomainConfigResponse' smart constructor.
+data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The configuration information of the domain requested in the
+    -- @DescribeElasticsearchDomainConfig@ request.
+    domainConfig :: ElasticsearchDomainConfig
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeElasticsearchDomainConfigResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'describeElasticsearchDomainConfigResponse_httpStatus' - The response's http status code.
+--
+-- 'domainConfig', 'describeElasticsearchDomainConfigResponse_domainConfig' - The configuration information of the domain requested in the
+-- @DescribeElasticsearchDomainConfig@ request.
+newDescribeElasticsearchDomainConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'domainConfig'
+  ElasticsearchDomainConfig ->
+  DescribeElasticsearchDomainConfigResponse
+newDescribeElasticsearchDomainConfigResponse
+  pHttpStatus_
+  pDomainConfig_ =
+    DescribeElasticsearchDomainConfigResponse'
+      { httpStatus =
+          pHttpStatus_,
+        domainConfig = pDomainConfig_
+      }
+
+-- | The response's http status code.
+describeElasticsearchDomainConfigResponse_httpStatus :: Lens.Lens' DescribeElasticsearchDomainConfigResponse Prelude.Int
+describeElasticsearchDomainConfigResponse_httpStatus = Lens.lens (\DescribeElasticsearchDomainConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticsearchDomainConfigResponse' {} a -> s {httpStatus = a} :: DescribeElasticsearchDomainConfigResponse)
+
+-- | The configuration information of the domain requested in the
+-- @DescribeElasticsearchDomainConfig@ request.
+describeElasticsearchDomainConfigResponse_domainConfig :: Lens.Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
+describeElasticsearchDomainConfigResponse_domainConfig = Lens.lens (\DescribeElasticsearchDomainConfigResponse' {domainConfig} -> domainConfig) (\s@DescribeElasticsearchDomainConfigResponse' {} a -> s {domainConfig = a} :: DescribeElasticsearchDomainConfigResponse)
+
+instance
+  Prelude.NFData
+    DescribeElasticsearchDomainConfigResponse

@@ -1,173 +1,200 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThingType
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing type.
---
---
 module Network.AWS.IoT.DescribeThingType
-    (
-    -- * Creating a Request
-      describeThingType
-    , DescribeThingType
+  ( -- * Creating a Request
+    DescribeThingType (..),
+    newDescribeThingType,
+
     -- * Request Lenses
-    , dThingTypeName
+    describeThingType_thingTypeName,
 
     -- * Destructuring the Response
-    , describeThingTypeResponse
-    , DescribeThingTypeResponse
-    -- * Response Lenses
-    , desrsThingTypeProperties
-    , desrsThingTypeName
-    , desrsThingTypeId
-    , desrsThingTypeMetadata
-    , desrsThingTypeARN
-    , desrsResponseStatus
-    ) where
+    DescribeThingTypeResponse (..),
+    newDescribeThingTypeResponse,
 
+    -- * Response Lenses
+    describeThingTypeResponse_thingTypeProperties,
+    describeThingTypeResponse_thingTypeMetadata,
+    describeThingTypeResponse_thingTypeId,
+    describeThingTypeResponse_thingTypeArn,
+    describeThingTypeResponse_thingTypeName,
+    describeThingTypeResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DescribeThingType operation.
 --
---
---
--- /See:/ 'describeThingType' smart constructor.
-newtype DescribeThingType = DescribeThingType'
-  { _dThingTypeName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeThingType' smart constructor.
+data DescribeThingType = DescribeThingType'
+  { -- | The name of the thing type.
+    thingTypeName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeThingType' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeThingType' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dThingTypeName' - The name of the thing type.
-describeThingType
-    :: Text -- ^ 'dThingTypeName'
-    -> DescribeThingType
-describeThingType pThingTypeName_ =
-  DescribeThingType' {_dThingTypeName = pThingTypeName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'thingTypeName', 'describeThingType_thingTypeName' - The name of the thing type.
+newDescribeThingType ::
+  -- | 'thingTypeName'
+  Prelude.Text ->
+  DescribeThingType
+newDescribeThingType pThingTypeName_ =
+  DescribeThingType' {thingTypeName = pThingTypeName_}
 
 -- | The name of the thing type.
-dThingTypeName :: Lens' DescribeThingType Text
-dThingTypeName = lens _dThingTypeName (\ s a -> s{_dThingTypeName = a})
+describeThingType_thingTypeName :: Lens.Lens' DescribeThingType Prelude.Text
+describeThingType_thingTypeName = Lens.lens (\DescribeThingType' {thingTypeName} -> thingTypeName) (\s@DescribeThingType' {} a -> s {thingTypeName = a} :: DescribeThingType)
 
-instance AWSRequest DescribeThingType where
-        type Rs DescribeThingType = DescribeThingTypeResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeThingTypeResponse' <$>
-                   (x .?> "thingTypeProperties") <*>
-                     (x .?> "thingTypeName")
-                     <*> (x .?> "thingTypeId")
-                     <*> (x .?> "thingTypeMetadata")
-                     <*> (x .?> "thingTypeArn")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeThingType where
+  type
+    AWSResponse DescribeThingType =
+      DescribeThingTypeResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeThingTypeResponse'
+            Prelude.<$> (x Core..?> "thingTypeProperties")
+            Prelude.<*> (x Core..?> "thingTypeMetadata")
+            Prelude.<*> (x Core..?> "thingTypeId")
+            Prelude.<*> (x Core..?> "thingTypeArn")
+            Prelude.<*> (x Core..?> "thingTypeName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeThingType where
+instance Prelude.Hashable DescribeThingType
 
-instance NFData DescribeThingType where
+instance Prelude.NFData DescribeThingType
 
-instance ToHeaders DescribeThingType where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeThingType where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeThingType where
-        toPath DescribeThingType'{..}
-          = mconcat ["/thing-types/", toBS _dThingTypeName]
+instance Core.ToPath DescribeThingType where
+  toPath DescribeThingType' {..} =
+    Prelude.mconcat
+      ["/thing-types/", Core.toBS thingTypeName]
 
-instance ToQuery DescribeThingType where
-        toQuery = const mempty
+instance Core.ToQuery DescribeThingType where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DescribeThingType operation.
 --
---
---
--- /See:/ 'describeThingTypeResponse' smart constructor.
+-- /See:/ 'newDescribeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
-  { _desrsThingTypeProperties :: !(Maybe ThingTypeProperties)
-  , _desrsThingTypeName       :: !(Maybe Text)
-  , _desrsThingTypeId         :: !(Maybe Text)
-  , _desrsThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
-  , _desrsThingTypeARN        :: !(Maybe Text)
-  , _desrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ThingTypeProperties contains information about the thing type
+    -- including description, and a list of searchable thing attribute names.
+    thingTypeProperties :: Prelude.Maybe ThingTypeProperties,
+    -- | The ThingTypeMetadata contains additional information about the thing
+    -- type including: creation date and time, a value indicating whether the
+    -- thing type is deprecated, and a date and time when it was deprecated.
+    thingTypeMetadata :: Prelude.Maybe ThingTypeMetadata,
+    -- | The thing type ID.
+    thingTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The thing type ARN.
+    thingTypeArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeThingTypeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeThingTypeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsThingTypeProperties' - The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsThingTypeName' - The name of the thing type.
+-- 'thingTypeProperties', 'describeThingTypeResponse_thingTypeProperties' - The ThingTypeProperties contains information about the thing type
+-- including description, and a list of searchable thing attribute names.
 --
--- * 'desrsThingTypeId' - The thing type ID.
+-- 'thingTypeMetadata', 'describeThingTypeResponse_thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing
+-- type including: creation date and time, a value indicating whether the
+-- thing type is deprecated, and a date and time when it was deprecated.
 --
--- * 'desrsThingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
+-- 'thingTypeId', 'describeThingTypeResponse_thingTypeId' - The thing type ID.
 --
--- * 'desrsThingTypeARN' - The thing type ARN.
+-- 'thingTypeArn', 'describeThingTypeResponse_thingTypeArn' - The thing type ARN.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeThingTypeResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeThingTypeResponse
-describeThingTypeResponse pResponseStatus_ =
+-- 'thingTypeName', 'describeThingTypeResponse_thingTypeName' - The name of the thing type.
+--
+-- 'httpStatus', 'describeThingTypeResponse_httpStatus' - The response's http status code.
+newDescribeThingTypeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeThingTypeResponse
+newDescribeThingTypeResponse pHttpStatus_ =
   DescribeThingTypeResponse'
-    { _desrsThingTypeProperties = Nothing
-    , _desrsThingTypeName = Nothing
-    , _desrsThingTypeId = Nothing
-    , _desrsThingTypeMetadata = Nothing
-    , _desrsThingTypeARN = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { thingTypeProperties =
+        Prelude.Nothing,
+      thingTypeMetadata = Prelude.Nothing,
+      thingTypeId = Prelude.Nothing,
+      thingTypeArn = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The ThingTypeProperties contains information about the thing type
+-- including description, and a list of searchable thing attribute names.
+describeThingTypeResponse_thingTypeProperties :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe ThingTypeProperties)
+describeThingTypeResponse_thingTypeProperties = Lens.lens (\DescribeThingTypeResponse' {thingTypeProperties} -> thingTypeProperties) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeProperties = a} :: DescribeThingTypeResponse)
 
--- | The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
-desrsThingTypeProperties :: Lens' DescribeThingTypeResponse (Maybe ThingTypeProperties)
-desrsThingTypeProperties = lens _desrsThingTypeProperties (\ s a -> s{_desrsThingTypeProperties = a})
-
--- | The name of the thing type.
-desrsThingTypeName :: Lens' DescribeThingTypeResponse (Maybe Text)
-desrsThingTypeName = lens _desrsThingTypeName (\ s a -> s{_desrsThingTypeName = a})
+-- | The ThingTypeMetadata contains additional information about the thing
+-- type including: creation date and time, a value indicating whether the
+-- thing type is deprecated, and a date and time when it was deprecated.
+describeThingTypeResponse_thingTypeMetadata :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe ThingTypeMetadata)
+describeThingTypeResponse_thingTypeMetadata = Lens.lens (\DescribeThingTypeResponse' {thingTypeMetadata} -> thingTypeMetadata) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeMetadata = a} :: DescribeThingTypeResponse)
 
 -- | The thing type ID.
-desrsThingTypeId :: Lens' DescribeThingTypeResponse (Maybe Text)
-desrsThingTypeId = lens _desrsThingTypeId (\ s a -> s{_desrsThingTypeId = a})
-
--- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
-desrsThingTypeMetadata :: Lens' DescribeThingTypeResponse (Maybe ThingTypeMetadata)
-desrsThingTypeMetadata = lens _desrsThingTypeMetadata (\ s a -> s{_desrsThingTypeMetadata = a})
+describeThingTypeResponse_thingTypeId :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
+describeThingTypeResponse_thingTypeId = Lens.lens (\DescribeThingTypeResponse' {thingTypeId} -> thingTypeId) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeId = a} :: DescribeThingTypeResponse)
 
 -- | The thing type ARN.
-desrsThingTypeARN :: Lens' DescribeThingTypeResponse (Maybe Text)
-desrsThingTypeARN = lens _desrsThingTypeARN (\ s a -> s{_desrsThingTypeARN = a})
+describeThingTypeResponse_thingTypeArn :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
+describeThingTypeResponse_thingTypeArn = Lens.lens (\DescribeThingTypeResponse' {thingTypeArn} -> thingTypeArn) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeArn = a} :: DescribeThingTypeResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeThingTypeResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | The name of the thing type.
+describeThingTypeResponse_thingTypeName :: Lens.Lens' DescribeThingTypeResponse (Prelude.Maybe Prelude.Text)
+describeThingTypeResponse_thingTypeName = Lens.lens (\DescribeThingTypeResponse' {thingTypeName} -> thingTypeName) (\s@DescribeThingTypeResponse' {} a -> s {thingTypeName = a} :: DescribeThingTypeResponse)
 
-instance NFData DescribeThingTypeResponse where
+-- | The response's http status code.
+describeThingTypeResponse_httpStatus :: Lens.Lens' DescribeThingTypeResponse Prelude.Int
+describeThingTypeResponse_httpStatus = Lens.lens (\DescribeThingTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeThingTypeResponse' {} a -> s {httpStatus = a} :: DescribeThingTypeResponse)
+
+instance Prelude.NFData DescribeThingTypeResponse

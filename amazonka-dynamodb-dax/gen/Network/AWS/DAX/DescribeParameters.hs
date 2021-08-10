@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeParameters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,161 +22,238 @@
 --
 -- Returns the detailed parameter list for a particular parameter group.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeParameters
-    (
-    -- * Creating a Request
-      describeParameters
-    , DescribeParameters
+  ( -- * Creating a Request
+    DescribeParameters (..),
+    newDescribeParameters,
+
     -- * Request Lenses
-    , dpNextToken
-    , dpSource
-    , dpMaxResults
-    , dpParameterGroupName
+    describeParameters_nextToken,
+    describeParameters_maxResults,
+    describeParameters_source,
+    describeParameters_parameterGroupName,
 
     -- * Destructuring the Response
-    , describeParametersResponse
-    , DescribeParametersResponse
+    DescribeParametersResponse (..),
+    newDescribeParametersResponse,
+
     -- * Response Lenses
-    , dprsNextToken
-    , dprsParameters
-    , dprsResponseStatus
-    ) where
+    describeParametersResponse_nextToken,
+    describeParametersResponse_parameters,
+    describeParametersResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
-import Network.AWS.DAX.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeParameters' smart constructor.
+-- | /See:/ 'newDescribeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { _dpNextToken          :: !(Maybe Text)
-  , _dpSource             :: !(Maybe Text)
-  , _dpMaxResults         :: !(Maybe Int)
-  , _dpParameterGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | How the parameter is defined. For example, @system@ denotes a
+    -- system-defined parameter.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter group.
+    parameterGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeParameters' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeParameters' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpSource' - How the parameter is defined. For example, @system@ denotes a system-defined parameter.
+-- 'nextToken', 'describeParameters_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
 --
--- * 'dpMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
+-- 'maxResults', 'describeParameters_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
 --
--- * 'dpParameterGroupName' - The name of the parameter group.
-describeParameters
-    :: Text -- ^ 'dpParameterGroupName'
-    -> DescribeParameters
-describeParameters pParameterGroupName_ =
+-- The value for @MaxResults@ must be between 20 and 100.
+--
+-- 'source', 'describeParameters_source' - How the parameter is defined. For example, @system@ denotes a
+-- system-defined parameter.
+--
+-- 'parameterGroupName', 'describeParameters_parameterGroupName' - The name of the parameter group.
+newDescribeParameters ::
+  -- | 'parameterGroupName'
+  Prelude.Text ->
+  DescribeParameters
+newDescribeParameters pParameterGroupName_ =
   DescribeParameters'
-    { _dpNextToken = Nothing
-    , _dpSource = Nothing
-    , _dpMaxResults = Nothing
-    , _dpParameterGroupName = pParameterGroupName_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      source = Prelude.Nothing,
+      parameterGroupName = pParameterGroupName_
     }
 
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+describeParameters_nextToken :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
+describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> nextToken) (\s@DescribeParameters' {} a -> s {nextToken = a} :: DescribeParameters)
 
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-dpNextToken :: Lens' DescribeParameters (Maybe Text)
-dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a})
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Int)
+describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
 
--- | How the parameter is defined. For example, @system@ denotes a system-defined parameter.
-dpSource :: Lens' DescribeParameters (Maybe Text)
-dpSource = lens _dpSource (\ s a -> s{_dpSource = a})
-
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-dpMaxResults :: Lens' DescribeParameters (Maybe Int)
-dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a})
+-- | How the parameter is defined. For example, @system@ denotes a
+-- system-defined parameter.
+describeParameters_source :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
+describeParameters_source = Lens.lens (\DescribeParameters' {source} -> source) (\s@DescribeParameters' {} a -> s {source = a} :: DescribeParameters)
 
 -- | The name of the parameter group.
-dpParameterGroupName :: Lens' DescribeParameters Text
-dpParameterGroupName = lens _dpParameterGroupName (\ s a -> s{_dpParameterGroupName = a})
+describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Prelude.Text
+describeParameters_parameterGroupName = Lens.lens (\DescribeParameters' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameters' {} a -> s {parameterGroupName = a} :: DescribeParameters)
 
-instance AWSRequest DescribeParameters where
-        type Rs DescribeParameters =
-             DescribeParametersResponse
-        request = postJSON dax
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeParametersResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Parameters" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager DescribeParameters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeParametersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeParametersResponse_parameters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeParameters_nextToken
+          Lens..~ rs
+          Lens.^? describeParametersResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable DescribeParameters where
+instance Core.AWSRequest DescribeParameters where
+  type
+    AWSResponse DescribeParameters =
+      DescribeParametersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeParametersResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeParameters where
+instance Prelude.Hashable DescribeParameters
 
-instance ToHeaders DescribeParameters where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDAXV3.DescribeParameters" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData DescribeParameters
 
-instance ToJSON DescribeParameters where
-        toJSON DescribeParameters'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _dpNextToken,
-                  ("Source" .=) <$> _dpSource,
-                  ("MaxResults" .=) <$> _dpMaxResults,
-                  Just
-                    ("ParameterGroupName" .= _dpParameterGroupName)])
+instance Core.ToHeaders DescribeParameters where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDAXV3.DescribeParameters" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DescribeParameters where
-        toPath = const "/"
+instance Core.ToJSON DescribeParameters where
+  toJSON DescribeParameters' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Source" Core..=) Prelude.<$> source,
+            Prelude.Just
+              ("ParameterGroupName" Core..= parameterGroupName)
+          ]
+      )
 
-instance ToQuery DescribeParameters where
-        toQuery = const mempty
+instance Core.ToPath DescribeParameters where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeParametersResponse' smart constructor.
+instance Core.ToQuery DescribeParameters where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
-  { _dprsNextToken      :: !(Maybe Text)
-  , _dprsParameters     :: !(Maybe [Parameter])
-  , _dprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of parameters within a parameter group. Each element in the list
+    -- represents one parameter.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeParametersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeParametersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dprsNextToken' - Provides an identifier to allow retrieval of paginated results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dprsParameters' - A list of parameters within a parameter group. Each element in the list represents one parameter.
+-- 'nextToken', 'describeParametersResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
 --
--- * 'dprsResponseStatus' - -- | The response status code.
-describeParametersResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DescribeParametersResponse
-describeParametersResponse pResponseStatus_ =
+-- 'parameters', 'describeParametersResponse_parameters' - A list of parameters within a parameter group. Each element in the list
+-- represents one parameter.
+--
+-- 'httpStatus', 'describeParametersResponse_httpStatus' - The response's http status code.
+newDescribeParametersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeParametersResponse
+newDescribeParametersResponse pHttpStatus_ =
   DescribeParametersResponse'
-    { _dprsNextToken = Nothing
-    , _dprsParameters = Nothing
-    , _dprsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Provides an identifier to allow retrieval of paginated results.
-dprsNextToken :: Lens' DescribeParametersResponse (Maybe Text)
-dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a})
+describeParametersResponse_nextToken :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe Prelude.Text)
+describeParametersResponse_nextToken = Lens.lens (\DescribeParametersResponse' {nextToken} -> nextToken) (\s@DescribeParametersResponse' {} a -> s {nextToken = a} :: DescribeParametersResponse)
 
--- | A list of parameters within a parameter group. Each element in the list represents one parameter.
-dprsParameters :: Lens' DescribeParametersResponse [Parameter]
-dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Default . _Coerce
+-- | A list of parameters within a parameter group. Each element in the list
+-- represents one parameter.
+describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe [Parameter])
+describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DescribeParametersResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
+-- | The response's http status code.
+describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int
+describeParametersResponse_httpStatus = Lens.lens (\DescribeParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeParametersResponse' {} a -> s {httpStatus = a} :: DescribeParametersResponse)
 
-instance NFData DescribeParametersResponse where
+instance Prelude.NFData DescribeParametersResponse

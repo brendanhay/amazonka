@@ -1,213 +1,249 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified attributes of the specified user, and grants or revokes administrative privileges to the Amazon WorkDocs site.
---
---
+-- Updates the specified attributes of the specified user, and grants or
+-- revokes administrative privileges to the Amazon WorkDocs site.
 module Network.AWS.WorkDocs.UpdateUser
-    (
-    -- * Creating a Request
-      updateUser
-    , UpdateUser
+  ( -- * Creating a Request
+    UpdateUser (..),
+    newUpdateUser,
+
     -- * Request Lenses
-    , uuGivenName
-    , uuGrantPoweruserPrivileges
-    , uuLocale
-    , uuAuthenticationToken
-    , uuStorageRule
-    , uuType
-    , uuSurname
-    , uuTimeZoneId
-    , uuUserId
+    updateUser_storageRule,
+    updateUser_grantPoweruserPrivileges,
+    updateUser_timeZoneId,
+    updateUser_surname,
+    updateUser_locale,
+    updateUser_givenName,
+    updateUser_authenticationToken,
+    updateUser_type,
+    updateUser_userId,
 
     -- * Destructuring the Response
-    , updateUserResponse
-    , UpdateUserResponse
+    UpdateUserResponse (..),
+    newUpdateUserResponse,
+
     -- * Response Lenses
-    , uursUser
-    , uursResponseStatus
-    ) where
+    updateUserResponse_user,
+    updateUserResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'updateUser' smart constructor.
+-- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { _uuGivenName                :: !(Maybe Text)
-  , _uuGrantPoweruserPrivileges :: !(Maybe BooleanEnumType)
-  , _uuLocale                   :: !(Maybe LocaleType)
-  , _uuAuthenticationToken      :: !(Maybe (Sensitive Text))
-  , _uuStorageRule              :: !(Maybe StorageRuleType)
-  , _uuType                     :: !(Maybe UserType)
-  , _uuSurname                  :: !(Maybe Text)
-  , _uuTimeZoneId               :: !(Maybe Text)
-  , _uuUserId                   :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The amount of storage for the user.
+    storageRule :: Prelude.Maybe StorageRuleType,
+    -- | Boolean value to determine whether the user is granted Poweruser
+    -- privileges.
+    grantPoweruserPrivileges :: Prelude.Maybe BooleanEnumType,
+    -- | The time zone ID of the user.
+    timeZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The surname of the user.
+    surname :: Prelude.Maybe Prelude.Text,
+    -- | The locale of the user.
+    locale :: Prelude.Maybe LocaleType,
+    -- | The given name of the user.
+    givenName :: Prelude.Maybe Prelude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The type of the user.
+    type' :: Prelude.Maybe UserType,
+    -- | The ID of the user.
+    userId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uuGivenName' - The given name of the user.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uuGrantPoweruserPrivileges' - Boolean value to determine whether the user is granted Poweruser privileges.
+-- 'storageRule', 'updateUser_storageRule' - The amount of storage for the user.
 --
--- * 'uuLocale' - The locale of the user.
+-- 'grantPoweruserPrivileges', 'updateUser_grantPoweruserPrivileges' - Boolean value to determine whether the user is granted Poweruser
+-- privileges.
 --
--- * 'uuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- 'timeZoneId', 'updateUser_timeZoneId' - The time zone ID of the user.
 --
--- * 'uuStorageRule' - The amount of storage for the user.
+-- 'surname', 'updateUser_surname' - The surname of the user.
 --
--- * 'uuType' - The type of the user.
+-- 'locale', 'updateUser_locale' - The locale of the user.
 --
--- * 'uuSurname' - The surname of the user.
+-- 'givenName', 'updateUser_givenName' - The given name of the user.
 --
--- * 'uuTimeZoneId' - The time zone ID of the user.
+-- 'authenticationToken', 'updateUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
--- * 'uuUserId' - The ID of the user.
-updateUser
-    :: Text -- ^ 'uuUserId'
-    -> UpdateUser
-updateUser pUserId_ =
+-- 'type'', 'updateUser_type' - The type of the user.
+--
+-- 'userId', 'updateUser_userId' - The ID of the user.
+newUpdateUser ::
+  -- | 'userId'
+  Prelude.Text ->
+  UpdateUser
+newUpdateUser pUserId_ =
   UpdateUser'
-    { _uuGivenName = Nothing
-    , _uuGrantPoweruserPrivileges = Nothing
-    , _uuLocale = Nothing
-    , _uuAuthenticationToken = Nothing
-    , _uuStorageRule = Nothing
-    , _uuType = Nothing
-    , _uuSurname = Nothing
-    , _uuTimeZoneId = Nothing
-    , _uuUserId = pUserId_
+    { storageRule = Prelude.Nothing,
+      grantPoweruserPrivileges = Prelude.Nothing,
+      timeZoneId = Prelude.Nothing,
+      surname = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      givenName = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      userId = pUserId_
     }
 
-
--- | The given name of the user.
-uuGivenName :: Lens' UpdateUser (Maybe Text)
-uuGivenName = lens _uuGivenName (\ s a -> s{_uuGivenName = a})
-
--- | Boolean value to determine whether the user is granted Poweruser privileges.
-uuGrantPoweruserPrivileges :: Lens' UpdateUser (Maybe BooleanEnumType)
-uuGrantPoweruserPrivileges = lens _uuGrantPoweruserPrivileges (\ s a -> s{_uuGrantPoweruserPrivileges = a})
-
--- | The locale of the user.
-uuLocale :: Lens' UpdateUser (Maybe LocaleType)
-uuLocale = lens _uuLocale (\ s a -> s{_uuLocale = a})
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-uuAuthenticationToken :: Lens' UpdateUser (Maybe Text)
-uuAuthenticationToken = lens _uuAuthenticationToken (\ s a -> s{_uuAuthenticationToken = a}) . mapping _Sensitive
-
 -- | The amount of storage for the user.
-uuStorageRule :: Lens' UpdateUser (Maybe StorageRuleType)
-uuStorageRule = lens _uuStorageRule (\ s a -> s{_uuStorageRule = a})
+updateUser_storageRule :: Lens.Lens' UpdateUser (Prelude.Maybe StorageRuleType)
+updateUser_storageRule = Lens.lens (\UpdateUser' {storageRule} -> storageRule) (\s@UpdateUser' {} a -> s {storageRule = a} :: UpdateUser)
 
--- | The type of the user.
-uuType :: Lens' UpdateUser (Maybe UserType)
-uuType = lens _uuType (\ s a -> s{_uuType = a})
-
--- | The surname of the user.
-uuSurname :: Lens' UpdateUser (Maybe Text)
-uuSurname = lens _uuSurname (\ s a -> s{_uuSurname = a})
+-- | Boolean value to determine whether the user is granted Poweruser
+-- privileges.
+updateUser_grantPoweruserPrivileges :: Lens.Lens' UpdateUser (Prelude.Maybe BooleanEnumType)
+updateUser_grantPoweruserPrivileges = Lens.lens (\UpdateUser' {grantPoweruserPrivileges} -> grantPoweruserPrivileges) (\s@UpdateUser' {} a -> s {grantPoweruserPrivileges = a} :: UpdateUser)
 
 -- | The time zone ID of the user.
-uuTimeZoneId :: Lens' UpdateUser (Maybe Text)
-uuTimeZoneId = lens _uuTimeZoneId (\ s a -> s{_uuTimeZoneId = a})
+updateUser_timeZoneId :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_timeZoneId = Lens.lens (\UpdateUser' {timeZoneId} -> timeZoneId) (\s@UpdateUser' {} a -> s {timeZoneId = a} :: UpdateUser)
+
+-- | The surname of the user.
+updateUser_surname :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_surname = Lens.lens (\UpdateUser' {surname} -> surname) (\s@UpdateUser' {} a -> s {surname = a} :: UpdateUser)
+
+-- | The locale of the user.
+updateUser_locale :: Lens.Lens' UpdateUser (Prelude.Maybe LocaleType)
+updateUser_locale = Lens.lens (\UpdateUser' {locale} -> locale) (\s@UpdateUser' {} a -> s {locale = a} :: UpdateUser)
+
+-- | The given name of the user.
+updateUser_givenName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_givenName = Lens.lens (\UpdateUser' {givenName} -> givenName) (\s@UpdateUser' {} a -> s {givenName = a} :: UpdateUser)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+updateUser_authenticationToken :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_authenticationToken = Lens.lens (\UpdateUser' {authenticationToken} -> authenticationToken) (\s@UpdateUser' {} a -> s {authenticationToken = a} :: UpdateUser) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The type of the user.
+updateUser_type :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
+updateUser_type = Lens.lens (\UpdateUser' {type'} -> type') (\s@UpdateUser' {} a -> s {type' = a} :: UpdateUser)
 
 -- | The ID of the user.
-uuUserId :: Lens' UpdateUser Text
-uuUserId = lens _uuUserId (\ s a -> s{_uuUserId = a})
+updateUser_userId :: Lens.Lens' UpdateUser Prelude.Text
+updateUser_userId = Lens.lens (\UpdateUser' {userId} -> userId) (\s@UpdateUser' {} a -> s {userId = a} :: UpdateUser)
 
-instance AWSRequest UpdateUser where
-        type Rs UpdateUser = UpdateUserResponse
-        request = patchJSON workDocs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateUserResponse' <$>
-                   (x .?> "User") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateUser where
+  type AWSResponse UpdateUser = UpdateUserResponse
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateUserResponse'
+            Prelude.<$> (x Core..?> "User")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateUser where
+instance Prelude.Hashable UpdateUser
 
-instance NFData UpdateUser where
+instance Prelude.NFData UpdateUser
 
-instance ToHeaders UpdateUser where
-        toHeaders UpdateUser'{..}
-          = mconcat
-              ["Authentication" =# _uuAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders UpdateUser where
+  toHeaders UpdateUser' {..} =
+    Prelude.mconcat
+      [ "Authentication" Core.=# authenticationToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToJSON UpdateUser where
-        toJSON UpdateUser'{..}
-          = object
-              (catMaybes
-                 [("GivenName" .=) <$> _uuGivenName,
-                  ("GrantPoweruserPrivileges" .=) <$>
-                    _uuGrantPoweruserPrivileges,
-                  ("Locale" .=) <$> _uuLocale,
-                  ("StorageRule" .=) <$> _uuStorageRule,
-                  ("Type" .=) <$> _uuType,
-                  ("Surname" .=) <$> _uuSurname,
-                  ("TimeZoneId" .=) <$> _uuTimeZoneId])
+instance Core.ToJSON UpdateUser where
+  toJSON UpdateUser' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("StorageRule" Core..=) Prelude.<$> storageRule,
+            ("GrantPoweruserPrivileges" Core..=)
+              Prelude.<$> grantPoweruserPrivileges,
+            ("TimeZoneId" Core..=) Prelude.<$> timeZoneId,
+            ("Surname" Core..=) Prelude.<$> surname,
+            ("Locale" Core..=) Prelude.<$> locale,
+            ("GivenName" Core..=) Prelude.<$> givenName,
+            ("Type" Core..=) Prelude.<$> type'
+          ]
+      )
 
-instance ToPath UpdateUser where
-        toPath UpdateUser'{..}
-          = mconcat ["/api/v1/users/", toBS _uuUserId]
+instance Core.ToPath UpdateUser where
+  toPath UpdateUser' {..} =
+    Prelude.mconcat
+      ["/api/v1/users/", Core.toBS userId]
 
-instance ToQuery UpdateUser where
-        toQuery = const mempty
+instance Core.ToQuery UpdateUser where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateUserResponse' smart constructor.
+-- | /See:/ 'newUpdateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
-  { _uursUser           :: !(Maybe User)
-  , _uursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The user information.
+    user :: Prelude.Maybe User,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateUserResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uursUser' - The user information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uursResponseStatus' - -- | The response status code.
-updateUserResponse
-    :: Int -- ^ 'uursResponseStatus'
-    -> UpdateUserResponse
-updateUserResponse pResponseStatus_ =
+-- 'user', 'updateUserResponse_user' - The user information.
+--
+-- 'httpStatus', 'updateUserResponse_httpStatus' - The response's http status code.
+newUpdateUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateUserResponse
+newUpdateUserResponse pHttpStatus_ =
   UpdateUserResponse'
-    {_uursUser = Nothing, _uursResponseStatus = pResponseStatus_}
-
+    { user = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The user information.
-uursUser :: Lens' UpdateUserResponse (Maybe User)
-uursUser = lens _uursUser (\ s a -> s{_uursUser = a})
+updateUserResponse_user :: Lens.Lens' UpdateUserResponse (Prelude.Maybe User)
+updateUserResponse_user = Lens.lens (\UpdateUserResponse' {user} -> user) (\s@UpdateUserResponse' {} a -> s {user = a} :: UpdateUserResponse)
 
--- | -- | The response status code.
-uursResponseStatus :: Lens' UpdateUserResponse Int
-uursResponseStatus = lens _uursResponseStatus (\ s a -> s{_uursResponseStatus = a})
+-- | The response's http status code.
+updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Prelude.Int
+updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> httpStatus) (\s@UpdateUserResponse' {} a -> s {httpStatus = a} :: UpdateUserResponse)
 
-instance NFData UpdateUserResponse where
+instance Prelude.NFData UpdateUserResponse

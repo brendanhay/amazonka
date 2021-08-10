@@ -1,121 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ResourceGroups.GetGroupQuery
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the resource query associated with the specified resource group.
+-- Retrieves the resource query associated with the specified resource
+-- group. For more information about resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
 --
+-- __Minimum permissions__
 --
+-- To run this command, you must have the following permissions:
+--
+-- -   @resource-groups:GetGroupQuery@
 module Network.AWS.ResourceGroups.GetGroupQuery
-    (
-    -- * Creating a Request
-      getGroupQuery
-    , GetGroupQuery
+  ( -- * Creating a Request
+    GetGroupQuery (..),
+    newGetGroupQuery,
+
     -- * Request Lenses
-    , ggqGroupName
+    getGroupQuery_groupName,
+    getGroupQuery_group,
 
     -- * Destructuring the Response
-    , getGroupQueryResponse
-    , GetGroupQueryResponse
+    GetGroupQueryResponse (..),
+    newGetGroupQueryResponse,
+
     -- * Response Lenses
-    , ggqrsGroupQuery
-    , ggqrsResponseStatus
-    ) where
+    getGroupQueryResponse_groupQuery,
+    getGroupQueryResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.Types.Product
-import Network.AWS.Response
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getGroupQuery' smart constructor.
-newtype GetGroupQuery = GetGroupQuery'
-  { _ggqGroupName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetGroupQuery' smart constructor.
+data GetGroupQuery = GetGroupQuery'
+  { -- | Don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to query.
+    group' :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGroupQuery' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGroupQuery' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggqGroupName' - The name of the resource group.
-getGroupQuery
-    :: Text -- ^ 'ggqGroupName'
-    -> GetGroupQuery
-getGroupQuery pGroupName_ = GetGroupQuery' {_ggqGroupName = pGroupName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'groupName', 'getGroupQuery_groupName' - Don\'t use this parameter. Use @Group@ instead.
+--
+-- 'group'', 'getGroupQuery_group' - The name or the ARN of the resource group to query.
+newGetGroupQuery ::
+  GetGroupQuery
+newGetGroupQuery =
+  GetGroupQuery'
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
+    }
 
+-- | Don\'t use this parameter. Use @Group@ instead.
+getGroupQuery_groupName :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
+getGroupQuery_groupName = Lens.lens (\GetGroupQuery' {groupName} -> groupName) (\s@GetGroupQuery' {} a -> s {groupName = a} :: GetGroupQuery)
 
--- | The name of the resource group.
-ggqGroupName :: Lens' GetGroupQuery Text
-ggqGroupName = lens _ggqGroupName (\ s a -> s{_ggqGroupName = a})
+-- | The name or the ARN of the resource group to query.
+getGroupQuery_group :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
+getGroupQuery_group = Lens.lens (\GetGroupQuery' {group'} -> group') (\s@GetGroupQuery' {} a -> s {group' = a} :: GetGroupQuery)
 
-instance AWSRequest GetGroupQuery where
-        type Rs GetGroupQuery = GetGroupQueryResponse
-        request = get resourceGroups
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetGroupQueryResponse' <$>
-                   (x .?> "GroupQuery") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetGroupQuery where
+  type
+    AWSResponse GetGroupQuery =
+      GetGroupQueryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGroupQueryResponse'
+            Prelude.<$> (x Core..?> "GroupQuery")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetGroupQuery where
+instance Prelude.Hashable GetGroupQuery
 
-instance NFData GetGroupQuery where
+instance Prelude.NFData GetGroupQuery
 
-instance ToHeaders GetGroupQuery where
-        toHeaders = const mempty
+instance Core.ToHeaders GetGroupQuery where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetGroupQuery where
-        toPath GetGroupQuery'{..}
-          = mconcat ["/groups/", toBS _ggqGroupName, "/query"]
+instance Core.ToJSON GetGroupQuery where
+  toJSON GetGroupQuery' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group'
+          ]
+      )
 
-instance ToQuery GetGroupQuery where
-        toQuery = const mempty
+instance Core.ToPath GetGroupQuery where
+  toPath = Prelude.const "/get-group-query"
 
--- | /See:/ 'getGroupQueryResponse' smart constructor.
+instance Core.ToQuery GetGroupQuery where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetGroupQueryResponse' smart constructor.
 data GetGroupQueryResponse = GetGroupQueryResponse'
-  { _ggqrsGroupQuery     :: !(Maybe GroupQuery)
-  , _ggqrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The resource query associated with the specified group. For more
+    -- information about resource queries, see
+    -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+    groupQuery :: Prelude.Maybe GroupQuery,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGroupQueryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGroupQueryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggqrsGroupQuery' - The resource query associated with the specified group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggqrsResponseStatus' - -- | The response status code.
-getGroupQueryResponse
-    :: Int -- ^ 'ggqrsResponseStatus'
-    -> GetGroupQueryResponse
-getGroupQueryResponse pResponseStatus_ =
+-- 'groupQuery', 'getGroupQueryResponse_groupQuery' - The resource query associated with the specified group. For more
+-- information about resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+--
+-- 'httpStatus', 'getGroupQueryResponse_httpStatus' - The response's http status code.
+newGetGroupQueryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetGroupQueryResponse
+newGetGroupQueryResponse pHttpStatus_ =
   GetGroupQueryResponse'
-    {_ggqrsGroupQuery = Nothing, _ggqrsResponseStatus = pResponseStatus_}
+    { groupQuery =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The resource query associated with the specified group. For more
+-- information about resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+getGroupQueryResponse_groupQuery :: Lens.Lens' GetGroupQueryResponse (Prelude.Maybe GroupQuery)
+getGroupQueryResponse_groupQuery = Lens.lens (\GetGroupQueryResponse' {groupQuery} -> groupQuery) (\s@GetGroupQueryResponse' {} a -> s {groupQuery = a} :: GetGroupQueryResponse)
 
--- | The resource query associated with the specified group.
-ggqrsGroupQuery :: Lens' GetGroupQueryResponse (Maybe GroupQuery)
-ggqrsGroupQuery = lens _ggqrsGroupQuery (\ s a -> s{_ggqrsGroupQuery = a})
+-- | The response's http status code.
+getGroupQueryResponse_httpStatus :: Lens.Lens' GetGroupQueryResponse Prelude.Int
+getGroupQueryResponse_httpStatus = Lens.lens (\GetGroupQueryResponse' {httpStatus} -> httpStatus) (\s@GetGroupQueryResponse' {} a -> s {httpStatus = a} :: GetGroupQueryResponse)
 
--- | -- | The response status code.
-ggqrsResponseStatus :: Lens' GetGroupQueryResponse Int
-ggqrsResponseStatus = lens _ggqrsResponseStatus (\ s a -> s{_ggqrsResponseStatus = a})
-
-instance NFData GetGroupQueryResponse where
+instance Prelude.NFData GetGroupQueryResponse

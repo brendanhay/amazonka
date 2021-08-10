@@ -1,114 +1,132 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.RemovePermission
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a statement from a topic's access control policy.
---
---
+-- Removes a statement from a topic\'s access control policy.
 module Network.AWS.SNS.RemovePermission
-    (
-    -- * Creating a Request
-      removePermission
-    , RemovePermission
+  ( -- * Creating a Request
+    RemovePermission (..),
+    newRemovePermission,
+
     -- * Request Lenses
-    , rpTopicARN
-    , rpLabel
+    removePermission_topicArn,
+    removePermission_label,
 
     -- * Destructuring the Response
-    , removePermissionResponse
-    , RemovePermissionResponse
-    ) where
+    RemovePermissionResponse (..),
+    newRemovePermissionResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for RemovePermission action.
 --
---
---
--- /See:/ 'removePermission' smart constructor.
+-- /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpTopicARN :: !Text
-  , _rpLabel    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the topic whose access control policy you wish to modify.
+    topicArn :: Prelude.Text,
+    -- | The unique label of the statement you want to remove.
+    label :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemovePermission' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpTopicARN' - The ARN of the topic whose access control policy you wish to modify.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpLabel' - The unique label of the statement you want to remove.
-removePermission
-    :: Text -- ^ 'rpTopicARN'
-    -> Text -- ^ 'rpLabel'
-    -> RemovePermission
-removePermission pTopicARN_ pLabel_ =
-  RemovePermission' {_rpTopicARN = pTopicARN_, _rpLabel = pLabel_}
-
+-- 'topicArn', 'removePermission_topicArn' - The ARN of the topic whose access control policy you wish to modify.
+--
+-- 'label', 'removePermission_label' - The unique label of the statement you want to remove.
+newRemovePermission ::
+  -- | 'topicArn'
+  Prelude.Text ->
+  -- | 'label'
+  Prelude.Text ->
+  RemovePermission
+newRemovePermission pTopicArn_ pLabel_ =
+  RemovePermission'
+    { topicArn = pTopicArn_,
+      label = pLabel_
+    }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-rpTopicARN :: Lens' RemovePermission Text
-rpTopicARN = lens _rpTopicARN (\ s a -> s{_rpTopicARN = a})
+removePermission_topicArn :: Lens.Lens' RemovePermission Prelude.Text
+removePermission_topicArn = Lens.lens (\RemovePermission' {topicArn} -> topicArn) (\s@RemovePermission' {} a -> s {topicArn = a} :: RemovePermission)
 
 -- | The unique label of the statement you want to remove.
-rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a})
+removePermission_label :: Lens.Lens' RemovePermission Prelude.Text
+removePermission_label = Lens.lens (\RemovePermission' {label} -> label) (\s@RemovePermission' {} a -> s {label = a} :: RemovePermission)
 
-instance AWSRequest RemovePermission where
-        type Rs RemovePermission = RemovePermissionResponse
-        request = postQuery sns
-        response = receiveNull RemovePermissionResponse'
+instance Core.AWSRequest RemovePermission where
+  type
+    AWSResponse RemovePermission =
+      RemovePermissionResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission where
+instance Prelude.Hashable RemovePermission
 
-instance NFData RemovePermission where
+instance Prelude.NFData RemovePermission
 
-instance ToHeaders RemovePermission where
-        toHeaders = const mempty
+instance Core.ToHeaders RemovePermission where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath RemovePermission where
-        toPath = const "/"
+instance Core.ToPath RemovePermission where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemovePermission where
-        toQuery RemovePermission'{..}
-          = mconcat
-              ["Action" =: ("RemovePermission" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _rpTopicARN, "Label" =: _rpLabel]
+instance Core.ToQuery RemovePermission where
+  toQuery RemovePermission' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RemovePermission" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "TopicArn" Core.=: topicArn,
+        "Label" Core.=: label
+      ]
 
--- | /See:/ 'removePermissionResponse' smart constructor.
-data RemovePermissionResponse =
-  RemovePermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRemovePermissionResponse' smart constructor.
+data RemovePermissionResponse = RemovePermissionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
 --
-removePermissionResponse
-    :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRemovePermissionResponse ::
+  RemovePermissionResponse
+newRemovePermissionResponse =
+  RemovePermissionResponse'
 
-
-instance NFData RemovePermissionResponse where
+instance Prelude.NFData RemovePermissionResponse

@@ -1,145 +1,220 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetDisks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all block storage disks in your AWS account and region.
+-- Returns information about all block storage disks in your AWS account
+-- and region.
 --
---
--- If you are describing a long list of disks, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.
---
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDisks
-    (
-    -- * Creating a Request
-      getDisks
-    , GetDisks
+  ( -- * Creating a Request
+    GetDisks (..),
+    newGetDisks,
+
     -- * Request Lenses
-    , gPageToken
+    getDisks_pageToken,
 
     -- * Destructuring the Response
-    , getDisksResponse
-    , GetDisksResponse
+    GetDisksResponse (..),
+    newGetDisksResponse,
+
     -- * Response Lenses
-    , gddrsNextPageToken
-    , gddrsDisks
-    , gddrsResponseStatus
-    ) where
+    getDisksResponse_nextPageToken,
+    getDisksResponse_disks,
+    getDisksResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDisks' smart constructor.
-newtype GetDisks = GetDisks'
-  { _gPageToken :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetDisks' smart constructor.
+data GetDisks = GetDisks'
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetDisks@ request. If your
+    -- results are paginated, the response will return a next page token that
+    -- you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDisks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDisks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gPageToken' - A token used for advancing to the next page of results from your GetDisks request.
-getDisks
-    :: GetDisks
-getDisks = GetDisks' {_gPageToken = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pageToken', 'getDisks_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDisks@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+newGetDisks ::
+  GetDisks
+newGetDisks = GetDisks' {pageToken = Prelude.Nothing}
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDisks@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+getDisks_pageToken :: Lens.Lens' GetDisks (Prelude.Maybe Prelude.Text)
+getDisks_pageToken = Lens.lens (\GetDisks' {pageToken} -> pageToken) (\s@GetDisks' {} a -> s {pageToken = a} :: GetDisks)
 
--- | A token used for advancing to the next page of results from your GetDisks request.
-gPageToken :: Lens' GetDisks (Maybe Text)
-gPageToken = lens _gPageToken (\ s a -> s{_gPageToken = a})
+instance Core.AWSPager GetDisks where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getDisksResponse_nextPageToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getDisksResponse_disks Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getDisks_pageToken
+          Lens..~ rs
+          Lens.^? getDisksResponse_nextPageToken Prelude.. Lens._Just
 
-instance AWSRequest GetDisks where
-        type Rs GetDisks = GetDisksResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDisksResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "disks" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetDisks where
+  type AWSResponse GetDisks = GetDisksResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDisksResponse'
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "disks" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetDisks where
+instance Prelude.Hashable GetDisks
 
-instance NFData GetDisks where
+instance Prelude.NFData GetDisks
 
-instance ToHeaders GetDisks where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetDisks" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetDisks where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetDisks" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetDisks where
-        toJSON GetDisks'{..}
-          = object
-              (catMaybes [("pageToken" .=) <$> _gPageToken])
+instance Core.ToJSON GetDisks where
+  toJSON GetDisks' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
+      )
 
-instance ToPath GetDisks where
-        toPath = const "/"
+instance Core.ToPath GetDisks where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetDisks where
-        toQuery = const mempty
+instance Core.ToQuery GetDisks where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getDisksResponse' smart constructor.
+-- | /See:/ 'newGetDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
-  { _gddrsNextPageToken  :: !(Maybe Text)
-  , _gddrsDisks          :: !(Maybe [Disk])
-  , _gddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to
+    -- display.
+    --
+    -- To get the next page of results, perform another @GetDisks@ request and
+    -- specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects containing information about all block storage
+    -- disks.
+    disks :: Prelude.Maybe [Disk],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDisksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDisksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gddrsNextPageToken' - A token used for advancing to the next page of results from your GetDisks request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gddrsDisks' - An array of objects containing information about all block storage disks.
+-- 'nextPageToken', 'getDisksResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gddrsResponseStatus' - -- | The response status code.
-getDisksResponse
-    :: Int -- ^ 'gddrsResponseStatus'
-    -> GetDisksResponse
-getDisksResponse pResponseStatus_ =
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetDisks@ request and
+-- specify the next page token using the @pageToken@ parameter.
+--
+-- 'disks', 'getDisksResponse_disks' - An array of objects containing information about all block storage
+-- disks.
+--
+-- 'httpStatus', 'getDisksResponse_httpStatus' - The response's http status code.
+newGetDisksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDisksResponse
+newGetDisksResponse pHttpStatus_ =
   GetDisksResponse'
-    { _gddrsNextPageToken = Nothing
-    , _gddrsDisks = Nothing
-    , _gddrsResponseStatus = pResponseStatus_
+    { nextPageToken = Prelude.Nothing,
+      disks = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetDisks@ request and
+-- specify the next page token using the @pageToken@ parameter.
+getDisksResponse_nextPageToken :: Lens.Lens' GetDisksResponse (Prelude.Maybe Prelude.Text)
+getDisksResponse_nextPageToken = Lens.lens (\GetDisksResponse' {nextPageToken} -> nextPageToken) (\s@GetDisksResponse' {} a -> s {nextPageToken = a} :: GetDisksResponse)
 
--- | A token used for advancing to the next page of results from your GetDisks request.
-gddrsNextPageToken :: Lens' GetDisksResponse (Maybe Text)
-gddrsNextPageToken = lens _gddrsNextPageToken (\ s a -> s{_gddrsNextPageToken = a})
+-- | An array of objects containing information about all block storage
+-- disks.
+getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Prelude.Maybe [Disk])
+getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of objects containing information about all block storage disks.
-gddrsDisks :: Lens' GetDisksResponse [Disk]
-gddrsDisks = lens _gddrsDisks (\ s a -> s{_gddrsDisks = a}) . _Default . _Coerce
+-- | The response's http status code.
+getDisksResponse_httpStatus :: Lens.Lens' GetDisksResponse Prelude.Int
+getDisksResponse_httpStatus = Lens.lens (\GetDisksResponse' {httpStatus} -> httpStatus) (\s@GetDisksResponse' {} a -> s {httpStatus = a} :: GetDisksResponse)
 
--- | -- | The response status code.
-gddrsResponseStatus :: Lens' GetDisksResponse Int
-gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a})
-
-instance NFData GetDisksResponse where
+instance Prelude.NFData GetDisksResponse

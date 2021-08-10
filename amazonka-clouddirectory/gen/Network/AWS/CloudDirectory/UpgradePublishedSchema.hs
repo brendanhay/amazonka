@@ -1,166 +1,215 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpgradePublishedSchema
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Upgrades a published schema under a new minor version revision using the current contents of @DevelopmentSchemaArn@ .
---
---
+-- Upgrades a published schema under a new minor version revision using the
+-- current contents of @DevelopmentSchemaArn@.
 module Network.AWS.CloudDirectory.UpgradePublishedSchema
-    (
-    -- * Creating a Request
-      upgradePublishedSchema
-    , UpgradePublishedSchema
+  ( -- * Creating a Request
+    UpgradePublishedSchema (..),
+    newUpgradePublishedSchema,
+
     -- * Request Lenses
-    , upsDryRun
-    , upsDevelopmentSchemaARN
-    , upsPublishedSchemaARN
-    , upsMinorVersion
+    upgradePublishedSchema_dryRun,
+    upgradePublishedSchema_developmentSchemaArn,
+    upgradePublishedSchema_publishedSchemaArn,
+    upgradePublishedSchema_minorVersion,
 
     -- * Destructuring the Response
-    , upgradePublishedSchemaResponse
-    , UpgradePublishedSchemaResponse
+    UpgradePublishedSchemaResponse (..),
+    newUpgradePublishedSchemaResponse,
+
     -- * Response Lenses
-    , upsrsUpgradedSchemaARN
-    , upsrsResponseStatus
-    ) where
+    upgradePublishedSchemaResponse_upgradedSchemaArn,
+    upgradePublishedSchemaResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'upgradePublishedSchema' smart constructor.
+-- | /See:/ 'newUpgradePublishedSchema' smart constructor.
 data UpgradePublishedSchema = UpgradePublishedSchema'
-  { _upsDryRun               :: !(Maybe Bool)
-  , _upsDevelopmentSchemaARN :: !Text
-  , _upsPublishedSchemaARN   :: !Text
-  , _upsMinorVersion         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Used for testing whether the Development schema provided is backwards
+    -- compatible, or not, with the publish schema provided by the user to be
+    -- upgraded. If schema compatibility fails, an exception would be thrown
+    -- else the call would succeed. This parameter is optional and defaults to
+    -- false.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the development schema with the changes used for the upgrade.
+    developmentSchemaArn :: Prelude.Text,
+    -- | The ARN of the published schema to be upgraded.
+    publishedSchemaArn :: Prelude.Text,
+    -- | Identifies the minor version of the published schema that will be
+    -- created. This parameter is NOT optional.
+    minorVersion :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpgradePublishedSchema' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dryRun', 'upgradePublishedSchema_dryRun' - Used for testing whether the Development schema provided is backwards
+-- compatible, or not, with the publish schema provided by the user to be
+-- upgraded. If schema compatibility fails, an exception would be thrown
+-- else the call would succeed. This parameter is optional and defaults to
+-- false.
+--
+-- 'developmentSchemaArn', 'upgradePublishedSchema_developmentSchemaArn' - The ARN of the development schema with the changes used for the upgrade.
+--
+-- 'publishedSchemaArn', 'upgradePublishedSchema_publishedSchemaArn' - The ARN of the published schema to be upgraded.
+--
+-- 'minorVersion', 'upgradePublishedSchema_minorVersion' - Identifies the minor version of the published schema that will be
+-- created. This parameter is NOT optional.
+newUpgradePublishedSchema ::
+  -- | 'developmentSchemaArn'
+  Prelude.Text ->
+  -- | 'publishedSchemaArn'
+  Prelude.Text ->
+  -- | 'minorVersion'
+  Prelude.Text ->
+  UpgradePublishedSchema
+newUpgradePublishedSchema
+  pDevelopmentSchemaArn_
+  pPublishedSchemaArn_
+  pMinorVersion_ =
+    UpgradePublishedSchema'
+      { dryRun = Prelude.Nothing,
+        developmentSchemaArn = pDevelopmentSchemaArn_,
+        publishedSchemaArn = pPublishedSchemaArn_,
+        minorVersion = pMinorVersion_
+      }
 
--- | Creates a value of 'UpgradePublishedSchema' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upsDryRun' - Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.
---
--- * 'upsDevelopmentSchemaARN' - The ARN of the development schema with the changes used for the upgrade.
---
--- * 'upsPublishedSchemaARN' - The ARN of the published schema to be upgraded.
---
--- * 'upsMinorVersion' - Identifies the minor version of the published schema that will be created. This parameter is NOT optional.
-upgradePublishedSchema
-    :: Text -- ^ 'upsDevelopmentSchemaARN'
-    -> Text -- ^ 'upsPublishedSchemaARN'
-    -> Text -- ^ 'upsMinorVersion'
-    -> UpgradePublishedSchema
-upgradePublishedSchema pDevelopmentSchemaARN_ pPublishedSchemaARN_ pMinorVersion_ =
-  UpgradePublishedSchema'
-    { _upsDryRun = Nothing
-    , _upsDevelopmentSchemaARN = pDevelopmentSchemaARN_
-    , _upsPublishedSchemaARN = pPublishedSchemaARN_
-    , _upsMinorVersion = pMinorVersion_
-    }
-
-
--- | Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.
-upsDryRun :: Lens' UpgradePublishedSchema (Maybe Bool)
-upsDryRun = lens _upsDryRun (\ s a -> s{_upsDryRun = a})
+-- | Used for testing whether the Development schema provided is backwards
+-- compatible, or not, with the publish schema provided by the user to be
+-- upgraded. If schema compatibility fails, an exception would be thrown
+-- else the call would succeed. This parameter is optional and defaults to
+-- false.
+upgradePublishedSchema_dryRun :: Lens.Lens' UpgradePublishedSchema (Prelude.Maybe Prelude.Bool)
+upgradePublishedSchema_dryRun = Lens.lens (\UpgradePublishedSchema' {dryRun} -> dryRun) (\s@UpgradePublishedSchema' {} a -> s {dryRun = a} :: UpgradePublishedSchema)
 
 -- | The ARN of the development schema with the changes used for the upgrade.
-upsDevelopmentSchemaARN :: Lens' UpgradePublishedSchema Text
-upsDevelopmentSchemaARN = lens _upsDevelopmentSchemaARN (\ s a -> s{_upsDevelopmentSchemaARN = a})
+upgradePublishedSchema_developmentSchemaArn :: Lens.Lens' UpgradePublishedSchema Prelude.Text
+upgradePublishedSchema_developmentSchemaArn = Lens.lens (\UpgradePublishedSchema' {developmentSchemaArn} -> developmentSchemaArn) (\s@UpgradePublishedSchema' {} a -> s {developmentSchemaArn = a} :: UpgradePublishedSchema)
 
 -- | The ARN of the published schema to be upgraded.
-upsPublishedSchemaARN :: Lens' UpgradePublishedSchema Text
-upsPublishedSchemaARN = lens _upsPublishedSchemaARN (\ s a -> s{_upsPublishedSchemaARN = a})
+upgradePublishedSchema_publishedSchemaArn :: Lens.Lens' UpgradePublishedSchema Prelude.Text
+upgradePublishedSchema_publishedSchemaArn = Lens.lens (\UpgradePublishedSchema' {publishedSchemaArn} -> publishedSchemaArn) (\s@UpgradePublishedSchema' {} a -> s {publishedSchemaArn = a} :: UpgradePublishedSchema)
 
--- | Identifies the minor version of the published schema that will be created. This parameter is NOT optional.
-upsMinorVersion :: Lens' UpgradePublishedSchema Text
-upsMinorVersion = lens _upsMinorVersion (\ s a -> s{_upsMinorVersion = a})
+-- | Identifies the minor version of the published schema that will be
+-- created. This parameter is NOT optional.
+upgradePublishedSchema_minorVersion :: Lens.Lens' UpgradePublishedSchema Prelude.Text
+upgradePublishedSchema_minorVersion = Lens.lens (\UpgradePublishedSchema' {minorVersion} -> minorVersion) (\s@UpgradePublishedSchema' {} a -> s {minorVersion = a} :: UpgradePublishedSchema)
 
-instance AWSRequest UpgradePublishedSchema where
-        type Rs UpgradePublishedSchema =
-             UpgradePublishedSchemaResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpgradePublishedSchemaResponse' <$>
-                   (x .?> "UpgradedSchemaArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpgradePublishedSchema where
+  type
+    AWSResponse UpgradePublishedSchema =
+      UpgradePublishedSchemaResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpgradePublishedSchemaResponse'
+            Prelude.<$> (x Core..?> "UpgradedSchemaArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpgradePublishedSchema where
+instance Prelude.Hashable UpgradePublishedSchema
 
-instance NFData UpgradePublishedSchema where
+instance Prelude.NFData UpgradePublishedSchema
 
-instance ToHeaders UpgradePublishedSchema where
-        toHeaders = const mempty
+instance Core.ToHeaders UpgradePublishedSchema where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON UpgradePublishedSchema where
-        toJSON UpgradePublishedSchema'{..}
-          = object
-              (catMaybes
-                 [("DryRun" .=) <$> _upsDryRun,
-                  Just
-                    ("DevelopmentSchemaArn" .= _upsDevelopmentSchemaARN),
-                  Just
-                    ("PublishedSchemaArn" .= _upsPublishedSchemaARN),
-                  Just ("MinorVersion" .= _upsMinorVersion)])
+instance Core.ToJSON UpgradePublishedSchema where
+  toJSON UpgradePublishedSchema' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+            Prelude.Just
+              ( "DevelopmentSchemaArn"
+                  Core..= developmentSchemaArn
+              ),
+            Prelude.Just
+              ("PublishedSchemaArn" Core..= publishedSchemaArn),
+            Prelude.Just ("MinorVersion" Core..= minorVersion)
+          ]
+      )
 
-instance ToPath UpgradePublishedSchema where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
+instance Core.ToPath UpgradePublishedSchema where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
 
-instance ToQuery UpgradePublishedSchema where
-        toQuery = const mempty
+instance Core.ToQuery UpgradePublishedSchema where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'upgradePublishedSchemaResponse' smart constructor.
+-- | /See:/ 'newUpgradePublishedSchemaResponse' smart constructor.
 data UpgradePublishedSchemaResponse = UpgradePublishedSchemaResponse'
-  { _upsrsUpgradedSchemaARN :: !(Maybe Text)
-  , _upsrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the upgraded schema that is returned as part of the response.
+    upgradedSchemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpgradePublishedSchemaResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpgradePublishedSchemaResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upsrsUpgradedSchemaARN' - The ARN of the upgraded schema that is returned as part of the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upsrsResponseStatus' - -- | The response status code.
-upgradePublishedSchemaResponse
-    :: Int -- ^ 'upsrsResponseStatus'
-    -> UpgradePublishedSchemaResponse
-upgradePublishedSchemaResponse pResponseStatus_ =
+-- 'upgradedSchemaArn', 'upgradePublishedSchemaResponse_upgradedSchemaArn' - The ARN of the upgraded schema that is returned as part of the response.
+--
+-- 'httpStatus', 'upgradePublishedSchemaResponse_httpStatus' - The response's http status code.
+newUpgradePublishedSchemaResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpgradePublishedSchemaResponse
+newUpgradePublishedSchemaResponse pHttpStatus_ =
   UpgradePublishedSchemaResponse'
-    {_upsrsUpgradedSchemaARN = Nothing, _upsrsResponseStatus = pResponseStatus_}
-
+    { upgradedSchemaArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the upgraded schema that is returned as part of the response.
-upsrsUpgradedSchemaARN :: Lens' UpgradePublishedSchemaResponse (Maybe Text)
-upsrsUpgradedSchemaARN = lens _upsrsUpgradedSchemaARN (\ s a -> s{_upsrsUpgradedSchemaARN = a})
+upgradePublishedSchemaResponse_upgradedSchemaArn :: Lens.Lens' UpgradePublishedSchemaResponse (Prelude.Maybe Prelude.Text)
+upgradePublishedSchemaResponse_upgradedSchemaArn = Lens.lens (\UpgradePublishedSchemaResponse' {upgradedSchemaArn} -> upgradedSchemaArn) (\s@UpgradePublishedSchemaResponse' {} a -> s {upgradedSchemaArn = a} :: UpgradePublishedSchemaResponse)
 
--- | -- | The response status code.
-upsrsResponseStatus :: Lens' UpgradePublishedSchemaResponse Int
-upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a})
+-- | The response's http status code.
+upgradePublishedSchemaResponse_httpStatus :: Lens.Lens' UpgradePublishedSchemaResponse Prelude.Int
+upgradePublishedSchemaResponse_httpStatus = Lens.lens (\UpgradePublishedSchemaResponse' {httpStatus} -> httpStatus) (\s@UpgradePublishedSchemaResponse' {} a -> s {httpStatus = a} :: UpgradePublishedSchemaResponse)
 
-instance NFData UpgradePublishedSchemaResponse where
+instance
+  Prelude.NFData
+    UpgradePublishedSchemaResponse

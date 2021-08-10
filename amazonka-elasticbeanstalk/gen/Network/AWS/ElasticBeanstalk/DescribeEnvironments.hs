@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,249 @@
 --
 -- Returns descriptions for existing environments.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
-    (
-    -- * Creating a Request
-      describeEnvironments
-    , DescribeEnvironments
+  ( -- * Creating a Request
+    DescribeEnvironments (..),
+    newDescribeEnvironments,
+
     -- * Request Lenses
-    , desEnvironmentIds
-    , desEnvironmentNames
-    , desNextToken
-    , desVersionLabel
-    , desMaxRecords
-    , desApplicationName
-    , desIncludedDeletedBackTo
-    , desIncludeDeleted
+    describeEnvironments_nextToken,
+    describeEnvironments_environmentNames,
+    describeEnvironments_environmentIds,
+    describeEnvironments_versionLabel,
+    describeEnvironments_includeDeleted,
+    describeEnvironments_includedDeletedBackTo,
+    describeEnvironments_applicationName,
+    describeEnvironments_maxRecords,
 
     -- * Destructuring the Response
-    , environmentDescriptionsMessage
-    , EnvironmentDescriptionsMessage
-    -- * Response Lenses
-    , edmNextToken
-    , edmEnvironments
-    ) where
+    EnvironmentDescriptionsMessage (..),
+    newEnvironmentDescriptionsMessage,
 
+    -- * Response Lenses
+    environmentDescriptionsMessage_nextToken,
+    environmentDescriptionsMessage_environments,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to describe one or more environments.
 --
---
---
--- /See:/ 'describeEnvironments' smart constructor.
+-- /See:/ 'newDescribeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
-  { _desEnvironmentIds        :: !(Maybe [Text])
-  , _desEnvironmentNames      :: !(Maybe [Text])
-  , _desNextToken             :: !(Maybe Text)
-  , _desVersionLabel          :: !(Maybe Text)
-  , _desMaxRecords            :: !(Maybe Nat)
-  , _desApplicationName       :: !(Maybe Text)
-  , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
-  , _desIncludeDeleted        :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | For a paginated request. Specify a token from a previous response page
+    -- to retrieve the next response page. All other parameter values must be
+    -- identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to include only those that have the specified names.
+    environmentNames :: Prelude.Maybe [Prelude.Text],
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to include only those that have the specified IDs.
+    environmentIds :: Prelude.Maybe [Prelude.Text],
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to include only those that are associated with this application version.
+    versionLabel :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to include deleted environments:
+    --
+    -- @true@: Environments that have been deleted after
+    -- @IncludedDeletedBackTo@ are displayed.
+    --
+    -- @false@: Do not include deleted environments.
+    includeDeleted :: Prelude.Maybe Prelude.Bool,
+    -- | If specified when @IncludeDeleted@ is set to @true@, then environments
+    -- deleted after this date are displayed.
+    includedDeletedBackTo :: Prelude.Maybe Core.ISO8601,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to include only those that are associated with this application.
+    applicationName :: Prelude.Maybe Prelude.Text,
+    -- | For a paginated request. Specify a maximum number of environments to
+    -- include in each response.
+    --
+    -- If no @MaxRecords@ is specified, all available environments are
+    -- retrieved in a single response.
+    maxRecords :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEnvironments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desEnvironmentIds' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desEnvironmentNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
+-- 'nextToken', 'describeEnvironments_nextToken' - For a paginated request. Specify a token from a previous response page
+-- to retrieve the next response page. All other parameter values must be
+-- identical to the ones specified in the initial request.
 --
--- * 'desNextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
+-- If no @NextToken@ is specified, the first page is retrieved.
 --
--- * 'desVersionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
+-- 'environmentNames', 'describeEnvironments_environmentNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified names.
 --
--- * 'desMaxRecords' - For a paginated request. Specify a maximum number of environments to include in each response. If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
+-- 'environmentIds', 'describeEnvironments_environmentIds' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified IDs.
 --
--- * 'desApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
+-- 'versionLabel', 'describeEnvironments_versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application version.
 --
--- * 'desIncludedDeletedBackTo' - If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
+-- 'includeDeleted', 'describeEnvironments_includeDeleted' - Indicates whether to include deleted environments:
 --
--- * 'desIncludeDeleted' - Indicates whether to include deleted environments: @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed. @false@ : Do not include deleted environments.
-describeEnvironments
-    :: DescribeEnvironments
-describeEnvironments =
+-- @true@: Environments that have been deleted after
+-- @IncludedDeletedBackTo@ are displayed.
+--
+-- @false@: Do not include deleted environments.
+--
+-- 'includedDeletedBackTo', 'describeEnvironments_includedDeletedBackTo' - If specified when @IncludeDeleted@ is set to @true@, then environments
+-- deleted after this date are displayed.
+--
+-- 'applicationName', 'describeEnvironments_applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application.
+--
+-- 'maxRecords', 'describeEnvironments_maxRecords' - For a paginated request. Specify a maximum number of environments to
+-- include in each response.
+--
+-- If no @MaxRecords@ is specified, all available environments are
+-- retrieved in a single response.
+newDescribeEnvironments ::
+  DescribeEnvironments
+newDescribeEnvironments =
   DescribeEnvironments'
-    { _desEnvironmentIds = Nothing
-    , _desEnvironmentNames = Nothing
-    , _desNextToken = Nothing
-    , _desVersionLabel = Nothing
-    , _desMaxRecords = Nothing
-    , _desApplicationName = Nothing
-    , _desIncludedDeletedBackTo = Nothing
-    , _desIncludeDeleted = Nothing
+    { nextToken = Prelude.Nothing,
+      environmentNames = Prelude.Nothing,
+      environmentIds = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      includeDeleted = Prelude.Nothing,
+      includedDeletedBackTo = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | For a paginated request. Specify a token from a previous response page
+-- to retrieve the next response page. All other parameter values must be
+-- identical to the ones specified in the initial request.
+--
+-- If no @NextToken@ is specified, the first page is retrieved.
+describeEnvironments_nextToken :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
+describeEnvironments_nextToken = Lens.lens (\DescribeEnvironments' {nextToken} -> nextToken) (\s@DescribeEnvironments' {} a -> s {nextToken = a} :: DescribeEnvironments)
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
-desEnvironmentIds :: Lens' DescribeEnvironments [Text]
-desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a}) . _Default . _Coerce
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified names.
+describeEnvironments_environmentNames :: Lens.Lens' DescribeEnvironments (Prelude.Maybe [Prelude.Text])
+describeEnvironments_environmentNames = Lens.lens (\DescribeEnvironments' {environmentNames} -> environmentNames) (\s@DescribeEnvironments' {} a -> s {environmentNames = a} :: DescribeEnvironments) Prelude.. Lens.mapping Lens._Coerce
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
-desEnvironmentNames :: Lens' DescribeEnvironments [Text]
-desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default . _Coerce
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified IDs.
+describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Prelude.Maybe [Prelude.Text])
+describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Prelude.. Lens.mapping Lens._Coerce
 
--- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
-desNextToken :: Lens' DescribeEnvironments (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a})
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application version.
+describeEnvironments_versionLabel :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
+describeEnvironments_versionLabel = Lens.lens (\DescribeEnvironments' {versionLabel} -> versionLabel) (\s@DescribeEnvironments' {} a -> s {versionLabel = a} :: DescribeEnvironments)
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
-desVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a})
+-- | Indicates whether to include deleted environments:
+--
+-- @true@: Environments that have been deleted after
+-- @IncludedDeletedBackTo@ are displayed.
+--
+-- @false@: Do not include deleted environments.
+describeEnvironments_includeDeleted :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Bool)
+describeEnvironments_includeDeleted = Lens.lens (\DescribeEnvironments' {includeDeleted} -> includeDeleted) (\s@DescribeEnvironments' {} a -> s {includeDeleted = a} :: DescribeEnvironments)
 
--- | For a paginated request. Specify a maximum number of environments to include in each response. If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
-desMaxRecords :: Lens' DescribeEnvironments (Maybe Natural)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a}) . mapping _Nat
+-- | If specified when @IncludeDeleted@ is set to @true@, then environments
+-- deleted after this date are displayed.
+describeEnvironments_includedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.UTCTime)
+describeEnvironments_includedDeletedBackTo = Lens.lens (\DescribeEnvironments' {includedDeletedBackTo} -> includedDeletedBackTo) (\s@DescribeEnvironments' {} a -> s {includedDeletedBackTo = a} :: DescribeEnvironments) Prelude.. Lens.mapping Core._Time
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
-desApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a})
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application.
+describeEnvironments_applicationName :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
+describeEnvironments_applicationName = Lens.lens (\DescribeEnvironments' {applicationName} -> applicationName) (\s@DescribeEnvironments' {} a -> s {applicationName = a} :: DescribeEnvironments)
 
--- | If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
-desIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
-desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desIncludedDeletedBackTo = a}) . mapping _Time
+-- | For a paginated request. Specify a maximum number of environments to
+-- include in each response.
+--
+-- If no @MaxRecords@ is specified, all available environments are
+-- retrieved in a single response.
+describeEnvironments_maxRecords :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Natural)
+describeEnvironments_maxRecords = Lens.lens (\DescribeEnvironments' {maxRecords} -> maxRecords) (\s@DescribeEnvironments' {} a -> s {maxRecords = a} :: DescribeEnvironments)
 
--- | Indicates whether to include deleted environments: @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed. @false@ : Do not include deleted environments.
-desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a})
+instance Core.AWSPager DescribeEnvironments where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? environmentDescriptionsMessage_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? environmentDescriptionsMessage_environments
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEnvironments_nextToken
+          Lens..~ rs
+          Lens.^? environmentDescriptionsMessage_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeEnvironments where
-        type Rs DescribeEnvironments =
-             EnvironmentDescriptionsMessage
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper "DescribeEnvironmentsResult"
-              (\ s h x -> parseXML x)
+instance Core.AWSRequest DescribeEnvironments where
+  type
+    AWSResponse DescribeEnvironments =
+      EnvironmentDescriptionsMessage
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeEnvironmentsResult"
+      (\s h x -> Core.parseXML x)
 
-instance Hashable DescribeEnvironments where
+instance Prelude.Hashable DescribeEnvironments
 
-instance NFData DescribeEnvironments where
+instance Prelude.NFData DescribeEnvironments
 
-instance ToHeaders DescribeEnvironments where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeEnvironments where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeEnvironments where
-        toPath = const "/"
+instance Core.ToPath DescribeEnvironments where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeEnvironments where
-        toQuery DescribeEnvironments'{..}
-          = mconcat
-              ["Action" =: ("DescribeEnvironments" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentIds" =:
-                 toQuery
-                   (toQueryList "member" <$> _desEnvironmentIds),
-               "EnvironmentNames" =:
-                 toQuery
-                   (toQueryList "member" <$> _desEnvironmentNames),
-               "NextToken" =: _desNextToken,
-               "VersionLabel" =: _desVersionLabel,
-               "MaxRecords" =: _desMaxRecords,
-               "ApplicationName" =: _desApplicationName,
-               "IncludedDeletedBackTo" =: _desIncludedDeletedBackTo,
-               "IncludeDeleted" =: _desIncludeDeleted]
+instance Core.ToQuery DescribeEnvironments where
+  toQuery DescribeEnvironments' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeEnvironments" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        "EnvironmentNames"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> environmentNames
+            ),
+        "EnvironmentIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> environmentIds
+            ),
+        "VersionLabel" Core.=: versionLabel,
+        "IncludeDeleted" Core.=: includeDeleted,
+        "IncludedDeletedBackTo"
+          Core.=: includedDeletedBackTo,
+        "ApplicationName" Core.=: applicationName,
+        "MaxRecords" Core.=: maxRecords
+      ]

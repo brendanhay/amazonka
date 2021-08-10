@@ -1,184 +1,246 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the user attributes and metadata for a user.
---
---
 module Network.AWS.CognitoIdentityProvider.GetUser
-    (
-    -- * Creating a Request
-      getUser
-    , GetUser
+  ( -- * Creating a Request
+    GetUser (..),
+    newGetUser,
+
     -- * Request Lenses
-    , guAccessToken
+    getUser_accessToken,
 
     -- * Destructuring the Response
-    , getUserResponse
-    , GetUserResponse
+    GetUserResponse (..),
+    newGetUserResponse,
+
     -- * Response Lenses
-    , gursUserMFASettingList
-    , gursMFAOptions
-    , gursPreferredMFASetting
-    , gursResponseStatus
-    , gursUsername
-    , gursUserAttributes
-    ) where
+    getUserResponse_preferredMfaSetting,
+    getUserResponse_userMFASettingList,
+    getUserResponse_mfaOptions,
+    getUserResponse_httpStatus,
+    getUserResponse_username,
+    getUserResponse_userAttributes,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to get information about the user.
 --
---
---
--- /See:/ 'getUser' smart constructor.
-newtype GetUser = GetUser'
-  { _guAccessToken :: Sensitive Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetUser' smart constructor.
+data GetUser = GetUser'
+  { -- | The access token returned by the server response to get information
+    -- about the user.
+    accessToken :: Core.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'guAccessToken' - The access token returned by the server response to get information about the user.
-getUser
-    :: Text -- ^ 'guAccessToken'
-    -> GetUser
-getUser pAccessToken_ = GetUser' {_guAccessToken = _Sensitive # pAccessToken_}
-
-
--- | The access token returned by the server response to get information about the user.
-guAccessToken :: Lens' GetUser Text
-guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . _Sensitive
-
-instance AWSRequest GetUser where
-        type Rs GetUser = GetUserResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetUserResponse' <$>
-                   (x .?> "UserMFASettingList" .!@ mempty) <*>
-                     (x .?> "MFAOptions" .!@ mempty)
-                     <*> (x .?> "PreferredMfaSetting")
-                     <*> (pure (fromEnum s))
-                     <*> (x .:> "Username")
-                     <*> (x .?> "UserAttributes" .!@ mempty))
-
-instance Hashable GetUser where
-
-instance NFData GetUser where
-
-instance ToHeaders GetUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.GetUser" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetUser where
-        toJSON GetUser'{..}
-          = object
-              (catMaybes [Just ("AccessToken" .= _guAccessToken)])
-
-instance ToPath GetUser where
-        toPath = const "/"
-
-instance ToQuery GetUser where
-        toQuery = const mempty
-
--- | Represents the response from the server from the request to get information about the user.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
---
---
--- /See:/ 'getUserResponse' smart constructor.
-data GetUserResponse = GetUserResponse'
-  { _gursUserMFASettingList  :: !(Maybe [Text])
-  , _gursMFAOptions          :: !(Maybe [MFAOptionType])
-  , _gursPreferredMFASetting :: !(Maybe Text)
-  , _gursResponseStatus      :: !Int
-  , _gursUsername            :: !(Sensitive Text)
-  , _gursUserAttributes      :: ![AttributeType]
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gursUserMFASettingList' - The list of the user's MFA settings.
---
--- * 'gursMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
---
--- * 'gursPreferredMFASetting' - The user's preferred MFA setting.
---
--- * 'gursResponseStatus' - -- | The response status code.
---
--- * 'gursUsername' - The user name of the user you wish to retrieve from the get user request.
---
--- * 'gursUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-getUserResponse
-    :: Int -- ^ 'gursResponseStatus'
-    -> Text -- ^ 'gursUsername'
-    -> GetUserResponse
-getUserResponse pResponseStatus_ pUsername_ =
-  GetUserResponse'
-    { _gursUserMFASettingList = Nothing
-    , _gursMFAOptions = Nothing
-    , _gursPreferredMFASetting = Nothing
-    , _gursResponseStatus = pResponseStatus_
-    , _gursUsername = _Sensitive # pUsername_
-    , _gursUserAttributes = mempty
+-- 'accessToken', 'getUser_accessToken' - The access token returned by the server response to get information
+-- about the user.
+newGetUser ::
+  -- | 'accessToken'
+  Prelude.Text ->
+  GetUser
+newGetUser pAccessToken_ =
+  GetUser'
+    { accessToken =
+        Core._Sensitive Lens.# pAccessToken_
     }
 
+-- | The access token returned by the server response to get information
+-- about the user.
+getUser_accessToken :: Lens.Lens' GetUser Prelude.Text
+getUser_accessToken = Lens.lens (\GetUser' {accessToken} -> accessToken) (\s@GetUser' {} a -> s {accessToken = a} :: GetUser) Prelude.. Core._Sensitive
 
--- | The list of the user's MFA settings.
-gursUserMFASettingList :: Lens' GetUserResponse [Text]
-gursUserMFASettingList = lens _gursUserMFASettingList (\ s a -> s{_gursUserMFASettingList = a}) . _Default . _Coerce
+instance Core.AWSRequest GetUser where
+  type AWSResponse GetUser = GetUserResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetUserResponse'
+            Prelude.<$> (x Core..?> "PreferredMfaSetting")
+            Prelude.<*> ( x Core..?> "UserMFASettingList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "MFAOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Username")
+            Prelude.<*> ( x Core..?> "UserAttributes"
+                            Core..!@ Prelude.mempty
+                        )
+      )
 
--- | Specifies the options for MFA (e.g., email or phone number).
-gursMFAOptions :: Lens' GetUserResponse [MFAOptionType]
-gursMFAOptions = lens _gursMFAOptions (\ s a -> s{_gursMFAOptions = a}) . _Default . _Coerce
+instance Prelude.Hashable GetUser
 
--- | The user's preferred MFA setting.
-gursPreferredMFASetting :: Lens' GetUserResponse (Maybe Text)
-gursPreferredMFASetting = lens _gursPreferredMFASetting (\ s a -> s{_gursPreferredMFASetting = a})
+instance Prelude.NFData GetUser
 
--- | -- | The response status code.
-gursResponseStatus :: Lens' GetUserResponse Int
-gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a})
+instance Core.ToHeaders GetUser where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.GetUser" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
--- | The user name of the user you wish to retrieve from the get user request.
-gursUsername :: Lens' GetUserResponse Text
-gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive
+instance Core.ToJSON GetUser where
+  toJSON GetUser' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("AccessToken" Core..= accessToken)]
+      )
 
--- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-gursUserAttributes :: Lens' GetUserResponse [AttributeType]
-gursUserAttributes = lens _gursUserAttributes (\ s a -> s{_gursUserAttributes = a}) . _Coerce
+instance Core.ToPath GetUser where
+  toPath = Prelude.const "/"
 
-instance NFData GetUserResponse where
+instance Core.ToQuery GetUser where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the response from the server from the request to get
+-- information about the user.
+--
+-- /See:/ 'newGetUserResponse' smart constructor.
+data GetUserResponse = GetUserResponse'
+  { -- | The user\'s preferred MFA setting.
+    preferredMfaSetting :: Prelude.Maybe Prelude.Text,
+    -- | The MFA options that are enabled for the user. The possible values in
+    -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
+    userMFASettingList :: Prelude.Maybe [Prelude.Text],
+    -- | /This response parameter is no longer supported./ It provides
+    -- information only about SMS MFA configurations. It doesn\'t provide
+    -- information about TOTP software token MFA configurations. To look up
+    -- information about either type of MFA configuration, use
+    -- UserMFASettingList instead.
+    mfaOptions :: Prelude.Maybe [MFAOptionType],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The user name of the user you wish to retrieve from the get user
+    -- request.
+    username :: Core.Sensitive Prelude.Text,
+    -- | An array of name-value pairs representing user attributes.
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the
+    -- attribute name.
+    userAttributes :: [AttributeType]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetUserResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'preferredMfaSetting', 'getUserResponse_preferredMfaSetting' - The user\'s preferred MFA setting.
+--
+-- 'userMFASettingList', 'getUserResponse_userMFASettingList' - The MFA options that are enabled for the user. The possible values in
+-- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
+--
+-- 'mfaOptions', 'getUserResponse_mfaOptions' - /This response parameter is no longer supported./ It provides
+-- information only about SMS MFA configurations. It doesn\'t provide
+-- information about TOTP software token MFA configurations. To look up
+-- information about either type of MFA configuration, use
+-- UserMFASettingList instead.
+--
+-- 'httpStatus', 'getUserResponse_httpStatus' - The response's http status code.
+--
+-- 'username', 'getUserResponse_username' - The user name of the user you wish to retrieve from the get user
+-- request.
+--
+-- 'userAttributes', 'getUserResponse_userAttributes' - An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the
+-- attribute name.
+newGetUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'username'
+  Prelude.Text ->
+  GetUserResponse
+newGetUserResponse pHttpStatus_ pUsername_ =
+  GetUserResponse'
+    { preferredMfaSetting =
+        Prelude.Nothing,
+      userMFASettingList = Prelude.Nothing,
+      mfaOptions = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      username = Core._Sensitive Lens.# pUsername_,
+      userAttributes = Prelude.mempty
+    }
+
+-- | The user\'s preferred MFA setting.
+getUserResponse_preferredMfaSetting :: Lens.Lens' GetUserResponse (Prelude.Maybe Prelude.Text)
+getUserResponse_preferredMfaSetting = Lens.lens (\GetUserResponse' {preferredMfaSetting} -> preferredMfaSetting) (\s@GetUserResponse' {} a -> s {preferredMfaSetting = a} :: GetUserResponse)
+
+-- | The MFA options that are enabled for the user. The possible values in
+-- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
+getUserResponse_userMFASettingList :: Lens.Lens' GetUserResponse (Prelude.Maybe [Prelude.Text])
+getUserResponse_userMFASettingList = Lens.lens (\GetUserResponse' {userMFASettingList} -> userMFASettingList) (\s@GetUserResponse' {} a -> s {userMFASettingList = a} :: GetUserResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | /This response parameter is no longer supported./ It provides
+-- information only about SMS MFA configurations. It doesn\'t provide
+-- information about TOTP software token MFA configurations. To look up
+-- information about either type of MFA configuration, use
+-- UserMFASettingList instead.
+getUserResponse_mfaOptions :: Lens.Lens' GetUserResponse (Prelude.Maybe [MFAOptionType])
+getUserResponse_mfaOptions = Lens.lens (\GetUserResponse' {mfaOptions} -> mfaOptions) (\s@GetUserResponse' {} a -> s {mfaOptions = a} :: GetUserResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+getUserResponse_httpStatus :: Lens.Lens' GetUserResponse Prelude.Int
+getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpStatus) (\s@GetUserResponse' {} a -> s {httpStatus = a} :: GetUserResponse)
+
+-- | The user name of the user you wish to retrieve from the get user
+-- request.
+getUserResponse_username :: Lens.Lens' GetUserResponse Prelude.Text
+getUserResponse_username = Lens.lens (\GetUserResponse' {username} -> username) (\s@GetUserResponse' {} a -> s {username = a} :: GetUserResponse) Prelude.. Core._Sensitive
+
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the
+-- attribute name.
+getUserResponse_userAttributes :: Lens.Lens' GetUserResponse [AttributeType]
+getUserResponse_userAttributes = Lens.lens (\GetUserResponse' {userAttributes} -> userAttributes) (\s@GetUserResponse' {} a -> s {userAttributes = a} :: GetUserResponse) Prelude.. Lens._Coerce
+
+instance Prelude.NFData GetUserResponse

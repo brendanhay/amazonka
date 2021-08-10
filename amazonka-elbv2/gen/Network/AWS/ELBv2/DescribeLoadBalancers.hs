@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeLoadBalancers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,166 +22,213 @@
 --
 -- Describes the specified load balancers or all of your load balancers.
 --
---
--- To describe the listeners for a load balancer, use 'DescribeListeners' . To describe the attributes for a load balancer, use 'DescribeLoadBalancerAttributes' .
---
---
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeLoadBalancers
-    (
-    -- * Creating a Request
-      describeLoadBalancers
-    , DescribeLoadBalancers
+  ( -- * Creating a Request
+    DescribeLoadBalancers (..),
+    newDescribeLoadBalancers,
+
     -- * Request Lenses
-    , dlbNames
-    , dlbLoadBalancerARNs
-    , dlbMarker
-    , dlbPageSize
+    describeLoadBalancers_names,
+    describeLoadBalancers_pageSize,
+    describeLoadBalancers_loadBalancerArns,
+    describeLoadBalancers_marker,
 
     -- * Destructuring the Response
-    , describeLoadBalancersResponse
-    , DescribeLoadBalancersResponse
+    DescribeLoadBalancersResponse (..),
+    newDescribeLoadBalancersResponse,
+
     -- * Response Lenses
-    , dlbrsLoadBalancers
-    , dlbrsNextMarker
-    , dlbrsResponseStatus
-    ) where
+    describeLoadBalancersResponse_nextMarker,
+    describeLoadBalancersResponse_loadBalancers,
+    describeLoadBalancersResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeLoadBalancers' smart constructor.
+-- | /See:/ 'newDescribeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { _dlbNames            :: !(Maybe [Text])
-  , _dlbLoadBalancerARNs :: !(Maybe [Text])
-  , _dlbMarker           :: !(Maybe Text)
-  , _dlbPageSize         :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The names of the load balancers.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Names (ARN) of the load balancers. You can specify
+    -- up to 20 load balancers in a single call.
+    loadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    -- | The marker for the next set of results. (You received this marker from a
+    -- previous call.)
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLoadBalancers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlbNames' - The names of the load balancers.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dlbLoadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
+-- 'names', 'describeLoadBalancers_names' - The names of the load balancers.
 --
--- * 'dlbMarker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- 'pageSize', 'describeLoadBalancers_pageSize' - The maximum number of results to return with this call.
 --
--- * 'dlbPageSize' - The maximum number of results to return with this call.
-describeLoadBalancers
-    :: DescribeLoadBalancers
-describeLoadBalancers =
+-- 'loadBalancerArns', 'describeLoadBalancers_loadBalancerArns' - The Amazon Resource Names (ARN) of the load balancers. You can specify
+-- up to 20 load balancers in a single call.
+--
+-- 'marker', 'describeLoadBalancers_marker' - The marker for the next set of results. (You received this marker from a
+-- previous call.)
+newDescribeLoadBalancers ::
+  DescribeLoadBalancers
+newDescribeLoadBalancers =
   DescribeLoadBalancers'
-    { _dlbNames = Nothing
-    , _dlbLoadBalancerARNs = Nothing
-    , _dlbMarker = Nothing
-    , _dlbPageSize = Nothing
+    { names = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      loadBalancerArns = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
-
 
 -- | The names of the load balancers.
-dlbNames :: Lens' DescribeLoadBalancers [Text]
-dlbNames = lens _dlbNames (\ s a -> s{_dlbNames = a}) . _Default . _Coerce
-
--- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
-dlbLoadBalancerARNs :: Lens' DescribeLoadBalancers [Text]
-dlbLoadBalancerARNs = lens _dlbLoadBalancerARNs (\ s a -> s{_dlbLoadBalancerARNs = a}) . _Default . _Coerce
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
-dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a})
+describeLoadBalancers_names :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe [Prelude.Text])
+describeLoadBalancers_names = Lens.lens (\DescribeLoadBalancers' {names} -> names) (\s@DescribeLoadBalancers' {} a -> s {names = a} :: DescribeLoadBalancers) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return with this call.
-dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
-dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat
+describeLoadBalancers_pageSize :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Natural)
+describeLoadBalancers_pageSize = Lens.lens (\DescribeLoadBalancers' {pageSize} -> pageSize) (\s@DescribeLoadBalancers' {} a -> s {pageSize = a} :: DescribeLoadBalancers)
 
-instance AWSPager DescribeLoadBalancers where
-        page rq rs
-          | stop (rs ^. dlbrsNextMarker) = Nothing
-          | stop (rs ^. dlbrsLoadBalancers) = Nothing
-          | otherwise =
-            Just $ rq & dlbMarker .~ rs ^. dlbrsNextMarker
+-- | The Amazon Resource Names (ARN) of the load balancers. You can specify
+-- up to 20 load balancers in a single call.
+describeLoadBalancers_loadBalancerArns :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe [Prelude.Text])
+describeLoadBalancers_loadBalancerArns = Lens.lens (\DescribeLoadBalancers' {loadBalancerArns} -> loadBalancerArns) (\s@DescribeLoadBalancers' {} a -> s {loadBalancerArns = a} :: DescribeLoadBalancers) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest DescribeLoadBalancers where
-        type Rs DescribeLoadBalancers =
-             DescribeLoadBalancersResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "DescribeLoadBalancersResult"
-              (\ s h x ->
-                 DescribeLoadBalancersResponse' <$>
-                   (x .@? "LoadBalancers" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "NextMarker")
-                     <*> (pure (fromEnum s)))
+-- | The marker for the next set of results. (You received this marker from a
+-- previous call.)
+describeLoadBalancers_marker :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Text)
+describeLoadBalancers_marker = Lens.lens (\DescribeLoadBalancers' {marker} -> marker) (\s@DescribeLoadBalancers' {} a -> s {marker = a} :: DescribeLoadBalancers)
 
-instance Hashable DescribeLoadBalancers where
+instance Core.AWSPager DescribeLoadBalancers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeLoadBalancersResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeLoadBalancersResponse_loadBalancers
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeLoadBalancers_marker
+          Lens..~ rs
+          Lens.^? describeLoadBalancersResponse_nextMarker
+            Prelude.. Lens._Just
 
-instance NFData DescribeLoadBalancers where
+instance Core.AWSRequest DescribeLoadBalancers where
+  type
+    AWSResponse DescribeLoadBalancers =
+      DescribeLoadBalancersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeLoadBalancersResult"
+      ( \s h x ->
+          DescribeLoadBalancersResponse'
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders DescribeLoadBalancers where
-        toHeaders = const mempty
+instance Prelude.Hashable DescribeLoadBalancers
 
-instance ToPath DescribeLoadBalancers where
-        toPath = const "/"
+instance Prelude.NFData DescribeLoadBalancers
 
-instance ToQuery DescribeLoadBalancers where
-        toQuery DescribeLoadBalancers'{..}
-          = mconcat
-              ["Action" =: ("DescribeLoadBalancers" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "Names" =:
-                 toQuery (toQueryList "member" <$> _dlbNames),
-               "LoadBalancerArns" =:
-                 toQuery
-                   (toQueryList "member" <$> _dlbLoadBalancerARNs),
-               "Marker" =: _dlbMarker, "PageSize" =: _dlbPageSize]
+instance Core.ToHeaders DescribeLoadBalancers where
+  toHeaders = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeLoadBalancersResponse' smart constructor.
+instance Core.ToPath DescribeLoadBalancers where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeLoadBalancers where
+  toQuery DescribeLoadBalancers' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "Names"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> names),
+        "PageSize" Core.=: pageSize,
+        "LoadBalancerArns"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> loadBalancerArns
+            ),
+        "Marker" Core.=: marker
+      ]
+
+-- | /See:/ 'newDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-  { _dlbrsLoadBalancers  :: !(Maybe [LoadBalancer])
-  , _dlbrsNextMarker     :: !(Maybe Text)
-  , _dlbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If there are additional results, this is the marker for the next set of
+    -- results. Otherwise, this is null.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Information about the load balancers.
+    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLoadBalancersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlbrsLoadBalancers' - Information about the load balancers.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dlbrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+-- 'nextMarker', 'describeLoadBalancersResponse_nextMarker' - If there are additional results, this is the marker for the next set of
+-- results. Otherwise, this is null.
 --
--- * 'dlbrsResponseStatus' - -- | The response status code.
-describeLoadBalancersResponse
-    :: Int -- ^ 'dlbrsResponseStatus'
-    -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pResponseStatus_ =
+-- 'loadBalancers', 'describeLoadBalancersResponse_loadBalancers' - Information about the load balancers.
+--
+-- 'httpStatus', 'describeLoadBalancersResponse_httpStatus' - The response's http status code.
+newDescribeLoadBalancersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLoadBalancersResponse
+newDescribeLoadBalancersResponse pHttpStatus_ =
   DescribeLoadBalancersResponse'
-    { _dlbrsLoadBalancers = Nothing
-    , _dlbrsNextMarker = Nothing
-    , _dlbrsResponseStatus = pResponseStatus_
+    { nextMarker =
+        Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | If there are additional results, this is the marker for the next set of
+-- results. Otherwise, this is null.
+describeLoadBalancersResponse_nextMarker :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe Prelude.Text)
+describeLoadBalancersResponse_nextMarker = Lens.lens (\DescribeLoadBalancersResponse' {nextMarker} -> nextMarker) (\s@DescribeLoadBalancersResponse' {} a -> s {nextMarker = a} :: DescribeLoadBalancersResponse)
 
 -- | Information about the load balancers.
-dlbrsLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancer]
-dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce
+describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe [LoadBalancer])
+describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a})
+-- | The response's http status code.
+describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
+describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
--- | -- | The response status code.
-dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a})
-
-instance NFData DescribeLoadBalancersResponse where
+instance Prelude.NFData DescribeLoadBalancersResponse

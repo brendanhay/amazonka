@@ -1,147 +1,204 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Comprehend.BatchDetectDominantLanguage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html Amazon Comprehend Supported Languages> .
---
---
+-- Determines the dominant language of the input text for a batch of
+-- documents. For a list of languages that Amazon Comprehend can detect,
+-- see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html Amazon Comprehend Supported Languages>.
 module Network.AWS.Comprehend.BatchDetectDominantLanguage
-    (
-    -- * Creating a Request
-      batchDetectDominantLanguage
-    , BatchDetectDominantLanguage
+  ( -- * Creating a Request
+    BatchDetectDominantLanguage (..),
+    newBatchDetectDominantLanguage,
+
     -- * Request Lenses
-    , bddlTextList
+    batchDetectDominantLanguage_textList,
 
     -- * Destructuring the Response
-    , batchDetectDominantLanguageResponse
-    , BatchDetectDominantLanguageResponse
+    BatchDetectDominantLanguageResponse (..),
+    newBatchDetectDominantLanguageResponse,
+
     -- * Response Lenses
-    , bddlrsResponseStatus
-    , bddlrsResultList
-    , bddlrsErrorList
-    ) where
+    batchDetectDominantLanguageResponse_httpStatus,
+    batchDetectDominantLanguageResponse_resultList,
+    batchDetectDominantLanguageResponse_errorList,
+  )
+where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Comprehend.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchDetectDominantLanguage' smart constructor.
-newtype BatchDetectDominantLanguage = BatchDetectDominantLanguage'
-  { _bddlTextList :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newBatchDetectDominantLanguage' smart constructor.
+data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
+  { -- | A list containing the text of the input documents. The list can contain
+    -- a maximum of 25 documents. Each document should contain at least 20
+    -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
+    -- characters.
+    textList :: Core.Sensitive [Core.Sensitive Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchDetectDominantLanguage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchDetectDominantLanguage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bddlTextList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.
-batchDetectDominantLanguage
-    :: BatchDetectDominantLanguage
-batchDetectDominantLanguage =
-  BatchDetectDominantLanguage' {_bddlTextList = mempty}
-
-
--- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.
-bddlTextList :: Lens' BatchDetectDominantLanguage [Text]
-bddlTextList = lens _bddlTextList (\ s a -> s{_bddlTextList = a}) . _Coerce
-
-instance AWSRequest BatchDetectDominantLanguage where
-        type Rs BatchDetectDominantLanguage =
-             BatchDetectDominantLanguageResponse
-        request = postJSON comprehend
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchDetectDominantLanguageResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "ResultList" .!@ mempty)
-                     <*> (x .?> "ErrorList" .!@ mempty))
-
-instance Hashable BatchDetectDominantLanguage where
-
-instance NFData BatchDetectDominantLanguage where
-
-instance ToHeaders BatchDetectDominantLanguage where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Comprehend_20171127.BatchDetectDominantLanguage" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON BatchDetectDominantLanguage where
-        toJSON BatchDetectDominantLanguage'{..}
-          = object
-              (catMaybes [Just ("TextList" .= _bddlTextList)])
-
-instance ToPath BatchDetectDominantLanguage where
-        toPath = const "/"
-
-instance ToQuery BatchDetectDominantLanguage where
-        toQuery = const mempty
-
--- | /See:/ 'batchDetectDominantLanguageResponse' smart constructor.
-data BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse'
-  { _bddlrsResponseStatus :: !Int
-  , _bddlrsResultList     :: ![BatchDetectDominantLanguageItemResult]
-  , _bddlrsErrorList      :: ![BatchItemError]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'BatchDetectDominantLanguageResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bddlrsResponseStatus' - -- | The response status code.
---
--- * 'bddlrsResultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
---
--- * 'bddlrsErrorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-batchDetectDominantLanguageResponse
-    :: Int -- ^ 'bddlrsResponseStatus'
-    -> BatchDetectDominantLanguageResponse
-batchDetectDominantLanguageResponse pResponseStatus_ =
-  BatchDetectDominantLanguageResponse'
-    { _bddlrsResponseStatus = pResponseStatus_
-    , _bddlrsResultList = mempty
-    , _bddlrsErrorList = mempty
+-- 'textList', 'batchDetectDominantLanguage_textList' - A list containing the text of the input documents. The list can contain
+-- a maximum of 25 documents. Each document should contain at least 20
+-- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
+-- characters.
+newBatchDetectDominantLanguage ::
+  BatchDetectDominantLanguage
+newBatchDetectDominantLanguage =
+  BatchDetectDominantLanguage'
+    { textList =
+        Prelude.mempty
     }
 
+-- | A list containing the text of the input documents. The list can contain
+-- a maximum of 25 documents. Each document should contain at least 20
+-- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
+-- characters.
+batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage [Prelude.Text]
+batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
--- | -- | The response status code.
-bddlrsResponseStatus :: Lens' BatchDetectDominantLanguageResponse Int
-bddlrsResponseStatus = lens _bddlrsResponseStatus (\ s a -> s{_bddlrsResponseStatus = a})
+instance Core.AWSRequest BatchDetectDominantLanguage where
+  type
+    AWSResponse BatchDetectDominantLanguage =
+      BatchDetectDominantLanguageResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchDetectDominantLanguageResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+      )
 
--- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-bddlrsResultList :: Lens' BatchDetectDominantLanguageResponse [BatchDetectDominantLanguageItemResult]
-bddlrsResultList = lens _bddlrsResultList (\ s a -> s{_bddlrsResultList = a}) . _Coerce
+instance Prelude.Hashable BatchDetectDominantLanguage
 
--- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-bddlrsErrorList :: Lens' BatchDetectDominantLanguageResponse [BatchItemError]
-bddlrsErrorList = lens _bddlrsErrorList (\ s a -> s{_bddlrsErrorList = a}) . _Coerce
+instance Prelude.NFData BatchDetectDominantLanguage
 
-instance NFData BatchDetectDominantLanguageResponse
-         where
+instance Core.ToHeaders BatchDetectDominantLanguage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Comprehend_20171127.BatchDetectDominantLanguage" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON BatchDetectDominantLanguage where
+  toJSON BatchDetectDominantLanguage' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("TextList" Core..= textList)]
+      )
+
+instance Core.ToPath BatchDetectDominantLanguage where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery BatchDetectDominantLanguage where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newBatchDetectDominantLanguageResponse' smart constructor.
+data BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of objects containing the results of the operation. The results
+    -- are sorted in ascending order by the @Index@ field and match the order
+    -- of the documents in the input list. If all of the documents contain an
+    -- error, the @ResultList@ is empty.
+    resultList :: [BatchDetectDominantLanguageItemResult],
+    -- | A list containing one object for each document that contained an error.
+    -- The results are sorted in ascending order by the @Index@ field and match
+    -- the order of the documents in the input list. If there are no errors in
+    -- the batch, the @ErrorList@ is empty.
+    errorList :: [BatchItemError]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchDetectDominantLanguageResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'batchDetectDominantLanguageResponse_httpStatus' - The response's http status code.
+--
+-- 'resultList', 'batchDetectDominantLanguageResponse_resultList' - A list of objects containing the results of the operation. The results
+-- are sorted in ascending order by the @Index@ field and match the order
+-- of the documents in the input list. If all of the documents contain an
+-- error, the @ResultList@ is empty.
+--
+-- 'errorList', 'batchDetectDominantLanguageResponse_errorList' - A list containing one object for each document that contained an error.
+-- The results are sorted in ascending order by the @Index@ field and match
+-- the order of the documents in the input list. If there are no errors in
+-- the batch, the @ErrorList@ is empty.
+newBatchDetectDominantLanguageResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchDetectDominantLanguageResponse
+newBatchDetectDominantLanguageResponse pHttpStatus_ =
+  BatchDetectDominantLanguageResponse'
+    { httpStatus =
+        pHttpStatus_,
+      resultList = Prelude.mempty,
+      errorList = Prelude.mempty
+    }
+
+-- | The response's http status code.
+batchDetectDominantLanguageResponse_httpStatus :: Lens.Lens' BatchDetectDominantLanguageResponse Prelude.Int
+batchDetectDominantLanguageResponse_httpStatus = Lens.lens (\BatchDetectDominantLanguageResponse' {httpStatus} -> httpStatus) (\s@BatchDetectDominantLanguageResponse' {} a -> s {httpStatus = a} :: BatchDetectDominantLanguageResponse)
+
+-- | A list of objects containing the results of the operation. The results
+-- are sorted in ascending order by the @Index@ field and match the order
+-- of the documents in the input list. If all of the documents contain an
+-- error, the @ResultList@ is empty.
+batchDetectDominantLanguageResponse_resultList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchDetectDominantLanguageItemResult]
+batchDetectDominantLanguageResponse_resultList = Lens.lens (\BatchDetectDominantLanguageResponse' {resultList} -> resultList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {resultList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
+
+-- | A list containing one object for each document that contained an error.
+-- The results are sorted in ascending order by the @Index@ field and match
+-- the order of the documents in the input list. If there are no errors in
+-- the batch, the @ErrorList@ is empty.
+batchDetectDominantLanguageResponse_errorList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchItemError]
+batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantLanguageResponse' {errorList} -> errorList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {errorList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
+
+instance
+  Prelude.NFData
+    BatchDetectDominantLanguageResponse

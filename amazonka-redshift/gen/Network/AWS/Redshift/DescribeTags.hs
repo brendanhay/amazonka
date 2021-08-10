@@ -1,213 +1,421 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of tags. You can return tags from a specific resource by specifying an ARN, or you can return all tags for a given type of resource, such as clusters, snapshots, and so on.
+-- Returns a list of tags. You can return tags from a specific resource by
+-- specifying an ARN, or you can return all tags for a given type of
+-- resource, such as clusters, snapshots, and so on.
 --
+-- The following are limitations for @DescribeTags@:
 --
--- The following are limitations for @DescribeTags@ :
+-- -   You cannot specify an ARN and a resource-type value together in the
+--     same request.
 --
---     * You cannot specify an ARN and a resource-type value together in the same request.
+-- -   You cannot use the @MaxRecords@ and @Marker@ parameters together
+--     with the ARN parameter.
 --
---     * You cannot use the @MaxRecords@ and @Marker@ parameters together with the ARN parameter.
+-- -   The @MaxRecords@ parameter can be a range from 10 to 50 results to
+--     return in a request.
 --
---     * The @MaxRecords@ parameter can be a range from 10 to 50 results to return in a request.
+-- If you specify both tag keys and tag values in the same request, Amazon
+-- Redshift returns all resources that match any combination of the
+-- specified keys and values. For example, if you have @owner@ and
+-- @environment@ for tag keys, and @admin@ and @test@ for tag values, all
+-- resources that have any combination of those values are returned.
 --
+-- If both tag keys and values are omitted from the request, resources are
+-- returned regardless of whether they have tag keys or values associated
+-- with them.
 --
---
--- If you specify both tag keys and tag values in the same request, Amazon Redshift returns all resources that match any combination of the specified keys and values. For example, if you have @owner@ and @environment@ for tag keys, and @admin@ and @test@ for tag values, all resources that have any combination of those values are returned.
---
--- If both tag keys and values are omitted from the request, resources are returned regardless of whether they have tag keys or values associated with them.
---
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeTags
-    (
-    -- * Creating a Request
-      describeTags
-    , DescribeTags
+  ( -- * Creating a Request
+    DescribeTags (..),
+    newDescribeTags,
+
     -- * Request Lenses
-    , dtTagValues
-    , dtResourceType
-    , dtResourceName
-    , dtTagKeys
-    , dtMarker
-    , dtMaxRecords
+    describeTags_tagKeys,
+    describeTags_resourceType,
+    describeTags_resourceName,
+    describeTags_tagValues,
+    describeTags_marker,
+    describeTags_maxRecords,
 
     -- * Destructuring the Response
-    , describeTagsResponse
-    , DescribeTagsResponse
+    DescribeTagsResponse (..),
+    newDescribeTagsResponse,
+
     -- * Response Lenses
-    , dtrsMarker
-    , dtrsTaggedResources
-    , dtrsResponseStatus
-    ) where
+    describeTagsResponse_taggedResources,
+    describeTagsResponse_marker,
+    describeTagsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeTags' smart constructor.
+-- /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { _dtTagValues    :: !(Maybe [Text])
-  , _dtResourceType :: !(Maybe Text)
-  , _dtResourceName :: !(Maybe Text)
-  , _dtTagKeys      :: !(Maybe [Text])
-  , _dtMarker       :: !(Maybe Text)
-  , _dtMaxRecords   :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A tag key or keys for which you want to return all matching resources
+    -- that are associated with the specified key or keys. For example, suppose
+    -- that you have resources tagged with keys called @owner@ and
+    -- @environment@. If you specify both of these tag keys in the request,
+    -- Amazon Redshift returns a response with all resources that have either
+    -- or both of these tag keys associated with them.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
+    -- | The type of resource with which you want to view tags. Valid resource
+    -- types are:
+    --
+    -- -   Cluster
+    --
+    -- -   CIDR\/IP
+    --
+    -- -   EC2 security group
+    --
+    -- -   Snapshot
+    --
+    -- -   Cluster security group
+    --
+    -- -   Subnet group
+    --
+    -- -   HSM connection
+    --
+    -- -   HSM certificate
+    --
+    -- -   Parameter group
+    --
+    -- -   Snapshot copy grant
+    --
+    -- For more information about Amazon Redshift resource types and
+    -- constructing ARNs, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
+    -- in the Amazon Redshift Cluster Management Guide.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
+    -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching
+    -- resources that are associated with the specified value or values. For
+    -- example, suppose that you have resources tagged with values called
+    -- @admin@ and @test@. If you specify both of these tag values in the
+    -- request, Amazon Redshift returns a response with all resources that have
+    -- either or both of these tag values associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates the starting point for the next set of response
+    -- records in a subsequent request. If a value is returned in a response,
+    -- you can retrieve the next set of records by providing this returned
+    -- marker value in the @marker@ parameter and retrying the command. If the
+    -- @marker@ field is empty, all response records have been retrieved for
+    -- the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number or response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned @marker@ value.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtTagValues' - A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtResourceType' - The type of resource with which you want to view tags. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group     * Snapshot copy grant For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals> in the Amazon Redshift Cluster Management Guide.
+-- 'tagKeys', 'describeTags_tagKeys' - A tag key or keys for which you want to return all matching resources
+-- that are associated with the specified key or keys. For example, suppose
+-- that you have resources tagged with keys called @owner@ and
+-- @environment@. If you specify both of these tag keys in the request,
+-- Amazon Redshift returns a response with all resources that have either
+-- or both of these tag keys associated with them.
 --
--- * 'dtResourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
+-- 'resourceType', 'describeTags_resourceType' - The type of resource with which you want to view tags. Valid resource
+-- types are:
 --
--- * 'dtTagKeys' - A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
+-- -   Cluster
 --
--- * 'dtMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
+-- -   CIDR\/IP
 --
--- * 'dtMaxRecords' - The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
-describeTags
-    :: DescribeTags
-describeTags =
+-- -   EC2 security group
+--
+-- -   Snapshot
+--
+-- -   Cluster security group
+--
+-- -   Subnet group
+--
+-- -   HSM connection
+--
+-- -   HSM certificate
+--
+-- -   Parameter group
+--
+-- -   Snapshot copy grant
+--
+-- For more information about Amazon Redshift resource types and
+-- constructing ARNs, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
+-- in the Amazon Redshift Cluster Management Guide.
+--
+-- 'resourceName', 'describeTags_resourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+--
+-- 'tagValues', 'describeTags_tagValues' - A tag value or values for which you want to return all matching
+-- resources that are associated with the specified value or values. For
+-- example, suppose that you have resources tagged with values called
+-- @admin@ and @test@. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with all resources that have
+-- either or both of these tag values associated with them.
+--
+-- 'marker', 'describeTags_marker' - A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @marker@ parameter and retrying the command. If the
+-- @marker@ field is empty, all response records have been retrieved for
+-- the request.
+--
+-- 'maxRecords', 'describeTags_maxRecords' - The maximum number or response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned @marker@ value.
+newDescribeTags ::
+  DescribeTags
+newDescribeTags =
   DescribeTags'
-    { _dtTagValues = Nothing
-    , _dtResourceType = Nothing
-    , _dtResourceName = Nothing
-    , _dtTagKeys = Nothing
-    , _dtMarker = Nothing
-    , _dtMaxRecords = Nothing
+    { tagKeys = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | A tag key or keys for which you want to return all matching resources
+-- that are associated with the specified key or keys. For example, suppose
+-- that you have resources tagged with keys called @owner@ and
+-- @environment@. If you specify both of these tag keys in the request,
+-- Amazon Redshift returns a response with all resources that have either
+-- or both of these tag keys associated with them.
+describeTags_tagKeys :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
+describeTags_tagKeys = Lens.lens (\DescribeTags' {tagKeys} -> tagKeys) (\s@DescribeTags' {} a -> s {tagKeys = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
--- | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
-dtTagValues :: Lens' DescribeTags [Text]
-dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default . _Coerce
+-- | The type of resource with which you want to view tags. Valid resource
+-- types are:
+--
+-- -   Cluster
+--
+-- -   CIDR\/IP
+--
+-- -   EC2 security group
+--
+-- -   Snapshot
+--
+-- -   Cluster security group
+--
+-- -   Subnet group
+--
+-- -   HSM connection
+--
+-- -   HSM certificate
+--
+-- -   Parameter group
+--
+-- -   Snapshot copy grant
+--
+-- For more information about Amazon Redshift resource types and
+-- constructing ARNs, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
+-- in the Amazon Redshift Cluster Management Guide.
+describeTags_resourceType :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_resourceType = Lens.lens (\DescribeTags' {resourceType} -> resourceType) (\s@DescribeTags' {} a -> s {resourceType = a} :: DescribeTags)
 
--- | The type of resource with which you want to view tags. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group     * Snapshot copy grant For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals> in the Amazon Redshift Cluster Management Guide.
-dtResourceType :: Lens' DescribeTags (Maybe Text)
-dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a})
+-- | The Amazon Resource Name (ARN) for which you want to describe the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+describeTags_resourceName :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resourceName) (\s@DescribeTags' {} a -> s {resourceName = a} :: DescribeTags)
 
--- | The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
-dtResourceName :: Lens' DescribeTags (Maybe Text)
-dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a})
+-- | A tag value or values for which you want to return all matching
+-- resources that are associated with the specified value or values. For
+-- example, suppose that you have resources tagged with values called
+-- @admin@ and @test@. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with all resources that have
+-- either or both of these tag values associated with them.
+describeTags_tagValues :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
+describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
--- | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
-dtTagKeys :: Lens' DescribeTags [Text]
-dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default . _Coerce
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @marker@ parameter and retrying the command. If the
+-- @marker@ field is empty, all response records have been retrieved for
+-- the request.
+describeTags_marker :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_marker = Lens.lens (\DescribeTags' {marker} -> marker) (\s@DescribeTags' {} a -> s {marker = a} :: DescribeTags)
 
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
-dtMarker :: Lens' DescribeTags (Maybe Text)
-dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a})
+-- | The maximum number or response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned @marker@ value.
+describeTags_maxRecords :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
+describeTags_maxRecords = Lens.lens (\DescribeTags' {maxRecords} -> maxRecords) (\s@DescribeTags' {} a -> s {maxRecords = a} :: DescribeTags)
 
--- | The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
-dtMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a})
+instance Core.AWSPager DescribeTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeTagsResponse_taggedResources
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeTags_marker
+          Lens..~ rs
+          Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
 
-instance AWSRequest DescribeTags where
-        type Rs DescribeTags = DescribeTagsResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "DescribeTagsResult"
-              (\ s h x ->
-                 DescribeTagsResponse' <$>
-                   (x .@? "Marker") <*>
-                     (x .@? "TaggedResources" .!@ mempty >>=
-                        may (parseXMLList "TaggedResource"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeTags where
+  type AWSResponse DescribeTags = DescribeTagsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeTagsResult"
+      ( \s h x ->
+          DescribeTagsResponse'
+            Prelude.<$> ( x Core..@? "TaggedResources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "TaggedResource")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeTags where
+instance Prelude.Hashable DescribeTags
 
-instance NFData DescribeTags where
+instance Prelude.NFData DescribeTags
 
-instance ToHeaders DescribeTags where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeTags where
-        toPath = const "/"
+instance Core.ToPath DescribeTags where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeTags where
-        toQuery DescribeTags'{..}
-          = mconcat
-              ["Action" =: ("DescribeTags" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dtTagValues),
-               "ResourceType" =: _dtResourceType,
-               "ResourceName" =: _dtResourceName,
-               "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dtTagKeys),
-               "Marker" =: _dtMarker, "MaxRecords" =: _dtMaxRecords]
+instance Core.ToQuery DescribeTags where
+  toQuery DescribeTags' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "TagKeys"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "ResourceType" Core.=: resourceType,
+        "ResourceName" Core.=: resourceName,
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
+      ]
 
 -- |
 --
---
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsMarker          :: !(Maybe Text)
-  , _dtrsTaggedResources :: !(Maybe [TaggedResource])
-  , _dtrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of tags with their associated resources.
+    taggedResources :: Prelude.Maybe [TaggedResource],
+    -- | A value that indicates the starting point for the next set of response
+    -- records in a subsequent request. If a value is returned in a response,
+    -- you can retrieve the next set of records by providing this returned
+    -- marker value in the @Marker@ parameter and retrying the command. If the
+    -- @Marker@ field is empty, all response records have been retrieved for
+    -- the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrsTaggedResources' - A list of tags with their associated resources.
+-- 'taggedResources', 'describeTagsResponse_taggedResources' - A list of tags with their associated resources.
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTagsResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DescribeTagsResponse
-describeTagsResponse pResponseStatus_ =
+-- 'marker', 'describeTagsResponse_marker' - A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+--
+-- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
+newDescribeTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTagsResponse
+newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    { _dtrsMarker = Nothing
-    , _dtrsTaggedResources = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
+    { taggedResources =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a})
 
 -- | A list of tags with their associated resources.
-dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
-dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce
+describeTagsResponse_taggedResources :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TaggedResource])
+describeTagsResponse_taggedResources = Lens.lens (\DescribeTagsResponse' {taggedResources} -> taggedResources) (\s@DescribeTagsResponse' {} a -> s {taggedResources = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+describeTagsResponse_marker :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
+describeTagsResponse_marker = Lens.lens (\DescribeTagsResponse' {marker} -> marker) (\s@DescribeTagsResponse' {} a -> s {marker = a} :: DescribeTagsResponse)
 
-instance NFData DescribeTagsResponse where
+-- | The response's http status code.
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
+describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
+
+instance Prelude.NFData DescribeTagsResponse

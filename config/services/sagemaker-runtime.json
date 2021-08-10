@@ -1,0 +1,11 @@
+{
+    "libraryName": "amazonka-sagemaker-runtime",
+    "typeOverrides": {
+        "BodyBlob": {
+            "replacedBy": {
+                "name": "Prelude.Text",
+                "underive": ["show", "read", "eq"]
+            }
+        }
+    }
+}

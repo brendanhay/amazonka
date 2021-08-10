@@ -1,100 +1,114 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the actions for the specified alarms.
---
---
 module Network.AWS.CloudWatch.EnableAlarmActions
-    (
-    -- * Creating a Request
-      enableAlarmActions
-    , EnableAlarmActions
+  ( -- * Creating a Request
+    EnableAlarmActions (..),
+    newEnableAlarmActions,
+
     -- * Request Lenses
-    , eaaAlarmNames
+    enableAlarmActions_alarmNames,
 
     -- * Destructuring the Response
-    , enableAlarmActionsResponse
-    , EnableAlarmActionsResponse
-    ) where
+    EnableAlarmActionsResponse (..),
+    newEnableAlarmActionsResponse,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'enableAlarmActions' smart constructor.
-newtype EnableAlarmActions = EnableAlarmActions'
-  { _eaaAlarmNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newEnableAlarmActions' smart constructor.
+data EnableAlarmActions = EnableAlarmActions'
+  { -- | The names of the alarms.
+    alarmNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EnableAlarmActions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableAlarmActions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'eaaAlarmNames' - The names of the alarms.
-enableAlarmActions
-    :: EnableAlarmActions
-enableAlarmActions = EnableAlarmActions' {_eaaAlarmNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'alarmNames', 'enableAlarmActions_alarmNames' - The names of the alarms.
+newEnableAlarmActions ::
+  EnableAlarmActions
+newEnableAlarmActions =
+  EnableAlarmActions' {alarmNames = Prelude.mempty}
 
 -- | The names of the alarms.
-eaaAlarmNames :: Lens' EnableAlarmActions [Text]
-eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce
+enableAlarmActions_alarmNames :: Lens.Lens' EnableAlarmActions [Prelude.Text]
+enableAlarmActions_alarmNames = Lens.lens (\EnableAlarmActions' {alarmNames} -> alarmNames) (\s@EnableAlarmActions' {} a -> s {alarmNames = a} :: EnableAlarmActions) Prelude.. Lens._Coerce
 
-instance AWSRequest EnableAlarmActions where
-        type Rs EnableAlarmActions =
-             EnableAlarmActionsResponse
-        request = postQuery cloudWatch
-        response = receiveNull EnableAlarmActionsResponse'
+instance Core.AWSRequest EnableAlarmActions where
+  type
+    AWSResponse EnableAlarmActions =
+      EnableAlarmActionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull EnableAlarmActionsResponse'
 
-instance Hashable EnableAlarmActions where
+instance Prelude.Hashable EnableAlarmActions
 
-instance NFData EnableAlarmActions where
+instance Prelude.NFData EnableAlarmActions
 
-instance ToHeaders EnableAlarmActions where
-        toHeaders = const mempty
+instance Core.ToHeaders EnableAlarmActions where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath EnableAlarmActions where
-        toPath = const "/"
+instance Core.ToPath EnableAlarmActions where
+  toPath = Prelude.const "/"
 
-instance ToQuery EnableAlarmActions where
-        toQuery EnableAlarmActions'{..}
-          = mconcat
-              ["Action" =: ("EnableAlarmActions" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _eaaAlarmNames]
+instance Core.ToQuery EnableAlarmActions where
+  toQuery EnableAlarmActions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("EnableAlarmActions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "AlarmNames"
+          Core.=: Core.toQueryList "member" alarmNames
+      ]
 
--- | /See:/ 'enableAlarmActionsResponse' smart constructor.
-data EnableAlarmActionsResponse =
-  EnableAlarmActionsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newEnableAlarmActionsResponse' smart constructor.
+data EnableAlarmActionsResponse = EnableAlarmActionsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EnableAlarmActionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableAlarmActionsResponse' with all optional fields omitted.
 --
-enableAlarmActionsResponse
-    :: EnableAlarmActionsResponse
-enableAlarmActionsResponse = EnableAlarmActionsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newEnableAlarmActionsResponse ::
+  EnableAlarmActionsResponse
+newEnableAlarmActionsResponse =
+  EnableAlarmActionsResponse'
 
-
-instance NFData EnableAlarmActionsResponse where
+instance Prelude.NFData EnableAlarmActionsResponse

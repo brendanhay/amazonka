@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeLaunchTemplates
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,177 +22,289 @@
 --
 -- Describes one or more launch templates.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeLaunchTemplates
-    (
-    -- * Creating a Request
-      describeLaunchTemplates
-    , DescribeLaunchTemplates
+  ( -- * Creating a Request
+    DescribeLaunchTemplates (..),
+    newDescribeLaunchTemplates,
+
     -- * Request Lenses
-    , dltsFilters
-    , dltsNextToken
-    , dltsLaunchTemplateIds
-    , dltsDryRun
-    , dltsMaxResults
-    , dltsLaunchTemplateNames
+    describeLaunchTemplates_nextToken,
+    describeLaunchTemplates_launchTemplateNames,
+    describeLaunchTemplates_dryRun,
+    describeLaunchTemplates_maxResults,
+    describeLaunchTemplates_launchTemplateIds,
+    describeLaunchTemplates_filters,
 
     -- * Destructuring the Response
-    , describeLaunchTemplatesResponse
-    , DescribeLaunchTemplatesResponse
+    DescribeLaunchTemplatesResponse (..),
+    newDescribeLaunchTemplatesResponse,
+
     -- * Response Lenses
-    , dltsrsLaunchTemplates
-    , dltsrsNextToken
-    , dltsrsResponseStatus
-    ) where
+    describeLaunchTemplatesResponse_nextToken,
+    describeLaunchTemplatesResponse_launchTemplates,
+    describeLaunchTemplatesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeLaunchTemplates' smart constructor.
+-- | /See:/ 'newDescribeLaunchTemplates' smart constructor.
 data DescribeLaunchTemplates = DescribeLaunchTemplates'
-  { _dltsFilters             :: !(Maybe [Filter])
-  , _dltsNextToken           :: !(Maybe Text)
-  , _dltsLaunchTemplateIds   :: !(Maybe [Text])
-  , _dltsDryRun              :: !(Maybe Bool)
-  , _dltsMaxResults          :: !(Maybe Int)
-  , _dltsLaunchTemplateNames :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more launch template names.
+    launchTemplateNames :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 1 and 200.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more launch template IDs.
+    launchTemplateIds :: Prelude.Maybe [Prelude.Text],
+    -- | One or more filters.
+    --
+    -- -   @create-time@ - The time the launch template was created.
+    --
+    -- -   @launch-template-name@ - The name of the launch template.
+    --
+    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    --     resource. Use the tag key in the filter name and the tag value as
+    --     the filter value. For example, to find all resources that have a tag
+    --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+    --     the filter name and @TeamA@ for the filter value.
+    --
+    -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+    --     filter to find all resources assigned a tag with a specific key,
+    --     regardless of the tag value.
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLaunchTemplates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLaunchTemplates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dltsFilters' - One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of the tag's key). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dltsNextToken' - The token to request the next page of results.
+-- 'nextToken', 'describeLaunchTemplates_nextToken' - The token to request the next page of results.
 --
--- * 'dltsLaunchTemplateIds' - One or more launch template IDs.
+-- 'launchTemplateNames', 'describeLaunchTemplates_launchTemplateNames' - One or more launch template names.
 --
--- * 'dltsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'describeLaunchTemplates_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dltsMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- 'maxResults', 'describeLaunchTemplates_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
 --
--- * 'dltsLaunchTemplateNames' - One or more launch template names.
-describeLaunchTemplates
-    :: DescribeLaunchTemplates
-describeLaunchTemplates =
+-- 'launchTemplateIds', 'describeLaunchTemplates_launchTemplateIds' - One or more launch template IDs.
+--
+-- 'filters', 'describeLaunchTemplates_filters' - One or more filters.
+--
+-- -   @create-time@ - The time the launch template was created.
+--
+-- -   @launch-template-name@ - The name of the launch template.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+newDescribeLaunchTemplates ::
+  DescribeLaunchTemplates
+newDescribeLaunchTemplates =
   DescribeLaunchTemplates'
-    { _dltsFilters = Nothing
-    , _dltsNextToken = Nothing
-    , _dltsLaunchTemplateIds = Nothing
-    , _dltsDryRun = Nothing
-    , _dltsMaxResults = Nothing
-    , _dltsLaunchTemplateNames = Nothing
+    { nextToken =
+        Prelude.Nothing,
+      launchTemplateNames = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      launchTemplateIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
-
-
--- | One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of the tag's key). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.
-dltsFilters :: Lens' DescribeLaunchTemplates [Filter]
-dltsFilters = lens _dltsFilters (\ s a -> s{_dltsFilters = a}) . _Default . _Coerce
 
 -- | The token to request the next page of results.
-dltsNextToken :: Lens' DescribeLaunchTemplates (Maybe Text)
-dltsNextToken = lens _dltsNextToken (\ s a -> s{_dltsNextToken = a})
-
--- | One or more launch template IDs.
-dltsLaunchTemplateIds :: Lens' DescribeLaunchTemplates [Text]
-dltsLaunchTemplateIds = lens _dltsLaunchTemplateIds (\ s a -> s{_dltsLaunchTemplateIds = a}) . _Default . _Coerce
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dltsDryRun :: Lens' DescribeLaunchTemplates (Maybe Bool)
-dltsDryRun = lens _dltsDryRun (\ s a -> s{_dltsDryRun = a})
-
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
-dltsMaxResults :: Lens' DescribeLaunchTemplates (Maybe Int)
-dltsMaxResults = lens _dltsMaxResults (\ s a -> s{_dltsMaxResults = a})
+describeLaunchTemplates_nextToken :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Text)
+describeLaunchTemplates_nextToken = Lens.lens (\DescribeLaunchTemplates' {nextToken} -> nextToken) (\s@DescribeLaunchTemplates' {} a -> s {nextToken = a} :: DescribeLaunchTemplates)
 
 -- | One or more launch template names.
-dltsLaunchTemplateNames :: Lens' DescribeLaunchTemplates [Text]
-dltsLaunchTemplateNames = lens _dltsLaunchTemplateNames (\ s a -> s{_dltsLaunchTemplateNames = a}) . _Default . _Coerce
+describeLaunchTemplates_launchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
+describeLaunchTemplates_launchTemplateNames = Lens.lens (\DescribeLaunchTemplates' {launchTemplateNames} -> launchTemplateNames) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateNames = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest DescribeLaunchTemplates where
-        type Rs DescribeLaunchTemplates =
-             DescribeLaunchTemplatesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeLaunchTemplatesResponse' <$>
-                   (x .@? "launchTemplates" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "nextToken")
-                     <*> (pure (fromEnum s)))
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeLaunchTemplates_dryRun :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Bool)
+describeLaunchTemplates_dryRun = Lens.lens (\DescribeLaunchTemplates' {dryRun} -> dryRun) (\s@DescribeLaunchTemplates' {} a -> s {dryRun = a} :: DescribeLaunchTemplates)
 
-instance Hashable DescribeLaunchTemplates where
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
+describeLaunchTemplates_maxResults :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Natural)
+describeLaunchTemplates_maxResults = Lens.lens (\DescribeLaunchTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchTemplates' {} a -> s {maxResults = a} :: DescribeLaunchTemplates)
 
-instance NFData DescribeLaunchTemplates where
+-- | One or more launch template IDs.
+describeLaunchTemplates_launchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
+describeLaunchTemplates_launchTemplateIds = Lens.lens (\DescribeLaunchTemplates' {launchTemplateIds} -> launchTemplateIds) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateIds = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
 
-instance ToHeaders DescribeLaunchTemplates where
-        toHeaders = const mempty
+-- | One or more filters.
+--
+-- -   @create-time@ - The time the launch template was created.
+--
+-- -   @launch-template-name@ - The name of the launch template.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+describeLaunchTemplates_filters :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Filter])
+describeLaunchTemplates_filters = Lens.lens (\DescribeLaunchTemplates' {filters} -> filters) (\s@DescribeLaunchTemplates' {} a -> s {filters = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
 
-instance ToPath DescribeLaunchTemplates where
-        toPath = const "/"
+instance Core.AWSPager DescribeLaunchTemplates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeLaunchTemplatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeLaunchTemplatesResponse_launchTemplates
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeLaunchTemplates_nextToken
+          Lens..~ rs
+          Lens.^? describeLaunchTemplatesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance ToQuery DescribeLaunchTemplates where
-        toQuery DescribeLaunchTemplates'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeLaunchTemplates" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dltsFilters),
-               "NextToken" =: _dltsNextToken,
-               toQuery
-                 (toQueryList "LaunchTemplateId" <$>
-                    _dltsLaunchTemplateIds),
-               "DryRun" =: _dltsDryRun,
-               "MaxResults" =: _dltsMaxResults,
-               toQuery
-                 (toQueryList "LaunchTemplateName" <$>
-                    _dltsLaunchTemplateNames)]
+instance Core.AWSRequest DescribeLaunchTemplates where
+  type
+    AWSResponse DescribeLaunchTemplates =
+      DescribeLaunchTemplatesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeLaunchTemplatesResponse'
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "launchTemplates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | /See:/ 'describeLaunchTemplatesResponse' smart constructor.
+instance Prelude.Hashable DescribeLaunchTemplates
+
+instance Prelude.NFData DescribeLaunchTemplates
+
+instance Core.ToHeaders DescribeLaunchTemplates where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeLaunchTemplates where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeLaunchTemplates where
+  toQuery DescribeLaunchTemplates' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeLaunchTemplates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "LaunchTemplateName"
+              Prelude.<$> launchTemplateNames
+          ),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          ( Core.toQueryList "LaunchTemplateId"
+              Prelude.<$> launchTemplateIds
+          ),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
+      ]
+
+-- | /See:/ 'newDescribeLaunchTemplatesResponse' smart constructor.
 data DescribeLaunchTemplatesResponse = DescribeLaunchTemplatesResponse'
-  { _dltsrsLaunchTemplates :: !(Maybe [LaunchTemplate])
-  , _dltsrsNextToken       :: !(Maybe Text)
-  , _dltsrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the launch templates.
+    launchTemplates :: Prelude.Maybe [LaunchTemplate],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLaunchTemplatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLaunchTemplatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dltsrsLaunchTemplates' - Information about the launch templates.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dltsrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- 'nextToken', 'describeLaunchTemplatesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
--- * 'dltsrsResponseStatus' - -- | The response status code.
-describeLaunchTemplatesResponse
-    :: Int -- ^ 'dltsrsResponseStatus'
-    -> DescribeLaunchTemplatesResponse
-describeLaunchTemplatesResponse pResponseStatus_ =
+-- 'launchTemplates', 'describeLaunchTemplatesResponse_launchTemplates' - Information about the launch templates.
+--
+-- 'httpStatus', 'describeLaunchTemplatesResponse_httpStatus' - The response's http status code.
+newDescribeLaunchTemplatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLaunchTemplatesResponse
+newDescribeLaunchTemplatesResponse pHttpStatus_ =
   DescribeLaunchTemplatesResponse'
-    { _dltsrsLaunchTemplates = Nothing
-    , _dltsrsNextToken = Nothing
-    , _dltsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      launchTemplates = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeLaunchTemplatesResponse_nextToken :: Lens.Lens' DescribeLaunchTemplatesResponse (Prelude.Maybe Prelude.Text)
+describeLaunchTemplatesResponse_nextToken = Lens.lens (\DescribeLaunchTemplatesResponse' {nextToken} -> nextToken) (\s@DescribeLaunchTemplatesResponse' {} a -> s {nextToken = a} :: DescribeLaunchTemplatesResponse)
 
 -- | Information about the launch templates.
-dltsrsLaunchTemplates :: Lens' DescribeLaunchTemplatesResponse [LaunchTemplate]
-dltsrsLaunchTemplates = lens _dltsrsLaunchTemplates (\ s a -> s{_dltsrsLaunchTemplates = a}) . _Default . _Coerce
+describeLaunchTemplatesResponse_launchTemplates :: Lens.Lens' DescribeLaunchTemplatesResponse (Prelude.Maybe [LaunchTemplate])
+describeLaunchTemplatesResponse_launchTemplates = Lens.lens (\DescribeLaunchTemplatesResponse' {launchTemplates} -> launchTemplates) (\s@DescribeLaunchTemplatesResponse' {} a -> s {launchTemplates = a} :: DescribeLaunchTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dltsrsNextToken :: Lens' DescribeLaunchTemplatesResponse (Maybe Text)
-dltsrsNextToken = lens _dltsrsNextToken (\ s a -> s{_dltsrsNextToken = a})
+-- | The response's http status code.
+describeLaunchTemplatesResponse_httpStatus :: Lens.Lens' DescribeLaunchTemplatesResponse Prelude.Int
+describeLaunchTemplatesResponse_httpStatus = Lens.lens (\DescribeLaunchTemplatesResponse' {httpStatus} -> httpStatus) (\s@DescribeLaunchTemplatesResponse' {} a -> s {httpStatus = a} :: DescribeLaunchTemplatesResponse)
 
--- | -- | The response status code.
-dltsrsResponseStatus :: Lens' DescribeLaunchTemplatesResponse Int
-dltsrsResponseStatus = lens _dltsrsResponseStatus (\ s a -> s{_dltsrsResponseStatus = a})
-
-instance NFData DescribeLaunchTemplatesResponse where
+instance
+  Prelude.NFData
+    DescribeLaunchTemplatesResponse

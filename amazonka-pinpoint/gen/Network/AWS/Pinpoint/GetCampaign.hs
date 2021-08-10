@@ -1,139 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaign
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a campaign.
+-- Retrieves information about the status, configuration, and other
+-- settings for a campaign.
 module Network.AWS.Pinpoint.GetCampaign
-    (
-    -- * Creating a Request
-      getCampaign
-    , GetCampaign
+  ( -- * Creating a Request
+    GetCampaign (..),
+    newGetCampaign,
+
     -- * Request Lenses
-    , getCampaignId
-    , getApplicationId
+    getCampaign_campaignId,
+    getCampaign_applicationId,
 
     -- * Destructuring the Response
-    , getCampaignResponse
-    , GetCampaignResponse
+    GetCampaignResponse (..),
+    newGetCampaignResponse,
+
     -- * Response Lenses
-    , gcrsResponseStatus
-    , gcrsCampaignResponse
-    ) where
+    getCampaignResponse_httpStatus,
+    getCampaignResponse_campaignResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getCampaign' smart constructor.
+-- | /See:/ 'newGetCampaign' smart constructor.
 data GetCampaign = GetCampaign'
-  { _getCampaignId    :: !Text
-  , _getApplicationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier for the campaign.
+    campaignId :: Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCampaign' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCampaign' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'getCampaignId' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'getApplicationId' - Undocumented member.
-getCampaign
-    :: Text -- ^ 'getCampaignId'
-    -> Text -- ^ 'getApplicationId'
-    -> GetCampaign
-getCampaign pCampaignId_ pApplicationId_ =
+-- 'campaignId', 'getCampaign_campaignId' - The unique identifier for the campaign.
+--
+-- 'applicationId', 'getCampaign_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetCampaign ::
+  -- | 'campaignId'
+  Prelude.Text ->
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetCampaign
+newGetCampaign pCampaignId_ pApplicationId_ =
   GetCampaign'
-    {_getCampaignId = pCampaignId_, _getApplicationId = pApplicationId_}
-
-
--- | Undocumented member.
-getCampaignId :: Lens' GetCampaign Text
-getCampaignId = lens _getCampaignId (\ s a -> s{_getCampaignId = a})
-
--- | Undocumented member.
-getApplicationId :: Lens' GetCampaign Text
-getApplicationId = lens _getApplicationId (\ s a -> s{_getApplicationId = a})
-
-instance AWSRequest GetCampaign where
-        type Rs GetCampaign = GetCampaignResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCampaignResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable GetCampaign where
-
-instance NFData GetCampaign where
-
-instance ToHeaders GetCampaign where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetCampaign where
-        toPath GetCampaign'{..}
-          = mconcat
-              ["/v1/apps/", toBS _getApplicationId, "/campaigns/",
-               toBS _getCampaignId]
-
-instance ToQuery GetCampaign where
-        toQuery = const mempty
-
--- | /See:/ 'getCampaignResponse' smart constructor.
-data GetCampaignResponse = GetCampaignResponse'
-  { _gcrsResponseStatus   :: !Int
-  , _gcrsCampaignResponse :: !CampaignResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetCampaignResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsResponseStatus' - -- | The response status code.
---
--- * 'gcrsCampaignResponse' - Undocumented member.
-getCampaignResponse
-    :: Int -- ^ 'gcrsResponseStatus'
-    -> CampaignResponse -- ^ 'gcrsCampaignResponse'
-    -> GetCampaignResponse
-getCampaignResponse pResponseStatus_ pCampaignResponse_ =
-  GetCampaignResponse'
-    { _gcrsResponseStatus = pResponseStatus_
-    , _gcrsCampaignResponse = pCampaignResponse_
+    { campaignId = pCampaignId_,
+      applicationId = pApplicationId_
     }
 
+-- | The unique identifier for the campaign.
+getCampaign_campaignId :: Lens.Lens' GetCampaign Prelude.Text
+getCampaign_campaignId = Lens.lens (\GetCampaign' {campaignId} -> campaignId) (\s@GetCampaign' {} a -> s {campaignId = a} :: GetCampaign)
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetCampaignResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getCampaign_applicationId :: Lens.Lens' GetCampaign Prelude.Text
+getCampaign_applicationId = Lens.lens (\GetCampaign' {applicationId} -> applicationId) (\s@GetCampaign' {} a -> s {applicationId = a} :: GetCampaign)
+
+instance Core.AWSRequest GetCampaign where
+  type AWSResponse GetCampaign = GetCampaignResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCampaignResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable GetCampaign
+
+instance Prelude.NFData GetCampaign
+
+instance Core.ToHeaders GetCampaign where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetCampaign where
+  toPath GetCampaign' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Core.toBS applicationId,
+        "/campaigns/",
+        Core.toBS campaignId
+      ]
+
+instance Core.ToQuery GetCampaign where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetCampaignResponse' smart constructor.
+data GetCampaignResponse = GetCampaignResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    campaignResponse :: CampaignResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetCampaignResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'getCampaignResponse_httpStatus' - The response's http status code.
+--
+-- 'campaignResponse', 'getCampaignResponse_campaignResponse' - Undocumented member.
+newGetCampaignResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'campaignResponse'
+  CampaignResponse ->
+  GetCampaignResponse
+newGetCampaignResponse
+  pHttpStatus_
+  pCampaignResponse_ =
+    GetCampaignResponse'
+      { httpStatus = pHttpStatus_,
+        campaignResponse = pCampaignResponse_
+      }
+
+-- | The response's http status code.
+getCampaignResponse_httpStatus :: Lens.Lens' GetCampaignResponse Prelude.Int
+getCampaignResponse_httpStatus = Lens.lens (\GetCampaignResponse' {httpStatus} -> httpStatus) (\s@GetCampaignResponse' {} a -> s {httpStatus = a} :: GetCampaignResponse)
 
 -- | Undocumented member.
-gcrsCampaignResponse :: Lens' GetCampaignResponse CampaignResponse
-gcrsCampaignResponse = lens _gcrsCampaignResponse (\ s a -> s{_gcrsCampaignResponse = a})
+getCampaignResponse_campaignResponse :: Lens.Lens' GetCampaignResponse CampaignResponse
+getCampaignResponse_campaignResponse = Lens.lens (\GetCampaignResponse' {campaignResponse} -> campaignResponse) (\s@GetCampaignResponse' {} a -> s {campaignResponse = a} :: GetCampaignResponse)
 
-instance NFData GetCampaignResponse where
+instance Prelude.NFData GetCampaignResponse

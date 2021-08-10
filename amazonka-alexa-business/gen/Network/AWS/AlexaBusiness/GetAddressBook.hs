@@ -1,133 +1,162 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.GetAddressBook
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets address the book details by the address book ARN.
---
---
 module Network.AWS.AlexaBusiness.GetAddressBook
-    (
-    -- * Creating a Request
-      getAddressBook
-    , GetAddressBook
+  ( -- * Creating a Request
+    GetAddressBook (..),
+    newGetAddressBook,
+
     -- * Request Lenses
-    , gabAddressBookARN
+    getAddressBook_addressBookArn,
 
     -- * Destructuring the Response
-    , getAddressBookResponse
-    , GetAddressBookResponse
+    GetAddressBookResponse (..),
+    newGetAddressBookResponse,
+
     -- * Response Lenses
-    , gabrsAddressBook
-    , gabrsResponseStatus
-    ) where
+    getAddressBookResponse_addressBook,
+    getAddressBookResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getAddressBook' smart constructor.
-newtype GetAddressBook = GetAddressBook'
-  { _gabAddressBookARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetAddressBook' smart constructor.
+data GetAddressBook = GetAddressBook'
+  { -- | The ARN of the address book for which to request details.
+    addressBookArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAddressBook' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAddressBook' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gabAddressBookARN' - The ARN of the address book for which to request details.
-getAddressBook
-    :: Text -- ^ 'gabAddressBookARN'
-    -> GetAddressBook
-getAddressBook pAddressBookARN_ =
-  GetAddressBook' {_gabAddressBookARN = pAddressBookARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'addressBookArn', 'getAddressBook_addressBookArn' - The ARN of the address book for which to request details.
+newGetAddressBook ::
+  -- | 'addressBookArn'
+  Prelude.Text ->
+  GetAddressBook
+newGetAddressBook pAddressBookArn_ =
+  GetAddressBook' {addressBookArn = pAddressBookArn_}
 
 -- | The ARN of the address book for which to request details.
-gabAddressBookARN :: Lens' GetAddressBook Text
-gabAddressBookARN = lens _gabAddressBookARN (\ s a -> s{_gabAddressBookARN = a})
+getAddressBook_addressBookArn :: Lens.Lens' GetAddressBook Prelude.Text
+getAddressBook_addressBookArn = Lens.lens (\GetAddressBook' {addressBookArn} -> addressBookArn) (\s@GetAddressBook' {} a -> s {addressBookArn = a} :: GetAddressBook)
 
-instance AWSRequest GetAddressBook where
-        type Rs GetAddressBook = GetAddressBookResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetAddressBookResponse' <$>
-                   (x .?> "AddressBook") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetAddressBook where
+  type
+    AWSResponse GetAddressBook =
+      GetAddressBookResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetAddressBookResponse'
+            Prelude.<$> (x Core..?> "AddressBook")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetAddressBook where
+instance Prelude.Hashable GetAddressBook
 
-instance NFData GetAddressBook where
+instance Prelude.NFData GetAddressBook
 
-instance ToHeaders GetAddressBook where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.GetAddressBook" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetAddressBook where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.GetAddressBook" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetAddressBook where
-        toJSON GetAddressBook'{..}
-          = object
-              (catMaybes
-                 [Just ("AddressBookArn" .= _gabAddressBookARN)])
+instance Core.ToJSON GetAddressBook where
+  toJSON GetAddressBook' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AddressBookArn" Core..= addressBookArn)
+          ]
+      )
 
-instance ToPath GetAddressBook where
-        toPath = const "/"
+instance Core.ToPath GetAddressBook where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetAddressBook where
-        toQuery = const mempty
+instance Core.ToQuery GetAddressBook where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getAddressBookResponse' smart constructor.
+-- | /See:/ 'newGetAddressBookResponse' smart constructor.
 data GetAddressBookResponse = GetAddressBookResponse'
-  { _gabrsAddressBook    :: !(Maybe AddressBook)
-  , _gabrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The details of the requested address book.
+    addressBook :: Prelude.Maybe AddressBook,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAddressBookResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAddressBookResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gabrsAddressBook' - The details of the requested address book.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gabrsResponseStatus' - -- | The response status code.
-getAddressBookResponse
-    :: Int -- ^ 'gabrsResponseStatus'
-    -> GetAddressBookResponse
-getAddressBookResponse pResponseStatus_ =
+-- 'addressBook', 'getAddressBookResponse_addressBook' - The details of the requested address book.
+--
+-- 'httpStatus', 'getAddressBookResponse_httpStatus' - The response's http status code.
+newGetAddressBookResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetAddressBookResponse
+newGetAddressBookResponse pHttpStatus_ =
   GetAddressBookResponse'
-    {_gabrsAddressBook = Nothing, _gabrsResponseStatus = pResponseStatus_}
-
+    { addressBook =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The details of the requested address book.
-gabrsAddressBook :: Lens' GetAddressBookResponse (Maybe AddressBook)
-gabrsAddressBook = lens _gabrsAddressBook (\ s a -> s{_gabrsAddressBook = a})
+getAddressBookResponse_addressBook :: Lens.Lens' GetAddressBookResponse (Prelude.Maybe AddressBook)
+getAddressBookResponse_addressBook = Lens.lens (\GetAddressBookResponse' {addressBook} -> addressBook) (\s@GetAddressBookResponse' {} a -> s {addressBook = a} :: GetAddressBookResponse)
 
--- | -- | The response status code.
-gabrsResponseStatus :: Lens' GetAddressBookResponse Int
-gabrsResponseStatus = lens _gabrsResponseStatus (\ s a -> s{_gabrsResponseStatus = a})
+-- | The response's http status code.
+getAddressBookResponse_httpStatus :: Lens.Lens' GetAddressBookResponse Prelude.Int
+getAddressBookResponse_httpStatus = Lens.lens (\GetAddressBookResponse' {httpStatus} -> httpStatus) (\s@GetAddressBookResponse' {} a -> s {httpStatus = a} :: GetAddressBookResponse)
 
-instance NFData GetAddressBookResponse where
+instance Prelude.NFData GetAddressBookResponse

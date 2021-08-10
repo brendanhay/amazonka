@@ -1,106 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified instance profile. The instance profile must not have an associated role.
+-- Deletes the specified instance profile. The instance profile must not
+-- have an associated role.
 --
+-- Make sure that you do not have any Amazon EC2 instances running with the
+-- instance profile you are about to delete. Deleting a role or instance
+-- profile that is associated with a running instance will break any
+-- applications running on the instance.
 --
--- /Important:/ Make sure that you do not have any Amazon EC2 instances running with the instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
---
--- For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
---
+-- For more information about instance profiles, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About instance profiles>.
 module Network.AWS.IAM.DeleteInstanceProfile
-    (
-    -- * Creating a Request
-      deleteInstanceProfile
-    , DeleteInstanceProfile
+  ( -- * Creating a Request
+    DeleteInstanceProfile (..),
+    newDeleteInstanceProfile,
+
     -- * Request Lenses
-    , dipInstanceProfileName
+    deleteInstanceProfile_instanceProfileName,
 
     -- * Destructuring the Response
-    , deleteInstanceProfileResponse
-    , DeleteInstanceProfileResponse
-    ) where
+    DeleteInstanceProfileResponse (..),
+    newDeleteInstanceProfileResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteInstanceProfile' smart constructor.
-newtype DeleteInstanceProfile = DeleteInstanceProfile'
-  { _dipInstanceProfileName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteInstanceProfile' smart constructor.
+data DeleteInstanceProfile = DeleteInstanceProfile'
+  { -- | The name of the instance profile to delete.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    instanceProfileName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteInstanceProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dipInstanceProfileName' - The name of the instance profile to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteInstanceProfile
-    :: Text -- ^ 'dipInstanceProfileName'
-    -> DeleteInstanceProfile
-deleteInstanceProfile pInstanceProfileName_ =
-  DeleteInstanceProfile' {_dipInstanceProfileName = pInstanceProfileName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceProfileName', 'deleteInstanceProfile_instanceProfileName' - The name of the instance profile to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+newDeleteInstanceProfile ::
+  -- | 'instanceProfileName'
+  Prelude.Text ->
+  DeleteInstanceProfile
+newDeleteInstanceProfile pInstanceProfileName_ =
+  DeleteInstanceProfile'
+    { instanceProfileName =
+        pInstanceProfileName_
+    }
 
+-- | The name of the instance profile to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteInstanceProfile_instanceProfileName :: Lens.Lens' DeleteInstanceProfile Prelude.Text
+deleteInstanceProfile_instanceProfileName = Lens.lens (\DeleteInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@DeleteInstanceProfile' {} a -> s {instanceProfileName = a} :: DeleteInstanceProfile)
 
--- | The name of the instance profile to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
-dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a})
+instance Core.AWSRequest DeleteInstanceProfile where
+  type
+    AWSResponse DeleteInstanceProfile =
+      DeleteInstanceProfileResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeleteInstanceProfileResponse'
 
-instance AWSRequest DeleteInstanceProfile where
-        type Rs DeleteInstanceProfile =
-             DeleteInstanceProfileResponse
-        request = postQuery iam
-        response = receiveNull DeleteInstanceProfileResponse'
+instance Prelude.Hashable DeleteInstanceProfile
 
-instance Hashable DeleteInstanceProfile where
+instance Prelude.NFData DeleteInstanceProfile
 
-instance NFData DeleteInstanceProfile where
+instance Core.ToHeaders DeleteInstanceProfile where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteInstanceProfile where
-        toHeaders = const mempty
+instance Core.ToPath DeleteInstanceProfile where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteInstanceProfile where
-        toPath = const "/"
+instance Core.ToQuery DeleteInstanceProfile where
+  toQuery DeleteInstanceProfile' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteInstanceProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "InstanceProfileName" Core.=: instanceProfileName
+      ]
 
-instance ToQuery DeleteInstanceProfile where
-        toQuery DeleteInstanceProfile'{..}
-          = mconcat
-              ["Action" =: ("DeleteInstanceProfile" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _dipInstanceProfileName]
+-- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.
+data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
-data DeleteInstanceProfileResponse =
+-- |
+-- Create a value of 'DeleteInstanceProfileResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteInstanceProfileResponse ::
+  DeleteInstanceProfileResponse
+newDeleteInstanceProfileResponse =
   DeleteInstanceProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
---
-deleteInstanceProfileResponse
-    :: DeleteInstanceProfileResponse
-deleteInstanceProfileResponse = DeleteInstanceProfileResponse'
-
-
-instance NFData DeleteInstanceProfileResponse where
+instance Prelude.NFData DeleteInstanceProfileResponse

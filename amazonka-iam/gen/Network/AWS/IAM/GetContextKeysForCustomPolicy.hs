@@ -1,97 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.GetContextKeysForCustomPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all of the context keys referenced in the input policies. The policies are supplied as a list of one or more strings. To get the context keys from policies associated with an IAM user, group, or role, use 'GetContextKeysForPrincipalPolicy' .
+-- Gets a list of all of the context keys referenced in the input policies.
+-- The policies are supplied as a list of one or more strings. To get the
+-- context keys from policies associated with an IAM user, group, or role,
+-- use GetContextKeysForPrincipalPolicy.
 --
---
--- Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. Context keys can be evaluated by testing against a value specified in an IAM policy. Use @GetContextKeysForCustomPolicy@ to understand what key names and values you must supply when you call 'SimulateCustomPolicy' . Note that all parameters are shown in unencoded form here for clarity but must be URL encoded to be included as a part of a real HTML request.
---
+-- Context keys are variables maintained by AWS and its services that
+-- provide details about the context of an API query request. Context keys
+-- can be evaluated by testing against a value specified in an IAM policy.
+-- Use @GetContextKeysForCustomPolicy@ to understand what key names and
+-- values you must supply when you call SimulateCustomPolicy. Note that all
+-- parameters are shown in unencoded form here for clarity but must be URL
+-- encoded to be included as a part of a real HTML request.
 module Network.AWS.IAM.GetContextKeysForCustomPolicy
-    (
-    -- * Creating a Request
-      getContextKeysForCustomPolicy
-    , GetContextKeysForCustomPolicy
+  ( -- * Creating a Request
+    GetContextKeysForCustomPolicy (..),
+    newGetContextKeysForCustomPolicy,
+
     -- * Request Lenses
-    , gckfcpPolicyInputList
+    getContextKeysForCustomPolicy_policyInputList,
 
     -- * Destructuring the Response
-    , getContextKeysForPolicyResponse
-    , GetContextKeysForPolicyResponse
+    GetContextKeysForPolicyResponse (..),
+    newGetContextKeysForPolicyResponse,
+
     -- * Response Lenses
-    , gckfpContextKeyNames
-    ) where
+    getContextKeysForPolicyResponse_contextKeyNames,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getContextKeysForCustomPolicy' smart constructor.
-newtype GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
-  { _gckfcpPolicyInputList :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetContextKeysForCustomPolicy' smart constructor.
+data GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
+  { -- | A list of policies for which you want the list of context keys
+    -- referenced in those policies. Each document is specified as a string
+    -- containing the complete, valid JSON text of an IAM policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+    -- this parameter is a string of characters consisting of the following:
+    --
+    -- -   Any printable ASCII character ranging from the space character
+    --     (@\\u0020@) through the end of the ASCII character range
+    --
+    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@)
+    --
+    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+    --     carriage return (@\\u000D@)
+    policyInputList :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetContextKeysForCustomPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetContextKeysForCustomPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gckfcpPolicyInputList' - A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
-getContextKeysForCustomPolicy
-    :: GetContextKeysForCustomPolicy
-getContextKeysForCustomPolicy =
-  GetContextKeysForCustomPolicy' {_gckfcpPolicyInputList = mempty}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyInputList', 'getContextKeysForCustomPolicy_policyInputList' - A list of policies for which you want the list of context keys
+-- referenced in those policies. Each document is specified as a string
+-- containing the complete, valid JSON text of an IAM policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+newGetContextKeysForCustomPolicy ::
+  GetContextKeysForCustomPolicy
+newGetContextKeysForCustomPolicy =
+  GetContextKeysForCustomPolicy'
+    { policyInputList =
+        Prelude.mempty
+    }
 
+-- | A list of policies for which you want the list of context keys
+-- referenced in those policies. Each document is specified as a string
+-- containing the complete, valid JSON text of an IAM policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+getContextKeysForCustomPolicy_policyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Prelude.Text]
+getContextKeysForCustomPolicy_policyInputList = Lens.lens (\GetContextKeysForCustomPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForCustomPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy) Prelude.. Lens._Coerce
 
--- | A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
-gckfcpPolicyInputList :: Lens' GetContextKeysForCustomPolicy [Text]
-gckfcpPolicyInputList = lens _gckfcpPolicyInputList (\ s a -> s{_gckfcpPolicyInputList = a}) . _Coerce
+instance
+  Core.AWSRequest
+    GetContextKeysForCustomPolicy
+  where
+  type
+    AWSResponse GetContextKeysForCustomPolicy =
+      GetContextKeysForPolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetContextKeysForCustomPolicyResult"
+      (\s h x -> Core.parseXML x)
 
-instance AWSRequest GetContextKeysForCustomPolicy
-         where
-        type Rs GetContextKeysForCustomPolicy =
-             GetContextKeysForPolicyResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper
-              "GetContextKeysForCustomPolicyResult"
-              (\ s h x -> parseXML x)
+instance
+  Prelude.Hashable
+    GetContextKeysForCustomPolicy
 
-instance Hashable GetContextKeysForCustomPolicy where
+instance Prelude.NFData GetContextKeysForCustomPolicy
 
-instance NFData GetContextKeysForCustomPolicy where
+instance Core.ToHeaders GetContextKeysForCustomPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetContextKeysForCustomPolicy
-         where
-        toHeaders = const mempty
+instance Core.ToPath GetContextKeysForCustomPolicy where
+  toPath = Prelude.const "/"
 
-instance ToPath GetContextKeysForCustomPolicy where
-        toPath = const "/"
-
-instance ToQuery GetContextKeysForCustomPolicy where
-        toQuery GetContextKeysForCustomPolicy'{..}
-          = mconcat
-              ["Action" =:
-                 ("GetContextKeysForCustomPolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyInputList" =:
-                 toQueryList "member" _gckfcpPolicyInputList]
+instance Core.ToQuery GetContextKeysForCustomPolicy where
+  toQuery GetContextKeysForCustomPolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "GetContextKeysForCustomPolicy" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyInputList"
+          Core.=: Core.toQueryList "member" policyInputList
+      ]

@@ -1,143 +1,187 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.DisassociateMembers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.
+-- Disassociates GuardDuty member accounts (to the current GuardDuty
+-- administrator account) specified by the account IDs.
 module Network.AWS.GuardDuty.DisassociateMembers
-    (
-    -- * Creating a Request
-      disassociateMembers
-    , DisassociateMembers
+  ( -- * Creating a Request
+    DisassociateMembers (..),
+    newDisassociateMembers,
+
     -- * Request Lenses
-    , dmsAccountIds
-    , dmsDetectorId
+    disassociateMembers_detectorId,
+    disassociateMembers_accountIds,
 
     -- * Destructuring the Response
-    , disassociateMembersResponse
-    , DisassociateMembersResponse
+    DisassociateMembersResponse (..),
+    newDisassociateMembersResponse,
+
     -- * Response Lenses
-    , dmrsUnprocessedAccounts
-    , dmrsResponseStatus
-    ) where
+    disassociateMembersResponse_httpStatus,
+    disassociateMembersResponse_unprocessedAccounts,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | DisassociateMembers request body.
---
--- /See:/ 'disassociateMembers' smart constructor.
+-- | /See:/ 'newDisassociateMembers' smart constructor.
 data DisassociateMembers = DisassociateMembers'
-  { _dmsAccountIds :: !(Maybe [Text])
-  , _dmsDetectorId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique ID of the detector of the GuardDuty account whose members you
+    -- want to disassociate from the administrator account.
+    detectorId :: Prelude.Text,
+    -- | A list of account IDs of the GuardDuty member accounts that you want to
+    -- disassociate from the administrator account.
+    accountIds :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateMembers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateMembers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmsAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmsDetectorId' - The unique ID of the detector of the GuardDuty account whose members you want to disassociate from master.
-disassociateMembers
-    :: Text -- ^ 'dmsDetectorId'
-    -> DisassociateMembers
-disassociateMembers pDetectorId_ =
-  DisassociateMembers' {_dmsAccountIds = Nothing, _dmsDetectorId = pDetectorId_}
+-- 'detectorId', 'disassociateMembers_detectorId' - The unique ID of the detector of the GuardDuty account whose members you
+-- want to disassociate from the administrator account.
+--
+-- 'accountIds', 'disassociateMembers_accountIds' - A list of account IDs of the GuardDuty member accounts that you want to
+-- disassociate from the administrator account.
+newDisassociateMembers ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  -- | 'accountIds'
+  Prelude.NonEmpty Prelude.Text ->
+  DisassociateMembers
+newDisassociateMembers pDetectorId_ pAccountIds_ =
+  DisassociateMembers'
+    { detectorId = pDetectorId_,
+      accountIds = Lens._Coerce Lens.# pAccountIds_
+    }
 
+-- | The unique ID of the detector of the GuardDuty account whose members you
+-- want to disassociate from the administrator account.
+disassociateMembers_detectorId :: Lens.Lens' DisassociateMembers Prelude.Text
+disassociateMembers_detectorId = Lens.lens (\DisassociateMembers' {detectorId} -> detectorId) (\s@DisassociateMembers' {} a -> s {detectorId = a} :: DisassociateMembers)
 
--- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
-dmsAccountIds :: Lens' DisassociateMembers [Text]
-dmsAccountIds = lens _dmsAccountIds (\ s a -> s{_dmsAccountIds = a}) . _Default . _Coerce
+-- | A list of account IDs of the GuardDuty member accounts that you want to
+-- disassociate from the administrator account.
+disassociateMembers_accountIds :: Lens.Lens' DisassociateMembers (Prelude.NonEmpty Prelude.Text)
+disassociateMembers_accountIds = Lens.lens (\DisassociateMembers' {accountIds} -> accountIds) (\s@DisassociateMembers' {} a -> s {accountIds = a} :: DisassociateMembers) Prelude.. Lens._Coerce
 
--- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from master.
-dmsDetectorId :: Lens' DisassociateMembers Text
-dmsDetectorId = lens _dmsDetectorId (\ s a -> s{_dmsDetectorId = a})
+instance Core.AWSRequest DisassociateMembers where
+  type
+    AWSResponse DisassociateMembers =
+      DisassociateMembersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DisassociateMembersResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
+      )
 
-instance AWSRequest DisassociateMembers where
-        type Rs DisassociateMembers =
-             DisassociateMembersResponse
-        request = postJSON guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DisassociateMembersResponse' <$>
-                   (x .?> "unprocessedAccounts" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DisassociateMembers
 
-instance Hashable DisassociateMembers where
+instance Prelude.NFData DisassociateMembers
 
-instance NFData DisassociateMembers where
+instance Core.ToHeaders DisassociateMembers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DisassociateMembers where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DisassociateMembers where
+  toJSON DisassociateMembers' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
+      )
 
-instance ToJSON DisassociateMembers where
-        toJSON DisassociateMembers'{..}
-          = object
-              (catMaybes [("accountIds" .=) <$> _dmsAccountIds])
+instance Core.ToPath DisassociateMembers where
+  toPath DisassociateMembers' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Core.toBS detectorId,
+        "/member/disassociate"
+      ]
 
-instance ToPath DisassociateMembers where
-        toPath DisassociateMembers'{..}
-          = mconcat
-              ["/detector/", toBS _dmsDetectorId,
-               "/member/disassociate"]
+instance Core.ToQuery DisassociateMembers where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DisassociateMembers where
-        toQuery = const mempty
-
--- | /See:/ 'disassociateMembersResponse' smart constructor.
+-- | /See:/ 'newDisassociateMembersResponse' smart constructor.
 data DisassociateMembersResponse = DisassociateMembersResponse'
-  { _dmrsUnprocessedAccounts :: !(Maybe [UnprocessedAccount])
-  , _dmrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of objects that contain the unprocessed account and a result
+    -- string that explains why it was unprocessed.
+    unprocessedAccounts :: [UnprocessedAccount]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateMembersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateMembersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmrsUnprocessedAccounts' - A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmrsResponseStatus' - -- | The response status code.
-disassociateMembersResponse
-    :: Int -- ^ 'dmrsResponseStatus'
-    -> DisassociateMembersResponse
-disassociateMembersResponse pResponseStatus_ =
+-- 'httpStatus', 'disassociateMembersResponse_httpStatus' - The response's http status code.
+--
+-- 'unprocessedAccounts', 'disassociateMembersResponse_unprocessedAccounts' - A list of objects that contain the unprocessed account and a result
+-- string that explains why it was unprocessed.
+newDisassociateMembersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisassociateMembersResponse
+newDisassociateMembersResponse pHttpStatus_ =
   DisassociateMembersResponse'
-    {_dmrsUnprocessedAccounts = Nothing, _dmrsResponseStatus = pResponseStatus_}
+    { httpStatus =
+        pHttpStatus_,
+      unprocessedAccounts = Prelude.mempty
+    }
 
+-- | The response's http status code.
+disassociateMembersResponse_httpStatus :: Lens.Lens' DisassociateMembersResponse Prelude.Int
+disassociateMembersResponse_httpStatus = Lens.lens (\DisassociateMembersResponse' {httpStatus} -> httpStatus) (\s@DisassociateMembersResponse' {} a -> s {httpStatus = a} :: DisassociateMembersResponse)
 
--- | A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
-dmrsUnprocessedAccounts :: Lens' DisassociateMembersResponse [UnprocessedAccount]
-dmrsUnprocessedAccounts = lens _dmrsUnprocessedAccounts (\ s a -> s{_dmrsUnprocessedAccounts = a}) . _Default . _Coerce
+-- | A list of objects that contain the unprocessed account and a result
+-- string that explains why it was unprocessed.
+disassociateMembersResponse_unprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
+disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Prelude.. Lens._Coerce
 
--- | -- | The response status code.
-dmrsResponseStatus :: Lens' DisassociateMembersResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a})
-
-instance NFData DisassociateMembersResponse where
+instance Prelude.NFData DisassociateMembersResponse

@@ -1,0 +1,167 @@
+cabal-version:      2.2
+name:               amazonka-eks
+version:            1.6.1
+synopsis:           Amazon Elastic Kubernetes Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2017-11-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.EKS.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.EKS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-eks
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.EKS
+    Network.AWS.EKS.AssociateEncryptionConfig
+    Network.AWS.EKS.AssociateIdentityProviderConfig
+    Network.AWS.EKS.CreateAddon
+    Network.AWS.EKS.CreateCluster
+    Network.AWS.EKS.CreateFargateProfile
+    Network.AWS.EKS.CreateNodegroup
+    Network.AWS.EKS.DeleteAddon
+    Network.AWS.EKS.DeleteCluster
+    Network.AWS.EKS.DeleteFargateProfile
+    Network.AWS.EKS.DeleteNodegroup
+    Network.AWS.EKS.DescribeAddon
+    Network.AWS.EKS.DescribeAddonVersions
+    Network.AWS.EKS.DescribeCluster
+    Network.AWS.EKS.DescribeFargateProfile
+    Network.AWS.EKS.DescribeIdentityProviderConfig
+    Network.AWS.EKS.DescribeNodegroup
+    Network.AWS.EKS.DescribeUpdate
+    Network.AWS.EKS.DisassociateIdentityProviderConfig
+    Network.AWS.EKS.Lens
+    Network.AWS.EKS.ListAddons
+    Network.AWS.EKS.ListClusters
+    Network.AWS.EKS.ListFargateProfiles
+    Network.AWS.EKS.ListIdentityProviderConfigs
+    Network.AWS.EKS.ListNodegroups
+    Network.AWS.EKS.ListTagsForResource
+    Network.AWS.EKS.ListUpdates
+    Network.AWS.EKS.TagResource
+    Network.AWS.EKS.Types
+    Network.AWS.EKS.Types.Addon
+    Network.AWS.EKS.Types.AddonHealth
+    Network.AWS.EKS.Types.AddonInfo
+    Network.AWS.EKS.Types.AddonIssue
+    Network.AWS.EKS.Types.AddonIssueCode
+    Network.AWS.EKS.Types.AddonStatus
+    Network.AWS.EKS.Types.AddonVersionInfo
+    Network.AWS.EKS.Types.AMITypes
+    Network.AWS.EKS.Types.AutoScalingGroup
+    Network.AWS.EKS.Types.CapacityTypes
+    Network.AWS.EKS.Types.Certificate
+    Network.AWS.EKS.Types.Cluster
+    Network.AWS.EKS.Types.ClusterStatus
+    Network.AWS.EKS.Types.Compatibility
+    Network.AWS.EKS.Types.ConfigStatus
+    Network.AWS.EKS.Types.EKSErrorCode
+    Network.AWS.EKS.Types.EncryptionConfig
+    Network.AWS.EKS.Types.ErrorDetail
+    Network.AWS.EKS.Types.FargateProfile
+    Network.AWS.EKS.Types.FargateProfileSelector
+    Network.AWS.EKS.Types.FargateProfileStatus
+    Network.AWS.EKS.Types.Identity
+    Network.AWS.EKS.Types.IdentityProviderConfig
+    Network.AWS.EKS.Types.IdentityProviderConfigResponse
+    Network.AWS.EKS.Types.Issue
+    Network.AWS.EKS.Types.KubernetesNetworkConfigRequest
+    Network.AWS.EKS.Types.KubernetesNetworkConfigResponse
+    Network.AWS.EKS.Types.LaunchTemplateSpecification
+    Network.AWS.EKS.Types.Logging
+    Network.AWS.EKS.Types.LogSetup
+    Network.AWS.EKS.Types.LogType
+    Network.AWS.EKS.Types.Nodegroup
+    Network.AWS.EKS.Types.NodegroupHealth
+    Network.AWS.EKS.Types.NodegroupIssueCode
+    Network.AWS.EKS.Types.NodegroupResources
+    Network.AWS.EKS.Types.NodegroupScalingConfig
+    Network.AWS.EKS.Types.NodegroupStatus
+    Network.AWS.EKS.Types.OIDC
+    Network.AWS.EKS.Types.OidcIdentityProviderConfig
+    Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
+    Network.AWS.EKS.Types.Provider
+    Network.AWS.EKS.Types.RemoteAccessConfig
+    Network.AWS.EKS.Types.ResolveConflicts
+    Network.AWS.EKS.Types.Update
+    Network.AWS.EKS.Types.UpdateLabelsPayload
+    Network.AWS.EKS.Types.UpdateParam
+    Network.AWS.EKS.Types.UpdateParamType
+    Network.AWS.EKS.Types.UpdateStatus
+    Network.AWS.EKS.Types.UpdateType
+    Network.AWS.EKS.Types.VpcConfigRequest
+    Network.AWS.EKS.Types.VpcConfigResponse
+    Network.AWS.EKS.UntagResource
+    Network.AWS.EKS.UpdateAddon
+    Network.AWS.EKS.UpdateClusterConfig
+    Network.AWS.EKS.UpdateClusterVersion
+    Network.AWS.EKS.UpdateNodegroupConfig
+    Network.AWS.EKS.UpdateNodegroupVersion
+    Network.AWS.EKS.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
+
+test-suite amazonka-eks-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.EKS
+    Test.AWS.EKS.Internal
+    Test.AWS.Gen.EKS
+
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-eks
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

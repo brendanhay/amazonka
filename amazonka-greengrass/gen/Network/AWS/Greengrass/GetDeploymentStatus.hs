@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeploymentStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,161 +22,199 @@
 --
 -- Returns the status of a deployment.
 module Network.AWS.Greengrass.GetDeploymentStatus
-    (
-    -- * Creating a Request
-      getDeploymentStatus
-    , GetDeploymentStatus
+  ( -- * Creating a Request
+    GetDeploymentStatus (..),
+    newGetDeploymentStatus,
+
     -- * Request Lenses
-    , gdsGroupId
-    , gdsDeploymentId
+    getDeploymentStatus_groupId,
+    getDeploymentStatus_deploymentId,
 
     -- * Destructuring the Response
-    , getDeploymentStatusResponse
-    , GetDeploymentStatusResponse
+    GetDeploymentStatusResponse (..),
+    newGetDeploymentStatusResponse,
+
     -- * Response Lenses
-    , gdsrsDeploymentType
-    , gdsrsErrorDetails
-    , gdsrsDeploymentStatus
-    , gdsrsUpdatedAt
-    , gdsrsErrorMessage
-    , gdsrsResponseStatus
-    ) where
+    getDeploymentStatusResponse_deploymentType,
+    getDeploymentStatusResponse_updatedAt,
+    getDeploymentStatusResponse_deploymentStatus,
+    getDeploymentStatusResponse_errorMessage,
+    getDeploymentStatusResponse_errorDetails,
+    getDeploymentStatusResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDeploymentStatus' smart constructor.
+-- | /See:/ 'newGetDeploymentStatus' smart constructor.
 data GetDeploymentStatus = GetDeploymentStatus'
-  { _gdsGroupId      :: !Text
-  , _gdsDeploymentId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Greengrass group.
+    groupId :: Prelude.Text,
+    -- | The ID of the deployment.
+    deploymentId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDeploymentStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDeploymentStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdsGroupId' - The ID of the AWS Greengrass group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdsDeploymentId' - The ID of the deployment.
-getDeploymentStatus
-    :: Text -- ^ 'gdsGroupId'
-    -> Text -- ^ 'gdsDeploymentId'
-    -> GetDeploymentStatus
-getDeploymentStatus pGroupId_ pDeploymentId_ =
+-- 'groupId', 'getDeploymentStatus_groupId' - The ID of the Greengrass group.
+--
+-- 'deploymentId', 'getDeploymentStatus_deploymentId' - The ID of the deployment.
+newGetDeploymentStatus ::
+  -- | 'groupId'
+  Prelude.Text ->
+  -- | 'deploymentId'
+  Prelude.Text ->
+  GetDeploymentStatus
+newGetDeploymentStatus pGroupId_ pDeploymentId_ =
   GetDeploymentStatus'
-    {_gdsGroupId = pGroupId_, _gdsDeploymentId = pDeploymentId_}
-
-
--- | The ID of the AWS Greengrass group.
-gdsGroupId :: Lens' GetDeploymentStatus Text
-gdsGroupId = lens _gdsGroupId (\ s a -> s{_gdsGroupId = a})
-
--- | The ID of the deployment.
-gdsDeploymentId :: Lens' GetDeploymentStatus Text
-gdsDeploymentId = lens _gdsDeploymentId (\ s a -> s{_gdsDeploymentId = a})
-
-instance AWSRequest GetDeploymentStatus where
-        type Rs GetDeploymentStatus =
-             GetDeploymentStatusResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDeploymentStatusResponse' <$>
-                   (x .?> "DeploymentType") <*>
-                     (x .?> "ErrorDetails" .!@ mempty)
-                     <*> (x .?> "DeploymentStatus")
-                     <*> (x .?> "UpdatedAt")
-                     <*> (x .?> "ErrorMessage")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetDeploymentStatus where
-
-instance NFData GetDeploymentStatus where
-
-instance ToHeaders GetDeploymentStatus where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetDeploymentStatus where
-        toPath GetDeploymentStatus'{..}
-          = mconcat
-              ["/greengrass/groups/", toBS _gdsGroupId,
-               "/deployments/", toBS _gdsDeploymentId, "/status"]
-
-instance ToQuery GetDeploymentStatus where
-        toQuery = const mempty
-
--- | /See:/ 'getDeploymentStatusResponse' smart constructor.
-data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
-  { _gdsrsDeploymentType   :: !(Maybe DeploymentType)
-  , _gdsrsErrorDetails     :: !(Maybe [ErrorDetail])
-  , _gdsrsDeploymentStatus :: !(Maybe Text)
-  , _gdsrsUpdatedAt        :: !(Maybe Text)
-  , _gdsrsErrorMessage     :: !(Maybe Text)
-  , _gdsrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDeploymentStatusResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsrsDeploymentType' - The type of the deployment.
---
--- * 'gdsrsErrorDetails' - Error details
---
--- * 'gdsrsDeploymentStatus' - The status of the deployment.
---
--- * 'gdsrsUpdatedAt' - The time, in milliseconds since the epoch, when the deployment status was updated.
---
--- * 'gdsrsErrorMessage' - Error message
---
--- * 'gdsrsResponseStatus' - -- | The response status code.
-getDeploymentStatusResponse
-    :: Int -- ^ 'gdsrsResponseStatus'
-    -> GetDeploymentStatusResponse
-getDeploymentStatusResponse pResponseStatus_ =
-  GetDeploymentStatusResponse'
-    { _gdsrsDeploymentType = Nothing
-    , _gdsrsErrorDetails = Nothing
-    , _gdsrsDeploymentStatus = Nothing
-    , _gdsrsUpdatedAt = Nothing
-    , _gdsrsErrorMessage = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
+    { groupId = pGroupId_,
+      deploymentId = pDeploymentId_
     }
 
+-- | The ID of the Greengrass group.
+getDeploymentStatus_groupId :: Lens.Lens' GetDeploymentStatus Prelude.Text
+getDeploymentStatus_groupId = Lens.lens (\GetDeploymentStatus' {groupId} -> groupId) (\s@GetDeploymentStatus' {} a -> s {groupId = a} :: GetDeploymentStatus)
+
+-- | The ID of the deployment.
+getDeploymentStatus_deploymentId :: Lens.Lens' GetDeploymentStatus Prelude.Text
+getDeploymentStatus_deploymentId = Lens.lens (\GetDeploymentStatus' {deploymentId} -> deploymentId) (\s@GetDeploymentStatus' {} a -> s {deploymentId = a} :: GetDeploymentStatus)
+
+instance Core.AWSRequest GetDeploymentStatus where
+  type
+    AWSResponse GetDeploymentStatus =
+      GetDeploymentStatusResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDeploymentStatusResponse'
+            Prelude.<$> (x Core..?> "DeploymentType")
+            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<*> (x Core..?> "DeploymentStatus")
+            Prelude.<*> (x Core..?> "ErrorMessage")
+            Prelude.<*> (x Core..?> "ErrorDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetDeploymentStatus
+
+instance Prelude.NFData GetDeploymentStatus
+
+instance Core.ToHeaders GetDeploymentStatus where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetDeploymentStatus where
+  toPath GetDeploymentStatus' {..} =
+    Prelude.mconcat
+      [ "/greengrass/groups/",
+        Core.toBS groupId,
+        "/deployments/",
+        Core.toBS deploymentId,
+        "/status"
+      ]
+
+instance Core.ToQuery GetDeploymentStatus where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetDeploymentStatusResponse' smart constructor.
+data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
+  { -- | The type of the deployment.
+    deploymentType :: Prelude.Maybe DeploymentType,
+    -- | The time, in milliseconds since the epoch, when the deployment status
+    -- was updated.
+    updatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The status of the deployment: \'\'InProgress\'\', \'\'Building\'\',
+    -- \'\'Success\'\', or \'\'Failure\'\'.
+    deploymentStatus :: Prelude.Maybe Prelude.Text,
+    -- | Error message
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Error details
+    errorDetails :: Prelude.Maybe [ErrorDetail],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDeploymentStatusResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'deploymentType', 'getDeploymentStatusResponse_deploymentType' - The type of the deployment.
+--
+-- 'updatedAt', 'getDeploymentStatusResponse_updatedAt' - The time, in milliseconds since the epoch, when the deployment status
+-- was updated.
+--
+-- 'deploymentStatus', 'getDeploymentStatusResponse_deploymentStatus' - The status of the deployment: \'\'InProgress\'\', \'\'Building\'\',
+-- \'\'Success\'\', or \'\'Failure\'\'.
+--
+-- 'errorMessage', 'getDeploymentStatusResponse_errorMessage' - Error message
+--
+-- 'errorDetails', 'getDeploymentStatusResponse_errorDetails' - Error details
+--
+-- 'httpStatus', 'getDeploymentStatusResponse_httpStatus' - The response's http status code.
+newGetDeploymentStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDeploymentStatusResponse
+newGetDeploymentStatusResponse pHttpStatus_ =
+  GetDeploymentStatusResponse'
+    { deploymentType =
+        Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      deploymentStatus = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorDetails = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The type of the deployment.
-gdsrsDeploymentType :: Lens' GetDeploymentStatusResponse (Maybe DeploymentType)
-gdsrsDeploymentType = lens _gdsrsDeploymentType (\ s a -> s{_gdsrsDeploymentType = a})
+getDeploymentStatusResponse_deploymentType :: Lens.Lens' GetDeploymentStatusResponse (Prelude.Maybe DeploymentType)
+getDeploymentStatusResponse_deploymentType = Lens.lens (\GetDeploymentStatusResponse' {deploymentType} -> deploymentType) (\s@GetDeploymentStatusResponse' {} a -> s {deploymentType = a} :: GetDeploymentStatusResponse)
 
--- | Error details
-gdsrsErrorDetails :: Lens' GetDeploymentStatusResponse [ErrorDetail]
-gdsrsErrorDetails = lens _gdsrsErrorDetails (\ s a -> s{_gdsrsErrorDetails = a}) . _Default . _Coerce
+-- | The time, in milliseconds since the epoch, when the deployment status
+-- was updated.
+getDeploymentStatusResponse_updatedAt :: Lens.Lens' GetDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getDeploymentStatusResponse_updatedAt = Lens.lens (\GetDeploymentStatusResponse' {updatedAt} -> updatedAt) (\s@GetDeploymentStatusResponse' {} a -> s {updatedAt = a} :: GetDeploymentStatusResponse)
 
--- | The status of the deployment.
-gdsrsDeploymentStatus :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsDeploymentStatus = lens _gdsrsDeploymentStatus (\ s a -> s{_gdsrsDeploymentStatus = a})
-
--- | The time, in milliseconds since the epoch, when the deployment status was updated.
-gdsrsUpdatedAt :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsUpdatedAt = lens _gdsrsUpdatedAt (\ s a -> s{_gdsrsUpdatedAt = a})
+-- | The status of the deployment: \'\'InProgress\'\', \'\'Building\'\',
+-- \'\'Success\'\', or \'\'Failure\'\'.
+getDeploymentStatusResponse_deploymentStatus :: Lens.Lens' GetDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getDeploymentStatusResponse_deploymentStatus = Lens.lens (\GetDeploymentStatusResponse' {deploymentStatus} -> deploymentStatus) (\s@GetDeploymentStatusResponse' {} a -> s {deploymentStatus = a} :: GetDeploymentStatusResponse)
 
 -- | Error message
-gdsrsErrorMessage :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsErrorMessage = lens _gdsrsErrorMessage (\ s a -> s{_gdsrsErrorMessage = a})
+getDeploymentStatusResponse_errorMessage :: Lens.Lens' GetDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getDeploymentStatusResponse_errorMessage = Lens.lens (\GetDeploymentStatusResponse' {errorMessage} -> errorMessage) (\s@GetDeploymentStatusResponse' {} a -> s {errorMessage = a} :: GetDeploymentStatusResponse)
 
--- | -- | The response status code.
-gdsrsResponseStatus :: Lens' GetDeploymentStatusResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a})
+-- | Error details
+getDeploymentStatusResponse_errorDetails :: Lens.Lens' GetDeploymentStatusResponse (Prelude.Maybe [ErrorDetail])
+getDeploymentStatusResponse_errorDetails = Lens.lens (\GetDeploymentStatusResponse' {errorDetails} -> errorDetails) (\s@GetDeploymentStatusResponse' {} a -> s {errorDetails = a} :: GetDeploymentStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData GetDeploymentStatusResponse where
+-- | The response's http status code.
+getDeploymentStatusResponse_httpStatus :: Lens.Lens' GetDeploymentStatusResponse Prelude.Int
+getDeploymentStatusResponse_httpStatus = Lens.lens (\GetDeploymentStatusResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentStatusResponse' {} a -> s {httpStatus = a} :: GetDeploymentStatusResponse)
+
+instance Prelude.NFData GetDeploymentStatusResponse

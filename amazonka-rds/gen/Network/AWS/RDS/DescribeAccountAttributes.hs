@@ -1,129 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeAccountAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
+-- Lists all of the attributes for a customer account. The attributes
+-- include Amazon RDS quotas for the account, such as the number of DB
+-- instances allowed. The description for a quota includes the quota name,
+-- current usage toward that quota, and the quota\'s maximum value.
 --
---
--- This command doesn't take any parameters.
---
+-- This command doesn\'t take any parameters.
 module Network.AWS.RDS.DescribeAccountAttributes
-    (
-    -- * Creating a Request
-      describeAccountAttributes
-    , DescribeAccountAttributes
+  ( -- * Creating a Request
+    DescribeAccountAttributes (..),
+    newDescribeAccountAttributes,
 
     -- * Destructuring the Response
-    , describeAccountAttributesResponse
-    , DescribeAccountAttributesResponse
-    -- * Response Lenses
-    , daarsAccountQuotas
-    , daarsResponseStatus
-    ) where
+    DescribeAccountAttributesResponse (..),
+    newDescribeAccountAttributesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeAccountAttributesResponse_accountQuotas,
+    describeAccountAttributesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
+-- /See:/ 'newDescribeAccountAttributes' smart constructor.
+data DescribeAccountAttributes = DescribeAccountAttributes'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeAccountAttributes' with all optional fields omitted.
 --
---
--- /See:/ 'describeAccountAttributes' smart constructor.
-data DescribeAccountAttributes =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeAccountAttributes ::
+  DescribeAccountAttributes
+newDescribeAccountAttributes =
   DescribeAccountAttributes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+instance Core.AWSRequest DescribeAccountAttributes where
+  type
+    AWSResponse DescribeAccountAttributes =
+      DescribeAccountAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeAccountAttributesResult"
+      ( \s h x ->
+          DescribeAccountAttributesResponse'
+            Prelude.<$> ( x Core..@? "AccountQuotas" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "AccountQuota")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
---
-describeAccountAttributes
-    :: DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes'
+instance Prelude.Hashable DescribeAccountAttributes
 
+instance Prelude.NFData DescribeAccountAttributes
 
-instance AWSRequest DescribeAccountAttributes where
-        type Rs DescribeAccountAttributes =
-             DescribeAccountAttributesResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "DescribeAccountAttributesResult"
-              (\ s h x ->
-                 DescribeAccountAttributesResponse' <$>
-                   (x .@? "AccountQuotas" .!@ mempty >>=
-                      may (parseXMLList "AccountQuota"))
-                     <*> (pure (fromEnum s)))
+instance Core.ToHeaders DescribeAccountAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable DescribeAccountAttributes where
+instance Core.ToPath DescribeAccountAttributes where
+  toPath = Prelude.const "/"
 
-instance NFData DescribeAccountAttributes where
-
-instance ToHeaders DescribeAccountAttributes where
-        toHeaders = const mempty
-
-instance ToPath DescribeAccountAttributes where
-        toPath = const "/"
-
-instance ToQuery DescribeAccountAttributes where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("DescribeAccountAttributes" :: ByteString),
-                  "Version" =: ("2014-10-31" :: ByteString)])
+instance Core.ToQuery DescribeAccountAttributes where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Core.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2014-10-31" :: Prelude.ByteString)
+          ]
+      )
 
 -- | Data returned by the __DescribeAccountAttributes__ action.
 --
---
---
--- /See:/ 'describeAccountAttributesResponse' smart constructor.
+-- /See:/ 'newDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
-  , _daarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of @AccountQuota@ objects. Within this list, each quota has a
+    -- name, a count of usage toward the quota maximum, and a maximum value for
+    -- the quota.
+    accountQuotas :: Prelude.Maybe [AccountQuota],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAccountAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daarsAccountQuotas' - A list of 'AccountQuota' objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daarsResponseStatus' - -- | The response status code.
-describeAccountAttributesResponse
-    :: Int -- ^ 'daarsResponseStatus'
-    -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pResponseStatus_ =
+-- 'accountQuotas', 'describeAccountAttributesResponse_accountQuotas' - A list of @AccountQuota@ objects. Within this list, each quota has a
+-- name, a count of usage toward the quota maximum, and a maximum value for
+-- the quota.
+--
+-- 'httpStatus', 'describeAccountAttributesResponse_httpStatus' - The response's http status code.
+newDescribeAccountAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAccountAttributesResponse
+newDescribeAccountAttributesResponse pHttpStatus_ =
   DescribeAccountAttributesResponse'
-    {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
+    { accountQuotas =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A list of @AccountQuota@ objects. Within this list, each quota has a
+-- name, a count of usage toward the quota maximum, and a maximum value for
+-- the quota.
+describeAccountAttributesResponse_accountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountQuota])
+describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAttributesResponse' {accountQuotas} -> accountQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
-daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
-daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int
+describeAccountAttributesResponse_httpStatus = Lens.lens (\DescribeAccountAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountAttributesResponse' {} a -> s {httpStatus = a} :: DescribeAccountAttributesResponse)
 
--- | -- | The response status code.
-daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
-
-instance NFData DescribeAccountAttributesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeAccountAttributesResponse

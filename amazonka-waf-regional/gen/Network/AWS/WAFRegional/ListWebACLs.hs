@@ -1,153 +1,225 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListWebACLs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of 'WebACLSummary' objects in the response.
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
+-- Returns an array of WebACLSummary objects in the response.
 module Network.AWS.WAFRegional.ListWebACLs
-    (
-    -- * Creating a Request
-      listWebACLs
-    , ListWebACLs
+  ( -- * Creating a Request
+    ListWebACLs (..),
+    newListWebACLs,
+
     -- * Request Lenses
-    , lwaNextMarker
-    , lwaLimit
+    listWebACLs_nextMarker,
+    listWebACLs_limit,
 
     -- * Destructuring the Response
-    , listWebACLsResponse
-    , ListWebACLsResponse
+    ListWebACLsResponse (..),
+    newListWebACLsResponse,
+
     -- * Response Lenses
-    , lwarsWebACLs
-    , lwarsNextMarker
-    , lwarsResponseStatus
-    ) where
+    listWebACLsResponse_nextMarker,
+    listWebACLsResponse_webACLs,
+    listWebACLsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'listWebACLs' smart constructor.
+-- | /See:/ 'newListWebACLs' smart constructor.
 data ListWebACLs = ListWebACLs'
-  { _lwaNextMarker :: !(Maybe Text)
-  , _lwaLimit      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If you specify a value for @Limit@ and you have more @WebACL@ objects
+    -- than the number that you specify for @Limit@, AWS WAF returns a
+    -- @NextMarker@ value in the response that allows you to list another group
+    -- of @WebACL@ objects. For the second and subsequent @ListWebACLs@
+    -- requests, specify the value of @NextMarker@ from the previous response
+    -- to get information about another batch of @WebACL@ objects.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return
+    -- for this request. If you have more @WebACL@ objects than the number that
+    -- you specify for @Limit@, the response includes a @NextMarker@ value that
+    -- you can use to get another batch of @WebACL@ objects.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListWebACLs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListWebACLs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lwaNextMarker' - If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lwaLimit' - Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
-listWebACLs
-    :: ListWebACLs
-listWebACLs = ListWebACLs' {_lwaNextMarker = Nothing, _lwaLimit = Nothing}
-
-
--- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
-lwaNextMarker :: Lens' ListWebACLs (Maybe Text)
-lwaNextMarker = lens _lwaNextMarker (\ s a -> s{_lwaNextMarker = a})
-
--- | Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
-lwaLimit :: Lens' ListWebACLs (Maybe Natural)
-lwaLimit = lens _lwaLimit (\ s a -> s{_lwaLimit = a}) . mapping _Nat
-
-instance AWSRequest ListWebACLs where
-        type Rs ListWebACLs = ListWebACLsResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListWebACLsResponse' <$>
-                   (x .?> "WebACLs" .!@ mempty) <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListWebACLs where
-
-instance NFData ListWebACLs where
-
-instance ToHeaders ListWebACLs where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.ListWebACLs" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListWebACLs where
-        toJSON ListWebACLs'{..}
-          = object
-              (catMaybes
-                 [("NextMarker" .=) <$> _lwaNextMarker,
-                  ("Limit" .=) <$> _lwaLimit])
-
-instance ToPath ListWebACLs where
-        toPath = const "/"
-
-instance ToQuery ListWebACLs where
-        toQuery = const mempty
-
--- | /See:/ 'listWebACLsResponse' smart constructor.
-data ListWebACLsResponse = ListWebACLsResponse'
-  { _lwarsWebACLs        :: !(Maybe [WebACLSummary])
-  , _lwarsNextMarker     :: !(Maybe Text)
-  , _lwarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListWebACLsResponse' with the minimum fields required to make a request.
+-- 'nextMarker', 'listWebACLs_nextMarker' - If you specify a value for @Limit@ and you have more @WebACL@ objects
+-- than the number that you specify for @Limit@, AWS WAF returns a
+-- @NextMarker@ value in the response that allows you to list another group
+-- of @WebACL@ objects. For the second and subsequent @ListWebACLs@
+-- requests, specify the value of @NextMarker@ from the previous response
+-- to get information about another batch of @WebACL@ objects.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwarsWebACLs' - An array of 'WebACLSummary' objects.
---
--- * 'lwarsNextMarker' - If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lwarsResponseStatus' - -- | The response status code.
-listWebACLsResponse
-    :: Int -- ^ 'lwarsResponseStatus'
-    -> ListWebACLsResponse
-listWebACLsResponse pResponseStatus_ =
-  ListWebACLsResponse'
-    { _lwarsWebACLs = Nothing
-    , _lwarsNextMarker = Nothing
-    , _lwarsResponseStatus = pResponseStatus_
+-- 'limit', 'listWebACLs_limit' - Specifies the number of @WebACL@ objects that you want AWS WAF to return
+-- for this request. If you have more @WebACL@ objects than the number that
+-- you specify for @Limit@, the response includes a @NextMarker@ value that
+-- you can use to get another batch of @WebACL@ objects.
+newListWebACLs ::
+  ListWebACLs
+newListWebACLs =
+  ListWebACLs'
+    { nextMarker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | If you specify a value for @Limit@ and you have more @WebACL@ objects
+-- than the number that you specify for @Limit@, AWS WAF returns a
+-- @NextMarker@ value in the response that allows you to list another group
+-- of @WebACL@ objects. For the second and subsequent @ListWebACLs@
+-- requests, specify the value of @NextMarker@ from the previous response
+-- to get information about another batch of @WebACL@ objects.
+listWebACLs_nextMarker :: Lens.Lens' ListWebACLs (Prelude.Maybe Prelude.Text)
+listWebACLs_nextMarker = Lens.lens (\ListWebACLs' {nextMarker} -> nextMarker) (\s@ListWebACLs' {} a -> s {nextMarker = a} :: ListWebACLs)
 
--- | An array of 'WebACLSummary' objects.
-lwarsWebACLs :: Lens' ListWebACLsResponse [WebACLSummary]
-lwarsWebACLs = lens _lwarsWebACLs (\ s a -> s{_lwarsWebACLs = a}) . _Default . _Coerce
+-- | Specifies the number of @WebACL@ objects that you want AWS WAF to return
+-- for this request. If you have more @WebACL@ objects than the number that
+-- you specify for @Limit@, the response includes a @NextMarker@ value that
+-- you can use to get another batch of @WebACL@ objects.
+listWebACLs_limit :: Lens.Lens' ListWebACLs (Prelude.Maybe Prelude.Natural)
+listWebACLs_limit = Lens.lens (\ListWebACLs' {limit} -> limit) (\s@ListWebACLs' {} a -> s {limit = a} :: ListWebACLs)
 
--- | If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lwarsNextMarker :: Lens' ListWebACLsResponse (Maybe Text)
-lwarsNextMarker = lens _lwarsNextMarker (\ s a -> s{_lwarsNextMarker = a})
+instance Core.AWSRequest ListWebACLs where
+  type AWSResponse ListWebACLs = ListWebACLsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListWebACLsResponse'
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "WebACLs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | -- | The response status code.
-lwarsResponseStatus :: Lens' ListWebACLsResponse Int
-lwarsResponseStatus = lens _lwarsResponseStatus (\ s a -> s{_lwarsResponseStatus = a})
+instance Prelude.Hashable ListWebACLs
 
-instance NFData ListWebACLsResponse where
+instance Prelude.NFData ListWebACLs
+
+instance Core.ToHeaders ListWebACLs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_Regional_20161128.ListWebACLs" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListWebACLs where
+  toJSON ListWebACLs' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
+
+instance Core.ToPath ListWebACLs where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListWebACLs where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListWebACLsResponse' smart constructor.
+data ListWebACLsResponse = ListWebACLsResponse'
+  { -- | If you have more @WebACL@ objects than the number that you specified for
+    -- @Limit@ in the request, the response includes a @NextMarker@ value. To
+    -- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
+    -- specify the @NextMarker@ value from the response in the @NextMarker@
+    -- value in the next request.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of WebACLSummary objects.
+    webACLs :: Prelude.Maybe [WebACLSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListWebACLsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextMarker', 'listWebACLsResponse_nextMarker' - If you have more @WebACL@ objects than the number that you specified for
+-- @Limit@ in the request, the response includes a @NextMarker@ value. To
+-- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
+-- specify the @NextMarker@ value from the response in the @NextMarker@
+-- value in the next request.
+--
+-- 'webACLs', 'listWebACLsResponse_webACLs' - An array of WebACLSummary objects.
+--
+-- 'httpStatus', 'listWebACLsResponse_httpStatus' - The response's http status code.
+newListWebACLsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListWebACLsResponse
+newListWebACLsResponse pHttpStatus_ =
+  ListWebACLsResponse'
+    { nextMarker = Prelude.Nothing,
+      webACLs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If you have more @WebACL@ objects than the number that you specified for
+-- @Limit@ in the request, the response includes a @NextMarker@ value. To
+-- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
+-- specify the @NextMarker@ value from the response in the @NextMarker@
+-- value in the next request.
+listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe Prelude.Text)
+listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -> nextMarker) (\s@ListWebACLsResponse' {} a -> s {nextMarker = a} :: ListWebACLsResponse)
+
+-- | An array of WebACLSummary objects.
+listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
+listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Prelude.Int
+listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -> httpStatus) (\s@ListWebACLsResponse' {} a -> s {httpStatus = a} :: ListWebACLsResponse)
+
+instance Prelude.NFData ListWebACLsResponse

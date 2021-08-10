@@ -1,144 +1,170 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DisableGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
+-- Disables a tape gateway when the gateway is no longer functioning. For
+-- example, if your gateway VM is damaged, you can disable the gateway so
+-- you can recover virtual tapes.
 --
+-- Use this operation for a tape gateway that is not reachable or not
+-- functioning. This operation is only supported in the tape gateway type.
 --
--- Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway type.
---
--- /Important:/ Once a gateway is disabled it cannot be enabled.
---
+-- After a gateway is disabled, it cannot be enabled.
 module Network.AWS.StorageGateway.DisableGateway
-    (
-    -- * Creating a Request
-      disableGateway
-    , DisableGateway
+  ( -- * Creating a Request
+    DisableGateway (..),
+    newDisableGateway,
+
     -- * Request Lenses
-    , dGatewayARN
+    disableGateway_gatewayARN,
 
     -- * Destructuring the Response
-    , disableGatewayResponse
-    , DisableGatewayResponse
-    -- * Response Lenses
-    , disrsGatewayARN
-    , disrsResponseStatus
-    ) where
+    DisableGatewayResponse (..),
+    newDisableGatewayResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    disableGatewayResponse_gatewayARN,
+    disableGatewayResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | DisableGatewayInput
 --
---
---
--- /See:/ 'disableGateway' smart constructor.
-newtype DisableGateway = DisableGateway'
-  { _dGatewayARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDisableGateway' smart constructor.
+data DisableGateway = DisableGateway'
+  { gatewayARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableGateway' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dGatewayARN' - Undocumented member.
-disableGateway
-    :: Text -- ^ 'dGatewayARN'
-    -> DisableGateway
-disableGateway pGatewayARN_ = DisableGateway' {_dGatewayARN = pGatewayARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'gatewayARN', 'disableGateway_gatewayARN' - Undocumented member.
+newDisableGateway ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  DisableGateway
+newDisableGateway pGatewayARN_ =
+  DisableGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-dGatewayARN :: Lens' DisableGateway Text
-dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a})
+disableGateway_gatewayARN :: Lens.Lens' DisableGateway Prelude.Text
+disableGateway_gatewayARN = Lens.lens (\DisableGateway' {gatewayARN} -> gatewayARN) (\s@DisableGateway' {} a -> s {gatewayARN = a} :: DisableGateway)
 
-instance AWSRequest DisableGateway where
-        type Rs DisableGateway = DisableGatewayResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DisableGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DisableGateway where
+  type
+    AWSResponse DisableGateway =
+      DisableGatewayResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DisableGatewayResponse'
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DisableGateway where
+instance Prelude.Hashable DisableGateway
 
-instance NFData DisableGateway where
+instance Prelude.NFData DisableGateway
 
-instance ToHeaders DisableGateway where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DisableGateway" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DisableGateway where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.DisableGateway" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DisableGateway where
-        toJSON DisableGateway'{..}
-          = object
-              (catMaybes [Just ("GatewayARN" .= _dGatewayARN)])
+instance Core.ToJSON DisableGateway where
+  toJSON DisableGateway' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+      )
 
-instance ToPath DisableGateway where
-        toPath = const "/"
+instance Core.ToPath DisableGateway where
+  toPath = Prelude.const "/"
 
-instance ToQuery DisableGateway where
-        toQuery = const mempty
+instance Core.ToQuery DisableGateway where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DisableGatewayOutput
 --
---
---
--- /See:/ 'disableGatewayResponse' smart constructor.
+-- /See:/ 'newDisableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-  { _disrsGatewayARN     :: !(Maybe Text)
-  , _disrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableGatewayResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'disrsGatewayARN' - The unique Amazon Resource Name of the disabled gateway.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'disrsResponseStatus' - -- | The response status code.
-disableGatewayResponse
-    :: Int -- ^ 'disrsResponseStatus'
-    -> DisableGatewayResponse
-disableGatewayResponse pResponseStatus_ =
+-- 'gatewayARN', 'disableGatewayResponse_gatewayARN' - The unique Amazon Resource Name (ARN) of the disabled gateway.
+--
+-- 'httpStatus', 'disableGatewayResponse_httpStatus' - The response's http status code.
+newDisableGatewayResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisableGatewayResponse
+newDisableGatewayResponse pHttpStatus_ =
   DisableGatewayResponse'
-    {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
+    { gatewayARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The unique Amazon Resource Name (ARN) of the disabled gateway.
+disableGatewayResponse_gatewayARN :: Lens.Lens' DisableGatewayResponse (Prelude.Maybe Prelude.Text)
+disableGatewayResponse_gatewayARN = Lens.lens (\DisableGatewayResponse' {gatewayARN} -> gatewayARN) (\s@DisableGatewayResponse' {} a -> s {gatewayARN = a} :: DisableGatewayResponse)
 
--- | The unique Amazon Resource Name of the disabled gateway.
-disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a})
+-- | The response's http status code.
+disableGatewayResponse_httpStatus :: Lens.Lens' DisableGatewayResponse Prelude.Int
+disableGatewayResponse_httpStatus = Lens.lens (\DisableGatewayResponse' {httpStatus} -> httpStatus) (\s@DisableGatewayResponse' {} a -> s {httpStatus = a} :: DisableGatewayResponse)
 
--- | -- | The response status code.
-disrsResponseStatus :: Lens' DisableGatewayResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
-
-instance NFData DisableGatewayResponse where
+instance Prelude.NFData DisableGatewayResponse

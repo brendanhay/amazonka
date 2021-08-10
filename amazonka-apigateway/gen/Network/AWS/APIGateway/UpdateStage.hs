@@ -1,135 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateStage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a 'Stage' resource.
---
---
+-- Changes information about a Stage resource.
 module Network.AWS.APIGateway.UpdateStage
-    (
-    -- * Creating a Request
-      updateStage
-    , UpdateStage
+  ( -- * Creating a Request
+    UpdateStage (..),
+    newUpdateStage,
+
     -- * Request Lenses
-    , usPatchOperations
-    , usRestAPIId
-    , usStageName
+    updateStage_patchOperations,
+    updateStage_restApiId,
+    updateStage_stageName,
 
     -- * Destructuring the Response
-    , stage
-    , Stage
+    Stage (..),
+    newStage,
+
     -- * Response Lenses
-    , sDeploymentId
-    , sVariables
-    , sAccessLogSettings
-    , sDocumentationVersion
-    , sClientCertificateId
-    , sCreatedDate
-    , sCacheClusterStatus
-    , sMethodSettings
-    , sLastUpdatedDate
-    , sCacheClusterSize
-    , sCanarySettings
-    , sCacheClusterEnabled
-    , sStageName
-    , sDescription
-    , sTags
-    ) where
+    stage_deploymentId,
+    stage_createdDate,
+    stage_tracingEnabled,
+    stage_webAclArn,
+    stage_lastUpdatedDate,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_documentationVersion,
+    stage_variables,
+    stage_accessLogSettings,
+    stage_tags,
+    stage_clientCertificateId,
+    stage_description,
+    stage_canarySettings,
+    stage_cacheClusterSize,
+    stage_methodSettings,
+    stage_cacheClusterStatus,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests API Gateway to change information about a 'Stage' resource.
+-- | Requests API Gateway to change information about a Stage resource.
 --
---
---
--- /See:/ 'updateStage' smart constructor.
+-- /See:/ 'newUpdateStage' smart constructor.
 data UpdateStage = UpdateStage'
-  { _usPatchOperations :: !(Maybe [PatchOperation])
-  , _usRestAPIId       :: !Text
-  , _usStageName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name of the Stage resource to change information about.
+    stageName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateStage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateStage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- 'patchOperations', 'updateStage_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
 --
--- * 'usStageName' - [Required] The name of the 'Stage' resource to change information about.
-updateStage
-    :: Text -- ^ 'usRestAPIId'
-    -> Text -- ^ 'usStageName'
-    -> UpdateStage
-updateStage pRestAPIId_ pStageName_ =
+-- 'restApiId', 'updateStage_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'stageName', 'updateStage_stageName' - [Required] The name of the Stage resource to change information about.
+newUpdateStage ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'stageName'
+  Prelude.Text ->
+  UpdateStage
+newUpdateStage pRestApiId_ pStageName_ =
   UpdateStage'
-    { _usPatchOperations = Nothing
-    , _usRestAPIId = pRestAPIId_
-    , _usStageName = pStageName_
+    { patchOperations = Prelude.Nothing,
+      restApiId = pRestApiId_,
+      stageName = pStageName_
     }
 
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateStage_patchOperations :: Lens.Lens' UpdateStage (Prelude.Maybe [PatchOperation])
+updateStage_patchOperations = Lens.lens (\UpdateStage' {patchOperations} -> patchOperations) (\s@UpdateStage' {} a -> s {patchOperations = a} :: UpdateStage) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-usPatchOperations :: Lens' UpdateStage [PatchOperation]
-usPatchOperations = lens _usPatchOperations (\ s a -> s{_usPatchOperations = a}) . _Default . _Coerce
+-- | [Required] The string identifier of the associated RestApi.
+updateStage_restApiId :: Lens.Lens' UpdateStage Prelude.Text
+updateStage_restApiId = Lens.lens (\UpdateStage' {restApiId} -> restApiId) (\s@UpdateStage' {} a -> s {restApiId = a} :: UpdateStage)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-usRestAPIId :: Lens' UpdateStage Text
-usRestAPIId = lens _usRestAPIId (\ s a -> s{_usRestAPIId = a})
+-- | [Required] The name of the Stage resource to change information about.
+updateStage_stageName :: Lens.Lens' UpdateStage Prelude.Text
+updateStage_stageName = Lens.lens (\UpdateStage' {stageName} -> stageName) (\s@UpdateStage' {} a -> s {stageName = a} :: UpdateStage)
 
--- | [Required] The name of the 'Stage' resource to change information about.
-usStageName :: Lens' UpdateStage Text
-usStageName = lens _usStageName (\ s a -> s{_usStageName = a})
+instance Core.AWSRequest UpdateStage where
+  type AWSResponse UpdateStage = Stage
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest UpdateStage where
-        type Rs UpdateStage = Stage
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable UpdateStage
 
-instance Hashable UpdateStage where
+instance Prelude.NFData UpdateStage
 
-instance NFData UpdateStage where
+instance Core.ToHeaders UpdateStage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders UpdateStage where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToJSON UpdateStage where
+  toJSON UpdateStage' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Core..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToJSON UpdateStage where
-        toJSON UpdateStage'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _usPatchOperations])
+instance Core.ToPath UpdateStage where
+  toPath UpdateStage' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/stages/",
+        Core.toBS stageName
+      ]
 
-instance ToPath UpdateStage where
-        toPath UpdateStage'{..}
-          = mconcat
-              ["/restapis/", toBS _usRestAPIId, "/stages/",
-               toBS _usStageName]
-
-instance ToQuery UpdateStage where
-        toQuery = const mempty
+instance Core.ToQuery UpdateStage where
+  toQuery = Prelude.const Prelude.mempty

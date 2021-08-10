@@ -1,120 +1,145 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteCrawler
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a specified crawler from the Data Catalog, unless the crawler state is @RUNNING@ .
---
---
+-- Removes a specified crawler from the AWS Glue Data Catalog, unless the
+-- crawler state is @RUNNING@.
 module Network.AWS.Glue.DeleteCrawler
-    (
-    -- * Creating a Request
-      deleteCrawler
-    , DeleteCrawler
+  ( -- * Creating a Request
+    DeleteCrawler (..),
+    newDeleteCrawler,
+
     -- * Request Lenses
-    , dcName
+    deleteCrawler_name,
 
     -- * Destructuring the Response
-    , deleteCrawlerResponse
-    , DeleteCrawlerResponse
+    DeleteCrawlerResponse (..),
+    newDeleteCrawlerResponse,
+
     -- * Response Lenses
-    , dccrsResponseStatus
-    ) where
+    deleteCrawlerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteCrawler' smart constructor.
-newtype DeleteCrawler = DeleteCrawler'
-  { _dcName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteCrawler' smart constructor.
+data DeleteCrawler = DeleteCrawler'
+  { -- | The name of the crawler to remove.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteCrawler' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteCrawler' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcName' - Name of the crawler to remove.
-deleteCrawler
-    :: Text -- ^ 'dcName'
-    -> DeleteCrawler
-deleteCrawler pName_ = DeleteCrawler' {_dcName = pName_}
-
-
--- | Name of the crawler to remove.
-dcName :: Lens' DeleteCrawler Text
-dcName = lens _dcName (\ s a -> s{_dcName = a})
-
-instance AWSRequest DeleteCrawler where
-        type Rs DeleteCrawler = DeleteCrawlerResponse
-        request = postJSON glue
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteCrawlerResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteCrawler where
-
-instance NFData DeleteCrawler where
-
-instance ToHeaders DeleteCrawler where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.DeleteCrawler" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteCrawler where
-        toJSON DeleteCrawler'{..}
-          = object (catMaybes [Just ("Name" .= _dcName)])
-
-instance ToPath DeleteCrawler where
-        toPath = const "/"
-
-instance ToQuery DeleteCrawler where
-        toQuery = const mempty
-
--- | /See:/ 'deleteCrawlerResponse' smart constructor.
-newtype DeleteCrawlerResponse = DeleteCrawlerResponse'
-  { _dccrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteCrawlerResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'name', 'deleteCrawler_name' - The name of the crawler to remove.
+newDeleteCrawler ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteCrawler
+newDeleteCrawler pName_ =
+  DeleteCrawler' {name = pName_}
+
+-- | The name of the crawler to remove.
+deleteCrawler_name :: Lens.Lens' DeleteCrawler Prelude.Text
+deleteCrawler_name = Lens.lens (\DeleteCrawler' {name} -> name) (\s@DeleteCrawler' {} a -> s {name = a} :: DeleteCrawler)
+
+instance Core.AWSRequest DeleteCrawler where
+  type
+    AWSResponse DeleteCrawler =
+      DeleteCrawlerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteCrawlerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteCrawler
+
+instance Prelude.NFData DeleteCrawler
+
+instance Core.ToHeaders DeleteCrawler where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.DeleteCrawler" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteCrawler where
+  toJSON DeleteCrawler' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
+
+instance Core.ToPath DeleteCrawler where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteCrawler where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteCrawlerResponse' smart constructor.
+data DeleteCrawlerResponse = DeleteCrawlerResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteCrawlerResponse' with all optional fields omitted.
 --
--- * 'dccrsResponseStatus' - -- | The response status code.
-deleteCrawlerResponse
-    :: Int -- ^ 'dccrsResponseStatus'
-    -> DeleteCrawlerResponse
-deleteCrawlerResponse pResponseStatus_ =
-  DeleteCrawlerResponse' {_dccrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteCrawlerResponse_httpStatus' - The response's http status code.
+newDeleteCrawlerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteCrawlerResponse
+newDeleteCrawlerResponse pHttpStatus_ =
+  DeleteCrawlerResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteCrawlerResponse_httpStatus :: Lens.Lens' DeleteCrawlerResponse Prelude.Int
+deleteCrawlerResponse_httpStatus = Lens.lens (\DeleteCrawlerResponse' {httpStatus} -> httpStatus) (\s@DeleteCrawlerResponse' {} a -> s {httpStatus = a} :: DeleteCrawlerResponse)
 
--- | -- | The response status code.
-dccrsResponseStatus :: Lens' DeleteCrawlerResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a})
-
-instance NFData DeleteCrawlerResponse where
+instance Prelude.NFData DeleteCrawlerResponse

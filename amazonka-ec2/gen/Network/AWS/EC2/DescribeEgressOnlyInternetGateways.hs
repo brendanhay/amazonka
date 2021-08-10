@@ -1,183 +1,309 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeEgressOnlyInternetGateways
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your egress-only Internet gateways.
+-- Describes one or more of your egress-only internet gateways.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
-    (
-    -- * Creating a Request
-      describeEgressOnlyInternetGateways
-    , DescribeEgressOnlyInternetGateways
+  ( -- * Creating a Request
+    DescribeEgressOnlyInternetGateways (..),
+    newDescribeEgressOnlyInternetGateways,
+
     -- * Request Lenses
-    , deoigEgressOnlyInternetGatewayIds
-    , deoigNextToken
-    , deoigDryRun
-    , deoigMaxResults
+    describeEgressOnlyInternetGateways_nextToken,
+    describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds,
+    describeEgressOnlyInternetGateways_dryRun,
+    describeEgressOnlyInternetGateways_maxResults,
+    describeEgressOnlyInternetGateways_filters,
 
     -- * Destructuring the Response
-    , describeEgressOnlyInternetGatewaysResponse
-    , DescribeEgressOnlyInternetGatewaysResponse
+    DescribeEgressOnlyInternetGatewaysResponse (..),
+    newDescribeEgressOnlyInternetGatewaysResponse,
+
     -- * Response Lenses
-    , deoigrsEgressOnlyInternetGateways
-    , deoigrsNextToken
-    , deoigrsResponseStatus
-    ) where
+    describeEgressOnlyInternetGatewaysResponse_nextToken,
+    describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways,
+    describeEgressOnlyInternetGatewaysResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeEgressOnlyInternetGateways' smart constructor.
+-- | /See:/ 'newDescribeEgressOnlyInternetGateways' smart constructor.
 data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
-  { _deoigEgressOnlyInternetGatewayIds :: !(Maybe [Text])
-  , _deoigNextToken                    :: !(Maybe Text)
-  , _deoigDryRun                       :: !(Maybe Bool)
-  , _deoigMaxResults                   :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more egress-only internet gateway IDs.
+    egressOnlyInternetGatewayIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more filters.
+    --
+    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    --     resource. Use the tag key in the filter name and the tag value as
+    --     the filter value. For example, to find all resources that have a tag
+    --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+    --     the filter name and @TeamA@ for the filter value.
+    --
+    -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+    --     filter to find all resources assigned a tag with a specific key,
+    --     regardless of the tag value.
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEgressOnlyInternetGateways' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEgressOnlyInternetGateways' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'deoigEgressOnlyInternetGatewayIds' - One or more egress-only Internet gateway IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'deoigNextToken' - The token to retrieve the next page of results.
+-- 'nextToken', 'describeEgressOnlyInternetGateways_nextToken' - The token for the next page of results.
 --
--- * 'deoigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'egressOnlyInternetGatewayIds', 'describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds' - One or more egress-only internet gateway IDs.
 --
--- * 'deoigMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
-describeEgressOnlyInternetGateways
-    :: DescribeEgressOnlyInternetGateways
-describeEgressOnlyInternetGateways =
+-- 'dryRun', 'describeEgressOnlyInternetGateways_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeEgressOnlyInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- 'filters', 'describeEgressOnlyInternetGateways_filters' - One or more filters.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+newDescribeEgressOnlyInternetGateways ::
+  DescribeEgressOnlyInternetGateways
+newDescribeEgressOnlyInternetGateways =
   DescribeEgressOnlyInternetGateways'
-    { _deoigEgressOnlyInternetGatewayIds = Nothing
-    , _deoigNextToken = Nothing
-    , _deoigDryRun = Nothing
-    , _deoigMaxResults = Nothing
+    { nextToken =
+        Prelude.Nothing,
+      egressOnlyInternetGatewayIds =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | The token for the next page of results.
+describeEgressOnlyInternetGateways_nextToken :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe Prelude.Text)
+describeEgressOnlyInternetGateways_nextToken = Lens.lens (\DescribeEgressOnlyInternetGateways' {nextToken} -> nextToken) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {nextToken = a} :: DescribeEgressOnlyInternetGateways)
 
--- | One or more egress-only Internet gateway IDs.
-deoigEgressOnlyInternetGatewayIds :: Lens' DescribeEgressOnlyInternetGateways [Text]
-deoigEgressOnlyInternetGatewayIds = lens _deoigEgressOnlyInternetGatewayIds (\ s a -> s{_deoigEgressOnlyInternetGatewayIds = a}) . _Default . _Coerce
+-- | One or more egress-only internet gateway IDs.
+describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe [Prelude.Text])
+describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds = Lens.lens (\DescribeEgressOnlyInternetGateways' {egressOnlyInternetGatewayIds} -> egressOnlyInternetGatewayIds) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {egressOnlyInternetGatewayIds = a} :: DescribeEgressOnlyInternetGateways) Prelude.. Lens.mapping Lens._Coerce
 
--- | The token to retrieve the next page of results.
-deoigNextToken :: Lens' DescribeEgressOnlyInternetGateways (Maybe Text)
-deoigNextToken = lens _deoigNextToken (\ s a -> s{_deoigNextToken = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeEgressOnlyInternetGateways_dryRun :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe Prelude.Bool)
+describeEgressOnlyInternetGateways_dryRun = Lens.lens (\DescribeEgressOnlyInternetGateways' {dryRun} -> dryRun) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {dryRun = a} :: DescribeEgressOnlyInternetGateways)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deoigDryRun :: Lens' DescribeEgressOnlyInternetGateways (Maybe Bool)
-deoigDryRun = lens _deoigDryRun (\ s a -> s{_deoigDryRun = a})
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeEgressOnlyInternetGateways_maxResults :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe Prelude.Natural)
+describeEgressOnlyInternetGateways_maxResults = Lens.lens (\DescribeEgressOnlyInternetGateways' {maxResults} -> maxResults) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {maxResults = a} :: DescribeEgressOnlyInternetGateways)
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
-deoigMaxResults :: Lens' DescribeEgressOnlyInternetGateways (Maybe Int)
-deoigMaxResults = lens _deoigMaxResults (\ s a -> s{_deoigMaxResults = a})
+-- | One or more filters.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+describeEgressOnlyInternetGateways_filters :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe [Filter])
+describeEgressOnlyInternetGateways_filters = Lens.lens (\DescribeEgressOnlyInternetGateways' {filters} -> filters) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {filters = a} :: DescribeEgressOnlyInternetGateways) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest
-           DescribeEgressOnlyInternetGateways
-         where
-        type Rs DescribeEgressOnlyInternetGateways =
-             DescribeEgressOnlyInternetGatewaysResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeEgressOnlyInternetGatewaysResponse' <$>
-                   (x .@? "egressOnlyInternetGatewaySet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "nextToken")
-                     <*> (pure (fromEnum s)))
+instance
+  Core.AWSPager
+    DescribeEgressOnlyInternetGateways
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEgressOnlyInternetGateways_nextToken
+          Lens..~ rs
+          Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable DescribeEgressOnlyInternetGateways
-         where
+instance
+  Core.AWSRequest
+    DescribeEgressOnlyInternetGateways
+  where
+  type
+    AWSResponse DescribeEgressOnlyInternetGateways =
+      DescribeEgressOnlyInternetGatewaysResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeEgressOnlyInternetGatewaysResponse'
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "egressOnlyInternetGatewaySet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeEgressOnlyInternetGateways
-         where
+instance
+  Prelude.Hashable
+    DescribeEgressOnlyInternetGateways
 
-instance ToHeaders DescribeEgressOnlyInternetGateways
-         where
-        toHeaders = const mempty
+instance
+  Prelude.NFData
+    DescribeEgressOnlyInternetGateways
 
-instance ToPath DescribeEgressOnlyInternetGateways
-         where
-        toPath = const "/"
+instance
+  Core.ToHeaders
+    DescribeEgressOnlyInternetGateways
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeEgressOnlyInternetGateways
-         where
-        toQuery DescribeEgressOnlyInternetGateways'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeEgressOnlyInternetGateways" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery
-                 (toQueryList "EgressOnlyInternetGatewayId" <$>
-                    _deoigEgressOnlyInternetGatewayIds),
-               "NextToken" =: _deoigNextToken,
-               "DryRun" =: _deoigDryRun,
-               "MaxResults" =: _deoigMaxResults]
+instance
+  Core.ToPath
+    DescribeEgressOnlyInternetGateways
+  where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeEgressOnlyInternetGatewaysResponse' smart constructor.
+instance
+  Core.ToQuery
+    DescribeEgressOnlyInternetGateways
+  where
+  toQuery DescribeEgressOnlyInternetGateways' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeEgressOnlyInternetGateways" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "EgressOnlyInternetGatewayId"
+              Prelude.<$> egressOnlyInternetGatewayIds
+          ),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
+      ]
+
+-- | /See:/ 'newDescribeEgressOnlyInternetGatewaysResponse' smart constructor.
 data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGatewaysResponse'
-  { _deoigrsEgressOnlyInternetGateways :: !(Maybe [EgressOnlyInternetGateway])
-  , _deoigrsNextToken                  :: !(Maybe Text)
-  , _deoigrsResponseStatus             :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the egress-only internet gateways.
+    egressOnlyInternetGateways :: Prelude.Maybe [EgressOnlyInternetGateway],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEgressOnlyInternetGatewaysResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEgressOnlyInternetGatewaysResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'deoigrsEgressOnlyInternetGateways' - Information about the egress-only Internet gateways.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'deoigrsNextToken' - The token to use to retrieve the next page of results.
+-- 'nextToken', 'describeEgressOnlyInternetGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
--- * 'deoigrsResponseStatus' - -- | The response status code.
-describeEgressOnlyInternetGatewaysResponse
-    :: Int -- ^ 'deoigrsResponseStatus'
-    -> DescribeEgressOnlyInternetGatewaysResponse
-describeEgressOnlyInternetGatewaysResponse pResponseStatus_ =
-  DescribeEgressOnlyInternetGatewaysResponse'
-    { _deoigrsEgressOnlyInternetGateways = Nothing
-    , _deoigrsNextToken = Nothing
-    , _deoigrsResponseStatus = pResponseStatus_
-    }
+-- 'egressOnlyInternetGateways', 'describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways' - Information about the egress-only internet gateways.
+--
+-- 'httpStatus', 'describeEgressOnlyInternetGatewaysResponse_httpStatus' - The response's http status code.
+newDescribeEgressOnlyInternetGatewaysResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEgressOnlyInternetGatewaysResponse
+newDescribeEgressOnlyInternetGatewaysResponse
+  pHttpStatus_ =
+    DescribeEgressOnlyInternetGatewaysResponse'
+      { nextToken =
+          Prelude.Nothing,
+        egressOnlyInternetGateways =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeEgressOnlyInternetGatewaysResponse_nextToken :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Prelude.Maybe Prelude.Text)
+describeEgressOnlyInternetGatewaysResponse_nextToken = Lens.lens (\DescribeEgressOnlyInternetGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeEgressOnlyInternetGatewaysResponse' {} a -> s {nextToken = a} :: DescribeEgressOnlyInternetGatewaysResponse)
 
--- | Information about the egress-only Internet gateways.
-deoigrsEgressOnlyInternetGateways :: Lens' DescribeEgressOnlyInternetGatewaysResponse [EgressOnlyInternetGateway]
-deoigrsEgressOnlyInternetGateways = lens _deoigrsEgressOnlyInternetGateways (\ s a -> s{_deoigrsEgressOnlyInternetGateways = a}) . _Default . _Coerce
+-- | Information about the egress-only internet gateways.
+describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Prelude.Maybe [EgressOnlyInternetGateway])
+describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways = Lens.lens (\DescribeEgressOnlyInternetGatewaysResponse' {egressOnlyInternetGateways} -> egressOnlyInternetGateways) (\s@DescribeEgressOnlyInternetGatewaysResponse' {} a -> s {egressOnlyInternetGateways = a} :: DescribeEgressOnlyInternetGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The token to use to retrieve the next page of results.
-deoigrsNextToken :: Lens' DescribeEgressOnlyInternetGatewaysResponse (Maybe Text)
-deoigrsNextToken = lens _deoigrsNextToken (\ s a -> s{_deoigrsNextToken = a})
+-- | The response's http status code.
+describeEgressOnlyInternetGatewaysResponse_httpStatus :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse Prelude.Int
+describeEgressOnlyInternetGatewaysResponse_httpStatus = Lens.lens (\DescribeEgressOnlyInternetGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeEgressOnlyInternetGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeEgressOnlyInternetGatewaysResponse)
 
--- | -- | The response status code.
-deoigrsResponseStatus :: Lens' DescribeEgressOnlyInternetGatewaysResponse Int
-deoigrsResponseStatus = lens _deoigrsResponseStatus (\ s a -> s{_deoigrsResponseStatus = a})
-
-instance NFData
-           DescribeEgressOnlyInternetGatewaysResponse
-         where
+instance
+  Prelude.NFData
+    DescribeEgressOnlyInternetGatewaysResponse

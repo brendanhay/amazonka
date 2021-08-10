@@ -1,141 +1,201 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetConnection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a connection definition from the Data Catalog.
---
---
 module Network.AWS.Glue.GetConnection
-    (
-    -- * Creating a Request
-      getConnection
-    , GetConnection
+  ( -- * Creating a Request
+    GetConnection (..),
+    newGetConnection,
+
     -- * Request Lenses
-    , gCatalogId
-    , gName
+    getConnection_catalogId,
+    getConnection_hidePassword,
+    getConnection_name,
 
     -- * Destructuring the Response
-    , getConnectionResponse
-    , GetConnectionResponse
+    GetConnectionResponse (..),
+    newGetConnectionResponse,
+
     -- * Response Lenses
-    , getrsConnection
-    , getrsResponseStatus
-    ) where
+    getConnectionResponse_connection,
+    getConnectionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getConnection' smart constructor.
+-- | /See:/ 'newGetConnection' smart constructor.
 data GetConnection = GetConnection'
-  { _gCatalogId :: !(Maybe Text)
-  , _gName      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog in which the connection resides. If none is
+    -- provided, the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to retrieve the connection metadata without returning the
+    -- password. For instance, the AWS Glue console uses this flag to retrieve
+    -- the connection, and does not display the password. Set this parameter
+    -- when the caller might not have permission to use the AWS KMS key to
+    -- decrypt the password, but it does have permission to access the rest of
+    -- the connection properties.
+    hidePassword :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the connection definition to retrieve.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetConnection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetConnection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gCatalogId' - The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gName' - The name of the connection definition to retrieve.
-getConnection
-    :: Text -- ^ 'gName'
-    -> GetConnection
-getConnection pName_ = GetConnection' {_gCatalogId = Nothing, _gName = pName_}
+-- 'catalogId', 'getConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
+-- provided, the AWS account ID is used by default.
+--
+-- 'hidePassword', 'getConnection_hidePassword' - Allows you to retrieve the connection metadata without returning the
+-- password. For instance, the AWS Glue console uses this flag to retrieve
+-- the connection, and does not display the password. Set this parameter
+-- when the caller might not have permission to use the AWS KMS key to
+-- decrypt the password, but it does have permission to access the rest of
+-- the connection properties.
+--
+-- 'name', 'getConnection_name' - The name of the connection definition to retrieve.
+newGetConnection ::
+  -- | 'name'
+  Prelude.Text ->
+  GetConnection
+newGetConnection pName_ =
+  GetConnection'
+    { catalogId = Prelude.Nothing,
+      hidePassword = Prelude.Nothing,
+      name = pName_
+    }
 
+-- | The ID of the Data Catalog in which the connection resides. If none is
+-- provided, the AWS account ID is used by default.
+getConnection_catalogId :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Text)
+getConnection_catalogId = Lens.lens (\GetConnection' {catalogId} -> catalogId) (\s@GetConnection' {} a -> s {catalogId = a} :: GetConnection)
 
--- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
-gCatalogId :: Lens' GetConnection (Maybe Text)
-gCatalogId = lens _gCatalogId (\ s a -> s{_gCatalogId = a})
+-- | Allows you to retrieve the connection metadata without returning the
+-- password. For instance, the AWS Glue console uses this flag to retrieve
+-- the connection, and does not display the password. Set this parameter
+-- when the caller might not have permission to use the AWS KMS key to
+-- decrypt the password, but it does have permission to access the rest of
+-- the connection properties.
+getConnection_hidePassword :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Bool)
+getConnection_hidePassword = Lens.lens (\GetConnection' {hidePassword} -> hidePassword) (\s@GetConnection' {} a -> s {hidePassword = a} :: GetConnection)
 
 -- | The name of the connection definition to retrieve.
-gName :: Lens' GetConnection Text
-gName = lens _gName (\ s a -> s{_gName = a})
+getConnection_name :: Lens.Lens' GetConnection Prelude.Text
+getConnection_name = Lens.lens (\GetConnection' {name} -> name) (\s@GetConnection' {} a -> s {name = a} :: GetConnection)
 
-instance AWSRequest GetConnection where
-        type Rs GetConnection = GetConnectionResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetConnectionResponse' <$>
-                   (x .?> "Connection") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetConnection where
+  type
+    AWSResponse GetConnection =
+      GetConnectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetConnectionResponse'
+            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetConnection where
+instance Prelude.Hashable GetConnection
 
-instance NFData GetConnection where
+instance Prelude.NFData GetConnection
 
-instance ToHeaders GetConnection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetConnection" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetConnection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetConnection" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetConnection where
-        toJSON GetConnection'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _gCatalogId,
-                  Just ("Name" .= _gName)])
+instance Core.ToJSON GetConnection where
+  toJSON GetConnection' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("HidePassword" Core..=) Prelude.<$> hidePassword,
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToPath GetConnection where
-        toPath = const "/"
+instance Core.ToPath GetConnection where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetConnection where
-        toQuery = const mempty
+instance Core.ToQuery GetConnection where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getConnectionResponse' smart constructor.
+-- | /See:/ 'newGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { _getrsConnection     :: !(Maybe Connection)
-  , _getrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The requested connection definition.
+    connection :: Prelude.Maybe Connection,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetConnectionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetConnectionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'getrsConnection' - The requested connection definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'getrsResponseStatus' - -- | The response status code.
-getConnectionResponse
-    :: Int -- ^ 'getrsResponseStatus'
-    -> GetConnectionResponse
-getConnectionResponse pResponseStatus_ =
+-- 'connection', 'getConnectionResponse_connection' - The requested connection definition.
+--
+-- 'httpStatus', 'getConnectionResponse_httpStatus' - The response's http status code.
+newGetConnectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetConnectionResponse
+newGetConnectionResponse pHttpStatus_ =
   GetConnectionResponse'
-    {_getrsConnection = Nothing, _getrsResponseStatus = pResponseStatus_}
-
+    { connection =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The requested connection definition.
-getrsConnection :: Lens' GetConnectionResponse (Maybe Connection)
-getrsConnection = lens _getrsConnection (\ s a -> s{_getrsConnection = a})
+getConnectionResponse_connection :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Connection)
+getConnectionResponse_connection = Lens.lens (\GetConnectionResponse' {connection} -> connection) (\s@GetConnectionResponse' {} a -> s {connection = a} :: GetConnectionResponse)
 
--- | -- | The response status code.
-getrsResponseStatus :: Lens' GetConnectionResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+-- | The response's http status code.
+getConnectionResponse_httpStatus :: Lens.Lens' GetConnectionResponse Prelude.Int
+getConnectionResponse_httpStatus = Lens.lens (\GetConnectionResponse' {httpStatus} -> httpStatus) (\s@GetConnectionResponse' {} a -> s {httpStatus = a} :: GetConnectionResponse)
 
-instance NFData GetConnectionResponse where
+instance Prelude.NFData GetConnectionResponse

@@ -1,135 +1,336 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.GetTopicAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.
---
---
+-- Returns all of the properties of a topic. Topic properties returned
+-- might differ based on the authorization of the user.
 module Network.AWS.SNS.GetTopicAttributes
-    (
-    -- * Creating a Request
-      getTopicAttributes
-    , GetTopicAttributes
+  ( -- * Creating a Request
+    GetTopicAttributes (..),
+    newGetTopicAttributes,
+
     -- * Request Lenses
-    , gtaTopicARN
+    getTopicAttributes_topicArn,
 
     -- * Destructuring the Response
-    , getTopicAttributesResponse
-    , GetTopicAttributesResponse
-    -- * Response Lenses
-    , gtarsAttributes
-    , gtarsResponseStatus
-    ) where
+    GetTopicAttributesResponse (..),
+    newGetTopicAttributesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    getTopicAttributesResponse_attributes,
+    getTopicAttributesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for GetTopicAttributes action.
 --
---
---
--- /See:/ 'getTopicAttributes' smart constructor.
-newtype GetTopicAttributes = GetTopicAttributes'
-  { _gtaTopicARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetTopicAttributes' smart constructor.
+data GetTopicAttributes = GetTopicAttributes'
+  { -- | The ARN of the topic whose properties you want to get.
+    topicArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTopicAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTopicAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtaTopicARN' - The ARN of the topic whose properties you want to get.
-getTopicAttributes
-    :: Text -- ^ 'gtaTopicARN'
-    -> GetTopicAttributes
-getTopicAttributes pTopicARN_ = GetTopicAttributes' {_gtaTopicARN = pTopicARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'topicArn', 'getTopicAttributes_topicArn' - The ARN of the topic whose properties you want to get.
+newGetTopicAttributes ::
+  -- | 'topicArn'
+  Prelude.Text ->
+  GetTopicAttributes
+newGetTopicAttributes pTopicArn_ =
+  GetTopicAttributes' {topicArn = pTopicArn_}
 
 -- | The ARN of the topic whose properties you want to get.
-gtaTopicARN :: Lens' GetTopicAttributes Text
-gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a})
+getTopicAttributes_topicArn :: Lens.Lens' GetTopicAttributes Prelude.Text
+getTopicAttributes_topicArn = Lens.lens (\GetTopicAttributes' {topicArn} -> topicArn) (\s@GetTopicAttributes' {} a -> s {topicArn = a} :: GetTopicAttributes)
 
-instance AWSRequest GetTopicAttributes where
-        type Rs GetTopicAttributes =
-             GetTopicAttributesResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "GetTopicAttributesResult"
-              (\ s h x ->
-                 GetTopicAttributesResponse' <$>
-                   (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetTopicAttributes where
+  type
+    AWSResponse GetTopicAttributes =
+      GetTopicAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetTopicAttributesResult"
+      ( \s h x ->
+          GetTopicAttributesResponse'
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetTopicAttributes where
+instance Prelude.Hashable GetTopicAttributes
 
-instance NFData GetTopicAttributes where
+instance Prelude.NFData GetTopicAttributes
 
-instance ToHeaders GetTopicAttributes where
-        toHeaders = const mempty
+instance Core.ToHeaders GetTopicAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetTopicAttributes where
-        toPath = const "/"
+instance Core.ToPath GetTopicAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetTopicAttributes where
-        toQuery GetTopicAttributes'{..}
-          = mconcat
-              ["Action" =: ("GetTopicAttributes" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _gtaTopicARN]
+instance Core.ToQuery GetTopicAttributes where
+  toQuery GetTopicAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetTopicAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "TopicArn" Core.=: topicArn
+      ]
 
 -- | Response for GetTopicAttributes action.
 --
---
---
--- /See:/ 'getTopicAttributesResponse' smart constructor.
+-- /See:/ 'newGetTopicAttributesResponse' smart constructor.
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-  { _gtarsAttributes     :: !(Maybe (Map Text Text))
-  , _gtarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A map of the topic\'s attributes. Attributes in this map include the
+    -- following:
+    --
+    -- -   @DeliveryPolicy@ – The JSON serialization of the topic\'s delivery
+    --     policy.
+    --
+    -- -   @DisplayName@ – The human-readable name used in the @From@ field for
+    --     notifications to @email@ and @email-json@ endpoints.
+    --
+    -- -   @Owner@ – The AWS account ID of the topic\'s owner.
+    --
+    -- -   @Policy@ – The JSON serialization of the topic\'s access control
+    --     policy.
+    --
+    -- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
+    --     the topic.
+    --
+    -- -   @SubscriptionsDeleted@ – The number of deleted subscriptions for the
+    --     topic.
+    --
+    -- -   @SubscriptionsPending@ – The number of subscriptions pending
+    --     confirmation for the topic.
+    --
+    -- -   @TopicArn@ – The topic\'s ARN.
+    --
+    -- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+    --     delivery policy, taking system defaults into account.
+    --
+    -- The following attribute applies only to
+    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+    --
+    -- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
+    --     (CMK) for Amazon SNS or a custom CMK. For more information, see
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
+    --     For more examples, see
+    --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
+    --     in the /AWS Key Management Service API Reference/.
+    --
+    -- The following attributes apply only to
+    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
+    --
+    -- -   @FifoTopic@ – When this is set to @true@, a FIFO topic is created.
+    --
+    -- -   @ContentBasedDeduplication@ – Enables content-based deduplication
+    --     for FIFO topics.
+    --
+    --     -   By default, @ContentBasedDeduplication@ is set to @false@. If
+    --         you create a FIFO topic and this attribute is @false@, you must
+    --         specify a value for the @MessageDeduplicationId@ parameter for
+    --         the
+    --         <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>
+    --         action.
+    --
+    --     -   When you set @ContentBasedDeduplication@ to @true@, Amazon SNS
+    --         uses a SHA-256 hash to generate the @MessageDeduplicationId@
+    --         using the body of the message (but not the attributes of the
+    --         message).
+    --
+    --         (Optional) To override the generated value, you can specify a
+    --         value for the the @MessageDeduplicationId@ parameter for the
+    --         @Publish@ action.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTopicAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTopicAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtarsAttributes' - A map of the topic's attributes. Attributes in this map include the following:     * @TopicArn@ -- the topic's ARN     * @Owner@ -- the AWS account ID of the topic's owner     * @Policy@ -- the JSON serialization of the topic's access control policy     * @DisplayName@ -- the human-readable name used in the "From" field for notifications to email and email-json endpoints     * @SubscriptionsPending@ -- the number of subscriptions pending confirmation on this topic     * @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on this topic     * @SubscriptionsDeleted@ -- the number of deleted subscriptions on this topic     * @DeliveryPolicy@ -- the JSON serialization of the topic's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account system defaults
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtarsResponseStatus' - -- | The response status code.
-getTopicAttributesResponse
-    :: Int -- ^ 'gtarsResponseStatus'
-    -> GetTopicAttributesResponse
-getTopicAttributesResponse pResponseStatus_ =
+-- 'attributes', 'getTopicAttributesResponse_attributes' - A map of the topic\'s attributes. Attributes in this map include the
+-- following:
+--
+-- -   @DeliveryPolicy@ – The JSON serialization of the topic\'s delivery
+--     policy.
+--
+-- -   @DisplayName@ – The human-readable name used in the @From@ field for
+--     notifications to @email@ and @email-json@ endpoints.
+--
+-- -   @Owner@ – The AWS account ID of the topic\'s owner.
+--
+-- -   @Policy@ – The JSON serialization of the topic\'s access control
+--     policy.
+--
+-- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
+--     the topic.
+--
+-- -   @SubscriptionsDeleted@ – The number of deleted subscriptions for the
+--     topic.
+--
+-- -   @SubscriptionsPending@ – The number of subscriptions pending
+--     confirmation for the topic.
+--
+-- -   @TopicArn@ – The topic\'s ARN.
+--
+-- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+--     delivery policy, taking system defaults into account.
+--
+-- The following attribute applies only to
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+--
+-- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
+--     (CMK) for Amazon SNS or a custom CMK. For more information, see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
+--     For more examples, see
+--     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
+--     in the /AWS Key Management Service API Reference/.
+--
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
+--
+-- -   @FifoTopic@ – When this is set to @true@, a FIFO topic is created.
+--
+-- -   @ContentBasedDeduplication@ – Enables content-based deduplication
+--     for FIFO topics.
+--
+--     -   By default, @ContentBasedDeduplication@ is set to @false@. If
+--         you create a FIFO topic and this attribute is @false@, you must
+--         specify a value for the @MessageDeduplicationId@ parameter for
+--         the
+--         <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>
+--         action.
+--
+--     -   When you set @ContentBasedDeduplication@ to @true@, Amazon SNS
+--         uses a SHA-256 hash to generate the @MessageDeduplicationId@
+--         using the body of the message (but not the attributes of the
+--         message).
+--
+--         (Optional) To override the generated value, you can specify a
+--         value for the the @MessageDeduplicationId@ parameter for the
+--         @Publish@ action.
+--
+-- 'httpStatus', 'getTopicAttributesResponse_httpStatus' - The response's http status code.
+newGetTopicAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTopicAttributesResponse
+newGetTopicAttributesResponse pHttpStatus_ =
   GetTopicAttributesResponse'
-    {_gtarsAttributes = Nothing, _gtarsResponseStatus = pResponseStatus_}
+    { attributes =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A map of the topic\'s attributes. Attributes in this map include the
+-- following:
+--
+-- -   @DeliveryPolicy@ – The JSON serialization of the topic\'s delivery
+--     policy.
+--
+-- -   @DisplayName@ – The human-readable name used in the @From@ field for
+--     notifications to @email@ and @email-json@ endpoints.
+--
+-- -   @Owner@ – The AWS account ID of the topic\'s owner.
+--
+-- -   @Policy@ – The JSON serialization of the topic\'s access control
+--     policy.
+--
+-- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
+--     the topic.
+--
+-- -   @SubscriptionsDeleted@ – The number of deleted subscriptions for the
+--     topic.
+--
+-- -   @SubscriptionsPending@ – The number of subscriptions pending
+--     confirmation for the topic.
+--
+-- -   @TopicArn@ – The topic\'s ARN.
+--
+-- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+--     delivery policy, taking system defaults into account.
+--
+-- The following attribute applies only to
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+--
+-- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
+--     (CMK) for Amazon SNS or a custom CMK. For more information, see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
+--     For more examples, see
+--     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
+--     in the /AWS Key Management Service API Reference/.
+--
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
+--
+-- -   @FifoTopic@ – When this is set to @true@, a FIFO topic is created.
+--
+-- -   @ContentBasedDeduplication@ – Enables content-based deduplication
+--     for FIFO topics.
+--
+--     -   By default, @ContentBasedDeduplication@ is set to @false@. If
+--         you create a FIFO topic and this attribute is @false@, you must
+--         specify a value for the @MessageDeduplicationId@ parameter for
+--         the
+--         <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>
+--         action.
+--
+--     -   When you set @ContentBasedDeduplication@ to @true@, Amazon SNS
+--         uses a SHA-256 hash to generate the @MessageDeduplicationId@
+--         using the body of the message (but not the attributes of the
+--         message).
+--
+--         (Optional) To override the generated value, you can specify a
+--         value for the the @MessageDeduplicationId@ parameter for the
+--         @Publish@ action.
+getTopicAttributesResponse_attributes :: Lens.Lens' GetTopicAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A map of the topic's attributes. Attributes in this map include the following:     * @TopicArn@ -- the topic's ARN     * @Owner@ -- the AWS account ID of the topic's owner     * @Policy@ -- the JSON serialization of the topic's access control policy     * @DisplayName@ -- the human-readable name used in the "From" field for notifications to email and email-json endpoints     * @SubscriptionsPending@ -- the number of subscriptions pending confirmation on this topic     * @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on this topic     * @SubscriptionsDeleted@ -- the number of deleted subscriptions on this topic     * @DeliveryPolicy@ -- the JSON serialization of the topic's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account system defaults
-gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map
+-- | The response's http status code.
+getTopicAttributesResponse_httpStatus :: Lens.Lens' GetTopicAttributesResponse Prelude.Int
+getTopicAttributesResponse_httpStatus = Lens.lens (\GetTopicAttributesResponse' {httpStatus} -> httpStatus) (\s@GetTopicAttributesResponse' {} a -> s {httpStatus = a} :: GetTopicAttributesResponse)
 
--- | -- | The response status code.
-gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
-gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a})
-
-instance NFData GetTopicAttributesResponse where
+instance Prelude.NFData GetTopicAttributesResponse

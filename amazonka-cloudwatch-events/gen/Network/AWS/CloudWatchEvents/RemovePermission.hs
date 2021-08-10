@@ -1,118 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.RemovePermission
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to revoke by the @StatementId@ value that you associated with the account when you granted it permission with @PutPermission@ . You can find the @StatementId@ by using 'DescribeEventBus' .
---
---
+-- Revokes the permission of another AWS account to be able to put events
+-- to the specified event bus. Specify the account to revoke by the
+-- @StatementId@ value that you associated with the account when you
+-- granted it permission with @PutPermission@. You can find the
+-- @StatementId@ by using DescribeEventBus.
 module Network.AWS.CloudWatchEvents.RemovePermission
-    (
-    -- * Creating a Request
-      removePermission
-    , RemovePermission
+  ( -- * Creating a Request
+    RemovePermission (..),
+    newRemovePermission,
+
     -- * Request Lenses
-    , rpEventBusName
-    , rpStatementId
+    removePermission_statementId,
+    removePermission_eventBusName,
+    removePermission_removeAllPermissions,
 
     -- * Destructuring the Response
-    , removePermissionResponse
-    , RemovePermissionResponse
-    ) where
+    RemovePermissionResponse (..),
+    newRemovePermissionResponse,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'removePermission' smart constructor.
+-- | /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpEventBusName :: !(Maybe Text)
-  , _rpStatementId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The statement ID corresponding to the account that is no longer allowed
+    -- to put events to the default event bus.
+    statementId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event bus to revoke permissions for. If you omit this,
+    -- the default event bus is used.
+    eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to remove all permissions.
+    removeAllPermissions :: Prelude.Maybe Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemovePermission' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpEventBusName' - The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpStatementId' - The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
-removePermission
-    :: Text -- ^ 'rpStatementId'
-    -> RemovePermission
-removePermission pStatementId_ =
-  RemovePermission' {_rpEventBusName = Nothing, _rpStatementId = pStatementId_}
+-- 'statementId', 'removePermission_statementId' - The statement ID corresponding to the account that is no longer allowed
+-- to put events to the default event bus.
+--
+-- 'eventBusName', 'removePermission_eventBusName' - The name of the event bus to revoke permissions for. If you omit this,
+-- the default event bus is used.
+--
+-- 'removeAllPermissions', 'removePermission_removeAllPermissions' - Specifies whether to remove all permissions.
+newRemovePermission ::
+  RemovePermission
+newRemovePermission =
+  RemovePermission'
+    { statementId = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      removeAllPermissions = Prelude.Nothing
+    }
 
+-- | The statement ID corresponding to the account that is no longer allowed
+-- to put events to the default event bus.
+removePermission_statementId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
+removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
 
--- | The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
-rpEventBusName :: Lens' RemovePermission (Maybe Text)
-rpEventBusName = lens _rpEventBusName (\ s a -> s{_rpEventBusName = a})
+-- | The name of the event bus to revoke permissions for. If you omit this,
+-- the default event bus is used.
+removePermission_eventBusName :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
+removePermission_eventBusName = Lens.lens (\RemovePermission' {eventBusName} -> eventBusName) (\s@RemovePermission' {} a -> s {eventBusName = a} :: RemovePermission)
 
--- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
-rpStatementId :: Lens' RemovePermission Text
-rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a})
+-- | Specifies whether to remove all permissions.
+removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Bool)
+removePermission_removeAllPermissions = Lens.lens (\RemovePermission' {removeAllPermissions} -> removeAllPermissions) (\s@RemovePermission' {} a -> s {removeAllPermissions = a} :: RemovePermission)
 
-instance AWSRequest RemovePermission where
-        type Rs RemovePermission = RemovePermissionResponse
-        request = postJSON cloudWatchEvents
-        response = receiveNull RemovePermissionResponse'
+instance Core.AWSRequest RemovePermission where
+  type
+    AWSResponse RemovePermission =
+      RemovePermissionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission where
+instance Prelude.Hashable RemovePermission
 
-instance NFData RemovePermission where
+instance Prelude.NFData RemovePermission
 
-instance ToHeaders RemovePermission where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSEvents.RemovePermission" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RemovePermission where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSEvents.RemovePermission" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RemovePermission where
-        toJSON RemovePermission'{..}
-          = object
-              (catMaybes
-                 [("EventBusName" .=) <$> _rpEventBusName,
-                  Just ("StatementId" .= _rpStatementId)])
+instance Core.ToJSON RemovePermission where
+  toJSON RemovePermission' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("StatementId" Core..=) Prelude.<$> statementId,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("RemoveAllPermissions" Core..=)
+              Prelude.<$> removeAllPermissions
+          ]
+      )
 
-instance ToPath RemovePermission where
-        toPath = const "/"
+instance Core.ToPath RemovePermission where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemovePermission where
-        toQuery = const mempty
+instance Core.ToQuery RemovePermission where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'removePermissionResponse' smart constructor.
-data RemovePermissionResponse =
+-- | /See:/ 'newRemovePermissionResponse' smart constructor.
+data RemovePermissionResponse = RemovePermissionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRemovePermissionResponse ::
+  RemovePermissionResponse
+newRemovePermissionResponse =
   RemovePermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
---
-removePermissionResponse
-    :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse'
-
-
-instance NFData RemovePermissionResponse where
+instance Prelude.NFData RemovePermissionResponse

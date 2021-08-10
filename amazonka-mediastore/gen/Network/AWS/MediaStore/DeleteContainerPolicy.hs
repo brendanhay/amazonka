@@ -1,126 +1,155 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStore.DeleteContainerPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the access policy that is associated with the specified container.
---
---
+-- Deletes the access policy that is associated with the specified
+-- container.
 module Network.AWS.MediaStore.DeleteContainerPolicy
-    (
-    -- * Creating a Request
-      deleteContainerPolicy
-    , DeleteContainerPolicy
+  ( -- * Creating a Request
+    DeleteContainerPolicy (..),
+    newDeleteContainerPolicy,
+
     -- * Request Lenses
-    , delContainerName
+    deleteContainerPolicy_containerName,
 
     -- * Destructuring the Response
-    , deleteContainerPolicyResponse
-    , DeleteContainerPolicyResponse
+    DeleteContainerPolicyResponse (..),
+    newDeleteContainerPolicyResponse,
+
     -- * Response Lenses
-    , dcprsResponseStatus
-    ) where
+    deleteContainerPolicyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.MediaStore.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteContainerPolicy' smart constructor.
-newtype DeleteContainerPolicy = DeleteContainerPolicy'
-  { _delContainerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteContainerPolicy' smart constructor.
+data DeleteContainerPolicy = DeleteContainerPolicy'
+  { -- | The name of the container that holds the policy.
+    containerName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteContainerPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteContainerPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delContainerName' - The name of the container that holds the policy.
-deleteContainerPolicy
-    :: Text -- ^ 'delContainerName'
-    -> DeleteContainerPolicy
-deleteContainerPolicy pContainerName_ =
-  DeleteContainerPolicy' {_delContainerName = pContainerName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'containerName', 'deleteContainerPolicy_containerName' - The name of the container that holds the policy.
+newDeleteContainerPolicy ::
+  -- | 'containerName'
+  Prelude.Text ->
+  DeleteContainerPolicy
+newDeleteContainerPolicy pContainerName_ =
+  DeleteContainerPolicy'
+    { containerName =
+        pContainerName_
+    }
 
 -- | The name of the container that holds the policy.
-delContainerName :: Lens' DeleteContainerPolicy Text
-delContainerName = lens _delContainerName (\ s a -> s{_delContainerName = a})
+deleteContainerPolicy_containerName :: Lens.Lens' DeleteContainerPolicy Prelude.Text
+deleteContainerPolicy_containerName = Lens.lens (\DeleteContainerPolicy' {containerName} -> containerName) (\s@DeleteContainerPolicy' {} a -> s {containerName = a} :: DeleteContainerPolicy)
 
-instance AWSRequest DeleteContainerPolicy where
-        type Rs DeleteContainerPolicy =
-             DeleteContainerPolicyResponse
-        request = postJSON mediaStore
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteContainerPolicyResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest DeleteContainerPolicy where
+  type
+    AWSResponse DeleteContainerPolicy =
+      DeleteContainerPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteContainerPolicyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteContainerPolicy where
+instance Prelude.Hashable DeleteContainerPolicy
 
-instance NFData DeleteContainerPolicy where
+instance Prelude.NFData DeleteContainerPolicy
 
-instance ToHeaders DeleteContainerPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MediaStore_20170901.DeleteContainerPolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteContainerPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MediaStore_20170901.DeleteContainerPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteContainerPolicy where
-        toJSON DeleteContainerPolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("ContainerName" .= _delContainerName)])
+instance Core.ToJSON DeleteContainerPolicy where
+  toJSON DeleteContainerPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
+      )
 
-instance ToPath DeleteContainerPolicy where
-        toPath = const "/"
+instance Core.ToPath DeleteContainerPolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteContainerPolicy where
-        toQuery = const mempty
+instance Core.ToQuery DeleteContainerPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteContainerPolicyResponse' smart constructor.
-newtype DeleteContainerPolicyResponse = DeleteContainerPolicyResponse'
-  { _dcprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteContainerPolicyResponse' smart constructor.
+data DeleteContainerPolicyResponse = DeleteContainerPolicyResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteContainerPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteContainerPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcprsResponseStatus' - -- | The response status code.
-deleteContainerPolicyResponse
-    :: Int -- ^ 'dcprsResponseStatus'
-    -> DeleteContainerPolicyResponse
-deleteContainerPolicyResponse pResponseStatus_ =
-  DeleteContainerPolicyResponse' {_dcprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteContainerPolicyResponse_httpStatus' - The response's http status code.
+newDeleteContainerPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteContainerPolicyResponse
+newDeleteContainerPolicyResponse pHttpStatus_ =
+  DeleteContainerPolicyResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteContainerPolicyResponse_httpStatus :: Lens.Lens' DeleteContainerPolicyResponse Prelude.Int
+deleteContainerPolicyResponse_httpStatus = Lens.lens (\DeleteContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerPolicyResponse' {} a -> s {httpStatus = a} :: DeleteContainerPolicyResponse)
 
--- | -- | The response status code.
-dcprsResponseStatus :: Lens' DeleteContainerPolicyResponse Int
-dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a})
-
-instance NFData DeleteContainerPolicyResponse where
+instance Prelude.NFData DeleteContainerPolicyResponse

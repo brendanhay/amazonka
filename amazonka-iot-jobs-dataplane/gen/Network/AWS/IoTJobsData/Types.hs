@@ -1,163 +1,205 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTJobsData.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.IoTJobsData.Types
-    (
-    -- * Service Configuration
-      ioTJobsData
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _TerminalStateException
-    , _InvalidRequestException
-    , _CertificateValidationException
-    , _ThrottlingException
-    , _ServiceUnavailableException
-    , _InvalidStateTransitionException
-    , _ResourceNotFoundException
+    _TerminalStateException,
+    _CertificateValidationException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
+    _InvalidRequestException,
+    _InvalidStateTransitionException,
+    _ResourceNotFoundException,
 
     -- * JobExecutionStatus
-    , JobExecutionStatus (..)
+    JobExecutionStatus (..),
 
     -- * JobExecution
-    , JobExecution
-    , jobExecution
-    , jeStatus
-    , jeJobId
-    , jeLastUpdatedAt
-    , jeQueuedAt
-    , jeJobDocument
-    , jeStatusDetails
-    , jeExecutionNumber
-    , jeVersionNumber
-    , jeStartedAt
-    , jeThingName
+    JobExecution (..),
+    newJobExecution,
+    jobExecution_startedAt,
+    jobExecution_status,
+    jobExecution_statusDetails,
+    jobExecution_thingName,
+    jobExecution_queuedAt,
+    jobExecution_versionNumber,
+    jobExecution_executionNumber,
+    jobExecution_jobDocument,
+    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_lastUpdatedAt,
+    jobExecution_jobId,
 
     -- * JobExecutionState
-    , JobExecutionState
-    , jobExecutionState
-    , jesStatus
-    , jesStatusDetails
-    , jesVersionNumber
+    JobExecutionState (..),
+    newJobExecutionState,
+    jobExecutionState_status,
+    jobExecutionState_statusDetails,
+    jobExecutionState_versionNumber,
 
     -- * JobExecutionSummary
-    , JobExecutionSummary
-    , jobExecutionSummary
-    , jJobId
-    , jLastUpdatedAt
-    , jQueuedAt
-    , jExecutionNumber
-    , jVersionNumber
-    , jStartedAt
-    ) where
+    JobExecutionSummary (..),
+    newJobExecutionSummary,
+    jobExecutionSummary_startedAt,
+    jobExecutionSummary_queuedAt,
+    jobExecutionSummary_versionNumber,
+    jobExecutionSummary_executionNumber,
+    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_jobId,
+  )
+where
 
-import Network.AWS.IoTJobsData.Types.Product
-import Network.AWS.IoTJobsData.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import Network.AWS.IoTJobsData.Types.JobExecution
+import Network.AWS.IoTJobsData.Types.JobExecutionState
+import Network.AWS.IoTJobsData.Types.JobExecutionStatus
+import Network.AWS.IoTJobsData.Types.JobExecutionSummary
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-29@ of the Amazon IoT Jobs Data Plane SDK configuration.
-ioTJobsData :: Service
-ioTJobsData =
-  Service
-    { _svcAbbrev = "IoTJobsData"
-    , _svcSigner = v4
-    , _svcPrefix = "data.jobs.iot"
-    , _svcVersion = "2017-09-29"
-    , _svcEndpoint = defaultEndpoint ioTJobsData
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "IoTJobsData"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "IoTJobsData",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "data.jobs.iot",
+      Core._serviceSigningName = "iot-jobs-data",
+      Core._serviceVersion = "2017-09-29",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "IoTJobsData",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The job is in a terminal state.
---
---
-_TerminalStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_TerminalStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TerminalStateException =
-  _MatchServiceError ioTJobsData "TerminalStateException" . hasStatus 410
-
-
--- | The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.
---
---
-_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException =
-  _MatchServiceError ioTJobsData "InvalidRequestException" . hasStatus 400
-
+  Core._MatchServiceError
+    defaultService
+    "TerminalStateException"
+    Prelude.. Core.hasStatus 410
 
 -- | The certificate is invalid.
---
---
-_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CertificateValidationException =
-  _MatchServiceError ioTJobsData "CertificateValidationException" .
-  hasStatus 400
-
-
--- | The rate exceeds the limit.
---
---
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottlingException =
-  _MatchServiceError ioTJobsData "ThrottlingException" . hasStatus 429
-
+  Core._MatchServiceError
+    defaultService
+    "CertificateValidationException"
+    Prelude.. Core.hasStatus 400
 
 -- | The service is temporarily unavailable.
---
---
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
-  _MatchServiceError ioTJobsData "ServiceUnavailableException" . hasStatus 503
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
+-- | The rate exceeds the limit.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
 
--- | An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.
---
---
-_InvalidStateTransitionException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The contents of the request were invalid. For example, this code is
+-- returned when an UpdateJobExecution request contains invalid status
+-- details. The message contains details about the error.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | An update attempted to change the job execution to a state that is
+-- invalid because of the job execution\'s current state (for example, an
+-- attempt to change a request in state SUCCESS to state IN_PROGRESS). In
+-- this case, the body of the error message also contains the
+-- executionState field.
+_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidStateTransitionException =
-  _MatchServiceError ioTJobsData "InvalidStateTransitionException" .
-  hasStatus 409
-
+  Core._MatchServiceError
+    defaultService
+    "InvalidStateTransitionException"
+    Prelude.. Core.hasStatus 409
 
 -- | The specified resource does not exist.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  _MatchServiceError ioTJobsData "ResourceNotFoundException" . hasStatus 404
-
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404

@@ -1,114 +1,141 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
---
---
+-- Deletes the specified placement group. You must terminate all instances
+-- in the placement group before you can delete the placement group. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
+-- in the /Amazon EC2 User Guide/.
 module Network.AWS.EC2.DeletePlacementGroup
-    (
-    -- * Creating a Request
-      deletePlacementGroup
-    , DeletePlacementGroup
+  ( -- * Creating a Request
+    DeletePlacementGroup (..),
+    newDeletePlacementGroup,
+
     -- * Request Lenses
-    , dpgDryRun
-    , dpgGroupName
+    deletePlacementGroup_dryRun,
+    deletePlacementGroup_groupName,
 
     -- * Destructuring the Response
-    , deletePlacementGroupResponse
-    , DeletePlacementGroupResponse
-    ) where
+    DeletePlacementGroupResponse (..),
+    newDeletePlacementGroupResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DeletePlacementGroup.
---
---
---
--- /See:/ 'deletePlacementGroup' smart constructor.
+-- | /See:/ 'newDeletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
-  { _dpgDryRun    :: !(Maybe Bool)
-  , _dpgGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the placement group.
+    groupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePlacementGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePlacementGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpgGroupName' - The name of the placement group.
-deletePlacementGroup
-    :: Text -- ^ 'dpgGroupName'
-    -> DeletePlacementGroup
-deletePlacementGroup pGroupName_ =
-  DeletePlacementGroup' {_dpgDryRun = Nothing, _dpgGroupName = pGroupName_}
+-- 'dryRun', 'deletePlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'groupName', 'deletePlacementGroup_groupName' - The name of the placement group.
+newDeletePlacementGroup ::
+  -- | 'groupName'
+  Prelude.Text ->
+  DeletePlacementGroup
+newDeletePlacementGroup pGroupName_ =
+  DeletePlacementGroup'
+    { dryRun = Prelude.Nothing,
+      groupName = pGroupName_
+    }
 
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
-dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+deletePlacementGroup_dryRun :: Lens.Lens' DeletePlacementGroup (Prelude.Maybe Prelude.Bool)
+deletePlacementGroup_dryRun = Lens.lens (\DeletePlacementGroup' {dryRun} -> dryRun) (\s@DeletePlacementGroup' {} a -> s {dryRun = a} :: DeletePlacementGroup)
 
 -- | The name of the placement group.
-dpgGroupName :: Lens' DeletePlacementGroup Text
-dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a})
+deletePlacementGroup_groupName :: Lens.Lens' DeletePlacementGroup Prelude.Text
+deletePlacementGroup_groupName = Lens.lens (\DeletePlacementGroup' {groupName} -> groupName) (\s@DeletePlacementGroup' {} a -> s {groupName = a} :: DeletePlacementGroup)
 
-instance AWSRequest DeletePlacementGroup where
-        type Rs DeletePlacementGroup =
-             DeletePlacementGroupResponse
-        request = postQuery ec2
-        response = receiveNull DeletePlacementGroupResponse'
+instance Core.AWSRequest DeletePlacementGroup where
+  type
+    AWSResponse DeletePlacementGroup =
+      DeletePlacementGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeletePlacementGroupResponse'
 
-instance Hashable DeletePlacementGroup where
+instance Prelude.Hashable DeletePlacementGroup
 
-instance NFData DeletePlacementGroup where
+instance Prelude.NFData DeletePlacementGroup
 
-instance ToHeaders DeletePlacementGroup where
-        toHeaders = const mempty
+instance Core.ToHeaders DeletePlacementGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeletePlacementGroup where
-        toPath = const "/"
+instance Core.ToPath DeletePlacementGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeletePlacementGroup where
-        toQuery DeletePlacementGroup'{..}
-          = mconcat
-              ["Action" =: ("DeletePlacementGroup" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _dpgDryRun, "GroupName" =: _dpgGroupName]
+instance Core.ToQuery DeletePlacementGroup where
+  toQuery DeletePlacementGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeletePlacementGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "GroupName" Core.=: groupName
+      ]
 
--- | /See:/ 'deletePlacementGroupResponse' smart constructor.
-data DeletePlacementGroupResponse =
-  DeletePlacementGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePlacementGroupResponse' smart constructor.
+data DeletePlacementGroupResponse = DeletePlacementGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePlacementGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePlacementGroupResponse' with all optional fields omitted.
 --
-deletePlacementGroupResponse
-    :: DeletePlacementGroupResponse
-deletePlacementGroupResponse = DeletePlacementGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePlacementGroupResponse ::
+  DeletePlacementGroupResponse
+newDeletePlacementGroupResponse =
+  DeletePlacementGroupResponse'
 
-
-instance NFData DeletePlacementGroupResponse where
+instance Prelude.NFData DeletePlacementGroupResponse

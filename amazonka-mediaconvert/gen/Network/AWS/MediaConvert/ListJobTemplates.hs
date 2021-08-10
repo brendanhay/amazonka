@@ -1,177 +1,255 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.ListJobTemplates
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+-- Retrieve a JSON array of up to twenty of your job templates. This will
+-- return the templates themselves, not just a list of them. To retrieve
+-- the next twenty templates, use the nextToken string returned with the
+-- array
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaConvert.ListJobTemplates
-    (
-    -- * Creating a Request
-      listJobTemplates
-    , ListJobTemplates
+  ( -- * Creating a Request
+    ListJobTemplates (..),
+    newListJobTemplates,
+
     -- * Request Lenses
-    , ljtCategory
-    , ljtListBy
-    , ljtNextToken
-    , ljtOrder
-    , ljtMaxResults
+    listJobTemplates_nextToken,
+    listJobTemplates_listBy,
+    listJobTemplates_maxResults,
+    listJobTemplates_category,
+    listJobTemplates_order,
 
     -- * Destructuring the Response
-    , listJobTemplatesResponse
-    , ListJobTemplatesResponse
+    ListJobTemplatesResponse (..),
+    newListJobTemplatesResponse,
+
     -- * Response Lenses
-    , ljtrsJobTemplates
-    , ljtrsNextToken
-    , ljtrsResponseStatus
-    ) where
+    listJobTemplatesResponse_jobTemplates,
+    listJobTemplatesResponse_nextToken,
+    listJobTemplatesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listJobTemplates' smart constructor.
+-- | /See:/ 'newListJobTemplates' smart constructor.
 data ListJobTemplates = ListJobTemplates'
-  { _ljtCategory   :: !(Maybe Text)
-  , _ljtListBy     :: !(Maybe JobTemplateListBy)
-  , _ljtNextToken  :: !(Maybe Text)
-  , _ljtOrder      :: !(Maybe Order)
-  , _ljtMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Use this string, provided with the response to a previous request, to
+    -- request the next batch of job templates.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional. When you request a list of job templates, you can choose to
+    -- list them alphabetically by NAME or chronologically by CREATION_DATE. If
+    -- you don\'t specify, the service will list them by name.
+    listBy :: Prelude.Maybe JobTemplateListBy,
+    -- | Optional. Number of job templates, up to twenty, that will be returned
+    -- at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Optionally, specify a job template category to limit responses to only
+    -- job templates from that category.
+    category :: Prelude.Maybe Prelude.Text,
+    -- | Optional. When you request lists of resources, you can specify whether
+    -- they are sorted in ASCENDING or DESCENDING order. Default varies by
+    -- resource.
+    order :: Prelude.Maybe Order
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListJobTemplates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListJobTemplates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ljtCategory' - Optionally, specify a job template category to limit responses to only job templates from that category.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ljtListBy' - Undocumented member.
+-- 'nextToken', 'listJobTemplates_nextToken' - Use this string, provided with the response to a previous request, to
+-- request the next batch of job templates.
 --
--- * 'ljtNextToken' - Use this string, provided with the response to a previous request, to request the next batch of job templates.
+-- 'listBy', 'listJobTemplates_listBy' - Optional. When you request a list of job templates, you can choose to
+-- list them alphabetically by NAME or chronologically by CREATION_DATE. If
+-- you don\'t specify, the service will list them by name.
 --
--- * 'ljtOrder' - Undocumented member.
+-- 'maxResults', 'listJobTemplates_maxResults' - Optional. Number of job templates, up to twenty, that will be returned
+-- at one time.
 --
--- * 'ljtMaxResults' - Optional. Number of job templates, up to twenty, that will be returned at one time.
-listJobTemplates
-    :: ListJobTemplates
-listJobTemplates =
+-- 'category', 'listJobTemplates_category' - Optionally, specify a job template category to limit responses to only
+-- job templates from that category.
+--
+-- 'order', 'listJobTemplates_order' - Optional. When you request lists of resources, you can specify whether
+-- they are sorted in ASCENDING or DESCENDING order. Default varies by
+-- resource.
+newListJobTemplates ::
+  ListJobTemplates
+newListJobTemplates =
   ListJobTemplates'
-    { _ljtCategory = Nothing
-    , _ljtListBy = Nothing
-    , _ljtNextToken = Nothing
-    , _ljtOrder = Nothing
-    , _ljtMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      listBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      category = Prelude.Nothing,
+      order = Prelude.Nothing
     }
 
+-- | Use this string, provided with the response to a previous request, to
+-- request the next batch of job templates.
+listJobTemplates_nextToken :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
+listJobTemplates_nextToken = Lens.lens (\ListJobTemplates' {nextToken} -> nextToken) (\s@ListJobTemplates' {} a -> s {nextToken = a} :: ListJobTemplates)
 
--- | Optionally, specify a job template category to limit responses to only job templates from that category.
-ljtCategory :: Lens' ListJobTemplates (Maybe Text)
-ljtCategory = lens _ljtCategory (\ s a -> s{_ljtCategory = a})
+-- | Optional. When you request a list of job templates, you can choose to
+-- list them alphabetically by NAME or chronologically by CREATION_DATE. If
+-- you don\'t specify, the service will list them by name.
+listJobTemplates_listBy :: Lens.Lens' ListJobTemplates (Prelude.Maybe JobTemplateListBy)
+listJobTemplates_listBy = Lens.lens (\ListJobTemplates' {listBy} -> listBy) (\s@ListJobTemplates' {} a -> s {listBy = a} :: ListJobTemplates)
 
--- | Undocumented member.
-ljtListBy :: Lens' ListJobTemplates (Maybe JobTemplateListBy)
-ljtListBy = lens _ljtListBy (\ s a -> s{_ljtListBy = a})
+-- | Optional. Number of job templates, up to twenty, that will be returned
+-- at one time.
+listJobTemplates_maxResults :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Natural)
+listJobTemplates_maxResults = Lens.lens (\ListJobTemplates' {maxResults} -> maxResults) (\s@ListJobTemplates' {} a -> s {maxResults = a} :: ListJobTemplates)
 
--- | Use this string, provided with the response to a previous request, to request the next batch of job templates.
-ljtNextToken :: Lens' ListJobTemplates (Maybe Text)
-ljtNextToken = lens _ljtNextToken (\ s a -> s{_ljtNextToken = a})
+-- | Optionally, specify a job template category to limit responses to only
+-- job templates from that category.
+listJobTemplates_category :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
+listJobTemplates_category = Lens.lens (\ListJobTemplates' {category} -> category) (\s@ListJobTemplates' {} a -> s {category = a} :: ListJobTemplates)
 
--- | Undocumented member.
-ljtOrder :: Lens' ListJobTemplates (Maybe Order)
-ljtOrder = lens _ljtOrder (\ s a -> s{_ljtOrder = a})
+-- | Optional. When you request lists of resources, you can specify whether
+-- they are sorted in ASCENDING or DESCENDING order. Default varies by
+-- resource.
+listJobTemplates_order :: Lens.Lens' ListJobTemplates (Prelude.Maybe Order)
+listJobTemplates_order = Lens.lens (\ListJobTemplates' {order} -> order) (\s@ListJobTemplates' {} a -> s {order = a} :: ListJobTemplates)
 
--- | Optional. Number of job templates, up to twenty, that will be returned at one time.
-ljtMaxResults :: Lens' ListJobTemplates (Maybe Int)
-ljtMaxResults = lens _ljtMaxResults (\ s a -> s{_ljtMaxResults = a})
+instance Core.AWSPager ListJobTemplates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listJobTemplatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listJobTemplatesResponse_jobTemplates
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listJobTemplates_nextToken
+          Lens..~ rs
+          Lens.^? listJobTemplatesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListJobTemplates where
-        type Rs ListJobTemplates = ListJobTemplatesResponse
-        request = get mediaConvert
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListJobTemplatesResponse' <$>
-                   (x .?> "jobTemplates" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListJobTemplates where
+  type
+    AWSResponse ListJobTemplates =
+      ListJobTemplatesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListJobTemplatesResponse'
+            Prelude.<$> (x Core..?> "jobTemplates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListJobTemplates where
+instance Prelude.Hashable ListJobTemplates
 
-instance NFData ListJobTemplates where
+instance Prelude.NFData ListJobTemplates
 
-instance ToHeaders ListJobTemplates where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListJobTemplates where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListJobTemplates where
-        toPath = const "/2017-08-29/jobTemplates"
+instance Core.ToPath ListJobTemplates where
+  toPath = Prelude.const "/2017-08-29/jobTemplates"
 
-instance ToQuery ListJobTemplates where
-        toQuery ListJobTemplates'{..}
-          = mconcat
-              ["category" =: _ljtCategory, "listBy" =: _ljtListBy,
-               "nextToken" =: _ljtNextToken, "order" =: _ljtOrder,
-               "maxResults" =: _ljtMaxResults]
+instance Core.ToQuery ListJobTemplates where
+  toQuery ListJobTemplates' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "listBy" Core.=: listBy,
+        "maxResults" Core.=: maxResults,
+        "category" Core.=: category,
+        "order" Core.=: order
+      ]
 
--- | /See:/ 'listJobTemplatesResponse' smart constructor.
+-- | /See:/ 'newListJobTemplatesResponse' smart constructor.
 data ListJobTemplatesResponse = ListJobTemplatesResponse'
-  { _ljtrsJobTemplates   :: !(Maybe [JobTemplate])
-  , _ljtrsNextToken      :: !(Maybe Text)
-  , _ljtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | List of Job templates.
+    jobTemplates :: Prelude.Maybe [JobTemplate],
+    -- | Use this string to request the next batch of job templates.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListJobTemplatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListJobTemplatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ljtrsJobTemplates' - List of Job templates.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ljtrsNextToken' - Use this string to request the next batch of job templates.
+-- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - List of Job templates.
 --
--- * 'ljtrsResponseStatus' - -- | The response status code.
-listJobTemplatesResponse
-    :: Int -- ^ 'ljtrsResponseStatus'
-    -> ListJobTemplatesResponse
-listJobTemplatesResponse pResponseStatus_ =
+-- 'nextToken', 'listJobTemplatesResponse_nextToken' - Use this string to request the next batch of job templates.
+--
+-- 'httpStatus', 'listJobTemplatesResponse_httpStatus' - The response's http status code.
+newListJobTemplatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListJobTemplatesResponse
+newListJobTemplatesResponse pHttpStatus_ =
   ListJobTemplatesResponse'
-    { _ljtrsJobTemplates = Nothing
-    , _ljtrsNextToken = Nothing
-    , _ljtrsResponseStatus = pResponseStatus_
+    { jobTemplates =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
 
 -- | List of Job templates.
-ljtrsJobTemplates :: Lens' ListJobTemplatesResponse [JobTemplate]
-ljtrsJobTemplates = lens _ljtrsJobTemplates (\ s a -> s{_ljtrsJobTemplates = a}) . _Default . _Coerce
+listJobTemplatesResponse_jobTemplates :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe [JobTemplate])
+listJobTemplatesResponse_jobTemplates = Lens.lens (\ListJobTemplatesResponse' {jobTemplates} -> jobTemplates) (\s@ListJobTemplatesResponse' {} a -> s {jobTemplates = a} :: ListJobTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this string to request the next batch of job templates.
-ljtrsNextToken :: Lens' ListJobTemplatesResponse (Maybe Text)
-ljtrsNextToken = lens _ljtrsNextToken (\ s a -> s{_ljtrsNextToken = a})
+listJobTemplatesResponse_nextToken :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe Prelude.Text)
+listJobTemplatesResponse_nextToken = Lens.lens (\ListJobTemplatesResponse' {nextToken} -> nextToken) (\s@ListJobTemplatesResponse' {} a -> s {nextToken = a} :: ListJobTemplatesResponse)
 
--- | -- | The response status code.
-ljtrsResponseStatus :: Lens' ListJobTemplatesResponse Int
-ljtrsResponseStatus = lens _ljtrsResponseStatus (\ s a -> s{_ljtrsResponseStatus = a})
+-- | The response's http status code.
+listJobTemplatesResponse_httpStatus :: Lens.Lens' ListJobTemplatesResponse Prelude.Int
+listJobTemplatesResponse_httpStatus = Lens.lens (\ListJobTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListJobTemplatesResponse' {} a -> s {httpStatus = a} :: ListJobTemplatesResponse)
 
-instance NFData ListJobTemplatesResponse where
+instance Prelude.NFData ListJobTemplatesResponse

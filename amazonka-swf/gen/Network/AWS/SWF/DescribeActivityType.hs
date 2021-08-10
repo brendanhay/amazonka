@@ -1,184 +1,261 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeActivityType
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified activity type. This includes configuration settings provided when the type was registered and other general information about the type.
---
+-- Returns information about the specified activity type. This includes
+-- configuration settings provided when the type was registered and other
+-- general information about the type.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF
+-- resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
 --
---     * Use an @Action@ element to allow or deny permission to call this action.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
 --
---     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
 --
---     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .
+--     -   @activityType.name@: String constraint. The key is
+--         @swf:activityType.name@.
 --
---     * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .
+--     -   @activityType.version@: String constraint. The key is
+--         @swf:activityType.version@.
 --
---
---
---
---
--- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
+-- If the caller doesn\'t have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s @cause@ parameter is set
+-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>
+-- in the /Amazon SWF Developer Guide/.
 module Network.AWS.SWF.DescribeActivityType
-    (
-    -- * Creating a Request
-      describeActivityType
-    , DescribeActivityType
+  ( -- * Creating a Request
+    DescribeActivityType (..),
+    newDescribeActivityType,
+
     -- * Request Lenses
-    , datDomain
-    , datActivityType
+    describeActivityType_domain,
+    describeActivityType_activityType,
 
     -- * Destructuring the Response
-    , describeActivityTypeResponse
-    , DescribeActivityTypeResponse
+    DescribeActivityTypeResponse (..),
+    newDescribeActivityTypeResponse,
+
     -- * Response Lenses
-    , datrsResponseStatus
-    , datrsTypeInfo
-    , datrsConfiguration
-    ) where
+    describeActivityTypeResponse_httpStatus,
+    describeActivityTypeResponse_typeInfo,
+    describeActivityTypeResponse_configuration,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
-import Network.AWS.SWF.Types.Product
 
--- | /See:/ 'describeActivityType' smart constructor.
+-- | /See:/ 'newDescribeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
-  { _datDomain       :: !Text
-  , _datActivityType :: !ActivityType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the domain in which the activity type is registered.
+    domain :: Prelude.Text,
+    -- | The activity type to get information about. Activity types are
+    -- identified by the @name@ and @version@ that were supplied when the
+    -- activity was registered.
+    activityType :: ActivityType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeActivityType' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeActivityType' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'datDomain' - The name of the domain in which the activity type is registered.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'datActivityType' - The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
-describeActivityType
-    :: Text -- ^ 'datDomain'
-    -> ActivityType -- ^ 'datActivityType'
-    -> DescribeActivityType
-describeActivityType pDomain_ pActivityType_ =
+-- 'domain', 'describeActivityType_domain' - The name of the domain in which the activity type is registered.
+--
+-- 'activityType', 'describeActivityType_activityType' - The activity type to get information about. Activity types are
+-- identified by the @name@ and @version@ that were supplied when the
+-- activity was registered.
+newDescribeActivityType ::
+  -- | 'domain'
+  Prelude.Text ->
+  -- | 'activityType'
+  ActivityType ->
+  DescribeActivityType
+newDescribeActivityType pDomain_ pActivityType_ =
   DescribeActivityType'
-    {_datDomain = pDomain_, _datActivityType = pActivityType_}
-
+    { domain = pDomain_,
+      activityType = pActivityType_
+    }
 
 -- | The name of the domain in which the activity type is registered.
-datDomain :: Lens' DescribeActivityType Text
-datDomain = lens _datDomain (\ s a -> s{_datDomain = a})
+describeActivityType_domain :: Lens.Lens' DescribeActivityType Prelude.Text
+describeActivityType_domain = Lens.lens (\DescribeActivityType' {domain} -> domain) (\s@DescribeActivityType' {} a -> s {domain = a} :: DescribeActivityType)
 
--- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
-datActivityType :: Lens' DescribeActivityType ActivityType
-datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a})
+-- | The activity type to get information about. Activity types are
+-- identified by the @name@ and @version@ that were supplied when the
+-- activity was registered.
+describeActivityType_activityType :: Lens.Lens' DescribeActivityType ActivityType
+describeActivityType_activityType = Lens.lens (\DescribeActivityType' {activityType} -> activityType) (\s@DescribeActivityType' {} a -> s {activityType = a} :: DescribeActivityType)
 
-instance AWSRequest DescribeActivityType where
-        type Rs DescribeActivityType =
-             DescribeActivityTypeResponse
-        request = postJSON swf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeActivityTypeResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
-                     (x .:> "configuration"))
+instance Core.AWSRequest DescribeActivityType where
+  type
+    AWSResponse DescribeActivityType =
+      DescribeActivityTypeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeActivityTypeResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "typeInfo")
+            Prelude.<*> (x Core..:> "configuration")
+      )
 
-instance Hashable DescribeActivityType where
+instance Prelude.Hashable DescribeActivityType
 
-instance NFData DescribeActivityType where
+instance Prelude.NFData DescribeActivityType
 
-instance ToHeaders DescribeActivityType where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SimpleWorkflowService.DescribeActivityType" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Core.ToHeaders DescribeActivityType where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SimpleWorkflowService.DescribeActivityType" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeActivityType where
-        toJSON DescribeActivityType'{..}
-          = object
-              (catMaybes
-                 [Just ("domain" .= _datDomain),
-                  Just ("activityType" .= _datActivityType)])
+instance Core.ToJSON DescribeActivityType where
+  toJSON DescribeActivityType' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("activityType" Core..= activityType)
+          ]
+      )
 
-instance ToPath DescribeActivityType where
-        toPath = const "/"
+instance Core.ToPath DescribeActivityType where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeActivityType where
-        toQuery = const mempty
+instance Core.ToQuery DescribeActivityType where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Detailed information about an activity type.
 --
---
---
--- /See:/ 'describeActivityTypeResponse' smart constructor.
+-- /See:/ 'newDescribeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-  { _datrsResponseStatus :: !Int
-  , _datrsTypeInfo       :: !ActivityTypeInfo
-  , _datrsConfiguration  :: !ActivityTypeConfiguration
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | General information about the activity type.
+    --
+    -- The status of activity type (returned in the ActivityTypeInfo structure)
+    -- can be one of the following.
+    --
+    -- -   @REGISTERED@ – The type is registered and available. Workers
+    --     supporting this type should be running.
+    --
+    -- -   @DEPRECATED@ – The type was deprecated using DeprecateActivityType,
+    --     but is still in use. You should keep workers supporting this type
+    --     running. You cannot create new tasks of this type.
+    typeInfo :: ActivityTypeInfo,
+    -- | The configuration settings registered with the activity type.
+    configuration :: ActivityTypeConfiguration
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeActivityTypeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'datrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'datrsTypeInfo' - General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.      * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
+-- 'httpStatus', 'describeActivityTypeResponse_httpStatus' - The response's http status code.
 --
--- * 'datrsConfiguration' - The configuration settings registered with the activity type.
-describeActivityTypeResponse
-    :: Int -- ^ 'datrsResponseStatus'
-    -> ActivityTypeInfo -- ^ 'datrsTypeInfo'
-    -> ActivityTypeConfiguration -- ^ 'datrsConfiguration'
-    -> DescribeActivityTypeResponse
-describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
-  DescribeActivityTypeResponse'
-    { _datrsResponseStatus = pResponseStatus_
-    , _datrsTypeInfo = pTypeInfo_
-    , _datrsConfiguration = pConfiguration_
-    }
+-- 'typeInfo', 'describeActivityTypeResponse_typeInfo' - General information about the activity type.
+--
+-- The status of activity type (returned in the ActivityTypeInfo structure)
+-- can be one of the following.
+--
+-- -   @REGISTERED@ – The type is registered and available. Workers
+--     supporting this type should be running.
+--
+-- -   @DEPRECATED@ – The type was deprecated using DeprecateActivityType,
+--     but is still in use. You should keep workers supporting this type
+--     running. You cannot create new tasks of this type.
+--
+-- 'configuration', 'describeActivityTypeResponse_configuration' - The configuration settings registered with the activity type.
+newDescribeActivityTypeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'typeInfo'
+  ActivityTypeInfo ->
+  -- | 'configuration'
+  ActivityTypeConfiguration ->
+  DescribeActivityTypeResponse
+newDescribeActivityTypeResponse
+  pHttpStatus_
+  pTypeInfo_
+  pConfiguration_ =
+    DescribeActivityTypeResponse'
+      { httpStatus =
+          pHttpStatus_,
+        typeInfo = pTypeInfo_,
+        configuration = pConfiguration_
+      }
 
+-- | The response's http status code.
+describeActivityTypeResponse_httpStatus :: Lens.Lens' DescribeActivityTypeResponse Prelude.Int
+describeActivityTypeResponse_httpStatus = Lens.lens (\DescribeActivityTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeActivityTypeResponse' {} a -> s {httpStatus = a} :: DescribeActivityTypeResponse)
 
--- | -- | The response status code.
-datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
-datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a})
-
--- | General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.      * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
-datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
-datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a})
+-- | General information about the activity type.
+--
+-- The status of activity type (returned in the ActivityTypeInfo structure)
+-- can be one of the following.
+--
+-- -   @REGISTERED@ – The type is registered and available. Workers
+--     supporting this type should be running.
+--
+-- -   @DEPRECATED@ – The type was deprecated using DeprecateActivityType,
+--     but is still in use. You should keep workers supporting this type
+--     running. You cannot create new tasks of this type.
+describeActivityTypeResponse_typeInfo :: Lens.Lens' DescribeActivityTypeResponse ActivityTypeInfo
+describeActivityTypeResponse_typeInfo = Lens.lens (\DescribeActivityTypeResponse' {typeInfo} -> typeInfo) (\s@DescribeActivityTypeResponse' {} a -> s {typeInfo = a} :: DescribeActivityTypeResponse)
 
 -- | The configuration settings registered with the activity type.
-datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
-datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a})
+describeActivityTypeResponse_configuration :: Lens.Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
+describeActivityTypeResponse_configuration = Lens.lens (\DescribeActivityTypeResponse' {configuration} -> configuration) (\s@DescribeActivityTypeResponse' {} a -> s {configuration = a} :: DescribeActivityTypeResponse)
 
-instance NFData DescribeActivityTypeResponse where
+instance Prelude.NFData DescribeActivityTypeResponse

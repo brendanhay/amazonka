@@ -1,196 +1,263 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.SearchProfiles
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Searches room profiles and lists the ones that meet a set of filter criteria.
---
---
+-- Searches room profiles and lists the ones that meet a set of filter
+-- criteria.
 --
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.SearchProfiles
-    (
-    -- * Creating a Request
-      searchProfiles
-    , SearchProfiles
+  ( -- * Creating a Request
+    SearchProfiles (..),
+    newSearchProfiles,
+
     -- * Request Lenses
-    , spFilters
-    , spSortCriteria
-    , spNextToken
-    , spMaxResults
+    searchProfiles_nextToken,
+    searchProfiles_sortCriteria,
+    searchProfiles_maxResults,
+    searchProfiles_filters,
 
     -- * Destructuring the Response
-    , searchProfilesResponse
-    , SearchProfilesResponse
+    SearchProfilesResponse (..),
+    newSearchProfilesResponse,
+
     -- * Response Lenses
-    , sprsProfiles
-    , sprsNextToken
-    , sprsTotalCount
-    , sprsResponseStatus
-    ) where
+    searchProfilesResponse_nextToken,
+    searchProfilesResponse_profiles,
+    searchProfilesResponse_totalCount,
+    searchProfilesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'searchProfiles' smart constructor.
+-- | /See:/ 'newSearchProfiles' smart constructor.
 data SearchProfiles = SearchProfiles'
-  { _spFilters      :: !(Maybe [Filter])
-  , _spSortCriteria :: !(Maybe [Sort])
-  , _spNextToken    :: !(Maybe Text)
-  , _spMaxResults   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order to use in listing the specified set of room profiles.
+    -- Supported sort keys are ProfileName and Address.
+    sortCriteria :: Prelude.Maybe [Sort],
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The filters to use to list a specified set of room profiles. Supported
+    -- filter keys are ProfileName and Address. Required.
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SearchProfiles' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SearchProfiles' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'spFilters' - The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'spSortCriteria' - The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.
+-- 'nextToken', 'searchProfiles_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
 --
--- * 'spNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- 'sortCriteria', 'searchProfiles_sortCriteria' - The sort order to use in listing the specified set of room profiles.
+-- Supported sort keys are ProfileName and Address.
 --
--- * 'spMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-searchProfiles
-    :: SearchProfiles
-searchProfiles =
+-- 'maxResults', 'searchProfiles_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- 'filters', 'searchProfiles_filters' - The filters to use to list a specified set of room profiles. Supported
+-- filter keys are ProfileName and Address. Required.
+newSearchProfiles ::
+  SearchProfiles
+newSearchProfiles =
   SearchProfiles'
-    { _spFilters = Nothing
-    , _spSortCriteria = Nothing
-    , _spNextToken = Nothing
-    , _spMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+searchProfiles_nextToken :: Lens.Lens' SearchProfiles (Prelude.Maybe Prelude.Text)
+searchProfiles_nextToken = Lens.lens (\SearchProfiles' {nextToken} -> nextToken) (\s@SearchProfiles' {} a -> s {nextToken = a} :: SearchProfiles)
 
--- | The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required.
-spFilters :: Lens' SearchProfiles [Filter]
-spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Coerce
+-- | The sort order to use in listing the specified set of room profiles.
+-- Supported sort keys are ProfileName and Address.
+searchProfiles_sortCriteria :: Lens.Lens' SearchProfiles (Prelude.Maybe [Sort])
+searchProfiles_sortCriteria = Lens.lens (\SearchProfiles' {sortCriteria} -> sortCriteria) (\s@SearchProfiles' {} a -> s {sortCriteria = a} :: SearchProfiles) Prelude.. Lens.mapping Lens._Coerce
 
--- | The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address.
-spSortCriteria :: Lens' SearchProfiles [Sort]
-spSortCriteria = lens _spSortCriteria (\ s a -> s{_spSortCriteria = a}) . _Default . _Coerce
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+searchProfiles_maxResults :: Lens.Lens' SearchProfiles (Prelude.Maybe Prelude.Natural)
+searchProfiles_maxResults = Lens.lens (\SearchProfiles' {maxResults} -> maxResults) (\s@SearchProfiles' {} a -> s {maxResults = a} :: SearchProfiles)
 
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-spNextToken :: Lens' SearchProfiles (Maybe Text)
-spNextToken = lens _spNextToken (\ s a -> s{_spNextToken = a})
+-- | The filters to use to list a specified set of room profiles. Supported
+-- filter keys are ProfileName and Address. Required.
+searchProfiles_filters :: Lens.Lens' SearchProfiles (Prelude.Maybe [Filter])
+searchProfiles_filters = Lens.lens (\SearchProfiles' {filters} -> filters) (\s@SearchProfiles' {} a -> s {filters = a} :: SearchProfiles) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-spMaxResults :: Lens' SearchProfiles (Maybe Natural)
-spMaxResults = lens _spMaxResults (\ s a -> s{_spMaxResults = a}) . mapping _Nat
+instance Core.AWSPager SearchProfiles where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? searchProfilesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? searchProfilesResponse_profiles Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& searchProfiles_nextToken
+          Lens..~ rs
+          Lens.^? searchProfilesResponse_nextToken Prelude.. Lens._Just
 
-instance AWSPager SearchProfiles where
-        page rq rs
-          | stop (rs ^. sprsNextToken) = Nothing
-          | stop (rs ^. sprsProfiles) = Nothing
-          | otherwise =
-            Just $ rq & spNextToken .~ rs ^. sprsNextToken
+instance Core.AWSRequest SearchProfiles where
+  type
+    AWSResponse SearchProfiles =
+      SearchProfilesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SearchProfilesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Profiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest SearchProfiles where
-        type Rs SearchProfiles = SearchProfilesResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 SearchProfilesResponse' <$>
-                   (x .?> "Profiles" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (x .?> "TotalCount")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable SearchProfiles
 
-instance Hashable SearchProfiles where
+instance Prelude.NFData SearchProfiles
 
-instance NFData SearchProfiles where
+instance Core.ToHeaders SearchProfiles where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.SearchProfiles" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders SearchProfiles where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.SearchProfiles" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON SearchProfiles where
+  toJSON SearchProfiles' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
+          ]
+      )
 
-instance ToJSON SearchProfiles where
-        toJSON SearchProfiles'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _spFilters,
-                  ("SortCriteria" .=) <$> _spSortCriteria,
-                  ("NextToken" .=) <$> _spNextToken,
-                  ("MaxResults" .=) <$> _spMaxResults])
+instance Core.ToPath SearchProfiles where
+  toPath = Prelude.const "/"
 
-instance ToPath SearchProfiles where
-        toPath = const "/"
+instance Core.ToQuery SearchProfiles where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery SearchProfiles where
-        toQuery = const mempty
-
--- | /See:/ 'searchProfilesResponse' smart constructor.
+-- | /See:/ 'newSearchProfilesResponse' smart constructor.
 data SearchProfilesResponse = SearchProfilesResponse'
-  { _sprsProfiles       :: !(Maybe [ProfileData])
-  , _sprsNextToken      :: !(Maybe Text)
-  , _sprsTotalCount     :: !(Maybe Int)
-  , _sprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The profiles that meet the specified set of filter criteria, in sort
+    -- order.
+    profiles :: Prelude.Maybe [ProfileData],
+    -- | The total number of room profiles returned.
+    totalCount :: Prelude.Maybe Prelude.Int,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SearchProfilesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SearchProfilesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sprsProfiles' - The profiles that meet the specified set of filter criteria, in sort order.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sprsNextToken' - The token returned to indicate that there is more data available.
+-- 'nextToken', 'searchProfilesResponse_nextToken' - The token returned to indicate that there is more data available.
 --
--- * 'sprsTotalCount' - The total number of room profiles returned.
+-- 'profiles', 'searchProfilesResponse_profiles' - The profiles that meet the specified set of filter criteria, in sort
+-- order.
 --
--- * 'sprsResponseStatus' - -- | The response status code.
-searchProfilesResponse
-    :: Int -- ^ 'sprsResponseStatus'
-    -> SearchProfilesResponse
-searchProfilesResponse pResponseStatus_ =
+-- 'totalCount', 'searchProfilesResponse_totalCount' - The total number of room profiles returned.
+--
+-- 'httpStatus', 'searchProfilesResponse_httpStatus' - The response's http status code.
+newSearchProfilesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SearchProfilesResponse
+newSearchProfilesResponse pHttpStatus_ =
   SearchProfilesResponse'
-    { _sprsProfiles = Nothing
-    , _sprsNextToken = Nothing
-    , _sprsTotalCount = Nothing
-    , _sprsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      profiles = Prelude.Nothing,
+      totalCount = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | The profiles that meet the specified set of filter criteria, in sort order.
-sprsProfiles :: Lens' SearchProfilesResponse [ProfileData]
-sprsProfiles = lens _sprsProfiles (\ s a -> s{_sprsProfiles = a}) . _Default . _Coerce
 
 -- | The token returned to indicate that there is more data available.
-sprsNextToken :: Lens' SearchProfilesResponse (Maybe Text)
-sprsNextToken = lens _sprsNextToken (\ s a -> s{_sprsNextToken = a})
+searchProfilesResponse_nextToken :: Lens.Lens' SearchProfilesResponse (Prelude.Maybe Prelude.Text)
+searchProfilesResponse_nextToken = Lens.lens (\SearchProfilesResponse' {nextToken} -> nextToken) (\s@SearchProfilesResponse' {} a -> s {nextToken = a} :: SearchProfilesResponse)
+
+-- | The profiles that meet the specified set of filter criteria, in sort
+-- order.
+searchProfilesResponse_profiles :: Lens.Lens' SearchProfilesResponse (Prelude.Maybe [ProfileData])
+searchProfilesResponse_profiles = Lens.lens (\SearchProfilesResponse' {profiles} -> profiles) (\s@SearchProfilesResponse' {} a -> s {profiles = a} :: SearchProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The total number of room profiles returned.
-sprsTotalCount :: Lens' SearchProfilesResponse (Maybe Int)
-sprsTotalCount = lens _sprsTotalCount (\ s a -> s{_sprsTotalCount = a})
+searchProfilesResponse_totalCount :: Lens.Lens' SearchProfilesResponse (Prelude.Maybe Prelude.Int)
+searchProfilesResponse_totalCount = Lens.lens (\SearchProfilesResponse' {totalCount} -> totalCount) (\s@SearchProfilesResponse' {} a -> s {totalCount = a} :: SearchProfilesResponse)
 
--- | -- | The response status code.
-sprsResponseStatus :: Lens' SearchProfilesResponse Int
-sprsResponseStatus = lens _sprsResponseStatus (\ s a -> s{_sprsResponseStatus = a})
+-- | The response's http status code.
+searchProfilesResponse_httpStatus :: Lens.Lens' SearchProfilesResponse Prelude.Int
+searchProfilesResponse_httpStatus = Lens.lens (\SearchProfilesResponse' {httpStatus} -> httpStatus) (\s@SearchProfilesResponse' {} a -> s {httpStatus = a} :: SearchProfilesResponse)
 
-instance NFData SearchProfilesResponse where
+instance Prelude.NFData SearchProfilesResponse

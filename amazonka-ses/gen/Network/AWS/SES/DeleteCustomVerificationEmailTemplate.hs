@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DeleteCustomVerificationEmailTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,108 +22,132 @@
 --
 -- Deletes an existing custom verification email template.
 --
---
--- For more information about custom verification email templates, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates> in the /Amazon SES Developer Guide/ .
+-- For more information about custom verification email templates, see
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates>
+-- in the /Amazon SES Developer Guide/.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DeleteCustomVerificationEmailTemplate
-    (
-    -- * Creating a Request
-      deleteCustomVerificationEmailTemplate
-    , DeleteCustomVerificationEmailTemplate
+  ( -- * Creating a Request
+    DeleteCustomVerificationEmailTemplate (..),
+    newDeleteCustomVerificationEmailTemplate,
+
     -- * Request Lenses
-    , dcvetTemplateName
+    deleteCustomVerificationEmailTemplate_templateName,
 
     -- * Destructuring the Response
-    , deleteCustomVerificationEmailTemplateResponse
-    , DeleteCustomVerificationEmailTemplateResponse
-    ) where
+    DeleteCustomVerificationEmailTemplateResponse (..),
+    newDeleteCustomVerificationEmailTemplateResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to delete an existing custom verification email template.
+-- | Represents a request to delete an existing custom verification email
+-- template.
 --
+-- /See:/ 'newDeleteCustomVerificationEmailTemplate' smart constructor.
+data DeleteCustomVerificationEmailTemplate = DeleteCustomVerificationEmailTemplate'
+  { -- | The name of the custom verification email template that you want to
+    -- delete.
+    templateName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteCustomVerificationEmailTemplate' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteCustomVerificationEmailTemplate' smart constructor.
-newtype DeleteCustomVerificationEmailTemplate = DeleteCustomVerificationEmailTemplate'
-  { _dcvetTemplateName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteCustomVerificationEmailTemplate' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'templateName', 'deleteCustomVerificationEmailTemplate_templateName' - The name of the custom verification email template that you want to
+-- delete.
+newDeleteCustomVerificationEmailTemplate ::
+  -- | 'templateName'
+  Prelude.Text ->
+  DeleteCustomVerificationEmailTemplate
+newDeleteCustomVerificationEmailTemplate
+  pTemplateName_ =
+    DeleteCustomVerificationEmailTemplate'
+      { templateName =
+          pTemplateName_
+      }
+
+-- | The name of the custom verification email template that you want to
+-- delete.
+deleteCustomVerificationEmailTemplate_templateName :: Lens.Lens' DeleteCustomVerificationEmailTemplate Prelude.Text
+deleteCustomVerificationEmailTemplate_templateName = Lens.lens (\DeleteCustomVerificationEmailTemplate' {templateName} -> templateName) (\s@DeleteCustomVerificationEmailTemplate' {} a -> s {templateName = a} :: DeleteCustomVerificationEmailTemplate)
+
+instance
+  Core.AWSRequest
+    DeleteCustomVerificationEmailTemplate
+  where
+  type
+    AWSResponse
+      DeleteCustomVerificationEmailTemplate =
+      DeleteCustomVerificationEmailTemplateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteCustomVerificationEmailTemplateResponse'
+
+instance
+  Prelude.Hashable
+    DeleteCustomVerificationEmailTemplate
+
+instance
+  Prelude.NFData
+    DeleteCustomVerificationEmailTemplate
+
+instance
+  Core.ToHeaders
+    DeleteCustomVerificationEmailTemplate
+  where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance
+  Core.ToPath
+    DeleteCustomVerificationEmailTemplate
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    DeleteCustomVerificationEmailTemplate
+  where
+  toQuery DeleteCustomVerificationEmailTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DeleteCustomVerificationEmailTemplate" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Core.=: templateName
+      ]
+
+-- | /See:/ 'newDeleteCustomVerificationEmailTemplateResponse' smart constructor.
+data DeleteCustomVerificationEmailTemplateResponse = DeleteCustomVerificationEmailTemplateResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteCustomVerificationEmailTemplateResponse' with all optional fields omitted.
 --
--- * 'dcvetTemplateName' - The name of the custom verification email template that you want to delete.
-deleteCustomVerificationEmailTemplate
-    :: Text -- ^ 'dcvetTemplateName'
-    -> DeleteCustomVerificationEmailTemplate
-deleteCustomVerificationEmailTemplate pTemplateName_ =
-  DeleteCustomVerificationEmailTemplate' {_dcvetTemplateName = pTemplateName_}
-
-
--- | The name of the custom verification email template that you want to delete.
-dcvetTemplateName :: Lens' DeleteCustomVerificationEmailTemplate Text
-dcvetTemplateName = lens _dcvetTemplateName (\ s a -> s{_dcvetTemplateName = a})
-
-instance AWSRequest
-           DeleteCustomVerificationEmailTemplate
-         where
-        type Rs DeleteCustomVerificationEmailTemplate =
-             DeleteCustomVerificationEmailTemplateResponse
-        request = postQuery ses
-        response
-          = receiveNull
-              DeleteCustomVerificationEmailTemplateResponse'
-
-instance Hashable
-           DeleteCustomVerificationEmailTemplate
-         where
-
-instance NFData DeleteCustomVerificationEmailTemplate
-         where
-
-instance ToHeaders
-           DeleteCustomVerificationEmailTemplate
-         where
-        toHeaders = const mempty
-
-instance ToPath DeleteCustomVerificationEmailTemplate
-         where
-        toPath = const "/"
-
-instance ToQuery
-           DeleteCustomVerificationEmailTemplate
-         where
-        toQuery DeleteCustomVerificationEmailTemplate'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteCustomVerificationEmailTemplate" ::
-                    ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _dcvetTemplateName]
-
--- | /See:/ 'deleteCustomVerificationEmailTemplateResponse' smart constructor.
-data DeleteCustomVerificationEmailTemplateResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteCustomVerificationEmailTemplateResponse ::
+  DeleteCustomVerificationEmailTemplateResponse
+newDeleteCustomVerificationEmailTemplateResponse =
   DeleteCustomVerificationEmailTemplateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteCustomVerificationEmailTemplateResponse' with the minimum fields required to make a request.
---
-deleteCustomVerificationEmailTemplateResponse
-    :: DeleteCustomVerificationEmailTemplateResponse
-deleteCustomVerificationEmailTemplateResponse =
-  DeleteCustomVerificationEmailTemplateResponse'
-
-
-instance NFData
-           DeleteCustomVerificationEmailTemplateResponse
-         where
+instance
+  Prelude.NFData
+    DeleteCustomVerificationEmailTemplateResponse

@@ -1,105 +1,121 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.CancelExportTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an active export task. The request removes all artifacts of the export, including any partially-created Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the command fails and returns an error.
---
---
+-- Cancels an active export task. The request removes all artifacts of the
+-- export, including any partially-created Amazon S3 objects. If the export
+-- task is complete or is in the process of transferring the final disk
+-- image, the command fails and returns an error.
 module Network.AWS.EC2.CancelExportTask
-    (
-    -- * Creating a Request
-      cancelExportTask
-    , CancelExportTask
+  ( -- * Creating a Request
+    CancelExportTask (..),
+    newCancelExportTask,
+
     -- * Request Lenses
-    , cetExportTaskId
+    cancelExportTask_exportTaskId,
 
     -- * Destructuring the Response
-    , cancelExportTaskResponse
-    , CancelExportTaskResponse
-    ) where
+    CancelExportTaskResponse (..),
+    newCancelExportTaskResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for CancelExportTask.
+-- | /See:/ 'newCancelExportTask' smart constructor.
+data CancelExportTask = CancelExportTask'
+  { -- | The ID of the export task. This is the ID returned by
+    -- @CreateInstanceExportTask@.
+    exportTaskId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CancelExportTask' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'cancelExportTask' smart constructor.
-newtype CancelExportTask = CancelExportTask'
-  { _cetExportTaskId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'exportTaskId', 'cancelExportTask_exportTaskId' - The ID of the export task. This is the ID returned by
+-- @CreateInstanceExportTask@.
+newCancelExportTask ::
+  -- | 'exportTaskId'
+  Prelude.Text ->
+  CancelExportTask
+newCancelExportTask pExportTaskId_ =
+  CancelExportTask' {exportTaskId = pExportTaskId_}
 
+-- | The ID of the export task. This is the ID returned by
+-- @CreateInstanceExportTask@.
+cancelExportTask_exportTaskId :: Lens.Lens' CancelExportTask Prelude.Text
+cancelExportTask_exportTaskId = Lens.lens (\CancelExportTask' {exportTaskId} -> exportTaskId) (\s@CancelExportTask' {} a -> s {exportTaskId = a} :: CancelExportTask)
 
--- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
+instance Core.AWSRequest CancelExportTask where
+  type
+    AWSResponse CancelExportTask =
+      CancelExportTaskResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull CancelExportTaskResponse'
+
+instance Prelude.Hashable CancelExportTask
+
+instance Prelude.NFData CancelExportTask
+
+instance Core.ToHeaders CancelExportTask where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath CancelExportTask where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CancelExportTask where
+  toQuery CancelExportTask' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CancelExportTask" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ExportTaskId" Core.=: exportTaskId
+      ]
+
+-- | /See:/ 'newCancelExportTaskResponse' smart constructor.
+data CancelExportTaskResponse = CancelExportTaskResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CancelExportTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cetExportTaskId' - The ID of the export task. This is the ID returned by @CreateInstanceExportTask@ .
-cancelExportTask
-    :: Text -- ^ 'cetExportTaskId'
-    -> CancelExportTask
-cancelExportTask pExportTaskId_ =
-  CancelExportTask' {_cetExportTaskId = pExportTaskId_}
-
-
--- | The ID of the export task. This is the ID returned by @CreateInstanceExportTask@ .
-cetExportTaskId :: Lens' CancelExportTask Text
-cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a})
-
-instance AWSRequest CancelExportTask where
-        type Rs CancelExportTask = CancelExportTaskResponse
-        request = postQuery ec2
-        response = receiveNull CancelExportTaskResponse'
-
-instance Hashable CancelExportTask where
-
-instance NFData CancelExportTask where
-
-instance ToHeaders CancelExportTask where
-        toHeaders = const mempty
-
-instance ToPath CancelExportTask where
-        toPath = const "/"
-
-instance ToQuery CancelExportTask where
-        toQuery CancelExportTask'{..}
-          = mconcat
-              ["Action" =: ("CancelExportTask" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "ExportTaskId" =: _cetExportTaskId]
-
--- | /See:/ 'cancelExportTaskResponse' smart constructor.
-data CancelExportTaskResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCancelExportTaskResponse ::
+  CancelExportTaskResponse
+newCancelExportTaskResponse =
   CancelExportTaskResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'CancelExportTaskResponse' with the minimum fields required to make a request.
---
-cancelExportTaskResponse
-    :: CancelExportTaskResponse
-cancelExportTaskResponse = CancelExportTaskResponse'
-
-
-instance NFData CancelExportTaskResponse where
+instance Prelude.NFData CancelExportTaskResponse

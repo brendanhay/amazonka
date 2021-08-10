@@ -1,120 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateEventConfigurations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the event configurations.
---
---
 module Network.AWS.IoT.UpdateEventConfigurations
-    (
-    -- * Creating a Request
-      updateEventConfigurations
-    , UpdateEventConfigurations
+  ( -- * Creating a Request
+    UpdateEventConfigurations (..),
+    newUpdateEventConfigurations,
+
     -- * Request Lenses
-    , uecEventConfigurations
+    updateEventConfigurations_eventConfigurations,
 
     -- * Destructuring the Response
-    , updateEventConfigurationsResponse
-    , UpdateEventConfigurationsResponse
+    UpdateEventConfigurationsResponse (..),
+    newUpdateEventConfigurationsResponse,
+
     -- * Response Lenses
-    , uecrsResponseStatus
-    ) where
+    updateEventConfigurationsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateEventConfigurations' smart constructor.
-newtype UpdateEventConfigurations = UpdateEventConfigurations'
-  { _uecEventConfigurations :: Maybe (Map EventType Configuration)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateEventConfigurations' smart constructor.
+data UpdateEventConfigurations = UpdateEventConfigurations'
+  { -- | The new event configuration values.
+    eventConfigurations :: Prelude.Maybe (Prelude.HashMap EventType Configuration)
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateEventConfigurations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateEventConfigurations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uecEventConfigurations' - The new event configuration values.
-updateEventConfigurations
-    :: UpdateEventConfigurations
-updateEventConfigurations =
-  UpdateEventConfigurations' {_uecEventConfigurations = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'eventConfigurations', 'updateEventConfigurations_eventConfigurations' - The new event configuration values.
+newUpdateEventConfigurations ::
+  UpdateEventConfigurations
+newUpdateEventConfigurations =
+  UpdateEventConfigurations'
+    { eventConfigurations =
+        Prelude.Nothing
+    }
 
 -- | The new event configuration values.
-uecEventConfigurations :: Lens' UpdateEventConfigurations (HashMap EventType Configuration)
-uecEventConfigurations = lens _uecEventConfigurations (\ s a -> s{_uecEventConfigurations = a}) . _Default . _Map
+updateEventConfigurations_eventConfigurations :: Lens.Lens' UpdateEventConfigurations (Prelude.Maybe (Prelude.HashMap EventType Configuration))
+updateEventConfigurations_eventConfigurations = Lens.lens (\UpdateEventConfigurations' {eventConfigurations} -> eventConfigurations) (\s@UpdateEventConfigurations' {} a -> s {eventConfigurations = a} :: UpdateEventConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest UpdateEventConfigurations where
-        type Rs UpdateEventConfigurations =
-             UpdateEventConfigurationsResponse
-        request = patchJSON ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateEventConfigurationsResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest UpdateEventConfigurations where
+  type
+    AWSResponse UpdateEventConfigurations =
+      UpdateEventConfigurationsResponse
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateEventConfigurationsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateEventConfigurations where
+instance Prelude.Hashable UpdateEventConfigurations
 
-instance NFData UpdateEventConfigurations where
+instance Prelude.NFData UpdateEventConfigurations
 
-instance ToHeaders UpdateEventConfigurations where
-        toHeaders = const mempty
+instance Core.ToHeaders UpdateEventConfigurations where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON UpdateEventConfigurations where
-        toJSON UpdateEventConfigurations'{..}
-          = object
-              (catMaybes
-                 [("eventConfigurations" .=) <$>
-                    _uecEventConfigurations])
+instance Core.ToJSON UpdateEventConfigurations where
+  toJSON UpdateEventConfigurations' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("eventConfigurations" Core..=)
+              Prelude.<$> eventConfigurations
+          ]
+      )
 
-instance ToPath UpdateEventConfigurations where
-        toPath = const "/event-configurations"
+instance Core.ToPath UpdateEventConfigurations where
+  toPath = Prelude.const "/event-configurations"
 
-instance ToQuery UpdateEventConfigurations where
-        toQuery = const mempty
+instance Core.ToQuery UpdateEventConfigurations where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateEventConfigurationsResponse' smart constructor.
-newtype UpdateEventConfigurationsResponse = UpdateEventConfigurationsResponse'
-  { _uecrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateEventConfigurationsResponse' smart constructor.
+data UpdateEventConfigurationsResponse = UpdateEventConfigurationsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateEventConfigurationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateEventConfigurationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uecrsResponseStatus' - -- | The response status code.
-updateEventConfigurationsResponse
-    :: Int -- ^ 'uecrsResponseStatus'
-    -> UpdateEventConfigurationsResponse
-updateEventConfigurationsResponse pResponseStatus_ =
-  UpdateEventConfigurationsResponse' {_uecrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateEventConfigurationsResponse_httpStatus' - The response's http status code.
+newUpdateEventConfigurationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateEventConfigurationsResponse
+newUpdateEventConfigurationsResponse pHttpStatus_ =
+  UpdateEventConfigurationsResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateEventConfigurationsResponse_httpStatus :: Lens.Lens' UpdateEventConfigurationsResponse Prelude.Int
+updateEventConfigurationsResponse_httpStatus = Lens.lens (\UpdateEventConfigurationsResponse' {httpStatus} -> httpStatus) (\s@UpdateEventConfigurationsResponse' {} a -> s {httpStatus = a} :: UpdateEventConfigurationsResponse)
 
--- | -- | The response status code.
-uecrsResponseStatus :: Lens' UpdateEventConfigurationsResponse Int
-uecrsResponseStatus = lens _uecrsResponseStatus (\ s a -> s{_uecrsResponseStatus = a})
-
-instance NFData UpdateEventConfigurationsResponse
-         where
+instance
+  Prelude.NFData
+    UpdateEventConfigurationsResponse

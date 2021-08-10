@@ -1,189 +1,280 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.ListAssessmentRuns
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.
---
---
+-- Lists the assessment runs that correspond to the assessment templates
+-- that are specified by the ARNs of the assessment templates.
 --
 -- This operation returns paginated results.
 module Network.AWS.Inspector.ListAssessmentRuns
-    (
-    -- * Creating a Request
-      listAssessmentRuns
-    , ListAssessmentRuns
+  ( -- * Creating a Request
+    ListAssessmentRuns (..),
+    newListAssessmentRuns,
+
     -- * Request Lenses
-    , larNextToken
-    , larFilter
-    , larAssessmentTemplateARNs
-    , larMaxResults
+    listAssessmentRuns_nextToken,
+    listAssessmentRuns_maxResults,
+    listAssessmentRuns_filter,
+    listAssessmentRuns_assessmentTemplateArns,
 
     -- * Destructuring the Response
-    , listAssessmentRunsResponse
-    , ListAssessmentRunsResponse
+    ListAssessmentRunsResponse (..),
+    newListAssessmentRunsResponse,
+
     -- * Response Lenses
-    , larrsNextToken
-    , larrsResponseStatus
-    , larrsAssessmentRunARNs
-    ) where
+    listAssessmentRunsResponse_nextToken,
+    listAssessmentRunsResponse_httpStatus,
+    listAssessmentRunsResponse_assessmentRunArns,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listAssessmentRuns' smart constructor.
+-- | /See:/ 'newListAssessmentRuns' smart constructor.
 data ListAssessmentRuns = ListAssessmentRuns'
-  { _larNextToken              :: !(Maybe Text)
-  , _larFilter                 :: !(Maybe AssessmentRunFilter)
-  , _larAssessmentTemplateARNs :: !(Maybe [Text])
-  , _larMaxResults             :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | You can use this parameter when paginating results. Set the value of
+    -- this parameter to null on your first call to the __ListAssessmentRuns__
+    -- action. Subsequent calls to the action fill __nextToken__ in the request
+    -- with the value of __NextToken__ from the previous response to continue
+    -- listing data.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | You can use this parameter to indicate the maximum number of items that
+    -- you want in the response. The default value is 10. The maximum value is
+    -- 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter to specify a subset of data to be included in
+    -- the action\'s response.
+    --
+    -- For a record to match a filter, all specified filter attributes must
+    -- match. When multiple values are specified for a filter attribute, any of
+    -- the values can match.
+    filter' :: Prelude.Maybe AssessmentRunFilter,
+    -- | The ARNs that specify the assessment templates whose assessment runs you
+    -- want to list.
+    assessmentTemplateArns :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListAssessmentRuns' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAssessmentRuns' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'larNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRuns__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'larFilter' - You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+-- 'nextToken', 'listAssessmentRuns_nextToken' - You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the __ListAssessmentRuns__
+-- action. Subsequent calls to the action fill __nextToken__ in the request
+-- with the value of __NextToken__ from the previous response to continue
+-- listing data.
 --
--- * 'larAssessmentTemplateARNs' - The ARNs that specify the assessment templates whose assessment runs you want to list.
+-- 'maxResults', 'listAssessmentRuns_maxResults' - You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 10. The maximum value is
+-- 500.
 --
--- * 'larMaxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
-listAssessmentRuns
-    :: ListAssessmentRuns
-listAssessmentRuns =
+-- 'filter'', 'listAssessmentRuns_filter' - You can use this parameter to specify a subset of data to be included in
+-- the action\'s response.
+--
+-- For a record to match a filter, all specified filter attributes must
+-- match. When multiple values are specified for a filter attribute, any of
+-- the values can match.
+--
+-- 'assessmentTemplateArns', 'listAssessmentRuns_assessmentTemplateArns' - The ARNs that specify the assessment templates whose assessment runs you
+-- want to list.
+newListAssessmentRuns ::
+  ListAssessmentRuns
+newListAssessmentRuns =
   ListAssessmentRuns'
-    { _larNextToken = Nothing
-    , _larFilter = Nothing
-    , _larAssessmentTemplateARNs = Nothing
-    , _larMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      assessmentTemplateArns = Prelude.Nothing
     }
 
+-- | You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the __ListAssessmentRuns__
+-- action. Subsequent calls to the action fill __nextToken__ in the request
+-- with the value of __NextToken__ from the previous response to continue
+-- listing data.
+listAssessmentRuns_nextToken :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe Prelude.Text)
+listAssessmentRuns_nextToken = Lens.lens (\ListAssessmentRuns' {nextToken} -> nextToken) (\s@ListAssessmentRuns' {} a -> s {nextToken = a} :: ListAssessmentRuns)
 
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRuns__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-larNextToken :: Lens' ListAssessmentRuns (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a})
+-- | You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 10. The maximum value is
+-- 500.
+listAssessmentRuns_maxResults :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe Prelude.Int)
+listAssessmentRuns_maxResults = Lens.lens (\ListAssessmentRuns' {maxResults} -> maxResults) (\s@ListAssessmentRuns' {} a -> s {maxResults = a} :: ListAssessmentRuns)
 
--- | You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
-larFilter :: Lens' ListAssessmentRuns (Maybe AssessmentRunFilter)
-larFilter = lens _larFilter (\ s a -> s{_larFilter = a})
+-- | You can use this parameter to specify a subset of data to be included in
+-- the action\'s response.
+--
+-- For a record to match a filter, all specified filter attributes must
+-- match. When multiple values are specified for a filter attribute, any of
+-- the values can match.
+listAssessmentRuns_filter :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe AssessmentRunFilter)
+listAssessmentRuns_filter = Lens.lens (\ListAssessmentRuns' {filter'} -> filter') (\s@ListAssessmentRuns' {} a -> s {filter' = a} :: ListAssessmentRuns)
 
--- | The ARNs that specify the assessment templates whose assessment runs you want to list.
-larAssessmentTemplateARNs :: Lens' ListAssessmentRuns [Text]
-larAssessmentTemplateARNs = lens _larAssessmentTemplateARNs (\ s a -> s{_larAssessmentTemplateARNs = a}) . _Default . _Coerce
+-- | The ARNs that specify the assessment templates whose assessment runs you
+-- want to list.
+listAssessmentRuns_assessmentTemplateArns :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe [Prelude.Text])
+listAssessmentRuns_assessmentTemplateArns = Lens.lens (\ListAssessmentRuns' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@ListAssessmentRuns' {} a -> s {assessmentTemplateArns = a} :: ListAssessmentRuns) Prelude.. Lens.mapping Lens._Coerce
 
--- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
-larMaxResults :: Lens' ListAssessmentRuns (Maybe Int)
-larMaxResults = lens _larMaxResults (\ s a -> s{_larMaxResults = a})
+instance Core.AWSPager ListAssessmentRuns where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listAssessmentRunsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^. listAssessmentRunsResponse_assessmentRunArns
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listAssessmentRuns_nextToken
+          Lens..~ rs
+          Lens.^? listAssessmentRunsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager ListAssessmentRuns where
-        page rq rs
-          | stop (rs ^. larrsNextToken) = Nothing
-          | stop (rs ^. larrsAssessmentRunARNs) = Nothing
-          | otherwise =
-            Just $ rq & larNextToken .~ rs ^. larrsNextToken
+instance Core.AWSRequest ListAssessmentRuns where
+  type
+    AWSResponse ListAssessmentRuns =
+      ListAssessmentRunsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListAssessmentRunsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "assessmentRunArns"
+                            Core..!@ Prelude.mempty
+                        )
+      )
 
-instance AWSRequest ListAssessmentRuns where
-        type Rs ListAssessmentRuns =
-             ListAssessmentRunsResponse
-        request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListAssessmentRunsResponse' <$>
-                   (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "assessmentRunArns" .!@ mempty))
+instance Prelude.Hashable ListAssessmentRuns
 
-instance Hashable ListAssessmentRuns where
+instance Prelude.NFData ListAssessmentRuns
 
-instance NFData ListAssessmentRuns where
+instance Core.ToHeaders ListAssessmentRuns where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "InspectorService.ListAssessmentRuns" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListAssessmentRuns where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.ListAssessmentRuns" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListAssessmentRuns where
+  toJSON ListAssessmentRuns' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("assessmentTemplateArns" Core..=)
+              Prelude.<$> assessmentTemplateArns
+          ]
+      )
 
-instance ToJSON ListAssessmentRuns where
-        toJSON ListAssessmentRuns'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _larNextToken,
-                  ("filter" .=) <$> _larFilter,
-                  ("assessmentTemplateArns" .=) <$>
-                    _larAssessmentTemplateARNs,
-                  ("maxResults" .=) <$> _larMaxResults])
+instance Core.ToPath ListAssessmentRuns where
+  toPath = Prelude.const "/"
 
-instance ToPath ListAssessmentRuns where
-        toPath = const "/"
+instance Core.ToQuery ListAssessmentRuns where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListAssessmentRuns where
-        toQuery = const mempty
-
--- | /See:/ 'listAssessmentRunsResponse' smart constructor.
+-- | /See:/ 'newListAssessmentRunsResponse' smart constructor.
 data ListAssessmentRunsResponse = ListAssessmentRunsResponse'
-  { _larrsNextToken         :: !(Maybe Text)
-  , _larrsResponseStatus    :: !Int
-  , _larrsAssessmentRunARNs :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | When a response is generated, if there is more data to be listed, this
+    -- parameter is present in the response and contains the value to use for
+    -- the __nextToken__ parameter in a subsequent pagination request. If there
+    -- is no more data to be listed, this parameter is set to null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of ARNs that specifies the assessment runs that are returned by
+    -- the action.
+    assessmentRunArns :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListAssessmentRunsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAssessmentRunsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'larrsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'larrsResponseStatus' - -- | The response status code.
+-- 'nextToken', 'listAssessmentRunsResponse_nextToken' - When a response is generated, if there is more data to be listed, this
+-- parameter is present in the response and contains the value to use for
+-- the __nextToken__ parameter in a subsequent pagination request. If there
+-- is no more data to be listed, this parameter is set to null.
 --
--- * 'larrsAssessmentRunARNs' - A list of ARNs that specifies the assessment runs that are returned by the action.
-listAssessmentRunsResponse
-    :: Int -- ^ 'larrsResponseStatus'
-    -> ListAssessmentRunsResponse
-listAssessmentRunsResponse pResponseStatus_ =
+-- 'httpStatus', 'listAssessmentRunsResponse_httpStatus' - The response's http status code.
+--
+-- 'assessmentRunArns', 'listAssessmentRunsResponse_assessmentRunArns' - A list of ARNs that specifies the assessment runs that are returned by
+-- the action.
+newListAssessmentRunsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListAssessmentRunsResponse
+newListAssessmentRunsResponse pHttpStatus_ =
   ListAssessmentRunsResponse'
-    { _larrsNextToken = Nothing
-    , _larrsResponseStatus = pResponseStatus_
-    , _larrsAssessmentRunARNs = mempty
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      assessmentRunArns = Prelude.mempty
     }
 
+-- | When a response is generated, if there is more data to be listed, this
+-- parameter is present in the response and contains the value to use for
+-- the __nextToken__ parameter in a subsequent pagination request. If there
+-- is no more data to be listed, this parameter is set to null.
+listAssessmentRunsResponse_nextToken :: Lens.Lens' ListAssessmentRunsResponse (Prelude.Maybe Prelude.Text)
+listAssessmentRunsResponse_nextToken = Lens.lens (\ListAssessmentRunsResponse' {nextToken} -> nextToken) (\s@ListAssessmentRunsResponse' {} a -> s {nextToken = a} :: ListAssessmentRunsResponse)
 
--- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-larrsNextToken :: Lens' ListAssessmentRunsResponse (Maybe Text)
-larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a})
+-- | The response's http status code.
+listAssessmentRunsResponse_httpStatus :: Lens.Lens' ListAssessmentRunsResponse Prelude.Int
+listAssessmentRunsResponse_httpStatus = Lens.lens (\ListAssessmentRunsResponse' {httpStatus} -> httpStatus) (\s@ListAssessmentRunsResponse' {} a -> s {httpStatus = a} :: ListAssessmentRunsResponse)
 
--- | -- | The response status code.
-larrsResponseStatus :: Lens' ListAssessmentRunsResponse Int
-larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a})
+-- | A list of ARNs that specifies the assessment runs that are returned by
+-- the action.
+listAssessmentRunsResponse_assessmentRunArns :: Lens.Lens' ListAssessmentRunsResponse [Prelude.Text]
+listAssessmentRunsResponse_assessmentRunArns = Lens.lens (\ListAssessmentRunsResponse' {assessmentRunArns} -> assessmentRunArns) (\s@ListAssessmentRunsResponse' {} a -> s {assessmentRunArns = a} :: ListAssessmentRunsResponse) Prelude.. Lens._Coerce
 
--- | A list of ARNs that specifies the assessment runs that are returned by the action.
-larrsAssessmentRunARNs :: Lens' ListAssessmentRunsResponse [Text]
-larrsAssessmentRunARNs = lens _larrsAssessmentRunARNs (\ s a -> s{_larrsAssessmentRunARNs = a}) . _Coerce
-
-instance NFData ListAssessmentRunsResponse where
+instance Prelude.NFData ListAssessmentRunsResponse

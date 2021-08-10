@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53AutoNaming.ListOperations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,156 +22,274 @@
 --
 -- Lists operations that match the criteria that you specify.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Route53AutoNaming.ListOperations
-    (
-    -- * Creating a Request
-      listOperations
-    , ListOperations
+  ( -- * Creating a Request
+    ListOperations (..),
+    newListOperations,
+
     -- * Request Lenses
-    , loFilters
-    , loNextToken
-    , loMaxResults
+    listOperations_nextToken,
+    listOperations_maxResults,
+    listOperations_filters,
 
     -- * Destructuring the Response
-    , listOperationsResponse
-    , ListOperationsResponse
+    ListOperationsResponse (..),
+    newListOperationsResponse,
+
     -- * Response Lenses
-    , lorsNextToken
-    , lorsOperations
-    , lorsResponseStatus
-    ) where
+    listOperationsResponse_nextToken,
+    listOperationsResponse_operations,
+    listOperationsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
-import Network.AWS.Route53AutoNaming.Types.Product
 
--- | /See:/ 'listOperations' smart constructor.
+-- | /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { _loFilters    :: !(Maybe [OperationFilter])
-  , _loNextToken  :: !(Maybe Text)
-  , _loMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | For the first @ListOperations@ request, omit this value.
+    --
+    -- If the response contains @NextToken@, submit another @ListOperations@
+    -- request to get the next group of results. Specify the value of
+    -- @NextToken@ from the previous response in the next request.
+    --
+    -- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+    -- on the specified criteria. It\'s possible that no operations in the
+    -- first @MaxResults@ operations matched the specified criteria but that
+    -- subsequent groups of @MaxResults@ operations do contain operations that
+    -- match the criteria.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items that you want AWS Cloud Map to return in the
+    -- response to a @ListOperations@ request. If you don\'t specify a value
+    -- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A complex type that contains specifications for the operations that you
+    -- want to list, for example, operations that you started between a
+    -- specified start date and end date.
+    --
+    -- If you specify more than one filter, an operation must match all filters
+    -- to be returned by @ListOperations@.
+    filters :: Prelude.Maybe [OperationFilter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListOperations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'loFilters' - A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date. If you specify more than one filter, an operation must match all filters to be returned by @ListOperations@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'loNextToken' - For the first @ListOperations@ request, omit this value. If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- 'nextToken', 'listOperations_nextToken' - For the first @ListOperations@ request, omit this value.
 --
--- * 'loMaxResults' - The maximum number of items that you want Amazon Route 53 to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 operations.
-listOperations
-    :: ListOperations
-listOperations =
+-- If the response contains @NextToken@, submit another @ListOperations@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+-- on the specified criteria. It\'s possible that no operations in the
+-- first @MaxResults@ operations matched the specified criteria but that
+-- subsequent groups of @MaxResults@ operations do contain operations that
+-- match the criteria.
+--
+-- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want AWS Cloud Map to return in the
+-- response to a @ListOperations@ request. If you don\'t specify a value
+-- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+--
+-- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
+newListOperations ::
+  ListOperations
+newListOperations =
   ListOperations'
-    {_loFilters = Nothing, _loNextToken = Nothing, _loMaxResults = Nothing}
-
-
--- | A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date. If you specify more than one filter, an operation must match all filters to be returned by @ListOperations@ .
-loFilters :: Lens' ListOperations [OperationFilter]
-loFilters = lens _loFilters (\ s a -> s{_loFilters = a}) . _Default . _Coerce
-
--- | For the first @ListOperations@ request, omit this value. If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-loNextToken :: Lens' ListOperations (Maybe Text)
-loNextToken = lens _loNextToken (\ s a -> s{_loNextToken = a})
-
--- | The maximum number of items that you want Amazon Route 53 to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 operations.
-loMaxResults :: Lens' ListOperations (Maybe Natural)
-loMaxResults = lens _loMaxResults (\ s a -> s{_loMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListOperations where
-        page rq rs
-          | stop (rs ^. lorsNextToken) = Nothing
-          | stop (rs ^. lorsOperations) = Nothing
-          | otherwise =
-            Just $ rq & loNextToken .~ rs ^. lorsNextToken
-
-instance AWSRequest ListOperations where
-        type Rs ListOperations = ListOperationsResponse
-        request = postJSON route53AutoNaming
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListOperationsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Operations" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListOperations where
-
-instance NFData ListOperations where
-
-instance ToHeaders ListOperations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53AutoNaming_v20170314.ListOperations" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListOperations where
-        toJSON ListOperations'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _loFilters,
-                  ("NextToken" .=) <$> _loNextToken,
-                  ("MaxResults" .=) <$> _loMaxResults])
-
-instance ToPath ListOperations where
-        toPath = const "/"
-
-instance ToQuery ListOperations where
-        toQuery = const mempty
-
--- | /See:/ 'listOperationsResponse' smart constructor.
-data ListOperationsResponse = ListOperationsResponse'
-  { _lorsNextToken      :: !(Maybe Text)
-  , _lorsOperations     :: !(Maybe [OperationSummary])
-  , _lorsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListOperationsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lorsNextToken' - If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- * 'lorsOperations' - Summary information about the operations that match the specified criteria.
---
--- * 'lorsResponseStatus' - -- | The response status code.
-listOperationsResponse
-    :: Int -- ^ 'lorsResponseStatus'
-    -> ListOperationsResponse
-listOperationsResponse pResponseStatus_ =
-  ListOperationsResponse'
-    { _lorsNextToken = Nothing
-    , _lorsOperations = Nothing
-    , _lorsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | For the first @ListOperations@ request, omit this value.
+--
+-- If the response contains @NextToken@, submit another @ListOperations@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+-- on the specified criteria. It\'s possible that no operations in the
+-- first @MaxResults@ operations matched the specified criteria but that
+-- subsequent groups of @MaxResults@ operations do contain operations that
+-- match the criteria.
+listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
+listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
 
--- | If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-lorsNextToken :: Lens' ListOperationsResponse (Maybe Text)
-lorsNextToken = lens _lorsNextToken (\ s a -> s{_lorsNextToken = a})
+-- | The maximum number of items that you want AWS Cloud Map to return in the
+-- response to a @ListOperations@ request. If you don\'t specify a value
+-- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
+listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
 
--- | Summary information about the operations that match the specified criteria.
-lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Default . _Coerce
+-- | A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
+listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
+listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lorsResponseStatus :: Lens' ListOperationsResponse Int
-lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a})
+instance Core.AWSPager ListOperations where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listOperationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listOperationsResponse_operations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listOperations_nextToken
+          Lens..~ rs
+          Lens.^? listOperationsResponse_nextToken Prelude.. Lens._Just
 
-instance NFData ListOperationsResponse where
+instance Core.AWSRequest ListOperations where
+  type
+    AWSResponse ListOperations =
+      ListOperationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListOperationsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListOperations
+
+instance Prelude.NFData ListOperations
+
+instance Core.ToHeaders ListOperations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53AutoNaming_v20170314.ListOperations" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListOperations where
+  toJSON ListOperations' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
+          ]
+      )
+
+instance Core.ToPath ListOperations where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListOperations where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListOperationsResponse' smart constructor.
+data ListOperationsResponse = ListOperationsResponse'
+  { -- | If the response contains @NextToken@, submit another @ListOperations@
+    -- request to get the next group of results. Specify the value of
+    -- @NextToken@ from the previous response in the next request.
+    --
+    -- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+    -- on the specified criteria. It\'s possible that no operations in the
+    -- first @MaxResults@ operations matched the specified criteria but that
+    -- subsequent groups of @MaxResults@ operations do contain operations that
+    -- match the criteria.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about the operations that match the specified
+    -- criteria.
+    operations :: Prelude.Maybe [OperationSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListOperationsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listOperationsResponse_nextToken' - If the response contains @NextToken@, submit another @ListOperations@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+-- on the specified criteria. It\'s possible that no operations in the
+-- first @MaxResults@ operations matched the specified criteria but that
+-- subsequent groups of @MaxResults@ operations do contain operations that
+-- match the criteria.
+--
+-- 'operations', 'listOperationsResponse_operations' - Summary information about the operations that match the specified
+-- criteria.
+--
+-- 'httpStatus', 'listOperationsResponse_httpStatus' - The response's http status code.
+newListOperationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListOperationsResponse
+newListOperationsResponse pHttpStatus_ =
+  ListOperationsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      operations = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the response contains @NextToken@, submit another @ListOperations@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ operations and then filters them based
+-- on the specified criteria. It\'s possible that no operations in the
+-- first @MaxResults@ operations matched the specified criteria but that
+-- subsequent groups of @MaxResults@ operations do contain operations that
+-- match the criteria.
+listOperationsResponse_nextToken :: Lens.Lens' ListOperationsResponse (Prelude.Maybe Prelude.Text)
+listOperationsResponse_nextToken = Lens.lens (\ListOperationsResponse' {nextToken} -> nextToken) (\s@ListOperationsResponse' {} a -> s {nextToken = a} :: ListOperationsResponse)
+
+-- | Summary information about the operations that match the specified
+-- criteria.
+listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse (Prelude.Maybe [OperationSummary])
+listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Prelude.Int
+listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpStatus} -> httpStatus) (\s@ListOperationsResponse' {} a -> s {httpStatus = a} :: ListOperationsResponse)
+
+instance Prelude.NFData ListOperationsResponse

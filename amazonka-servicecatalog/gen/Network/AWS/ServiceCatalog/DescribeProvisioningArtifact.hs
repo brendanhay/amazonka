@@ -1,194 +1,266 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the specified provisioning artifact (also known as a version) for the specified product.
---
---
+-- Gets information about the specified provisioning artifact (also known
+-- as a version) for the specified product.
 module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
-    (
-    -- * Creating a Request
-      describeProvisioningArtifact
-    , DescribeProvisioningArtifact
+  ( -- * Creating a Request
+    DescribeProvisioningArtifact (..),
+    newDescribeProvisioningArtifact,
+
     -- * Request Lenses
-    , dpaVerbose
-    , dpaAcceptLanguage
-    , dpaProvisioningArtifactId
-    , dpaProductId
+    describeProvisioningArtifact_provisioningArtifactName,
+    describeProvisioningArtifact_provisioningArtifactId,
+    describeProvisioningArtifact_productName,
+    describeProvisioningArtifact_productId,
+    describeProvisioningArtifact_verbose,
+    describeProvisioningArtifact_acceptLanguage,
 
     -- * Destructuring the Response
-    , describeProvisioningArtifactResponse
-    , DescribeProvisioningArtifactResponse
+    DescribeProvisioningArtifactResponse (..),
+    newDescribeProvisioningArtifactResponse,
+
     -- * Response Lenses
-    , dpaprsStatus
-    , dpaprsInfo
-    , dpaprsProvisioningArtifactDetail
-    , dpaprsResponseStatus
-    ) where
+    describeProvisioningArtifactResponse_status,
+    describeProvisioningArtifactResponse_info,
+    describeProvisioningArtifactResponse_provisioningArtifactDetail,
+    describeProvisioningArtifactResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'describeProvisioningArtifact' smart constructor.
+-- | /See:/ 'newDescribeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-  { _dpaVerbose                :: !(Maybe Bool)
-  , _dpaAcceptLanguage         :: !(Maybe Text)
-  , _dpaProvisioningArtifactId :: !Text
-  , _dpaProductId              :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The provisioning artifact name.
+    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
+    -- | The product name.
+    productName :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    productId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether a verbose level of detail is enabled.
+    verbose :: Prelude.Maybe Prelude.Bool,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeProvisioningArtifact' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeProvisioningArtifact' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpaVerbose' - Indicates whether a verbose level of detail is enabled.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- 'provisioningArtifactName', 'describeProvisioningArtifact_provisioningArtifactName' - The provisioning artifact name.
 --
--- * 'dpaProvisioningArtifactId' - The identifier of the provisioning artifact.
+-- 'provisioningArtifactId', 'describeProvisioningArtifact_provisioningArtifactId' - The identifier of the provisioning artifact.
 --
--- * 'dpaProductId' - The product identifier.
-describeProvisioningArtifact
-    :: Text -- ^ 'dpaProvisioningArtifactId'
-    -> Text -- ^ 'dpaProductId'
-    -> DescribeProvisioningArtifact
-describeProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
+-- 'productName', 'describeProvisioningArtifact_productName' - The product name.
+--
+-- 'productId', 'describeProvisioningArtifact_productId' - The product identifier.
+--
+-- 'verbose', 'describeProvisioningArtifact_verbose' - Indicates whether a verbose level of detail is enabled.
+--
+-- 'acceptLanguage', 'describeProvisioningArtifact_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+newDescribeProvisioningArtifact ::
+  DescribeProvisioningArtifact
+newDescribeProvisioningArtifact =
   DescribeProvisioningArtifact'
-    { _dpaVerbose = Nothing
-    , _dpaAcceptLanguage = Nothing
-    , _dpaProvisioningArtifactId = pProvisioningArtifactId_
-    , _dpaProductId = pProductId_
+    { provisioningArtifactName =
+        Prelude.Nothing,
+      provisioningArtifactId = Prelude.Nothing,
+      productName = Prelude.Nothing,
+      productId = Prelude.Nothing,
+      verbose = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
-
--- | Indicates whether a verbose level of detail is enabled.
-dpaVerbose :: Lens' DescribeProvisioningArtifact (Maybe Bool)
-dpaVerbose = lens _dpaVerbose (\ s a -> s{_dpaVerbose = a})
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dpaAcceptLanguage :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaAcceptLanguage = lens _dpaAcceptLanguage (\ s a -> s{_dpaAcceptLanguage = a})
+-- | The provisioning artifact name.
+describeProvisioningArtifact_provisioningArtifactName :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_provisioningArtifactName = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactName} -> provisioningArtifactName) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactName = a} :: DescribeProvisioningArtifact)
 
 -- | The identifier of the provisioning artifact.
-dpaProvisioningArtifactId :: Lens' DescribeProvisioningArtifact Text
-dpaProvisioningArtifactId = lens _dpaProvisioningArtifactId (\ s a -> s{_dpaProvisioningArtifactId = a})
+describeProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_provisioningArtifactId = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactId} -> provisioningArtifactId) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactId = a} :: DescribeProvisioningArtifact)
+
+-- | The product name.
+describeProvisioningArtifact_productName :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_productName = Lens.lens (\DescribeProvisioningArtifact' {productName} -> productName) (\s@DescribeProvisioningArtifact' {} a -> s {productName = a} :: DescribeProvisioningArtifact)
 
 -- | The product identifier.
-dpaProductId :: Lens' DescribeProvisioningArtifact Text
-dpaProductId = lens _dpaProductId (\ s a -> s{_dpaProductId = a})
+describeProvisioningArtifact_productId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_productId = Lens.lens (\DescribeProvisioningArtifact' {productId} -> productId) (\s@DescribeProvisioningArtifact' {} a -> s {productId = a} :: DescribeProvisioningArtifact)
 
-instance AWSRequest DescribeProvisioningArtifact
-         where
-        type Rs DescribeProvisioningArtifact =
-             DescribeProvisioningArtifactResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeProvisioningArtifactResponse' <$>
-                   (x .?> "Status") <*> (x .?> "Info" .!@ mempty) <*>
-                     (x .?> "ProvisioningArtifactDetail")
-                     <*> (pure (fromEnum s)))
+-- | Indicates whether a verbose level of detail is enabled.
+describeProvisioningArtifact_verbose :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
+describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact' {verbose} -> verbose) (\s@DescribeProvisioningArtifact' {} a -> s {verbose = a} :: DescribeProvisioningArtifact)
 
-instance Hashable DescribeProvisioningArtifact where
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+describeProvisioningArtifact_acceptLanguage :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_acceptLanguage = Lens.lens (\DescribeProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DescribeProvisioningArtifact)
 
-instance NFData DescribeProvisioningArtifact where
+instance Core.AWSRequest DescribeProvisioningArtifact where
+  type
+    AWSResponse DescribeProvisioningArtifact =
+      DescribeProvisioningArtifactResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeProvisioningArtifactResponse'
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders DescribeProvisioningArtifact where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.DescribeProvisioningArtifact"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.Hashable
+    DescribeProvisioningArtifact
 
-instance ToJSON DescribeProvisioningArtifact where
-        toJSON DescribeProvisioningArtifact'{..}
-          = object
-              (catMaybes
-                 [("Verbose" .=) <$> _dpaVerbose,
-                  ("AcceptLanguage" .=) <$> _dpaAcceptLanguage,
-                  Just
-                    ("ProvisioningArtifactId" .=
-                       _dpaProvisioningArtifactId),
-                  Just ("ProductId" .= _dpaProductId)])
+instance Prelude.NFData DescribeProvisioningArtifact
 
-instance ToPath DescribeProvisioningArtifact where
-        toPath = const "/"
+instance Core.ToHeaders DescribeProvisioningArtifact where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.DescribeProvisioningArtifact" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery DescribeProvisioningArtifact where
-        toQuery = const mempty
+instance Core.ToJSON DescribeProvisioningArtifact where
+  toJSON DescribeProvisioningArtifact' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ProvisioningArtifactName" Core..=)
+              Prelude.<$> provisioningArtifactName,
+            ("ProvisioningArtifactId" Core..=)
+              Prelude.<$> provisioningArtifactId,
+            ("ProductName" Core..=) Prelude.<$> productName,
+            ("ProductId" Core..=) Prelude.<$> productId,
+            ("Verbose" Core..=) Prelude.<$> verbose,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
+          ]
+      )
 
--- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
+instance Core.ToPath DescribeProvisioningArtifact where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeProvisioningArtifact where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-  { _dpaprsStatus                     :: !(Maybe RequestStatus)
-  , _dpaprsInfo                       :: !(Maybe (Map Text Text))
-  , _dpaprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-  , _dpaprsResponseStatus             :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
+    -- | The URL of the CloudFormation template in Amazon S3.
+    info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Information about the provisioning artifact.
+    provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeProvisioningArtifactResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeProvisioningArtifactResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpaprsStatus' - The status of the current request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpaprsInfo' - The URL of the CloudFormation template in Amazon S3.
+-- 'status', 'describeProvisioningArtifactResponse_status' - The status of the current request.
 --
--- * 'dpaprsProvisioningArtifactDetail' - Information about the provisioning artifact.
+-- 'info', 'describeProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3.
 --
--- * 'dpaprsResponseStatus' - -- | The response status code.
-describeProvisioningArtifactResponse
-    :: Int -- ^ 'dpaprsResponseStatus'
-    -> DescribeProvisioningArtifactResponse
-describeProvisioningArtifactResponse pResponseStatus_ =
+-- 'provisioningArtifactDetail', 'describeProvisioningArtifactResponse_provisioningArtifactDetail' - Information about the provisioning artifact.
+--
+-- 'httpStatus', 'describeProvisioningArtifactResponse_httpStatus' - The response's http status code.
+newDescribeProvisioningArtifactResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeProvisioningArtifactResponse
+newDescribeProvisioningArtifactResponse pHttpStatus_ =
   DescribeProvisioningArtifactResponse'
-    { _dpaprsStatus = Nothing
-    , _dpaprsInfo = Nothing
-    , _dpaprsProvisioningArtifactDetail = Nothing
-    , _dpaprsResponseStatus = pResponseStatus_
+    { status =
+        Prelude.Nothing,
+      info = Prelude.Nothing,
+      provisioningArtifactDetail =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The status of the current request.
-dpaprsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
-dpaprsStatus = lens _dpaprsStatus (\ s a -> s{_dpaprsStatus = a})
+describeProvisioningArtifactResponse_status :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
+describeProvisioningArtifactResponse_status = Lens.lens (\DescribeProvisioningArtifactResponse' {status} -> status) (\s@DescribeProvisioningArtifactResponse' {} a -> s {status = a} :: DescribeProvisioningArtifactResponse)
 
 -- | The URL of the CloudFormation template in Amazon S3.
-dpaprsInfo :: Lens' DescribeProvisioningArtifactResponse (HashMap Text Text)
-dpaprsInfo = lens _dpaprsInfo (\ s a -> s{_dpaprsInfo = a}) . _Default . _Map
+describeProvisioningArtifactResponse_info :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArtifactResponse' {info} -> info) (\s@DescribeProvisioningArtifactResponse' {} a -> s {info = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the provisioning artifact.
-dpaprsProvisioningArtifactDetail :: Lens' DescribeProvisioningArtifactResponse (Maybe ProvisioningArtifactDetail)
-dpaprsProvisioningArtifactDetail = lens _dpaprsProvisioningArtifactDetail (\ s a -> s{_dpaprsProvisioningArtifactDetail = a})
+describeProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)
+describeProvisioningArtifactResponse_provisioningArtifactDetail = Lens.lens (\DescribeProvisioningArtifactResponse' {provisioningArtifactDetail} -> provisioningArtifactDetail) (\s@DescribeProvisioningArtifactResponse' {} a -> s {provisioningArtifactDetail = a} :: DescribeProvisioningArtifactResponse)
 
--- | -- | The response status code.
-dpaprsResponseStatus :: Lens' DescribeProvisioningArtifactResponse Int
-dpaprsResponseStatus = lens _dpaprsResponseStatus (\ s a -> s{_dpaprsResponseStatus = a})
+-- | The response's http status code.
+describeProvisioningArtifactResponse_httpStatus :: Lens.Lens' DescribeProvisioningArtifactResponse Prelude.Int
+describeProvisioningArtifactResponse_httpStatus = Lens.lens (\DescribeProvisioningArtifactResponse' {httpStatus} -> httpStatus) (\s@DescribeProvisioningArtifactResponse' {} a -> s {httpStatus = a} :: DescribeProvisioningArtifactResponse)
 
-instance NFData DescribeProvisioningArtifactResponse
-         where
+instance
+  Prelude.NFData
+    DescribeProvisioningArtifactResponse

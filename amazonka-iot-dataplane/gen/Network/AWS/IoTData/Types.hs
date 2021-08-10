@@ -1,155 +1,186 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTData.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.IoTData.Types
-    (
-    -- * Service Configuration
-      ioTData
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidRequestException
-    , _ConflictException
-    , _RequestEntityTooLargeException
-    , _ThrottlingException
-    , _MethodNotAllowedException
-    , _InternalFailureException
-    , _ServiceUnavailableException
-    , _UnauthorizedException
-    , _ResourceNotFoundException
-    , _UnsupportedDocumentEncodingException
-    ) where
+    _UnsupportedDocumentEncodingException,
+    _UnauthorizedException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
+    _InvalidRequestException,
+    _RequestEntityTooLargeException,
+    _ConflictException,
+    _ResourceNotFoundException,
+    _InternalFailureException,
+    _MethodNotAllowedException,
+  )
+where
 
-import Network.AWS.IoTData.Types.Product
-import Network.AWS.IoTData.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-05-28@ of the Amazon IoT Data Plane SDK configuration.
-ioTData :: Service
-ioTData =
-  Service
-    { _svcAbbrev = "IoTData"
-    , _svcSigner = v4
-    , _svcPrefix = "data.iot"
-    , _svcVersion = "2015-05-28"
-    , _svcEndpoint = defaultEndpoint ioTData
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "IoTData"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "IoTData",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "data.iot",
+      Core._serviceSigningName = "iotdata",
+      Core._serviceVersion = "2015-05-28",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "IoTData",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | The request is not valid.
---
---
-_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException =
-  _MatchServiceError ioTData "InvalidRequestException" . hasStatus 400
-
-
--- | The specified version does not match the version of the document.
---
---
-_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictException =
-  _MatchServiceError ioTData "ConflictException" . hasStatus 409
-
-
--- | The payload exceeds the maximum size allowed.
---
---
-_RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestEntityTooLargeException =
-  _MatchServiceError ioTData "RequestEntityTooLargeException" . hasStatus 413
-
-
--- | The rate exceeds the limit.
---
---
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottlingException =
-  _MatchServiceError ioTData "ThrottlingException" . hasStatus 429
-
-
--- | The specified combination of HTTP verb and URI is not supported.
---
---
-_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
-_MethodNotAllowedException =
-  _MatchServiceError ioTData "MethodNotAllowedException" . hasStatus 405
-
-
--- | An unexpected error has occurred.
---
---
-_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalFailureException =
-  _MatchServiceError ioTData "InternalFailureException" . hasStatus 500
-
-
--- | The service is temporarily unavailable.
---
---
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceUnavailableException =
-  _MatchServiceError ioTData "ServiceUnavailableException" . hasStatus 503
-
-
--- | You are not authorized to perform this operation.
---
---
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnauthorizedException =
-  _MatchServiceError ioTData "UnauthorizedException" . hasStatus 401
-
-
--- | The specified resource does not exist.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError ioTData "ResourceNotFoundException" . hasStatus 404
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The document encoding is not supported.
---
---
-_UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedDocumentEncodingException =
-  _MatchServiceError ioTData "UnsupportedDocumentEncodingException" .
-  hasStatus 415
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedDocumentEncodingException"
+    Prelude.. Core.hasStatus 415
 
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The request is not valid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The payload exceeds the maximum size allowed.
+_RequestEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestEntityTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "RequestEntityTooLargeException"
+    Prelude.. Core.hasStatus 413
+
+-- | The specified version does not match the version of the document.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | An unexpected error has occurred.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified combination of HTTP verb and URI is not supported.
+_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException =
+  Core._MatchServiceError
+    defaultService
+    "MethodNotAllowedException"
+    Prelude.. Core.hasStatus 405

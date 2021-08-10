@@ -1,167 +1,372 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Transcribe.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Transcribe.Types
-    (
-    -- * Service Configuration
-      transcribe
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ConflictException
-    , _NotFoundException
-    , _InternalFailureException
-    , _BadRequestException
-    , _LimitExceededException
+    _NotFoundException,
+    _BadRequestException,
+    _LimitExceededException,
+    _ConflictException,
+    _InternalFailureException,
+
+    -- * BaseModelName
+    BaseModelName (..),
+
+    -- * CLMLanguageCode
+    CLMLanguageCode (..),
 
     -- * LanguageCode
-    , LanguageCode (..)
+    LanguageCode (..),
 
     -- * MediaFormat
-    , MediaFormat (..)
+    MediaFormat (..),
+
+    -- * ModelStatus
+    ModelStatus (..),
+
+    -- * OutputLocationType
+    OutputLocationType (..),
+
+    -- * RedactionOutput
+    RedactionOutput (..),
+
+    -- * RedactionType
+    RedactionType (..),
+
+    -- * Specialty
+    Specialty (..),
 
     -- * TranscriptionJobStatus
-    , TranscriptionJobStatus (..)
+    TranscriptionJobStatus (..),
+
+    -- * Type
+    Type (..),
+
+    -- * VocabularyFilterMethod
+    VocabularyFilterMethod (..),
 
     -- * VocabularyState
-    , VocabularyState (..)
+    VocabularyState (..),
+
+    -- * ContentRedaction
+    ContentRedaction (..),
+    newContentRedaction,
+    contentRedaction_redactionType,
+    contentRedaction_redactionOutput,
+
+    -- * InputDataConfig
+    InputDataConfig (..),
+    newInputDataConfig,
+    inputDataConfig_tuningDataS3Uri,
+    inputDataConfig_s3Uri,
+    inputDataConfig_dataAccessRoleArn,
+
+    -- * JobExecutionSettings
+    JobExecutionSettings (..),
+    newJobExecutionSettings,
+    jobExecutionSettings_allowDeferredExecution,
+    jobExecutionSettings_dataAccessRoleArn,
+
+    -- * LanguageModel
+    LanguageModel (..),
+    newLanguageModel,
+    languageModel_languageCode,
+    languageModel_inputDataConfig,
+    languageModel_modelStatus,
+    languageModel_failureReason,
+    languageModel_upgradeAvailability,
+    languageModel_createTime,
+    languageModel_lastModifiedTime,
+    languageModel_modelName,
+    languageModel_baseModelName,
 
     -- * Media
-    , Media
-    , media
-    , mMediaFileURI
+    Media (..),
+    newMedia,
+    media_mediaFileUri,
+
+    -- * MedicalTranscript
+    MedicalTranscript (..),
+    newMedicalTranscript,
+    medicalTranscript_transcriptFileUri,
+
+    -- * MedicalTranscriptionJob
+    MedicalTranscriptionJob (..),
+    newMedicalTranscriptionJob,
+    medicalTranscriptionJob_languageCode,
+    medicalTranscriptionJob_mediaFormat,
+    medicalTranscriptionJob_media,
+    medicalTranscriptionJob_creationTime,
+    medicalTranscriptionJob_completionTime,
+    medicalTranscriptionJob_transcript,
+    medicalTranscriptionJob_startTime,
+    medicalTranscriptionJob_transcriptionJobStatus,
+    medicalTranscriptionJob_specialty,
+    medicalTranscriptionJob_failureReason,
+    medicalTranscriptionJob_mediaSampleRateHertz,
+    medicalTranscriptionJob_type,
+    medicalTranscriptionJob_medicalTranscriptionJobName,
+    medicalTranscriptionJob_settings,
+
+    -- * MedicalTranscriptionJobSummary
+    MedicalTranscriptionJobSummary (..),
+    newMedicalTranscriptionJobSummary,
+    medicalTranscriptionJobSummary_languageCode,
+    medicalTranscriptionJobSummary_creationTime,
+    medicalTranscriptionJobSummary_completionTime,
+    medicalTranscriptionJobSummary_startTime,
+    medicalTranscriptionJobSummary_transcriptionJobStatus,
+    medicalTranscriptionJobSummary_outputLocationType,
+    medicalTranscriptionJobSummary_specialty,
+    medicalTranscriptionJobSummary_failureReason,
+    medicalTranscriptionJobSummary_type,
+    medicalTranscriptionJobSummary_medicalTranscriptionJobName,
+
+    -- * MedicalTranscriptionSetting
+    MedicalTranscriptionSetting (..),
+    newMedicalTranscriptionSetting,
+    medicalTranscriptionSetting_showAlternatives,
+    medicalTranscriptionSetting_channelIdentification,
+    medicalTranscriptionSetting_maxAlternatives,
+    medicalTranscriptionSetting_showSpeakerLabels,
+    medicalTranscriptionSetting_vocabularyName,
+    medicalTranscriptionSetting_maxSpeakerLabels,
+
+    -- * ModelSettings
+    ModelSettings (..),
+    newModelSettings,
+    modelSettings_languageModelName,
 
     -- * Settings
-    , Settings
-    , settings
-    , sVocabularyName
-    , sMaxSpeakerLabels
-    , sShowSpeakerLabels
+    Settings (..),
+    newSettings,
+    settings_vocabularyFilterMethod,
+    settings_vocabularyFilterName,
+    settings_showAlternatives,
+    settings_channelIdentification,
+    settings_maxAlternatives,
+    settings_showSpeakerLabels,
+    settings_vocabularyName,
+    settings_maxSpeakerLabels,
 
     -- * Transcript
-    , Transcript
-    , transcript
-    , tTranscriptFileURI
+    Transcript (..),
+    newTranscript,
+    transcript_transcriptFileUri,
+    transcript_redactedTranscriptFileUri,
 
     -- * TranscriptionJob
-    , TranscriptionJob
-    , transcriptionJob
-    , tjCreationTime
-    , tjFailureReason
-    , tjLanguageCode
-    , tjSettings
-    , tjCompletionTime
-    , tjMedia
-    , tjMediaFormat
-    , tjTranscriptionJobStatus
-    , tjTranscriptionJobName
-    , tjTranscript
-    , tjMediaSampleRateHertz
+    TranscriptionJob (..),
+    newTranscriptionJob,
+    transcriptionJob_languageCode,
+    transcriptionJob_mediaFormat,
+    transcriptionJob_contentRedaction,
+    transcriptionJob_media,
+    transcriptionJob_creationTime,
+    transcriptionJob_completionTime,
+    transcriptionJob_transcriptionJobName,
+    transcriptionJob_transcript,
+    transcriptionJob_identifyLanguage,
+    transcriptionJob_startTime,
+    transcriptionJob_transcriptionJobStatus,
+    transcriptionJob_modelSettings,
+    transcriptionJob_identifiedLanguageScore,
+    transcriptionJob_failureReason,
+    transcriptionJob_mediaSampleRateHertz,
+    transcriptionJob_jobExecutionSettings,
+    transcriptionJob_settings,
+    transcriptionJob_languageOptions,
 
     -- * TranscriptionJobSummary
-    , TranscriptionJobSummary
-    , transcriptionJobSummary
-    , tjsCreationTime
-    , tjsFailureReason
-    , tjsLanguageCode
-    , tjsCompletionTime
-    , tjsTranscriptionJobStatus
-    , tjsTranscriptionJobName
+    TranscriptionJobSummary (..),
+    newTranscriptionJobSummary,
+    transcriptionJobSummary_languageCode,
+    transcriptionJobSummary_contentRedaction,
+    transcriptionJobSummary_creationTime,
+    transcriptionJobSummary_completionTime,
+    transcriptionJobSummary_transcriptionJobName,
+    transcriptionJobSummary_identifyLanguage,
+    transcriptionJobSummary_startTime,
+    transcriptionJobSummary_transcriptionJobStatus,
+    transcriptionJobSummary_modelSettings,
+    transcriptionJobSummary_outputLocationType,
+    transcriptionJobSummary_identifiedLanguageScore,
+    transcriptionJobSummary_failureReason,
+
+    -- * VocabularyFilterInfo
+    VocabularyFilterInfo (..),
+    newVocabularyFilterInfo,
+    vocabularyFilterInfo_languageCode,
+    vocabularyFilterInfo_vocabularyFilterName,
+    vocabularyFilterInfo_lastModifiedTime,
 
     -- * VocabularyInfo
-    , VocabularyInfo
-    , vocabularyInfo
-    , viLanguageCode
-    , viVocabularyName
-    , viLastModifiedTime
-    , viVocabularyState
-    ) where
+    VocabularyInfo (..),
+    newVocabularyInfo,
+    vocabularyInfo_languageCode,
+    vocabularyInfo_lastModifiedTime,
+    vocabularyInfo_vocabularyState,
+    vocabularyInfo_vocabularyName,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
-import Network.AWS.Transcribe.Types.Product
-import Network.AWS.Transcribe.Types.Sum
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
+import Network.AWS.Transcribe.Types.BaseModelName
+import Network.AWS.Transcribe.Types.CLMLanguageCode
+import Network.AWS.Transcribe.Types.ContentRedaction
+import Network.AWS.Transcribe.Types.InputDataConfig
+import Network.AWS.Transcribe.Types.JobExecutionSettings
+import Network.AWS.Transcribe.Types.LanguageCode
+import Network.AWS.Transcribe.Types.LanguageModel
+import Network.AWS.Transcribe.Types.Media
+import Network.AWS.Transcribe.Types.MediaFormat
+import Network.AWS.Transcribe.Types.MedicalTranscript
+import Network.AWS.Transcribe.Types.MedicalTranscriptionJob
+import Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
+import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
+import Network.AWS.Transcribe.Types.ModelSettings
+import Network.AWS.Transcribe.Types.ModelStatus
+import Network.AWS.Transcribe.Types.OutputLocationType
+import Network.AWS.Transcribe.Types.RedactionOutput
+import Network.AWS.Transcribe.Types.RedactionType
+import Network.AWS.Transcribe.Types.Settings
+import Network.AWS.Transcribe.Types.Specialty
+import Network.AWS.Transcribe.Types.Transcript
+import Network.AWS.Transcribe.Types.TranscriptionJob
+import Network.AWS.Transcribe.Types.TranscriptionJobStatus
+import Network.AWS.Transcribe.Types.TranscriptionJobSummary
+import Network.AWS.Transcribe.Types.Type
+import Network.AWS.Transcribe.Types.VocabularyFilterInfo
+import Network.AWS.Transcribe.Types.VocabularyFilterMethod
+import Network.AWS.Transcribe.Types.VocabularyInfo
+import Network.AWS.Transcribe.Types.VocabularyState
 
 -- | API version @2017-10-26@ of the Amazon Transcribe Service SDK configuration.
-transcribe :: Service
-transcribe =
-  Service
-    { _svcAbbrev = "Transcribe"
-    , _svcSigner = v4
-    , _svcPrefix = "transcribe"
-    , _svcVersion = "2017-10-26"
-    , _svcEndpoint = defaultEndpoint transcribe
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Transcribe"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "Transcribe",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "transcribe",
+      Core._serviceSigningName = "transcribe",
+      Core._serviceVersion = "2017-10-26",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Transcribe",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | We can\'t find the requested resource. Check the name and try your
+-- request again.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
--- | The @JobName@ field is a duplicate of a previously entered job name. Resend your request with a different name.
---
---
-_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictException = _MatchServiceError transcribe "ConflictException"
+-- | Your request didn\'t pass one or more validation tests. For example, if
+-- the entity that you\'re trying to delete doesn\'t exist or if it is in a
+-- non-terminal state (for example, it\'s \"in progress\"). See the
+-- exception @Message@ field for more information.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
 
+-- | Either you have sent too many requests or your input file is too long.
+-- Wait before you resend your request, or use a smaller file and resend
+-- the request.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
--- | We can't find the requested transcription job or custom vocabulary. Check the name and try your request again.
---
---
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _MatchServiceError transcribe "NotFoundException"
+-- | There is already a resource with that name.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
-
--- | There was an internal error. Check the error message and try your request again.
---
---
-_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | There was an internal error. Check the error message and try your
+-- request again.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
-  _MatchServiceError transcribe "InternalFailureException"
-
-
--- | Your request didn't pass one or more validation tests. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary. See the exception @Message@ field for more information.
---
---
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_BadRequestException = _MatchServiceError transcribe "BadRequestException"
-
-
--- | Either you have sent too many requests or your input file is too long. Wait before you resend your request, or use a smaller file and resend the request.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _MatchServiceError transcribe "LimitExceededException"
-
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"

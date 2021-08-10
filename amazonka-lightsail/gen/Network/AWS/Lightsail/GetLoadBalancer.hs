@@ -1,133 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetLoadBalancer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the specified Lightsail load balancer.
---
---
 module Network.AWS.Lightsail.GetLoadBalancer
-    (
-    -- * Creating a Request
-      getLoadBalancer
-    , GetLoadBalancer
+  ( -- * Creating a Request
+    GetLoadBalancer (..),
+    newGetLoadBalancer,
+
     -- * Request Lenses
-    , glbLoadBalancerName
+    getLoadBalancer_loadBalancerName,
 
     -- * Destructuring the Response
-    , getLoadBalancerResponse
-    , GetLoadBalancerResponse
+    GetLoadBalancerResponse (..),
+    newGetLoadBalancerResponse,
+
     -- * Response Lenses
-    , glbrsLoadBalancer
-    , glbrsResponseStatus
-    ) where
+    getLoadBalancerResponse_loadBalancer,
+    getLoadBalancerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getLoadBalancer' smart constructor.
-newtype GetLoadBalancer = GetLoadBalancer'
-  { _glbLoadBalancerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetLoadBalancer' smart constructor.
+data GetLoadBalancer = GetLoadBalancer'
+  { -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetLoadBalancer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLoadBalancer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'glbLoadBalancerName' - The name of the load balancer.
-getLoadBalancer
-    :: Text -- ^ 'glbLoadBalancerName'
-    -> GetLoadBalancer
-getLoadBalancer pLoadBalancerName_ =
-  GetLoadBalancer' {_glbLoadBalancerName = pLoadBalancerName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'loadBalancerName', 'getLoadBalancer_loadBalancerName' - The name of the load balancer.
+newGetLoadBalancer ::
+  -- | 'loadBalancerName'
+  Prelude.Text ->
+  GetLoadBalancer
+newGetLoadBalancer pLoadBalancerName_ =
+  GetLoadBalancer'
+    { loadBalancerName =
+        pLoadBalancerName_
+    }
 
 -- | The name of the load balancer.
-glbLoadBalancerName :: Lens' GetLoadBalancer Text
-glbLoadBalancerName = lens _glbLoadBalancerName (\ s a -> s{_glbLoadBalancerName = a})
+getLoadBalancer_loadBalancerName :: Lens.Lens' GetLoadBalancer Prelude.Text
+getLoadBalancer_loadBalancerName = Lens.lens (\GetLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@GetLoadBalancer' {} a -> s {loadBalancerName = a} :: GetLoadBalancer)
 
-instance AWSRequest GetLoadBalancer where
-        type Rs GetLoadBalancer = GetLoadBalancerResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetLoadBalancerResponse' <$>
-                   (x .?> "loadBalancer") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetLoadBalancer where
+  type
+    AWSResponse GetLoadBalancer =
+      GetLoadBalancerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetLoadBalancerResponse'
+            Prelude.<$> (x Core..?> "loadBalancer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetLoadBalancer where
+instance Prelude.Hashable GetLoadBalancer
 
-instance NFData GetLoadBalancer where
+instance Prelude.NFData GetLoadBalancer
 
-instance ToHeaders GetLoadBalancer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetLoadBalancer" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetLoadBalancer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetLoadBalancer" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetLoadBalancer where
-        toJSON GetLoadBalancer'{..}
-          = object
-              (catMaybes
-                 [Just ("loadBalancerName" .= _glbLoadBalancerName)])
+instance Core.ToJSON GetLoadBalancer where
+  toJSON GetLoadBalancer' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("loadBalancerName" Core..= loadBalancerName)
+          ]
+      )
 
-instance ToPath GetLoadBalancer where
-        toPath = const "/"
+instance Core.ToPath GetLoadBalancer where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetLoadBalancer where
-        toQuery = const mempty
+instance Core.ToQuery GetLoadBalancer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getLoadBalancerResponse' smart constructor.
+-- | /See:/ 'newGetLoadBalancerResponse' smart constructor.
 data GetLoadBalancerResponse = GetLoadBalancerResponse'
-  { _glbrsLoadBalancer   :: !(Maybe LoadBalancer)
-  , _glbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object containing information about your load balancer.
+    loadBalancer :: Prelude.Maybe LoadBalancer,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetLoadBalancerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLoadBalancerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'glbrsLoadBalancer' - An object containing information about your load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'glbrsResponseStatus' - -- | The response status code.
-getLoadBalancerResponse
-    :: Int -- ^ 'glbrsResponseStatus'
-    -> GetLoadBalancerResponse
-getLoadBalancerResponse pResponseStatus_ =
+-- 'loadBalancer', 'getLoadBalancerResponse_loadBalancer' - An object containing information about your load balancer.
+--
+-- 'httpStatus', 'getLoadBalancerResponse_httpStatus' - The response's http status code.
+newGetLoadBalancerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetLoadBalancerResponse
+newGetLoadBalancerResponse pHttpStatus_ =
   GetLoadBalancerResponse'
-    {_glbrsLoadBalancer = Nothing, _glbrsResponseStatus = pResponseStatus_}
-
+    { loadBalancer =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An object containing information about your load balancer.
-glbrsLoadBalancer :: Lens' GetLoadBalancerResponse (Maybe LoadBalancer)
-glbrsLoadBalancer = lens _glbrsLoadBalancer (\ s a -> s{_glbrsLoadBalancer = a})
+getLoadBalancerResponse_loadBalancer :: Lens.Lens' GetLoadBalancerResponse (Prelude.Maybe LoadBalancer)
+getLoadBalancerResponse_loadBalancer = Lens.lens (\GetLoadBalancerResponse' {loadBalancer} -> loadBalancer) (\s@GetLoadBalancerResponse' {} a -> s {loadBalancer = a} :: GetLoadBalancerResponse)
 
--- | -- | The response status code.
-glbrsResponseStatus :: Lens' GetLoadBalancerResponse Int
-glbrsResponseStatus = lens _glbrsResponseStatus (\ s a -> s{_glbrsResponseStatus = a})
+-- | The response's http status code.
+getLoadBalancerResponse_httpStatus :: Lens.Lens' GetLoadBalancerResponse Prelude.Int
+getLoadBalancerResponse_httpStatus = Lens.lens (\GetLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerResponse)
 
-instance NFData GetLoadBalancerResponse where
+instance Prelude.NFData GetLoadBalancerResponse

@@ -1,148 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeValidDBInstanceModifications
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can call 'DescribeValidDBInstanceModifications' to learn what modifications you can make to your DB instance. You can use this information when you call 'ModifyDBInstance' .
---
---
+-- You can call @DescribeValidDBInstanceModifications@ to learn what
+-- modifications you can make to your DB instance. You can use this
+-- information when you call @ModifyDBInstance@.
 module Network.AWS.RDS.DescribeValidDBInstanceModifications
-    (
-    -- * Creating a Request
-      describeValidDBInstanceModifications
-    , DescribeValidDBInstanceModifications
+  ( -- * Creating a Request
+    DescribeValidDBInstanceModifications (..),
+    newDescribeValidDBInstanceModifications,
+
     -- * Request Lenses
-    , dvdimDBInstanceIdentifier
+    describeValidDBInstanceModifications_dbInstanceIdentifier,
 
     -- * Destructuring the Response
-    , describeValidDBInstanceModificationsResponse
-    , DescribeValidDBInstanceModificationsResponse
-    -- * Response Lenses
-    , dvdimrsValidDBInstanceModificationsMessage
-    , dvdimrsResponseStatus
-    ) where
+    DescribeValidDBInstanceModificationsResponse (..),
+    newDescribeValidDBInstanceModificationsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage,
+    describeValidDBInstanceModificationsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeValidDBInstanceModifications' smart constructor.
-newtype DescribeValidDBInstanceModifications = DescribeValidDBInstanceModifications'
-  { _dvdimDBInstanceIdentifier :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeValidDBInstanceModifications' smart constructor.
+data DescribeValidDBInstanceModifications = DescribeValidDBInstanceModifications'
+  { -- | The customer identifier or the ARN of your DB instance.
+    dbInstanceIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeValidDBInstanceModifications' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeValidDBInstanceModifications' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvdimDBInstanceIdentifier' - The customer identifier or the ARN of your DB instance.
-describeValidDBInstanceModifications
-    :: Text -- ^ 'dvdimDBInstanceIdentifier'
-    -> DescribeValidDBInstanceModifications
-describeValidDBInstanceModifications pDBInstanceIdentifier_ =
-  DescribeValidDBInstanceModifications'
-    {_dvdimDBInstanceIdentifier = pDBInstanceIdentifier_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbInstanceIdentifier', 'describeValidDBInstanceModifications_dbInstanceIdentifier' - The customer identifier or the ARN of your DB instance.
+newDescribeValidDBInstanceModifications ::
+  -- | 'dbInstanceIdentifier'
+  Prelude.Text ->
+  DescribeValidDBInstanceModifications
+newDescribeValidDBInstanceModifications
+  pDBInstanceIdentifier_ =
+    DescribeValidDBInstanceModifications'
+      { dbInstanceIdentifier =
+          pDBInstanceIdentifier_
+      }
 
 -- | The customer identifier or the ARN of your DB instance.
-dvdimDBInstanceIdentifier :: Lens' DescribeValidDBInstanceModifications Text
-dvdimDBInstanceIdentifier = lens _dvdimDBInstanceIdentifier (\ s a -> s{_dvdimDBInstanceIdentifier = a})
+describeValidDBInstanceModifications_dbInstanceIdentifier :: Lens.Lens' DescribeValidDBInstanceModifications Prelude.Text
+describeValidDBInstanceModifications_dbInstanceIdentifier = Lens.lens (\DescribeValidDBInstanceModifications' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeValidDBInstanceModifications' {} a -> s {dbInstanceIdentifier = a} :: DescribeValidDBInstanceModifications)
 
-instance AWSRequest
-           DescribeValidDBInstanceModifications
-         where
-        type Rs DescribeValidDBInstanceModifications =
-             DescribeValidDBInstanceModificationsResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper
-              "DescribeValidDBInstanceModificationsResult"
-              (\ s h x ->
-                 DescribeValidDBInstanceModificationsResponse' <$>
-                   (x .@? "ValidDBInstanceModificationsMessage") <*>
-                     (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    DescribeValidDBInstanceModifications
+  where
+  type
+    AWSResponse DescribeValidDBInstanceModifications =
+      DescribeValidDBInstanceModificationsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeValidDBInstanceModificationsResult"
+      ( \s h x ->
+          DescribeValidDBInstanceModificationsResponse'
+            Prelude.<$> (x Core..@? "ValidDBInstanceModificationsMessage")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable
-           DescribeValidDBInstanceModifications
-         where
+instance
+  Prelude.Hashable
+    DescribeValidDBInstanceModifications
 
-instance NFData DescribeValidDBInstanceModifications
-         where
+instance
+  Prelude.NFData
+    DescribeValidDBInstanceModifications
 
-instance ToHeaders
-           DescribeValidDBInstanceModifications
-         where
-        toHeaders = const mempty
+instance
+  Core.ToHeaders
+    DescribeValidDBInstanceModifications
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeValidDBInstanceModifications
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    DescribeValidDBInstanceModifications
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeValidDBInstanceModifications
-         where
-        toQuery DescribeValidDBInstanceModifications'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeValidDBInstanceModifications" ::
-                    ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "DBInstanceIdentifier" =: _dvdimDBInstanceIdentifier]
+instance
+  Core.ToQuery
+    DescribeValidDBInstanceModifications
+  where
+  toQuery DescribeValidDBInstanceModifications' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeValidDBInstanceModifications" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+      ]
 
--- | /See:/ 'describeValidDBInstanceModificationsResponse' smart constructor.
+-- | /See:/ 'newDescribeValidDBInstanceModificationsResponse' smart constructor.
 data DescribeValidDBInstanceModificationsResponse = DescribeValidDBInstanceModificationsResponse'
-  { _dvdimrsValidDBInstanceModificationsMessage :: !(Maybe ValidDBInstanceModificationsMessage)
-  , _dvdimrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { validDBInstanceModificationsMessage :: Prelude.Maybe ValidDBInstanceModificationsMessage,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeValidDBInstanceModificationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeValidDBInstanceModificationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvdimrsValidDBInstanceModificationsMessage' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dvdimrsResponseStatus' - -- | The response status code.
-describeValidDBInstanceModificationsResponse
-    :: Int -- ^ 'dvdimrsResponseStatus'
-    -> DescribeValidDBInstanceModificationsResponse
-describeValidDBInstanceModificationsResponse pResponseStatus_ =
-  DescribeValidDBInstanceModificationsResponse'
-    { _dvdimrsValidDBInstanceModificationsMessage = Nothing
-    , _dvdimrsResponseStatus = pResponseStatus_
-    }
-
+-- 'validDBInstanceModificationsMessage', 'describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage' - Undocumented member.
+--
+-- 'httpStatus', 'describeValidDBInstanceModificationsResponse_httpStatus' - The response's http status code.
+newDescribeValidDBInstanceModificationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeValidDBInstanceModificationsResponse
+newDescribeValidDBInstanceModificationsResponse
+  pHttpStatus_ =
+    DescribeValidDBInstanceModificationsResponse'
+      { validDBInstanceModificationsMessage =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | Undocumented member.
-dvdimrsValidDBInstanceModificationsMessage :: Lens' DescribeValidDBInstanceModificationsResponse (Maybe ValidDBInstanceModificationsMessage)
-dvdimrsValidDBInstanceModificationsMessage = lens _dvdimrsValidDBInstanceModificationsMessage (\ s a -> s{_dvdimrsValidDBInstanceModificationsMessage = a})
+describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage :: Lens.Lens' DescribeValidDBInstanceModificationsResponse (Prelude.Maybe ValidDBInstanceModificationsMessage)
+describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage = Lens.lens (\DescribeValidDBInstanceModificationsResponse' {validDBInstanceModificationsMessage} -> validDBInstanceModificationsMessage) (\s@DescribeValidDBInstanceModificationsResponse' {} a -> s {validDBInstanceModificationsMessage = a} :: DescribeValidDBInstanceModificationsResponse)
 
--- | -- | The response status code.
-dvdimrsResponseStatus :: Lens' DescribeValidDBInstanceModificationsResponse Int
-dvdimrsResponseStatus = lens _dvdimrsResponseStatus (\ s a -> s{_dvdimrsResponseStatus = a})
+-- | The response's http status code.
+describeValidDBInstanceModificationsResponse_httpStatus :: Lens.Lens' DescribeValidDBInstanceModificationsResponse Prelude.Int
+describeValidDBInstanceModificationsResponse_httpStatus = Lens.lens (\DescribeValidDBInstanceModificationsResponse' {httpStatus} -> httpStatus) (\s@DescribeValidDBInstanceModificationsResponse' {} a -> s {httpStatus = a} :: DescribeValidDBInstanceModificationsResponse)
 
-instance NFData
-           DescribeValidDBInstanceModificationsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeValidDBInstanceModificationsResponse

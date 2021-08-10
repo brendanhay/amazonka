@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.BatchGetRepositories
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,135 +22,178 @@
 --
 -- Returns information about one or more repositories.
 --
---
+-- The description field for a repository accepts all HTML characters and
+-- all valid Unicode characters. Applications that do not HTML-encode the
+-- description and display it in a webpage can expose users to potentially
+-- malicious code. Make sure that you HTML-encode the description field in
+-- any application that uses this API to display the repository description
+-- on a webpage.
 module Network.AWS.CodeCommit.BatchGetRepositories
-    (
-    -- * Creating a Request
-      batchGetRepositories
-    , BatchGetRepositories
+  ( -- * Creating a Request
+    BatchGetRepositories (..),
+    newBatchGetRepositories,
+
     -- * Request Lenses
-    , bgrRepositoryNames
+    batchGetRepositories_repositoryNames,
 
     -- * Destructuring the Response
-    , batchGetRepositoriesResponse
-    , BatchGetRepositoriesResponse
+    BatchGetRepositoriesResponse (..),
+    newBatchGetRepositoriesResponse,
+
     -- * Response Lenses
-    , bgrrsRepositories
-    , bgrrsRepositoriesNotFound
-    , bgrrsResponseStatus
-    ) where
+    batchGetRepositoriesResponse_repositoriesNotFound,
+    batchGetRepositoriesResponse_repositories,
+    batchGetRepositoriesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a batch get repositories operation.
 --
---
---
--- /See:/ 'batchGetRepositories' smart constructor.
-newtype BatchGetRepositories = BatchGetRepositories'
-  { _bgrRepositoryNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newBatchGetRepositories' smart constructor.
+data BatchGetRepositories = BatchGetRepositories'
+  { -- | The names of the repositories to get information about.
+    --
+    -- The length constraint limit is for each string in the array. The array
+    -- itself can be empty.
+    repositoryNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetRepositories' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetRepositories' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgrRepositoryNames' - The names of the repositories to get information about.
-batchGetRepositories
-    :: BatchGetRepositories
-batchGetRepositories = BatchGetRepositories' {_bgrRepositoryNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'repositoryNames', 'batchGetRepositories_repositoryNames' - The names of the repositories to get information about.
+--
+-- The length constraint limit is for each string in the array. The array
+-- itself can be empty.
+newBatchGetRepositories ::
+  BatchGetRepositories
+newBatchGetRepositories =
+  BatchGetRepositories'
+    { repositoryNames =
+        Prelude.mempty
+    }
 
 -- | The names of the repositories to get information about.
-bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
-bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce
+--
+-- The length constraint limit is for each string in the array. The array
+-- itself can be empty.
+batchGetRepositories_repositoryNames :: Lens.Lens' BatchGetRepositories [Prelude.Text]
+batchGetRepositories_repositoryNames = Lens.lens (\BatchGetRepositories' {repositoryNames} -> repositoryNames) (\s@BatchGetRepositories' {} a -> s {repositoryNames = a} :: BatchGetRepositories) Prelude.. Lens._Coerce
 
-instance AWSRequest BatchGetRepositories where
-        type Rs BatchGetRepositories =
-             BatchGetRepositoriesResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchGetRepositoriesResponse' <$>
-                   (x .?> "repositories" .!@ mempty) <*>
-                     (x .?> "repositoriesNotFound" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest BatchGetRepositories where
+  type
+    AWSResponse BatchGetRepositories =
+      BatchGetRepositoriesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchGetRepositoriesResponse'
+            Prelude.<$> ( x Core..?> "repositoriesNotFound"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable BatchGetRepositories where
+instance Prelude.Hashable BatchGetRepositories
 
-instance NFData BatchGetRepositories where
+instance Prelude.NFData BatchGetRepositories
 
-instance ToHeaders BatchGetRepositories where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.BatchGetRepositories" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders BatchGetRepositories where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeCommit_20150413.BatchGetRepositories" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON BatchGetRepositories where
-        toJSON BatchGetRepositories'{..}
-          = object
-              (catMaybes
-                 [Just ("repositoryNames" .= _bgrRepositoryNames)])
+instance Core.ToJSON BatchGetRepositories where
+  toJSON BatchGetRepositories' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryNames" Core..= repositoryNames)
+          ]
+      )
 
-instance ToPath BatchGetRepositories where
-        toPath = const "/"
+instance Core.ToPath BatchGetRepositories where
+  toPath = Prelude.const "/"
 
-instance ToQuery BatchGetRepositories where
-        toQuery = const mempty
+instance Core.ToQuery BatchGetRepositories where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a batch get repositories operation.
 --
---
---
--- /See:/ 'batchGetRepositoriesResponse' smart constructor.
+-- /See:/ 'newBatchGetRepositoriesResponse' smart constructor.
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
-  { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
-  , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
-  , _bgrrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Returns a list of repository names for which information could not be
+    -- found.
+    repositoriesNotFound :: Prelude.Maybe [Prelude.Text],
+    -- | A list of repositories returned by the batch get repositories operation.
+    repositories :: Prelude.Maybe [RepositoryMetadata],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetRepositoriesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetRepositoriesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgrrsRepositories' - A list of repositories returned by the batch get repositories operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bgrrsRepositoriesNotFound' - Returns a list of repository names for which information could not be found.
+-- 'repositoriesNotFound', 'batchGetRepositoriesResponse_repositoriesNotFound' - Returns a list of repository names for which information could not be
+-- found.
 --
--- * 'bgrrsResponseStatus' - -- | The response status code.
-batchGetRepositoriesResponse
-    :: Int -- ^ 'bgrrsResponseStatus'
-    -> BatchGetRepositoriesResponse
-batchGetRepositoriesResponse pResponseStatus_ =
+-- 'repositories', 'batchGetRepositoriesResponse_repositories' - A list of repositories returned by the batch get repositories operation.
+--
+-- 'httpStatus', 'batchGetRepositoriesResponse_httpStatus' - The response's http status code.
+newBatchGetRepositoriesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchGetRepositoriesResponse
+newBatchGetRepositoriesResponse pHttpStatus_ =
   BatchGetRepositoriesResponse'
-    { _bgrrsRepositories = Nothing
-    , _bgrrsRepositoriesNotFound = Nothing
-    , _bgrrsResponseStatus = pResponseStatus_
+    { repositoriesNotFound =
+        Prelude.Nothing,
+      repositories = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Returns a list of repository names for which information could not be
+-- found.
+batchGetRepositoriesResponse_repositoriesNotFound :: Lens.Lens' BatchGetRepositoriesResponse (Prelude.Maybe [Prelude.Text])
+batchGetRepositoriesResponse_repositoriesNotFound = Lens.lens (\BatchGetRepositoriesResponse' {repositoriesNotFound} -> repositoriesNotFound) (\s@BatchGetRepositoriesResponse' {} a -> s {repositoriesNotFound = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of repositories returned by the batch get repositories operation.
-bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
-bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce
+batchGetRepositoriesResponse_repositories :: Lens.Lens' BatchGetRepositoriesResponse (Prelude.Maybe [RepositoryMetadata])
+batchGetRepositoriesResponse_repositories = Lens.lens (\BatchGetRepositoriesResponse' {repositories} -> repositories) (\s@BatchGetRepositoriesResponse' {} a -> s {repositories = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Returns a list of repository names for which information could not be found.
-bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
-bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce
+-- | The response's http status code.
+batchGetRepositoriesResponse_httpStatus :: Lens.Lens' BatchGetRepositoriesResponse Prelude.Int
+batchGetRepositoriesResponse_httpStatus = Lens.lens (\BatchGetRepositoriesResponse' {httpStatus} -> httpStatus) (\s@BatchGetRepositoriesResponse' {} a -> s {httpStatus = a} :: BatchGetRepositoriesResponse)
 
--- | -- | The response status code.
-bgrrsResponseStatus :: Lens' BatchGetRepositoriesResponse Int
-bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a})
-
-instance NFData BatchGetRepositoriesResponse where
+instance Prelude.NFData BatchGetRepositoriesResponse

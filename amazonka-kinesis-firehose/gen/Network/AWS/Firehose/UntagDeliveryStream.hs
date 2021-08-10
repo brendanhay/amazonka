@@ -1,143 +1,176 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Firehose.UntagDeliveryStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them after this operation successfully completes.
+-- Removes tags from the specified delivery stream. Removed tags are
+-- deleted, and you can\'t recover them after this operation successfully
+-- completes.
 --
---
--- If you specify a tag that doesn't exist, the operation ignores it.
+-- If you specify a tag that doesn\'t exist, the operation ignores it.
 --
 -- This operation has a limit of five transactions per second per account.
---
 module Network.AWS.Firehose.UntagDeliveryStream
-    (
-    -- * Creating a Request
-      untagDeliveryStream
-    , UntagDeliveryStream
+  ( -- * Creating a Request
+    UntagDeliveryStream (..),
+    newUntagDeliveryStream,
+
     -- * Request Lenses
-    , udsDeliveryStreamName
-    , udsTagKeys
+    untagDeliveryStream_deliveryStreamName,
+    untagDeliveryStream_tagKeys,
 
     -- * Destructuring the Response
-    , untagDeliveryStreamResponse
-    , UntagDeliveryStreamResponse
+    UntagDeliveryStreamResponse (..),
+    newUntagDeliveryStreamResponse,
+
     -- * Response Lenses
-    , udsrsResponseStatus
-    ) where
+    untagDeliveryStreamResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
-import Network.AWS.Firehose.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagDeliveryStream' smart constructor.
+-- | /See:/ 'newUntagDeliveryStream' smart constructor.
 data UntagDeliveryStream = UntagDeliveryStream'
-  { _udsDeliveryStreamName :: !Text
-  , _udsTagKeys            :: !(List1 Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Prelude.Text,
+    -- | A list of tag keys. Each corresponding tag is removed from the delivery
+    -- stream.
+    tagKeys :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagDeliveryStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagDeliveryStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udsDeliveryStreamName' - The name of the delivery stream.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udsTagKeys' - A list of tag keys. Each corresponding tag is removed from the delivery stream.
-untagDeliveryStream
-    :: Text -- ^ 'udsDeliveryStreamName'
-    -> NonEmpty Text -- ^ 'udsTagKeys'
-    -> UntagDeliveryStream
-untagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
+-- 'deliveryStreamName', 'untagDeliveryStream_deliveryStreamName' - The name of the delivery stream.
+--
+-- 'tagKeys', 'untagDeliveryStream_tagKeys' - A list of tag keys. Each corresponding tag is removed from the delivery
+-- stream.
+newUntagDeliveryStream ::
+  -- | 'deliveryStreamName'
+  Prelude.Text ->
+  -- | 'tagKeys'
+  Prelude.NonEmpty Prelude.Text ->
+  UntagDeliveryStream
+newUntagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
   UntagDeliveryStream'
-    { _udsDeliveryStreamName = pDeliveryStreamName_
-    , _udsTagKeys = _List1 # pTagKeys_
+    { deliveryStreamName =
+        pDeliveryStreamName_,
+      tagKeys = Lens._Coerce Lens.# pTagKeys_
     }
 
-
 -- | The name of the delivery stream.
-udsDeliveryStreamName :: Lens' UntagDeliveryStream Text
-udsDeliveryStreamName = lens _udsDeliveryStreamName (\ s a -> s{_udsDeliveryStreamName = a})
+untagDeliveryStream_deliveryStreamName :: Lens.Lens' UntagDeliveryStream Prelude.Text
+untagDeliveryStream_deliveryStreamName = Lens.lens (\UntagDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@UntagDeliveryStream' {} a -> s {deliveryStreamName = a} :: UntagDeliveryStream)
 
--- | A list of tag keys. Each corresponding tag is removed from the delivery stream.
-udsTagKeys :: Lens' UntagDeliveryStream (NonEmpty Text)
-udsTagKeys = lens _udsTagKeys (\ s a -> s{_udsTagKeys = a}) . _List1
+-- | A list of tag keys. Each corresponding tag is removed from the delivery
+-- stream.
+untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Prelude.NonEmpty Prelude.Text)
+untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Prelude.. Lens._Coerce
 
-instance AWSRequest UntagDeliveryStream where
-        type Rs UntagDeliveryStream =
-             UntagDeliveryStreamResponse
-        request = postJSON firehose
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UntagDeliveryStreamResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest UntagDeliveryStream where
+  type
+    AWSResponse UntagDeliveryStream =
+      UntagDeliveryStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UntagDeliveryStreamResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UntagDeliveryStream where
+instance Prelude.Hashable UntagDeliveryStream
 
-instance NFData UntagDeliveryStream where
+instance Prelude.NFData UntagDeliveryStream
 
-instance ToHeaders UntagDeliveryStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Firehose_20150804.UntagDeliveryStream" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UntagDeliveryStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Firehose_20150804.UntagDeliveryStream" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UntagDeliveryStream where
-        toJSON UntagDeliveryStream'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("DeliveryStreamName" .= _udsDeliveryStreamName),
-                  Just ("TagKeys" .= _udsTagKeys)])
+instance Core.ToJSON UntagDeliveryStream where
+  toJSON UntagDeliveryStream' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance ToPath UntagDeliveryStream where
-        toPath = const "/"
+instance Core.ToPath UntagDeliveryStream where
+  toPath = Prelude.const "/"
 
-instance ToQuery UntagDeliveryStream where
-        toQuery = const mempty
+instance Core.ToQuery UntagDeliveryStream where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'untagDeliveryStreamResponse' smart constructor.
-newtype UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
-  { _udsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUntagDeliveryStreamResponse' smart constructor.
+data UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagDeliveryStreamResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagDeliveryStreamResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udsrsResponseStatus' - -- | The response status code.
-untagDeliveryStreamResponse
-    :: Int -- ^ 'udsrsResponseStatus'
-    -> UntagDeliveryStreamResponse
-untagDeliveryStreamResponse pResponseStatus_ =
-  UntagDeliveryStreamResponse' {_udsrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'untagDeliveryStreamResponse_httpStatus' - The response's http status code.
+newUntagDeliveryStreamResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UntagDeliveryStreamResponse
+newUntagDeliveryStreamResponse pHttpStatus_ =
+  UntagDeliveryStreamResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Prelude.Int
+untagDeliveryStreamResponse_httpStatus = Lens.lens (\UntagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@UntagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: UntagDeliveryStreamResponse)
 
--- | -- | The response status code.
-udsrsResponseStatus :: Lens' UntagDeliveryStreamResponse Int
-udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a})
-
-instance NFData UntagDeliveryStreamResponse where
+instance Prelude.NFData UntagDeliveryStreamResponse

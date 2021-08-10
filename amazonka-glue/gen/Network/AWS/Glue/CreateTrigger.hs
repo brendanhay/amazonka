@@ -1,195 +1,284 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.CreateTrigger
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new trigger.
---
---
 module Network.AWS.Glue.CreateTrigger
-    (
-    -- * Creating a Request
-      createTrigger
-    , CreateTrigger
+  ( -- * Creating a Request
+    CreateTrigger (..),
+    newCreateTrigger,
+
     -- * Request Lenses
-    , ctSchedule
-    , ctPredicate
-    , ctStartOnCreation
-    , ctDescription
-    , ctName
-    , ctType
-    , ctActions
+    createTrigger_workflowName,
+    createTrigger_startOnCreation,
+    createTrigger_predicate,
+    createTrigger_tags,
+    createTrigger_description,
+    createTrigger_schedule,
+    createTrigger_name,
+    createTrigger_type,
+    createTrigger_actions,
 
     -- * Destructuring the Response
-    , createTriggerResponse
-    , CreateTriggerResponse
+    CreateTriggerResponse (..),
+    newCreateTriggerResponse,
+
     -- * Response Lenses
-    , ctrsName
-    , ctrsResponseStatus
-    ) where
+    createTriggerResponse_name,
+    createTriggerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createTrigger' smart constructor.
+-- | /See:/ 'newCreateTrigger' smart constructor.
 data CreateTrigger = CreateTrigger'
-  { _ctSchedule        :: !(Maybe Text)
-  , _ctPredicate       :: !(Maybe Predicate)
-  , _ctStartOnCreation :: !(Maybe Bool)
-  , _ctDescription     :: !(Maybe Text)
-  , _ctName            :: !Text
-  , _ctType            :: !TriggerType
-  , _ctActions         :: ![Action]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the workflow associated with the trigger.
+    workflowName :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
+    -- created. True is not supported for @ON_DEMAND@ triggers.
+    startOnCreation :: Prelude.Maybe Prelude.Bool,
+    -- | A predicate to specify when the new trigger should fire.
+    --
+    -- This field is required when the trigger type is @CONDITIONAL@.
+    predicate :: Prelude.Maybe Predicate,
+    -- | The tags to use with this trigger. You may use tags to limit access to
+    -- the trigger. For more information about tags in AWS Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+    -- in the developer guide.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the new trigger.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A @cron@ expression used to specify the schedule (see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+    -- For example, to run something every day at 12:15 UTC, you would specify:
+    -- @cron(15 12 * * ? *)@.
+    --
+    -- This field is required when the trigger type is SCHEDULED.
+    schedule :: Prelude.Maybe Prelude.Text,
+    -- | The name of the trigger.
+    name :: Prelude.Text,
+    -- | The type of the new trigger.
+    type' :: TriggerType,
+    -- | The actions initiated by this trigger when it fires.
+    actions :: [Action]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTrigger' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTrigger' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctSchedule' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ . This field is required when the trigger type is SCHEDULED.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctPredicate' - A predicate to specify when the new trigger should fire. This field is required when the trigger type is CONDITIONAL.
+-- 'workflowName', 'createTrigger_workflowName' - The name of the workflow associated with the trigger.
 --
--- * 'ctStartOnCreation' - Set to true to start SCHEDULED and CONDITIONAL triggers when created. True not supported for ON_DEMAND triggers.
+-- 'startOnCreation', 'createTrigger_startOnCreation' - Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
+-- created. True is not supported for @ON_DEMAND@ triggers.
 --
--- * 'ctDescription' - A description of the new trigger.
+-- 'predicate', 'createTrigger_predicate' - A predicate to specify when the new trigger should fire.
 --
--- * 'ctName' - The name of the trigger.
+-- This field is required when the trigger type is @CONDITIONAL@.
 --
--- * 'ctType' - The type of the new trigger.
+-- 'tags', 'createTrigger_tags' - The tags to use with this trigger. You may use tags to limit access to
+-- the trigger. For more information about tags in AWS Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- in the developer guide.
 --
--- * 'ctActions' - The actions initiated by this trigger when it fires.
-createTrigger
-    :: Text -- ^ 'ctName'
-    -> TriggerType -- ^ 'ctType'
-    -> CreateTrigger
-createTrigger pName_ pType_ =
+-- 'description', 'createTrigger_description' - A description of the new trigger.
+--
+-- 'schedule', 'createTrigger_schedule' - A @cron@ expression used to specify the schedule (see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+-- For example, to run something every day at 12:15 UTC, you would specify:
+-- @cron(15 12 * * ? *)@.
+--
+-- This field is required when the trigger type is SCHEDULED.
+--
+-- 'name', 'createTrigger_name' - The name of the trigger.
+--
+-- 'type'', 'createTrigger_type' - The type of the new trigger.
+--
+-- 'actions', 'createTrigger_actions' - The actions initiated by this trigger when it fires.
+newCreateTrigger ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'type''
+  TriggerType ->
+  CreateTrigger
+newCreateTrigger pName_ pType_ =
   CreateTrigger'
-    { _ctSchedule = Nothing
-    , _ctPredicate = Nothing
-    , _ctStartOnCreation = Nothing
-    , _ctDescription = Nothing
-    , _ctName = pName_
-    , _ctType = pType_
-    , _ctActions = mempty
+    { workflowName = Prelude.Nothing,
+      startOnCreation = Prelude.Nothing,
+      predicate = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      schedule = Prelude.Nothing,
+      name = pName_,
+      type' = pType_,
+      actions = Prelude.mempty
     }
 
+-- | The name of the workflow associated with the trigger.
+createTrigger_workflowName :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
+createTrigger_workflowName = Lens.lens (\CreateTrigger' {workflowName} -> workflowName) (\s@CreateTrigger' {} a -> s {workflowName = a} :: CreateTrigger)
 
--- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ . This field is required when the trigger type is SCHEDULED.
-ctSchedule :: Lens' CreateTrigger (Maybe Text)
-ctSchedule = lens _ctSchedule (\ s a -> s{_ctSchedule = a})
+-- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
+-- created. True is not supported for @ON_DEMAND@ triggers.
+createTrigger_startOnCreation :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Bool)
+createTrigger_startOnCreation = Lens.lens (\CreateTrigger' {startOnCreation} -> startOnCreation) (\s@CreateTrigger' {} a -> s {startOnCreation = a} :: CreateTrigger)
 
--- | A predicate to specify when the new trigger should fire. This field is required when the trigger type is CONDITIONAL.
-ctPredicate :: Lens' CreateTrigger (Maybe Predicate)
-ctPredicate = lens _ctPredicate (\ s a -> s{_ctPredicate = a})
+-- | A predicate to specify when the new trigger should fire.
+--
+-- This field is required when the trigger type is @CONDITIONAL@.
+createTrigger_predicate :: Lens.Lens' CreateTrigger (Prelude.Maybe Predicate)
+createTrigger_predicate = Lens.lens (\CreateTrigger' {predicate} -> predicate) (\s@CreateTrigger' {} a -> s {predicate = a} :: CreateTrigger)
 
--- | Set to true to start SCHEDULED and CONDITIONAL triggers when created. True not supported for ON_DEMAND triggers.
-ctStartOnCreation :: Lens' CreateTrigger (Maybe Bool)
-ctStartOnCreation = lens _ctStartOnCreation (\ s a -> s{_ctStartOnCreation = a})
+-- | The tags to use with this trigger. You may use tags to limit access to
+-- the trigger. For more information about tags in AWS Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- in the developer guide.
+createTrigger_tags :: Lens.Lens' CreateTrigger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTrigger_tags = Lens.lens (\CreateTrigger' {tags} -> tags) (\s@CreateTrigger' {} a -> s {tags = a} :: CreateTrigger) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the new trigger.
-ctDescription :: Lens' CreateTrigger (Maybe Text)
-ctDescription = lens _ctDescription (\ s a -> s{_ctDescription = a})
+createTrigger_description :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
+createTrigger_description = Lens.lens (\CreateTrigger' {description} -> description) (\s@CreateTrigger' {} a -> s {description = a} :: CreateTrigger)
+
+-- | A @cron@ expression used to specify the schedule (see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
+-- For example, to run something every day at 12:15 UTC, you would specify:
+-- @cron(15 12 * * ? *)@.
+--
+-- This field is required when the trigger type is SCHEDULED.
+createTrigger_schedule :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
+createTrigger_schedule = Lens.lens (\CreateTrigger' {schedule} -> schedule) (\s@CreateTrigger' {} a -> s {schedule = a} :: CreateTrigger)
 
 -- | The name of the trigger.
-ctName :: Lens' CreateTrigger Text
-ctName = lens _ctName (\ s a -> s{_ctName = a})
+createTrigger_name :: Lens.Lens' CreateTrigger Prelude.Text
+createTrigger_name = Lens.lens (\CreateTrigger' {name} -> name) (\s@CreateTrigger' {} a -> s {name = a} :: CreateTrigger)
 
 -- | The type of the new trigger.
-ctType :: Lens' CreateTrigger TriggerType
-ctType = lens _ctType (\ s a -> s{_ctType = a})
+createTrigger_type :: Lens.Lens' CreateTrigger TriggerType
+createTrigger_type = Lens.lens (\CreateTrigger' {type'} -> type') (\s@CreateTrigger' {} a -> s {type' = a} :: CreateTrigger)
 
 -- | The actions initiated by this trigger when it fires.
-ctActions :: Lens' CreateTrigger [Action]
-ctActions = lens _ctActions (\ s a -> s{_ctActions = a}) . _Coerce
+createTrigger_actions :: Lens.Lens' CreateTrigger [Action]
+createTrigger_actions = Lens.lens (\CreateTrigger' {actions} -> actions) (\s@CreateTrigger' {} a -> s {actions = a} :: CreateTrigger) Prelude.. Lens._Coerce
 
-instance AWSRequest CreateTrigger where
-        type Rs CreateTrigger = CreateTriggerResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateTriggerResponse' <$>
-                   (x .?> "Name") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateTrigger where
+  type
+    AWSResponse CreateTrigger =
+      CreateTriggerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateTriggerResponse'
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateTrigger where
+instance Prelude.Hashable CreateTrigger
 
-instance NFData CreateTrigger where
+instance Prelude.NFData CreateTrigger
 
-instance ToHeaders CreateTrigger where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.CreateTrigger" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateTrigger where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.CreateTrigger" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateTrigger where
-        toJSON CreateTrigger'{..}
-          = object
-              (catMaybes
-                 [("Schedule" .=) <$> _ctSchedule,
-                  ("Predicate" .=) <$> _ctPredicate,
-                  ("StartOnCreation" .=) <$> _ctStartOnCreation,
-                  ("Description" .=) <$> _ctDescription,
-                  Just ("Name" .= _ctName), Just ("Type" .= _ctType),
-                  Just ("Actions" .= _ctActions)])
+instance Core.ToJSON CreateTrigger where
+  toJSON CreateTrigger' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("WorkflowName" Core..=) Prelude.<$> workflowName,
+            ("StartOnCreation" Core..=)
+              Prelude.<$> startOnCreation,
+            ("Predicate" Core..=) Prelude.<$> predicate,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Schedule" Core..=) Prelude.<$> schedule,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Actions" Core..= actions)
+          ]
+      )
 
-instance ToPath CreateTrigger where
-        toPath = const "/"
+instance Core.ToPath CreateTrigger where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateTrigger where
-        toQuery = const mempty
+instance Core.ToQuery CreateTrigger where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createTriggerResponse' smart constructor.
+-- | /See:/ 'newCreateTriggerResponse' smart constructor.
 data CreateTriggerResponse = CreateTriggerResponse'
-  { _ctrsName           :: !(Maybe Text)
-  , _ctrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the trigger.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTriggerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTriggerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctrsName' - The name of the trigger.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTriggerResponse
-    :: Int -- ^ 'ctrsResponseStatus'
-    -> CreateTriggerResponse
-createTriggerResponse pResponseStatus_ =
+-- 'name', 'createTriggerResponse_name' - The name of the trigger.
+--
+-- 'httpStatus', 'createTriggerResponse_httpStatus' - The response's http status code.
+newCreateTriggerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateTriggerResponse
+newCreateTriggerResponse pHttpStatus_ =
   CreateTriggerResponse'
-    {_ctrsName = Nothing, _ctrsResponseStatus = pResponseStatus_}
-
+    { name = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The name of the trigger.
-ctrsName :: Lens' CreateTriggerResponse (Maybe Text)
-ctrsName = lens _ctrsName (\ s a -> s{_ctrsName = a})
+createTriggerResponse_name :: Lens.Lens' CreateTriggerResponse (Prelude.Maybe Prelude.Text)
+createTriggerResponse_name = Lens.lens (\CreateTriggerResponse' {name} -> name) (\s@CreateTriggerResponse' {} a -> s {name = a} :: CreateTriggerResponse)
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTriggerResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
+-- | The response's http status code.
+createTriggerResponse_httpStatus :: Lens.Lens' CreateTriggerResponse Prelude.Int
+createTriggerResponse_httpStatus = Lens.lens (\CreateTriggerResponse' {httpStatus} -> httpStatus) (\s@CreateTriggerResponse' {} a -> s {httpStatus = a} :: CreateTriggerResponse)
 
-instance NFData CreateTriggerResponse where
+instance Prelude.NFData CreateTriggerResponse

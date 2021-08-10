@@ -1,132 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the automatic copying of snapshots from one region to another region for a specified cluster.
+-- Disables the automatic copying of snapshots from one region to another
+-- region for a specified cluster.
 --
---
--- If your cluster and its snapshots are encrypted using a customer master key (CMK) from AWS KMS, use 'DeleteSnapshotCopyGrant' to delete the grant that grants Amazon Redshift permission to the CMK in the destination region.
---
+-- If your cluster and its snapshots are encrypted using a customer master
+-- key (CMK) from AWS KMS, use DeleteSnapshotCopyGrant to delete the grant
+-- that grants Amazon Redshift permission to the CMK in the destination
+-- region.
 module Network.AWS.Redshift.DisableSnapshotCopy
-    (
-    -- * Creating a Request
-      disableSnapshotCopy
-    , DisableSnapshotCopy
+  ( -- * Creating a Request
+    DisableSnapshotCopy (..),
+    newDisableSnapshotCopy,
+
     -- * Request Lenses
-    , dscClusterIdentifier
+    disableSnapshotCopy_clusterIdentifier,
 
     -- * Destructuring the Response
-    , disableSnapshotCopyResponse
-    , DisableSnapshotCopyResponse
-    -- * Response Lenses
-    , dscrsCluster
-    , dscrsResponseStatus
-    ) where
+    DisableSnapshotCopyResponse (..),
+    newDisableSnapshotCopyResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    disableSnapshotCopyResponse_cluster,
+    disableSnapshotCopyResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
+-- /See:/ 'newDisableSnapshotCopy' smart constructor.
+data DisableSnapshotCopy = DisableSnapshotCopy'
+  { -- | The unique identifier of the source cluster that you want to disable
+    -- copying of snapshots to a destination region.
+    --
+    -- Constraints: Must be the valid name of an existing cluster that has
+    -- cross-region snapshot copy enabled.
+    clusterIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DisableSnapshotCopy' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'disableSnapshotCopy' smart constructor.
-newtype DisableSnapshotCopy = DisableSnapshotCopy'
-  { _dscClusterIdentifier :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DisableSnapshotCopy' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'clusterIdentifier', 'disableSnapshotCopy_clusterIdentifier' - The unique identifier of the source cluster that you want to disable
+-- copying of snapshots to a destination region.
 --
--- * 'dscClusterIdentifier' - The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
-disableSnapshotCopy
-    :: Text -- ^ 'dscClusterIdentifier'
-    -> DisableSnapshotCopy
-disableSnapshotCopy pClusterIdentifier_ =
-  DisableSnapshotCopy' {_dscClusterIdentifier = pClusterIdentifier_}
+-- Constraints: Must be the valid name of an existing cluster that has
+-- cross-region snapshot copy enabled.
+newDisableSnapshotCopy ::
+  -- | 'clusterIdentifier'
+  Prelude.Text ->
+  DisableSnapshotCopy
+newDisableSnapshotCopy pClusterIdentifier_ =
+  DisableSnapshotCopy'
+    { clusterIdentifier =
+        pClusterIdentifier_
+    }
 
+-- | The unique identifier of the source cluster that you want to disable
+-- copying of snapshots to a destination region.
+--
+-- Constraints: Must be the valid name of an existing cluster that has
+-- cross-region snapshot copy enabled.
+disableSnapshotCopy_clusterIdentifier :: Lens.Lens' DisableSnapshotCopy Prelude.Text
+disableSnapshotCopy_clusterIdentifier = Lens.lens (\DisableSnapshotCopy' {clusterIdentifier} -> clusterIdentifier) (\s@DisableSnapshotCopy' {} a -> s {clusterIdentifier = a} :: DisableSnapshotCopy)
 
--- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
-dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
-dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a})
+instance Core.AWSRequest DisableSnapshotCopy where
+  type
+    AWSResponse DisableSnapshotCopy =
+      DisableSnapshotCopyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DisableSnapshotCopyResult"
+      ( \s h x ->
+          DisableSnapshotCopyResponse'
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DisableSnapshotCopy where
-        type Rs DisableSnapshotCopy =
-             DisableSnapshotCopyResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "DisableSnapshotCopyResult"
-              (\ s h x ->
-                 DisableSnapshotCopyResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DisableSnapshotCopy
 
-instance Hashable DisableSnapshotCopy where
+instance Prelude.NFData DisableSnapshotCopy
 
-instance NFData DisableSnapshotCopy where
+instance Core.ToHeaders DisableSnapshotCopy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DisableSnapshotCopy where
-        toHeaders = const mempty
+instance Core.ToPath DisableSnapshotCopy where
+  toPath = Prelude.const "/"
 
-instance ToPath DisableSnapshotCopy where
-        toPath = const "/"
+instance Core.ToQuery DisableSnapshotCopy where
+  toQuery DisableSnapshotCopy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DisableSnapshotCopy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
+      ]
 
-instance ToQuery DisableSnapshotCopy where
-        toQuery DisableSnapshotCopy'{..}
-          = mconcat
-              ["Action" =: ("DisableSnapshotCopy" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dscClusterIdentifier]
-
--- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
+-- | /See:/ 'newDisableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-  { _dscrsCluster        :: !(Maybe Cluster)
-  , _dscrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { cluster :: Prelude.Maybe Cluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableSnapshotCopyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dscrsCluster' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dscrsResponseStatus' - -- | The response status code.
-disableSnapshotCopyResponse
-    :: Int -- ^ 'dscrsResponseStatus'
-    -> DisableSnapshotCopyResponse
-disableSnapshotCopyResponse pResponseStatus_ =
+-- 'cluster', 'disableSnapshotCopyResponse_cluster' - Undocumented member.
+--
+-- 'httpStatus', 'disableSnapshotCopyResponse_httpStatus' - The response's http status code.
+newDisableSnapshotCopyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisableSnapshotCopyResponse
+newDisableSnapshotCopyResponse pHttpStatus_ =
   DisableSnapshotCopyResponse'
-    {_dscrsCluster = Nothing, _dscrsResponseStatus = pResponseStatus_}
-
+    { cluster =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a})
+disableSnapshotCopyResponse_cluster :: Lens.Lens' DisableSnapshotCopyResponse (Prelude.Maybe Cluster)
+disableSnapshotCopyResponse_cluster = Lens.lens (\DisableSnapshotCopyResponse' {cluster} -> cluster) (\s@DisableSnapshotCopyResponse' {} a -> s {cluster = a} :: DisableSnapshotCopyResponse)
 
--- | -- | The response status code.
-dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a})
+-- | The response's http status code.
+disableSnapshotCopyResponse_httpStatus :: Lens.Lens' DisableSnapshotCopyResponse Prelude.Int
+disableSnapshotCopyResponse_httpStatus = Lens.lens (\DisableSnapshotCopyResponse' {httpStatus} -> httpStatus) (\s@DisableSnapshotCopyResponse' {} a -> s {httpStatus = a} :: DisableSnapshotCopyResponse)
 
-instance NFData DisableSnapshotCopyResponse where
+instance Prelude.NFData DisableSnapshotCopyResponse

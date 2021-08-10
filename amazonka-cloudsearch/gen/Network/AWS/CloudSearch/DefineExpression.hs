@@ -1,144 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineExpression
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an @'Expression' @ for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
---
---
+-- Configures an @Expression@ for the search domain. Used to create new
+-- expressions and modify existing ones. If the expression exists, the new
+-- configuration replaces the old one. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
+-- in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DefineExpression
-    (
-    -- * Creating a Request
-      defineExpression
-    , DefineExpression
+  ( -- * Creating a Request
+    DefineExpression (..),
+    newDefineExpression,
+
     -- * Request Lenses
-    , dDomainName
-    , dExpression
+    defineExpression_domainName,
+    defineExpression_expression,
 
     -- * Destructuring the Response
-    , defineExpressionResponse
-    , DefineExpressionResponse
+    DefineExpressionResponse (..),
+    newDefineExpressionResponse,
+
     -- * Response Lenses
-    , dersResponseStatus
-    , dersExpression
-    ) where
+    defineExpressionResponse_httpStatus,
+    defineExpressionResponse_expression,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DefineExpression' @ operation. Specifies the name of the domain you want to update and the expression you want to configure.
+-- | Container for the parameters to the @DefineExpression@ operation.
+-- Specifies the name of the domain you want to update and the expression
+-- you want to configure.
 --
---
---
--- /See:/ 'defineExpression' smart constructor.
+-- /See:/ 'newDefineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-  { _dDomainName :: !Text
-  , _dExpression :: !Expression
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { domainName :: Prelude.Text,
+    expression :: Expression
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DefineExpression' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dDomainName' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dExpression' - Undocumented member.
-defineExpression
-    :: Text -- ^ 'dDomainName'
-    -> Expression -- ^ 'dExpression'
-    -> DefineExpression
-defineExpression pDomainName_ pExpression_ =
-  DefineExpression' {_dDomainName = pDomainName_, _dExpression = pExpression_}
-
+-- 'domainName', 'defineExpression_domainName' - Undocumented member.
+--
+-- 'expression', 'defineExpression_expression' - Undocumented member.
+newDefineExpression ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'expression'
+  Expression ->
+  DefineExpression
+newDefineExpression pDomainName_ pExpression_ =
+  DefineExpression'
+    { domainName = pDomainName_,
+      expression = pExpression_
+    }
 
 -- | Undocumented member.
-dDomainName :: Lens' DefineExpression Text
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a})
+defineExpression_domainName :: Lens.Lens' DefineExpression Prelude.Text
+defineExpression_domainName = Lens.lens (\DefineExpression' {domainName} -> domainName) (\s@DefineExpression' {} a -> s {domainName = a} :: DefineExpression)
 
 -- | Undocumented member.
-dExpression :: Lens' DefineExpression Expression
-dExpression = lens _dExpression (\ s a -> s{_dExpression = a})
+defineExpression_expression :: Lens.Lens' DefineExpression Expression
+defineExpression_expression = Lens.lens (\DefineExpression' {expression} -> expression) (\s@DefineExpression' {} a -> s {expression = a} :: DefineExpression)
 
-instance AWSRequest DefineExpression where
-        type Rs DefineExpression = DefineExpressionResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "DefineExpressionResult"
-              (\ s h x ->
-                 DefineExpressionResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "Expression"))
+instance Core.AWSRequest DefineExpression where
+  type
+    AWSResponse DefineExpression =
+      DefineExpressionResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DefineExpressionResult"
+      ( \s h x ->
+          DefineExpressionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Expression")
+      )
 
-instance Hashable DefineExpression where
+instance Prelude.Hashable DefineExpression
 
-instance NFData DefineExpression where
+instance Prelude.NFData DefineExpression
 
-instance ToHeaders DefineExpression where
-        toHeaders = const mempty
+instance Core.ToHeaders DefineExpression where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DefineExpression where
-        toPath = const "/"
+instance Core.ToPath DefineExpression where
+  toPath = Prelude.const "/"
 
-instance ToQuery DefineExpression where
-        toQuery DefineExpression'{..}
-          = mconcat
-              ["Action" =: ("DefineExpression" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dDomainName,
-               "Expression" =: _dExpression]
+instance Core.ToQuery DefineExpression where
+  toQuery DefineExpression' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DefineExpression" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Core.=: domainName,
+        "Expression" Core.=: expression
+      ]
 
--- | The result of a @DefineExpression@ request. Contains the status of the newly-configured expression.
+-- | The result of a @DefineExpression@ request. Contains the status of the
+-- newly-configured expression.
 --
---
---
--- /See:/ 'defineExpressionResponse' smart constructor.
+-- /See:/ 'newDefineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-  { _dersResponseStatus :: !Int
-  , _dersExpression     :: !ExpressionStatus
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    expression :: ExpressionStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DefineExpressionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dersResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dersExpression' - Undocumented member.
-defineExpressionResponse
-    :: Int -- ^ 'dersResponseStatus'
-    -> ExpressionStatus -- ^ 'dersExpression'
-    -> DefineExpressionResponse
-defineExpressionResponse pResponseStatus_ pExpression_ =
+-- 'httpStatus', 'defineExpressionResponse_httpStatus' - The response's http status code.
+--
+-- 'expression', 'defineExpressionResponse_expression' - Undocumented member.
+newDefineExpressionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'expression'
+  ExpressionStatus ->
+  DefineExpressionResponse
+newDefineExpressionResponse pHttpStatus_ pExpression_ =
   DefineExpressionResponse'
-    {_dersResponseStatus = pResponseStatus_, _dersExpression = pExpression_}
+    { httpStatus =
+        pHttpStatus_,
+      expression = pExpression_
+    }
 
-
--- | -- | The response status code.
-dersResponseStatus :: Lens' DefineExpressionResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
+-- | The response's http status code.
+defineExpressionResponse_httpStatus :: Lens.Lens' DefineExpressionResponse Prelude.Int
+defineExpressionResponse_httpStatus = Lens.lens (\DefineExpressionResponse' {httpStatus} -> httpStatus) (\s@DefineExpressionResponse' {} a -> s {httpStatus = a} :: DefineExpressionResponse)
 
 -- | Undocumented member.
-dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
-dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a})
+defineExpressionResponse_expression :: Lens.Lens' DefineExpressionResponse ExpressionStatus
+defineExpressionResponse_expression = Lens.lens (\DefineExpressionResponse' {expression} -> expression) (\s@DefineExpressionResponse' {} a -> s {expression = a} :: DefineExpressionResponse)
 
-instance NFData DefineExpressionResponse where
+instance Prelude.NFData DefineExpressionResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +22,137 @@
 --
 -- Modifies a volume attribute.
 --
+-- By default, all I\/O operations for the volume are suspended when the
+-- data on the volume is determined to be potentially inconsistent, to
+-- prevent undetectable, latent data corruption. The I\/O access to the
+-- volume can be resumed by first enabling I\/O access and then checking
+-- the data consistency on your volume.
 --
--- By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
---
--- You can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
---
+-- You can change the default behavior to resume I\/O operations. We
+-- recommend that you change this only for boot volumes or for volumes that
+-- are stateless or disposable.
 module Network.AWS.EC2.ModifyVolumeAttribute
-    (
-    -- * Creating a Request
-      modifyVolumeAttribute
-    , ModifyVolumeAttribute
+  ( -- * Creating a Request
+    ModifyVolumeAttribute (..),
+    newModifyVolumeAttribute,
+
     -- * Request Lenses
-    , mvaAutoEnableIO
-    , mvaDryRun
-    , mvaVolumeId
+    modifyVolumeAttribute_dryRun,
+    modifyVolumeAttribute_autoEnableIO,
+    modifyVolumeAttribute_volumeId,
 
     -- * Destructuring the Response
-    , modifyVolumeAttributeResponse
-    , ModifyVolumeAttributeResponse
-    ) where
+    ModifyVolumeAttributeResponse (..),
+    newModifyVolumeAttributeResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for ModifyVolumeAttribute.
---
---
---
--- /See:/ 'modifyVolumeAttribute' smart constructor.
+-- | /See:/ 'newModifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-  { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
-  , _mvaDryRun       :: !(Maybe Bool)
-  , _mvaVolumeId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the volume should be auto-enabled for I\/O operations.
+    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
+    -- | The ID of the volume.
+    volumeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyVolumeAttribute' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyVolumeAttribute' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mvaAutoEnableIO' - Indicates whether the volume should be auto-enabled for I/O operations.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'modifyVolumeAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'mvaVolumeId' - The ID of the volume.
-modifyVolumeAttribute
-    :: Text -- ^ 'mvaVolumeId'
-    -> ModifyVolumeAttribute
-modifyVolumeAttribute pVolumeId_ =
+-- 'autoEnableIO', 'modifyVolumeAttribute_autoEnableIO' - Indicates whether the volume should be auto-enabled for I\/O operations.
+--
+-- 'volumeId', 'modifyVolumeAttribute_volumeId' - The ID of the volume.
+newModifyVolumeAttribute ::
+  -- | 'volumeId'
+  Prelude.Text ->
+  ModifyVolumeAttribute
+newModifyVolumeAttribute pVolumeId_ =
   ModifyVolumeAttribute'
-    { _mvaAutoEnableIO = Nothing
-    , _mvaDryRun = Nothing
-    , _mvaVolumeId = pVolumeId_
+    { dryRun = Prelude.Nothing,
+      autoEnableIO = Prelude.Nothing,
+      volumeId = pVolumeId_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyVolumeAttribute_dryRun :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe Prelude.Bool)
+modifyVolumeAttribute_dryRun = Lens.lens (\ModifyVolumeAttribute' {dryRun} -> dryRun) (\s@ModifyVolumeAttribute' {} a -> s {dryRun = a} :: ModifyVolumeAttribute)
 
--- | Indicates whether the volume should be auto-enabled for I/O operations.
-mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
-mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a})
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
-mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a})
+-- | Indicates whether the volume should be auto-enabled for I\/O operations.
+modifyVolumeAttribute_autoEnableIO :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyVolumeAttribute_autoEnableIO = Lens.lens (\ModifyVolumeAttribute' {autoEnableIO} -> autoEnableIO) (\s@ModifyVolumeAttribute' {} a -> s {autoEnableIO = a} :: ModifyVolumeAttribute)
 
 -- | The ID of the volume.
-mvaVolumeId :: Lens' ModifyVolumeAttribute Text
-mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a})
+modifyVolumeAttribute_volumeId :: Lens.Lens' ModifyVolumeAttribute Prelude.Text
+modifyVolumeAttribute_volumeId = Lens.lens (\ModifyVolumeAttribute' {volumeId} -> volumeId) (\s@ModifyVolumeAttribute' {} a -> s {volumeId = a} :: ModifyVolumeAttribute)
 
-instance AWSRequest ModifyVolumeAttribute where
-        type Rs ModifyVolumeAttribute =
-             ModifyVolumeAttributeResponse
-        request = postQuery ec2
-        response = receiveNull ModifyVolumeAttributeResponse'
+instance Core.AWSRequest ModifyVolumeAttribute where
+  type
+    AWSResponse ModifyVolumeAttribute =
+      ModifyVolumeAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull ModifyVolumeAttributeResponse'
 
-instance Hashable ModifyVolumeAttribute where
+instance Prelude.Hashable ModifyVolumeAttribute
 
-instance NFData ModifyVolumeAttribute where
+instance Prelude.NFData ModifyVolumeAttribute
 
-instance ToHeaders ModifyVolumeAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyVolumeAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyVolumeAttribute where
-        toPath = const "/"
+instance Core.ToPath ModifyVolumeAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyVolumeAttribute where
-        toQuery ModifyVolumeAttribute'{..}
-          = mconcat
-              ["Action" =: ("ModifyVolumeAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "AutoEnableIO" =: _mvaAutoEnableIO,
-               "DryRun" =: _mvaDryRun, "VolumeId" =: _mvaVolumeId]
+instance Core.ToQuery ModifyVolumeAttribute where
+  toQuery ModifyVolumeAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyVolumeAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "AutoEnableIO" Core.=: autoEnableIO,
+        "VolumeId" Core.=: volumeId
+      ]
 
--- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
-data ModifyVolumeAttributeResponse =
-  ModifyVolumeAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newModifyVolumeAttributeResponse' smart constructor.
+data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyVolumeAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyVolumeAttributeResponse' with all optional fields omitted.
 --
-modifyVolumeAttributeResponse
-    :: ModifyVolumeAttributeResponse
-modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newModifyVolumeAttributeResponse ::
+  ModifyVolumeAttributeResponse
+newModifyVolumeAttributeResponse =
+  ModifyVolumeAttributeResponse'
 
-
-instance NFData ModifyVolumeAttributeResponse where
+instance Prelude.NFData ModifyVolumeAttributeResponse

@@ -1,188 +1,220 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.LexModels.GetImport
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about an import job started with the @StartImport@ operation.
---
---
+-- Gets information about an import job started with the @StartImport@
+-- operation.
 module Network.AWS.LexModels.GetImport
-    (
-    -- * Creating a Request
-      getImport
-    , GetImport
+  ( -- * Creating a Request
+    GetImport (..),
+    newGetImport,
+
     -- * Request Lenses
-    , giImportId
+    getImport_importId,
 
     -- * Destructuring the Response
-    , getImportResponse
-    , GetImportResponse
+    GetImportResponse (..),
+    newGetImportResponse,
+
     -- * Response Lenses
-    , girsFailureReason
-    , girsResourceType
-    , girsImportId
-    , girsCreatedDate
-    , girsName
-    , girsMergeStrategy
-    , girsImportStatus
-    , girsResponseStatus
-    ) where
+    getImportResponse_createdDate,
+    getImportResponse_mergeStrategy,
+    getImportResponse_importId,
+    getImportResponse_resourceType,
+    getImportResponse_name,
+    getImportResponse_failureReason,
+    getImportResponse_importStatus,
+    getImportResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.LexModels.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getImport' smart constructor.
-newtype GetImport = GetImport'
-  { _giImportId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetImport' smart constructor.
+data GetImport = GetImport'
+  { -- | The identifier of the import job information to return.
+    importId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetImport' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetImport' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giImportId' - The identifier of the import job information to return.
-getImport
-    :: Text -- ^ 'giImportId'
-    -> GetImport
-getImport pImportId_ = GetImport' {_giImportId = pImportId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'importId', 'getImport_importId' - The identifier of the import job information to return.
+newGetImport ::
+  -- | 'importId'
+  Prelude.Text ->
+  GetImport
+newGetImport pImportId_ =
+  GetImport' {importId = pImportId_}
 
 -- | The identifier of the import job information to return.
-giImportId :: Lens' GetImport Text
-giImportId = lens _giImportId (\ s a -> s{_giImportId = a})
+getImport_importId :: Lens.Lens' GetImport Prelude.Text
+getImport_importId = Lens.lens (\GetImport' {importId} -> importId) (\s@GetImport' {} a -> s {importId = a} :: GetImport)
 
-instance AWSRequest GetImport where
-        type Rs GetImport = GetImportResponse
-        request = get lexModels
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetImportResponse' <$>
-                   (x .?> "failureReason" .!@ mempty) <*>
-                     (x .?> "resourceType")
-                     <*> (x .?> "importId")
-                     <*> (x .?> "createdDate")
-                     <*> (x .?> "name")
-                     <*> (x .?> "mergeStrategy")
-                     <*> (x .?> "importStatus")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetImport where
+  type AWSResponse GetImport = GetImportResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetImportResponse'
+            Prelude.<$> (x Core..?> "createdDate")
+            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<*> (x Core..?> "importId")
+            Prelude.<*> (x Core..?> "resourceType")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "importStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetImport where
+instance Prelude.Hashable GetImport
 
-instance NFData GetImport where
+instance Prelude.NFData GetImport
 
-instance ToHeaders GetImport where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetImport where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath GetImport where
-        toPath GetImport'{..}
-          = mconcat ["/imports/", toBS _giImportId]
+instance Core.ToPath GetImport where
+  toPath GetImport' {..} =
+    Prelude.mconcat ["/imports/", Core.toBS importId]
 
-instance ToQuery GetImport where
-        toQuery = const mempty
+instance Core.ToQuery GetImport where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getImportResponse' smart constructor.
+-- | /See:/ 'newGetImportResponse' smart constructor.
 data GetImportResponse = GetImportResponse'
-  { _girsFailureReason  :: !(Maybe [Text])
-  , _girsResourceType   :: !(Maybe ResourceType)
-  , _girsImportId       :: !(Maybe Text)
-  , _girsCreatedDate    :: !(Maybe POSIX)
-  , _girsName           :: !(Maybe Text)
-  , _girsMergeStrategy  :: !(Maybe MergeStrategy)
-  , _girsImportStatus   :: !(Maybe ImportStatus)
-  , _girsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A timestamp for the date and time that the import job was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The action taken when there was a conflict between an existing resource
+    -- and a resource in the import file.
+    mergeStrategy :: Prelude.Maybe MergeStrategy,
+    -- | The identifier for the specific import job.
+    importId :: Prelude.Maybe Prelude.Text,
+    -- | The type of resource imported.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | The name given to the import job.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A string that describes why an import job failed to complete.
+    failureReason :: Prelude.Maybe [Prelude.Text],
+    -- | The status of the import job. If the status is @FAILED@, you can get the
+    -- reason for the failure from the @failureReason@ field.
+    importStatus :: Prelude.Maybe ImportStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetImportResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetImportResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'girsFailureReason' - A string that describes why an import job failed to complete.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'girsResourceType' - The type of resource imported.
+-- 'createdDate', 'getImportResponse_createdDate' - A timestamp for the date and time that the import job was created.
 --
--- * 'girsImportId' - The identifier for the specific import job.
+-- 'mergeStrategy', 'getImportResponse_mergeStrategy' - The action taken when there was a conflict between an existing resource
+-- and a resource in the import file.
 --
--- * 'girsCreatedDate' - A timestamp for the date and time that the import job was created.
+-- 'importId', 'getImportResponse_importId' - The identifier for the specific import job.
 --
--- * 'girsName' - The name given to the import job.
+-- 'resourceType', 'getImportResponse_resourceType' - The type of resource imported.
 --
--- * 'girsMergeStrategy' - The action taken when there was a conflict between an existing resource and a resource in the import file.
+-- 'name', 'getImportResponse_name' - The name given to the import job.
 --
--- * 'girsImportStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
+-- 'failureReason', 'getImportResponse_failureReason' - A string that describes why an import job failed to complete.
 --
--- * 'girsResponseStatus' - -- | The response status code.
-getImportResponse
-    :: Int -- ^ 'girsResponseStatus'
-    -> GetImportResponse
-getImportResponse pResponseStatus_ =
+-- 'importStatus', 'getImportResponse_importStatus' - The status of the import job. If the status is @FAILED@, you can get the
+-- reason for the failure from the @failureReason@ field.
+--
+-- 'httpStatus', 'getImportResponse_httpStatus' - The response's http status code.
+newGetImportResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetImportResponse
+newGetImportResponse pHttpStatus_ =
   GetImportResponse'
-    { _girsFailureReason = Nothing
-    , _girsResourceType = Nothing
-    , _girsImportId = Nothing
-    , _girsCreatedDate = Nothing
-    , _girsName = Nothing
-    , _girsMergeStrategy = Nothing
-    , _girsImportStatus = Nothing
-    , _girsResponseStatus = pResponseStatus_
+    { createdDate = Prelude.Nothing,
+      mergeStrategy = Prelude.Nothing,
+      importId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      importStatus = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A timestamp for the date and time that the import job was created.
+getImportResponse_createdDate :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
+getImportResponse_createdDate = Lens.lens (\GetImportResponse' {createdDate} -> createdDate) (\s@GetImportResponse' {} a -> s {createdDate = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
 
--- | A string that describes why an import job failed to complete.
-girsFailureReason :: Lens' GetImportResponse [Text]
-girsFailureReason = lens _girsFailureReason (\ s a -> s{_girsFailureReason = a}) . _Default . _Coerce
-
--- | The type of resource imported.
-girsResourceType :: Lens' GetImportResponse (Maybe ResourceType)
-girsResourceType = lens _girsResourceType (\ s a -> s{_girsResourceType = a})
+-- | The action taken when there was a conflict between an existing resource
+-- and a resource in the import file.
+getImportResponse_mergeStrategy :: Lens.Lens' GetImportResponse (Prelude.Maybe MergeStrategy)
+getImportResponse_mergeStrategy = Lens.lens (\GetImportResponse' {mergeStrategy} -> mergeStrategy) (\s@GetImportResponse' {} a -> s {mergeStrategy = a} :: GetImportResponse)
 
 -- | The identifier for the specific import job.
-girsImportId :: Lens' GetImportResponse (Maybe Text)
-girsImportId = lens _girsImportId (\ s a -> s{_girsImportId = a})
+getImportResponse_importId :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
+getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> importId) (\s@GetImportResponse' {} a -> s {importId = a} :: GetImportResponse)
 
--- | A timestamp for the date and time that the import job was created.
-girsCreatedDate :: Lens' GetImportResponse (Maybe UTCTime)
-girsCreatedDate = lens _girsCreatedDate (\ s a -> s{_girsCreatedDate = a}) . mapping _Time
+-- | The type of resource imported.
+getImportResponse_resourceType :: Lens.Lens' GetImportResponse (Prelude.Maybe ResourceType)
+getImportResponse_resourceType = Lens.lens (\GetImportResponse' {resourceType} -> resourceType) (\s@GetImportResponse' {} a -> s {resourceType = a} :: GetImportResponse)
 
 -- | The name given to the import job.
-girsName :: Lens' GetImportResponse (Maybe Text)
-girsName = lens _girsName (\ s a -> s{_girsName = a})
+getImportResponse_name :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
+getImportResponse_name = Lens.lens (\GetImportResponse' {name} -> name) (\s@GetImportResponse' {} a -> s {name = a} :: GetImportResponse)
 
--- | The action taken when there was a conflict between an existing resource and a resource in the import file.
-girsMergeStrategy :: Lens' GetImportResponse (Maybe MergeStrategy)
-girsMergeStrategy = lens _girsMergeStrategy (\ s a -> s{_girsMergeStrategy = a})
+-- | A string that describes why an import job failed to complete.
+getImportResponse_failureReason :: Lens.Lens' GetImportResponse (Prelude.Maybe [Prelude.Text])
+getImportResponse_failureReason = Lens.lens (\GetImportResponse' {failureReason} -> failureReason) (\s@GetImportResponse' {} a -> s {failureReason = a} :: GetImportResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
-girsImportStatus :: Lens' GetImportResponse (Maybe ImportStatus)
-girsImportStatus = lens _girsImportStatus (\ s a -> s{_girsImportStatus = a})
+-- | The status of the import job. If the status is @FAILED@, you can get the
+-- reason for the failure from the @failureReason@ field.
+getImportResponse_importStatus :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportStatus)
+getImportResponse_importStatus = Lens.lens (\GetImportResponse' {importStatus} -> importStatus) (\s@GetImportResponse' {} a -> s {importStatus = a} :: GetImportResponse)
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetImportResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a})
+-- | The response's http status code.
+getImportResponse_httpStatus :: Lens.Lens' GetImportResponse Prelude.Int
+getImportResponse_httpStatus = Lens.lens (\GetImportResponse' {httpStatus} -> httpStatus) (\s@GetImportResponse' {} a -> s {httpStatus = a} :: GetImportResponse)
 
-instance NFData GetImportResponse where
+instance Prelude.NFData GetImportResponse

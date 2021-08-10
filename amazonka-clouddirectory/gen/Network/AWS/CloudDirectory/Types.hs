@@ -1,1003 +1,1220 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CloudDirectory.Types
-    (
-    -- * Service Configuration
-      cloudDirectory
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _UnsupportedIndexTypeException
-    , _NotIndexException
-    , _ValidationException
-    , _AccessDeniedException
-    , _FacetAlreadyExistsException
-    , _InvalidSchemaDocException
-    , _InvalidAttachmentException
-    , _CannotListParentOfRootException
-    , _NotPolicyException
-    , _InvalidTaggingRequestException
-    , _InvalidFacetUpdateException
-    , _InvalidRuleException
-    , _SchemaAlreadyPublishedException
-    , _DirectoryAlreadyExistsException
-    , _DirectoryNotDisabledException
-    , _BatchWriteException
-    , _DirectoryNotEnabledException
-    , _FacetInUseException
-    , _FacetValidationException
-    , _StillContainsLinksException
-    , _IncompatibleSchemaException
-    , _NotNodeException
-    , _InvalidNextTokenException
-    , _ObjectAlreadyDetachedException
-    , _LinkNameAlreadyInUseException
-    , _InternalServiceException
-    , _SchemaAlreadyExistsException
-    , _IndexedAttributeMissingException
-    , _DirectoryDeletedException
-    , _RetryableConflictException
-    , _InvalidARNException
-    , _ResourceNotFoundException
-    , _FacetNotFoundException
-    , _LimitExceededException
-    , _ObjectNotDetachedException
+    _IncompatibleSchemaException,
+    _InvalidAttachmentException,
+    _FacetValidationException,
+    _BatchWriteException,
+    _FacetInUseException,
+    _InvalidArnException,
+    _DirectoryDeletedException,
+    _InvalidRuleException,
+    _InternalServiceException,
+    _NotPolicyException,
+    _InvalidNextTokenException,
+    _InvalidTaggingRequestException,
+    _LinkNameAlreadyInUseException,
+    _CannotListParentOfRootException,
+    _InvalidSchemaDocException,
+    _AccessDeniedException,
+    _ValidationException,
+    _FacetAlreadyExistsException,
+    _NotIndexException,
+    _UnsupportedIndexTypeException,
+    _LimitExceededException,
+    _ObjectNotDetachedException,
+    _StillContainsLinksException,
+    _FacetNotFoundException,
+    _DirectoryNotEnabledException,
+    _ResourceNotFoundException,
+    _DirectoryNotDisabledException,
+    _RetryableConflictException,
+    _DirectoryAlreadyExistsException,
+    _IndexedAttributeMissingException,
+    _SchemaAlreadyExistsException,
+    _SchemaAlreadyPublishedException,
+    _NotNodeException,
+    _ObjectAlreadyDetachedException,
+    _InvalidFacetUpdateException,
 
     -- * BatchReadExceptionType
-    , BatchReadExceptionType (..)
+    BatchReadExceptionType (..),
 
     -- * ConsistencyLevel
-    , ConsistencyLevel (..)
+    ConsistencyLevel (..),
 
     -- * DirectoryState
-    , DirectoryState (..)
+    DirectoryState (..),
 
     -- * FacetAttributeType
-    , FacetAttributeType (..)
+    FacetAttributeType (..),
+
+    -- * FacetStyle
+    FacetStyle (..),
 
     -- * ObjectType
-    , ObjectType (..)
+    ObjectType (..),
 
     -- * RangeMode
-    , RangeMode (..)
+    RangeMode (..),
 
     -- * RequiredAttributeBehavior
-    , RequiredAttributeBehavior (..)
+    RequiredAttributeBehavior (..),
 
     -- * RuleType
-    , RuleType (..)
+    RuleType (..),
 
     -- * UpdateActionType
-    , UpdateActionType (..)
+    UpdateActionType (..),
 
     -- * AttributeKey
-    , AttributeKey
-    , attributeKey
-    , akSchemaARN
-    , akFacetName
-    , akName
+    AttributeKey (..),
+    newAttributeKey,
+    attributeKey_schemaArn,
+    attributeKey_facetName,
+    attributeKey_name,
 
     -- * AttributeKeyAndValue
-    , AttributeKeyAndValue
-    , attributeKeyAndValue
-    , akavKey
-    , akavValue
+    AttributeKeyAndValue (..),
+    newAttributeKeyAndValue,
+    attributeKeyAndValue_key,
+    attributeKeyAndValue_value,
 
     -- * AttributeNameAndValue
-    , AttributeNameAndValue
-    , attributeNameAndValue
-    , anavAttributeName
-    , anavValue
+    AttributeNameAndValue (..),
+    newAttributeNameAndValue,
+    attributeNameAndValue_attributeName,
+    attributeNameAndValue_value,
 
     -- * BatchAddFacetToObject
-    , BatchAddFacetToObject
-    , batchAddFacetToObject
-    , baftoSchemaFacet
-    , baftoObjectAttributeList
-    , baftoObjectReference
+    BatchAddFacetToObject (..),
+    newBatchAddFacetToObject,
+    batchAddFacetToObject_schemaFacet,
+    batchAddFacetToObject_objectAttributeList,
+    batchAddFacetToObject_objectReference,
 
     -- * BatchAddFacetToObjectResponse
-    , BatchAddFacetToObjectResponse
-    , batchAddFacetToObjectResponse
+    BatchAddFacetToObjectResponse (..),
+    newBatchAddFacetToObjectResponse,
 
     -- * BatchAttachObject
-    , BatchAttachObject
-    , batchAttachObject
-    , baoParentReference
-    , baoChildReference
-    , baoLinkName
+    BatchAttachObject (..),
+    newBatchAttachObject,
+    batchAttachObject_parentReference,
+    batchAttachObject_childReference,
+    batchAttachObject_linkName,
 
     -- * BatchAttachObjectResponse
-    , BatchAttachObjectResponse
-    , batchAttachObjectResponse
-    , baoAttachedObjectIdentifier
+    BatchAttachObjectResponse (..),
+    newBatchAttachObjectResponse,
+    batchAttachObjectResponse_attachedObjectIdentifier,
 
     -- * BatchAttachPolicy
-    , BatchAttachPolicy
-    , batchAttachPolicy
-    , bapPolicyReference
-    , bapObjectReference
+    BatchAttachPolicy (..),
+    newBatchAttachPolicy,
+    batchAttachPolicy_policyReference,
+    batchAttachPolicy_objectReference,
 
     -- * BatchAttachPolicyResponse
-    , BatchAttachPolicyResponse
-    , batchAttachPolicyResponse
+    BatchAttachPolicyResponse (..),
+    newBatchAttachPolicyResponse,
 
     -- * BatchAttachToIndex
-    , BatchAttachToIndex
-    , batchAttachToIndex
-    , batiIndexReference
-    , batiTargetReference
+    BatchAttachToIndex (..),
+    newBatchAttachToIndex,
+    batchAttachToIndex_indexReference,
+    batchAttachToIndex_targetReference,
 
     -- * BatchAttachToIndexResponse
-    , BatchAttachToIndexResponse
-    , batchAttachToIndexResponse
-    , batiAttachedObjectIdentifier
+    BatchAttachToIndexResponse (..),
+    newBatchAttachToIndexResponse,
+    batchAttachToIndexResponse_attachedObjectIdentifier,
 
     -- * BatchAttachTypedLink
-    , BatchAttachTypedLink
-    , batchAttachTypedLink
-    , batlSourceObjectReference
-    , batlTargetObjectReference
-    , batlTypedLinkFacet
-    , batlAttributes
+    BatchAttachTypedLink (..),
+    newBatchAttachTypedLink,
+    batchAttachTypedLink_sourceObjectReference,
+    batchAttachTypedLink_targetObjectReference,
+    batchAttachTypedLink_typedLinkFacet,
+    batchAttachTypedLink_attributes,
 
     -- * BatchAttachTypedLinkResponse
-    , BatchAttachTypedLinkResponse
-    , batchAttachTypedLinkResponse
-    , batlTypedLinkSpecifier
+    BatchAttachTypedLinkResponse (..),
+    newBatchAttachTypedLinkResponse,
+    batchAttachTypedLinkResponse_typedLinkSpecifier,
 
     -- * BatchCreateIndex
-    , BatchCreateIndex
-    , batchCreateIndex
-    , bciParentReference
-    , bciLinkName
-    , bciBatchReferenceName
-    , bciOrderedIndexedAttributeList
-    , bciIsUnique
+    BatchCreateIndex (..),
+    newBatchCreateIndex,
+    batchCreateIndex_parentReference,
+    batchCreateIndex_linkName,
+    batchCreateIndex_batchReferenceName,
+    batchCreateIndex_orderedIndexedAttributeList,
+    batchCreateIndex_isUnique,
 
     -- * BatchCreateIndexResponse
-    , BatchCreateIndexResponse
-    , batchCreateIndexResponse
-    , bciObjectIdentifier
+    BatchCreateIndexResponse (..),
+    newBatchCreateIndexResponse,
+    batchCreateIndexResponse_objectIdentifier,
 
     -- * BatchCreateObject
-    , BatchCreateObject
-    , batchCreateObject
-    , bcoParentReference
-    , bcoLinkName
-    , bcoBatchReferenceName
-    , bcoSchemaFacet
-    , bcoObjectAttributeList
+    BatchCreateObject (..),
+    newBatchCreateObject,
+    batchCreateObject_parentReference,
+    batchCreateObject_linkName,
+    batchCreateObject_batchReferenceName,
+    batchCreateObject_schemaFacet,
+    batchCreateObject_objectAttributeList,
 
     -- * BatchCreateObjectResponse
-    , BatchCreateObjectResponse
-    , batchCreateObjectResponse
-    , bcoObjectIdentifier
+    BatchCreateObjectResponse (..),
+    newBatchCreateObjectResponse,
+    batchCreateObjectResponse_objectIdentifier,
 
     -- * BatchDeleteObject
-    , BatchDeleteObject
-    , batchDeleteObject
-    , bdoObjectReference
+    BatchDeleteObject (..),
+    newBatchDeleteObject,
+    batchDeleteObject_objectReference,
 
     -- * BatchDeleteObjectResponse
-    , BatchDeleteObjectResponse
-    , batchDeleteObjectResponse
+    BatchDeleteObjectResponse (..),
+    newBatchDeleteObjectResponse,
 
     -- * BatchDetachFromIndex
-    , BatchDetachFromIndex
-    , batchDetachFromIndex
-    , bdfiIndexReference
-    , bdfiTargetReference
+    BatchDetachFromIndex (..),
+    newBatchDetachFromIndex,
+    batchDetachFromIndex_indexReference,
+    batchDetachFromIndex_targetReference,
 
     -- * BatchDetachFromIndexResponse
-    , BatchDetachFromIndexResponse
-    , batchDetachFromIndexResponse
-    , bdfiDetachedObjectIdentifier
+    BatchDetachFromIndexResponse (..),
+    newBatchDetachFromIndexResponse,
+    batchDetachFromIndexResponse_detachedObjectIdentifier,
 
     -- * BatchDetachObject
-    , BatchDetachObject
-    , batchDetachObject
-    , bdoBatchReferenceName
-    , bdoParentReference
-    , bdoLinkName
+    BatchDetachObject (..),
+    newBatchDetachObject,
+    batchDetachObject_batchReferenceName,
+    batchDetachObject_parentReference,
+    batchDetachObject_linkName,
 
     -- * BatchDetachObjectResponse
-    , BatchDetachObjectResponse
-    , batchDetachObjectResponse
-    , bdoDetachedObjectIdentifier
+    BatchDetachObjectResponse (..),
+    newBatchDetachObjectResponse,
+    batchDetachObjectResponse_detachedObjectIdentifier,
 
     -- * BatchDetachPolicy
-    , BatchDetachPolicy
-    , batchDetachPolicy
-    , bdpPolicyReference
-    , bdpObjectReference
+    BatchDetachPolicy (..),
+    newBatchDetachPolicy,
+    batchDetachPolicy_policyReference,
+    batchDetachPolicy_objectReference,
 
     -- * BatchDetachPolicyResponse
-    , BatchDetachPolicyResponse
-    , batchDetachPolicyResponse
+    BatchDetachPolicyResponse (..),
+    newBatchDetachPolicyResponse,
 
     -- * BatchDetachTypedLink
-    , BatchDetachTypedLink
-    , batchDetachTypedLink
-    , bdtlTypedLinkSpecifier
+    BatchDetachTypedLink (..),
+    newBatchDetachTypedLink,
+    batchDetachTypedLink_typedLinkSpecifier,
 
     -- * BatchDetachTypedLinkResponse
-    , BatchDetachTypedLinkResponse
-    , batchDetachTypedLinkResponse
+    BatchDetachTypedLinkResponse (..),
+    newBatchDetachTypedLinkResponse,
+
+    -- * BatchGetLinkAttributes
+    BatchGetLinkAttributes (..),
+    newBatchGetLinkAttributes,
+    batchGetLinkAttributes_typedLinkSpecifier,
+    batchGetLinkAttributes_attributeNames,
+
+    -- * BatchGetLinkAttributesResponse
+    BatchGetLinkAttributesResponse (..),
+    newBatchGetLinkAttributesResponse,
+    batchGetLinkAttributesResponse_attributes,
 
     -- * BatchGetObjectAttributes
-    , BatchGetObjectAttributes
-    , batchGetObjectAttributes
-    , bgoaObjectReference
-    , bgoaSchemaFacet
-    , bgoaAttributeNames
+    BatchGetObjectAttributes (..),
+    newBatchGetObjectAttributes,
+    batchGetObjectAttributes_objectReference,
+    batchGetObjectAttributes_schemaFacet,
+    batchGetObjectAttributes_attributeNames,
 
     -- * BatchGetObjectAttributesResponse
-    , BatchGetObjectAttributesResponse
-    , batchGetObjectAttributesResponse
-    , bgoaAttributes
+    BatchGetObjectAttributesResponse (..),
+    newBatchGetObjectAttributesResponse,
+    batchGetObjectAttributesResponse_attributes,
 
     -- * BatchGetObjectInformation
-    , BatchGetObjectInformation
-    , batchGetObjectInformation
-    , bgoiObjectReference
+    BatchGetObjectInformation (..),
+    newBatchGetObjectInformation,
+    batchGetObjectInformation_objectReference,
 
     -- * BatchGetObjectInformationResponse
-    , BatchGetObjectInformationResponse
-    , batchGetObjectInformationResponse
-    , bgoiObjectIdentifier
-    , bgoiSchemaFacets
+    BatchGetObjectInformationResponse (..),
+    newBatchGetObjectInformationResponse,
+    batchGetObjectInformationResponse_schemaFacets,
+    batchGetObjectInformationResponse_objectIdentifier,
 
     -- * BatchListAttachedIndices
-    , BatchListAttachedIndices
-    , batchListAttachedIndices
-    , blaisNextToken
-    , blaisMaxResults
-    , blaisTargetReference
+    BatchListAttachedIndices (..),
+    newBatchListAttachedIndices,
+    batchListAttachedIndices_nextToken,
+    batchListAttachedIndices_maxResults,
+    batchListAttachedIndices_targetReference,
 
     -- * BatchListAttachedIndicesResponse
-    , BatchListAttachedIndicesResponse
-    , batchListAttachedIndicesResponse
-    , blaiIndexAttachments
-    , blaiNextToken
+    BatchListAttachedIndicesResponse (..),
+    newBatchListAttachedIndicesResponse,
+    batchListAttachedIndicesResponse_nextToken,
+    batchListAttachedIndicesResponse_indexAttachments,
 
     -- * BatchListIncomingTypedLinks
-    , BatchListIncomingTypedLinks
-    , batchListIncomingTypedLinks
-    , blitlsFilterAttributeRanges
-    , blitlsNextToken
-    , blitlsFilterTypedLink
-    , blitlsMaxResults
-    , blitlsObjectReference
+    BatchListIncomingTypedLinks (..),
+    newBatchListIncomingTypedLinks,
+    batchListIncomingTypedLinks_nextToken,
+    batchListIncomingTypedLinks_filterTypedLink,
+    batchListIncomingTypedLinks_maxResults,
+    batchListIncomingTypedLinks_filterAttributeRanges,
+    batchListIncomingTypedLinks_objectReference,
 
     -- * BatchListIncomingTypedLinksResponse
-    , BatchListIncomingTypedLinksResponse
-    , batchListIncomingTypedLinksResponse
-    , blitlLinkSpecifiers
-    , blitlNextToken
+    BatchListIncomingTypedLinksResponse (..),
+    newBatchListIncomingTypedLinksResponse,
+    batchListIncomingTypedLinksResponse_linkSpecifiers,
+    batchListIncomingTypedLinksResponse_nextToken,
 
     -- * BatchListIndex
-    , BatchListIndex
-    , batchListIndex
-    , batRangesOnIndexedValues
-    , batNextToken
-    , batMaxResults
-    , batIndexReference
+    BatchListIndex (..),
+    newBatchListIndex,
+    batchListIndex_nextToken,
+    batchListIndex_maxResults,
+    batchListIndex_rangesOnIndexedValues,
+    batchListIndex_indexReference,
 
     -- * BatchListIndexResponse
-    , BatchListIndexResponse
-    , batchListIndexResponse
-    , bliIndexAttachments
-    , bliNextToken
+    BatchListIndexResponse (..),
+    newBatchListIndexResponse,
+    batchListIndexResponse_nextToken,
+    batchListIndexResponse_indexAttachments,
 
     -- * BatchListObjectAttributes
-    , BatchListObjectAttributes
-    , batchListObjectAttributes
-    , bloaFacetFilter
-    , bloaNextToken
-    , bloaMaxResults
-    , bloaObjectReference
+    BatchListObjectAttributes (..),
+    newBatchListObjectAttributes,
+    batchListObjectAttributes_nextToken,
+    batchListObjectAttributes_maxResults,
+    batchListObjectAttributes_facetFilter,
+    batchListObjectAttributes_objectReference,
 
     -- * BatchListObjectAttributesResponse
-    , BatchListObjectAttributesResponse
-    , batchListObjectAttributesResponse
-    , bNextToken
-    , bAttributes
+    BatchListObjectAttributesResponse (..),
+    newBatchListObjectAttributesResponse,
+    batchListObjectAttributesResponse_nextToken,
+    batchListObjectAttributesResponse_attributes,
 
     -- * BatchListObjectChildren
-    , BatchListObjectChildren
-    , batchListObjectChildren
-    , bloclNextToken
-    , bloclMaxResults
-    , bloclObjectReference
+    BatchListObjectChildren (..),
+    newBatchListObjectChildren,
+    batchListObjectChildren_nextToken,
+    batchListObjectChildren_maxResults,
+    batchListObjectChildren_objectReference,
 
     -- * BatchListObjectChildrenResponse
-    , BatchListObjectChildrenResponse
-    , batchListObjectChildrenResponse
-    , blocChildren
-    , blocNextToken
+    BatchListObjectChildrenResponse (..),
+    newBatchListObjectChildrenResponse,
+    batchListObjectChildrenResponse_nextToken,
+    batchListObjectChildrenResponse_children,
 
     -- * BatchListObjectParentPaths
-    , BatchListObjectParentPaths
-    , batchListObjectParentPaths
-    , bloppsNextToken
-    , bloppsMaxResults
-    , bloppsObjectReference
+    BatchListObjectParentPaths (..),
+    newBatchListObjectParentPaths,
+    batchListObjectParentPaths_nextToken,
+    batchListObjectParentPaths_maxResults,
+    batchListObjectParentPaths_objectReference,
 
     -- * BatchListObjectParentPathsResponse
-    , BatchListObjectParentPathsResponse
-    , batchListObjectParentPathsResponse
-    , bloppPathToObjectIdentifiersList
-    , bloppNextToken
+    BatchListObjectParentPathsResponse (..),
+    newBatchListObjectParentPathsResponse,
+    batchListObjectParentPathsResponse_nextToken,
+    batchListObjectParentPathsResponse_pathToObjectIdentifiersList,
+
+    -- * BatchListObjectParents
+    BatchListObjectParents (..),
+    newBatchListObjectParents,
+    batchListObjectParents_nextToken,
+    batchListObjectParents_maxResults,
+    batchListObjectParents_objectReference,
+
+    -- * BatchListObjectParentsResponse
+    BatchListObjectParentsResponse (..),
+    newBatchListObjectParentsResponse,
+    batchListObjectParentsResponse_parentLinks,
+    batchListObjectParentsResponse_nextToken,
 
     -- * BatchListObjectPolicies
-    , BatchListObjectPolicies
-    , batchListObjectPolicies
-    , blopsNextToken
-    , blopsMaxResults
-    , blopsObjectReference
+    BatchListObjectPolicies (..),
+    newBatchListObjectPolicies,
+    batchListObjectPolicies_nextToken,
+    batchListObjectPolicies_maxResults,
+    batchListObjectPolicies_objectReference,
 
     -- * BatchListObjectPoliciesResponse
-    , BatchListObjectPoliciesResponse
-    , batchListObjectPoliciesResponse
-    , blopNextToken
-    , blopAttachedPolicyIds
+    BatchListObjectPoliciesResponse (..),
+    newBatchListObjectPoliciesResponse,
+    batchListObjectPoliciesResponse_nextToken,
+    batchListObjectPoliciesResponse_attachedPolicyIds,
 
     -- * BatchListOutgoingTypedLinks
-    , BatchListOutgoingTypedLinks
-    , batchListOutgoingTypedLinks
-    , blotlsFilterAttributeRanges
-    , blotlsNextToken
-    , blotlsFilterTypedLink
-    , blotlsMaxResults
-    , blotlsObjectReference
+    BatchListOutgoingTypedLinks (..),
+    newBatchListOutgoingTypedLinks,
+    batchListOutgoingTypedLinks_nextToken,
+    batchListOutgoingTypedLinks_filterTypedLink,
+    batchListOutgoingTypedLinks_maxResults,
+    batchListOutgoingTypedLinks_filterAttributeRanges,
+    batchListOutgoingTypedLinks_objectReference,
 
     -- * BatchListOutgoingTypedLinksResponse
-    , BatchListOutgoingTypedLinksResponse
-    , batchListOutgoingTypedLinksResponse
-    , blotlTypedLinkSpecifiers
-    , blotlNextToken
+    BatchListOutgoingTypedLinksResponse (..),
+    newBatchListOutgoingTypedLinksResponse,
+    batchListOutgoingTypedLinksResponse_nextToken,
+    batchListOutgoingTypedLinksResponse_typedLinkSpecifiers,
 
     -- * BatchListPolicyAttachments
-    , BatchListPolicyAttachments
-    , batchListPolicyAttachments
-    , blpasNextToken
-    , blpasMaxResults
-    , blpasPolicyReference
+    BatchListPolicyAttachments (..),
+    newBatchListPolicyAttachments,
+    batchListPolicyAttachments_nextToken,
+    batchListPolicyAttachments_maxResults,
+    batchListPolicyAttachments_policyReference,
 
     -- * BatchListPolicyAttachmentsResponse
-    , BatchListPolicyAttachmentsResponse
-    , batchListPolicyAttachmentsResponse
-    , blpaObjectIdentifiers
-    , blpaNextToken
+    BatchListPolicyAttachmentsResponse (..),
+    newBatchListPolicyAttachmentsResponse,
+    batchListPolicyAttachmentsResponse_nextToken,
+    batchListPolicyAttachmentsResponse_objectIdentifiers,
 
     -- * BatchLookupPolicy
-    , BatchLookupPolicy
-    , batchLookupPolicy
-    , blplNextToken
-    , blplMaxResults
-    , blplObjectReference
+    BatchLookupPolicy (..),
+    newBatchLookupPolicy,
+    batchLookupPolicy_nextToken,
+    batchLookupPolicy_maxResults,
+    batchLookupPolicy_objectReference,
 
     -- * BatchLookupPolicyResponse
-    , BatchLookupPolicyResponse
-    , batchLookupPolicyResponse
-    , blpNextToken
-    , blpPolicyToPathList
+    BatchLookupPolicyResponse (..),
+    newBatchLookupPolicyResponse,
+    batchLookupPolicyResponse_nextToken,
+    batchLookupPolicyResponse_policyToPathList,
 
     -- * BatchReadException
-    , BatchReadException
-    , batchReadException
-    , breType
-    , breMessage
+    BatchReadException (..),
+    newBatchReadException,
+    batchReadException_message,
+    batchReadException_type,
 
     -- * BatchReadOperation
-    , BatchReadOperation
-    , batchReadOperation
-    , broListIndex
-    , broGetObjectInformation
-    , broListAttachedIndices
-    , broLookupPolicy
-    , broListObjectParentPaths
-    , broListObjectAttributes
-    , broListIncomingTypedLinks
-    , broGetObjectAttributes
-    , broListObjectChildren
-    , broListPolicyAttachments
-    , broListOutgoingTypedLinks
-    , broListObjectPolicies
+    BatchReadOperation (..),
+    newBatchReadOperation,
+    batchReadOperation_getObjectInformation,
+    batchReadOperation_getObjectAttributes,
+    batchReadOperation_listIncomingTypedLinks,
+    batchReadOperation_listObjectParents,
+    batchReadOperation_listPolicyAttachments,
+    batchReadOperation_listObjectAttributes,
+    batchReadOperation_listObjectParentPaths,
+    batchReadOperation_lookupPolicy,
+    batchReadOperation_listAttachedIndices,
+    batchReadOperation_listIndex,
+    batchReadOperation_listObjectChildren,
+    batchReadOperation_listObjectPolicies,
+    batchReadOperation_getLinkAttributes,
+    batchReadOperation_listOutgoingTypedLinks,
 
     -- * BatchReadOperationResponse
-    , BatchReadOperationResponse
-    , batchReadOperationResponse
-    , broExceptionResponse
-    , broSuccessfulResponse
+    BatchReadOperationResponse (..),
+    newBatchReadOperationResponse,
+    batchReadOperationResponse_successfulResponse,
+    batchReadOperationResponse_exceptionResponse,
 
     -- * BatchReadSuccessfulResponse
-    , BatchReadSuccessfulResponse
-    , batchReadSuccessfulResponse
-    , brsListIndex
-    , brsGetObjectInformation
-    , brsListAttachedIndices
-    , brsLookupPolicy
-    , brsListObjectParentPaths
-    , brsListObjectAttributes
-    , brsListIncomingTypedLinks
-    , brsGetObjectAttributes
-    , brsListObjectChildren
-    , brsListPolicyAttachments
-    , brsListOutgoingTypedLinks
-    , brsListObjectPolicies
+    BatchReadSuccessfulResponse (..),
+    newBatchReadSuccessfulResponse,
+    batchReadSuccessfulResponse_getObjectInformation,
+    batchReadSuccessfulResponse_getObjectAttributes,
+    batchReadSuccessfulResponse_listIncomingTypedLinks,
+    batchReadSuccessfulResponse_listObjectParents,
+    batchReadSuccessfulResponse_listPolicyAttachments,
+    batchReadSuccessfulResponse_listObjectAttributes,
+    batchReadSuccessfulResponse_listObjectParentPaths,
+    batchReadSuccessfulResponse_lookupPolicy,
+    batchReadSuccessfulResponse_listAttachedIndices,
+    batchReadSuccessfulResponse_listIndex,
+    batchReadSuccessfulResponse_listObjectChildren,
+    batchReadSuccessfulResponse_listObjectPolicies,
+    batchReadSuccessfulResponse_getLinkAttributes,
+    batchReadSuccessfulResponse_listOutgoingTypedLinks,
 
     -- * BatchRemoveFacetFromObject
-    , BatchRemoveFacetFromObject
-    , batchRemoveFacetFromObject
-    , brffoSchemaFacet
-    , brffoObjectReference
+    BatchRemoveFacetFromObject (..),
+    newBatchRemoveFacetFromObject,
+    batchRemoveFacetFromObject_schemaFacet,
+    batchRemoveFacetFromObject_objectReference,
 
     -- * BatchRemoveFacetFromObjectResponse
-    , BatchRemoveFacetFromObjectResponse
-    , batchRemoveFacetFromObjectResponse
+    BatchRemoveFacetFromObjectResponse (..),
+    newBatchRemoveFacetFromObjectResponse,
+
+    -- * BatchUpdateLinkAttributes
+    BatchUpdateLinkAttributes (..),
+    newBatchUpdateLinkAttributes,
+    batchUpdateLinkAttributes_typedLinkSpecifier,
+    batchUpdateLinkAttributes_attributeUpdates,
+
+    -- * BatchUpdateLinkAttributesResponse
+    BatchUpdateLinkAttributesResponse (..),
+    newBatchUpdateLinkAttributesResponse,
 
     -- * BatchUpdateObjectAttributes
-    , BatchUpdateObjectAttributes
-    , batchUpdateObjectAttributes
-    , buoaObjectReference
-    , buoaAttributeUpdates
+    BatchUpdateObjectAttributes (..),
+    newBatchUpdateObjectAttributes,
+    batchUpdateObjectAttributes_objectReference,
+    batchUpdateObjectAttributes_attributeUpdates,
 
     -- * BatchUpdateObjectAttributesResponse
-    , BatchUpdateObjectAttributesResponse
-    , batchUpdateObjectAttributesResponse
-    , buoaObjectIdentifier
+    BatchUpdateObjectAttributesResponse (..),
+    newBatchUpdateObjectAttributesResponse,
+    batchUpdateObjectAttributesResponse_objectIdentifier,
 
     -- * BatchWriteOperation
-    , BatchWriteOperation
-    , batchWriteOperation
-    , bDeleteObject
-    , bDetachFromIndex
-    , bRemoveFacetFromObject
-    , bAttachObject
-    , bCreateObject
-    , bAttachTypedLink
-    , bDetachPolicy
-    , bCreateIndex
-    , bDetachObject
-    , bAddFacetToObject
-    , bDetachTypedLink
-    , bUpdateObjectAttributes
-    , bAttachPolicy
-    , bAttachToIndex
+    BatchWriteOperation (..),
+    newBatchWriteOperation,
+    batchWriteOperation_attachTypedLink,
+    batchWriteOperation_deleteObject,
+    batchWriteOperation_createObject,
+    batchWriteOperation_updateLinkAttributes,
+    batchWriteOperation_detachTypedLink,
+    batchWriteOperation_createIndex,
+    batchWriteOperation_detachPolicy,
+    batchWriteOperation_detachFromIndex,
+    batchWriteOperation_attachObject,
+    batchWriteOperation_attachToIndex,
+    batchWriteOperation_updateObjectAttributes,
+    batchWriteOperation_attachPolicy,
+    batchWriteOperation_removeFacetFromObject,
+    batchWriteOperation_addFacetToObject,
+    batchWriteOperation_detachObject,
 
     -- * BatchWriteOperationResponse
-    , BatchWriteOperationResponse
-    , batchWriteOperationResponse
-    , bwoDeleteObject
-    , bwoDetachFromIndex
-    , bwoRemoveFacetFromObject
-    , bwoAttachObject
-    , bwoCreateObject
-    , bwoAttachTypedLink
-    , bwoDetachPolicy
-    , bwoCreateIndex
-    , bwoDetachObject
-    , bwoAddFacetToObject
-    , bwoDetachTypedLink
-    , bwoUpdateObjectAttributes
-    , bwoAttachPolicy
-    , bwoAttachToIndex
+    BatchWriteOperationResponse (..),
+    newBatchWriteOperationResponse,
+    batchWriteOperationResponse_attachTypedLink,
+    batchWriteOperationResponse_deleteObject,
+    batchWriteOperationResponse_createObject,
+    batchWriteOperationResponse_updateLinkAttributes,
+    batchWriteOperationResponse_detachTypedLink,
+    batchWriteOperationResponse_createIndex,
+    batchWriteOperationResponse_detachPolicy,
+    batchWriteOperationResponse_detachFromIndex,
+    batchWriteOperationResponse_attachObject,
+    batchWriteOperationResponse_attachToIndex,
+    batchWriteOperationResponse_updateObjectAttributes,
+    batchWriteOperationResponse_attachPolicy,
+    batchWriteOperationResponse_removeFacetFromObject,
+    batchWriteOperationResponse_addFacetToObject,
+    batchWriteOperationResponse_detachObject,
 
     -- * Directory
-    , Directory
-    , directory
-    , dDirectoryARN
-    , dState
-    , dName
-    , dCreationDateTime
+    Directory (..),
+    newDirectory,
+    directory_directoryArn,
+    directory_state,
+    directory_name,
+    directory_creationDateTime,
 
     -- * Facet
-    , Facet
-    , facet
-    , fObjectType
-    , fName
+    Facet (..),
+    newFacet,
+    facet_facetStyle,
+    facet_name,
+    facet_objectType,
 
     -- * FacetAttribute
-    , FacetAttribute
-    , facetAttribute
-    , faAttributeReference
-    , faAttributeDefinition
-    , faRequiredBehavior
-    , faName
+    FacetAttribute (..),
+    newFacetAttribute,
+    facetAttribute_attributeReference,
+    facetAttribute_requiredBehavior,
+    facetAttribute_attributeDefinition,
+    facetAttribute_name,
 
     -- * FacetAttributeDefinition
-    , FacetAttributeDefinition
-    , facetAttributeDefinition
-    , fadRules
-    , fadDefaultValue
-    , fadIsImmutable
-    , fadType
+    FacetAttributeDefinition (..),
+    newFacetAttributeDefinition,
+    facetAttributeDefinition_isImmutable,
+    facetAttributeDefinition_rules,
+    facetAttributeDefinition_defaultValue,
+    facetAttributeDefinition_type,
 
     -- * FacetAttributeReference
-    , FacetAttributeReference
-    , facetAttributeReference
-    , farTargetFacetName
-    , farTargetAttributeName
+    FacetAttributeReference (..),
+    newFacetAttributeReference,
+    facetAttributeReference_targetFacetName,
+    facetAttributeReference_targetAttributeName,
 
     -- * FacetAttributeUpdate
-    , FacetAttributeUpdate
-    , facetAttributeUpdate
-    , fauAttribute
-    , fauAction
+    FacetAttributeUpdate (..),
+    newFacetAttributeUpdate,
+    facetAttributeUpdate_attribute,
+    facetAttributeUpdate_action,
 
     -- * IndexAttachment
-    , IndexAttachment
-    , indexAttachment
-    , iaIndexedAttributes
-    , iaObjectIdentifier
+    IndexAttachment (..),
+    newIndexAttachment,
+    indexAttachment_objectIdentifier,
+    indexAttachment_indexedAttributes,
+
+    -- * LinkAttributeAction
+    LinkAttributeAction (..),
+    newLinkAttributeAction,
+    linkAttributeAction_attributeUpdateValue,
+    linkAttributeAction_attributeActionType,
+
+    -- * LinkAttributeUpdate
+    LinkAttributeUpdate (..),
+    newLinkAttributeUpdate,
+    linkAttributeUpdate_attributeAction,
+    linkAttributeUpdate_attributeKey,
 
     -- * ObjectAttributeAction
-    , ObjectAttributeAction
-    , objectAttributeAction
-    , oaaObjectAttributeActionType
-    , oaaObjectAttributeUpdateValue
+    ObjectAttributeAction (..),
+    newObjectAttributeAction,
+    objectAttributeAction_objectAttributeActionType,
+    objectAttributeAction_objectAttributeUpdateValue,
 
     -- * ObjectAttributeRange
-    , ObjectAttributeRange
-    , objectAttributeRange
-    , oarRange
-    , oarAttributeKey
+    ObjectAttributeRange (..),
+    newObjectAttributeRange,
+    objectAttributeRange_range,
+    objectAttributeRange_attributeKey,
 
     -- * ObjectAttributeUpdate
-    , ObjectAttributeUpdate
-    , objectAttributeUpdate
-    , oauObjectAttributeAction
-    , oauObjectAttributeKey
+    ObjectAttributeUpdate (..),
+    newObjectAttributeUpdate,
+    objectAttributeUpdate_objectAttributeAction,
+    objectAttributeUpdate_objectAttributeKey,
+
+    -- * ObjectIdentifierAndLinkNameTuple
+    ObjectIdentifierAndLinkNameTuple (..),
+    newObjectIdentifierAndLinkNameTuple,
+    objectIdentifierAndLinkNameTuple_linkName,
+    objectIdentifierAndLinkNameTuple_objectIdentifier,
 
     -- * ObjectReference
-    , ObjectReference
-    , objectReference
-    , orSelector
+    ObjectReference (..),
+    newObjectReference,
+    objectReference_selector,
 
     -- * PathToObjectIdentifiers
-    , PathToObjectIdentifiers
-    , pathToObjectIdentifiers
-    , ptoiObjectIdentifiers
-    , ptoiPath
+    PathToObjectIdentifiers (..),
+    newPathToObjectIdentifiers,
+    pathToObjectIdentifiers_objectIdentifiers,
+    pathToObjectIdentifiers_path,
 
     -- * PolicyAttachment
-    , PolicyAttachment
-    , policyAttachment
-    , paPolicyId
-    , paPolicyType
-    , paObjectIdentifier
+    PolicyAttachment (..),
+    newPolicyAttachment,
+    policyAttachment_policyType,
+    policyAttachment_objectIdentifier,
+    policyAttachment_policyId,
 
     -- * PolicyToPath
-    , PolicyToPath
-    , policyToPath
-    , ptpPath
-    , ptpPolicies
+    PolicyToPath (..),
+    newPolicyToPath,
+    policyToPath_policies,
+    policyToPath_path,
 
     -- * Rule
-    , Rule
-    , rule
-    , rParameters
-    , rType
+    Rule (..),
+    newRule,
+    rule_type,
+    rule_parameters,
 
     -- * SchemaFacet
-    , SchemaFacet
-    , schemaFacet
-    , sfFacetName
-    , sfSchemaARN
+    SchemaFacet (..),
+    newSchemaFacet,
+    schemaFacet_schemaArn,
+    schemaFacet_facetName,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * TypedAttributeValue
-    , TypedAttributeValue
-    , typedAttributeValue
-    , tavBinaryValue
-    , tavDatetimeValue
-    , tavNumberValue
-    , tavStringValue
-    , tavBooleanValue
+    TypedAttributeValue (..),
+    newTypedAttributeValue,
+    typedAttributeValue_stringValue,
+    typedAttributeValue_booleanValue,
+    typedAttributeValue_binaryValue,
+    typedAttributeValue_numberValue,
+    typedAttributeValue_datetimeValue,
 
     -- * TypedAttributeValueRange
-    , TypedAttributeValueRange
-    , typedAttributeValueRange
-    , tavrEndValue
-    , tavrStartValue
-    , tavrStartMode
-    , tavrEndMode
+    TypedAttributeValueRange (..),
+    newTypedAttributeValueRange,
+    typedAttributeValueRange_endValue,
+    typedAttributeValueRange_startValue,
+    typedAttributeValueRange_startMode,
+    typedAttributeValueRange_endMode,
 
     -- * TypedLinkAttributeDefinition
-    , TypedLinkAttributeDefinition
-    , typedLinkAttributeDefinition
-    , tladRules
-    , tladDefaultValue
-    , tladIsImmutable
-    , tladName
-    , tladType
-    , tladRequiredBehavior
+    TypedLinkAttributeDefinition (..),
+    newTypedLinkAttributeDefinition,
+    typedLinkAttributeDefinition_isImmutable,
+    typedLinkAttributeDefinition_rules,
+    typedLinkAttributeDefinition_defaultValue,
+    typedLinkAttributeDefinition_name,
+    typedLinkAttributeDefinition_type,
+    typedLinkAttributeDefinition_requiredBehavior,
 
     -- * TypedLinkAttributeRange
-    , TypedLinkAttributeRange
-    , typedLinkAttributeRange
-    , tlarAttributeName
-    , tlarRange
+    TypedLinkAttributeRange (..),
+    newTypedLinkAttributeRange,
+    typedLinkAttributeRange_attributeName,
+    typedLinkAttributeRange_range,
 
     -- * TypedLinkFacet
-    , TypedLinkFacet
-    , typedLinkFacet
-    , tlfName
-    , tlfAttributes
-    , tlfIdentityAttributeOrder
+    TypedLinkFacet (..),
+    newTypedLinkFacet,
+    typedLinkFacet_name,
+    typedLinkFacet_attributes,
+    typedLinkFacet_identityAttributeOrder,
 
     -- * TypedLinkFacetAttributeUpdate
-    , TypedLinkFacetAttributeUpdate
-    , typedLinkFacetAttributeUpdate
-    , tlfauAttribute
-    , tlfauAction
+    TypedLinkFacetAttributeUpdate (..),
+    newTypedLinkFacetAttributeUpdate,
+    typedLinkFacetAttributeUpdate_attribute,
+    typedLinkFacetAttributeUpdate_action,
 
     -- * TypedLinkSchemaAndFacetName
-    , TypedLinkSchemaAndFacetName
-    , typedLinkSchemaAndFacetName
-    , tlsafnSchemaARN
-    , tlsafnTypedLinkName
+    TypedLinkSchemaAndFacetName (..),
+    newTypedLinkSchemaAndFacetName,
+    typedLinkSchemaAndFacetName_schemaArn,
+    typedLinkSchemaAndFacetName_typedLinkName,
 
     -- * TypedLinkSpecifier
-    , TypedLinkSpecifier
-    , typedLinkSpecifier
-    , tlsTypedLinkFacet
-    , tlsSourceObjectReference
-    , tlsTargetObjectReference
-    , tlsIdentityAttributeValues
-    ) where
+    TypedLinkSpecifier (..),
+    newTypedLinkSpecifier,
+    typedLinkSpecifier_typedLinkFacet,
+    typedLinkSpecifier_sourceObjectReference,
+    typedLinkSpecifier_targetObjectReference,
+    typedLinkSpecifier_identityAttributeValues,
+  )
+where
 
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.CloudDirectory.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.CloudDirectory.Types.AttributeKey
+import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
+import Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
+import Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchAttachObject
+import Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchAttachPolicy
+import Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
+import Network.AWS.CloudDirectory.Types.BatchAttachToIndex
+import Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse
+import Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
+import Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
+import Network.AWS.CloudDirectory.Types.BatchCreateIndex
+import Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
+import Network.AWS.CloudDirectory.Types.BatchCreateObject
+import Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchDeleteObject
+import Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
+import Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse
+import Network.AWS.CloudDirectory.Types.BatchDetachObject
+import Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchDetachPolicy
+import Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
+import Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
+import Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
+import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
+import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
+import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
+import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
+import Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
+import Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
+import Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
+import Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
+import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
+import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
+import Network.AWS.CloudDirectory.Types.BatchListIndex
+import Network.AWS.CloudDirectory.Types.BatchListIndexResponse
+import Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
+import Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
+import Network.AWS.CloudDirectory.Types.BatchListObjectChildren
+import Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
+import Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
+import Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
+import Network.AWS.CloudDirectory.Types.BatchListObjectParents
+import Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
+import Network.AWS.CloudDirectory.Types.BatchListObjectPolicies
+import Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
+import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
+import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
+import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
+import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
+import Network.AWS.CloudDirectory.Types.BatchLookupPolicy
+import Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
+import Network.AWS.CloudDirectory.Types.BatchReadException
+import Network.AWS.CloudDirectory.Types.BatchReadExceptionType
+import Network.AWS.CloudDirectory.Types.BatchReadOperation
+import Network.AWS.CloudDirectory.Types.BatchReadOperationResponse
+import Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
+import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
+import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
+import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
+import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
+import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
+import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
+import Network.AWS.CloudDirectory.Types.BatchWriteOperation
+import Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
+import Network.AWS.CloudDirectory.Types.ConsistencyLevel
+import Network.AWS.CloudDirectory.Types.Directory
+import Network.AWS.CloudDirectory.Types.DirectoryState
+import Network.AWS.CloudDirectory.Types.Facet
+import Network.AWS.CloudDirectory.Types.FacetAttribute
+import Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
+import Network.AWS.CloudDirectory.Types.FacetAttributeReference
+import Network.AWS.CloudDirectory.Types.FacetAttributeType
+import Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
+import Network.AWS.CloudDirectory.Types.FacetStyle
+import Network.AWS.CloudDirectory.Types.IndexAttachment
+import Network.AWS.CloudDirectory.Types.LinkAttributeAction
+import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
+import Network.AWS.CloudDirectory.Types.ObjectAttributeAction
+import Network.AWS.CloudDirectory.Types.ObjectAttributeRange
+import Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
+import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
+import Network.AWS.CloudDirectory.Types.ObjectReference
+import Network.AWS.CloudDirectory.Types.ObjectType
+import Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
+import Network.AWS.CloudDirectory.Types.PolicyAttachment
+import Network.AWS.CloudDirectory.Types.PolicyToPath
+import Network.AWS.CloudDirectory.Types.RangeMode
+import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
+import Network.AWS.CloudDirectory.Types.Rule
+import Network.AWS.CloudDirectory.Types.RuleType
+import Network.AWS.CloudDirectory.Types.SchemaFacet
+import Network.AWS.CloudDirectory.Types.Tag
+import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
+import Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
+import Network.AWS.CloudDirectory.Types.TypedLinkFacet
+import Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
+import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import Network.AWS.CloudDirectory.Types.UpdateActionType
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
--- | API version @2016-05-10@ of the Amazon CloudDirectory SDK configuration.
-cloudDirectory :: Service
-cloudDirectory =
-  Service
-    { _svcAbbrev = "CloudDirectory"
-    , _svcSigner = v4
-    , _svcPrefix = "clouddirectory"
-    , _svcVersion = "2016-05-10"
-    , _svcEndpoint = defaultEndpoint cloudDirectory
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "CloudDirectory"
-    , _svcRetry = retry
+-- | API version @2017-01-11@ of the Amazon CloudDirectory SDK configuration.
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "CloudDirectory",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "clouddirectory",
+      Core._serviceSigningName = "clouddirectory",
+      Core._serviceVersion = "2017-01-11",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "CloudDirectory",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | Indicates a failure occurred while performing a check for backward
+-- compatibility between the specified schema and the schema that is
+-- currently applied to the directory.
+_IncompatibleSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatibleSchemaException =
+  Core._MatchServiceError
+    defaultService
+    "IncompatibleSchemaException"
+    Prelude.. Core.hasStatus 400
 
--- | Indicates that the requested index type is not supported.
---
---
-_UnsupportedIndexTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedIndexTypeException =
-  _MatchServiceError cloudDirectory "UnsupportedIndexTypeException" .
-  hasStatus 400
-
-
--- | Indicates that the requested operation can only operate on index objects.
---
---
-_NotIndexException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotIndexException =
-  _MatchServiceError cloudDirectory "NotIndexException" . hasStatus 400
-
-
--- | Indicates that your request is malformed in some manner. See the exception message.
---
---
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException =
-  _MatchServiceError cloudDirectory "ValidationException" . hasStatus 400
-
-
--- | Access denied. Check your permissions.
---
---
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException =
-  _MatchServiceError cloudDirectory "AccessDeniedException" . hasStatus 403
-
-
--- | A facet with the same name already exists.
---
---
-_FacetAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_FacetAlreadyExistsException =
-  _MatchServiceError cloudDirectory "FacetAlreadyExistsException" .
-  hasStatus 400
-
-
--- | Indicates that the provided @SchemaDoc@ value is not valid.
---
---
-_InvalidSchemaDocException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSchemaDocException =
-  _MatchServiceError cloudDirectory "InvalidSchemaDocException" . hasStatus 400
-
-
--- | Indicates that an attempt to attach an object with the same link name or to apply a schema with the same name has occurred. Rename the link or the schema and then try again.
---
---
-_InvalidAttachmentException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Indicates that an attempt to make an attachment was invalid. For
+-- example, attaching two nodes with a link type that is not applicable to
+-- the nodes or attempting to apply a schema to a directory a second time.
+_InvalidAttachmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidAttachmentException =
-  _MatchServiceError cloudDirectory "InvalidAttachmentException" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "InvalidAttachmentException"
+    Prelude.. Core.hasStatus 400
 
-
--- | Cannot list the parents of a 'Directory' root.
---
---
-_CannotListParentOfRootException :: AsError a => Getting (First ServiceError) a ServiceError
-_CannotListParentOfRootException =
-  _MatchServiceError cloudDirectory "CannotListParentOfRootException" .
-  hasStatus 400
-
-
--- | Indicates that the requested operation can only operate on policy objects.
---
---
-_NotPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotPolicyException =
-  _MatchServiceError cloudDirectory "NotPolicyException" . hasStatus 400
-
-
--- | Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.
---
---
-_InvalidTaggingRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTaggingRequestException =
-  _MatchServiceError cloudDirectory "InvalidTaggingRequestException" .
-  hasStatus 400
-
-
--- | An attempt to modify a 'Facet' resulted in an invalid schema exception.
---
---
-_InvalidFacetUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFacetUpdateException =
-  _MatchServiceError cloudDirectory "InvalidFacetUpdateException" .
-  hasStatus 400
-
-
--- | Occurs when any of the rule parameter keys or values are invalid.
---
---
-_InvalidRuleException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRuleException =
-  _MatchServiceError cloudDirectory "InvalidRuleException" . hasStatus 400
-
-
--- | Indicates that a schema is already published.
---
---
-_SchemaAlreadyPublishedException :: AsError a => Getting (First ServiceError) a ServiceError
-_SchemaAlreadyPublishedException =
-  _MatchServiceError cloudDirectory "SchemaAlreadyPublishedException" .
-  hasStatus 400
-
-
--- | Indicates that a 'Directory' could not be created due to a naming conflict. Choose a different name and try again.
---
---
-_DirectoryAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryAlreadyExistsException =
-  _MatchServiceError cloudDirectory "DirectoryAlreadyExistsException" .
-  hasStatus 400
-
-
--- | An operation can only operate on a disabled directory.
---
---
-_DirectoryNotDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryNotDisabledException =
-  _MatchServiceError cloudDirectory "DirectoryNotDisabledException" .
-  hasStatus 400
-
+-- | The Facet that you provided was not well formed or could not be
+-- validated with the schema.
+_FacetValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FacetValidationException =
+  Core._MatchServiceError
+    defaultService
+    "FacetValidationException"
+    Prelude.. Core.hasStatus 400
 
 -- | A @BatchWrite@ exception has occurred.
---
---
-_BatchWriteException :: AsError a => Getting (First ServiceError) a ServiceError
-_BatchWriteException = _MatchServiceError cloudDirectory "BatchWriteException"
+_BatchWriteException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchWriteException =
+  Core._MatchServiceError
+    defaultService
+    "BatchWriteException"
 
-
--- | Operations are only permitted on enabled directories.
---
---
-_DirectoryNotEnabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryNotEnabledException =
-  _MatchServiceError cloudDirectory "DirectoryNotEnabledException" .
-  hasStatus 400
-
-
--- | Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.
---
---
-_FacetInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Occurs when deleting a facet that contains an attribute that is a target
+-- to an attribute reference in a different facet.
+_FacetInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FacetInUseException =
-  _MatchServiceError cloudDirectory "FacetInUseException" . hasStatus 400
-
-
--- | The 'Facet' that you provided was not well formed or could not be validated with the schema.
---
---
-_FacetValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_FacetValidationException =
-  _MatchServiceError cloudDirectory "FacetValidationException" . hasStatus 400
-
-
--- | The object could not be deleted because links still exist. Remove the links and then try the operation again.
---
---
-_StillContainsLinksException :: AsError a => Getting (First ServiceError) a ServiceError
-_StillContainsLinksException =
-  _MatchServiceError cloudDirectory "StillContainsLinksException" .
-  hasStatus 400
-
-
--- | Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.
---
---
-_IncompatibleSchemaException :: AsError a => Getting (First ServiceError) a ServiceError
-_IncompatibleSchemaException =
-  _MatchServiceError cloudDirectory "IncompatibleSchemaException" .
-  hasStatus 400
-
-
--- | Occurs when any invalid operations are performed on an object that is not a node, such as calling @ListObjectChildren@ for a leaf node object.
---
---
-_NotNodeException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotNodeException =
-  _MatchServiceError cloudDirectory "NotNodeException" . hasStatus 400
-
-
--- | Indicates that the @NextToken@ value is not valid.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError cloudDirectory "InvalidNextTokenException" . hasStatus 400
-
-
--- | Indicates that the object is not attached to the index.
---
---
-_ObjectAlreadyDetachedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ObjectAlreadyDetachedException =
-  _MatchServiceError cloudDirectory "ObjectAlreadyDetachedException" .
-  hasStatus 400
-
-
--- | Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.
---
---
-_LinkNameAlreadyInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_LinkNameAlreadyInUseException =
-  _MatchServiceError cloudDirectory "LinkNameAlreadyInUseException" .
-  hasStatus 400
-
-
--- | Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <http://status.aws.amazon.com/ AWS Service Health Dashboard> site to see if there are any operational issues with the service.
---
---
-_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceException =
-  _MatchServiceError cloudDirectory "InternalServiceException" . hasStatus 500
-
-
--- | Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.
---
---
-_SchemaAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_SchemaAlreadyExistsException =
-  _MatchServiceError cloudDirectory "SchemaAlreadyExistsException" .
-  hasStatus 400
-
-
--- | An object has been attempted to be attached to an object that does not have the appropriate attribute value.
---
---
-_IndexedAttributeMissingException :: AsError a => Getting (First ServiceError) a ServiceError
-_IndexedAttributeMissingException =
-  _MatchServiceError cloudDirectory "IndexedAttributeMissingException" .
-  hasStatus 400
-
-
--- | A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.
---
---
-_DirectoryDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryDeletedException =
-  _MatchServiceError cloudDirectory "DirectoryDeletedException" . hasStatus 400
-
-
--- | Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
---
---
-_RetryableConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_RetryableConflictException =
-  _MatchServiceError cloudDirectory "RetryableConflictException" . hasStatus 409
-
+  Core._MatchServiceError
+    defaultService
+    "FacetInUseException"
+    Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided ARN value is not valid.
---
---
-_InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidARNException =
-  _MatchServiceError cloudDirectory "InvalidArnException" . hasStatus 400
+_InvalidArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArnException"
+    Prelude.. Core.hasStatus 400
 
+-- | A directory that has been deleted and to which access has been
+-- attempted. Note: The requested resource will eventually cease to exist.
+_DirectoryDeletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryDeletedException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryDeletedException"
+    Prelude.. Core.hasStatus 400
+
+-- | Occurs when any of the rule parameter keys or values are invalid.
+_InvalidRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRuleException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRuleException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates a problem that must be resolved by Amazon Web Services. This
+-- might be a transient error in which case you can retry your request
+-- until it succeeds. Otherwise, go to the
+-- <http://status.aws.amazon.com/ AWS Service Health Dashboard> site to see
+-- if there are any operational issues with the service.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+    Prelude.. Core.hasStatus 500
+
+-- | Indicates that the requested operation can only operate on policy
+-- objects.
+_NotPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "NotPolicyException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the @NextToken@ value is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+    Prelude.. Core.hasStatus 400
+
+-- | Can occur for multiple reasons such as when you tag a resource that
+-- doesn’t exist or if you specify a higher number of tags for a resource
+-- than the allowed limit. Allowed limit is 50 tags per resource.
+_InvalidTaggingRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTaggingRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTaggingRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that a link could not be created due to a naming conflict.
+-- Choose a different name and then try again.
+_LinkNameAlreadyInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LinkNameAlreadyInUseException =
+  Core._MatchServiceError
+    defaultService
+    "LinkNameAlreadyInUseException"
+    Prelude.. Core.hasStatus 400
+
+-- | Cannot list the parents of a Directory root.
+_CannotListParentOfRootException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotListParentOfRootException =
+  Core._MatchServiceError
+    defaultService
+    "CannotListParentOfRootException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the provided @SchemaDoc@ value is not valid.
+_InvalidSchemaDocException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemaDocException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSchemaDocException"
+    Prelude.. Core.hasStatus 400
+
+-- | Access denied. Check your permissions.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
+-- | Indicates that your request is malformed in some manner. See the
+-- exception message.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | A facet with the same name already exists.
+_FacetAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FacetAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "FacetAlreadyExistsException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the requested operation can only operate on index
+-- objects.
+_NotIndexException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotIndexException =
+  Core._MatchServiceError
+    defaultService
+    "NotIndexException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the requested index type is not supported.
+_UnsupportedIndexTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedIndexTypeException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedIndexTypeException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that limits are exceeded. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Limits>
+-- for more information.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the requested operation cannot be completed because the
+-- object has not been detached from the tree.
+_ObjectNotDetachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotDetachedException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotDetachedException"
+    Prelude.. Core.hasStatus 400
+
+-- | The object could not be deleted because links still exist. Remove the
+-- links and then try the operation again.
+_StillContainsLinksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StillContainsLinksException =
+  Core._MatchServiceError
+    defaultService
+    "StillContainsLinksException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified Facet could not be found.
+_FacetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FacetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "FacetNotFoundException"
+    Prelude.. Core.hasStatus 400
+
+-- | Operations are only permitted on enabled directories.
+_DirectoryNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotEnabledException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryNotEnabledException"
+    Prelude.. Core.hasStatus 400
 
 -- | The specified resource could not be found.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  _MatchServiceError cloudDirectory "ResourceNotFoundException" . hasStatus 404
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
+-- | An operation can only operate on a disabled directory.
+_DirectoryNotDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryNotDisabledException"
+    Prelude.. Core.hasStatus 400
 
--- | The specified 'Facet' could not be found.
---
---
-_FacetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_FacetNotFoundException =
-  _MatchServiceError cloudDirectory "FacetNotFoundException" . hasStatus 400
+-- | Occurs when a conflict with a previous successful write is detected. For
+-- example, if a write operation occurs on an object and then an attempt is
+-- made to read the object using “SERIALIZABLE” consistency, this exception
+-- may result. This generally occurs when the previous write did not have
+-- time to propagate to the host serving the current request. A retry (with
+-- appropriate backoff logic) is the recommended response to this
+-- exception.
+_RetryableConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RetryableConflictException =
+  Core._MatchServiceError
+    defaultService
+    "RetryableConflictException"
+    Prelude.. Core.hasStatus 409
 
+-- | Indicates that a Directory could not be created due to a naming
+-- conflict. Choose a different name and try again.
+_DirectoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryAlreadyExistsException"
+    Prelude.. Core.hasStatus 400
 
--- | Indicates that limits are exceeded. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html Limits> for more information.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-  _MatchServiceError cloudDirectory "LimitExceededException" . hasStatus 400
+-- | An object has been attempted to be attached to an object that does not
+-- have the appropriate attribute value.
+_IndexedAttributeMissingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IndexedAttributeMissingException =
+  Core._MatchServiceError
+    defaultService
+    "IndexedAttributeMissingException"
+    Prelude.. Core.hasStatus 400
 
+-- | Indicates that a schema could not be created due to a naming conflict.
+-- Please select a different name and then try again.
+_SchemaAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchemaAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "SchemaAlreadyExistsException"
+    Prelude.. Core.hasStatus 400
 
--- | Indicates that the requested operation cannot be completed because the object has not been detached from the tree.
---
---
-_ObjectNotDetachedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ObjectNotDetachedException =
-  _MatchServiceError cloudDirectory "ObjectNotDetachedException" . hasStatus 400
+-- | Indicates that a schema is already published.
+_SchemaAlreadyPublishedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchemaAlreadyPublishedException =
+  Core._MatchServiceError
+    defaultService
+    "SchemaAlreadyPublishedException"
+    Prelude.. Core.hasStatus 400
 
+-- | Occurs when any invalid operations are performed on an object that is
+-- not a node, such as calling @ListObjectChildren@ for a leaf node object.
+_NotNodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotNodeException =
+  Core._MatchServiceError
+    defaultService
+    "NotNodeException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the object is not attached to the index.
+_ObjectAlreadyDetachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectAlreadyDetachedException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectAlreadyDetachedException"
+    Prelude.. Core.hasStatus 400
+
+-- | An attempt to modify a Facet resulted in an invalid schema exception.
+_InvalidFacetUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFacetUpdateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFacetUpdateException"
+    Prelude.. Core.hasStatus 400

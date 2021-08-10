@@ -1,99 +1,112 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.DeleteDataset
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified data set.
+-- Deletes the specified dataset.
 --
---
--- You do not have to delete the content of the data set before you perform this operation.
---
+-- You do not have to delete the content of the dataset before you perform
+-- this operation.
 module Network.AWS.IoTAnalytics.DeleteDataset
-    (
-    -- * Creating a Request
-      deleteDataset
-    , DeleteDataset
+  ( -- * Creating a Request
+    DeleteDataset (..),
+    newDeleteDataset,
+
     -- * Request Lenses
-    , dDatasetName
+    deleteDataset_datasetName,
 
     -- * Destructuring the Response
-    , deleteDatasetResponse
-    , DeleteDatasetResponse
-    ) where
+    DeleteDatasetResponse (..),
+    newDeleteDatasetResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteDataset' smart constructor.
-newtype DeleteDataset = DeleteDataset'
-  { _dDatasetName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDataset' smart constructor.
+data DeleteDataset = DeleteDataset'
+  { -- | The name of the data set to delete.
+    datasetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDataset' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dDatasetName' - The name of the data set to delete.
-deleteDataset
-    :: Text -- ^ 'dDatasetName'
-    -> DeleteDataset
-deleteDataset pDatasetName_ = DeleteDataset' {_dDatasetName = pDatasetName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'datasetName', 'deleteDataset_datasetName' - The name of the data set to delete.
+newDeleteDataset ::
+  -- | 'datasetName'
+  Prelude.Text ->
+  DeleteDataset
+newDeleteDataset pDatasetName_ =
+  DeleteDataset' {datasetName = pDatasetName_}
 
 -- | The name of the data set to delete.
-dDatasetName :: Lens' DeleteDataset Text
-dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a})
+deleteDataset_datasetName :: Lens.Lens' DeleteDataset Prelude.Text
+deleteDataset_datasetName = Lens.lens (\DeleteDataset' {datasetName} -> datasetName) (\s@DeleteDataset' {} a -> s {datasetName = a} :: DeleteDataset)
 
-instance AWSRequest DeleteDataset where
-        type Rs DeleteDataset = DeleteDatasetResponse
-        request = delete ioTAnalytics
-        response = receiveNull DeleteDatasetResponse'
+instance Core.AWSRequest DeleteDataset where
+  type
+    AWSResponse DeleteDataset =
+      DeleteDatasetResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteDatasetResponse'
 
-instance Hashable DeleteDataset where
+instance Prelude.Hashable DeleteDataset
 
-instance NFData DeleteDataset where
+instance Prelude.NFData DeleteDataset
 
-instance ToHeaders DeleteDataset where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteDataset where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteDataset where
-        toPath DeleteDataset'{..}
-          = mconcat ["/datasets/", toBS _dDatasetName]
+instance Core.ToPath DeleteDataset where
+  toPath DeleteDataset' {..} =
+    Prelude.mconcat
+      ["/datasets/", Core.toBS datasetName]
 
-instance ToQuery DeleteDataset where
-        toQuery = const mempty
+instance Core.ToQuery DeleteDataset where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteDatasetResponse' smart constructor.
-data DeleteDatasetResponse =
-  DeleteDatasetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDatasetResponse' smart constructor.
+data DeleteDatasetResponse = DeleteDatasetResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDatasetResponse' with all optional fields omitted.
 --
-deleteDatasetResponse
-    :: DeleteDatasetResponse
-deleteDatasetResponse = DeleteDatasetResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteDatasetResponse ::
+  DeleteDatasetResponse
+newDeleteDatasetResponse = DeleteDatasetResponse'
 
-
-instance NFData DeleteDatasetResponse where
+instance Prelude.NFData DeleteDatasetResponse

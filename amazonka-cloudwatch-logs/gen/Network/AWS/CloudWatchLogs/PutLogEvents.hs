@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,179 +22,245 @@
 --
 -- Uploads a batch of log events to the specified log stream.
 --
---
--- You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
+-- You must include the sequence token obtained from the response of the
+-- previous call. An upload in a newly created log stream does not require
+-- a sequence token. You can also get the sequence token in the
+-- @expectedSequenceToken@ field from @InvalidSequenceTokenException@. If
+-- you call @PutLogEvents@ twice within a narrow time period using the same
+-- value for @sequenceToken@, both calls might be successful or one might
+-- be rejected.
 --
 -- The batch of events must satisfy the following constraints:
 --
---     * The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
+-- -   The maximum batch size is 1,048,576 bytes. This size is calculated
+--     as the sum of all event messages in UTF-8, plus 26 bytes for each
+--     log event.
 --
---     * None of the log events in the batch can be more than 2 hours in the future.
+-- -   None of the log events in the batch can be more than 2 hours in the
+--     future.
 --
---     * None of the log events in the batch can be older than 14 days or the retention period of the log group.
+-- -   None of the log events in the batch can be older than 14 days or
+--     older than the retention period of the log group.
 --
---     * The log events in the batch must be in chronological ordered by their time stamp (the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC).
+-- -   The log events in the batch must be in chronological order by their
+--     timestamp. The timestamp is the time the event occurred, expressed
+--     as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In
+--     AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is
+--     specified in .NET format: yyyy-mm-ddThh:mm:ss. For example,
+--     2017-09-15T13:45:30.)
 --
---     * The maximum number of log events in a batch is 10,000.
+-- -   A batch of log events in a single request cannot span more than 24
+--     hours. Otherwise, the operation fails.
 --
---     * A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.
+-- -   The maximum number of log events in a batch is 10,000.
 --
+-- -   There is a quota of 5 requests per second per log stream. Additional
+--     requests are throttled. This quota can\'t be changed.
 --
---
+-- If a call to @PutLogEvents@ returns \"UnrecognizedClientException\" the
+-- most likely cause is an invalid AWS access key ID or secret key.
 module Network.AWS.CloudWatchLogs.PutLogEvents
-    (
-    -- * Creating a Request
-      putLogEvents
-    , PutLogEvents
+  ( -- * Creating a Request
+    PutLogEvents (..),
+    newPutLogEvents,
+
     -- * Request Lenses
-    , pleSequenceToken
-    , pleLogGroupName
-    , pleLogStreamName
-    , pleLogEvents
+    putLogEvents_sequenceToken,
+    putLogEvents_logGroupName,
+    putLogEvents_logStreamName,
+    putLogEvents_logEvents,
 
     -- * Destructuring the Response
-    , putLogEventsResponse
-    , PutLogEventsResponse
+    PutLogEventsResponse (..),
+    newPutLogEventsResponse,
+
     -- * Response Lenses
-    , plersRejectedLogEventsInfo
-    , plersNextSequenceToken
-    , plersResponseStatus
-    ) where
+    putLogEventsResponse_nextSequenceToken,
+    putLogEventsResponse_rejectedLogEventsInfo,
+    putLogEventsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putLogEvents' smart constructor.
+-- | /See:/ 'newPutLogEvents' smart constructor.
 data PutLogEvents = PutLogEvents'
-  { _pleSequenceToken :: !(Maybe Text)
-  , _pleLogGroupName  :: !Text
-  , _pleLogStreamName :: !Text
-  , _pleLogEvents     :: !(List1 InputLogEvent)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The sequence token obtained from the response of the previous
+    -- @PutLogEvents@ call. An upload in a newly created log stream does not
+    -- require a sequence token. You can also get the sequence token using
+    -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
+    -- If you call @PutLogEvents@ twice within a narrow time period using the
+    -- same value for @sequenceToken@, both calls might be successful or one
+    -- might be rejected.
+    sequenceToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the log group.
+    logGroupName :: Prelude.Text,
+    -- | The name of the log stream.
+    logStreamName :: Prelude.Text,
+    -- | The log events.
+    logEvents :: Prelude.NonEmpty InputLogEvent
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutLogEvents' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'sequenceToken', 'putLogEvents_sequenceToken' - The sequence token obtained from the response of the previous
+-- @PutLogEvents@ call. An upload in a newly created log stream does not
+-- require a sequence token. You can also get the sequence token using
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
+-- If you call @PutLogEvents@ twice within a narrow time period using the
+-- same value for @sequenceToken@, both calls might be successful or one
+-- might be rejected.
+--
+-- 'logGroupName', 'putLogEvents_logGroupName' - The name of the log group.
+--
+-- 'logStreamName', 'putLogEvents_logStreamName' - The name of the log stream.
+--
+-- 'logEvents', 'putLogEvents_logEvents' - The log events.
+newPutLogEvents ::
+  -- | 'logGroupName'
+  Prelude.Text ->
+  -- | 'logStreamName'
+  Prelude.Text ->
+  -- | 'logEvents'
+  Prelude.NonEmpty InputLogEvent ->
+  PutLogEvents
+newPutLogEvents
+  pLogGroupName_
+  pLogStreamName_
+  pLogEvents_ =
+    PutLogEvents'
+      { sequenceToken = Prelude.Nothing,
+        logGroupName = pLogGroupName_,
+        logStreamName = pLogStreamName_,
+        logEvents = Lens._Coerce Lens.# pLogEvents_
+      }
 
--- | Creates a value of 'PutLogEvents' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pleSequenceToken' - The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
---
--- * 'pleLogGroupName' - The name of the log group.
---
--- * 'pleLogStreamName' - The name of the log stream.
---
--- * 'pleLogEvents' - The log events.
-putLogEvents
-    :: Text -- ^ 'pleLogGroupName'
-    -> Text -- ^ 'pleLogStreamName'
-    -> NonEmpty InputLogEvent -- ^ 'pleLogEvents'
-    -> PutLogEvents
-putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
-  PutLogEvents'
-    { _pleSequenceToken = Nothing
-    , _pleLogGroupName = pLogGroupName_
-    , _pleLogStreamName = pLogStreamName_
-    , _pleLogEvents = _List1 # pLogEvents_
-    }
-
-
--- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
-pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
-pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a})
+-- | The sequence token obtained from the response of the previous
+-- @PutLogEvents@ call. An upload in a newly created log stream does not
+-- require a sequence token. You can also get the sequence token using
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
+-- If you call @PutLogEvents@ twice within a narrow time period using the
+-- same value for @sequenceToken@, both calls might be successful or one
+-- might be rejected.
+putLogEvents_sequenceToken :: Lens.Lens' PutLogEvents (Prelude.Maybe Prelude.Text)
+putLogEvents_sequenceToken = Lens.lens (\PutLogEvents' {sequenceToken} -> sequenceToken) (\s@PutLogEvents' {} a -> s {sequenceToken = a} :: PutLogEvents)
 
 -- | The name of the log group.
-pleLogGroupName :: Lens' PutLogEvents Text
-pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a})
+putLogEvents_logGroupName :: Lens.Lens' PutLogEvents Prelude.Text
+putLogEvents_logGroupName = Lens.lens (\PutLogEvents' {logGroupName} -> logGroupName) (\s@PutLogEvents' {} a -> s {logGroupName = a} :: PutLogEvents)
 
 -- | The name of the log stream.
-pleLogStreamName :: Lens' PutLogEvents Text
-pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a})
+putLogEvents_logStreamName :: Lens.Lens' PutLogEvents Prelude.Text
+putLogEvents_logStreamName = Lens.lens (\PutLogEvents' {logStreamName} -> logStreamName) (\s@PutLogEvents' {} a -> s {logStreamName = a} :: PutLogEvents)
 
 -- | The log events.
-pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
-pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1
+putLogEvents_logEvents :: Lens.Lens' PutLogEvents (Prelude.NonEmpty InputLogEvent)
+putLogEvents_logEvents = Lens.lens (\PutLogEvents' {logEvents} -> logEvents) (\s@PutLogEvents' {} a -> s {logEvents = a} :: PutLogEvents) Prelude.. Lens._Coerce
 
-instance AWSRequest PutLogEvents where
-        type Rs PutLogEvents = PutLogEventsResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutLogEventsResponse' <$>
-                   (x .?> "rejectedLogEventsInfo") <*>
-                     (x .?> "nextSequenceToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest PutLogEvents where
+  type AWSResponse PutLogEvents = PutLogEventsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutLogEventsResponse'
+            Prelude.<$> (x Core..?> "nextSequenceToken")
+            Prelude.<*> (x Core..?> "rejectedLogEventsInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable PutLogEvents where
+instance Prelude.Hashable PutLogEvents
 
-instance NFData PutLogEvents where
+instance Prelude.NFData PutLogEvents
 
-instance ToHeaders PutLogEvents where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.PutLogEvents" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders PutLogEvents where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("Logs_20140328.PutLogEvents" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON PutLogEvents where
-        toJSON PutLogEvents'{..}
-          = object
-              (catMaybes
-                 [("sequenceToken" .=) <$> _pleSequenceToken,
-                  Just ("logGroupName" .= _pleLogGroupName),
-                  Just ("logStreamName" .= _pleLogStreamName),
-                  Just ("logEvents" .= _pleLogEvents)])
+instance Core.ToJSON PutLogEvents where
+  toJSON PutLogEvents' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("sequenceToken" Core..=) Prelude.<$> sequenceToken,
+            Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("logStreamName" Core..= logStreamName),
+            Prelude.Just ("logEvents" Core..= logEvents)
+          ]
+      )
 
-instance ToPath PutLogEvents where
-        toPath = const "/"
+instance Core.ToPath PutLogEvents where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutLogEvents where
-        toQuery = const mempty
+instance Core.ToQuery PutLogEvents where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putLogEventsResponse' smart constructor.
+-- | /See:/ 'newPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
-  { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
-  , _plersNextSequenceToken     :: !(Maybe Text)
-  , _plersResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The next sequence token.
+    nextSequenceToken :: Prelude.Maybe Prelude.Text,
+    -- | The rejected events.
+    rejectedLogEventsInfo :: Prelude.Maybe RejectedLogEventsInfo,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutLogEventsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'plersRejectedLogEventsInfo' - The rejected events.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'plersNextSequenceToken' - The next sequence token.
+-- 'nextSequenceToken', 'putLogEventsResponse_nextSequenceToken' - The next sequence token.
 --
--- * 'plersResponseStatus' - -- | The response status code.
-putLogEventsResponse
-    :: Int -- ^ 'plersResponseStatus'
-    -> PutLogEventsResponse
-putLogEventsResponse pResponseStatus_ =
+-- 'rejectedLogEventsInfo', 'putLogEventsResponse_rejectedLogEventsInfo' - The rejected events.
+--
+-- 'httpStatus', 'putLogEventsResponse_httpStatus' - The response's http status code.
+newPutLogEventsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutLogEventsResponse
+newPutLogEventsResponse pHttpStatus_ =
   PutLogEventsResponse'
-    { _plersRejectedLogEventsInfo = Nothing
-    , _plersNextSequenceToken = Nothing
-    , _plersResponseStatus = pResponseStatus_
+    { nextSequenceToken =
+        Prelude.Nothing,
+      rejectedLogEventsInfo = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The next sequence token.
+putLogEventsResponse_nextSequenceToken :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe Prelude.Text)
+putLogEventsResponse_nextSequenceToken = Lens.lens (\PutLogEventsResponse' {nextSequenceToken} -> nextSequenceToken) (\s@PutLogEventsResponse' {} a -> s {nextSequenceToken = a} :: PutLogEventsResponse)
 
 -- | The rejected events.
-plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
-plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a})
+putLogEventsResponse_rejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe RejectedLogEventsInfo)
+putLogEventsResponse_rejectedLogEventsInfo = Lens.lens (\PutLogEventsResponse' {rejectedLogEventsInfo} -> rejectedLogEventsInfo) (\s@PutLogEventsResponse' {} a -> s {rejectedLogEventsInfo = a} :: PutLogEventsResponse)
 
--- | The next sequence token.
-plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
-plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a})
+-- | The response's http status code.
+putLogEventsResponse_httpStatus :: Lens.Lens' PutLogEventsResponse Prelude.Int
+putLogEventsResponse_httpStatus = Lens.lens (\PutLogEventsResponse' {httpStatus} -> httpStatus) (\s@PutLogEventsResponse' {} a -> s {httpStatus = a} :: PutLogEventsResponse)
 
--- | -- | The response status code.
-plersResponseStatus :: Lens' PutLogEventsResponse Int
-plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a})
-
-instance NFData PutLogEventsResponse where
+instance Prelude.NFData PutLogEventsResponse

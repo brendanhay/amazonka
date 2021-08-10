@@ -1,127 +1,158 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets a stack policy for a specified stack.
---
---
 module Network.AWS.CloudFormation.SetStackPolicy
-    (
-    -- * Creating a Request
-      setStackPolicy
-    , SetStackPolicy
+  ( -- * Creating a Request
+    SetStackPolicy (..),
+    newSetStackPolicy,
+
     -- * Request Lenses
-    , sspStackPolicyBody
-    , sspStackPolicyURL
-    , sspStackName
+    setStackPolicy_stackPolicyBody,
+    setStackPolicy_stackPolicyURL,
+    setStackPolicy_stackName,
 
     -- * Destructuring the Response
-    , setStackPolicyResponse
-    , SetStackPolicyResponse
-    ) where
+    SetStackPolicyResponse (..),
+    newSetStackPolicyResponse,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input for the 'SetStackPolicy' action.
+-- | The input for the SetStackPolicy action.
 --
---
---
--- /See:/ 'setStackPolicy' smart constructor.
+-- /See:/ 'newSetStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
-  { _sspStackPolicyBody :: !(Maybe Text)
-  , _sspStackPolicyURL  :: !(Maybe Text)
-  , _sspStackName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Structure containing the stack policy body. For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+    -- in the AWS CloudFormation User Guide. You can specify either the
+    -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+    stackPolicyBody :: Prelude.Maybe Prelude.Text,
+    -- | Location of a file containing the stack policy. The URL must point to a
+    -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
+    -- as the stack. You can specify either the @StackPolicyBody@ or the
+    -- @StackPolicyURL@ parameter, but not both.
+    stackPolicyURL :: Prelude.Maybe Prelude.Text,
+    -- | The name or unique stack ID that you want to associate a policy with.
+    stackName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetStackPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetStackPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sspStackPolicyBody' - Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sspStackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- 'stackPolicyBody', 'setStackPolicy_stackPolicyBody' - Structure containing the stack policy body. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- in the AWS CloudFormation User Guide. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
--- * 'sspStackName' - The name or unique stack ID that you want to associate a policy with.
-setStackPolicy
-    :: Text -- ^ 'sspStackName'
-    -> SetStackPolicy
-setStackPolicy pStackName_ =
+-- 'stackPolicyURL', 'setStackPolicy_stackPolicyURL' - Location of a file containing the stack policy. The URL must point to a
+-- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
+-- as the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
+--
+-- 'stackName', 'setStackPolicy_stackName' - The name or unique stack ID that you want to associate a policy with.
+newSetStackPolicy ::
+  -- | 'stackName'
+  Prelude.Text ->
+  SetStackPolicy
+newSetStackPolicy pStackName_ =
   SetStackPolicy'
-    { _sspStackPolicyBody = Nothing
-    , _sspStackPolicyURL = Nothing
-    , _sspStackName = pStackName_
+    { stackPolicyBody = Prelude.Nothing,
+      stackPolicyURL = Prelude.Nothing,
+      stackName = pStackName_
     }
 
+-- | Structure containing the stack policy body. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- in the AWS CloudFormation User Guide. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+setStackPolicy_stackPolicyBody :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
+setStackPolicy_stackPolicyBody = Lens.lens (\SetStackPolicy' {stackPolicyBody} -> stackPolicyBody) (\s@SetStackPolicy' {} a -> s {stackPolicyBody = a} :: SetStackPolicy)
 
--- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyBody = lens _sspStackPolicyBody (\ s a -> s{_sspStackPolicyBody = a})
-
--- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyURL = lens _sspStackPolicyURL (\ s a -> s{_sspStackPolicyURL = a})
+-- | Location of a file containing the stack policy. The URL must point to a
+-- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
+-- as the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
+setStackPolicy_stackPolicyURL :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
+setStackPolicy_stackPolicyURL = Lens.lens (\SetStackPolicy' {stackPolicyURL} -> stackPolicyURL) (\s@SetStackPolicy' {} a -> s {stackPolicyURL = a} :: SetStackPolicy)
 
 -- | The name or unique stack ID that you want to associate a policy with.
-sspStackName :: Lens' SetStackPolicy Text
-sspStackName = lens _sspStackName (\ s a -> s{_sspStackName = a})
+setStackPolicy_stackName :: Lens.Lens' SetStackPolicy Prelude.Text
+setStackPolicy_stackName = Lens.lens (\SetStackPolicy' {stackName} -> stackName) (\s@SetStackPolicy' {} a -> s {stackName = a} :: SetStackPolicy)
 
-instance AWSRequest SetStackPolicy where
-        type Rs SetStackPolicy = SetStackPolicyResponse
-        request = postQuery cloudFormation
-        response = receiveNull SetStackPolicyResponse'
+instance Core.AWSRequest SetStackPolicy where
+  type
+    AWSResponse SetStackPolicy =
+      SetStackPolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull SetStackPolicyResponse'
 
-instance Hashable SetStackPolicy where
+instance Prelude.Hashable SetStackPolicy
 
-instance NFData SetStackPolicy where
+instance Prelude.NFData SetStackPolicy
 
-instance ToHeaders SetStackPolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders SetStackPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath SetStackPolicy where
-        toPath = const "/"
+instance Core.ToPath SetStackPolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery SetStackPolicy where
-        toQuery SetStackPolicy'{..}
-          = mconcat
-              ["Action" =: ("SetStackPolicy" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "StackPolicyBody" =: _sspStackPolicyBody,
-               "StackPolicyURL" =: _sspStackPolicyURL,
-               "StackName" =: _sspStackName]
+instance Core.ToQuery SetStackPolicy where
+  toQuery SetStackPolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("SetStackPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackPolicyBody" Core.=: stackPolicyBody,
+        "StackPolicyURL" Core.=: stackPolicyURL,
+        "StackName" Core.=: stackName
+      ]
 
--- | /See:/ 'setStackPolicyResponse' smart constructor.
-data SetStackPolicyResponse =
-  SetStackPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSetStackPolicyResponse' smart constructor.
+data SetStackPolicyResponse = SetStackPolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetStackPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetStackPolicyResponse' with all optional fields omitted.
 --
-setStackPolicyResponse
-    :: SetStackPolicyResponse
-setStackPolicyResponse = SetStackPolicyResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newSetStackPolicyResponse ::
+  SetStackPolicyResponse
+newSetStackPolicyResponse = SetStackPolicyResponse'
 
-
-instance NFData SetStackPolicyResponse where
+instance Prelude.NFData SetStackPolicyResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DescribeReceiptRuleSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,134 +22,164 @@
 --
 -- Returns the details of the specified receipt rule set.
 --
---
--- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
+-- For information about managing receipt rule sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DescribeReceiptRuleSet
-    (
-    -- * Creating a Request
-      describeReceiptRuleSet
-    , DescribeReceiptRuleSet
+  ( -- * Creating a Request
+    DescribeReceiptRuleSet (..),
+    newDescribeReceiptRuleSet,
+
     -- * Request Lenses
-    , drrsRuleSetName
+    describeReceiptRuleSet_ruleSetName,
 
     -- * Destructuring the Response
-    , describeReceiptRuleSetResponse
-    , DescribeReceiptRuleSetResponse
+    DescribeReceiptRuleSetResponse (..),
+    newDescribeReceiptRuleSetResponse,
+
     -- * Response Lenses
-    , desrsRules
-    , desrsMetadata
-    , desrsResponseStatus
-    ) where
+    describeReceiptRuleSetResponse_rules,
+    describeReceiptRuleSetResponse_metadata,
+    describeReceiptRuleSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+-- | Represents a request to return the details of a receipt rule set. You
+-- use receipt rule sets to receive email with Amazon SES. For more
+-- information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'describeReceiptRuleSet' smart constructor.
-newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
-  { _drrsRuleSetName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeReceiptRuleSet' smart constructor.
+data DescribeReceiptRuleSet = DescribeReceiptRuleSet'
+  { -- | The name of the receipt rule set to describe.
+    ruleSetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReceiptRuleSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReceiptRuleSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drrsRuleSetName' - The name of the receipt rule set to describe.
-describeReceiptRuleSet
-    :: Text -- ^ 'drrsRuleSetName'
-    -> DescribeReceiptRuleSet
-describeReceiptRuleSet pRuleSetName_ =
-  DescribeReceiptRuleSet' {_drrsRuleSetName = pRuleSetName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ruleSetName', 'describeReceiptRuleSet_ruleSetName' - The name of the receipt rule set to describe.
+newDescribeReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Prelude.Text ->
+  DescribeReceiptRuleSet
+newDescribeReceiptRuleSet pRuleSetName_ =
+  DescribeReceiptRuleSet'
+    { ruleSetName =
+        pRuleSetName_
+    }
 
 -- | The name of the receipt rule set to describe.
-drrsRuleSetName :: Lens' DescribeReceiptRuleSet Text
-drrsRuleSetName = lens _drrsRuleSetName (\ s a -> s{_drrsRuleSetName = a})
+describeReceiptRuleSet_ruleSetName :: Lens.Lens' DescribeReceiptRuleSet Prelude.Text
+describeReceiptRuleSet_ruleSetName = Lens.lens (\DescribeReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@DescribeReceiptRuleSet' {} a -> s {ruleSetName = a} :: DescribeReceiptRuleSet)
 
-instance AWSRequest DescribeReceiptRuleSet where
-        type Rs DescribeReceiptRuleSet =
-             DescribeReceiptRuleSetResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "DescribeReceiptRuleSetResult"
-              (\ s h x ->
-                 DescribeReceiptRuleSetResponse' <$>
-                   (x .@? "Rules" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "Metadata")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeReceiptRuleSet where
+  type
+    AWSResponse DescribeReceiptRuleSet =
+      DescribeReceiptRuleSetResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeReceiptRuleSetResult"
+      ( \s h x ->
+          DescribeReceiptRuleSetResponse'
+            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Metadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeReceiptRuleSet where
+instance Prelude.Hashable DescribeReceiptRuleSet
 
-instance NFData DescribeReceiptRuleSet where
+instance Prelude.NFData DescribeReceiptRuleSet
 
-instance ToHeaders DescribeReceiptRuleSet where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeReceiptRuleSet where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeReceiptRuleSet where
-        toPath = const "/"
+instance Core.ToPath DescribeReceiptRuleSet where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeReceiptRuleSet where
-        toQuery DescribeReceiptRuleSet'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeReceiptRuleSet" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "RuleSetName" =: _drrsRuleSetName]
+instance Core.ToQuery DescribeReceiptRuleSet where
+  toQuery DescribeReceiptRuleSet' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeReceiptRuleSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "RuleSetName" Core.=: ruleSetName
+      ]
 
 -- | Represents the details of the specified receipt rule set.
 --
---
---
--- /See:/ 'describeReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'newDescribeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-  { _desrsRules          :: !(Maybe [ReceiptRule])
-  , _desrsMetadata       :: !(Maybe ReceiptRuleSetMetadata)
-  , _desrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of the receipt rules that belong to the specified receipt rule
+    -- set.
+    rules :: Prelude.Maybe [ReceiptRule],
+    -- | The metadata for the receipt rule set, which consists of the rule set
+    -- name and the timestamp of when the rule set was created.
+    metadata :: Prelude.Maybe ReceiptRuleSetMetadata,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReceiptRuleSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReceiptRuleSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsRules' - A list of the receipt rules that belong to the specified receipt rule set.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsMetadata' - The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
+-- 'rules', 'describeReceiptRuleSetResponse_rules' - A list of the receipt rules that belong to the specified receipt rule
+-- set.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeReceiptRuleSetResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeReceiptRuleSetResponse
-describeReceiptRuleSetResponse pResponseStatus_ =
+-- 'metadata', 'describeReceiptRuleSetResponse_metadata' - The metadata for the receipt rule set, which consists of the rule set
+-- name and the timestamp of when the rule set was created.
+--
+-- 'httpStatus', 'describeReceiptRuleSetResponse_httpStatus' - The response's http status code.
+newDescribeReceiptRuleSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReceiptRuleSetResponse
+newDescribeReceiptRuleSetResponse pHttpStatus_ =
   DescribeReceiptRuleSetResponse'
-    { _desrsRules = Nothing
-    , _desrsMetadata = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { rules =
+        Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of the receipt rules that belong to the specified receipt rule
+-- set.
+describeReceiptRuleSetResponse_rules :: Lens.Lens' DescribeReceiptRuleSetResponse (Prelude.Maybe [ReceiptRule])
+describeReceiptRuleSetResponse_rules = Lens.lens (\DescribeReceiptRuleSetResponse' {rules} -> rules) (\s@DescribeReceiptRuleSetResponse' {} a -> s {rules = a} :: DescribeReceiptRuleSetResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of the receipt rules that belong to the specified receipt rule set.
-desrsRules :: Lens' DescribeReceiptRuleSetResponse [ReceiptRule]
-desrsRules = lens _desrsRules (\ s a -> s{_desrsRules = a}) . _Default . _Coerce
+-- | The metadata for the receipt rule set, which consists of the rule set
+-- name and the timestamp of when the rule set was created.
+describeReceiptRuleSetResponse_metadata :: Lens.Lens' DescribeReceiptRuleSetResponse (Prelude.Maybe ReceiptRuleSetMetadata)
+describeReceiptRuleSetResponse_metadata = Lens.lens (\DescribeReceiptRuleSetResponse' {metadata} -> metadata) (\s@DescribeReceiptRuleSetResponse' {} a -> s {metadata = a} :: DescribeReceiptRuleSetResponse)
 
--- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
-desrsMetadata :: Lens' DescribeReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
-desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a})
+-- | The response's http status code.
+describeReceiptRuleSetResponse_httpStatus :: Lens.Lens' DescribeReceiptRuleSetResponse Prelude.Int
+describeReceiptRuleSetResponse_httpStatus = Lens.lens (\DescribeReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@DescribeReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: DescribeReceiptRuleSetResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeReceiptRuleSetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
-
-instance NFData DescribeReceiptRuleSetResponse where
+instance
+  Prelude.NFData
+    DescribeReceiptRuleSetResponse

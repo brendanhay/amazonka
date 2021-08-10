@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetIdentityPoolRoles
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,149 +22,184 @@
 --
 -- Gets the roles for an identity pool.
 --
---
 -- You must use AWS Developer credentials to call this API.
---
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-    (
-    -- * Creating a Request
-      getIdentityPoolRoles
-    , GetIdentityPoolRoles
+  ( -- * Creating a Request
+    GetIdentityPoolRoles (..),
+    newGetIdentityPoolRoles,
+
     -- * Request Lenses
-    , giprIdentityPoolId
+    getIdentityPoolRoles_identityPoolId,
 
     -- * Destructuring the Response
-    , getIdentityPoolRolesResponse
-    , GetIdentityPoolRolesResponse
+    GetIdentityPoolRolesResponse (..),
+    newGetIdentityPoolRolesResponse,
+
     -- * Response Lenses
-    , giprrsRoles
-    , giprrsIdentityPoolId
-    , giprrsRoleMappings
-    , giprrsResponseStatus
-    ) where
+    getIdentityPoolRolesResponse_identityPoolId,
+    getIdentityPoolRolesResponse_roles,
+    getIdentityPoolRolesResponse_roleMappings,
+    getIdentityPoolRolesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the @GetIdentityPoolRoles@ action.
 --
---
---
--- /See:/ 'getIdentityPoolRoles' smart constructor.
-newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
-  { _giprIdentityPoolId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetIdentityPoolRoles' smart constructor.
+data GetIdentityPoolRoles = GetIdentityPoolRoles'
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdentityPoolRoles' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdentityPoolRoles' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giprIdentityPoolId' - An identity pool ID in the format REGION:GUID.
-getIdentityPoolRoles
-    :: Text -- ^ 'giprIdentityPoolId'
-    -> GetIdentityPoolRoles
-getIdentityPoolRoles pIdentityPoolId_ =
-  GetIdentityPoolRoles' {_giprIdentityPoolId = pIdentityPoolId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'identityPoolId', 'getIdentityPoolRoles_identityPoolId' - An identity pool ID in the format REGION:GUID.
+newGetIdentityPoolRoles ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  GetIdentityPoolRoles
+newGetIdentityPoolRoles pIdentityPoolId_ =
+  GetIdentityPoolRoles'
+    { identityPoolId =
+        pIdentityPoolId_
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
-giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
-giprIdentityPoolId = lens _giprIdentityPoolId (\ s a -> s{_giprIdentityPoolId = a})
+getIdentityPoolRoles_identityPoolId :: Lens.Lens' GetIdentityPoolRoles Prelude.Text
+getIdentityPoolRoles_identityPoolId = Lens.lens (\GetIdentityPoolRoles' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRoles' {} a -> s {identityPoolId = a} :: GetIdentityPoolRoles)
 
-instance AWSRequest GetIdentityPoolRoles where
-        type Rs GetIdentityPoolRoles =
-             GetIdentityPoolRolesResponse
-        request = postJSON cognitoIdentity
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetIdentityPoolRolesResponse' <$>
-                   (x .?> "Roles" .!@ mempty) <*>
-                     (x .?> "IdentityPoolId")
-                     <*> (x .?> "RoleMappings" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetIdentityPoolRoles where
+  type
+    AWSResponse GetIdentityPoolRoles =
+      GetIdentityPoolRolesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetIdentityPoolRolesResponse'
+            Prelude.<$> (x Core..?> "IdentityPoolId")
+            Prelude.<*> (x Core..?> "Roles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RoleMappings" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetIdentityPoolRoles where
+instance Prelude.Hashable GetIdentityPoolRoles
 
-instance NFData GetIdentityPoolRoles where
+instance Prelude.NFData GetIdentityPoolRoles
 
-instance ToHeaders GetIdentityPoolRoles where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityService.GetIdentityPoolRoles" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetIdentityPoolRoles where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetIdentityPoolRoles where
-        toJSON GetIdentityPoolRoles'{..}
-          = object
-              (catMaybes
-                 [Just ("IdentityPoolId" .= _giprIdentityPoolId)])
+instance Core.ToJSON GetIdentityPoolRoles where
+  toJSON GetIdentityPoolRoles' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IdentityPoolId" Core..= identityPoolId)
+          ]
+      )
 
-instance ToPath GetIdentityPoolRoles where
-        toPath = const "/"
+instance Core.ToPath GetIdentityPoolRoles where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetIdentityPoolRoles where
-        toQuery = const mempty
+instance Core.ToQuery GetIdentityPoolRoles where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @GetIdentityPoolRoles@ operation.
 --
---
---
--- /See:/ 'getIdentityPoolRolesResponse' smart constructor.
+-- /See:/ 'newGetIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-  { _giprrsRoles          :: !(Maybe (Map Text Text))
-  , _giprrsIdentityPoolId :: !(Maybe Text)
-  , _giprrsRoleMappings   :: !(Maybe (Map Text RoleMapping))
-  , _giprrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The map of roles associated with this pool. Currently only authenticated
+    -- and unauthenticated roles are supported.
+    roles :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | How users for a specific identity provider are to mapped to roles. This
+    -- is a String-to-RoleMapping object map. The string identifies the
+    -- identity provider, for example, \"graph.facebook.com\" or
+    -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
+    roleMappings :: Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdentityPoolRolesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giprrsRoles' - The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giprrsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
+-- 'identityPoolId', 'getIdentityPoolRolesResponse_identityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'giprrsRoleMappings' - How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+-- 'roles', 'getIdentityPoolRolesResponse_roles' - The map of roles associated with this pool. Currently only authenticated
+-- and unauthenticated roles are supported.
 --
--- * 'giprrsResponseStatus' - -- | The response status code.
-getIdentityPoolRolesResponse
-    :: Int -- ^ 'giprrsResponseStatus'
-    -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pResponseStatus_ =
+-- 'roleMappings', 'getIdentityPoolRolesResponse_roleMappings' - How users for a specific identity provider are to mapped to roles. This
+-- is a String-to-RoleMapping object map. The string identifies the
+-- identity provider, for example, \"graph.facebook.com\" or
+-- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
+--
+-- 'httpStatus', 'getIdentityPoolRolesResponse_httpStatus' - The response's http status code.
+newGetIdentityPoolRolesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIdentityPoolRolesResponse
+newGetIdentityPoolRolesResponse pHttpStatus_ =
   GetIdentityPoolRolesResponse'
-    { _giprrsRoles = Nothing
-    , _giprrsIdentityPoolId = Nothing
-    , _giprrsRoleMappings = Nothing
-    , _giprrsResponseStatus = pResponseStatus_
+    { identityPoolId =
+        Prelude.Nothing,
+      roles = Prelude.Nothing,
+      roleMappings = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
-giprrsRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
-giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map
-
 -- | An identity pool ID in the format REGION:GUID.
-giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
-giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a})
+getIdentityPoolRolesResponse_identityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe Prelude.Text)
+getIdentityPoolRolesResponse_identityPoolId = Lens.lens (\GetIdentityPoolRolesResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRolesResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolRolesResponse)
 
--- | How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-giprrsRoleMappings :: Lens' GetIdentityPoolRolesResponse (HashMap Text RoleMapping)
-giprrsRoleMappings = lens _giprrsRoleMappings (\ s a -> s{_giprrsRoleMappings = a}) . _Default . _Map
+-- | The map of roles associated with this pool. Currently only authenticated
+-- and unauthenticated roles are supported.
+getIdentityPoolRolesResponse_roles :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getIdentityPoolRolesResponse_roles = Lens.lens (\GetIdentityPoolRolesResponse' {roles} -> roles) (\s@GetIdentityPoolRolesResponse' {} a -> s {roles = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-giprrsResponseStatus :: Lens' GetIdentityPoolRolesResponse Int
-giprrsResponseStatus = lens _giprrsResponseStatus (\ s a -> s{_giprrsResponseStatus = a})
+-- | How users for a specific identity provider are to mapped to roles. This
+-- is a String-to-RoleMapping object map. The string identifies the
+-- identity provider, for example, \"graph.facebook.com\" or
+-- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
+getIdentityPoolRolesResponse_roleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping))
+getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResponse' {roleMappings} -> roleMappings) (\s@GetIdentityPoolRolesResponse' {} a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData GetIdentityPoolRolesResponse where
+-- | The response's http status code.
+getIdentityPoolRolesResponse_httpStatus :: Lens.Lens' GetIdentityPoolRolesResponse Prelude.Int
+getIdentityPoolRolesResponse_httpStatus = Lens.lens (\GetIdentityPoolRolesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoolRolesResponse' {} a -> s {httpStatus = a} :: GetIdentityPoolRolesResponse)
+
+instance Prelude.NFData GetIdentityPoolRolesResponse

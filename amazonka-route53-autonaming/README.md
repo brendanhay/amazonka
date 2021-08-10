@@ -1,4 +1,4 @@
-# Amazon Route 53 Auto Naming SDK
+# Amazon Cloud Map SDK
 
 * [Version](#version)
 * [Description](#description)
@@ -7,9 +7,8 @@
 
 
 ## Version
-
-`1.6.1`
-
+ 
+`1.6.1` - Derived from API version @2017-03-14@ of the AWS service descriptions, licensed under Apache 2.0.
 
 ## Description
 

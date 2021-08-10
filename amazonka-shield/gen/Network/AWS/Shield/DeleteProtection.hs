@@ -1,123 +1,149 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.DeleteProtection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Shield Advanced 'Protection' .
---
---
+-- Deletes an AWS Shield Advanced Protection.
 module Network.AWS.Shield.DeleteProtection
-    (
-    -- * Creating a Request
-      deleteProtection
-    , DeleteProtection
+  ( -- * Creating a Request
+    DeleteProtection (..),
+    newDeleteProtection,
+
     -- * Request Lenses
-    , dProtectionId
+    deleteProtection_protectionId,
 
     -- * Destructuring the Response
-    , deleteProtectionResponse
-    , DeleteProtectionResponse
+    DeleteProtectionResponse (..),
+    newDeleteProtectionResponse,
+
     -- * Response Lenses
-    , delrsResponseStatus
-    ) where
+    deleteProtectionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
--- | /See:/ 'deleteProtection' smart constructor.
-newtype DeleteProtection = DeleteProtection'
-  { _dProtectionId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteProtection' smart constructor.
+data DeleteProtection = DeleteProtection'
+  { -- | The unique identifier (ID) for the Protection object to be deleted.
+    protectionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteProtection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteProtection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dProtectionId' - The unique identifier (ID) for the 'Protection' object to be deleted.
-deleteProtection
-    :: Text -- ^ 'dProtectionId'
-    -> DeleteProtection
-deleteProtection pProtectionId_ =
-  DeleteProtection' {_dProtectionId = pProtectionId_}
-
-
--- | The unique identifier (ID) for the 'Protection' object to be deleted.
-dProtectionId :: Lens' DeleteProtection Text
-dProtectionId = lens _dProtectionId (\ s a -> s{_dProtectionId = a})
-
-instance AWSRequest DeleteProtection where
-        type Rs DeleteProtection = DeleteProtectionResponse
-        request = postJSON shield
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteProtectionResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteProtection where
-
-instance NFData DeleteProtection where
-
-instance ToHeaders DeleteProtection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.DeleteProtection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteProtection where
-        toJSON DeleteProtection'{..}
-          = object
-              (catMaybes [Just ("ProtectionId" .= _dProtectionId)])
-
-instance ToPath DeleteProtection where
-        toPath = const "/"
-
-instance ToQuery DeleteProtection where
-        toQuery = const mempty
-
--- | /See:/ 'deleteProtectionResponse' smart constructor.
-newtype DeleteProtectionResponse = DeleteProtectionResponse'
-  { _delrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteProtectionResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'protectionId', 'deleteProtection_protectionId' - The unique identifier (ID) for the Protection object to be deleted.
+newDeleteProtection ::
+  -- | 'protectionId'
+  Prelude.Text ->
+  DeleteProtection
+newDeleteProtection pProtectionId_ =
+  DeleteProtection' {protectionId = pProtectionId_}
+
+-- | The unique identifier (ID) for the Protection object to be deleted.
+deleteProtection_protectionId :: Lens.Lens' DeleteProtection Prelude.Text
+deleteProtection_protectionId = Lens.lens (\DeleteProtection' {protectionId} -> protectionId) (\s@DeleteProtection' {} a -> s {protectionId = a} :: DeleteProtection)
+
+instance Core.AWSRequest DeleteProtection where
+  type
+    AWSResponse DeleteProtection =
+      DeleteProtectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteProtectionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteProtection
+
+instance Prelude.NFData DeleteProtection
+
+instance Core.ToHeaders DeleteProtection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSShield_20160616.DeleteProtection" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteProtection where
+  toJSON DeleteProtection' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ProtectionId" Core..= protectionId)]
+      )
+
+instance Core.ToPath DeleteProtection where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteProtection where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteProtectionResponse' smart constructor.
+data DeleteProtectionResponse = DeleteProtectionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteProtectionResponse' with all optional fields omitted.
 --
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteProtectionResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> DeleteProtectionResponse
-deleteProtectionResponse pResponseStatus_ =
-  DeleteProtectionResponse' {_delrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteProtectionResponse_httpStatus' - The response's http status code.
+newDeleteProtectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteProtectionResponse
+newDeleteProtectionResponse pHttpStatus_ =
+  DeleteProtectionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteProtectionResponse_httpStatus :: Lens.Lens' DeleteProtectionResponse Prelude.Int
+deleteProtectionResponse_httpStatus = Lens.lens (\DeleteProtectionResponse' {httpStatus} -> httpStatus) (\s@DeleteProtectionResponse' {} a -> s {httpStatus = a} :: DeleteProtectionResponse)
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteProtectionResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
-
-instance NFData DeleteProtectionResponse where
+instance Prelude.NFData DeleteProtectionResponse

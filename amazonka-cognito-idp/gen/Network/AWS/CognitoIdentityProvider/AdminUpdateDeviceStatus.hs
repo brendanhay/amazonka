@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,182 @@
 --
 -- Updates the device status as an administrator.
 --
---
--- Requires developer credentials.
---
+-- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
-    (
-    -- * Creating a Request
-      adminUpdateDeviceStatus
-    , AdminUpdateDeviceStatus
+  ( -- * Creating a Request
+    AdminUpdateDeviceStatus (..),
+    newAdminUpdateDeviceStatus,
+
     -- * Request Lenses
-    , audsDeviceRememberedStatus
-    , audsUserPoolId
-    , audsUsername
-    , audsDeviceKey
+    adminUpdateDeviceStatus_deviceRememberedStatus,
+    adminUpdateDeviceStatus_userPoolId,
+    adminUpdateDeviceStatus_username,
+    adminUpdateDeviceStatus_deviceKey,
 
     -- * Destructuring the Response
-    , adminUpdateDeviceStatusResponse
-    , AdminUpdateDeviceStatusResponse
+    AdminUpdateDeviceStatusResponse (..),
+    newAdminUpdateDeviceStatusResponse,
+
     -- * Response Lenses
-    , audsrsResponseStatus
-    ) where
+    adminUpdateDeviceStatusResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to update the device status, as an administrator.
 --
---
---
--- /See:/ 'adminUpdateDeviceStatus' smart constructor.
+-- /See:/ 'newAdminUpdateDeviceStatus' smart constructor.
 data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
-  { _audsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
-  , _audsUserPoolId             :: !Text
-  , _audsUsername               :: !(Sensitive Text)
-  , _audsDeviceKey              :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The status indicating whether a device has been remembered or not.
+    deviceRememberedStatus :: Prelude.Maybe DeviceRememberedStatusType,
+    -- | The user pool ID.
+    userPoolId :: Prelude.Text,
+    -- | The user name.
+    username :: Core.Sensitive Prelude.Text,
+    -- | The device key.
+    deviceKey :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AdminUpdateDeviceStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminUpdateDeviceStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'audsDeviceRememberedStatus' - The status indicating whether a device has been remembered or not.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'audsUserPoolId' - The user pool ID.
+-- 'deviceRememberedStatus', 'adminUpdateDeviceStatus_deviceRememberedStatus' - The status indicating whether a device has been remembered or not.
 --
--- * 'audsUsername' - The user name.
+-- 'userPoolId', 'adminUpdateDeviceStatus_userPoolId' - The user pool ID.
 --
--- * 'audsDeviceKey' - The device key.
-adminUpdateDeviceStatus
-    :: Text -- ^ 'audsUserPoolId'
-    -> Text -- ^ 'audsUsername'
-    -> Text -- ^ 'audsDeviceKey'
-    -> AdminUpdateDeviceStatus
-adminUpdateDeviceStatus pUserPoolId_ pUsername_ pDeviceKey_ =
-  AdminUpdateDeviceStatus'
-    { _audsDeviceRememberedStatus = Nothing
-    , _audsUserPoolId = pUserPoolId_
-    , _audsUsername = _Sensitive # pUsername_
-    , _audsDeviceKey = pDeviceKey_
-    }
-
+-- 'username', 'adminUpdateDeviceStatus_username' - The user name.
+--
+-- 'deviceKey', 'adminUpdateDeviceStatus_deviceKey' - The device key.
+newAdminUpdateDeviceStatus ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'username'
+  Prelude.Text ->
+  -- | 'deviceKey'
+  Prelude.Text ->
+  AdminUpdateDeviceStatus
+newAdminUpdateDeviceStatus
+  pUserPoolId_
+  pUsername_
+  pDeviceKey_ =
+    AdminUpdateDeviceStatus'
+      { deviceRememberedStatus =
+          Prelude.Nothing,
+        userPoolId = pUserPoolId_,
+        username = Core._Sensitive Lens.# pUsername_,
+        deviceKey = pDeviceKey_
+      }
 
 -- | The status indicating whether a device has been remembered or not.
-audsDeviceRememberedStatus :: Lens' AdminUpdateDeviceStatus (Maybe DeviceRememberedStatusType)
-audsDeviceRememberedStatus = lens _audsDeviceRememberedStatus (\ s a -> s{_audsDeviceRememberedStatus = a})
+adminUpdateDeviceStatus_deviceRememberedStatus :: Lens.Lens' AdminUpdateDeviceStatus (Prelude.Maybe DeviceRememberedStatusType)
+adminUpdateDeviceStatus_deviceRememberedStatus = Lens.lens (\AdminUpdateDeviceStatus' {deviceRememberedStatus} -> deviceRememberedStatus) (\s@AdminUpdateDeviceStatus' {} a -> s {deviceRememberedStatus = a} :: AdminUpdateDeviceStatus)
 
 -- | The user pool ID.
-audsUserPoolId :: Lens' AdminUpdateDeviceStatus Text
-audsUserPoolId = lens _audsUserPoolId (\ s a -> s{_audsUserPoolId = a})
+adminUpdateDeviceStatus_userPoolId :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
+adminUpdateDeviceStatus_userPoolId = Lens.lens (\AdminUpdateDeviceStatus' {userPoolId} -> userPoolId) (\s@AdminUpdateDeviceStatus' {} a -> s {userPoolId = a} :: AdminUpdateDeviceStatus)
 
 -- | The user name.
-audsUsername :: Lens' AdminUpdateDeviceStatus Text
-audsUsername = lens _audsUsername (\ s a -> s{_audsUsername = a}) . _Sensitive
+adminUpdateDeviceStatus_username :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
+adminUpdateDeviceStatus_username = Lens.lens (\AdminUpdateDeviceStatus' {username} -> username) (\s@AdminUpdateDeviceStatus' {} a -> s {username = a} :: AdminUpdateDeviceStatus) Prelude.. Core._Sensitive
 
 -- | The device key.
-audsDeviceKey :: Lens' AdminUpdateDeviceStatus Text
-audsDeviceKey = lens _audsDeviceKey (\ s a -> s{_audsDeviceKey = a})
+adminUpdateDeviceStatus_deviceKey :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
+adminUpdateDeviceStatus_deviceKey = Lens.lens (\AdminUpdateDeviceStatus' {deviceKey} -> deviceKey) (\s@AdminUpdateDeviceStatus' {} a -> s {deviceKey = a} :: AdminUpdateDeviceStatus)
 
-instance AWSRequest AdminUpdateDeviceStatus where
-        type Rs AdminUpdateDeviceStatus =
-             AdminUpdateDeviceStatusResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AdminUpdateDeviceStatusResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest AdminUpdateDeviceStatus where
+  type
+    AWSResponse AdminUpdateDeviceStatus =
+      AdminUpdateDeviceStatusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AdminUpdateDeviceStatusResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AdminUpdateDeviceStatus where
+instance Prelude.Hashable AdminUpdateDeviceStatus
 
-instance NFData AdminUpdateDeviceStatus where
+instance Prelude.NFData AdminUpdateDeviceStatus
 
-instance ToHeaders AdminUpdateDeviceStatus where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AdminUpdateDeviceStatus where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AdminUpdateDeviceStatus where
-        toJSON AdminUpdateDeviceStatus'{..}
-          = object
-              (catMaybes
-                 [("DeviceRememberedStatus" .=) <$>
-                    _audsDeviceRememberedStatus,
-                  Just ("UserPoolId" .= _audsUserPoolId),
-                  Just ("Username" .= _audsUsername),
-                  Just ("DeviceKey" .= _audsDeviceKey)])
+instance Core.ToJSON AdminUpdateDeviceStatus where
+  toJSON AdminUpdateDeviceStatus' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("DeviceRememberedStatus" Core..=)
+              Prelude.<$> deviceRememberedStatus,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("DeviceKey" Core..= deviceKey)
+          ]
+      )
 
-instance ToPath AdminUpdateDeviceStatus where
-        toPath = const "/"
+instance Core.ToPath AdminUpdateDeviceStatus where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminUpdateDeviceStatus where
-        toQuery = const mempty
+instance Core.ToQuery AdminUpdateDeviceStatus where
+  toQuery = Prelude.const Prelude.mempty
 
--- | The status response from the request to update the device, as an administrator.
+-- | The status response from the request to update the device, as an
+-- administrator.
 --
+-- /See:/ 'newAdminUpdateDeviceStatusResponse' smart constructor.
+data AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AdminUpdateDeviceStatusResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'adminUpdateDeviceStatusResponse' smart constructor.
-newtype AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
-  { _audsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AdminUpdateDeviceStatusResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'audsrsResponseStatus' - -- | The response status code.
-adminUpdateDeviceStatusResponse
-    :: Int -- ^ 'audsrsResponseStatus'
-    -> AdminUpdateDeviceStatusResponse
-adminUpdateDeviceStatusResponse pResponseStatus_ =
-  AdminUpdateDeviceStatusResponse' {_audsrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'adminUpdateDeviceStatusResponse_httpStatus' - The response's http status code.
+newAdminUpdateDeviceStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AdminUpdateDeviceStatusResponse
+newAdminUpdateDeviceStatusResponse pHttpStatus_ =
+  AdminUpdateDeviceStatusResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+adminUpdateDeviceStatusResponse_httpStatus :: Lens.Lens' AdminUpdateDeviceStatusResponse Prelude.Int
+adminUpdateDeviceStatusResponse_httpStatus = Lens.lens (\AdminUpdateDeviceStatusResponse' {httpStatus} -> httpStatus) (\s@AdminUpdateDeviceStatusResponse' {} a -> s {httpStatus = a} :: AdminUpdateDeviceStatusResponse)
 
--- | -- | The response status code.
-audsrsResponseStatus :: Lens' AdminUpdateDeviceStatusResponse Int
-audsrsResponseStatus = lens _audsrsResponseStatus (\ s a -> s{_audsrsResponseStatus = a})
-
-instance NFData AdminUpdateDeviceStatusResponse where
+instance
+  Prelude.NFData
+    AdminUpdateDeviceStatusResponse

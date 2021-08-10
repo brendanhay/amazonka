@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListUploads
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,410 @@
 --
 -- Gets information about uploads, given an AWS Device Farm project ARN.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUploads
-    (
-    -- * Creating a Request
-      listUploads
-    , ListUploads
+  ( -- * Creating a Request
+    ListUploads (..),
+    newListUploads,
+
     -- * Request Lenses
-    , luNextToken
-    , luArn
+    listUploads_nextToken,
+    listUploads_type,
+    listUploads_arn,
 
     -- * Destructuring the Response
-    , listUploadsResponse
-    , ListUploadsResponse
-    -- * Response Lenses
-    , lursNextToken
-    , lursUploads
-    , lursResponseStatus
-    ) where
+    ListUploadsResponse (..),
+    newListUploadsResponse,
 
+    -- * Response Lenses
+    listUploadsResponse_nextToken,
+    listUploadsResponse_uploads,
+    listUploadsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the list uploads operation.
 --
---
---
--- /See:/ 'listUploads' smart constructor.
+-- /See:/ 'newListUploads' smart constructor.
 data ListUploads = ListUploads'
-  { _luNextToken :: !(Maybe Text)
-  , _luArn       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of upload.
+    --
+    -- Must be one of the following values:
+    --
+    -- -   ANDROID_APP
+    --
+    -- -   IOS_APP
+    --
+    -- -   WEB_APP
+    --
+    -- -   EXTERNAL_DATA
+    --
+    -- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE
+    --
+    -- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE
+    --
+    -- -   APPIUM_PYTHON_TEST_PACKAGE
+    --
+    -- -   APPIUM_NODE_TEST_PACKAGE
+    --
+    -- -   APPIUM_RUBY_TEST_PACKAGE
+    --
+    -- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+    --
+    -- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+    --
+    -- -   APPIUM_WEB_PYTHON_TEST_PACKAGE
+    --
+    -- -   APPIUM_WEB_NODE_TEST_PACKAGE
+    --
+    -- -   APPIUM_WEB_RUBY_TEST_PACKAGE
+    --
+    -- -   CALABASH_TEST_PACKAGE
+    --
+    -- -   INSTRUMENTATION_TEST_PACKAGE
+    --
+    -- -   UIAUTOMATION_TEST_PACKAGE
+    --
+    -- -   UIAUTOMATOR_TEST_PACKAGE
+    --
+    -- -   XCTEST_TEST_PACKAGE
+    --
+    -- -   XCTEST_UI_TEST_PACKAGE
+    --
+    -- -   APPIUM_JAVA_JUNIT_TEST_SPEC
+    --
+    -- -   APPIUM_JAVA_TESTNG_TEST_SPEC
+    --
+    -- -   APPIUM_PYTHON_TEST_SPEC
+    --
+    -- -   APPIUM_NODE_TEST_SPEC
+    --
+    -- -   APPIUM_RUBY_TEST_SPEC
+    --
+    -- -   APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+    --
+    -- -   APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+    --
+    -- -   APPIUM_WEB_PYTHON_TEST_SPEC
+    --
+    -- -   APPIUM_WEB_NODE_TEST_SPEC
+    --
+    -- -   APPIUM_WEB_RUBY_TEST_SPEC
+    --
+    -- -   INSTRUMENTATION_TEST_SPEC
+    --
+    -- -   XCTEST_UI_TEST_SPEC
+    type' :: Prelude.Maybe UploadType,
+    -- | The Amazon Resource Name (ARN) of the project for which you want to list
+    -- uploads.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListUploads' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListUploads' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'luNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'luArn' - The Amazon Resource Name (ARN) of the project for which you want to list uploads.
-listUploads
-    :: Text -- ^ 'luArn'
-    -> ListUploads
-listUploads pArn_ = ListUploads' {_luNextToken = Nothing, _luArn = pArn_}
+-- 'nextToken', 'listUploads_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'type'', 'listUploads_type' - The type of upload.
+--
+-- Must be one of the following values:
+--
+-- -   ANDROID_APP
+--
+-- -   IOS_APP
+--
+-- -   WEB_APP
+--
+-- -   EXTERNAL_DATA
+--
+-- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+-- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+-- -   APPIUM_PYTHON_TEST_PACKAGE
+--
+-- -   APPIUM_NODE_TEST_PACKAGE
+--
+-- -   APPIUM_RUBY_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_NODE_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+-- -   CALABASH_TEST_PACKAGE
+--
+-- -   INSTRUMENTATION_TEST_PACKAGE
+--
+-- -   UIAUTOMATION_TEST_PACKAGE
+--
+-- -   UIAUTOMATOR_TEST_PACKAGE
+--
+-- -   XCTEST_TEST_PACKAGE
+--
+-- -   XCTEST_UI_TEST_PACKAGE
+--
+-- -   APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+-- -   APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+-- -   APPIUM_PYTHON_TEST_SPEC
+--
+-- -   APPIUM_NODE_TEST_SPEC
+--
+-- -   APPIUM_RUBY_TEST_SPEC
+--
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+-- -   APPIUM_WEB_PYTHON_TEST_SPEC
+--
+-- -   APPIUM_WEB_NODE_TEST_SPEC
+--
+-- -   APPIUM_WEB_RUBY_TEST_SPEC
+--
+-- -   INSTRUMENTATION_TEST_SPEC
+--
+-- -   XCTEST_UI_TEST_SPEC
+--
+-- 'arn', 'listUploads_arn' - The Amazon Resource Name (ARN) of the project for which you want to list
+-- uploads.
+newListUploads ::
+  -- | 'arn'
+  Prelude.Text ->
+  ListUploads
+newListUploads pArn_ =
+  ListUploads'
+    { nextToken = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      arn = pArn_
+    }
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listUploads_nextToken :: Lens.Lens' ListUploads (Prelude.Maybe Prelude.Text)
+listUploads_nextToken = Lens.lens (\ListUploads' {nextToken} -> nextToken) (\s@ListUploads' {} a -> s {nextToken = a} :: ListUploads)
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-luNextToken :: Lens' ListUploads (Maybe Text)
-luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a})
+-- | The type of upload.
+--
+-- Must be one of the following values:
+--
+-- -   ANDROID_APP
+--
+-- -   IOS_APP
+--
+-- -   WEB_APP
+--
+-- -   EXTERNAL_DATA
+--
+-- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+-- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+-- -   APPIUM_PYTHON_TEST_PACKAGE
+--
+-- -   APPIUM_NODE_TEST_PACKAGE
+--
+-- -   APPIUM_RUBY_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_NODE_TEST_PACKAGE
+--
+-- -   APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+-- -   CALABASH_TEST_PACKAGE
+--
+-- -   INSTRUMENTATION_TEST_PACKAGE
+--
+-- -   UIAUTOMATION_TEST_PACKAGE
+--
+-- -   UIAUTOMATOR_TEST_PACKAGE
+--
+-- -   XCTEST_TEST_PACKAGE
+--
+-- -   XCTEST_UI_TEST_PACKAGE
+--
+-- -   APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+-- -   APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+-- -   APPIUM_PYTHON_TEST_SPEC
+--
+-- -   APPIUM_NODE_TEST_SPEC
+--
+-- -   APPIUM_RUBY_TEST_SPEC
+--
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+-- -   APPIUM_WEB_PYTHON_TEST_SPEC
+--
+-- -   APPIUM_WEB_NODE_TEST_SPEC
+--
+-- -   APPIUM_WEB_RUBY_TEST_SPEC
+--
+-- -   INSTRUMENTATION_TEST_SPEC
+--
+-- -   XCTEST_UI_TEST_SPEC
+listUploads_type :: Lens.Lens' ListUploads (Prelude.Maybe UploadType)
+listUploads_type = Lens.lens (\ListUploads' {type'} -> type') (\s@ListUploads' {} a -> s {type' = a} :: ListUploads)
 
--- | The Amazon Resource Name (ARN) of the project for which you want to list uploads.
-luArn :: Lens' ListUploads Text
-luArn = lens _luArn (\ s a -> s{_luArn = a})
+-- | The Amazon Resource Name (ARN) of the project for which you want to list
+-- uploads.
+listUploads_arn :: Lens.Lens' ListUploads Prelude.Text
+listUploads_arn = Lens.lens (\ListUploads' {arn} -> arn) (\s@ListUploads' {} a -> s {arn = a} :: ListUploads)
 
-instance AWSPager ListUploads where
-        page rq rs
-          | stop (rs ^. lursNextToken) = Nothing
-          | stop (rs ^. lursUploads) = Nothing
-          | otherwise =
-            Just $ rq & luNextToken .~ rs ^. lursNextToken
+instance Core.AWSPager ListUploads where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUploadsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listUploadsResponse_uploads Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUploads_nextToken
+          Lens..~ rs
+          Lens.^? listUploadsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListUploads where
-        type Rs ListUploads = ListUploadsResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListUploadsResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "uploads" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListUploads where
+  type AWSResponse ListUploads = ListUploadsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListUploadsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "uploads" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListUploads where
+instance Prelude.Hashable ListUploads
 
-instance NFData ListUploads where
+instance Prelude.NFData ListUploads
 
-instance ToHeaders ListUploads where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.ListUploads" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListUploads where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.ListUploads" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListUploads where
-        toJSON ListUploads'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _luNextToken,
-                  Just ("arn" .= _luArn)])
+instance Core.ToJSON ListUploads where
+  toJSON ListUploads' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("type" Core..=) Prelude.<$> type',
+            Prelude.Just ("arn" Core..= arn)
+          ]
+      )
 
-instance ToPath ListUploads where
-        toPath = const "/"
+instance Core.ToPath ListUploads where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListUploads where
-        toQuery = const mempty
+instance Core.ToQuery ListUploads where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list uploads request.
 --
---
---
--- /See:/ 'listUploadsResponse' smart constructor.
+-- /See:/ 'newListUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
-  { _lursNextToken      :: !(Maybe Text)
-  , _lursUploads        :: !(Maybe [Upload])
-  , _lursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the number of items that are returned is significantly large, this is
+    -- an identifier that is also returned. It can be used in a subsequent call
+    -- to this operation to return the next set of items in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the uploads.
+    uploads :: Prelude.Maybe [Upload],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListUploadsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListUploadsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lursNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lursUploads' - Information about the uploads.
+-- 'nextToken', 'listUploadsResponse_nextToken' - If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
 --
--- * 'lursResponseStatus' - -- | The response status code.
-listUploadsResponse
-    :: Int -- ^ 'lursResponseStatus'
-    -> ListUploadsResponse
-listUploadsResponse pResponseStatus_ =
+-- 'uploads', 'listUploadsResponse_uploads' - Information about the uploads.
+--
+-- 'httpStatus', 'listUploadsResponse_httpStatus' - The response's http status code.
+newListUploadsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListUploadsResponse
+newListUploadsResponse pHttpStatus_ =
   ListUploadsResponse'
-    { _lursNextToken = Nothing
-    , _lursUploads = Nothing
-    , _lursResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      uploads = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
-lursNextToken :: Lens' ListUploadsResponse (Maybe Text)
-lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a})
+-- | If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+listUploadsResponse_nextToken :: Lens.Lens' ListUploadsResponse (Prelude.Maybe Prelude.Text)
+listUploadsResponse_nextToken = Lens.lens (\ListUploadsResponse' {nextToken} -> nextToken) (\s@ListUploadsResponse' {} a -> s {nextToken = a} :: ListUploadsResponse)
 
 -- | Information about the uploads.
-lursUploads :: Lens' ListUploadsResponse [Upload]
-lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce
+listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Prelude.Maybe [Upload])
+listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lursResponseStatus :: Lens' ListUploadsResponse Int
-lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a})
+-- | The response's http status code.
+listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Prelude.Int
+listUploadsResponse_httpStatus = Lens.lens (\ListUploadsResponse' {httpStatus} -> httpStatus) (\s@ListUploadsResponse' {} a -> s {httpStatus = a} :: ListUploadsResponse)
 
-instance NFData ListUploadsResponse where
+instance Prelude.NFData ListUploadsResponse

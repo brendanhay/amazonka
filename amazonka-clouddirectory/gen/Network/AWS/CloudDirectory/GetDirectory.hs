@@ -1,127 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetDirectory
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves metadata about a directory.
---
---
 module Network.AWS.CloudDirectory.GetDirectory
-    (
-    -- * Creating a Request
-      getDirectory
-    , GetDirectory
+  ( -- * Creating a Request
+    GetDirectory (..),
+    newGetDirectory,
+
     -- * Request Lenses
-    , gdDirectoryARN
+    getDirectory_directoryArn,
 
     -- * Destructuring the Response
-    , getDirectoryResponse
-    , GetDirectoryResponse
+    GetDirectoryResponse (..),
+    newGetDirectoryResponse,
+
     -- * Response Lenses
-    , gdrsResponseStatus
-    , gdrsDirectory
-    ) where
+    getDirectoryResponse_httpStatus,
+    getDirectoryResponse_directory,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDirectory' smart constructor.
-newtype GetDirectory = GetDirectory'
-  { _gdDirectoryARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetDirectory' smart constructor.
+data GetDirectory = GetDirectory'
+  { -- | The ARN of the directory.
+    directoryArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDirectory' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDirectory' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdDirectoryARN' - The ARN of the directory.
-getDirectory
-    :: Text -- ^ 'gdDirectoryARN'
-    -> GetDirectory
-getDirectory pDirectoryARN_ = GetDirectory' {_gdDirectoryARN = pDirectoryARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryArn', 'getDirectory_directoryArn' - The ARN of the directory.
+newGetDirectory ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  GetDirectory
+newGetDirectory pDirectoryArn_ =
+  GetDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory.
-gdDirectoryARN :: Lens' GetDirectory Text
-gdDirectoryARN = lens _gdDirectoryARN (\ s a -> s{_gdDirectoryARN = a})
+getDirectory_directoryArn :: Lens.Lens' GetDirectory Prelude.Text
+getDirectory_directoryArn = Lens.lens (\GetDirectory' {directoryArn} -> directoryArn) (\s@GetDirectory' {} a -> s {directoryArn = a} :: GetDirectory)
 
-instance AWSRequest GetDirectory where
-        type Rs GetDirectory = GetDirectoryResponse
-        request = postJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDirectoryResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "Directory"))
+instance Core.AWSRequest GetDirectory where
+  type AWSResponse GetDirectory = GetDirectoryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDirectoryResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Directory")
+      )
 
-instance Hashable GetDirectory where
+instance Prelude.Hashable GetDirectory
 
-instance NFData GetDirectory where
+instance Prelude.NFData GetDirectory
 
-instance ToHeaders GetDirectory where
-        toHeaders GetDirectory'{..}
-          = mconcat ["x-amz-data-partition" =# _gdDirectoryARN]
+instance Core.ToHeaders GetDirectory where
+  toHeaders GetDirectory' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON GetDirectory where
-        toJSON = const (Object mempty)
+instance Core.ToJSON GetDirectory where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToPath GetDirectory where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/directory/get"
+instance Core.ToPath GetDirectory where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/directory/get"
 
-instance ToQuery GetDirectory where
-        toQuery = const mempty
+instance Core.ToQuery GetDirectory where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getDirectoryResponse' smart constructor.
+-- | /See:/ 'newGetDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
-  { _gdrsResponseStatus :: !Int
-  , _gdrsDirectory      :: !Directory
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Metadata about the directory.
+    directory :: Directory
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDirectoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDirectoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdrsDirectory' - Metadata about the directory.
-getDirectoryResponse
-    :: Int -- ^ 'gdrsResponseStatus'
-    -> Directory -- ^ 'gdrsDirectory'
-    -> GetDirectoryResponse
-getDirectoryResponse pResponseStatus_ pDirectory_ =
+-- 'httpStatus', 'getDirectoryResponse_httpStatus' - The response's http status code.
+--
+-- 'directory', 'getDirectoryResponse_directory' - Metadata about the directory.
+newGetDirectoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'directory'
+  Directory ->
+  GetDirectoryResponse
+newGetDirectoryResponse pHttpStatus_ pDirectory_ =
   GetDirectoryResponse'
-    {_gdrsResponseStatus = pResponseStatus_, _gdrsDirectory = pDirectory_}
+    { httpStatus = pHttpStatus_,
+      directory = pDirectory_
+    }
 
-
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDirectoryResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
+-- | The response's http status code.
+getDirectoryResponse_httpStatus :: Lens.Lens' GetDirectoryResponse Prelude.Int
+getDirectoryResponse_httpStatus = Lens.lens (\GetDirectoryResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryResponse' {} a -> s {httpStatus = a} :: GetDirectoryResponse)
 
 -- | Metadata about the directory.
-gdrsDirectory :: Lens' GetDirectoryResponse Directory
-gdrsDirectory = lens _gdrsDirectory (\ s a -> s{_gdrsDirectory = a})
+getDirectoryResponse_directory :: Lens.Lens' GetDirectoryResponse Directory
+getDirectoryResponse_directory = Lens.lens (\GetDirectoryResponse' {directory} -> directory) (\s@GetDirectoryResponse' {} a -> s {directory = a} :: GetDirectoryResponse)
 
-instance NFData GetDirectoryResponse where
+instance Prelude.NFData GetDirectoryResponse

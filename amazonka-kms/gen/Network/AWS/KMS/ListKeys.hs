@@ -1,172 +1,261 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeys
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all customer master keys (CMKs) in the caller's AWS account and region.
+-- Gets a list of all customer master keys (CMKs) in the caller\'s AWS
+-- account and Region.
 --
+-- __Cross-account use__: No. You cannot perform this operation on a CMK in
+-- a different AWS account.
 --
+-- __Required permissions__:
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ListKeys>
+-- (IAM policy)
+--
+-- __Related operations:__
+--
+-- -   CreateKey
+--
+-- -   DescribeKey
+--
+-- -   ListAliases
+--
+-- -   ListResourceTags
 --
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListKeys
-    (
-    -- * Creating a Request
-      listKeys
-    , ListKeys
+  ( -- * Creating a Request
+    ListKeys (..),
+    newListKeys,
+
     -- * Request Lenses
-    , lkMarker
-    , lkLimit
+    listKeys_limit,
+    listKeys_marker,
 
     -- * Destructuring the Response
-    , listKeysResponse
-    , ListKeysResponse
+    ListKeysResponse (..),
+    newListKeysResponse,
+
     -- * Response Lenses
-    , lkrsTruncated
-    , lkrsKeys
-    , lkrsNextMarker
-    , lkrsResponseStatus
-    ) where
+    listKeysResponse_nextMarker,
+    listKeysResponse_keys,
+    listKeysResponse_truncated,
+    listKeysResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listKeys' smart constructor.
+-- | /See:/ 'newListKeys' smart constructor.
 data ListKeys = ListKeys'
-  { _lkMarker :: !(Maybe Text)
-  , _lkLimit  :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Use this parameter to specify the maximum number of items to return.
+    -- When this value is present, AWS KMS does not return more than the
+    -- specified number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and
+    -- 1000, inclusive. If you do not include a value, it defaults to 100.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListKeys' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListKeys' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lkMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lkLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
-listKeys
-    :: ListKeys
-listKeys = ListKeys' {_lkMarker = Nothing, _lkLimit = Nothing}
-
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-lkMarker :: Lens' ListKeys (Maybe Text)
-lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a})
-
--- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
-lkLimit :: Lens' ListKeys (Maybe Natural)
-lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat
-
-instance AWSPager ListKeys where
-        page rq rs
-          | stop (rs ^. lkrsTruncated) = Nothing
-          | isNothing (rs ^. lkrsNextMarker) = Nothing
-          | otherwise =
-            Just $ rq & lkMarker .~ rs ^. lkrsNextMarker
-
-instance AWSRequest ListKeys where
-        type Rs ListKeys = ListKeysResponse
-        request = postJSON kms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListKeysResponse' <$>
-                   (x .?> "Truncated") <*> (x .?> "Keys" .!@ mempty) <*>
-                     (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListKeys where
-
-instance NFData ListKeys where
-
-instance ToHeaders ListKeys where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.ListKeys" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListKeys where
-        toJSON ListKeys'{..}
-          = object
-              (catMaybes
-                 [("Marker" .=) <$> _lkMarker,
-                  ("Limit" .=) <$> _lkLimit])
-
-instance ToPath ListKeys where
-        toPath = const "/"
-
-instance ToQuery ListKeys where
-        toQuery = const mempty
-
--- | /See:/ 'listKeysResponse' smart constructor.
-data ListKeysResponse = ListKeysResponse'
-  { _lkrsTruncated      :: !(Maybe Bool)
-  , _lkrsKeys           :: !(Maybe [KeyListEntry])
-  , _lkrsNextMarker     :: !(Maybe Text)
-  , _lkrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListKeysResponse' with the minimum fields required to make a request.
+-- 'limit', 'listKeys_limit' - Use this parameter to specify the maximum number of items to return.
+-- When this value is present, AWS KMS does not return more than the
+-- specified number of items, but it might return fewer.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- This value is optional. If you include a value, it must be between 1 and
+-- 1000, inclusive. If you do not include a value, it defaults to 100.
 --
--- * 'lkrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
---
--- * 'lkrsKeys' - A list of customer master keys (CMKs).
---
--- * 'lkrsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
---
--- * 'lkrsResponseStatus' - -- | The response status code.
-listKeysResponse
-    :: Int -- ^ 'lkrsResponseStatus'
-    -> ListKeysResponse
-listKeysResponse pResponseStatus_ =
-  ListKeysResponse'
-    { _lkrsTruncated = Nothing
-    , _lkrsKeys = Nothing
-    , _lkrsNextMarker = Nothing
-    , _lkrsResponseStatus = pResponseStatus_
+-- 'marker', 'listKeys_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+newListKeys ::
+  ListKeys
+newListKeys =
+  ListKeys'
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
+-- | Use this parameter to specify the maximum number of items to return.
+-- When this value is present, AWS KMS does not return more than the
+-- specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 1000, inclusive. If you do not include a value, it defaults to 100.
+listKeys_limit :: Lens.Lens' ListKeys (Prelude.Maybe Prelude.Natural)
+listKeys_limit = Lens.lens (\ListKeys' {limit} -> limit) (\s@ListKeys' {} a -> s {limit = a} :: ListKeys)
 
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
-lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
-lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a})
+-- | Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+listKeys_marker :: Lens.Lens' ListKeys (Prelude.Maybe Prelude.Text)
+listKeys_marker = Lens.lens (\ListKeys' {marker} -> marker) (\s@ListKeys' {} a -> s {marker = a} :: ListKeys)
+
+instance Core.AWSPager ListKeys where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listKeysResponse_truncated Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listKeysResponse_nextMarker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listKeys_marker
+          Lens..~ rs
+          Lens.^? listKeysResponse_nextMarker Prelude.. Lens._Just
+
+instance Core.AWSRequest ListKeys where
+  type AWSResponse ListKeys = ListKeysResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListKeysResponse'
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListKeys
+
+instance Prelude.NFData ListKeys
+
+instance Core.ToHeaders ListKeys where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("TrentService.ListKeys" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListKeys where
+  toJSON ListKeys' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker
+          ]
+      )
+
+instance Core.ToPath ListKeys where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListKeys where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListKeysResponse' smart constructor.
+data ListKeysResponse = ListKeysResponse'
+  { -- | When @Truncated@ is true, this element is present and contains the value
+    -- to use for the @Marker@ parameter in a subsequent request.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | A list of customer master keys (CMKs).
+    keys :: Prelude.Maybe [KeyListEntry],
+    -- | A flag that indicates whether there are more items in the list. When
+    -- this value is true, the list in this response is truncated. To get more
+    -- items, pass the value of the @NextMarker@ element in thisresponse to the
+    -- @Marker@ parameter in a subsequent request.
+    truncated :: Prelude.Maybe Prelude.Bool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListKeysResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextMarker', 'listKeysResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
+--
+-- 'keys', 'listKeysResponse_keys' - A list of customer master keys (CMKs).
+--
+-- 'truncated', 'listKeysResponse_truncated' - A flag that indicates whether there are more items in the list. When
+-- this value is true, the list in this response is truncated. To get more
+-- items, pass the value of the @NextMarker@ element in thisresponse to the
+-- @Marker@ parameter in a subsequent request.
+--
+-- 'httpStatus', 'listKeysResponse_httpStatus' - The response's http status code.
+newListKeysResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListKeysResponse
+newListKeysResponse pHttpStatus_ =
+  ListKeysResponse'
+    { nextMarker = Prelude.Nothing,
+      keys = Prelude.Nothing,
+      truncated = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
+listKeysResponse_nextMarker :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Text)
+listKeysResponse_nextMarker = Lens.lens (\ListKeysResponse' {nextMarker} -> nextMarker) (\s@ListKeysResponse' {} a -> s {nextMarker = a} :: ListKeysResponse)
 
 -- | A list of customer master keys (CMKs).
-lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
-lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce
+listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Prelude.Maybe [KeyListEntry])
+listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
-lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a})
+-- | A flag that indicates whether there are more items in the list. When
+-- this value is true, the list in this response is truncated. To get more
+-- items, pass the value of the @NextMarker@ element in thisresponse to the
+-- @Marker@ parameter in a subsequent request.
+listKeysResponse_truncated :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Bool)
+listKeysResponse_truncated = Lens.lens (\ListKeysResponse' {truncated} -> truncated) (\s@ListKeysResponse' {} a -> s {truncated = a} :: ListKeysResponse)
 
--- | -- | The response status code.
-lkrsResponseStatus :: Lens' ListKeysResponse Int
-lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a})
+-- | The response's http status code.
+listKeysResponse_httpStatus :: Lens.Lens' ListKeysResponse Prelude.Int
+listKeysResponse_httpStatus = Lens.lens (\ListKeysResponse' {httpStatus} -> httpStatus) (\s@ListKeysResponse' {} a -> s {httpStatus = a} :: ListKeysResponse)
 
-instance NFData ListKeysResponse where
+instance Prelude.NFData ListKeysResponse

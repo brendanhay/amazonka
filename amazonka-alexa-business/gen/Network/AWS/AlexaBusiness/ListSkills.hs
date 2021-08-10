@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.ListSkills
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,158 +22,230 @@
 --
 -- Lists all enabled skills in a specific skill group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.ListSkills
-    (
-    -- * Creating a Request
-      listSkills
-    , ListSkills
+  ( -- * Creating a Request
+    ListSkills (..),
+    newListSkills,
+
     -- * Request Lenses
-    , lsSkillGroupARN
-    , lsNextToken
-    , lsMaxResults
+    listSkills_nextToken,
+    listSkills_maxResults,
+    listSkills_skillType,
+    listSkills_skillGroupArn,
+    listSkills_enablementType,
 
     -- * Destructuring the Response
-    , listSkillsResponse
-    , ListSkillsResponse
+    ListSkillsResponse (..),
+    newListSkillsResponse,
+
     -- * Response Lenses
-    , lsrsNextToken
-    , lsrsSkillSummaries
-    , lsrsResponseStatus
-    ) where
+    listSkillsResponse_nextToken,
+    listSkillsResponse_skillSummaries,
+    listSkillsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listSkills' smart constructor.
+-- | /See:/ 'newListSkills' smart constructor.
 data ListSkills = ListSkills'
-  { _lsSkillGroupARN :: !(Maybe Text)
-  , _lsNextToken     :: !(Maybe Text)
-  , _lsMaxResults    :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Whether the skill is publicly available or is a private skill.
+    skillType :: Prelude.Maybe SkillTypeFilter,
+    -- | The ARN of the skill group for which to list enabled skills.
+    skillGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the skill is enabled under the user\'s account.
+    enablementType :: Prelude.Maybe EnablementTypeFilter
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListSkills' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListSkills' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsSkillGroupARN' - The ARN of the skill group for which to list enabled skills. Required.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
+-- 'nextToken', 'listSkills_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
 --
--- * 'lsMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
-listSkills
-    :: ListSkills
-listSkills =
+-- 'maxResults', 'listSkills_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- 'skillType', 'listSkills_skillType' - Whether the skill is publicly available or is a private skill.
+--
+-- 'skillGroupArn', 'listSkills_skillGroupArn' - The ARN of the skill group for which to list enabled skills.
+--
+-- 'enablementType', 'listSkills_enablementType' - Whether the skill is enabled under the user\'s account.
+newListSkills ::
+  ListSkills
+newListSkills =
   ListSkills'
-    { _lsSkillGroupARN = Nothing
-    , _lsNextToken = Nothing
-    , _lsMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      skillType = Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing,
+      enablementType = Prelude.Nothing
     }
 
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+listSkills_nextToken :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Text)
+listSkills_nextToken = Lens.lens (\ListSkills' {nextToken} -> nextToken) (\s@ListSkills' {} a -> s {nextToken = a} :: ListSkills)
 
--- | The ARN of the skill group for which to list enabled skills. Required.
-lsSkillGroupARN :: Lens' ListSkills (Maybe Text)
-lsSkillGroupARN = lens _lsSkillGroupARN (\ s a -> s{_lsSkillGroupARN = a})
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listSkills_maxResults :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Natural)
+listSkills_maxResults = Lens.lens (\ListSkills' {maxResults} -> maxResults) (\s@ListSkills' {} a -> s {maxResults = a} :: ListSkills)
 
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
-lsNextToken :: Lens' ListSkills (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
+-- | Whether the skill is publicly available or is a private skill.
+listSkills_skillType :: Lens.Lens' ListSkills (Prelude.Maybe SkillTypeFilter)
+listSkills_skillType = Lens.lens (\ListSkills' {skillType} -> skillType) (\s@ListSkills' {} a -> s {skillType = a} :: ListSkills)
 
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
-lsMaxResults :: Lens' ListSkills (Maybe Natural)
-lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a}) . mapping _Nat
+-- | The ARN of the skill group for which to list enabled skills.
+listSkills_skillGroupArn :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Text)
+listSkills_skillGroupArn = Lens.lens (\ListSkills' {skillGroupArn} -> skillGroupArn) (\s@ListSkills' {} a -> s {skillGroupArn = a} :: ListSkills)
 
-instance AWSPager ListSkills where
-        page rq rs
-          | stop (rs ^. lsrsNextToken) = Nothing
-          | stop (rs ^. lsrsSkillSummaries) = Nothing
-          | otherwise =
-            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+-- | Whether the skill is enabled under the user\'s account.
+listSkills_enablementType :: Lens.Lens' ListSkills (Prelude.Maybe EnablementTypeFilter)
+listSkills_enablementType = Lens.lens (\ListSkills' {enablementType} -> enablementType) (\s@ListSkills' {} a -> s {enablementType = a} :: ListSkills)
 
-instance AWSRequest ListSkills where
-        type Rs ListSkills = ListSkillsResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListSkillsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "SkillSummaries" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager ListSkills where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listSkillsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listSkillsResponse_skillSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listSkills_nextToken
+          Lens..~ rs
+          Lens.^? listSkillsResponse_nextToken Prelude.. Lens._Just
 
-instance Hashable ListSkills where
+instance Core.AWSRequest ListSkills where
+  type AWSResponse ListSkills = ListSkillsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListSkillsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SkillSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListSkills where
+instance Prelude.Hashable ListSkills
 
-instance ToHeaders ListSkills where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.ListSkills" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListSkills
 
-instance ToJSON ListSkills where
-        toJSON ListSkills'{..}
-          = object
-              (catMaybes
-                 [("SkillGroupArn" .=) <$> _lsSkillGroupARN,
-                  ("NextToken" .=) <$> _lsNextToken,
-                  ("MaxResults" .=) <$> _lsMaxResults])
+instance Core.ToHeaders ListSkills where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.ListSkills" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListSkills where
-        toPath = const "/"
+instance Core.ToJSON ListSkills where
+  toJSON ListSkills' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SkillType" Core..=) Prelude.<$> skillType,
+            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
+            ("EnablementType" Core..=)
+              Prelude.<$> enablementType
+          ]
+      )
 
-instance ToQuery ListSkills where
-        toQuery = const mempty
+instance Core.ToPath ListSkills where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'listSkillsResponse' smart constructor.
+instance Core.ToQuery ListSkills where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListSkillsResponse' smart constructor.
 data ListSkillsResponse = ListSkillsResponse'
-  { _lsrsNextToken      :: !(Maybe Text)
-  , _lsrsSkillSummaries :: !(Maybe [SkillSummary])
-  , _lsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of enabled skills requested. Required.
+    skillSummaries :: Prelude.Maybe [SkillSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListSkillsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListSkillsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsrsNextToken' - The token returned to indicate that there is more data available.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsrsSkillSummaries' - The list of enabled skills requested. Required.
+-- 'nextToken', 'listSkillsResponse_nextToken' - The token returned to indicate that there is more data available.
 --
--- * 'lsrsResponseStatus' - -- | The response status code.
-listSkillsResponse
-    :: Int -- ^ 'lsrsResponseStatus'
-    -> ListSkillsResponse
-listSkillsResponse pResponseStatus_ =
+-- 'skillSummaries', 'listSkillsResponse_skillSummaries' - The list of enabled skills requested. Required.
+--
+-- 'httpStatus', 'listSkillsResponse_httpStatus' - The response's http status code.
+newListSkillsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListSkillsResponse
+newListSkillsResponse pHttpStatus_ =
   ListSkillsResponse'
-    { _lsrsNextToken = Nothing
-    , _lsrsSkillSummaries = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      skillSummaries = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
 
 -- | The token returned to indicate that there is more data available.
-lsrsNextToken :: Lens' ListSkillsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a})
+listSkillsResponse_nextToken :: Lens.Lens' ListSkillsResponse (Prelude.Maybe Prelude.Text)
+listSkillsResponse_nextToken = Lens.lens (\ListSkillsResponse' {nextToken} -> nextToken) (\s@ListSkillsResponse' {} a -> s {nextToken = a} :: ListSkillsResponse)
 
 -- | The list of enabled skills requested. Required.
-lsrsSkillSummaries :: Lens' ListSkillsResponse [SkillSummary]
-lsrsSkillSummaries = lens _lsrsSkillSummaries (\ s a -> s{_lsrsSkillSummaries = a}) . _Default . _Coerce
+listSkillsResponse_skillSummaries :: Lens.Lens' ListSkillsResponse (Prelude.Maybe [SkillSummary])
+listSkillsResponse_skillSummaries = Lens.lens (\ListSkillsResponse' {skillSummaries} -> skillSummaries) (\s@ListSkillsResponse' {} a -> s {skillSummaries = a} :: ListSkillsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListSkillsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
+-- | The response's http status code.
+listSkillsResponse_httpStatus :: Lens.Lens' ListSkillsResponse Prelude.Int
+listSkillsResponse_httpStatus = Lens.lens (\ListSkillsResponse' {httpStatus} -> httpStatus) (\s@ListSkillsResponse' {} a -> s {httpStatus = a} :: ListSkillsResponse)
 
-instance NFData ListSkillsResponse where
+instance Prelude.NFData ListSkillsResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRules
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,155 +22,200 @@
 --
 -- Returns details about your AWS Config rules.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRules
-    (
-    -- * Creating a Request
-      describeConfigRules
-    , DescribeConfigRules
+  ( -- * Creating a Request
+    DescribeConfigRules (..),
+    newDescribeConfigRules,
+
     -- * Request Lenses
-    , dcrConfigRuleNames
-    , dcrNextToken
+    describeConfigRules_nextToken,
+    describeConfigRules_configRuleNames,
 
     -- * Destructuring the Response
-    , describeConfigRulesResponse
-    , DescribeConfigRulesResponse
+    DescribeConfigRulesResponse (..),
+    newDescribeConfigRulesResponse,
+
     -- * Response Lenses
-    , dcrrsConfigRules
-    , dcrrsNextToken
-    , dcrrsResponseStatus
-    ) where
+    describeConfigRulesResponse_nextToken,
+    describeConfigRulesResponse_configRules,
+    describeConfigRulesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeConfigRules' smart constructor.
+-- /See:/ 'newDescribeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-  { _dcrConfigRuleNames :: !(Maybe [Text])
-  , _dcrNextToken       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeConfigRules' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrConfigRuleNames' - The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
---
--- * 'dcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-describeConfigRules
-    :: DescribeConfigRules
-describeConfigRules =
-  DescribeConfigRules' {_dcrConfigRuleNames = Nothing, _dcrNextToken = Nothing}
-
-
--- | The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
-dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
-dcrConfigRuleNames = lens _dcrConfigRuleNames (\ s a -> s{_dcrConfigRuleNames = a}) . _Default . _Coerce
-
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcrNextToken :: Lens' DescribeConfigRules (Maybe Text)
-dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a})
-
-instance AWSPager DescribeConfigRules where
-        page rq rs
-          | stop (rs ^. dcrrsNextToken) = Nothing
-          | stop (rs ^. dcrrsConfigRules) = Nothing
-          | otherwise =
-            Just $ rq & dcrNextToken .~ rs ^. dcrrsNextToken
-
-instance AWSRequest DescribeConfigRules where
-        type Rs DescribeConfigRules =
-             DescribeConfigRulesResponse
-        request = postJSON config
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeConfigRulesResponse' <$>
-                   (x .?> "ConfigRules" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeConfigRules where
-
-instance NFData DescribeConfigRules where
-
-instance ToHeaders DescribeConfigRules where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StarlingDoveService.DescribeConfigRules" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeConfigRules where
-        toJSON DescribeConfigRules'{..}
-          = object
-              (catMaybes
-                 [("ConfigRuleNames" .=) <$> _dcrConfigRuleNames,
-                  ("NextToken" .=) <$> _dcrNextToken])
-
-instance ToPath DescribeConfigRules where
-        toPath = const "/"
-
-instance ToQuery DescribeConfigRules where
-        toQuery = const mempty
+  { -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the AWS Config rules for which you want details. If you do
+    -- not specify any names, AWS Config returns details for all your rules.
+    configRuleNames :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'DescribeConfigRules' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeConfigRulesResponse' smart constructor.
-data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
-  { _dcrrsConfigRules    :: !(Maybe [ConfigRule])
-  , _dcrrsNextToken      :: !(Maybe Text)
-  , _dcrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeConfigRulesResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrrsConfigRules' - The details about your AWS Config rules.
---
--- * 'dcrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'dcrrsResponseStatus' - -- | The response status code.
-describeConfigRulesResponse
-    :: Int -- ^ 'dcrrsResponseStatus'
-    -> DescribeConfigRulesResponse
-describeConfigRulesResponse pResponseStatus_ =
-  DescribeConfigRulesResponse'
-    { _dcrrsConfigRules = Nothing
-    , _dcrrsNextToken = Nothing
-    , _dcrrsResponseStatus = pResponseStatus_
+-- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the AWS Config rules for which you want details. If you do
+-- not specify any names, AWS Config returns details for all your rules.
+newDescribeConfigRules ::
+  DescribeConfigRules
+newDescribeConfigRules =
+  DescribeConfigRules'
+    { nextToken = Prelude.Nothing,
+      configRuleNames = Prelude.Nothing
     }
 
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeConfigRules_nextToken :: Lens.Lens' DescribeConfigRules (Prelude.Maybe Prelude.Text)
+describeConfigRules_nextToken = Lens.lens (\DescribeConfigRules' {nextToken} -> nextToken) (\s@DescribeConfigRules' {} a -> s {nextToken = a} :: DescribeConfigRules)
+
+-- | The names of the AWS Config rules for which you want details. If you do
+-- not specify any names, AWS Config returns details for all your rules.
+describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
+describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens._Coerce
+
+instance Core.AWSPager DescribeConfigRules where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeConfigRulesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeConfigRulesResponse_configRules
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeConfigRules_nextToken
+          Lens..~ rs
+          Lens.^? describeConfigRulesResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeConfigRules where
+  type
+    AWSResponse DescribeConfigRules =
+      DescribeConfigRulesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeConfigRulesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ConfigRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeConfigRules
+
+instance Prelude.NFData DescribeConfigRules
+
+instance Core.ToHeaders DescribeConfigRules where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StarlingDoveService.DescribeConfigRules" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeConfigRules where
+  toJSON DescribeConfigRules' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ConfigRuleNames" Core..=)
+              Prelude.<$> configRuleNames
+          ]
+      )
+
+instance Core.ToPath DescribeConfigRules where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeConfigRules where
+  toQuery = Prelude.const Prelude.mempty
+
+-- |
+--
+-- /See:/ 'newDescribeConfigRulesResponse' smart constructor.
+data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
+  { -- | The string that you use in a subsequent request to get the next page of
+    -- results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details about your AWS Config rules.
+    configRules :: Prelude.Maybe [ConfigRule],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeConfigRulesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeConfigRulesResponse_nextToken' - The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+--
+-- 'configRules', 'describeConfigRulesResponse_configRules' - The details about your AWS Config rules.
+--
+-- 'httpStatus', 'describeConfigRulesResponse_httpStatus' - The response's http status code.
+newDescribeConfigRulesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeConfigRulesResponse
+newDescribeConfigRulesResponse pHttpStatus_ =
+  DescribeConfigRulesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      configRules = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+describeConfigRulesResponse_nextToken :: Lens.Lens' DescribeConfigRulesResponse (Prelude.Maybe Prelude.Text)
+describeConfigRulesResponse_nextToken = Lens.lens (\DescribeConfigRulesResponse' {nextToken} -> nextToken) (\s@DescribeConfigRulesResponse' {} a -> s {nextToken = a} :: DescribeConfigRulesResponse)
 
 -- | The details about your AWS Config rules.
-dcrrsConfigRules :: Lens' DescribeConfigRulesResponse [ConfigRule]
-dcrrsConfigRules = lens _dcrrsConfigRules (\ s a -> s{_dcrrsConfigRules = a}) . _Default . _Coerce
+describeConfigRulesResponse_configRules :: Lens.Lens' DescribeConfigRulesResponse (Prelude.Maybe [ConfigRule])
+describeConfigRulesResponse_configRules = Lens.lens (\DescribeConfigRulesResponse' {configRules} -> configRules) (\s@DescribeConfigRulesResponse' {} a -> s {configRules = a} :: DescribeConfigRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-dcrrsNextToken :: Lens' DescribeConfigRulesResponse (Maybe Text)
-dcrrsNextToken = lens _dcrrsNextToken (\ s a -> s{_dcrrsNextToken = a})
+-- | The response's http status code.
+describeConfigRulesResponse_httpStatus :: Lens.Lens' DescribeConfigRulesResponse Prelude.Int
+describeConfigRulesResponse_httpStatus = Lens.lens (\DescribeConfigRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigRulesResponse' {} a -> s {httpStatus = a} :: DescribeConfigRulesResponse)
 
--- | -- | The response status code.
-dcrrsResponseStatus :: Lens' DescribeConfigRulesResponse Int
-dcrrsResponseStatus = lens _dcrrsResponseStatus (\ s a -> s{_dcrrsResponseStatus = a})
-
-instance NFData DescribeConfigRulesResponse where
+instance Prelude.NFData DescribeConfigRulesResponse

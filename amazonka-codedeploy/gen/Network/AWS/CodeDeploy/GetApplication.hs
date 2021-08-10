@@ -1,141 +1,172 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application.
---
---
 module Network.AWS.CodeDeploy.GetApplication
-    (
-    -- * Creating a Request
-      getApplication
-    , GetApplication
+  ( -- * Creating a Request
+    GetApplication (..),
+    newGetApplication,
+
     -- * Request Lenses
-    , gaApplicationName
+    getApplication_applicationName,
 
     -- * Destructuring the Response
-    , getApplicationResponse
-    , GetApplicationResponse
+    GetApplicationResponse (..),
+    newGetApplicationResponse,
+
     -- * Response Lenses
-    , garsApplication
-    , garsResponseStatus
-    ) where
+    getApplicationResponse_application,
+    getApplicationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a GetApplication operation.
+-- | Represents the input of a @GetApplication@ operation.
 --
+-- /See:/ 'newGetApplication' smart constructor.
+data GetApplication = GetApplication'
+  { -- | The name of an AWS CodeDeploy application associated with the IAM user
+    -- or AWS account.
+    applicationName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetApplication' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getApplication' smart constructor.
-newtype GetApplication = GetApplication'
-  { _gaApplicationName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetApplication' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'applicationName', 'getApplication_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+newGetApplication ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  GetApplication
+newGetApplication pApplicationName_ =
+  GetApplication'
+    { applicationName =
+        pApplicationName_
+    }
+
+-- | The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+getApplication_applicationName :: Lens.Lens' GetApplication Prelude.Text
+getApplication_applicationName = Lens.lens (\GetApplication' {applicationName} -> applicationName) (\s@GetApplication' {} a -> s {applicationName = a} :: GetApplication)
+
+instance Core.AWSRequest GetApplication where
+  type
+    AWSResponse GetApplication =
+      GetApplicationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetApplicationResponse'
+            Prelude.<$> (x Core..?> "application")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetApplication
+
+instance Prelude.NFData GetApplication
+
+instance Core.ToHeaders GetApplication where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.GetApplication" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON GetApplication where
+  toJSON GetApplication' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("applicationName" Core..= applicationName)
+          ]
+      )
+
+instance Core.ToPath GetApplication where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetApplication where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @GetApplication@ operation.
 --
--- * 'gaApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-getApplication
-    :: Text -- ^ 'gaApplicationName'
-    -> GetApplication
-getApplication pApplicationName_ =
-  GetApplication' {_gaApplicationName = pApplicationName_}
-
-
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-gaApplicationName :: Lens' GetApplication Text
-gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a})
-
-instance AWSRequest GetApplication where
-        type Rs GetApplication = GetApplicationResponse
-        request = postJSON codeDeploy
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetApplicationResponse' <$>
-                   (x .?> "application") <*> (pure (fromEnum s)))
-
-instance Hashable GetApplication where
-
-instance NFData GetApplication where
-
-instance ToHeaders GetApplication where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.GetApplication" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetApplication where
-        toJSON GetApplication'{..}
-          = object
-              (catMaybes
-                 [Just ("applicationName" .= _gaApplicationName)])
-
-instance ToPath GetApplication where
-        toPath = const "/"
-
-instance ToQuery GetApplication where
-        toQuery = const mempty
-
--- | Represents the output of a GetApplication operation.
---
---
---
--- /See:/ 'getApplicationResponse' smart constructor.
+-- /See:/ 'newGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { _garsApplication    :: !(Maybe ApplicationInfo)
-  , _garsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the application.
+    application :: Prelude.Maybe ApplicationInfo,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetApplicationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'garsApplication' - Information about the application.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'garsResponseStatus' - -- | The response status code.
-getApplicationResponse
-    :: Int -- ^ 'garsResponseStatus'
-    -> GetApplicationResponse
-getApplicationResponse pResponseStatus_ =
+-- 'application', 'getApplicationResponse_application' - Information about the application.
+--
+-- 'httpStatus', 'getApplicationResponse_httpStatus' - The response's http status code.
+newGetApplicationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetApplicationResponse
+newGetApplicationResponse pHttpStatus_ =
   GetApplicationResponse'
-    {_garsApplication = Nothing, _garsResponseStatus = pResponseStatus_}
-
+    { application =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the application.
-garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
-garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a})
+getApplicationResponse_application :: Lens.Lens' GetApplicationResponse (Prelude.Maybe ApplicationInfo)
+getApplicationResponse_application = Lens.lens (\GetApplicationResponse' {application} -> application) (\s@GetApplicationResponse' {} a -> s {application = a} :: GetApplicationResponse)
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetApplicationResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
+-- | The response's http status code.
+getApplicationResponse_httpStatus :: Lens.Lens' GetApplicationResponse Prelude.Int
+getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpStatus} -> httpStatus) (\s@GetApplicationResponse' {} a -> s {httpStatus = a} :: GetApplicationResponse)
 
-instance NFData GetApplicationResponse where
+instance Prelude.NFData GetApplicationResponse

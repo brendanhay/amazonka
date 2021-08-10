@@ -1,151 +1,191 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationScore
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @GetQualificationScore@ operation returns the value of a Worker's Qualification for a given Qualification type.
+-- The @GetQualificationScore@ operation returns the value of a Worker\'s
+-- Qualification for a given Qualification type.
 --
+-- To get a Worker\'s Qualification, you must know the Worker\'s ID. The
+-- Worker\'s ID is included in the assignment data returned by the
+-- @ListAssignmentsForHIT@ operation.
 --
--- To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is included in the assignment data returned by the @ListAssignmentsForHIT@ operation.
---
--- Only the owner of a Qualification type can query the value of a Worker's Qualification of that type.
---
+-- Only the owner of a Qualification type can query the value of a
+-- Worker\'s Qualification of that type.
 module Network.AWS.MechanicalTurk.GetQualificationScore
-    (
-    -- * Creating a Request
-      getQualificationScore
-    , GetQualificationScore
+  ( -- * Creating a Request
+    GetQualificationScore (..),
+    newGetQualificationScore,
+
     -- * Request Lenses
-    , gqsQualificationTypeId
-    , gqsWorkerId
+    getQualificationScore_qualificationTypeId,
+    getQualificationScore_workerId,
 
     -- * Destructuring the Response
-    , getQualificationScoreResponse
-    , GetQualificationScoreResponse
+    GetQualificationScoreResponse (..),
+    newGetQualificationScoreResponse,
+
     -- * Response Lenses
-    , gqsrsQualification
-    , gqsrsResponseStatus
-    ) where
+    getQualificationScoreResponse_qualification,
+    getQualificationScoreResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getQualificationScore' smart constructor.
+-- | /See:/ 'newGetQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'
-  { _gqsQualificationTypeId :: !Text
-  , _gqsWorkerId            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the QualificationType.
+    qualificationTypeId :: Prelude.Text,
+    -- | The ID of the Worker whose Qualification is being updated.
+    workerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetQualificationScore' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQualificationScore' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqsQualificationTypeId' - The ID of the QualificationType.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gqsWorkerId' - The ID of the Worker whose Qualification is being updated.
-getQualificationScore
-    :: Text -- ^ 'gqsQualificationTypeId'
-    -> Text -- ^ 'gqsWorkerId'
-    -> GetQualificationScore
-getQualificationScore pQualificationTypeId_ pWorkerId_ =
-  GetQualificationScore'
-    {_gqsQualificationTypeId = pQualificationTypeId_, _gqsWorkerId = pWorkerId_}
-
+-- 'qualificationTypeId', 'getQualificationScore_qualificationTypeId' - The ID of the QualificationType.
+--
+-- 'workerId', 'getQualificationScore_workerId' - The ID of the Worker whose Qualification is being updated.
+newGetQualificationScore ::
+  -- | 'qualificationTypeId'
+  Prelude.Text ->
+  -- | 'workerId'
+  Prelude.Text ->
+  GetQualificationScore
+newGetQualificationScore
+  pQualificationTypeId_
+  pWorkerId_ =
+    GetQualificationScore'
+      { qualificationTypeId =
+          pQualificationTypeId_,
+        workerId = pWorkerId_
+      }
 
 -- | The ID of the QualificationType.
-gqsQualificationTypeId :: Lens' GetQualificationScore Text
-gqsQualificationTypeId = lens _gqsQualificationTypeId (\ s a -> s{_gqsQualificationTypeId = a})
+getQualificationScore_qualificationTypeId :: Lens.Lens' GetQualificationScore Prelude.Text
+getQualificationScore_qualificationTypeId = Lens.lens (\GetQualificationScore' {qualificationTypeId} -> qualificationTypeId) (\s@GetQualificationScore' {} a -> s {qualificationTypeId = a} :: GetQualificationScore)
 
 -- | The ID of the Worker whose Qualification is being updated.
-gqsWorkerId :: Lens' GetQualificationScore Text
-gqsWorkerId = lens _gqsWorkerId (\ s a -> s{_gqsWorkerId = a})
+getQualificationScore_workerId :: Lens.Lens' GetQualificationScore Prelude.Text
+getQualificationScore_workerId = Lens.lens (\GetQualificationScore' {workerId} -> workerId) (\s@GetQualificationScore' {} a -> s {workerId = a} :: GetQualificationScore)
 
-instance AWSRequest GetQualificationScore where
-        type Rs GetQualificationScore =
-             GetQualificationScoreResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetQualificationScoreResponse' <$>
-                   (x .?> "Qualification") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetQualificationScore where
+  type
+    AWSResponse GetQualificationScore =
+      GetQualificationScoreResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetQualificationScoreResponse'
+            Prelude.<$> (x Core..?> "Qualification")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetQualificationScore where
+instance Prelude.Hashable GetQualificationScore
 
-instance NFData GetQualificationScore where
+instance Prelude.NFData GetQualificationScore
 
-instance ToHeaders GetQualificationScore where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.GetQualificationScore"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetQualificationScore where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.GetQualificationScore" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetQualificationScore where
-        toJSON GetQualificationScore'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("QualificationTypeId" .= _gqsQualificationTypeId),
-                  Just ("WorkerId" .= _gqsWorkerId)])
+instance Core.ToJSON GetQualificationScore where
+  toJSON GetQualificationScore' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("QualificationTypeId" Core..= qualificationTypeId),
+            Prelude.Just ("WorkerId" Core..= workerId)
+          ]
+      )
 
-instance ToPath GetQualificationScore where
-        toPath = const "/"
+instance Core.ToPath GetQualificationScore where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetQualificationScore where
-        toQuery = const mempty
+instance Core.ToQuery GetQualificationScore where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getQualificationScoreResponse' smart constructor.
+-- | /See:/ 'newGetQualificationScoreResponse' smart constructor.
 data GetQualificationScoreResponse = GetQualificationScoreResponse'
-  { _gqsrsQualification  :: !(Maybe Qualification)
-  , _gqsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Qualification data structure of the Qualification assigned to a
+    -- user, including the Qualification type and the value (score).
+    qualification :: Prelude.Maybe Qualification,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetQualificationScoreResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQualificationScoreResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqsrsQualification' - The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gqsrsResponseStatus' - -- | The response status code.
-getQualificationScoreResponse
-    :: Int -- ^ 'gqsrsResponseStatus'
-    -> GetQualificationScoreResponse
-getQualificationScoreResponse pResponseStatus_ =
+-- 'qualification', 'getQualificationScoreResponse_qualification' - The Qualification data structure of the Qualification assigned to a
+-- user, including the Qualification type and the value (score).
+--
+-- 'httpStatus', 'getQualificationScoreResponse_httpStatus' - The response's http status code.
+newGetQualificationScoreResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetQualificationScoreResponse
+newGetQualificationScoreResponse pHttpStatus_ =
   GetQualificationScoreResponse'
-    {_gqsrsQualification = Nothing, _gqsrsResponseStatus = pResponseStatus_}
+    { qualification =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Qualification data structure of the Qualification assigned to a
+-- user, including the Qualification type and the value (score).
+getQualificationScoreResponse_qualification :: Lens.Lens' GetQualificationScoreResponse (Prelude.Maybe Qualification)
+getQualificationScoreResponse_qualification = Lens.lens (\GetQualificationScoreResponse' {qualification} -> qualification) (\s@GetQualificationScoreResponse' {} a -> s {qualification = a} :: GetQualificationScoreResponse)
 
--- | The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
-gqsrsQualification :: Lens' GetQualificationScoreResponse (Maybe Qualification)
-gqsrsQualification = lens _gqsrsQualification (\ s a -> s{_gqsrsQualification = a})
+-- | The response's http status code.
+getQualificationScoreResponse_httpStatus :: Lens.Lens' GetQualificationScoreResponse Prelude.Int
+getQualificationScoreResponse_httpStatus = Lens.lens (\GetQualificationScoreResponse' {httpStatus} -> httpStatus) (\s@GetQualificationScoreResponse' {} a -> s {httpStatus = a} :: GetQualificationScoreResponse)
 
--- | -- | The response status code.
-gqsrsResponseStatus :: Lens' GetQualificationScoreResponse Int
-gqsrsResponseStatus = lens _gqsrsResponseStatus (\ s a -> s{_gqsrsResponseStatus = a})
-
-instance NFData GetQualificationScoreResponse where
+instance Prelude.NFData GetQualificationScoreResponse

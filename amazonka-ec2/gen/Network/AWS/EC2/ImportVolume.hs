@@ -1,178 +1,211 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ImportVolume
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import volume task using metadata from the specified disk image.For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html Importing Disks to Amazon EBS> .
+-- Creates an import volume task using metadata from the specified disk
+-- image.For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html Importing Disks to Amazon EBS>.
 --
---
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
---
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.ImportVolume
-    (
-    -- * Creating a Request
-      importVolume
-    , ImportVolume
+  ( -- * Creating a Request
+    ImportVolume (..),
+    newImportVolume,
+
     -- * Request Lenses
-    , ivDescription
-    , ivDryRun
-    , ivAvailabilityZone
-    , ivImage
-    , ivVolume
+    importVolume_dryRun,
+    importVolume_description,
+    importVolume_availabilityZone,
+    importVolume_image,
+    importVolume_volume,
 
     -- * Destructuring the Response
-    , importVolumeResponse
-    , ImportVolumeResponse
+    ImportVolumeResponse (..),
+    newImportVolumeResponse,
+
     -- * Response Lenses
-    , ivrsConversionTask
-    , ivrsResponseStatus
-    ) where
+    importVolumeResponse_conversionTask,
+    importVolumeResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for ImportVolume.
---
---
---
--- /See:/ 'importVolume' smart constructor.
+-- | /See:/ 'newImportVolume' smart constructor.
 data ImportVolume = ImportVolume'
-  { _ivDescription      :: !(Maybe Text)
-  , _ivDryRun           :: !(Maybe Bool)
-  , _ivAvailabilityZone :: !Text
-  , _ivImage            :: !DiskImageDetail
-  , _ivVolume           :: !VolumeDetail
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A description of the volume.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Availability Zone for the resulting EBS volume.
+    availabilityZone :: Prelude.Text,
+    -- | The disk image.
+    image :: DiskImageDetail,
+    -- | The volume size.
+    volume :: VolumeDetail
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ImportVolume' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportVolume' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ivDescription' - A description of the volume.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ivDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'importVolume_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'ivAvailabilityZone' - The Availability Zone for the resulting EBS volume.
+-- 'description', 'importVolume_description' - A description of the volume.
 --
--- * 'ivImage' - The disk image.
+-- 'availabilityZone', 'importVolume_availabilityZone' - The Availability Zone for the resulting EBS volume.
 --
--- * 'ivVolume' - The volume size.
-importVolume
-    :: Text -- ^ 'ivAvailabilityZone'
-    -> DiskImageDetail -- ^ 'ivImage'
-    -> VolumeDetail -- ^ 'ivVolume'
-    -> ImportVolume
-importVolume pAvailabilityZone_ pImage_ pVolume_ =
+-- 'image', 'importVolume_image' - The disk image.
+--
+-- 'volume', 'importVolume_volume' - The volume size.
+newImportVolume ::
+  -- | 'availabilityZone'
+  Prelude.Text ->
+  -- | 'image'
+  DiskImageDetail ->
+  -- | 'volume'
+  VolumeDetail ->
+  ImportVolume
+newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
   ImportVolume'
-    { _ivDescription = Nothing
-    , _ivDryRun = Nothing
-    , _ivAvailabilityZone = pAvailabilityZone_
-    , _ivImage = pImage_
-    , _ivVolume = pVolume_
+    { dryRun = Prelude.Nothing,
+      description = Prelude.Nothing,
+      availabilityZone = pAvailabilityZone_,
+      image = pImage_,
+      volume = pVolume_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+importVolume_dryRun :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Bool)
+importVolume_dryRun = Lens.lens (\ImportVolume' {dryRun} -> dryRun) (\s@ImportVolume' {} a -> s {dryRun = a} :: ImportVolume)
 
 -- | A description of the volume.
-ivDescription :: Lens' ImportVolume (Maybe Text)
-ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a})
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ivDryRun :: Lens' ImportVolume (Maybe Bool)
-ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a})
+importVolume_description :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Text)
+importVolume_description = Lens.lens (\ImportVolume' {description} -> description) (\s@ImportVolume' {} a -> s {description = a} :: ImportVolume)
 
 -- | The Availability Zone for the resulting EBS volume.
-ivAvailabilityZone :: Lens' ImportVolume Text
-ivAvailabilityZone = lens _ivAvailabilityZone (\ s a -> s{_ivAvailabilityZone = a})
+importVolume_availabilityZone :: Lens.Lens' ImportVolume Prelude.Text
+importVolume_availabilityZone = Lens.lens (\ImportVolume' {availabilityZone} -> availabilityZone) (\s@ImportVolume' {} a -> s {availabilityZone = a} :: ImportVolume)
 
 -- | The disk image.
-ivImage :: Lens' ImportVolume DiskImageDetail
-ivImage = lens _ivImage (\ s a -> s{_ivImage = a})
+importVolume_image :: Lens.Lens' ImportVolume DiskImageDetail
+importVolume_image = Lens.lens (\ImportVolume' {image} -> image) (\s@ImportVolume' {} a -> s {image = a} :: ImportVolume)
 
 -- | The volume size.
-ivVolume :: Lens' ImportVolume VolumeDetail
-ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a})
+importVolume_volume :: Lens.Lens' ImportVolume VolumeDetail
+importVolume_volume = Lens.lens (\ImportVolume' {volume} -> volume) (\s@ImportVolume' {} a -> s {volume = a} :: ImportVolume)
 
-instance AWSRequest ImportVolume where
-        type Rs ImportVolume = ImportVolumeResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 ImportVolumeResponse' <$>
-                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ImportVolume where
+  type AWSResponse ImportVolume = ImportVolumeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ImportVolumeResponse'
+            Prelude.<$> (x Core..@? "conversionTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ImportVolume where
+instance Prelude.Hashable ImportVolume
 
-instance NFData ImportVolume where
+instance Prelude.NFData ImportVolume
 
-instance ToHeaders ImportVolume where
-        toHeaders = const mempty
+instance Core.ToHeaders ImportVolume where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ImportVolume where
-        toPath = const "/"
+instance Core.ToPath ImportVolume where
+  toPath = Prelude.const "/"
 
-instance ToQuery ImportVolume where
-        toQuery ImportVolume'{..}
-          = mconcat
-              ["Action" =: ("ImportVolume" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "Description" =: _ivDescription,
-               "DryRun" =: _ivDryRun,
-               "AvailabilityZone" =: _ivAvailabilityZone,
-               "Image" =: _ivImage, "Volume" =: _ivVolume]
+instance Core.ToQuery ImportVolume where
+  toQuery ImportVolume' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ImportVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Description" Core.=: description,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "Image" Core.=: image,
+        "Volume" Core.=: volume
+      ]
 
--- | Contains the output for ImportVolume.
---
---
---
--- /See:/ 'importVolumeResponse' smart constructor.
+-- | /See:/ 'newImportVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
-  { _ivrsConversionTask :: !(Maybe ConversionTask)
-  , _ivrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the conversion task.
+    conversionTask :: Prelude.Maybe ConversionTask,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportVolumeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ivrsConversionTask' - Information about the conversion task.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ivrsResponseStatus' - -- | The response status code.
-importVolumeResponse
-    :: Int -- ^ 'ivrsResponseStatus'
-    -> ImportVolumeResponse
-importVolumeResponse pResponseStatus_ =
+-- 'conversionTask', 'importVolumeResponse_conversionTask' - Information about the conversion task.
+--
+-- 'httpStatus', 'importVolumeResponse_httpStatus' - The response's http status code.
+newImportVolumeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ImportVolumeResponse
+newImportVolumeResponse pHttpStatus_ =
   ImportVolumeResponse'
-    {_ivrsConversionTask = Nothing, _ivrsResponseStatus = pResponseStatus_}
-
+    { conversionTask =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the conversion task.
-ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a})
+importVolumeResponse_conversionTask :: Lens.Lens' ImportVolumeResponse (Prelude.Maybe ConversionTask)
+importVolumeResponse_conversionTask = Lens.lens (\ImportVolumeResponse' {conversionTask} -> conversionTask) (\s@ImportVolumeResponse' {} a -> s {conversionTask = a} :: ImportVolumeResponse)
 
--- | -- | The response status code.
-ivrsResponseStatus :: Lens' ImportVolumeResponse Int
-ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a})
+-- | The response's http status code.
+importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Prelude.Int
+importVolumeResponse_httpStatus = Lens.lens (\ImportVolumeResponse' {httpStatus} -> httpStatus) (\s@ImportVolumeResponse' {} a -> s {httpStatus = a} :: ImportVolumeResponse)
 
-instance NFData ImportVolumeResponse where
+instance Prelude.NFData ImportVolumeResponse

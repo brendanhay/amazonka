@@ -1,166 +1,241 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more attachments to an attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
+-- Adds one or more attachments to an attachment set.
 --
+-- An attachment set is a temporary container for attachments that you add
+-- to a case or case communication. The set is available for 1 hour after
+-- it\'s created. The @expiryTime@ returned in the response is when the set
+-- expires.
 --
--- An attachment set is a temporary container for attachments that are to be added to a case or case communication. The set is available for one hour after it is created; the @expiryTime@ returned in the response indicates when the set expires. The maximum number of attachments in a set is 3, and the maximum size of any attachment in the set is 5 MB.
+-- -   You must have a Business or Enterprise support plan to use the AWS
+--     Support API.
 --
+-- -   If you call the AWS Support API from an account that does not have a
+--     Business or Enterprise support plan, the
+--     @SubscriptionRequiredException@ error message appears. For
+--     information about changing your support plan, see
+--     <http://aws.amazon.com/premiumsupport/ AWS Support>.
 module Network.AWS.Support.AddAttachmentsToSet
-    (
-    -- * Creating a Request
-      addAttachmentsToSet
-    , AddAttachmentsToSet
+  ( -- * Creating a Request
+    AddAttachmentsToSet (..),
+    newAddAttachmentsToSet,
+
     -- * Request Lenses
-    , aatsAttachmentSetId
-    , aatsAttachments
+    addAttachmentsToSet_attachmentSetId,
+    addAttachmentsToSet_attachments,
 
     -- * Destructuring the Response
-    , addAttachmentsToSetResponse
-    , AddAttachmentsToSetResponse
-    -- * Response Lenses
-    , aatsrsExpiryTime
-    , aatsrsAttachmentSetId
-    , aatsrsResponseStatus
-    ) where
+    AddAttachmentsToSetResponse (..),
+    newAddAttachmentsToSetResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    addAttachmentsToSetResponse_expiryTime,
+    addAttachmentsToSetResponse_attachmentSetId,
+    addAttachmentsToSetResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
-import Network.AWS.Support.Types.Product
+
+-- | /See:/ 'newAddAttachmentsToSet' smart constructor.
+data AddAttachmentsToSet = AddAttachmentsToSet'
+  { -- | The ID of the attachment set. If an @attachmentSetId@ is not specified,
+    -- a new attachment set is created, and the ID of the set is returned in
+    -- the response. If an @attachmentSetId@ is specified, the attachments are
+    -- added to the specified set, if it exists.
+    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    -- | One or more attachments to add to the set. You can add up to three
+    -- attachments per set. The size limit is 5 MB per attachment.
+    --
+    -- In the @Attachment@ object, use the @data@ parameter to specify the
+    -- contents of the attachment file. In the previous request syntax, the
+    -- value for @data@ appear as @blob@, which is represented as a
+    -- base64-encoded string. The value for @fileName@ is the name of the
+    -- attachment, such as @troubleshoot-screenshot.png@.
+    attachments :: [Attachment]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'AddAttachmentsToSet' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'addAttachmentsToSet' smart constructor.
-data AddAttachmentsToSet = AddAttachmentsToSet'
-  { _aatsAttachmentSetId :: !(Maybe Text)
-  , _aatsAttachments     :: ![Attachment]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddAttachmentsToSet' with the minimum fields required to make a request.
+-- 'attachmentSetId', 'addAttachmentsToSet_attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ is not specified,
+-- a new attachment set is created, and the ID of the set is returned in
+-- the response. If an @attachmentSetId@ is specified, the attachments are
+-- added to the specified set, if it exists.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'attachments', 'addAttachmentsToSet_attachments' - One or more attachments to add to the set. You can add up to three
+-- attachments per set. The size limit is 5 MB per attachment.
 --
--- * 'aatsAttachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
---
--- * 'aatsAttachments' - One or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.
-addAttachmentsToSet
-    :: AddAttachmentsToSet
-addAttachmentsToSet =
+-- In the @Attachment@ object, use the @data@ parameter to specify the
+-- contents of the attachment file. In the previous request syntax, the
+-- value for @data@ appear as @blob@, which is represented as a
+-- base64-encoded string. The value for @fileName@ is the name of the
+-- attachment, such as @troubleshoot-screenshot.png@.
+newAddAttachmentsToSet ::
+  AddAttachmentsToSet
+newAddAttachmentsToSet =
   AddAttachmentsToSet'
-    {_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty}
-
-
--- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
-aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
-aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a})
-
--- | One or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.
-aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce
-
-instance AWSRequest AddAttachmentsToSet where
-        type Rs AddAttachmentsToSet =
-             AddAttachmentsToSetResponse
-        request = postJSON support
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AddAttachmentsToSetResponse' <$>
-                   (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable AddAttachmentsToSet where
-
-instance NFData AddAttachmentsToSet where
-
-instance ToHeaders AddAttachmentsToSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSSupport_20130415.AddAttachmentsToSet" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON AddAttachmentsToSet where
-        toJSON AddAttachmentsToSet'{..}
-          = object
-              (catMaybes
-                 [("attachmentSetId" .=) <$> _aatsAttachmentSetId,
-                  Just ("attachments" .= _aatsAttachments)])
-
-instance ToPath AddAttachmentsToSet where
-        toPath = const "/"
-
-instance ToQuery AddAttachmentsToSet where
-        toQuery = const mempty
-
--- | The ID and expiry time of the attachment set returned by the 'AddAttachmentsToSet' operation.
---
---
---
--- /See:/ 'addAttachmentsToSetResponse' smart constructor.
-data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-  { _aatsrsExpiryTime      :: !(Maybe Text)
-  , _aatsrsAttachmentSetId :: !(Maybe Text)
-  , _aatsrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddAttachmentsToSetResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aatsrsExpiryTime' - The time and date when the attachment set expires.
---
--- * 'aatsrsAttachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
---
--- * 'aatsrsResponseStatus' - -- | The response status code.
-addAttachmentsToSetResponse
-    :: Int -- ^ 'aatsrsResponseStatus'
-    -> AddAttachmentsToSetResponse
-addAttachmentsToSetResponse pResponseStatus_ =
-  AddAttachmentsToSetResponse'
-    { _aatsrsExpiryTime = Nothing
-    , _aatsrsAttachmentSetId = Nothing
-    , _aatsrsResponseStatus = pResponseStatus_
+    { attachmentSetId =
+        Prelude.Nothing,
+      attachments = Prelude.mempty
     }
 
+-- | The ID of the attachment set. If an @attachmentSetId@ is not specified,
+-- a new attachment set is created, and the ID of the set is returned in
+-- the response. If an @attachmentSetId@ is specified, the attachments are
+-- added to the specified set, if it exists.
+addAttachmentsToSet_attachmentSetId :: Lens.Lens' AddAttachmentsToSet (Prelude.Maybe Prelude.Text)
+addAttachmentsToSet_attachmentSetId = Lens.lens (\AddAttachmentsToSet' {attachmentSetId} -> attachmentSetId) (\s@AddAttachmentsToSet' {} a -> s {attachmentSetId = a} :: AddAttachmentsToSet)
+
+-- | One or more attachments to add to the set. You can add up to three
+-- attachments per set. The size limit is 5 MB per attachment.
+--
+-- In the @Attachment@ object, use the @data@ parameter to specify the
+-- contents of the attachment file. In the previous request syntax, the
+-- value for @data@ appear as @blob@, which is represented as a
+-- base64-encoded string. The value for @fileName@ is the name of the
+-- attachment, such as @troubleshoot-screenshot.png@.
+addAttachmentsToSet_attachments :: Lens.Lens' AddAttachmentsToSet [Attachment]
+addAttachmentsToSet_attachments = Lens.lens (\AddAttachmentsToSet' {attachments} -> attachments) (\s@AddAttachmentsToSet' {} a -> s {attachments = a} :: AddAttachmentsToSet) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest AddAttachmentsToSet where
+  type
+    AWSResponse AddAttachmentsToSet =
+      AddAttachmentsToSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AddAttachmentsToSetResponse'
+            Prelude.<$> (x Core..?> "expiryTime")
+            Prelude.<*> (x Core..?> "attachmentSetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AddAttachmentsToSet
+
+instance Prelude.NFData AddAttachmentsToSet
+
+instance Core.ToHeaders AddAttachmentsToSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSSupport_20130415.AddAttachmentsToSet" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON AddAttachmentsToSet where
+  toJSON AddAttachmentsToSet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("attachmentSetId" Core..=)
+              Prelude.<$> attachmentSetId,
+            Prelude.Just ("attachments" Core..= attachments)
+          ]
+      )
+
+instance Core.ToPath AddAttachmentsToSet where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AddAttachmentsToSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The ID and expiry time of the attachment set returned by the
+-- AddAttachmentsToSet operation.
+--
+-- /See:/ 'newAddAttachmentsToSetResponse' smart constructor.
+data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
+  { -- | The time and date when the attachment set expires.
+    expiryTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
+    -- a new attachment set is created, and the ID of the set is returned in
+    -- the response. If an @attachmentSetId@ was specified, the attachments are
+    -- added to the specified set, if it exists.
+    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AddAttachmentsToSetResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expiryTime', 'addAttachmentsToSetResponse_expiryTime' - The time and date when the attachment set expires.
+--
+-- 'attachmentSetId', 'addAttachmentsToSetResponse_attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified,
+-- a new attachment set is created, and the ID of the set is returned in
+-- the response. If an @attachmentSetId@ was specified, the attachments are
+-- added to the specified set, if it exists.
+--
+-- 'httpStatus', 'addAttachmentsToSetResponse_httpStatus' - The response's http status code.
+newAddAttachmentsToSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddAttachmentsToSetResponse
+newAddAttachmentsToSetResponse pHttpStatus_ =
+  AddAttachmentsToSetResponse'
+    { expiryTime =
+        Prelude.Nothing,
+      attachmentSetId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The time and date when the attachment set expires.
-aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a})
+addAttachmentsToSetResponse_expiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
+addAttachmentsToSetResponse_expiryTime = Lens.lens (\AddAttachmentsToSetResponse' {expiryTime} -> expiryTime) (\s@AddAttachmentsToSetResponse' {} a -> s {expiryTime = a} :: AddAttachmentsToSetResponse)
 
--- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
-aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a})
+-- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
+-- a new attachment set is created, and the ID of the set is returned in
+-- the response. If an @attachmentSetId@ was specified, the attachments are
+-- added to the specified set, if it exists.
+addAttachmentsToSetResponse_attachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
+addAttachmentsToSetResponse_attachmentSetId = Lens.lens (\AddAttachmentsToSetResponse' {attachmentSetId} -> attachmentSetId) (\s@AddAttachmentsToSetResponse' {} a -> s {attachmentSetId = a} :: AddAttachmentsToSetResponse)
 
--- | -- | The response status code.
-aatsrsResponseStatus :: Lens' AddAttachmentsToSetResponse Int
-aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a})
+-- | The response's http status code.
+addAttachmentsToSetResponse_httpStatus :: Lens.Lens' AddAttachmentsToSetResponse Prelude.Int
+addAttachmentsToSetResponse_httpStatus = Lens.lens (\AddAttachmentsToSetResponse' {httpStatus} -> httpStatus) (\s@AddAttachmentsToSetResponse' {} a -> s {httpStatus = a} :: AddAttachmentsToSetResponse)
 
-instance NFData AddAttachmentsToSetResponse where
+instance Prelude.NFData AddAttachmentsToSetResponse

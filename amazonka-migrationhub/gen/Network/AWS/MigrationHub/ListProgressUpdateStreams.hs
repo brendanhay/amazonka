@@ -1,158 +1,229 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListProgressUpdateStreams
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists progress update streams associated with the user account making this call.
+-- Lists progress update streams associated with the user account making
+-- this call.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListProgressUpdateStreams
-    (
-    -- * Creating a Request
-      listProgressUpdateStreams
-    , ListProgressUpdateStreams
+  ( -- * Creating a Request
+    ListProgressUpdateStreams (..),
+    newListProgressUpdateStreams,
+
     -- * Request Lenses
-    , lpusNextToken
-    , lpusMaxResults
+    listProgressUpdateStreams_nextToken,
+    listProgressUpdateStreams_maxResults,
 
     -- * Destructuring the Response
-    , listProgressUpdateStreamsResponse
-    , ListProgressUpdateStreamsResponse
+    ListProgressUpdateStreamsResponse (..),
+    newListProgressUpdateStreamsResponse,
+
     -- * Response Lenses
-    , lpusrsProgressUpdateStreamSummaryList
-    , lpusrsNextToken
-    , lpusrsResponseStatus
-    ) where
+    listProgressUpdateStreamsResponse_nextToken,
+    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
+    listProgressUpdateStreamsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.MigrationHub.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listProgressUpdateStreams' smart constructor.
+-- | /See:/ 'newListProgressUpdateStreams' smart constructor.
 data ListProgressUpdateStreams = ListProgressUpdateStreams'
-  { _lpusNextToken  :: !(Maybe Text)
-  , _lpusMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If a @NextToken@ was returned by a previous call, there are more results
+    -- available. To retrieve the next page of results, make the call again
+    -- using the returned token in @NextToken@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filter to limit the maximum number of results to list per page.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListProgressUpdateStreams' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListProgressUpdateStreams' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpusNextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpusMaxResults' - Filter to limit the maximum number of results to list per page.
-listProgressUpdateStreams
-    :: ListProgressUpdateStreams
-listProgressUpdateStreams =
+-- 'nextToken', 'listProgressUpdateStreams_nextToken' - If a @NextToken@ was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again
+-- using the returned token in @NextToken@.
+--
+-- 'maxResults', 'listProgressUpdateStreams_maxResults' - Filter to limit the maximum number of results to list per page.
+newListProgressUpdateStreams ::
+  ListProgressUpdateStreams
+newListProgressUpdateStreams =
   ListProgressUpdateStreams'
-    {_lpusNextToken = Nothing, _lpusMaxResults = Nothing}
-
-
--- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
-lpusNextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
-lpusNextToken = lens _lpusNextToken (\ s a -> s{_lpusNextToken = a})
-
--- | Filter to limit the maximum number of results to list per page.
-lpusMaxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
-lpusMaxResults = lens _lpusMaxResults (\ s a -> s{_lpusMaxResults = a}) . mapping _Nat
-
-instance AWSRequest ListProgressUpdateStreams where
-        type Rs ListProgressUpdateStreams =
-             ListProgressUpdateStreamsResponse
-        request = postJSON migrationHub
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListProgressUpdateStreamsResponse' <$>
-                   (x .?> "ProgressUpdateStreamSummaryList" .!@ mempty)
-                     <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListProgressUpdateStreams where
-
-instance NFData ListProgressUpdateStreams where
-
-instance ToHeaders ListProgressUpdateStreams where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSMigrationHub.ListProgressUpdateStreams" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListProgressUpdateStreams where
-        toJSON ListProgressUpdateStreams'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lpusNextToken,
-                  ("MaxResults" .=) <$> _lpusMaxResults])
-
-instance ToPath ListProgressUpdateStreams where
-        toPath = const "/"
-
-instance ToQuery ListProgressUpdateStreams where
-        toQuery = const mempty
-
--- | /See:/ 'listProgressUpdateStreamsResponse' smart constructor.
-data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-  { _lpusrsProgressUpdateStreamSummaryList :: !(Maybe [ProgressUpdateStreamSummary])
-  , _lpusrsNextToken :: !(Maybe Text)
-  , _lpusrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListProgressUpdateStreamsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpusrsProgressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed in the input.
---
--- * 'lpusrsNextToken' - If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
---
--- * 'lpusrsResponseStatus' - -- | The response status code.
-listProgressUpdateStreamsResponse
-    :: Int -- ^ 'lpusrsResponseStatus'
-    -> ListProgressUpdateStreamsResponse
-listProgressUpdateStreamsResponse pResponseStatus_ =
-  ListProgressUpdateStreamsResponse'
-    { _lpusrsProgressUpdateStreamSummaryList = Nothing
-    , _lpusrsNextToken = Nothing
-    , _lpusrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | If a @NextToken@ was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again
+-- using the returned token in @NextToken@.
+listProgressUpdateStreams_nextToken :: Lens.Lens' ListProgressUpdateStreams (Prelude.Maybe Prelude.Text)
+listProgressUpdateStreams_nextToken = Lens.lens (\ListProgressUpdateStreams' {nextToken} -> nextToken) (\s@ListProgressUpdateStreams' {} a -> s {nextToken = a} :: ListProgressUpdateStreams)
 
--- | List of progress update streams up to the max number of results passed in the input.
-lpusrsProgressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse [ProgressUpdateStreamSummary]
-lpusrsProgressUpdateStreamSummaryList = lens _lpusrsProgressUpdateStreamSummaryList (\ s a -> s{_lpusrsProgressUpdateStreamSummaryList = a}) . _Default . _Coerce
+-- | Filter to limit the maximum number of results to list per page.
+listProgressUpdateStreams_maxResults :: Lens.Lens' ListProgressUpdateStreams (Prelude.Maybe Prelude.Natural)
+listProgressUpdateStreams_maxResults = Lens.lens (\ListProgressUpdateStreams' {maxResults} -> maxResults) (\s@ListProgressUpdateStreams' {} a -> s {maxResults = a} :: ListProgressUpdateStreams)
 
--- | If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
-lpusrsNextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
-lpusrsNextToken = lens _lpusrsNextToken (\ s a -> s{_lpusrsNextToken = a})
+instance Core.AWSPager ListProgressUpdateStreams where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listProgressUpdateStreamsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listProgressUpdateStreams_nextToken
+          Lens..~ rs
+          Lens.^? listProgressUpdateStreamsResponse_nextToken
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-lpusrsResponseStatus :: Lens' ListProgressUpdateStreamsResponse Int
-lpusrsResponseStatus = lens _lpusrsResponseStatus (\ s a -> s{_lpusrsResponseStatus = a})
+instance Core.AWSRequest ListProgressUpdateStreams where
+  type
+    AWSResponse ListProgressUpdateStreams =
+      ListProgressUpdateStreamsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProgressUpdateStreamsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ProgressUpdateStreamSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListProgressUpdateStreamsResponse
-         where
+instance Prelude.Hashable ListProgressUpdateStreams
+
+instance Prelude.NFData ListProgressUpdateStreams
+
+instance Core.ToHeaders ListProgressUpdateStreams where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSMigrationHub.ListProgressUpdateStreams" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListProgressUpdateStreams where
+  toJSON ListProgressUpdateStreams' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Core.ToPath ListProgressUpdateStreams where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListProgressUpdateStreams where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListProgressUpdateStreamsResponse' smart constructor.
+data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
+  { -- | If there are more streams created than the max result, return the next
+    -- token to be passed to the next call as a bookmark of where to start
+    -- from.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of progress update streams up to the max number of results passed
+    -- in the input.
+    progressUpdateStreamSummaryList :: Prelude.Maybe [ProgressUpdateStreamSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListProgressUpdateStreamsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listProgressUpdateStreamsResponse_nextToken' - If there are more streams created than the max result, return the next
+-- token to be passed to the next call as a bookmark of where to start
+-- from.
+--
+-- 'progressUpdateStreamSummaryList', 'listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed
+-- in the input.
+--
+-- 'httpStatus', 'listProgressUpdateStreamsResponse_httpStatus' - The response's http status code.
+newListProgressUpdateStreamsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListProgressUpdateStreamsResponse
+newListProgressUpdateStreamsResponse pHttpStatus_ =
+  ListProgressUpdateStreamsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      progressUpdateStreamSummaryList =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If there are more streams created than the max result, return the next
+-- token to be passed to the next call as a bookmark of where to start
+-- from.
+listProgressUpdateStreamsResponse_nextToken :: Lens.Lens' ListProgressUpdateStreamsResponse (Prelude.Maybe Prelude.Text)
+listProgressUpdateStreamsResponse_nextToken = Lens.lens (\ListProgressUpdateStreamsResponse' {nextToken} -> nextToken) (\s@ListProgressUpdateStreamsResponse' {} a -> s {nextToken = a} :: ListProgressUpdateStreamsResponse)
+
+-- | List of progress update streams up to the max number of results passed
+-- in the input.
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens.Lens' ListProgressUpdateStreamsResponse (Prelude.Maybe [ProgressUpdateStreamSummary])
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList = Lens.lens (\ListProgressUpdateStreamsResponse' {progressUpdateStreamSummaryList} -> progressUpdateStreamSummaryList) (\s@ListProgressUpdateStreamsResponse' {} a -> s {progressUpdateStreamSummaryList = a} :: ListProgressUpdateStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listProgressUpdateStreamsResponse_httpStatus :: Lens.Lens' ListProgressUpdateStreamsResponse Prelude.Int
+listProgressUpdateStreamsResponse_httpStatus = Lens.lens (\ListProgressUpdateStreamsResponse' {httpStatus} -> httpStatus) (\s@ListProgressUpdateStreamsResponse' {} a -> s {httpStatus = a} :: ListProgressUpdateStreamsResponse)
+
+instance
+  Prelude.NFData
+    ListProgressUpdateStreamsResponse

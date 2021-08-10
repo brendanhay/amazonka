@@ -1,175 +1,202 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a streaming distribution.
---
---
 module Network.AWS.CloudFront.UpdateStreamingDistribution
-    (
-    -- * Creating a Request
-      updateStreamingDistribution
-    , UpdateStreamingDistribution
+  ( -- * Creating a Request
+    UpdateStreamingDistribution (..),
+    newUpdateStreamingDistribution,
+
     -- * Request Lenses
-    , usdIfMatch
-    , usdStreamingDistributionConfig
-    , usdId
+    updateStreamingDistribution_ifMatch,
+    updateStreamingDistribution_streamingDistributionConfig,
+    updateStreamingDistribution_id,
 
     -- * Destructuring the Response
-    , updateStreamingDistributionResponse
-    , UpdateStreamingDistributionResponse
+    UpdateStreamingDistributionResponse (..),
+    newUpdateStreamingDistributionResponse,
+
     -- * Response Lenses
-    , usdrsETag
-    , usdrsStreamingDistribution
-    , usdrsResponseStatus
-    ) where
+    updateStreamingDistributionResponse_eTag,
+    updateStreamingDistributionResponse_streamingDistribution,
+    updateStreamingDistributionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to update a streaming distribution.
 --
---
---
--- /See:/ 'updateStreamingDistribution' smart constructor.
+-- /See:/ 'newUpdateStreamingDistribution' smart constructor.
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-  { _usdIfMatch                     :: !(Maybe Text)
-  , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
-  , _usdId                          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The value of the @ETag@ header that you received when retrieving the
+    -- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
+    ifMatch :: Prelude.Maybe Prelude.Text,
+    -- | The streaming distribution\'s configuration information.
+    streamingDistributionConfig :: StreamingDistributionConfig,
+    -- | The streaming distribution\'s id.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateStreamingDistribution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateStreamingDistribution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usdIfMatch' - The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usdStreamingDistributionConfig' - The streaming distribution's configuration information.
+-- 'ifMatch', 'updateStreamingDistribution_ifMatch' - The value of the @ETag@ header that you received when retrieving the
+-- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
 --
--- * 'usdId' - The streaming distribution's id.
-updateStreamingDistribution
-    :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
-    -> Text -- ^ 'usdId'
-    -> UpdateStreamingDistribution
-updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
-  UpdateStreamingDistribution'
-    { _usdIfMatch = Nothing
-    , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
-    , _usdId = pId_
-    }
+-- 'streamingDistributionConfig', 'updateStreamingDistribution_streamingDistributionConfig' - The streaming distribution\'s configuration information.
+--
+-- 'id', 'updateStreamingDistribution_id' - The streaming distribution\'s id.
+newUpdateStreamingDistribution ::
+  -- | 'streamingDistributionConfig'
+  StreamingDistributionConfig ->
+  -- | 'id'
+  Prelude.Text ->
+  UpdateStreamingDistribution
+newUpdateStreamingDistribution
+  pStreamingDistributionConfig_
+  pId_ =
+    UpdateStreamingDistribution'
+      { ifMatch =
+          Prelude.Nothing,
+        streamingDistributionConfig =
+          pStreamingDistributionConfig_,
+        id = pId_
+      }
 
+-- | The value of the @ETag@ header that you received when retrieving the
+-- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
+updateStreamingDistribution_ifMatch :: Lens.Lens' UpdateStreamingDistribution (Prelude.Maybe Prelude.Text)
+updateStreamingDistribution_ifMatch = Lens.lens (\UpdateStreamingDistribution' {ifMatch} -> ifMatch) (\s@UpdateStreamingDistribution' {} a -> s {ifMatch = a} :: UpdateStreamingDistribution)
 
--- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
-usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a})
+-- | The streaming distribution\'s configuration information.
+updateStreamingDistribution_streamingDistributionConfig :: Lens.Lens' UpdateStreamingDistribution StreamingDistributionConfig
+updateStreamingDistribution_streamingDistributionConfig = Lens.lens (\UpdateStreamingDistribution' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@UpdateStreamingDistribution' {} a -> s {streamingDistributionConfig = a} :: UpdateStreamingDistribution)
 
--- | The streaming distribution's configuration information.
-usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a})
+-- | The streaming distribution\'s id.
+updateStreamingDistribution_id :: Lens.Lens' UpdateStreamingDistribution Prelude.Text
+updateStreamingDistribution_id = Lens.lens (\UpdateStreamingDistribution' {id} -> id) (\s@UpdateStreamingDistribution' {} a -> s {id = a} :: UpdateStreamingDistribution)
 
--- | The streaming distribution's id.
-usdId :: Lens' UpdateStreamingDistribution Text
-usdId = lens _usdId (\ s a -> s{_usdId = a})
+instance Core.AWSRequest UpdateStreamingDistribution where
+  type
+    AWSResponse UpdateStreamingDistribution =
+      UpdateStreamingDistributionResponse
+  request = Request.putXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          UpdateStreamingDistributionResponse'
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateStreamingDistribution where
-        type Rs UpdateStreamingDistribution =
-             UpdateStreamingDistributionResponse
-        request = putXML cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 UpdateStreamingDistributionResponse' <$>
-                   (h .#? "ETag") <*> (parseXML x) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable UpdateStreamingDistribution
 
-instance Hashable UpdateStreamingDistribution where
+instance Prelude.NFData UpdateStreamingDistribution
 
-instance NFData UpdateStreamingDistribution where
+instance Core.ToElement UpdateStreamingDistribution where
+  toElement UpdateStreamingDistribution' {..} =
+    Core.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig"
+      streamingDistributionConfig
 
-instance ToElement UpdateStreamingDistribution where
-        toElement
-          = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfig"
-              .
-              _usdStreamingDistributionConfig
+instance Core.ToHeaders UpdateStreamingDistribution where
+  toHeaders UpdateStreamingDistribution' {..} =
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
-instance ToHeaders UpdateStreamingDistribution where
-        toHeaders UpdateStreamingDistribution'{..}
-          = mconcat ["If-Match" =# _usdIfMatch]
+instance Core.ToPath UpdateStreamingDistribution where
+  toPath UpdateStreamingDistribution' {..} =
+    Prelude.mconcat
+      [ "/2020-05-31/streaming-distribution/",
+        Core.toBS id,
+        "/config"
+      ]
 
-instance ToPath UpdateStreamingDistribution where
-        toPath UpdateStreamingDistribution'{..}
-          = mconcat
-              ["/2017-10-30/streaming-distribution/", toBS _usdId,
-               "/config"]
-
-instance ToQuery UpdateStreamingDistribution where
-        toQuery = const mempty
+instance Core.ToQuery UpdateStreamingDistribution where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'updateStreamingDistributionResponse' smart constructor.
+-- /See:/ 'newUpdateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-  { _usdrsETag                  :: !(Maybe Text)
-  , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-  , _usdrsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The streaming distribution\'s information.
+    streamingDistribution :: Prelude.Maybe StreamingDistribution,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateStreamingDistributionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateStreamingDistributionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usdrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usdrsStreamingDistribution' - The streaming distribution's information.
+-- 'eTag', 'updateStreamingDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
--- * 'usdrsResponseStatus' - -- | The response status code.
-updateStreamingDistributionResponse
-    :: Int -- ^ 'usdrsResponseStatus'
-    -> UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse pResponseStatus_ =
+-- 'streamingDistribution', 'updateStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.
+--
+-- 'httpStatus', 'updateStreamingDistributionResponse_httpStatus' - The response's http status code.
+newUpdateStreamingDistributionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateStreamingDistributionResponse
+newUpdateStreamingDistributionResponse pHttpStatus_ =
   UpdateStreamingDistributionResponse'
-    { _usdrsETag = Nothing
-    , _usdrsStreamingDistribution = Nothing
-    , _usdrsResponseStatus = pResponseStatus_
+    { eTag =
+        Prelude.Nothing,
+      streamingDistribution =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+updateStreamingDistributionResponse_eTag :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
+updateStreamingDistributionResponse_eTag = Lens.lens (\UpdateStreamingDistributionResponse' {eTag} -> eTag) (\s@UpdateStreamingDistributionResponse' {} a -> s {eTag = a} :: UpdateStreamingDistributionResponse)
 
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a})
+-- | The streaming distribution\'s information.
+updateStreamingDistributionResponse_streamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
+updateStreamingDistributionResponse_streamingDistribution = Lens.lens (\UpdateStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@UpdateStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: UpdateStreamingDistributionResponse)
 
--- | The streaming distribution's information.
-usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a})
+-- | The response's http status code.
+updateStreamingDistributionResponse_httpStatus :: Lens.Lens' UpdateStreamingDistributionResponse Prelude.Int
+updateStreamingDistributionResponse_httpStatus = Lens.lens (\UpdateStreamingDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamingDistributionResponse' {} a -> s {httpStatus = a} :: UpdateStreamingDistributionResponse)
 
--- | -- | The response status code.
-usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
-usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a})
-
-instance NFData UpdateStreamingDistributionResponse
-         where
+instance
+  Prelude.NFData
+    UpdateStreamingDistributionResponse

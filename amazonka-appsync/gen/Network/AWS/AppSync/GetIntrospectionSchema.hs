@@ -1,137 +1,194 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppSync.GetIntrospectionSchema
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the introspection schema for a GraphQL API.
---
---
 module Network.AWS.AppSync.GetIntrospectionSchema
-    (
-    -- * Creating a Request
-      getIntrospectionSchema
-    , GetIntrospectionSchema
+  ( -- * Creating a Request
+    GetIntrospectionSchema (..),
+    newGetIntrospectionSchema,
+
     -- * Request Lenses
-    , gisApiId
-    , gisFormat
+    getIntrospectionSchema_includeDirectives,
+    getIntrospectionSchema_apiId,
+    getIntrospectionSchema_format,
 
     -- * Destructuring the Response
-    , getIntrospectionSchemaResponse
-    , GetIntrospectionSchemaResponse
+    GetIntrospectionSchemaResponse (..),
+    newGetIntrospectionSchemaResponse,
+
     -- * Response Lenses
-    , gisrsSchema
-    , gisrsResponseStatus
-    ) where
+    getIntrospectionSchemaResponse_schema,
+    getIntrospectionSchemaResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getIntrospectionSchema' smart constructor.
+-- | /See:/ 'newGetIntrospectionSchema' smart constructor.
 data GetIntrospectionSchema = GetIntrospectionSchema'
-  { _gisApiId  :: !Text
-  , _gisFormat :: !OutputType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A flag that specifies whether the schema introspection should contain
+    -- directives.
+    includeDirectives :: Prelude.Maybe Prelude.Bool,
+    -- | The API ID.
+    apiId :: Prelude.Text,
+    -- | The schema format: SDL or JSON.
+    format :: OutputType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetIntrospectionSchema' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'includeDirectives', 'getIntrospectionSchema_includeDirectives' - A flag that specifies whether the schema introspection should contain
+-- directives.
+--
+-- 'apiId', 'getIntrospectionSchema_apiId' - The API ID.
+--
+-- 'format', 'getIntrospectionSchema_format' - The schema format: SDL or JSON.
+newGetIntrospectionSchema ::
+  -- | 'apiId'
+  Prelude.Text ->
+  -- | 'format'
+  OutputType ->
+  GetIntrospectionSchema
+newGetIntrospectionSchema pApiId_ pFormat_ =
+  GetIntrospectionSchema'
+    { includeDirectives =
+        Prelude.Nothing,
+      apiId = pApiId_,
+      format = pFormat_
+    }
 
--- | Creates a value of 'GetIntrospectionSchema' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisApiId' - The API ID.
---
--- * 'gisFormat' - The schema format: SDL or JSON.
-getIntrospectionSchema
-    :: Text -- ^ 'gisApiId'
-    -> OutputType -- ^ 'gisFormat'
-    -> GetIntrospectionSchema
-getIntrospectionSchema pApiId_ pFormat_ =
-  GetIntrospectionSchema' {_gisApiId = pApiId_, _gisFormat = pFormat_}
-
+-- | A flag that specifies whether the schema introspection should contain
+-- directives.
+getIntrospectionSchema_includeDirectives :: Lens.Lens' GetIntrospectionSchema (Prelude.Maybe Prelude.Bool)
+getIntrospectionSchema_includeDirectives = Lens.lens (\GetIntrospectionSchema' {includeDirectives} -> includeDirectives) (\s@GetIntrospectionSchema' {} a -> s {includeDirectives = a} :: GetIntrospectionSchema)
 
 -- | The API ID.
-gisApiId :: Lens' GetIntrospectionSchema Text
-gisApiId = lens _gisApiId (\ s a -> s{_gisApiId = a})
+getIntrospectionSchema_apiId :: Lens.Lens' GetIntrospectionSchema Prelude.Text
+getIntrospectionSchema_apiId = Lens.lens (\GetIntrospectionSchema' {apiId} -> apiId) (\s@GetIntrospectionSchema' {} a -> s {apiId = a} :: GetIntrospectionSchema)
 
 -- | The schema format: SDL or JSON.
-gisFormat :: Lens' GetIntrospectionSchema OutputType
-gisFormat = lens _gisFormat (\ s a -> s{_gisFormat = a})
+getIntrospectionSchema_format :: Lens.Lens' GetIntrospectionSchema OutputType
+getIntrospectionSchema_format = Lens.lens (\GetIntrospectionSchema' {format} -> format) (\s@GetIntrospectionSchema' {} a -> s {format = a} :: GetIntrospectionSchema)
 
-instance AWSRequest GetIntrospectionSchema where
-        type Rs GetIntrospectionSchema =
-             GetIntrospectionSchemaResponse
-        request = get appSync
-        response
-          = receiveBytes
-              (\ s h x ->
-                 GetIntrospectionSchemaResponse' <$>
-                   (pure (Just x)) <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetIntrospectionSchema where
+  type
+    AWSResponse GetIntrospectionSchema =
+      GetIntrospectionSchemaResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveBytes
+      ( \s h x ->
+          GetIntrospectionSchemaResponse'
+            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetIntrospectionSchema where
+instance Prelude.Hashable GetIntrospectionSchema
 
-instance NFData GetIntrospectionSchema where
+instance Prelude.NFData GetIntrospectionSchema
 
-instance ToHeaders GetIntrospectionSchema where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetIntrospectionSchema where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath GetIntrospectionSchema where
-        toPath GetIntrospectionSchema'{..}
-          = mconcat ["/v1/apis/", toBS _gisApiId, "/schema"]
+instance Core.ToPath GetIntrospectionSchema where
+  toPath GetIntrospectionSchema' {..} =
+    Prelude.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/schema"]
 
-instance ToQuery GetIntrospectionSchema where
-        toQuery GetIntrospectionSchema'{..}
-          = mconcat ["format" =: _gisFormat]
+instance Core.ToQuery GetIntrospectionSchema where
+  toQuery GetIntrospectionSchema' {..} =
+    Prelude.mconcat
+      [ "includeDirectives" Core.=: includeDirectives,
+        "format" Core.=: format
+      ]
 
--- | /See:/ 'getIntrospectionSchemaResponse' smart constructor.
+-- | /See:/ 'newGetIntrospectionSchemaResponse' smart constructor.
 data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
-  { _gisrsSchema         :: !(Maybe ByteString)
-  , _gisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The schema, in GraphQL Schema Definition Language (SDL) format.
+    --
+    -- For more information, see the
+    -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
+    schema :: Prelude.Maybe Prelude.ByteString,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIntrospectionSchemaResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIntrospectionSchemaResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisrsSchema' - The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gisrsResponseStatus' - -- | The response status code.
-getIntrospectionSchemaResponse
-    :: Int -- ^ 'gisrsResponseStatus'
-    -> GetIntrospectionSchemaResponse
-getIntrospectionSchemaResponse pResponseStatus_ =
+-- 'schema', 'getIntrospectionSchemaResponse_schema' - The schema, in GraphQL Schema Definition Language (SDL) format.
+--
+-- For more information, see the
+-- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
+--
+-- 'httpStatus', 'getIntrospectionSchemaResponse_httpStatus' - The response's http status code.
+newGetIntrospectionSchemaResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIntrospectionSchemaResponse
+newGetIntrospectionSchemaResponse pHttpStatus_ =
   GetIntrospectionSchemaResponse'
-    {_gisrsSchema = Nothing, _gisrsResponseStatus = pResponseStatus_}
+    { schema =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The schema, in GraphQL Schema Definition Language (SDL) format.
+--
+-- For more information, see the
+-- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
+getIntrospectionSchemaResponse_schema :: Lens.Lens' GetIntrospectionSchemaResponse (Prelude.Maybe Prelude.ByteString)
+getIntrospectionSchemaResponse_schema = Lens.lens (\GetIntrospectionSchemaResponse' {schema} -> schema) (\s@GetIntrospectionSchemaResponse' {} a -> s {schema = a} :: GetIntrospectionSchemaResponse)
 
--- | The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
-gisrsSchema :: Lens' GetIntrospectionSchemaResponse (Maybe ByteString)
-gisrsSchema = lens _gisrsSchema (\ s a -> s{_gisrsSchema = a})
+-- | The response's http status code.
+getIntrospectionSchemaResponse_httpStatus :: Lens.Lens' GetIntrospectionSchemaResponse Prelude.Int
+getIntrospectionSchemaResponse_httpStatus = Lens.lens (\GetIntrospectionSchemaResponse' {httpStatus} -> httpStatus) (\s@GetIntrospectionSchemaResponse' {} a -> s {httpStatus = a} :: GetIntrospectionSchemaResponse)
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetIntrospectionSchemaResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
-
-instance NFData GetIntrospectionSchemaResponse where
+instance
+  Prelude.NFData
+    GetIntrospectionSchemaResponse

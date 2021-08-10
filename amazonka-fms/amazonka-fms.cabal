@@ -1,97 +1,146 @@
-name:                  amazonka-fms
-version:               1.6.1
-synopsis:              Amazon Firewall Management Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-fms
+version:            1.6.1
+synopsis:           Amazon Firewall Management Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.FMS" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2018-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.FMS.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.FMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-fms
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-fms
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.FMS
+    Network.AWS.FMS.AssociateAdminAccount
+    Network.AWS.FMS.DeleteAppsList
+    Network.AWS.FMS.DeleteNotificationChannel
+    Network.AWS.FMS.DeletePolicy
+    Network.AWS.FMS.DeleteProtocolsList
+    Network.AWS.FMS.DisassociateAdminAccount
+    Network.AWS.FMS.GetAdminAccount
+    Network.AWS.FMS.GetAppsList
+    Network.AWS.FMS.GetComplianceDetail
+    Network.AWS.FMS.GetNotificationChannel
+    Network.AWS.FMS.GetPolicy
+    Network.AWS.FMS.GetProtectionStatus
+    Network.AWS.FMS.GetProtocolsList
+    Network.AWS.FMS.GetViolationDetails
+    Network.AWS.FMS.Lens
+    Network.AWS.FMS.ListAppsLists
+    Network.AWS.FMS.ListComplianceStatus
+    Network.AWS.FMS.ListMemberAccounts
+    Network.AWS.FMS.ListPolicies
+    Network.AWS.FMS.ListProtocolsLists
+    Network.AWS.FMS.ListTagsForResource
+    Network.AWS.FMS.PutAppsList
+    Network.AWS.FMS.PutNotificationChannel
+    Network.AWS.FMS.PutPolicy
+    Network.AWS.FMS.PutProtocolsList
+    Network.AWS.FMS.TagResource
+    Network.AWS.FMS.Types
+    Network.AWS.FMS.Types.AccountRoleStatus
+    Network.AWS.FMS.Types.App
+    Network.AWS.FMS.Types.AppsListData
+    Network.AWS.FMS.Types.AppsListDataSummary
+    Network.AWS.FMS.Types.AwsEc2InstanceViolation
+    Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
+    Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
+    Network.AWS.FMS.Types.ComplianceViolator
+    Network.AWS.FMS.Types.CustomerPolicyScopeIdType
+    Network.AWS.FMS.Types.DependentServiceName
+    Network.AWS.FMS.Types.EvaluationResult
+    Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+    Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
+    Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
+    Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
+    Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
+    Network.AWS.FMS.Types.PartialMatch
+    Network.AWS.FMS.Types.Policy
+    Network.AWS.FMS.Types.PolicyComplianceDetail
+    Network.AWS.FMS.Types.PolicyComplianceStatus
+    Network.AWS.FMS.Types.PolicyComplianceStatusType
+    Network.AWS.FMS.Types.PolicySummary
+    Network.AWS.FMS.Types.ProtocolsListData
+    Network.AWS.FMS.Types.ProtocolsListDataSummary
+    Network.AWS.FMS.Types.RemediationActionType
+    Network.AWS.FMS.Types.ResourceTag
+    Network.AWS.FMS.Types.ResourceViolation
+    Network.AWS.FMS.Types.SecurityGroupRemediationAction
+    Network.AWS.FMS.Types.SecurityGroupRuleDescription
+    Network.AWS.FMS.Types.SecurityServicePolicyData
+    Network.AWS.FMS.Types.SecurityServiceType
+    Network.AWS.FMS.Types.StatefulRuleGroup
+    Network.AWS.FMS.Types.StatelessRuleGroup
+    Network.AWS.FMS.Types.Tag
+    Network.AWS.FMS.Types.ViolationDetail
+    Network.AWS.FMS.Types.ViolationReason
+    Network.AWS.FMS.UntagResource
+    Network.AWS.FMS.Waiters
 
-    exposed-modules:
-          Network.AWS.FMS
-        , Network.AWS.FMS.AssociateAdminAccount
-        , Network.AWS.FMS.DeleteNotificationChannel
-        , Network.AWS.FMS.DeletePolicy
-        , Network.AWS.FMS.DisassociateAdminAccount
-        , Network.AWS.FMS.GetAdminAccount
-        , Network.AWS.FMS.GetComplianceDetail
-        , Network.AWS.FMS.GetNotificationChannel
-        , Network.AWS.FMS.GetPolicy
-        , Network.AWS.FMS.ListComplianceStatus
-        , Network.AWS.FMS.ListPolicies
-        , Network.AWS.FMS.PutNotificationChannel
-        , Network.AWS.FMS.PutPolicy
-        , Network.AWS.FMS.Types
-        , Network.AWS.FMS.Waiters
-
-    other-modules:
-          Network.AWS.FMS.Types.Product
-        , Network.AWS.FMS.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-fms-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.FMS
+    Test.AWS.FMS.Internal
+    Test.AWS.Gen.FMS
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.FMS
-        , Test.AWS.Gen.FMS
-        , Test.AWS.FMS.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-fms
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-fms
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

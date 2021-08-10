@@ -1,115 +1,202 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities> .
---
---
+-- Updates the policy that grants an IAM entity permission to assume a
+-- role. This is typically referred to as the \"role trust policy\". For
+-- more information about roles, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using roles to delegate permissions and federate identities>.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
-    (
-    -- * Creating a Request
-      updateAssumeRolePolicy
-    , UpdateAssumeRolePolicy
+  ( -- * Creating a Request
+    UpdateAssumeRolePolicy (..),
+    newUpdateAssumeRolePolicy,
+
     -- * Request Lenses
-    , uarpRoleName
-    , uarpPolicyDocument
+    updateAssumeRolePolicy_roleName,
+    updateAssumeRolePolicy_policyDocument,
 
     -- * Destructuring the Response
-    , updateAssumeRolePolicyResponse
-    , UpdateAssumeRolePolicyResponse
-    ) where
+    UpdateAssumeRolePolicyResponse (..),
+    newUpdateAssumeRolePolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateAssumeRolePolicy' smart constructor.
+-- | /See:/ 'newUpdateAssumeRolePolicy' smart constructor.
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-  { _uarpRoleName       :: !Text
-  , _uarpPolicyDocument :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the role to update with the new policy.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    roleName :: Prelude.Text,
+    -- | The policy that grants an entity permission to assume the role.
+    --
+    -- You must provide policies in JSON format in IAM. However, for AWS
+    -- CloudFormation templates formatted in YAML, you can provide the policy
+    -- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+    -- to JSON format before submitting it to IAM.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+    -- this parameter is a string of characters consisting of the following:
+    --
+    -- -   Any printable ASCII character ranging from the space character
+    --     (@\\u0020@) through the end of the ASCII character range
+    --
+    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@)
+    --
+    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+    --     carriage return (@\\u000D@)
+    policyDocument :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateAssumeRolePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateAssumeRolePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uarpRoleName' - The name of the role to update with the new policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uarpPolicyDocument' - The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
-updateAssumeRolePolicy
-    :: Text -- ^ 'uarpRoleName'
-    -> Text -- ^ 'uarpPolicyDocument'
-    -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
+-- 'roleName', 'updateAssumeRolePolicy_roleName' - The name of the role to update with the new policy.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'policyDocument', 'updateAssumeRolePolicy_policyDocument' - The policy that grants an entity permission to assume the role.
+--
+-- You must provide policies in JSON format in IAM. However, for AWS
+-- CloudFormation templates formatted in YAML, you can provide the policy
+-- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+-- to JSON format before submitting it to IAM.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+newUpdateAssumeRolePolicy ::
+  -- | 'roleName'
+  Prelude.Text ->
+  -- | 'policyDocument'
+  Prelude.Text ->
+  UpdateAssumeRolePolicy
+newUpdateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
   UpdateAssumeRolePolicy'
-    {_uarpRoleName = pRoleName_, _uarpPolicyDocument = pPolicyDocument_}
+    { roleName = pRoleName_,
+      policyDocument = pPolicyDocument_
+    }
 
-
--- | The name of the role to update with the new policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
-uarpRoleName = lens _uarpRoleName (\ s a -> s{_uarpRoleName = a})
-
--- | The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
-uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
-uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = a})
-
-instance AWSRequest UpdateAssumeRolePolicy where
-        type Rs UpdateAssumeRolePolicy =
-             UpdateAssumeRolePolicyResponse
-        request = postQuery iam
-        response
-          = receiveNull UpdateAssumeRolePolicyResponse'
-
-instance Hashable UpdateAssumeRolePolicy where
-
-instance NFData UpdateAssumeRolePolicy where
-
-instance ToHeaders UpdateAssumeRolePolicy where
-        toHeaders = const mempty
-
-instance ToPath UpdateAssumeRolePolicy where
-        toPath = const "/"
-
-instance ToQuery UpdateAssumeRolePolicy where
-        toQuery UpdateAssumeRolePolicy'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateAssumeRolePolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _uarpRoleName,
-               "PolicyDocument" =: _uarpPolicyDocument]
-
--- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
-data UpdateAssumeRolePolicyResponse =
-  UpdateAssumeRolePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateAssumeRolePolicyResponse' with the minimum fields required to make a request.
+-- | The name of the role to update with the new policy.
 --
-updateAssumeRolePolicyResponse
-    :: UpdateAssumeRolePolicyResponse
-updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+updateAssumeRolePolicy_roleName :: Lens.Lens' UpdateAssumeRolePolicy Prelude.Text
+updateAssumeRolePolicy_roleName = Lens.lens (\UpdateAssumeRolePolicy' {roleName} -> roleName) (\s@UpdateAssumeRolePolicy' {} a -> s {roleName = a} :: UpdateAssumeRolePolicy)
 
+-- | The policy that grants an entity permission to assume the role.
+--
+-- You must provide policies in JSON format in IAM. However, for AWS
+-- CloudFormation templates formatted in YAML, you can provide the policy
+-- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+-- to JSON format before submitting it to IAM.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+updateAssumeRolePolicy_policyDocument :: Lens.Lens' UpdateAssumeRolePolicy Prelude.Text
+updateAssumeRolePolicy_policyDocument = Lens.lens (\UpdateAssumeRolePolicy' {policyDocument} -> policyDocument) (\s@UpdateAssumeRolePolicy' {} a -> s {policyDocument = a} :: UpdateAssumeRolePolicy)
 
-instance NFData UpdateAssumeRolePolicyResponse where
+instance Core.AWSRequest UpdateAssumeRolePolicy where
+  type
+    AWSResponse UpdateAssumeRolePolicy =
+      UpdateAssumeRolePolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      UpdateAssumeRolePolicyResponse'
+
+instance Prelude.Hashable UpdateAssumeRolePolicy
+
+instance Prelude.NFData UpdateAssumeRolePolicy
+
+instance Core.ToHeaders UpdateAssumeRolePolicy where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath UpdateAssumeRolePolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateAssumeRolePolicy where
+  toQuery UpdateAssumeRolePolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UpdateAssumeRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Core.=: roleName,
+        "PolicyDocument" Core.=: policyDocument
+      ]
+
+-- | /See:/ 'newUpdateAssumeRolePolicyResponse' smart constructor.
+data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateAssumeRolePolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateAssumeRolePolicyResponse ::
+  UpdateAssumeRolePolicyResponse
+newUpdateAssumeRolePolicyResponse =
+  UpdateAssumeRolePolicyResponse'
+
+instance
+  Prelude.NFData
+    UpdateAssumeRolePolicyResponse

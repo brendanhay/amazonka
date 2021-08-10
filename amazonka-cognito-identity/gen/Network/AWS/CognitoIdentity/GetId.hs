@@ -1,165 +1,235 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetId
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.
---
+-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
+-- create an implicit linked account.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
 module Network.AWS.CognitoIdentity.GetId
-    (
-    -- * Creating a Request
-      getId
-    , GetId
+  ( -- * Creating a Request
+    GetId (..),
+    newGetId,
+
     -- * Request Lenses
-    , giAccountId
-    , giLogins
-    , giIdentityPoolId
+    getId_accountId,
+    getId_logins,
+    getId_identityPoolId,
 
     -- * Destructuring the Response
-    , getIdResponse
-    , GetIdResponse
+    GetIdResponse (..),
+    newGetIdResponse,
+
     -- * Response Lenses
-    , girsIdentityId
-    , girsResponseStatus
-    ) where
+    getIdResponse_identityId,
+    getIdResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the GetId action.
 --
---
---
--- /See:/ 'getId' smart constructor.
+-- /See:/ 'newGetId' smart constructor.
 data GetId = GetId'
-  { _giAccountId      :: !(Maybe Text)
-  , _giLogins         :: !(Maybe (Map Text Text))
-  , _giIdentityPoolId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A standard AWS account ID (9+ digits).
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | A set of optional name-value pairs that map provider names to provider
+    -- tokens. The available provider names for @Logins@ are as follows:
+    --
+    -- -   Facebook: @graph.facebook.com@
+    --
+    -- -   Amazon Cognito user pool:
+    --     @cognito-idp.\<region>.amazonaws.com\/\<YOUR_USER_POOL_ID>@, for
+    --     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+    --
+    -- -   Google: @accounts.google.com@
+    --
+    -- -   Amazon: @www.amazon.com@
+    --
+    -- -   Twitter: @api.twitter.com@
+    --
+    -- -   Digits: @www.digits.com@
+    logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetId' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetId' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giAccountId' - A standard AWS account ID (9+ digits).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giLogins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito Identity Provider: @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
+-- 'accountId', 'getId_accountId' - A standard AWS account ID (9+ digits).
 --
--- * 'giIdentityPoolId' - An identity pool ID in the format REGION:GUID.
-getId
-    :: Text -- ^ 'giIdentityPoolId'
-    -> GetId
-getId pIdentityPoolId_ =
+-- 'logins', 'getId_logins' - A set of optional name-value pairs that map provider names to provider
+-- tokens. The available provider names for @Logins@ are as follows:
+--
+-- -   Facebook: @graph.facebook.com@
+--
+-- -   Amazon Cognito user pool:
+--     @cognito-idp.\<region>.amazonaws.com\/\<YOUR_USER_POOL_ID>@, for
+--     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+--
+-- -   Google: @accounts.google.com@
+--
+-- -   Amazon: @www.amazon.com@
+--
+-- -   Twitter: @api.twitter.com@
+--
+-- -   Digits: @www.digits.com@
+--
+-- 'identityPoolId', 'getId_identityPoolId' - An identity pool ID in the format REGION:GUID.
+newGetId ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  GetId
+newGetId pIdentityPoolId_ =
   GetId'
-    { _giAccountId = Nothing
-    , _giLogins = Nothing
-    , _giIdentityPoolId = pIdentityPoolId_
+    { accountId = Prelude.Nothing,
+      logins = Prelude.Nothing,
+      identityPoolId = pIdentityPoolId_
     }
 
-
 -- | A standard AWS account ID (9+ digits).
-giAccountId :: Lens' GetId (Maybe Text)
-giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a})
+getId_accountId :: Lens.Lens' GetId (Prelude.Maybe Prelude.Text)
+getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -> s {accountId = a} :: GetId)
 
--- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito Identity Provider: @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
-giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens. The available provider names for @Logins@ are as follows:
+--
+-- -   Facebook: @graph.facebook.com@
+--
+-- -   Amazon Cognito user pool:
+--     @cognito-idp.\<region>.amazonaws.com\/\<YOUR_USER_POOL_ID>@, for
+--     example, @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+--
+-- -   Google: @accounts.google.com@
+--
+-- -   Amazon: @www.amazon.com@
+--
+-- -   Twitter: @api.twitter.com@
+--
+-- -   Digits: @www.digits.com@
+getId_logins :: Lens.Lens' GetId (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
-giIdentityPoolId :: Lens' GetId Text
-giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a})
+getId_identityPoolId :: Lens.Lens' GetId Prelude.Text
+getId_identityPoolId = Lens.lens (\GetId' {identityPoolId} -> identityPoolId) (\s@GetId' {} a -> s {identityPoolId = a} :: GetId)
 
-instance AWSRequest GetId where
-        type Rs GetId = GetIdResponse
-        request = postJSON cognitoIdentity
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetIdResponse' <$>
-                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetId where
+  type AWSResponse GetId = GetIdResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetIdResponse'
+            Prelude.<$> (x Core..?> "IdentityId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetId where
+instance Prelude.Hashable GetId
 
-instance NFData GetId where
+instance Prelude.NFData GetId
 
-instance ToHeaders GetId where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityService.GetId" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetId where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityService.GetId" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetId where
-        toJSON GetId'{..}
-          = object
-              (catMaybes
-                 [("AccountId" .=) <$> _giAccountId,
-                  ("Logins" .=) <$> _giLogins,
-                  Just ("IdentityPoolId" .= _giIdentityPoolId)])
+instance Core.ToJSON GetId where
+  toJSON GetId' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AccountId" Core..=) Prelude.<$> accountId,
+            ("Logins" Core..=) Prelude.<$> logins,
+            Prelude.Just
+              ("IdentityPoolId" Core..= identityPoolId)
+          ]
+      )
 
-instance ToPath GetId where
-        toPath = const "/"
+instance Core.ToPath GetId where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetId where
-        toQuery = const mempty
+instance Core.ToQuery GetId where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a GetId request.
 --
---
---
--- /See:/ 'getIdResponse' smart constructor.
+-- /See:/ 'newGetIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
-  { _girsIdentityId     :: !(Maybe Text)
-  , _girsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'girsIdentityId' - A unique identifier in the format REGION:GUID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'girsResponseStatus' - -- | The response status code.
-getIdResponse
-    :: Int -- ^ 'girsResponseStatus'
-    -> GetIdResponse
-getIdResponse pResponseStatus_ =
+-- 'identityId', 'getIdResponse_identityId' - A unique identifier in the format REGION:GUID.
+--
+-- 'httpStatus', 'getIdResponse_httpStatus' - The response's http status code.
+newGetIdResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIdResponse
+newGetIdResponse pHttpStatus_ =
   GetIdResponse'
-    {_girsIdentityId = Nothing, _girsResponseStatus = pResponseStatus_}
-
+    { identityId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A unique identifier in the format REGION:GUID.
-girsIdentityId :: Lens' GetIdResponse (Maybe Text)
-girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a})
+getIdResponse_identityId :: Lens.Lens' GetIdResponse (Prelude.Maybe Prelude.Text)
+getIdResponse_identityId = Lens.lens (\GetIdResponse' {identityId} -> identityId) (\s@GetIdResponse' {} a -> s {identityId = a} :: GetIdResponse)
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetIdResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a})
+-- | The response's http status code.
+getIdResponse_httpStatus :: Lens.Lens' GetIdResponse Prelude.Int
+getIdResponse_httpStatus = Lens.lens (\GetIdResponse' {httpStatus} -> httpStatus) (\s@GetIdResponse' {} a -> s {httpStatus = a} :: GetIdResponse)
 
-instance NFData GetIdResponse where
+instance Prelude.NFData GetIdResponse

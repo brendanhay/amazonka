@@ -1,137 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityPoolUsage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets usage details (for example, data storage) about a particular identity pool.
+-- Gets usage details (for example, data storage) about a particular
+-- identity pool.
 --
---
--- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
---
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-    (
-    -- * Creating a Request
-      describeIdentityPoolUsage
-    , DescribeIdentityPoolUsage
+  ( -- * Creating a Request
+    DescribeIdentityPoolUsage (..),
+    newDescribeIdentityPoolUsage,
+
     -- * Request Lenses
-    , dipuIdentityPoolId
+    describeIdentityPoolUsage_identityPoolId,
 
     -- * Destructuring the Response
-    , describeIdentityPoolUsageResponse
-    , DescribeIdentityPoolUsageResponse
+    DescribeIdentityPoolUsageResponse (..),
+    newDescribeIdentityPoolUsageResponse,
+
     -- * Response Lenses
-    , dipursIdentityPoolUsage
-    , dipursResponseStatus
-    ) where
+    describeIdentityPoolUsageResponse_identityPoolUsage,
+    describeIdentityPoolUsageResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request for usage information about the identity pool.
 --
--- /See:/ 'describeIdentityPoolUsage' smart constructor.
-newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
-  { _dipuIdentityPoolId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeIdentityPoolUsage' smart constructor.
+data DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
+  { -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeIdentityPoolUsage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeIdentityPoolUsage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dipuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-describeIdentityPoolUsage
-    :: Text -- ^ 'dipuIdentityPoolId'
-    -> DescribeIdentityPoolUsage
-describeIdentityPoolUsage pIdentityPoolId_ =
-  DescribeIdentityPoolUsage' {_dipuIdentityPoolId = pIdentityPoolId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'identityPoolId', 'describeIdentityPoolUsage_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+newDescribeIdentityPoolUsage ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  DescribeIdentityPoolUsage
+newDescribeIdentityPoolUsage pIdentityPoolId_ =
+  DescribeIdentityPoolUsage'
+    { identityPoolId =
+        pIdentityPoolId_
+    }
 
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+describeIdentityPoolUsage_identityPoolId :: Lens.Lens' DescribeIdentityPoolUsage Prelude.Text
+describeIdentityPoolUsage_identityPoolId = Lens.lens (\DescribeIdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@DescribeIdentityPoolUsage' {} a -> s {identityPoolId = a} :: DescribeIdentityPoolUsage)
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
-dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a})
+instance Core.AWSRequest DescribeIdentityPoolUsage where
+  type
+    AWSResponse DescribeIdentityPoolUsage =
+      DescribeIdentityPoolUsageResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeIdentityPoolUsageResponse'
+            Prelude.<$> (x Core..?> "IdentityPoolUsage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeIdentityPoolUsage where
-        type Rs DescribeIdentityPoolUsage =
-             DescribeIdentityPoolUsageResponse
-        request = get cognitoSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeIdentityPoolUsageResponse' <$>
-                   (x .?> "IdentityPoolUsage") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeIdentityPoolUsage
 
-instance Hashable DescribeIdentityPoolUsage where
+instance Prelude.NFData DescribeIdentityPoolUsage
 
-instance NFData DescribeIdentityPoolUsage where
+instance Core.ToHeaders DescribeIdentityPoolUsage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeIdentityPoolUsage where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToPath DescribeIdentityPoolUsage where
+  toPath DescribeIdentityPoolUsage' {..} =
+    Prelude.mconcat
+      ["/identitypools/", Core.toBS identityPoolId]
 
-instance ToPath DescribeIdentityPoolUsage where
-        toPath DescribeIdentityPoolUsage'{..}
-          = mconcat
-              ["/identitypools/", toBS _dipuIdentityPoolId]
-
-instance ToQuery DescribeIdentityPoolUsage where
-        toQuery = const mempty
+instance Core.ToQuery DescribeIdentityPoolUsage where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a successful DescribeIdentityPoolUsage request.
 --
--- /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
+-- /See:/ 'newDescribeIdentityPoolUsageResponse' smart constructor.
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
-  { _dipursIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
-  , _dipursResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the usage of the identity pool.
+    identityPoolUsage :: Prelude.Maybe IdentityPoolUsage,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeIdentityPoolUsageResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeIdentityPoolUsageResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dipursIdentityPoolUsage' - Information about the usage of the identity pool.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dipursResponseStatus' - -- | The response status code.
-describeIdentityPoolUsageResponse
-    :: Int -- ^ 'dipursResponseStatus'
-    -> DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse pResponseStatus_ =
+-- 'identityPoolUsage', 'describeIdentityPoolUsageResponse_identityPoolUsage' - Information about the usage of the identity pool.
+--
+-- 'httpStatus', 'describeIdentityPoolUsageResponse_httpStatus' - The response's http status code.
+newDescribeIdentityPoolUsageResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeIdentityPoolUsageResponse
+newDescribeIdentityPoolUsageResponse pHttpStatus_ =
   DescribeIdentityPoolUsageResponse'
-    { _dipursIdentityPoolUsage = Nothing
-    , _dipursResponseStatus = pResponseStatus_
+    { identityPoolUsage =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Information about the usage of the identity pool.
-dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
-dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a})
+describeIdentityPoolUsageResponse_identityPoolUsage :: Lens.Lens' DescribeIdentityPoolUsageResponse (Prelude.Maybe IdentityPoolUsage)
+describeIdentityPoolUsageResponse_identityPoolUsage = Lens.lens (\DescribeIdentityPoolUsageResponse' {identityPoolUsage} -> identityPoolUsage) (\s@DescribeIdentityPoolUsageResponse' {} a -> s {identityPoolUsage = a} :: DescribeIdentityPoolUsageResponse)
 
--- | -- | The response status code.
-dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a})
+-- | The response's http status code.
+describeIdentityPoolUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityPoolUsageResponse Prelude.Int
+describeIdentityPoolUsageResponse_httpStatus = Lens.lens (\DescribeIdentityPoolUsageResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityPoolUsageResponse' {} a -> s {httpStatus = a} :: DescribeIdentityPoolUsageResponse)
 
-instance NFData DescribeIdentityPoolUsageResponse
-         where
+instance
+  Prelude.NFData
+    DescribeIdentityPoolUsageResponse

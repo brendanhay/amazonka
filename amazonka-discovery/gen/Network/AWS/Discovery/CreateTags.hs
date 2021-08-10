@@ -1,131 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.CreateTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.
---
---
+-- Creates one or more tags for configuration items. Tags are metadata that
+-- help you categorize IT assets. This API accepts a list of multiple
+-- configuration items.
 module Network.AWS.Discovery.CreateTags
-    (
-    -- * Creating a Request
-      createTags
-    , CreateTags
+  ( -- * Creating a Request
+    CreateTags (..),
+    newCreateTags,
+
     -- * Request Lenses
-    , ctConfigurationIds
-    , ctTags
+    createTags_configurationIds,
+    createTags_tags,
 
     -- * Destructuring the Response
-    , createTagsResponse
-    , CreateTagsResponse
+    CreateTagsResponse (..),
+    newCreateTagsResponse,
+
     -- * Response Lenses
-    , ctrsResponseStatus
-    ) where
+    createTagsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createTags' smart constructor.
+-- | /See:/ 'newCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { _ctConfigurationIds :: ![Text]
-  , _ctTags             :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of configuration items that you want to tag.
+    configurationIds :: [Prelude.Text],
+    -- | Tags that you want to associate with one or more configuration items.
+    -- Specify the tags that you want to create in a /key/-/value/ format. For
+    -- example:
+    --
+    -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctConfigurationIds' - A list of configuration items that you want to tag.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctTags' - Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
-createTags
-    :: CreateTags
-createTags = CreateTags' {_ctConfigurationIds = mempty, _ctTags = mempty}
-
+-- 'configurationIds', 'createTags_configurationIds' - A list of configuration items that you want to tag.
+--
+-- 'tags', 'createTags_tags' - Tags that you want to associate with one or more configuration items.
+-- Specify the tags that you want to create in a /key/-/value/ format. For
+-- example:
+--
+-- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+newCreateTags ::
+  CreateTags
+newCreateTags =
+  CreateTags'
+    { configurationIds = Prelude.mempty,
+      tags = Prelude.mempty
+    }
 
 -- | A list of configuration items that you want to tag.
-ctConfigurationIds :: Lens' CreateTags [Text]
-ctConfigurationIds = lens _ctConfigurationIds (\ s a -> s{_ctConfigurationIds = a}) . _Coerce
+createTags_configurationIds :: Lens.Lens' CreateTags [Prelude.Text]
+createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> configurationIds) (\s@CreateTags' {} a -> s {configurationIds = a} :: CreateTags) Prelude.. Lens._Coerce
 
--- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
-ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce
-
-instance AWSRequest CreateTags where
-        type Rs CreateTags = CreateTagsResponse
-        request = postJSON discovery
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateTagsResponse' <$> (pure (fromEnum s)))
-
-instance Hashable CreateTags where
-
-instance NFData CreateTags where
-
-instance ToHeaders CreateTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.CreateTags" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateTags where
-        toJSON CreateTags'{..}
-          = object
-              (catMaybes
-                 [Just ("configurationIds" .= _ctConfigurationIds),
-                  Just ("tags" .= _ctTags)])
-
-instance ToPath CreateTags where
-        toPath = const "/"
-
-instance ToQuery CreateTags where
-        toQuery = const mempty
-
--- | /See:/ 'createTagsResponse' smart constructor.
-newtype CreateTagsResponse = CreateTagsResponse'
-  { _ctrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+-- | Tags that you want to associate with one or more configuration items.
+-- Specify the tags that you want to create in a /key/-/value/ format. For
+-- example:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+createTags_tags :: Lens.Lens' CreateTags [Tag]
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest CreateTags where
+  type AWSResponse CreateTags = CreateTagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateTagsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateTags
+
+instance Prelude.NFData CreateTags
+
+instance Core.ToHeaders CreateTags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSPoseidonService_V2015_11_01.CreateTags" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateTags where
+  toJSON CreateTags' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("configurationIds" Core..= configurationIds),
+            Prelude.Just ("tags" Core..= tags)
+          ]
+      )
+
+instance Core.ToPath CreateTags where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateTags where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateTagsResponse' smart constructor.
+data CreateTagsResponse = CreateTagsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateTagsResponse' with all optional fields omitted.
 --
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTagsResponse
-    :: Int -- ^ 'ctrsResponseStatus'
-    -> CreateTagsResponse
-createTagsResponse pResponseStatus_ =
-  CreateTagsResponse' {_ctrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createTagsResponse_httpStatus' - The response's http status code.
+newCreateTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateTagsResponse
+newCreateTagsResponse pHttpStatus_ =
+  CreateTagsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Prelude.Int
+createTagsResponse_httpStatus = Lens.lens (\CreateTagsResponse' {httpStatus} -> httpStatus) (\s@CreateTagsResponse' {} a -> s {httpStatus = a} :: CreateTagsResponse)
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTagsResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
-
-instance NFData CreateTagsResponse where
+instance Prelude.NFData CreateTagsResponse

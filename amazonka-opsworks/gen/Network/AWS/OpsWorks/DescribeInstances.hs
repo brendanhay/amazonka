@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,140 +22,184 @@
 --
 -- Requests a description of a set of instances.
 --
+-- This call accepts only one resource-identifying parameter.
 --
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information about
+-- user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeInstances
-    (
-    -- * Creating a Request
-      describeInstances
-    , DescribeInstances
+  ( -- * Creating a Request
+    DescribeInstances (..),
+    newDescribeInstances,
+
     -- * Request Lenses
-    , diInstanceIds
-    , diStackId
-    , diLayerId
+    describeInstances_instanceIds,
+    describeInstances_stackId,
+    describeInstances_layerId,
 
     -- * Destructuring the Response
-    , describeInstancesResponse
-    , DescribeInstancesResponse
+    DescribeInstancesResponse (..),
+    newDescribeInstancesResponse,
+
     -- * Response Lenses
-    , dirsInstances
-    , dirsResponseStatus
-    ) where
+    describeInstancesResponse_instances,
+    describeInstancesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeInstances' smart constructor.
+-- | /See:/ 'newDescribeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { _diInstanceIds :: !(Maybe [Text])
-  , _diStackId     :: !(Maybe Text)
-  , _diLayerId     :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of instance IDs to be described. If you use this parameter,
+    -- @DescribeInstances@ returns a description of the specified instances.
+    -- Otherwise, it returns a description of every instance.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
+    -- descriptions of the instances associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | A layer ID. If you use this parameter, @DescribeInstances@ returns
+    -- descriptions of the instances associated with the specified layer.
+    layerId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diInstanceIds' - An array of instance IDs to be described. If you use this parameter, @DescribeInstances@ returns a description of the specified instances. Otherwise, it returns a description of every instance.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diStackId' - A stack ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified stack.
+-- 'instanceIds', 'describeInstances_instanceIds' - An array of instance IDs to be described. If you use this parameter,
+-- @DescribeInstances@ returns a description of the specified instances.
+-- Otherwise, it returns a description of every instance.
 --
--- * 'diLayerId' - A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
-describeInstances
-    :: DescribeInstances
-describeInstances =
+-- 'stackId', 'describeInstances_stackId' - A stack ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified stack.
+--
+-- 'layerId', 'describeInstances_layerId' - A layer ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified layer.
+newDescribeInstances ::
+  DescribeInstances
+newDescribeInstances =
   DescribeInstances'
-    {_diInstanceIds = Nothing, _diStackId = Nothing, _diLayerId = Nothing}
+    { instanceIds = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      layerId = Prelude.Nothing
+    }
 
+-- | An array of instance IDs to be described. If you use this parameter,
+-- @DescribeInstances@ returns a description of the specified instances.
+-- Otherwise, it returns a description of every instance.
+describeInstances_instanceIds :: Lens.Lens' DescribeInstances (Prelude.Maybe [Prelude.Text])
+describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> instanceIds) (\s@DescribeInstances' {} a -> s {instanceIds = a} :: DescribeInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of instance IDs to be described. If you use this parameter, @DescribeInstances@ returns a description of the specified instances. Otherwise, it returns a description of every instance.
-diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce
+-- | A stack ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified stack.
+describeInstances_stackId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_stackId = Lens.lens (\DescribeInstances' {stackId} -> stackId) (\s@DescribeInstances' {} a -> s {stackId = a} :: DescribeInstances)
 
--- | A stack ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified stack.
-diStackId :: Lens' DescribeInstances (Maybe Text)
-diStackId = lens _diStackId (\ s a -> s{_diStackId = a})
+-- | A layer ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified layer.
+describeInstances_layerId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_layerId = Lens.lens (\DescribeInstances' {layerId} -> layerId) (\s@DescribeInstances' {} a -> s {layerId = a} :: DescribeInstances)
 
--- | A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
-diLayerId :: Lens' DescribeInstances (Maybe Text)
-diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a})
+instance Core.AWSRequest DescribeInstances where
+  type
+    AWSResponse DescribeInstances =
+      DescribeInstancesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeInstancesResponse'
+            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeInstances where
-        type Rs DescribeInstances = DescribeInstancesResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeInstancesResponse' <$>
-                   (x .?> "Instances" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DescribeInstances
 
-instance Hashable DescribeInstances where
+instance Prelude.NFData DescribeInstances
 
-instance NFData DescribeInstances where
+instance Core.ToHeaders DescribeInstances where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DescribeInstances" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeInstances where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeInstances" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeInstances where
+  toJSON DescribeInstances' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("InstanceIds" Core..=) Prelude.<$> instanceIds,
+            ("StackId" Core..=) Prelude.<$> stackId,
+            ("LayerId" Core..=) Prelude.<$> layerId
+          ]
+      )
 
-instance ToJSON DescribeInstances where
-        toJSON DescribeInstances'{..}
-          = object
-              (catMaybes
-                 [("InstanceIds" .=) <$> _diInstanceIds,
-                  ("StackId" .=) <$> _diStackId,
-                  ("LayerId" .=) <$> _diLayerId])
+instance Core.ToPath DescribeInstances where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeInstances where
-        toPath = const "/"
-
-instance ToQuery DescribeInstances where
-        toQuery = const mempty
+instance Core.ToQuery DescribeInstances where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeInstances@ request.
 --
---
---
--- /See:/ 'describeInstancesResponse' smart constructor.
+-- /See:/ 'newDescribeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { _dirsInstances      :: !(Maybe [Instance])
-  , _dirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of @Instance@ objects that describe the instances.
+    instances :: Prelude.Maybe [Instance],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dirsInstances' - An array of @Instance@ objects that describe the instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dirsResponseStatus' - -- | The response status code.
-describeInstancesResponse
-    :: Int -- ^ 'dirsResponseStatus'
-    -> DescribeInstancesResponse
-describeInstancesResponse pResponseStatus_ =
+-- 'instances', 'describeInstancesResponse_instances' - An array of @Instance@ objects that describe the instances.
+--
+-- 'httpStatus', 'describeInstancesResponse_httpStatus' - The response's http status code.
+newDescribeInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeInstancesResponse
+newDescribeInstancesResponse pHttpStatus_ =
   DescribeInstancesResponse'
-    {_dirsInstances = Nothing, _dirsResponseStatus = pResponseStatus_}
-
+    { instances =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An array of @Instance@ objects that describe the instances.
-dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce
+describeInstancesResponse_instances :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe [Instance])
+describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {instances} -> instances) (\s@DescribeInstancesResponse' {} a -> s {instances = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DescribeInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
+-- | The response's http status code.
+describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Prelude.Int
+describeInstancesResponse_httpStatus = Lens.lens (\DescribeInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstancesResponse' {} a -> s {httpStatus = a} :: DescribeInstancesResponse)
 
-instance NFData DescribeInstancesResponse where
+instance Prelude.NFData DescribeInstancesResponse

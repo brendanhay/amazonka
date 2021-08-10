@@ -1,130 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawler
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves metadata for a specified crawler.
---
---
 module Network.AWS.Glue.GetCrawler
-    (
-    -- * Creating a Request
-      getCrawler
-    , GetCrawler
+  ( -- * Creating a Request
+    GetCrawler (..),
+    newGetCrawler,
+
     -- * Request Lenses
-    , gccName
+    getCrawler_name,
 
     -- * Destructuring the Response
-    , getCrawlerResponse
-    , GetCrawlerResponse
+    GetCrawlerResponse (..),
+    newGetCrawlerResponse,
+
     -- * Response Lenses
-    , getersCrawler
-    , getersResponseStatus
-    ) where
+    getCrawlerResponse_crawler,
+    getCrawlerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getCrawler' smart constructor.
-newtype GetCrawler = GetCrawler'
-  { _gccName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetCrawler' smart constructor.
+data GetCrawler = GetCrawler'
+  { -- | The name of the crawler to retrieve metadata for.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCrawler' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCrawler' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gccName' - Name of the crawler to retrieve metadata for.
-getCrawler
-    :: Text -- ^ 'gccName'
-    -> GetCrawler
-getCrawler pName_ = GetCrawler' {_gccName = pName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getCrawler_name' - The name of the crawler to retrieve metadata for.
+newGetCrawler ::
+  -- | 'name'
+  Prelude.Text ->
+  GetCrawler
+newGetCrawler pName_ = GetCrawler' {name = pName_}
 
+-- | The name of the crawler to retrieve metadata for.
+getCrawler_name :: Lens.Lens' GetCrawler Prelude.Text
+getCrawler_name = Lens.lens (\GetCrawler' {name} -> name) (\s@GetCrawler' {} a -> s {name = a} :: GetCrawler)
 
--- | Name of the crawler to retrieve metadata for.
-gccName :: Lens' GetCrawler Text
-gccName = lens _gccName (\ s a -> s{_gccName = a})
+instance Core.AWSRequest GetCrawler where
+  type AWSResponse GetCrawler = GetCrawlerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCrawlerResponse'
+            Prelude.<$> (x Core..?> "Crawler")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetCrawler where
-        type Rs GetCrawler = GetCrawlerResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCrawlerResponse' <$>
-                   (x .?> "Crawler") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetCrawler
 
-instance Hashable GetCrawler where
+instance Prelude.NFData GetCrawler
 
-instance NFData GetCrawler where
+instance Core.ToHeaders GetCrawler where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetCrawler" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetCrawler where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetCrawler" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetCrawler where
+  toJSON GetCrawler' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
-instance ToJSON GetCrawler where
-        toJSON GetCrawler'{..}
-          = object (catMaybes [Just ("Name" .= _gccName)])
+instance Core.ToPath GetCrawler where
+  toPath = Prelude.const "/"
 
-instance ToPath GetCrawler where
-        toPath = const "/"
+instance Core.ToQuery GetCrawler where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetCrawler where
-        toQuery = const mempty
-
--- | /See:/ 'getCrawlerResponse' smart constructor.
+-- | /See:/ 'newGetCrawlerResponse' smart constructor.
 data GetCrawlerResponse = GetCrawlerResponse'
-  { _getersCrawler        :: !(Maybe Crawler)
-  , _getersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The metadata for the specified crawler.
+    crawler :: Prelude.Maybe Crawler,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCrawlerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCrawlerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'getersCrawler' - The metadata for the specified crawler.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'getersResponseStatus' - -- | The response status code.
-getCrawlerResponse
-    :: Int -- ^ 'getersResponseStatus'
-    -> GetCrawlerResponse
-getCrawlerResponse pResponseStatus_ =
+-- 'crawler', 'getCrawlerResponse_crawler' - The metadata for the specified crawler.
+--
+-- 'httpStatus', 'getCrawlerResponse_httpStatus' - The response's http status code.
+newGetCrawlerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCrawlerResponse
+newGetCrawlerResponse pHttpStatus_ =
   GetCrawlerResponse'
-    {_getersCrawler = Nothing, _getersResponseStatus = pResponseStatus_}
-
+    { crawler = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The metadata for the specified crawler.
-getersCrawler :: Lens' GetCrawlerResponse (Maybe Crawler)
-getersCrawler = lens _getersCrawler (\ s a -> s{_getersCrawler = a})
+getCrawlerResponse_crawler :: Lens.Lens' GetCrawlerResponse (Prelude.Maybe Crawler)
+getCrawlerResponse_crawler = Lens.lens (\GetCrawlerResponse' {crawler} -> crawler) (\s@GetCrawlerResponse' {} a -> s {crawler = a} :: GetCrawlerResponse)
 
--- | -- | The response status code.
-getersResponseStatus :: Lens' GetCrawlerResponse Int
-getersResponseStatus = lens _getersResponseStatus (\ s a -> s{_getersResponseStatus = a})
+-- | The response's http status code.
+getCrawlerResponse_httpStatus :: Lens.Lens' GetCrawlerResponse Prelude.Int
+getCrawlerResponse_httpStatus = Lens.lens (\GetCrawlerResponse' {httpStatus} -> httpStatus) (\s@GetCrawlerResponse' {} a -> s {httpStatus = a} :: GetCrawlerResponse)
 
-instance NFData GetCrawlerResponse where
+instance Prelude.NFData GetCrawlerResponse

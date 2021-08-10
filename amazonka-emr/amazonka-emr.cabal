@@ -1,111 +1,245 @@
-name:                  amazonka-emr
-version:               1.6.1
-synopsis:              Amazon Elastic MapReduce SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-emr
+version:            1.6.1
+synopsis:           Amazon Elastic MapReduce SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.EMR" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2009-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.EMR.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.EMR" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-emr
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-emr
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.EMR
+    Network.AWS.EMR.AddInstanceFleet
+    Network.AWS.EMR.AddInstanceGroups
+    Network.AWS.EMR.AddJobFlowSteps
+    Network.AWS.EMR.AddTags
+    Network.AWS.EMR.CancelSteps
+    Network.AWS.EMR.CreateSecurityConfiguration
+    Network.AWS.EMR.CreateStudio
+    Network.AWS.EMR.CreateStudioSessionMapping
+    Network.AWS.EMR.DeleteSecurityConfiguration
+    Network.AWS.EMR.DeleteStudio
+    Network.AWS.EMR.DeleteStudioSessionMapping
+    Network.AWS.EMR.DescribeCluster
+    Network.AWS.EMR.DescribeNotebookExecution
+    Network.AWS.EMR.DescribeSecurityConfiguration
+    Network.AWS.EMR.DescribeStep
+    Network.AWS.EMR.DescribeStudio
+    Network.AWS.EMR.GetBlockPublicAccessConfiguration
+    Network.AWS.EMR.GetManagedScalingPolicy
+    Network.AWS.EMR.GetStudioSessionMapping
+    Network.AWS.EMR.Lens
+    Network.AWS.EMR.ListBootstrapActions
+    Network.AWS.EMR.ListClusters
+    Network.AWS.EMR.ListInstanceFleets
+    Network.AWS.EMR.ListInstanceGroups
+    Network.AWS.EMR.ListInstances
+    Network.AWS.EMR.ListNotebookExecutions
+    Network.AWS.EMR.ListSecurityConfigurations
+    Network.AWS.EMR.ListSteps
+    Network.AWS.EMR.ListStudios
+    Network.AWS.EMR.ListStudioSessionMappings
+    Network.AWS.EMR.ModifyCluster
+    Network.AWS.EMR.ModifyInstanceFleet
+    Network.AWS.EMR.ModifyInstanceGroups
+    Network.AWS.EMR.PutAutoScalingPolicy
+    Network.AWS.EMR.PutBlockPublicAccessConfiguration
+    Network.AWS.EMR.PutManagedScalingPolicy
+    Network.AWS.EMR.RemoveAutoScalingPolicy
+    Network.AWS.EMR.RemoveManagedScalingPolicy
+    Network.AWS.EMR.RemoveTags
+    Network.AWS.EMR.RunJobFlow
+    Network.AWS.EMR.SetTerminationProtection
+    Network.AWS.EMR.SetVisibleToAllUsers
+    Network.AWS.EMR.StartNotebookExecution
+    Network.AWS.EMR.StopNotebookExecution
+    Network.AWS.EMR.TerminateJobFlows
+    Network.AWS.EMR.Types
+    Network.AWS.EMR.Types.ActionOnFailure
+    Network.AWS.EMR.Types.AdjustmentType
+    Network.AWS.EMR.Types.Application
+    Network.AWS.EMR.Types.AuthMode
+    Network.AWS.EMR.Types.AutoScalingPolicy
+    Network.AWS.EMR.Types.AutoScalingPolicyDescription
+    Network.AWS.EMR.Types.AutoScalingPolicyState
+    Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
+    Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
+    Network.AWS.EMR.Types.AutoScalingPolicyStatus
+    Network.AWS.EMR.Types.BlockPublicAccessConfiguration
+    Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
+    Network.AWS.EMR.Types.BootstrapActionConfig
+    Network.AWS.EMR.Types.CancelStepsInfo
+    Network.AWS.EMR.Types.CancelStepsRequestStatus
+    Network.AWS.EMR.Types.CloudWatchAlarmDefinition
+    Network.AWS.EMR.Types.Cluster
+    Network.AWS.EMR.Types.ClusterState
+    Network.AWS.EMR.Types.ClusterStateChangeReason
+    Network.AWS.EMR.Types.ClusterStateChangeReasonCode
+    Network.AWS.EMR.Types.ClusterStatus
+    Network.AWS.EMR.Types.ClusterSummary
+    Network.AWS.EMR.Types.ClusterTimeline
+    Network.AWS.EMR.Types.Command
+    Network.AWS.EMR.Types.ComparisonOperator
+    Network.AWS.EMR.Types.ComputeLimits
+    Network.AWS.EMR.Types.ComputeLimitsUnitType
+    Network.AWS.EMR.Types.Configuration
+    Network.AWS.EMR.Types.EbsBlockDevice
+    Network.AWS.EMR.Types.EbsBlockDeviceConfig
+    Network.AWS.EMR.Types.EbsConfiguration
+    Network.AWS.EMR.Types.EbsVolume
+    Network.AWS.EMR.Types.Ec2InstanceAttributes
+    Network.AWS.EMR.Types.ExecutionEngineConfig
+    Network.AWS.EMR.Types.ExecutionEngineType
+    Network.AWS.EMR.Types.FailureDetails
+    Network.AWS.EMR.Types.HadoopJarStepConfig
+    Network.AWS.EMR.Types.HadoopStepConfig
+    Network.AWS.EMR.Types.IdentityType
+    Network.AWS.EMR.Types.Instance
+    Network.AWS.EMR.Types.InstanceCollectionType
+    Network.AWS.EMR.Types.InstanceFleet
+    Network.AWS.EMR.Types.InstanceFleetConfig
+    Network.AWS.EMR.Types.InstanceFleetModifyConfig
+    Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
+    Network.AWS.EMR.Types.InstanceFleetState
+    Network.AWS.EMR.Types.InstanceFleetStateChangeReason
+    Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
+    Network.AWS.EMR.Types.InstanceFleetStatus
+    Network.AWS.EMR.Types.InstanceFleetTimeline
+    Network.AWS.EMR.Types.InstanceFleetType
+    Network.AWS.EMR.Types.InstanceGroup
+    Network.AWS.EMR.Types.InstanceGroupConfig
+    Network.AWS.EMR.Types.InstanceGroupModifyConfig
+    Network.AWS.EMR.Types.InstanceGroupState
+    Network.AWS.EMR.Types.InstanceGroupStateChangeReason
+    Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
+    Network.AWS.EMR.Types.InstanceGroupStatus
+    Network.AWS.EMR.Types.InstanceGroupTimeline
+    Network.AWS.EMR.Types.InstanceGroupType
+    Network.AWS.EMR.Types.InstanceResizePolicy
+    Network.AWS.EMR.Types.InstanceRoleType
+    Network.AWS.EMR.Types.InstanceState
+    Network.AWS.EMR.Types.InstanceStateChangeReason
+    Network.AWS.EMR.Types.InstanceStateChangeReasonCode
+    Network.AWS.EMR.Types.InstanceStatus
+    Network.AWS.EMR.Types.InstanceTimeline
+    Network.AWS.EMR.Types.InstanceTypeConfig
+    Network.AWS.EMR.Types.InstanceTypeSpecification
+    Network.AWS.EMR.Types.JobFlowInstancesConfig
+    Network.AWS.EMR.Types.KerberosAttributes
+    Network.AWS.EMR.Types.KeyValue
+    Network.AWS.EMR.Types.ManagedScalingPolicy
+    Network.AWS.EMR.Types.MarketType
+    Network.AWS.EMR.Types.MetricDimension
+    Network.AWS.EMR.Types.NotebookExecution
+    Network.AWS.EMR.Types.NotebookExecutionStatus
+    Network.AWS.EMR.Types.NotebookExecutionSummary
+    Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
+    Network.AWS.EMR.Types.OnDemandProvisioningSpecification
+    Network.AWS.EMR.Types.PlacementGroupConfig
+    Network.AWS.EMR.Types.PlacementGroupStrategy
+    Network.AWS.EMR.Types.PlacementType
+    Network.AWS.EMR.Types.PortRange
+    Network.AWS.EMR.Types.RepoUpgradeOnBoot
+    Network.AWS.EMR.Types.ScaleDownBehavior
+    Network.AWS.EMR.Types.ScalingAction
+    Network.AWS.EMR.Types.ScalingConstraints
+    Network.AWS.EMR.Types.ScalingRule
+    Network.AWS.EMR.Types.ScalingTrigger
+    Network.AWS.EMR.Types.ScriptBootstrapActionConfig
+    Network.AWS.EMR.Types.SecurityConfigurationSummary
+    Network.AWS.EMR.Types.SessionMappingDetail
+    Network.AWS.EMR.Types.SessionMappingSummary
+    Network.AWS.EMR.Types.ShrinkPolicy
+    Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
+    Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
+    Network.AWS.EMR.Types.SpotProvisioningSpecification
+    Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
+    Network.AWS.EMR.Types.Statistic
+    Network.AWS.EMR.Types.Step
+    Network.AWS.EMR.Types.StepCancellationOption
+    Network.AWS.EMR.Types.StepConfig
+    Network.AWS.EMR.Types.StepState
+    Network.AWS.EMR.Types.StepStateChangeReason
+    Network.AWS.EMR.Types.StepStateChangeReasonCode
+    Network.AWS.EMR.Types.StepStatus
+    Network.AWS.EMR.Types.StepSummary
+    Network.AWS.EMR.Types.StepTimeline
+    Network.AWS.EMR.Types.Studio
+    Network.AWS.EMR.Types.StudioSummary
+    Network.AWS.EMR.Types.SupportedProductConfig
+    Network.AWS.EMR.Types.Tag
+    Network.AWS.EMR.Types.Unit
+    Network.AWS.EMR.Types.VolumeSpecification
+    Network.AWS.EMR.UpdateStudio
+    Network.AWS.EMR.UpdateStudioSessionMapping
+    Network.AWS.EMR.Waiters
 
-    exposed-modules:
-          Network.AWS.EMR
-        , Network.AWS.EMR.AddInstanceFleet
-        , Network.AWS.EMR.AddInstanceGroups
-        , Network.AWS.EMR.AddJobFlowSteps
-        , Network.AWS.EMR.AddTags
-        , Network.AWS.EMR.CancelSteps
-        , Network.AWS.EMR.CreateSecurityConfiguration
-        , Network.AWS.EMR.DeleteSecurityConfiguration
-        , Network.AWS.EMR.DescribeCluster
-        , Network.AWS.EMR.DescribeSecurityConfiguration
-        , Network.AWS.EMR.DescribeStep
-        , Network.AWS.EMR.ListBootstrapActions
-        , Network.AWS.EMR.ListClusters
-        , Network.AWS.EMR.ListInstanceFleets
-        , Network.AWS.EMR.ListInstanceGroups
-        , Network.AWS.EMR.ListInstances
-        , Network.AWS.EMR.ListSecurityConfigurations
-        , Network.AWS.EMR.ListSteps
-        , Network.AWS.EMR.ModifyInstanceFleet
-        , Network.AWS.EMR.ModifyInstanceGroups
-        , Network.AWS.EMR.PutAutoScalingPolicy
-        , Network.AWS.EMR.RemoveAutoScalingPolicy
-        , Network.AWS.EMR.RemoveTags
-        , Network.AWS.EMR.RunJobFlow
-        , Network.AWS.EMR.SetTerminationProtection
-        , Network.AWS.EMR.SetVisibleToAllUsers
-        , Network.AWS.EMR.TerminateJobFlows
-        , Network.AWS.EMR.Types
-        , Network.AWS.EMR.Waiters
-
-    other-modules:
-          Network.AWS.EMR.Types.Product
-        , Network.AWS.EMR.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-emr-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.EMR
+    Test.AWS.EMR.Internal
+    Test.AWS.Gen.EMR
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.EMR
-        , Test.AWS.Gen.EMR
-        , Test.AWS.EMR.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-emr
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-emr
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

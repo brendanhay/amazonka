@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.MediaStoreData
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.MediaStoreData where
 
 import Data.Proxy
@@ -28,90 +27,98 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutObject $
---             putObject
+--         [ requestListItems $
+--             newListItems
 --
 --         , requestDeleteObject $
---             deleteObject
+--             newDeleteObject
 --
 --         , requestDescribeObject $
---             describeObject
+--             newDescribeObject
+--
+--         , requestPutObject $
+--             newPutObject
 --
 --         , requestGetObject $
---             getObject
---
---         , requestListItems $
---             listItems
+--             newGetObject
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutObject $
---             putObjectResponse
+--         [ responseListItems $
+--             newListItemsResponse
 --
 --         , responseDeleteObject $
---             deleteObjectResponse
+--             newDeleteObjectResponse
 --
 --         , responseDescribeObject $
---             describeObjectResponse
+--             newDescribeObjectResponse
+--
+--         , responsePutObject $
+--             newPutObjectResponse
 --
 --         , responseGetObject $
---             getObjectResponse
---
---         , responseListItems $
---             listItemsResponse
+--             newGetObjectResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestListItems :: ListItems -> TestTree
+requestListItems =
+  req
+    "ListItems"
+    "fixture/ListItems.yaml"
+
 requestDeleteObject :: DeleteObject -> TestTree
-requestDeleteObject = req
+requestDeleteObject =
+  req
     "DeleteObject"
     "fixture/DeleteObject.yaml"
 
 requestDescribeObject :: DescribeObject -> TestTree
-requestDescribeObject = req
+requestDescribeObject =
+  req
     "DescribeObject"
     "fixture/DescribeObject.yaml"
 
 requestGetObject :: GetObject -> TestTree
-requestGetObject = req
+requestGetObject =
+  req
     "GetObject"
     "fixture/GetObject.yaml"
 
-requestListItems :: ListItems -> TestTree
-requestListItems = req
-    "ListItems"
-    "fixture/ListItems.yaml"
-
 -- Responses
 
-responsePutObject :: PutObjectResponse -> TestTree
-responsePutObject = res
-    "PutObjectResponse"
-    "fixture/PutObjectResponse.proto"
-    mediaStoreData
-    (Proxy :: Proxy PutObject)
+responseListItems :: ListItemsResponse -> TestTree
+responseListItems =
+  res
+    "ListItemsResponse"
+    "fixture/ListItemsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListItems)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
-responseDeleteObject = res
+responseDeleteObject =
+  res
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
-    mediaStoreData
+    defaultService
     (Proxy :: Proxy DeleteObject)
 
 responseDescribeObject :: DescribeObjectResponse -> TestTree
-responseDescribeObject = res
+responseDescribeObject =
+  res
     "DescribeObjectResponse"
     "fixture/DescribeObjectResponse.proto"
-    mediaStoreData
+    defaultService
     (Proxy :: Proxy DescribeObject)
 
-responseListItems :: ListItemsResponse -> TestTree
-responseListItems = res
-    "ListItemsResponse"
-    "fixture/ListItemsResponse.proto"
-    mediaStoreData
-    (Proxy :: Proxy ListItems)
+responsePutObject :: PutObjectResponse -> TestTree
+responsePutObject =
+  res
+    "PutObjectResponse"
+    "fixture/PutObjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutObject)

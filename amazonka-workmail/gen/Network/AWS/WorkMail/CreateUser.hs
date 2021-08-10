@@ -1,168 +1,206 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.CreateUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a user who can be used in Amazon WorkMail by calling the RegisterToWorkMail operation.
---
---
+-- Creates a user who can be used in Amazon WorkMail by calling the
+-- RegisterToWorkMail operation.
 module Network.AWS.WorkMail.CreateUser
-    (
-    -- * Creating a Request
-      createUser
-    , CreateUser
+  ( -- * Creating a Request
+    CreateUser (..),
+    newCreateUser,
+
     -- * Request Lenses
-    , cuOrganizationId
-    , cuName
-    , cuDisplayName
-    , cuPassword
+    createUser_organizationId,
+    createUser_name,
+    createUser_displayName,
+    createUser_password,
 
     -- * Destructuring the Response
-    , createUserResponse
-    , CreateUserResponse
+    CreateUserResponse (..),
+    newCreateUserResponse,
+
     -- * Response Lenses
-    , cursUserId
-    , cursResponseStatus
-    ) where
+    createUserResponse_userId,
+    createUserResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'createUser' smart constructor.
+-- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuOrganizationId :: !Text
-  , _cuName           :: !Text
-  , _cuDisplayName    :: !Text
-  , _cuPassword       :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The identifier of the organization for which the user is created.
+    organizationId :: Prelude.Text,
+    -- | The name for the new user. WorkMail directory user names have a maximum
+    -- length of 64. All others have a maximum length of 20.
+    name :: Prelude.Text,
+    -- | The display name for the new user.
+    displayName :: Prelude.Text,
+    -- | The password for the new user.
+    password :: Core.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cuOrganizationId' - The identifier of the organization for which the user is created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cuName' - The name for the user to be created.
+-- 'organizationId', 'createUser_organizationId' - The identifier of the organization for which the user is created.
 --
--- * 'cuDisplayName' - The display name for the user to be created.
+-- 'name', 'createUser_name' - The name for the new user. WorkMail directory user names have a maximum
+-- length of 64. All others have a maximum length of 20.
 --
--- * 'cuPassword' - The password for the user to be created.
-createUser
-    :: Text -- ^ 'cuOrganizationId'
-    -> Text -- ^ 'cuName'
-    -> Text -- ^ 'cuDisplayName'
-    -> Text -- ^ 'cuPassword'
-    -> CreateUser
-createUser pOrganizationId_ pName_ pDisplayName_ pPassword_ =
-  CreateUser'
-    { _cuOrganizationId = pOrganizationId_
-    , _cuName = pName_
-    , _cuDisplayName = pDisplayName_
-    , _cuPassword = _Sensitive # pPassword_
-    }
-
+-- 'displayName', 'createUser_displayName' - The display name for the new user.
+--
+-- 'password', 'createUser_password' - The password for the new user.
+newCreateUser ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'displayName'
+  Prelude.Text ->
+  -- | 'password'
+  Prelude.Text ->
+  CreateUser
+newCreateUser
+  pOrganizationId_
+  pName_
+  pDisplayName_
+  pPassword_ =
+    CreateUser'
+      { organizationId = pOrganizationId_,
+        name = pName_,
+        displayName = pDisplayName_,
+        password = Core._Sensitive Lens.# pPassword_
+      }
 
 -- | The identifier of the organization for which the user is created.
-cuOrganizationId :: Lens' CreateUser Text
-cuOrganizationId = lens _cuOrganizationId (\ s a -> s{_cuOrganizationId = a})
+createUser_organizationId :: Lens.Lens' CreateUser Prelude.Text
+createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organizationId) (\s@CreateUser' {} a -> s {organizationId = a} :: CreateUser)
 
--- | The name for the user to be created.
-cuName :: Lens' CreateUser Text
-cuName = lens _cuName (\ s a -> s{_cuName = a})
+-- | The name for the new user. WorkMail directory user names have a maximum
+-- length of 64. All others have a maximum length of 20.
+createUser_name :: Lens.Lens' CreateUser Prelude.Text
+createUser_name = Lens.lens (\CreateUser' {name} -> name) (\s@CreateUser' {} a -> s {name = a} :: CreateUser)
 
--- | The display name for the user to be created.
-cuDisplayName :: Lens' CreateUser Text
-cuDisplayName = lens _cuDisplayName (\ s a -> s{_cuDisplayName = a})
+-- | The display name for the new user.
+createUser_displayName :: Lens.Lens' CreateUser Prelude.Text
+createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (\s@CreateUser' {} a -> s {displayName = a} :: CreateUser)
 
--- | The password for the user to be created.
-cuPassword :: Lens' CreateUser Text
-cuPassword = lens _cuPassword (\ s a -> s{_cuPassword = a}) . _Sensitive
+-- | The password for the new user.
+createUser_password :: Lens.Lens' CreateUser Prelude.Text
+createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Core._Sensitive
 
-instance AWSRequest CreateUser where
-        type Rs CreateUser = CreateUserResponse
-        request = postJSON workMail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateUserResponse' <$>
-                   (x .?> "UserId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateUser where
+  type AWSResponse CreateUser = CreateUserResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateUserResponse'
+            Prelude.<$> (x Core..?> "UserId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateUser where
+instance Prelude.Hashable CreateUser
 
-instance NFData CreateUser where
+instance Prelude.NFData CreateUser
 
-instance ToHeaders CreateUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.CreateUser" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateUser where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("WorkMailService.CreateUser" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateUser where
-        toJSON CreateUser'{..}
-          = object
-              (catMaybes
-                 [Just ("OrganizationId" .= _cuOrganizationId),
-                  Just ("Name" .= _cuName),
-                  Just ("DisplayName" .= _cuDisplayName),
-                  Just ("Password" .= _cuPassword)])
+instance Core.ToJSON CreateUser where
+  toJSON CreateUser' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("DisplayName" Core..= displayName),
+            Prelude.Just ("Password" Core..= password)
+          ]
+      )
 
-instance ToPath CreateUser where
-        toPath = const "/"
+instance Core.ToPath CreateUser where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateUser where
-        toQuery = const mempty
+instance Core.ToQuery CreateUser where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createUserResponse' smart constructor.
+-- | /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { _cursUserId         :: !(Maybe Text)
-  , _cursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier for the new user.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateUserResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cursUserId' - The information regarding the newly created user.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cursResponseStatus' - -- | The response status code.
-createUserResponse
-    :: Int -- ^ 'cursResponseStatus'
-    -> CreateUserResponse
-createUserResponse pResponseStatus_ =
+-- 'userId', 'createUserResponse_userId' - The identifier for the new user.
+--
+-- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
+newCreateUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateUserResponse
+newCreateUserResponse pHttpStatus_ =
   CreateUserResponse'
-    {_cursUserId = Nothing, _cursResponseStatus = pResponseStatus_}
+    { userId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The identifier for the new user.
+createUserResponse_userId :: Lens.Lens' CreateUserResponse (Prelude.Maybe Prelude.Text)
+createUserResponse_userId = Lens.lens (\CreateUserResponse' {userId} -> userId) (\s@CreateUserResponse' {} a -> s {userId = a} :: CreateUserResponse)
 
--- | The information regarding the newly created user.
-cursUserId :: Lens' CreateUserResponse (Maybe Text)
-cursUserId = lens _cursUserId (\ s a -> s{_cursUserId = a})
+-- | The response's http status code.
+createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
+createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
--- | -- | The response status code.
-cursResponseStatus :: Lens' CreateUserResponse Int
-cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a})
-
-instance NFData CreateUserResponse where
+instance Prelude.NFData CreateUserResponse

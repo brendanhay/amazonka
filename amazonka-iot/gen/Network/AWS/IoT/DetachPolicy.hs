@@ -1,111 +1,127 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DetachPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a policy from the specified target.
---
---
 module Network.AWS.IoT.DetachPolicy
-    (
-    -- * Creating a Request
-      detachPolicy
-    , DetachPolicy
+  ( -- * Creating a Request
+    DetachPolicy (..),
+    newDetachPolicy,
+
     -- * Request Lenses
-    , dPolicyName
-    , dTarget
+    detachPolicy_policyName,
+    detachPolicy_target,
 
     -- * Destructuring the Response
-    , detachPolicyResponse
-    , DetachPolicyResponse
-    ) where
+    DetachPolicyResponse (..),
+    newDetachPolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detachPolicy' smart constructor.
+-- | /See:/ 'newDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { _dPolicyName :: !Text
-  , _dTarget     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The policy to detach.
+    policyName :: Prelude.Text,
+    -- | The target from which the policy will be detached.
+    target :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dPolicyName' - The policy to detach.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dTarget' - The target from which the policy will be detached.
-detachPolicy
-    :: Text -- ^ 'dPolicyName'
-    -> Text -- ^ 'dTarget'
-    -> DetachPolicy
-detachPolicy pPolicyName_ pTarget_ =
-  DetachPolicy' {_dPolicyName = pPolicyName_, _dTarget = pTarget_}
-
+-- 'policyName', 'detachPolicy_policyName' - The policy to detach.
+--
+-- 'target', 'detachPolicy_target' - The target from which the policy will be detached.
+newDetachPolicy ::
+  -- | 'policyName'
+  Prelude.Text ->
+  -- | 'target'
+  Prelude.Text ->
+  DetachPolicy
+newDetachPolicy pPolicyName_ pTarget_ =
+  DetachPolicy'
+    { policyName = pPolicyName_,
+      target = pTarget_
+    }
 
 -- | The policy to detach.
-dPolicyName :: Lens' DetachPolicy Text
-dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a})
+detachPolicy_policyName :: Lens.Lens' DetachPolicy Prelude.Text
+detachPolicy_policyName = Lens.lens (\DetachPolicy' {policyName} -> policyName) (\s@DetachPolicy' {} a -> s {policyName = a} :: DetachPolicy)
 
 -- | The target from which the policy will be detached.
-dTarget :: Lens' DetachPolicy Text
-dTarget = lens _dTarget (\ s a -> s{_dTarget = a})
+detachPolicy_target :: Lens.Lens' DetachPolicy Prelude.Text
+detachPolicy_target = Lens.lens (\DetachPolicy' {target} -> target) (\s@DetachPolicy' {} a -> s {target = a} :: DetachPolicy)
 
-instance AWSRequest DetachPolicy where
-        type Rs DetachPolicy = DetachPolicyResponse
-        request = postJSON ioT
-        response = receiveNull DetachPolicyResponse'
+instance Core.AWSRequest DetachPolicy where
+  type AWSResponse DetachPolicy = DetachPolicyResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull DetachPolicyResponse'
 
-instance Hashable DetachPolicy where
+instance Prelude.Hashable DetachPolicy
 
-instance NFData DetachPolicy where
+instance Prelude.NFData DetachPolicy
 
-instance ToHeaders DetachPolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders DetachPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON DetachPolicy where
-        toJSON DetachPolicy'{..}
-          = object (catMaybes [Just ("target" .= _dTarget)])
+instance Core.ToJSON DetachPolicy where
+  toJSON DetachPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("target" Core..= target)]
+      )
 
-instance ToPath DetachPolicy where
-        toPath DetachPolicy'{..}
-          = mconcat ["/target-policies/", toBS _dPolicyName]
+instance Core.ToPath DetachPolicy where
+  toPath DetachPolicy' {..} =
+    Prelude.mconcat
+      ["/target-policies/", Core.toBS policyName]
 
-instance ToQuery DetachPolicy where
-        toQuery = const mempty
+instance Core.ToQuery DetachPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'detachPolicyResponse' smart constructor.
-data DetachPolicyResponse =
-  DetachPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDetachPolicyResponse' smart constructor.
+data DetachPolicyResponse = DetachPolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachPolicyResponse' with all optional fields omitted.
 --
-detachPolicyResponse
-    :: DetachPolicyResponse
-detachPolicyResponse = DetachPolicyResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDetachPolicyResponse ::
+  DetachPolicyResponse
+newDetachPolicyResponse = DetachPolicyResponse'
 
-
-instance NFData DetachPolicyResponse where
+instance Prelude.NFData DetachPolicyResponse

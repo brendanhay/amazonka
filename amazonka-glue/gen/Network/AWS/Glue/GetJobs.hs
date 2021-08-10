@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetJobs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,142 +22,178 @@
 --
 -- Retrieves all current job definitions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetJobs
-    (
-    -- * Creating a Request
-      getJobs
-    , GetJobs
+  ( -- * Creating a Request
+    GetJobs (..),
+    newGetJobs,
+
     -- * Request Lenses
-    , gjNextToken
-    , gjMaxResults
+    getJobs_nextToken,
+    getJobs_maxResults,
 
     -- * Destructuring the Response
-    , getJobsResponse
-    , GetJobsResponse
+    GetJobsResponse (..),
+    newGetJobsResponse,
+
     -- * Response Lenses
-    , gjsrsNextToken
-    , gjsrsJobs
-    , gjsrsResponseStatus
-    ) where
+    getJobsResponse_nextToken,
+    getJobsResponse_jobs,
+    getJobsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getJobs' smart constructor.
+-- | /See:/ 'newGetJobs' smart constructor.
 data GetJobs = GetJobs'
-  { _gjNextToken  :: !(Maybe Text)
-  , _gjMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size of the response.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjNextToken' - A continuation token, if this is a continuation call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gjMaxResults' - The maximum size of the response.
-getJobs
-    :: GetJobs
-getJobs = GetJobs' {_gjNextToken = Nothing, _gjMaxResults = Nothing}
-
-
--- | A continuation token, if this is a continuation call.
-gjNextToken :: Lens' GetJobs (Maybe Text)
-gjNextToken = lens _gjNextToken (\ s a -> s{_gjNextToken = a})
-
--- | The maximum size of the response.
-gjMaxResults :: Lens' GetJobs (Maybe Natural)
-gjMaxResults = lens _gjMaxResults (\ s a -> s{_gjMaxResults = a}) . mapping _Nat
-
-instance AWSPager GetJobs where
-        page rq rs
-          | stop (rs ^. gjsrsNextToken) = Nothing
-          | stop (rs ^. gjsrsJobs) = Nothing
-          | otherwise =
-            Just $ rq & gjNextToken .~ rs ^. gjsrsNextToken
-
-instance AWSRequest GetJobs where
-        type Rs GetJobs = GetJobsResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetJobsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Jobs" .!@ mempty) <*>
-                     (pure (fromEnum s)))
-
-instance Hashable GetJobs where
-
-instance NFData GetJobs where
-
-instance ToHeaders GetJobs where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =# ("AWSGlue.GetJobs" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetJobs where
-        toJSON GetJobs'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _gjNextToken,
-                  ("MaxResults" .=) <$> _gjMaxResults])
-
-instance ToPath GetJobs where
-        toPath = const "/"
-
-instance ToQuery GetJobs where
-        toQuery = const mempty
-
--- | /See:/ 'getJobsResponse' smart constructor.
-data GetJobsResponse = GetJobsResponse'
-  { _gjsrsNextToken      :: !(Maybe Text)
-  , _gjsrsJobs           :: !(Maybe [Job])
-  , _gjsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetJobsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'getJobs_nextToken' - A continuation token, if this is a continuation call.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjsrsNextToken' - A continuation token, if not all job definitions have yet been returned.
---
--- * 'gjsrsJobs' - A list of job definitions.
---
--- * 'gjsrsResponseStatus' - -- | The response status code.
-getJobsResponse
-    :: Int -- ^ 'gjsrsResponseStatus'
-    -> GetJobsResponse
-getJobsResponse pResponseStatus_ =
-  GetJobsResponse'
-    { _gjsrsNextToken = Nothing
-    , _gjsrsJobs = Nothing
-    , _gjsrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'getJobs_maxResults' - The maximum size of the response.
+newGetJobs ::
+  GetJobs
+newGetJobs =
+  GetJobs'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | A continuation token, if this is a continuation call.
+getJobs_nextToken :: Lens.Lens' GetJobs (Prelude.Maybe Prelude.Text)
+getJobs_nextToken = Lens.lens (\GetJobs' {nextToken} -> nextToken) (\s@GetJobs' {} a -> s {nextToken = a} :: GetJobs)
+
+-- | The maximum size of the response.
+getJobs_maxResults :: Lens.Lens' GetJobs (Prelude.Maybe Prelude.Natural)
+getJobs_maxResults = Lens.lens (\GetJobs' {maxResults} -> maxResults) (\s@GetJobs' {} a -> s {maxResults = a} :: GetJobs)
+
+instance Core.AWSPager GetJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getJobsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getJobsResponse_jobs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getJobs_nextToken
+          Lens..~ rs
+          Lens.^? getJobsResponse_nextToken Prelude.. Lens._Just
+
+instance Core.AWSRequest GetJobs where
+  type AWSResponse GetJobs = GetJobsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetJobsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetJobs
+
+instance Prelude.NFData GetJobs
+
+instance Core.ToHeaders GetJobs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetJobs" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON GetJobs where
+  toJSON GetJobs' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Core.ToPath GetJobs where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetJobs where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetJobsResponse' smart constructor.
+data GetJobsResponse = GetJobsResponse'
+  { -- | A continuation token, if not all job definitions have yet been returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of job definitions.
+    jobs :: Prelude.Maybe [Job],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetJobsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getJobsResponse_nextToken' - A continuation token, if not all job definitions have yet been returned.
+--
+-- 'jobs', 'getJobsResponse_jobs' - A list of job definitions.
+--
+-- 'httpStatus', 'getJobsResponse_httpStatus' - The response's http status code.
+newGetJobsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetJobsResponse
+newGetJobsResponse pHttpStatus_ =
+  GetJobsResponse'
+    { nextToken = Prelude.Nothing,
+      jobs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A continuation token, if not all job definitions have yet been returned.
-gjsrsNextToken :: Lens' GetJobsResponse (Maybe Text)
-gjsrsNextToken = lens _gjsrsNextToken (\ s a -> s{_gjsrsNextToken = a})
+getJobsResponse_nextToken :: Lens.Lens' GetJobsResponse (Prelude.Maybe Prelude.Text)
+getJobsResponse_nextToken = Lens.lens (\GetJobsResponse' {nextToken} -> nextToken) (\s@GetJobsResponse' {} a -> s {nextToken = a} :: GetJobsResponse)
 
 -- | A list of job definitions.
-gjsrsJobs :: Lens' GetJobsResponse [Job]
-gjsrsJobs = lens _gjsrsJobs (\ s a -> s{_gjsrsJobs = a}) . _Default . _Coerce
+getJobsResponse_jobs :: Lens.Lens' GetJobsResponse (Prelude.Maybe [Job])
+getJobsResponse_jobs = Lens.lens (\GetJobsResponse' {jobs} -> jobs) (\s@GetJobsResponse' {} a -> s {jobs = a} :: GetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-gjsrsResponseStatus :: Lens' GetJobsResponse Int
-gjsrsResponseStatus = lens _gjsrsResponseStatus (\ s a -> s{_gjsrsResponseStatus = a})
+-- | The response's http status code.
+getJobsResponse_httpStatus :: Lens.Lens' GetJobsResponse Prelude.Int
+getJobsResponse_httpStatus = Lens.lens (\GetJobsResponse' {httpStatus} -> httpStatus) (\s@GetJobsResponse' {} a -> s {httpStatus = a} :: GetJobsResponse)
 
-instance NFData GetJobsResponse where
+instance Prelude.NFData GetJobsResponse

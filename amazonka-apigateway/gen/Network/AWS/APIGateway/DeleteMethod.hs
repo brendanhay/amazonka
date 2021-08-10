@@ -1,130 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteMethod
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing 'Method' resource.
---
---
+-- Deletes an existing Method resource.
 module Network.AWS.APIGateway.DeleteMethod
-    (
-    -- * Creating a Request
-      deleteMethod
-    , DeleteMethod
+  ( -- * Creating a Request
+    DeleteMethod (..),
+    newDeleteMethod,
+
     -- * Request Lenses
-    , dmmRestAPIId
-    , dmmResourceId
-    , dmmHttpMethod
+    deleteMethod_restApiId,
+    deleteMethod_resourceId,
+    deleteMethod_httpMethod,
 
     -- * Destructuring the Response
-    , deleteMethodResponse'
-    , DeleteMethodResponse'
-    ) where
+    DeleteMethodResponse' (..),
+    newDeleteMethodResponse',
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to delete an existing 'Method' resource.
+-- | Request to delete an existing Method resource.
 --
---
---
--- /See:/ 'deleteMethod' smart constructor.
+-- /See:/ 'newDeleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
-  { _dmmRestAPIId  :: !Text
-  , _dmmResourceId :: !Text
-  , _dmmHttpMethod :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The Resource identifier for the Method resource.
+    resourceId :: Prelude.Text,
+    -- | [Required] The HTTP verb of the Method resource.
+    httpMethod :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteMethod' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteMethod' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmmResourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- 'restApiId', 'deleteMethod_restApiId' - [Required] The string identifier of the associated RestApi.
 --
--- * 'dmmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
-deleteMethod
-    :: Text -- ^ 'dmmRestAPIId'
-    -> Text -- ^ 'dmmResourceId'
-    -> Text -- ^ 'dmmHttpMethod'
-    -> DeleteMethod
-deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+-- 'resourceId', 'deleteMethod_resourceId' - [Required] The Resource identifier for the Method resource.
+--
+-- 'httpMethod', 'deleteMethod_httpMethod' - [Required] The HTTP verb of the Method resource.
+newDeleteMethod ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  -- | 'httpMethod'
+  Prelude.Text ->
+  DeleteMethod
+newDeleteMethod pRestApiId_ pResourceId_ pHttpMethod_ =
   DeleteMethod'
-    { _dmmRestAPIId = pRestAPIId_
-    , _dmmResourceId = pResourceId_
-    , _dmmHttpMethod = pHttpMethod_
+    { restApiId = pRestApiId_,
+      resourceId = pResourceId_,
+      httpMethod = pHttpMethod_
     }
 
+-- | [Required] The string identifier of the associated RestApi.
+deleteMethod_restApiId :: Lens.Lens' DeleteMethod Prelude.Text
+deleteMethod_restApiId = Lens.lens (\DeleteMethod' {restApiId} -> restApiId) (\s@DeleteMethod' {} a -> s {restApiId = a} :: DeleteMethod)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-dmmRestAPIId :: Lens' DeleteMethod Text
-dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a})
+-- | [Required] The Resource identifier for the Method resource.
+deleteMethod_resourceId :: Lens.Lens' DeleteMethod Prelude.Text
+deleteMethod_resourceId = Lens.lens (\DeleteMethod' {resourceId} -> resourceId) (\s@DeleteMethod' {} a -> s {resourceId = a} :: DeleteMethod)
 
--- | [Required] The 'Resource' identifier for the 'Method' resource.
-dmmResourceId :: Lens' DeleteMethod Text
-dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a})
+-- | [Required] The HTTP verb of the Method resource.
+deleteMethod_httpMethod :: Lens.Lens' DeleteMethod Prelude.Text
+deleteMethod_httpMethod = Lens.lens (\DeleteMethod' {httpMethod} -> httpMethod) (\s@DeleteMethod' {} a -> s {httpMethod = a} :: DeleteMethod)
 
--- | [Required] The HTTP verb of the 'Method' resource.
-dmmHttpMethod :: Lens' DeleteMethod Text
-dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a})
+instance Core.AWSRequest DeleteMethod where
+  type AWSResponse DeleteMethod = DeleteMethodResponse'
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteMethodResponse''
 
-instance AWSRequest DeleteMethod where
-        type Rs DeleteMethod = DeleteMethodResponse'
-        request = delete apiGateway
-        response = receiveNull DeleteMethodResponse''
+instance Prelude.Hashable DeleteMethod
 
-instance Hashable DeleteMethod where
+instance Prelude.NFData DeleteMethod
 
-instance NFData DeleteMethod where
+instance Core.ToHeaders DeleteMethod where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders DeleteMethod where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath DeleteMethod where
+  toPath DeleteMethod' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/resources/",
+        Core.toBS resourceId,
+        "/methods/",
+        Core.toBS httpMethod
+      ]
 
-instance ToPath DeleteMethod where
-        toPath DeleteMethod'{..}
-          = mconcat
-              ["/restapis/", toBS _dmmRestAPIId, "/resources/",
-               toBS _dmmResourceId, "/methods/",
-               toBS _dmmHttpMethod]
+instance Core.ToQuery DeleteMethod where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteMethod where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteMethodResponse'' smart constructor.
+data DeleteMethodResponse' = DeleteMethodResponse''
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteMethodResponse'' smart constructor.
-data DeleteMethodResponse' =
-  DeleteMethodResponse''
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteMethodResponse'' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteMethodResponse'' with all optional fields omitted.
 --
-deleteMethodResponse'
-    :: DeleteMethodResponse'
-deleteMethodResponse' = DeleteMethodResponse''
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteMethodResponse' ::
+  DeleteMethodResponse'
+newDeleteMethodResponse' = DeleteMethodResponse''
 
-
-instance NFData DeleteMethodResponse' where
+instance Prelude.NFData DeleteMethodResponse'

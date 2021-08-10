@@ -1,146 +1,200 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SWF.RespondDecisionTaskCompleted
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by deciders to tell the service that the 'DecisionTask' identified by the @taskToken@ has successfully completed. The @decisions@ argument specifies the list of decisions made while processing the task.
+-- Used by deciders to tell the service that the DecisionTask identified by
+-- the @taskToken@ has successfully completed. The @decisions@ argument
+-- specifies the list of decisions made while processing the task.
 --
---
--- A @DecisionTaskCompleted@ event is added to the workflow history. The @executionContext@ specified is attached to the event in the workflow execution history.
+-- A @DecisionTaskCompleted@ event is added to the workflow history. The
+-- @executionContext@ specified is attached to the event in the workflow
+-- execution history.
 --
 -- __Access Control__
 --
--- If an IAM policy grants permission to use @RespondDecisionTaskCompleted@ , it can express permissions for the list of decisions in the @decisions@ parameter. Each of the decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
+-- If an IAM policy grants permission to use
+-- @RespondDecisionTaskCompleted@, it can express permissions for the list
+-- of decisions in the @decisions@ parameter. Each of the decisions has one
+-- or more parameters, much like a regular API call. To allow for policies
+-- to be as readable as possible, you can express permissions on decisions
+-- as if they were actual API calls, including applying conditions to some
+-- parameters. For more information, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>
+-- in the /Amazon SWF Developer Guide/.
 module Network.AWS.SWF.RespondDecisionTaskCompleted
-    (
-    -- * Creating a Request
-      respondDecisionTaskCompleted
-    , RespondDecisionTaskCompleted
+  ( -- * Creating a Request
+    RespondDecisionTaskCompleted (..),
+    newRespondDecisionTaskCompleted,
+
     -- * Request Lenses
-    , rdtcDecisions
-    , rdtcExecutionContext
-    , rdtcTaskToken
+    respondDecisionTaskCompleted_executionContext,
+    respondDecisionTaskCompleted_decisions,
+    respondDecisionTaskCompleted_taskToken,
 
     -- * Destructuring the Response
-    , respondDecisionTaskCompletedResponse
-    , RespondDecisionTaskCompletedResponse
-    ) where
+    RespondDecisionTaskCompletedResponse (..),
+    newRespondDecisionTaskCompletedResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
-import Network.AWS.SWF.Types.Product
 
 -- | Input data for a TaskCompleted response to a decision task.
 --
---
---
--- /See:/ 'respondDecisionTaskCompleted' smart constructor.
+-- /See:/ 'newRespondDecisionTaskCompleted' smart constructor.
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
-  { _rdtcDecisions        :: !(Maybe [Decision])
-  , _rdtcExecutionContext :: !(Maybe Text)
-  , _rdtcTaskToken        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | User defined context to add to workflow execution.
+    executionContext :: Prelude.Maybe Prelude.Text,
+    -- | The list of decisions (possibly empty) made by the decider while
+    -- processing this decision task. See the docs for the Decision structure
+    -- for details.
+    decisions :: Prelude.Maybe [Decision],
+    -- | The @taskToken@ from the DecisionTask.
+    --
+    -- @taskToken@ is generated by the service and should be treated as an
+    -- opaque value. If the task is passed to another process, its @taskToken@
+    -- must also be passed. This enables it to provide its progress and respond
+    -- with results.
+    taskToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RespondDecisionTaskCompleted' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RespondDecisionTaskCompleted' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdtcDecisions' - The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the 'Decision' structure for details.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rdtcExecutionContext' - User defined context to add to workflow execution.
+-- 'executionContext', 'respondDecisionTaskCompleted_executionContext' - User defined context to add to workflow execution.
 --
--- * 'rdtcTaskToken' - The @taskToken@ from the 'DecisionTask' . /Important:/ @taskToken@ is generated by the service and should be treated as an opaque value. If the task is passed to another process, its @taskToken@ must also be passed. This enables it to provide its progress and respond with results.
-respondDecisionTaskCompleted
-    :: Text -- ^ 'rdtcTaskToken'
-    -> RespondDecisionTaskCompleted
-respondDecisionTaskCompleted pTaskToken_ =
+-- 'decisions', 'respondDecisionTaskCompleted_decisions' - The list of decisions (possibly empty) made by the decider while
+-- processing this decision task. See the docs for the Decision structure
+-- for details.
+--
+-- 'taskToken', 'respondDecisionTaskCompleted_taskToken' - The @taskToken@ from the DecisionTask.
+--
+-- @taskToken@ is generated by the service and should be treated as an
+-- opaque value. If the task is passed to another process, its @taskToken@
+-- must also be passed. This enables it to provide its progress and respond
+-- with results.
+newRespondDecisionTaskCompleted ::
+  -- | 'taskToken'
+  Prelude.Text ->
+  RespondDecisionTaskCompleted
+newRespondDecisionTaskCompleted pTaskToken_ =
   RespondDecisionTaskCompleted'
-    { _rdtcDecisions = Nothing
-    , _rdtcExecutionContext = Nothing
-    , _rdtcTaskToken = pTaskToken_
+    { executionContext =
+        Prelude.Nothing,
+      decisions = Prelude.Nothing,
+      taskToken = pTaskToken_
     }
 
-
--- | The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the 'Decision' structure for details.
-rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
-rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a}) . _Default . _Coerce
-
 -- | User defined context to add to workflow execution.
-rdtcExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)
-rdtcExecutionContext = lens _rdtcExecutionContext (\ s a -> s{_rdtcExecutionContext = a})
+respondDecisionTaskCompleted_executionContext :: Lens.Lens' RespondDecisionTaskCompleted (Prelude.Maybe Prelude.Text)
+respondDecisionTaskCompleted_executionContext = Lens.lens (\RespondDecisionTaskCompleted' {executionContext} -> executionContext) (\s@RespondDecisionTaskCompleted' {} a -> s {executionContext = a} :: RespondDecisionTaskCompleted)
 
--- | The @taskToken@ from the 'DecisionTask' . /Important:/ @taskToken@ is generated by the service and should be treated as an opaque value. If the task is passed to another process, its @taskToken@ must also be passed. This enables it to provide its progress and respond with results.
-rdtcTaskToken :: Lens' RespondDecisionTaskCompleted Text
-rdtcTaskToken = lens _rdtcTaskToken (\ s a -> s{_rdtcTaskToken = a})
+-- | The list of decisions (possibly empty) made by the decider while
+-- processing this decision task. See the docs for the Decision structure
+-- for details.
+respondDecisionTaskCompleted_decisions :: Lens.Lens' RespondDecisionTaskCompleted (Prelude.Maybe [Decision])
+respondDecisionTaskCompleted_decisions = Lens.lens (\RespondDecisionTaskCompleted' {decisions} -> decisions) (\s@RespondDecisionTaskCompleted' {} a -> s {decisions = a} :: RespondDecisionTaskCompleted) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest RespondDecisionTaskCompleted
-         where
-        type Rs RespondDecisionTaskCompleted =
-             RespondDecisionTaskCompletedResponse
-        request = postJSON swf
-        response
-          = receiveNull RespondDecisionTaskCompletedResponse'
-
-instance Hashable RespondDecisionTaskCompleted where
-
-instance NFData RespondDecisionTaskCompleted where
-
-instance ToHeaders RespondDecisionTaskCompleted where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SimpleWorkflowService.RespondDecisionTaskCompleted"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
-
-instance ToJSON RespondDecisionTaskCompleted where
-        toJSON RespondDecisionTaskCompleted'{..}
-          = object
-              (catMaybes
-                 [("decisions" .=) <$> _rdtcDecisions,
-                  ("executionContext" .=) <$> _rdtcExecutionContext,
-                  Just ("taskToken" .= _rdtcTaskToken)])
-
-instance ToPath RespondDecisionTaskCompleted where
-        toPath = const "/"
-
-instance ToQuery RespondDecisionTaskCompleted where
-        toQuery = const mempty
-
--- | /See:/ 'respondDecisionTaskCompletedResponse' smart constructor.
-data RespondDecisionTaskCompletedResponse =
-  RespondDecisionTaskCompletedResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RespondDecisionTaskCompletedResponse' with the minimum fields required to make a request.
+-- | The @taskToken@ from the DecisionTask.
 --
-respondDecisionTaskCompletedResponse
-    :: RespondDecisionTaskCompletedResponse
-respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse'
+-- @taskToken@ is generated by the service and should be treated as an
+-- opaque value. If the task is passed to another process, its @taskToken@
+-- must also be passed. This enables it to provide its progress and respond
+-- with results.
+respondDecisionTaskCompleted_taskToken :: Lens.Lens' RespondDecisionTaskCompleted Prelude.Text
+respondDecisionTaskCompleted_taskToken = Lens.lens (\RespondDecisionTaskCompleted' {taskToken} -> taskToken) (\s@RespondDecisionTaskCompleted' {} a -> s {taskToken = a} :: RespondDecisionTaskCompleted)
 
+instance Core.AWSRequest RespondDecisionTaskCompleted where
+  type
+    AWSResponse RespondDecisionTaskCompleted =
+      RespondDecisionTaskCompletedResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      RespondDecisionTaskCompletedResponse'
 
-instance NFData RespondDecisionTaskCompletedResponse
-         where
+instance
+  Prelude.Hashable
+    RespondDecisionTaskCompleted
+
+instance Prelude.NFData RespondDecisionTaskCompleted
+
+instance Core.ToHeaders RespondDecisionTaskCompleted where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SimpleWorkflowService.RespondDecisionTaskCompleted" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON RespondDecisionTaskCompleted where
+  toJSON RespondDecisionTaskCompleted' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("executionContext" Core..=)
+              Prelude.<$> executionContext,
+            ("decisions" Core..=) Prelude.<$> decisions,
+            Prelude.Just ("taskToken" Core..= taskToken)
+          ]
+      )
+
+instance Core.ToPath RespondDecisionTaskCompleted where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery RespondDecisionTaskCompleted where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newRespondDecisionTaskCompletedResponse' smart constructor.
+data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RespondDecisionTaskCompletedResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRespondDecisionTaskCompletedResponse ::
+  RespondDecisionTaskCompletedResponse
+newRespondDecisionTaskCompletedResponse =
+  RespondDecisionTaskCompletedResponse'
+
+instance
+  Prelude.NFData
+    RespondDecisionTaskCompletedResponse

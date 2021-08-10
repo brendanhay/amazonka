@@ -1,130 +1,152 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableRadius
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
---
---
+-- Disables multi-factor authentication (MFA) with the Remote
+-- Authentication Dial In User Service (RADIUS) server for an AD Connector
+-- or Microsoft AD directory.
 module Network.AWS.DirectoryService.DisableRadius
-    (
-    -- * Creating a Request
-      disableRadius
-    , DisableRadius
+  ( -- * Creating a Request
+    DisableRadius (..),
+    newDisableRadius,
+
     -- * Request Lenses
-    , drDirectoryId
+    disableRadius_directoryId,
 
     -- * Destructuring the Response
-    , disableRadiusResponse
-    , DisableRadiusResponse
+    DisableRadiusResponse (..),
+    newDisableRadiusResponse,
+
     -- * Response Lenses
-    , drrsResponseStatus
-    ) where
+    disableRadiusResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'DisableRadius' operation.
+-- | Contains the inputs for the DisableRadius operation.
 --
---
---
--- /See:/ 'disableRadius' smart constructor.
-newtype DisableRadius = DisableRadius'
-  { _drDirectoryId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDisableRadius' smart constructor.
+data DisableRadius = DisableRadius'
+  { -- | The identifier of the directory for which to disable MFA.
+    directoryId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableRadius' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableRadius' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drDirectoryId' - The identifier of the directory for which to disable MFA.
-disableRadius
-    :: Text -- ^ 'drDirectoryId'
-    -> DisableRadius
-disableRadius pDirectoryId_ = DisableRadius' {_drDirectoryId = pDirectoryId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryId', 'disableRadius_directoryId' - The identifier of the directory for which to disable MFA.
+newDisableRadius ::
+  -- | 'directoryId'
+  Prelude.Text ->
+  DisableRadius
+newDisableRadius pDirectoryId_ =
+  DisableRadius' {directoryId = pDirectoryId_}
 
 -- | The identifier of the directory for which to disable MFA.
-drDirectoryId :: Lens' DisableRadius Text
-drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a})
+disableRadius_directoryId :: Lens.Lens' DisableRadius Prelude.Text
+disableRadius_directoryId = Lens.lens (\DisableRadius' {directoryId} -> directoryId) (\s@DisableRadius' {} a -> s {directoryId = a} :: DisableRadius)
 
-instance AWSRequest DisableRadius where
-        type Rs DisableRadius = DisableRadiusResponse
-        request = postJSON directoryService
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DisableRadiusResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DisableRadius where
+  type
+    AWSResponse DisableRadius =
+      DisableRadiusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DisableRadiusResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DisableRadius where
+instance Prelude.Hashable DisableRadius
 
-instance NFData DisableRadius where
+instance Prelude.NFData DisableRadius
 
-instance ToHeaders DisableRadius where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.DisableRadius" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DisableRadius where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.DisableRadius" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DisableRadius where
-        toJSON DisableRadius'{..}
-          = object
-              (catMaybes [Just ("DirectoryId" .= _drDirectoryId)])
+instance Core.ToJSON DisableRadius where
+  toJSON DisableRadius' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("DirectoryId" Core..= directoryId)]
+      )
 
-instance ToPath DisableRadius where
-        toPath = const "/"
+instance Core.ToPath DisableRadius where
+  toPath = Prelude.const "/"
 
-instance ToQuery DisableRadius where
-        toQuery = const mempty
+instance Core.ToQuery DisableRadius where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results of the 'DisableRadius' operation.
+-- | Contains the results of the DisableRadius operation.
 --
+-- /See:/ 'newDisableRadiusResponse' smart constructor.
+data DisableRadiusResponse = DisableRadiusResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DisableRadiusResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'disableRadiusResponse' smart constructor.
-newtype DisableRadiusResponse = DisableRadiusResponse'
-  { _drrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DisableRadiusResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsResponseStatus' - -- | The response status code.
-disableRadiusResponse
-    :: Int -- ^ 'drrsResponseStatus'
-    -> DisableRadiusResponse
-disableRadiusResponse pResponseStatus_ =
-  DisableRadiusResponse' {_drrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'disableRadiusResponse_httpStatus' - The response's http status code.
+newDisableRadiusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisableRadiusResponse
+newDisableRadiusResponse pHttpStatus_ =
+  DisableRadiusResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+disableRadiusResponse_httpStatus :: Lens.Lens' DisableRadiusResponse Prelude.Int
+disableRadiusResponse_httpStatus = Lens.lens (\DisableRadiusResponse' {httpStatus} -> httpStatus) (\s@DisableRadiusResponse' {} a -> s {httpStatus = a} :: DisableRadiusResponse)
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DisableRadiusResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
-
-instance NFData DisableRadiusResponse where
+instance Prelude.NFData DisableRadiusResponse

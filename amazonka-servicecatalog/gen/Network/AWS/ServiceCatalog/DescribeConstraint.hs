@@ -1,166 +1,216 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeConstraint
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified constraint.
---
---
 module Network.AWS.ServiceCatalog.DescribeConstraint
-    (
-    -- * Creating a Request
-      describeConstraint
-    , DescribeConstraint
+  ( -- * Creating a Request
+    DescribeConstraint (..),
+    newDescribeConstraint,
+
     -- * Request Lenses
-    , dAcceptLanguage
-    , dId
+    describeConstraint_acceptLanguage,
+    describeConstraint_id,
 
     -- * Destructuring the Response
-    , describeConstraintResponse
-    , DescribeConstraintResponse
+    DescribeConstraintResponse (..),
+    newDescribeConstraintResponse,
+
     -- * Response Lenses
-    , desrsStatus
-    , desrsConstraintDetail
-    , desrsConstraintParameters
-    , desrsResponseStatus
-    ) where
+    describeConstraintResponse_constraintParameters,
+    describeConstraintResponse_status,
+    describeConstraintResponse_constraintDetail,
+    describeConstraintResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'describeConstraint' smart constructor.
+-- | /See:/ 'newDescribeConstraint' smart constructor.
 data DescribeConstraint = DescribeConstraint'
-  { _dAcceptLanguage :: !(Maybe Text)
-  , _dId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the constraint.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeConstraint' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeConstraint' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dId' - The identifier of the constraint.
-describeConstraint
-    :: Text -- ^ 'dId'
-    -> DescribeConstraint
-describeConstraint pId_ =
-  DescribeConstraint' {_dAcceptLanguage = Nothing, _dId = pId_}
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dAcceptLanguage :: Lens' DescribeConstraint (Maybe Text)
-dAcceptLanguage = lens _dAcceptLanguage (\ s a -> s{_dAcceptLanguage = a})
-
--- | The identifier of the constraint.
-dId :: Lens' DescribeConstraint Text
-dId = lens _dId (\ s a -> s{_dId = a})
-
-instance AWSRequest DescribeConstraint where
-        type Rs DescribeConstraint =
-             DescribeConstraintResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeConstraintResponse' <$>
-                   (x .?> "Status") <*> (x .?> "ConstraintDetail") <*>
-                     (x .?> "ConstraintParameters")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeConstraint where
-
-instance NFData DescribeConstraint where
-
-instance ToHeaders DescribeConstraint where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.DescribeConstraint" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeConstraint where
-        toJSON DescribeConstraint'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _dAcceptLanguage,
-                  Just ("Id" .= _dId)])
-
-instance ToPath DescribeConstraint where
-        toPath = const "/"
-
-instance ToQuery DescribeConstraint where
-        toQuery = const mempty
-
--- | /See:/ 'describeConstraintResponse' smart constructor.
-data DescribeConstraintResponse = DescribeConstraintResponse'
-  { _desrsStatus               :: !(Maybe RequestStatus)
-  , _desrsConstraintDetail     :: !(Maybe ConstraintDetail)
-  , _desrsConstraintParameters :: !(Maybe Text)
-  , _desrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeConstraintResponse' with the minimum fields required to make a request.
+-- 'acceptLanguage', 'describeConstraint_acceptLanguage' - The language code.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   @en@ - English (default)
 --
--- * 'desrsStatus' - The status of the current request.
+-- -   @jp@ - Japanese
 --
--- * 'desrsConstraintDetail' - Information about the constraint.
+-- -   @zh@ - Chinese
 --
--- * 'desrsConstraintParameters' - The constraint parameters.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeConstraintResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeConstraintResponse
-describeConstraintResponse pResponseStatus_ =
-  DescribeConstraintResponse'
-    { _desrsStatus = Nothing
-    , _desrsConstraintDetail = Nothing
-    , _desrsConstraintParameters = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+-- 'id', 'describeConstraint_id' - The identifier of the constraint.
+newDescribeConstraint ::
+  -- | 'id'
+  Prelude.Text ->
+  DescribeConstraint
+newDescribeConstraint pId_ =
+  DescribeConstraint'
+    { acceptLanguage =
+        Prelude.Nothing,
+      id = pId_
     }
 
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+describeConstraint_acceptLanguage :: Lens.Lens' DescribeConstraint (Prelude.Maybe Prelude.Text)
+describeConstraint_acceptLanguage = Lens.lens (\DescribeConstraint' {acceptLanguage} -> acceptLanguage) (\s@DescribeConstraint' {} a -> s {acceptLanguage = a} :: DescribeConstraint)
 
--- | The status of the current request.
-desrsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a})
+-- | The identifier of the constraint.
+describeConstraint_id :: Lens.Lens' DescribeConstraint Prelude.Text
+describeConstraint_id = Lens.lens (\DescribeConstraint' {id} -> id) (\s@DescribeConstraint' {} a -> s {id = a} :: DescribeConstraint)
 
--- | Information about the constraint.
-desrsConstraintDetail :: Lens' DescribeConstraintResponse (Maybe ConstraintDetail)
-desrsConstraintDetail = lens _desrsConstraintDetail (\ s a -> s{_desrsConstraintDetail = a})
+instance Core.AWSRequest DescribeConstraint where
+  type
+    AWSResponse DescribeConstraint =
+      DescribeConstraintResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeConstraintResponse'
+            Prelude.<$> (x Core..?> "ConstraintParameters")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ConstraintDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeConstraint
+
+instance Prelude.NFData DescribeConstraint
+
+instance Core.ToHeaders DescribeConstraint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.DescribeConstraint" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeConstraint where
+  toJSON DescribeConstraint' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Id" Core..= id)
+          ]
+      )
+
+instance Core.ToPath DescribeConstraint where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeConstraint where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeConstraintResponse' smart constructor.
+data DescribeConstraintResponse = DescribeConstraintResponse'
+  { -- | The constraint parameters.
+    constraintParameters :: Prelude.Maybe Prelude.Text,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
+    -- | Information about the constraint.
+    constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeConstraintResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'constraintParameters', 'describeConstraintResponse_constraintParameters' - The constraint parameters.
+--
+-- 'status', 'describeConstraintResponse_status' - The status of the current request.
+--
+-- 'constraintDetail', 'describeConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'httpStatus', 'describeConstraintResponse_httpStatus' - The response's http status code.
+newDescribeConstraintResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeConstraintResponse
+newDescribeConstraintResponse pHttpStatus_ =
+  DescribeConstraintResponse'
+    { constraintParameters =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      constraintDetail = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The constraint parameters.
-desrsConstraintParameters :: Lens' DescribeConstraintResponse (Maybe Text)
-desrsConstraintParameters = lens _desrsConstraintParameters (\ s a -> s{_desrsConstraintParameters = a})
+describeConstraintResponse_constraintParameters :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe Prelude.Text)
+describeConstraintResponse_constraintParameters = Lens.lens (\DescribeConstraintResponse' {constraintParameters} -> constraintParameters) (\s@DescribeConstraintResponse' {} a -> s {constraintParameters = a} :: DescribeConstraintResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeConstraintResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | The status of the current request.
+describeConstraintResponse_status :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe RequestStatus)
+describeConstraintResponse_status = Lens.lens (\DescribeConstraintResponse' {status} -> status) (\s@DescribeConstraintResponse' {} a -> s {status = a} :: DescribeConstraintResponse)
 
-instance NFData DescribeConstraintResponse where
+-- | Information about the constraint.
+describeConstraintResponse_constraintDetail :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe ConstraintDetail)
+describeConstraintResponse_constraintDetail = Lens.lens (\DescribeConstraintResponse' {constraintDetail} -> constraintDetail) (\s@DescribeConstraintResponse' {} a -> s {constraintDetail = a} :: DescribeConstraintResponse)
+
+-- | The response's http status code.
+describeConstraintResponse_httpStatus :: Lens.Lens' DescribeConstraintResponse Prelude.Int
+describeConstraintResponse_httpStatus = Lens.lens (\DescribeConstraintResponse' {httpStatus} -> httpStatus) (\s@DescribeConstraintResponse' {} a -> s {httpStatus = a} :: DescribeConstraintResponse)
+
+instance Prelude.NFData DescribeConstraintResponse

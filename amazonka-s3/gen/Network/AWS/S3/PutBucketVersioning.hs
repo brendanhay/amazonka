@@ -1,137 +1,232 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketVersioning
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
+-- Sets the versioning state of an existing bucket. To set the versioning
+-- state, you must be the bucket owner.
+--
+-- You can set the versioning state with one of the following values:
+--
+-- __Enabled__—Enables versioning for the objects in the bucket. All
+-- objects added to the bucket receive a unique version ID.
+--
+-- __Suspended__—Disables versioning for the objects in the bucket. All
+-- objects added to the bucket receive the version ID null.
+--
+-- If the versioning state has never been set on a bucket, it has no
+-- versioning state; a
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html GetBucketVersioning>
+-- request does not return a versioning state value.
+--
+-- If the bucket owner enables MFA Delete in the bucket versioning
+-- configuration, the bucket owner must include the @x-amz-mfa request@
+-- header and the @Status@ and the @MfaDelete@ request elements in a
+-- request to set the versioning state of the bucket.
+--
+-- If you have an object expiration lifecycle policy in your non-versioned
+-- bucket and you want to maintain the same permanent delete behavior when
+-- you enable versioning, you must add a noncurrent expiration policy. The
+-- noncurrent expiration lifecycle policy will manage the deletes of the
+-- noncurrent object versions in the version-enabled bucket. (A
+-- version-enabled bucket maintains one current and zero or more noncurrent
+-- object versions.) For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config Lifecycle and Versioning>.
+--
+-- __Related Resources__
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html DeleteBucket>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html GetBucketVersioning>
 module Network.AWS.S3.PutBucketVersioning
-    (
-    -- * Creating a Request
-      putBucketVersioning
-    , PutBucketVersioning
+  ( -- * Creating a Request
+    PutBucketVersioning (..),
+    newPutBucketVersioning,
+
     -- * Request Lenses
-    , pbvMFA
-    , pbvContentMD5
-    , pbvBucket
-    , pbvVersioningConfiguration
+    putBucketVersioning_expectedBucketOwner,
+    putBucketVersioning_contentMD5,
+    putBucketVersioning_mfa,
+    putBucketVersioning_bucket,
+    putBucketVersioning_versioningConfiguration,
 
     -- * Destructuring the Response
-    , putBucketVersioningResponse
-    , PutBucketVersioningResponse
-    ) where
+    PutBucketVersioningResponse (..),
+    newPutBucketVersioningResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'putBucketVersioning' smart constructor.
+-- | /See:/ 'newPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { _pbvMFA                     :: !(Maybe Text)
-  , _pbvContentMD5              :: !(Maybe Text)
-  , _pbvBucket                  :: !BucketName
-  , _pbvVersioningConfiguration :: !VersioningConfiguration
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
+    -- header as a message integrity check to verify that the request body was
+    -- not corrupted in transit. For more information, see
+    -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS
+    -- SDKs, this field is calculated automatically.
+    contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The concatenation of the authentication device\'s serial number, a
+    -- space, and the value that is displayed on your authentication device.
+    mfa :: Prelude.Maybe Prelude.Text,
+    -- | The bucket name.
+    bucket :: BucketName,
+    -- | Container for setting the versioning state.
+    versioningConfiguration :: VersioningConfiguration
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutBucketVersioning' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutBucketVersioning' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pbvMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pbvContentMD5' - Undocumented member.
+-- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
--- * 'pbvBucket' - Undocumented member.
+-- 'contentMD5', 'putBucketVersioning_contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this
+-- header as a message integrity check to verify that the request body was
+-- not corrupted in transit. For more information, see
+-- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- * 'pbvVersioningConfiguration' - Undocumented member.
-putBucketVersioning
-    :: BucketName -- ^ 'pbvBucket'
-    -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
-    -> PutBucketVersioning
-putBucketVersioning pBucket_ pVersioningConfiguration_ =
-  PutBucketVersioning'
-    { _pbvMFA = Nothing
-    , _pbvContentMD5 = Nothing
-    , _pbvBucket = pBucket_
-    , _pbvVersioningConfiguration = pVersioningConfiguration_
-    }
+-- For requests made using the AWS Command Line Interface (CLI) or AWS
+-- SDKs, this field is calculated automatically.
+--
+-- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+--
+-- 'bucket', 'putBucketVersioning_bucket' - The bucket name.
+--
+-- 'versioningConfiguration', 'putBucketVersioning_versioningConfiguration' - Container for setting the versioning state.
+newPutBucketVersioning ::
+  -- | 'bucket'
+  BucketName ->
+  -- | 'versioningConfiguration'
+  VersioningConfiguration ->
+  PutBucketVersioning
+newPutBucketVersioning
+  pBucket_
+  pVersioningConfiguration_ =
+    PutBucketVersioning'
+      { expectedBucketOwner =
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
+        mfa = Prelude.Nothing,
+        bucket = pBucket_,
+        versioningConfiguration = pVersioningConfiguration_
+      }
 
+-- | The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
 
--- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
-pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a})
+-- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
+-- header as a message integrity check to verify that the request body was
+-- not corrupted in transit. For more information, see
+-- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
+--
+-- For requests made using the AWS Command Line Interface (CLI) or AWS
+-- SDKs, this field is calculated automatically.
+putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -> contentMD5) (\s@PutBucketVersioning' {} a -> s {contentMD5 = a} :: PutBucketVersioning)
 
--- | Undocumented member.
-pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
-pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a})
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
 
--- | Undocumented member.
-pbvBucket :: Lens' PutBucketVersioning BucketName
-pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a})
+-- | The bucket name.
+putBucketVersioning_bucket :: Lens.Lens' PutBucketVersioning BucketName
+putBucketVersioning_bucket = Lens.lens (\PutBucketVersioning' {bucket} -> bucket) (\s@PutBucketVersioning' {} a -> s {bucket = a} :: PutBucketVersioning)
 
--- | Undocumented member.
-pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
-pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a})
+-- | Container for setting the versioning state.
+putBucketVersioning_versioningConfiguration :: Lens.Lens' PutBucketVersioning VersioningConfiguration
+putBucketVersioning_versioningConfiguration = Lens.lens (\PutBucketVersioning' {versioningConfiguration} -> versioningConfiguration) (\s@PutBucketVersioning' {} a -> s {versioningConfiguration = a} :: PutBucketVersioning)
 
-instance AWSRequest PutBucketVersioning where
-        type Rs PutBucketVersioning =
-             PutBucketVersioningResponse
-        request = putXML s3
-        response = receiveNull PutBucketVersioningResponse'
+instance Core.AWSRequest PutBucketVersioning where
+  type
+    AWSResponse PutBucketVersioning =
+      PutBucketVersioningResponse
+  request = Request.putXML defaultService
+  response =
+    Response.receiveNull PutBucketVersioningResponse'
 
-instance Hashable PutBucketVersioning where
+instance Prelude.Hashable PutBucketVersioning
 
-instance NFData PutBucketVersioning where
+instance Prelude.NFData PutBucketVersioning
 
-instance ToElement PutBucketVersioning where
-        toElement
-          = mkElement
-              "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
-              .
-              _pbvVersioningConfiguration
+instance Core.ToElement PutBucketVersioning where
+  toElement PutBucketVersioning' {..} =
+    Core.mkElement
+      "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
+      versioningConfiguration
 
-instance ToHeaders PutBucketVersioning where
-        toHeaders PutBucketVersioning'{..}
-          = mconcat
-              ["x-amz-mfa" =# _pbvMFA,
-               "Content-MD5" =# _pbvContentMD5]
+instance Core.ToHeaders PutBucketVersioning where
+  toHeaders PutBucketVersioning' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-mfa" Core.=# mfa
+      ]
 
-instance ToPath PutBucketVersioning where
-        toPath PutBucketVersioning'{..}
-          = mconcat ["/", toBS _pbvBucket]
+instance Core.ToPath PutBucketVersioning where
+  toPath PutBucketVersioning' {..} =
+    Prelude.mconcat ["/", Core.toBS bucket]
 
-instance ToQuery PutBucketVersioning where
-        toQuery = const (mconcat ["versioning"])
+instance Core.ToQuery PutBucketVersioning where
+  toQuery =
+    Prelude.const (Prelude.mconcat ["versioning"])
 
--- | /See:/ 'putBucketVersioningResponse' smart constructor.
-data PutBucketVersioningResponse =
+-- | /See:/ 'newPutBucketVersioningResponse' smart constructor.
+data PutBucketVersioningResponse = PutBucketVersioningResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutBucketVersioningResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPutBucketVersioningResponse ::
+  PutBucketVersioningResponse
+newPutBucketVersioningResponse =
   PutBucketVersioningResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'PutBucketVersioningResponse' with the minimum fields required to make a request.
---
-putBucketVersioningResponse
-    :: PutBucketVersioningResponse
-putBucketVersioningResponse = PutBucketVersioningResponse'
-
-
-instance NFData PutBucketVersioningResponse where
+instance Prelude.NFData PutBucketVersioningResponse

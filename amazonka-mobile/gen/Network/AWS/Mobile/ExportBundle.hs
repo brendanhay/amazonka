@@ -1,157 +1,193 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Mobile.ExportBundle
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources.
---
---
+-- Generates customized software development kit (SDK) and or tool packages
+-- used to integrate mobile web or mobile app clients with backend AWS
+-- resources.
 module Network.AWS.Mobile.ExportBundle
-    (
-    -- * Creating a Request
-      exportBundle
-    , ExportBundle
+  ( -- * Creating a Request
+    ExportBundle (..),
+    newExportBundle,
+
     -- * Request Lenses
-    , ebPlatform
-    , ebProjectId
-    , ebBundleId
+    exportBundle_platform,
+    exportBundle_projectId,
+    exportBundle_bundleId,
 
     -- * Destructuring the Response
-    , exportBundleResponse
-    , ExportBundleResponse
+    ExportBundleResponse (..),
+    newExportBundleResponse,
+
     -- * Response Lenses
-    , ebrsDownloadURL
-    , ebrsResponseStatus
-    ) where
+    exportBundleResponse_downloadUrl,
+    exportBundleResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request structure used to request generation of custom SDK and tool packages required to integrate mobile web or app clients with backed AWS resources.
+-- | Request structure used to request generation of custom SDK and tool
+-- packages required to integrate mobile web or app clients with backed AWS
+-- resources.
 --
---
---
--- /See:/ 'exportBundle' smart constructor.
+-- /See:/ 'newExportBundle' smart constructor.
 data ExportBundle = ExportBundle'
-  { _ebPlatform  :: !(Maybe Platform)
-  , _ebProjectId :: !(Maybe Text)
-  , _ebBundleId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Developer desktop or target application platform.
+    platform :: Prelude.Maybe Platform,
+    -- | Unique project identifier.
+    projectId :: Prelude.Maybe Prelude.Text,
+    -- | Unique bundle identifier.
+    bundleId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ExportBundle' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ExportBundle' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ebPlatform' - Developer desktop or target application platform.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ebProjectId' - Unique project identifier.
+-- 'platform', 'exportBundle_platform' - Developer desktop or target application platform.
 --
--- * 'ebBundleId' - Unique bundle identifier.
-exportBundle
-    :: Text -- ^ 'ebBundleId'
-    -> ExportBundle
-exportBundle pBundleId_ =
+-- 'projectId', 'exportBundle_projectId' - Unique project identifier.
+--
+-- 'bundleId', 'exportBundle_bundleId' - Unique bundle identifier.
+newExportBundle ::
+  -- | 'bundleId'
+  Prelude.Text ->
+  ExportBundle
+newExportBundle pBundleId_ =
   ExportBundle'
-    {_ebPlatform = Nothing, _ebProjectId = Nothing, _ebBundleId = pBundleId_}
-
+    { platform = Prelude.Nothing,
+      projectId = Prelude.Nothing,
+      bundleId = pBundleId_
+    }
 
 -- | Developer desktop or target application platform.
-ebPlatform :: Lens' ExportBundle (Maybe Platform)
-ebPlatform = lens _ebPlatform (\ s a -> s{_ebPlatform = a})
+exportBundle_platform :: Lens.Lens' ExportBundle (Prelude.Maybe Platform)
+exportBundle_platform = Lens.lens (\ExportBundle' {platform} -> platform) (\s@ExportBundle' {} a -> s {platform = a} :: ExportBundle)
 
 -- | Unique project identifier.
-ebProjectId :: Lens' ExportBundle (Maybe Text)
-ebProjectId = lens _ebProjectId (\ s a -> s{_ebProjectId = a})
+exportBundle_projectId :: Lens.Lens' ExportBundle (Prelude.Maybe Prelude.Text)
+exportBundle_projectId = Lens.lens (\ExportBundle' {projectId} -> projectId) (\s@ExportBundle' {} a -> s {projectId = a} :: ExportBundle)
 
 -- | Unique bundle identifier.
-ebBundleId :: Lens' ExportBundle Text
-ebBundleId = lens _ebBundleId (\ s a -> s{_ebBundleId = a})
+exportBundle_bundleId :: Lens.Lens' ExportBundle Prelude.Text
+exportBundle_bundleId = Lens.lens (\ExportBundle' {bundleId} -> bundleId) (\s@ExportBundle' {} a -> s {bundleId = a} :: ExportBundle)
 
-instance AWSRequest ExportBundle where
-        type Rs ExportBundle = ExportBundleResponse
-        request = postJSON mobile
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ExportBundleResponse' <$>
-                   (x .?> "downloadUrl") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ExportBundle where
+  type AWSResponse ExportBundle = ExportBundleResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ExportBundleResponse'
+            Prelude.<$> (x Core..?> "downloadUrl")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ExportBundle where
+instance Prelude.Hashable ExportBundle
 
-instance NFData ExportBundle where
+instance Prelude.NFData ExportBundle
 
-instance ToHeaders ExportBundle where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ExportBundle where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ExportBundle where
-        toJSON = const (Object mempty)
+instance Core.ToJSON ExportBundle where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToPath ExportBundle where
-        toPath ExportBundle'{..}
-          = mconcat ["/bundles/", toBS _ebBundleId]
+instance Core.ToPath ExportBundle where
+  toPath ExportBundle' {..} =
+    Prelude.mconcat ["/bundles/", Core.toBS bundleId]
 
-instance ToQuery ExportBundle where
-        toQuery ExportBundle'{..}
-          = mconcat
-              ["platform" =: _ebPlatform,
-               "projectId" =: _ebProjectId]
+instance Core.ToQuery ExportBundle where
+  toQuery ExportBundle' {..} =
+    Prelude.mconcat
+      [ "platform" Core.=: platform,
+        "projectId" Core.=: projectId
+      ]
 
--- | Result structure which contains link to download custom-generated SDK and tool packages used to integrate mobile web or app clients with backed AWS resources.
+-- | Result structure which contains link to download custom-generated SDK
+-- and tool packages used to integrate mobile web or app clients with
+-- backed AWS resources.
 --
---
---
--- /See:/ 'exportBundleResponse' smart constructor.
+-- /See:/ 'newExportBundleResponse' smart constructor.
 data ExportBundleResponse = ExportBundleResponse'
-  { _ebrsDownloadURL    :: !(Maybe Text)
-  , _ebrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | URL which contains the custom-generated SDK and tool packages used to
+    -- integrate the client mobile app or web app with the AWS resources
+    -- created by the AWS Mobile Hub project.
+    downloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ExportBundleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ExportBundleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ebrsDownloadURL' - URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ebrsResponseStatus' - -- | The response status code.
-exportBundleResponse
-    :: Int -- ^ 'ebrsResponseStatus'
-    -> ExportBundleResponse
-exportBundleResponse pResponseStatus_ =
+-- 'downloadUrl', 'exportBundleResponse_downloadUrl' - URL which contains the custom-generated SDK and tool packages used to
+-- integrate the client mobile app or web app with the AWS resources
+-- created by the AWS Mobile Hub project.
+--
+-- 'httpStatus', 'exportBundleResponse_httpStatus' - The response's http status code.
+newExportBundleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ExportBundleResponse
+newExportBundleResponse pHttpStatus_ =
   ExportBundleResponse'
-    {_ebrsDownloadURL = Nothing, _ebrsResponseStatus = pResponseStatus_}
+    { downloadUrl =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | URL which contains the custom-generated SDK and tool packages used to
+-- integrate the client mobile app or web app with the AWS resources
+-- created by the AWS Mobile Hub project.
+exportBundleResponse_downloadUrl :: Lens.Lens' ExportBundleResponse (Prelude.Maybe Prelude.Text)
+exportBundleResponse_downloadUrl = Lens.lens (\ExportBundleResponse' {downloadUrl} -> downloadUrl) (\s@ExportBundleResponse' {} a -> s {downloadUrl = a} :: ExportBundleResponse)
 
--- | URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
-ebrsDownloadURL :: Lens' ExportBundleResponse (Maybe Text)
-ebrsDownloadURL = lens _ebrsDownloadURL (\ s a -> s{_ebrsDownloadURL = a})
+-- | The response's http status code.
+exportBundleResponse_httpStatus :: Lens.Lens' ExportBundleResponse Prelude.Int
+exportBundleResponse_httpStatus = Lens.lens (\ExportBundleResponse' {httpStatus} -> httpStatus) (\s@ExportBundleResponse' {} a -> s {httpStatus = a} :: ExportBundleResponse)
 
--- | -- | The response status code.
-ebrsResponseStatus :: Lens' ExportBundleResponse Int
-ebrsResponseStatus = lens _ebrsResponseStatus (\ s a -> s{_ebrsResponseStatus = a})
-
-instance NFData ExportBundleResponse where
+instance Prelude.NFData ExportBundleResponse

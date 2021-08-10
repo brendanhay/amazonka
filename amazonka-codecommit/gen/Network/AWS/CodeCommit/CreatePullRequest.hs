@@ -1,168 +1,234 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreatePullRequest
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a pull request in the specified repository.
---
---
 module Network.AWS.CodeCommit.CreatePullRequest
-    (
-    -- * Creating a Request
-      createPullRequest
-    , CreatePullRequest
+  ( -- * Creating a Request
+    CreatePullRequest (..),
+    newCreatePullRequest,
+
     -- * Request Lenses
-    , cprClientRequestToken
-    , cprDescription
-    , cprTitle
-    , cprTargets
+    createPullRequest_description,
+    createPullRequest_clientRequestToken,
+    createPullRequest_title,
+    createPullRequest_targets,
 
     -- * Destructuring the Response
-    , createPullRequestResponse
-    , CreatePullRequestResponse
+    CreatePullRequestResponse (..),
+    newCreatePullRequestResponse,
+
     -- * Response Lenses
-    , cprrsResponseStatus
-    , cprrsPullRequest
-    ) where
+    createPullRequestResponse_httpStatus,
+    createPullRequestResponse_pullRequest,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createPullRequest' smart constructor.
+-- | /See:/ 'newCreatePullRequest' smart constructor.
 data CreatePullRequest = CreatePullRequest'
-  { _cprClientRequestToken :: !(Maybe Text)
-  , _cprDescription        :: !(Maybe Text)
-  , _cprTitle              :: !Text
-  , _cprTargets            :: ![Target]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A description of the pull request.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a
+    -- request, ensures the request cannot be repeated with a changed
+    -- parameter. If a request is received with the same parameters and a token
+    -- is included, the request returns information about the initial request
+    -- that used that token.
+    --
+    -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
+    -- SDK, an idempotency token is created for you.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The title of the pull request. This title is used to identify the pull
+    -- request to other users in the repository.
+    title :: Prelude.Text,
+    -- | The targets for the pull request, including the source of the code to be
+    -- reviewed (the source branch) and the destination where the creator of
+    -- the pull request intends the code to be merged after the pull request is
+    -- closed (the destination branch).
+    targets :: [Target]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePullRequest' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePullRequest' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprClientRequestToken' - A unique, client-generated idempotency token that when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request will return information about the initial request that used that token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprDescription' - A description of the pull request.
+-- 'description', 'createPullRequest_description' - A description of the pull request.
 --
--- * 'cprTitle' - The title of the pull request. This title will be used to identify the pull request to other users in the repository.
+-- 'clientRequestToken', 'createPullRequest_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
+-- request, ensures the request cannot be repeated with a changed
+-- parameter. If a request is received with the same parameters and a token
+-- is included, the request returns information about the initial request
+-- that used that token.
 --
--- * 'cprTargets' - The targets for the pull request, including the source of the code to be reviewed (the source branch), and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).
-createPullRequest
-    :: Text -- ^ 'cprTitle'
-    -> CreatePullRequest
-createPullRequest pTitle_ =
+-- The AWS SDKs prepopulate client request tokens. If you are using an AWS
+-- SDK, an idempotency token is created for you.
+--
+-- 'title', 'createPullRequest_title' - The title of the pull request. This title is used to identify the pull
+-- request to other users in the repository.
+--
+-- 'targets', 'createPullRequest_targets' - The targets for the pull request, including the source of the code to be
+-- reviewed (the source branch) and the destination where the creator of
+-- the pull request intends the code to be merged after the pull request is
+-- closed (the destination branch).
+newCreatePullRequest ::
+  -- | 'title'
+  Prelude.Text ->
+  CreatePullRequest
+newCreatePullRequest pTitle_ =
   CreatePullRequest'
-    { _cprClientRequestToken = Nothing
-    , _cprDescription = Nothing
-    , _cprTitle = pTitle_
-    , _cprTargets = mempty
+    { description = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      title = pTitle_,
+      targets = Prelude.mempty
     }
 
-
--- | A unique, client-generated idempotency token that when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request will return information about the initial request that used that token.
-cprClientRequestToken :: Lens' CreatePullRequest (Maybe Text)
-cprClientRequestToken = lens _cprClientRequestToken (\ s a -> s{_cprClientRequestToken = a})
-
 -- | A description of the pull request.
-cprDescription :: Lens' CreatePullRequest (Maybe Text)
-cprDescription = lens _cprDescription (\ s a -> s{_cprDescription = a})
+createPullRequest_description :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
+createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> description) (\s@CreatePullRequest' {} a -> s {description = a} :: CreatePullRequest)
 
--- | The title of the pull request. This title will be used to identify the pull request to other users in the repository.
-cprTitle :: Lens' CreatePullRequest Text
-cprTitle = lens _cprTitle (\ s a -> s{_cprTitle = a})
+-- | A unique, client-generated idempotency token that, when provided in a
+-- request, ensures the request cannot be repeated with a changed
+-- parameter. If a request is received with the same parameters and a token
+-- is included, the request returns information about the initial request
+-- that used that token.
+--
+-- The AWS SDKs prepopulate client request tokens. If you are using an AWS
+-- SDK, an idempotency token is created for you.
+createPullRequest_clientRequestToken :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
+createPullRequest_clientRequestToken = Lens.lens (\CreatePullRequest' {clientRequestToken} -> clientRequestToken) (\s@CreatePullRequest' {} a -> s {clientRequestToken = a} :: CreatePullRequest)
 
--- | The targets for the pull request, including the source of the code to be reviewed (the source branch), and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).
-cprTargets :: Lens' CreatePullRequest [Target]
-cprTargets = lens _cprTargets (\ s a -> s{_cprTargets = a}) . _Coerce
+-- | The title of the pull request. This title is used to identify the pull
+-- request to other users in the repository.
+createPullRequest_title :: Lens.Lens' CreatePullRequest Prelude.Text
+createPullRequest_title = Lens.lens (\CreatePullRequest' {title} -> title) (\s@CreatePullRequest' {} a -> s {title = a} :: CreatePullRequest)
 
-instance AWSRequest CreatePullRequest where
-        type Rs CreatePullRequest = CreatePullRequestResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreatePullRequestResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "pullRequest"))
+-- | The targets for the pull request, including the source of the code to be
+-- reviewed (the source branch) and the destination where the creator of
+-- the pull request intends the code to be merged after the pull request is
+-- closed (the destination branch).
+createPullRequest_targets :: Lens.Lens' CreatePullRequest [Target]
+createPullRequest_targets = Lens.lens (\CreatePullRequest' {targets} -> targets) (\s@CreatePullRequest' {} a -> s {targets = a} :: CreatePullRequest) Prelude.. Lens._Coerce
 
-instance Hashable CreatePullRequest where
+instance Core.AWSRequest CreatePullRequest where
+  type
+    AWSResponse CreatePullRequest =
+      CreatePullRequestResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePullRequestResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "pullRequest")
+      )
 
-instance NFData CreatePullRequest where
+instance Prelude.Hashable CreatePullRequest
 
-instance ToHeaders CreatePullRequest where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.CreatePullRequest" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData CreatePullRequest
 
-instance ToJSON CreatePullRequest where
-        toJSON CreatePullRequest'{..}
-          = object
-              (catMaybes
-                 [("clientRequestToken" .=) <$>
-                    _cprClientRequestToken,
-                  ("description" .=) <$> _cprDescription,
-                  Just ("title" .= _cprTitle),
-                  Just ("targets" .= _cprTargets)])
+instance Core.ToHeaders CreatePullRequest where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeCommit_20150413.CreatePullRequest" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath CreatePullRequest where
-        toPath = const "/"
+instance Core.ToJSON CreatePullRequest where
+  toJSON CreatePullRequest' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("description" Core..=) Prelude.<$> description,
+            ("clientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("title" Core..= title),
+            Prelude.Just ("targets" Core..= targets)
+          ]
+      )
 
-instance ToQuery CreatePullRequest where
-        toQuery = const mempty
+instance Core.ToPath CreatePullRequest where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'createPullRequestResponse' smart constructor.
+instance Core.ToQuery CreatePullRequest where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreatePullRequestResponse' smart constructor.
 data CreatePullRequestResponse = CreatePullRequestResponse'
-  { _cprrsResponseStatus :: !Int
-  , _cprrsPullRequest    :: !PullRequest
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about the newly created pull request.
+    pullRequest :: PullRequest
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePullRequestResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePullRequestResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprrsPullRequest' - Information about the newly created pull request.
-createPullRequestResponse
-    :: Int -- ^ 'cprrsResponseStatus'
-    -> PullRequest -- ^ 'cprrsPullRequest'
-    -> CreatePullRequestResponse
-createPullRequestResponse pResponseStatus_ pPullRequest_ =
-  CreatePullRequestResponse'
-    {_cprrsResponseStatus = pResponseStatus_, _cprrsPullRequest = pPullRequest_}
+-- 'httpStatus', 'createPullRequestResponse_httpStatus' - The response's http status code.
+--
+-- 'pullRequest', 'createPullRequestResponse_pullRequest' - Information about the newly created pull request.
+newCreatePullRequestResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'pullRequest'
+  PullRequest ->
+  CreatePullRequestResponse
+newCreatePullRequestResponse
+  pHttpStatus_
+  pPullRequest_ =
+    CreatePullRequestResponse'
+      { httpStatus =
+          pHttpStatus_,
+        pullRequest = pPullRequest_
+      }
 
-
--- | -- | The response status code.
-cprrsResponseStatus :: Lens' CreatePullRequestResponse Int
-cprrsResponseStatus = lens _cprrsResponseStatus (\ s a -> s{_cprrsResponseStatus = a})
+-- | The response's http status code.
+createPullRequestResponse_httpStatus :: Lens.Lens' CreatePullRequestResponse Prelude.Int
+createPullRequestResponse_httpStatus = Lens.lens (\CreatePullRequestResponse' {httpStatus} -> httpStatus) (\s@CreatePullRequestResponse' {} a -> s {httpStatus = a} :: CreatePullRequestResponse)
 
 -- | Information about the newly created pull request.
-cprrsPullRequest :: Lens' CreatePullRequestResponse PullRequest
-cprrsPullRequest = lens _cprrsPullRequest (\ s a -> s{_cprrsPullRequest = a})
+createPullRequestResponse_pullRequest :: Lens.Lens' CreatePullRequestResponse PullRequest
+createPullRequestResponse_pullRequest = Lens.lens (\CreatePullRequestResponse' {pullRequest} -> pullRequest) (\s@CreatePullRequestResponse' {} a -> s {pullRequest = a} :: CreatePullRequestResponse)
 
-instance NFData CreatePullRequestResponse where
+instance Prelude.NFData CreatePullRequestResponse

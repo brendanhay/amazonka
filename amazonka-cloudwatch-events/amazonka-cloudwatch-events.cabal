@@ -1,116 +1,199 @@
-name:                  amazonka-cloudwatch-events
-version:               1.6.1
-synopsis:              Amazon EventBridge SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-cloudwatch-events
+version:            1.6.1
+synopsis:           Amazon EventBridge SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudWatchEvents" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2015-10-07@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudWatchEvents.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CloudWatchEvents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudwatch-events
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudwatch-events
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudWatchEvents
+    Network.AWS.CloudWatchEvents.ActivateEventSource
+    Network.AWS.CloudWatchEvents.CancelReplay
+    Network.AWS.CloudWatchEvents.CreateApiDestination
+    Network.AWS.CloudWatchEvents.CreateArchive
+    Network.AWS.CloudWatchEvents.CreateConnection
+    Network.AWS.CloudWatchEvents.CreateEventBus
+    Network.AWS.CloudWatchEvents.CreatePartnerEventSource
+    Network.AWS.CloudWatchEvents.DeactivateEventSource
+    Network.AWS.CloudWatchEvents.DeauthorizeConnection
+    Network.AWS.CloudWatchEvents.DeleteApiDestination
+    Network.AWS.CloudWatchEvents.DeleteArchive
+    Network.AWS.CloudWatchEvents.DeleteConnection
+    Network.AWS.CloudWatchEvents.DeleteEventBus
+    Network.AWS.CloudWatchEvents.DeletePartnerEventSource
+    Network.AWS.CloudWatchEvents.DeleteRule
+    Network.AWS.CloudWatchEvents.DescribeApiDestination
+    Network.AWS.CloudWatchEvents.DescribeArchive
+    Network.AWS.CloudWatchEvents.DescribeConnection
+    Network.AWS.CloudWatchEvents.DescribeEventBus
+    Network.AWS.CloudWatchEvents.DescribeEventSource
+    Network.AWS.CloudWatchEvents.DescribePartnerEventSource
+    Network.AWS.CloudWatchEvents.DescribeReplay
+    Network.AWS.CloudWatchEvents.DescribeRule
+    Network.AWS.CloudWatchEvents.DisableRule
+    Network.AWS.CloudWatchEvents.EnableRule
+    Network.AWS.CloudWatchEvents.Lens
+    Network.AWS.CloudWatchEvents.ListApiDestinations
+    Network.AWS.CloudWatchEvents.ListArchives
+    Network.AWS.CloudWatchEvents.ListConnections
+    Network.AWS.CloudWatchEvents.ListEventBuses
+    Network.AWS.CloudWatchEvents.ListEventSources
+    Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
+    Network.AWS.CloudWatchEvents.ListPartnerEventSources
+    Network.AWS.CloudWatchEvents.ListReplays
+    Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
+    Network.AWS.CloudWatchEvents.ListRules
+    Network.AWS.CloudWatchEvents.ListTagsForResource
+    Network.AWS.CloudWatchEvents.ListTargetsByRule
+    Network.AWS.CloudWatchEvents.PutEvents
+    Network.AWS.CloudWatchEvents.PutPartnerEvents
+    Network.AWS.CloudWatchEvents.PutPermission
+    Network.AWS.CloudWatchEvents.PutRule
+    Network.AWS.CloudWatchEvents.PutTargets
+    Network.AWS.CloudWatchEvents.RemovePermission
+    Network.AWS.CloudWatchEvents.RemoveTargets
+    Network.AWS.CloudWatchEvents.StartReplay
+    Network.AWS.CloudWatchEvents.TagResource
+    Network.AWS.CloudWatchEvents.TestEventPattern
+    Network.AWS.CloudWatchEvents.Types
+    Network.AWS.CloudWatchEvents.Types.ApiDestination
+    Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod
+    Network.AWS.CloudWatchEvents.Types.ApiDestinationState
+    Network.AWS.CloudWatchEvents.Types.Archive
+    Network.AWS.CloudWatchEvents.Types.ArchiveState
+    Network.AWS.CloudWatchEvents.Types.AssignPublicIp
+    Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
+    Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
+    Network.AWS.CloudWatchEvents.Types.BatchParameters
+    Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
+    Network.AWS.CloudWatchEvents.Types.Condition
+    Network.AWS.CloudWatchEvents.Types.Connection
+    Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType
+    Network.AWS.CloudWatchEvents.Types.ConnectionAuthResponseParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionBodyParameter
+    Network.AWS.CloudWatchEvents.Types.ConnectionHeaderParameter
+    Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
+    Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
+    Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter
+    Network.AWS.CloudWatchEvents.Types.ConnectionState
+    Network.AWS.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.CreateConnectionAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters
+    Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
+    Network.AWS.CloudWatchEvents.Types.EcsParameters
+    Network.AWS.CloudWatchEvents.Types.EventBus
+    Network.AWS.CloudWatchEvents.Types.EventSource
+    Network.AWS.CloudWatchEvents.Types.EventSourceState
+    Network.AWS.CloudWatchEvents.Types.HttpParameters
+    Network.AWS.CloudWatchEvents.Types.InputTransformer
+    Network.AWS.CloudWatchEvents.Types.KinesisParameters
+    Network.AWS.CloudWatchEvents.Types.LaunchType
+    Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
+    Network.AWS.CloudWatchEvents.Types.PartnerEventSource
+    Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+    Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
+    Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
+    Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
+    Network.AWS.CloudWatchEvents.Types.PutPartnerEventsResultEntry
+    Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry
+    Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
+    Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry
+    Network.AWS.CloudWatchEvents.Types.Replay
+    Network.AWS.CloudWatchEvents.Types.ReplayDestination
+    Network.AWS.CloudWatchEvents.Types.ReplayState
+    Network.AWS.CloudWatchEvents.Types.RetryPolicy
+    Network.AWS.CloudWatchEvents.Types.Rule
+    Network.AWS.CloudWatchEvents.Types.RuleState
+    Network.AWS.CloudWatchEvents.Types.RunCommandParameters
+    Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+    Network.AWS.CloudWatchEvents.Types.SqsParameters
+    Network.AWS.CloudWatchEvents.Types.Tag
+    Network.AWS.CloudWatchEvents.Types.Target
+    Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameters
+    Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParameters
+    Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
+    Network.AWS.CloudWatchEvents.UntagResource
+    Network.AWS.CloudWatchEvents.UpdateApiDestination
+    Network.AWS.CloudWatchEvents.UpdateArchive
+    Network.AWS.CloudWatchEvents.UpdateConnection
+    Network.AWS.CloudWatchEvents.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudWatchEvents
-        , Network.AWS.CloudWatchEvents.ActivateEventSource
-        , Network.AWS.CloudWatchEvents.CreateEventBus
-        , Network.AWS.CloudWatchEvents.CreatePartnerEventSource
-        , Network.AWS.CloudWatchEvents.DeactivateEventSource
-        , Network.AWS.CloudWatchEvents.DeleteEventBus
-        , Network.AWS.CloudWatchEvents.DeletePartnerEventSource
-        , Network.AWS.CloudWatchEvents.DeleteRule
-        , Network.AWS.CloudWatchEvents.DescribeEventBus
-        , Network.AWS.CloudWatchEvents.DescribeEventSource
-        , Network.AWS.CloudWatchEvents.DescribePartnerEventSource
-        , Network.AWS.CloudWatchEvents.DescribeRule
-        , Network.AWS.CloudWatchEvents.DisableRule
-        , Network.AWS.CloudWatchEvents.EnableRule
-        , Network.AWS.CloudWatchEvents.ListEventBuses
-        , Network.AWS.CloudWatchEvents.ListEventSources
-        , Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
-        , Network.AWS.CloudWatchEvents.ListPartnerEventSources
-        , Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
-        , Network.AWS.CloudWatchEvents.ListRules
-        , Network.AWS.CloudWatchEvents.ListTagsForResource
-        , Network.AWS.CloudWatchEvents.ListTargetsByRule
-        , Network.AWS.CloudWatchEvents.PutEvents
-        , Network.AWS.CloudWatchEvents.PutPartnerEvents
-        , Network.AWS.CloudWatchEvents.PutPermission
-        , Network.AWS.CloudWatchEvents.PutRule
-        , Network.AWS.CloudWatchEvents.PutTargets
-        , Network.AWS.CloudWatchEvents.RemovePermission
-        , Network.AWS.CloudWatchEvents.RemoveTargets
-        , Network.AWS.CloudWatchEvents.TagResource
-        , Network.AWS.CloudWatchEvents.TestEventPattern
-        , Network.AWS.CloudWatchEvents.Types
-        , Network.AWS.CloudWatchEvents.UntagResource
-        , Network.AWS.CloudWatchEvents.Waiters
-
-    other-modules:
-          Network.AWS.CloudWatchEvents.Types.Product
-        , Network.AWS.CloudWatchEvents.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-cloudwatch-events-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudWatchEvents
+    Test.AWS.CloudWatchEvents.Internal
+    Test.AWS.Gen.CloudWatchEvents
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudWatchEvents
-        , Test.AWS.Gen.CloudWatchEvents
-        , Test.AWS.CloudWatchEvents.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-cloudwatch-events
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka                    >=1.6.1 && <1.6.2
+    , amazonka-cloudwatch-events
+    , amazonka-test               >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,114 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.DeleteNotebookInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you must call the @StopNotebookInstance@ API.
+-- Deletes an Amazon SageMaker notebook instance. Before you can delete a
+-- notebook instance, you must call the @StopNotebookInstance@ API.
 --
---
--- /Important:/ When you delete a notebook instance, you lose all of your data. Amazon SageMaker removes the ML compute instance, and deletes the ML storage volume and the network interface associated with the notebook instance.
---
+-- When you delete a notebook instance, you lose all of your data. Amazon
+-- SageMaker removes the ML compute instance, and deletes the ML storage
+-- volume and the network interface associated with the notebook instance.
 module Network.AWS.SageMaker.DeleteNotebookInstance
-    (
-    -- * Creating a Request
-      deleteNotebookInstance
-    , DeleteNotebookInstance
+  ( -- * Creating a Request
+    DeleteNotebookInstance (..),
+    newDeleteNotebookInstance,
+
     -- * Request Lenses
-    , dNotebookInstanceName
+    deleteNotebookInstance_notebookInstanceName,
 
     -- * Destructuring the Response
-    , deleteNotebookInstanceResponse
-    , DeleteNotebookInstanceResponse
-    ) where
+    DeleteNotebookInstanceResponse (..),
+    newDeleteNotebookInstanceResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'deleteNotebookInstance' smart constructor.
-newtype DeleteNotebookInstance = DeleteNotebookInstance'
-  { _dNotebookInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteNotebookInstance' smart constructor.
+data DeleteNotebookInstance = DeleteNotebookInstance'
+  { -- | The name of the Amazon SageMaker notebook instance to delete.
+    notebookInstanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteNotebookInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteNotebookInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dNotebookInstanceName' - The name of the Amazon SageMaker notebook instance to delete.
-deleteNotebookInstance
-    :: Text -- ^ 'dNotebookInstanceName'
-    -> DeleteNotebookInstance
-deleteNotebookInstance pNotebookInstanceName_ =
-  DeleteNotebookInstance' {_dNotebookInstanceName = pNotebookInstanceName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'notebookInstanceName', 'deleteNotebookInstance_notebookInstanceName' - The name of the Amazon SageMaker notebook instance to delete.
+newDeleteNotebookInstance ::
+  -- | 'notebookInstanceName'
+  Prelude.Text ->
+  DeleteNotebookInstance
+newDeleteNotebookInstance pNotebookInstanceName_ =
+  DeleteNotebookInstance'
+    { notebookInstanceName =
+        pNotebookInstanceName_
+    }
 
 -- | The name of the Amazon SageMaker notebook instance to delete.
-dNotebookInstanceName :: Lens' DeleteNotebookInstance Text
-dNotebookInstanceName = lens _dNotebookInstanceName (\ s a -> s{_dNotebookInstanceName = a})
+deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Prelude.Text
+deleteNotebookInstance_notebookInstanceName = Lens.lens (\DeleteNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@DeleteNotebookInstance' {} a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
 
-instance AWSRequest DeleteNotebookInstance where
-        type Rs DeleteNotebookInstance =
-             DeleteNotebookInstanceResponse
-        request = postJSON sageMaker
-        response
-          = receiveNull DeleteNotebookInstanceResponse'
+instance Core.AWSRequest DeleteNotebookInstance where
+  type
+    AWSResponse DeleteNotebookInstance =
+      DeleteNotebookInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeleteNotebookInstanceResponse'
 
-instance Hashable DeleteNotebookInstance where
+instance Prelude.Hashable DeleteNotebookInstance
 
-instance NFData DeleteNotebookInstance where
+instance Prelude.NFData DeleteNotebookInstance
 
-instance ToHeaders DeleteNotebookInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.DeleteNotebookInstance" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteNotebookInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SageMaker.DeleteNotebookInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteNotebookInstance where
-        toJSON DeleteNotebookInstance'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("NotebookInstanceName" .= _dNotebookInstanceName)])
+instance Core.ToJSON DeleteNotebookInstance where
+  toJSON DeleteNotebookInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "NotebookInstanceName"
+                  Core..= notebookInstanceName
+              )
+          ]
+      )
 
-instance ToPath DeleteNotebookInstance where
-        toPath = const "/"
+instance Core.ToPath DeleteNotebookInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteNotebookInstance where
-        toQuery = const mempty
+instance Core.ToQuery DeleteNotebookInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteNotebookInstanceResponse' smart constructor.
-data DeleteNotebookInstanceResponse =
-  DeleteNotebookInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteNotebookInstanceResponse' smart constructor.
+data DeleteNotebookInstanceResponse = DeleteNotebookInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteNotebookInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteNotebookInstanceResponse' with all optional fields omitted.
 --
-deleteNotebookInstanceResponse
-    :: DeleteNotebookInstanceResponse
-deleteNotebookInstanceResponse = DeleteNotebookInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteNotebookInstanceResponse ::
+  DeleteNotebookInstanceResponse
+newDeleteNotebookInstanceResponse =
+  DeleteNotebookInstanceResponse'
 
-
-instance NFData DeleteNotebookInstanceResponse where
+instance
+  Prelude.NFData
+    DeleteNotebookInstanceResponse

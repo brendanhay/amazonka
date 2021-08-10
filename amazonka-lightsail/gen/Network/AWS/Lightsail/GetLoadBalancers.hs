@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetLoadBalancers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,127 +22,202 @@
 --
 -- Returns information about all load balancers in an account.
 --
---
--- If you are describing a long list of load balancers, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.
---
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetLoadBalancers
-    (
-    -- * Creating a Request
-      getLoadBalancers
-    , GetLoadBalancers
+  ( -- * Creating a Request
+    GetLoadBalancers (..),
+    newGetLoadBalancers,
+
     -- * Request Lenses
-    , glbPageToken
+    getLoadBalancers_pageToken,
 
     -- * Destructuring the Response
-    , getLoadBalancersResponse
-    , GetLoadBalancersResponse
+    GetLoadBalancersResponse (..),
+    newGetLoadBalancersResponse,
+
     -- * Response Lenses
-    , glbsrsNextPageToken
-    , glbsrsLoadBalancers
-    , glbsrsResponseStatus
-    ) where
+    getLoadBalancersResponse_nextPageToken,
+    getLoadBalancersResponse_loadBalancers,
+    getLoadBalancersResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getLoadBalancers' smart constructor.
-newtype GetLoadBalancers = GetLoadBalancers'
-  { _glbPageToken :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetLoadBalancers' smart constructor.
+data GetLoadBalancers = GetLoadBalancers'
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetLoadBalancers@ request. If
+    -- your results are paginated, the response will return a next page token
+    -- that you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetLoadBalancers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLoadBalancers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'glbPageToken' - A token used for paginating the results from your GetLoadBalancers request.
-getLoadBalancers
-    :: GetLoadBalancers
-getLoadBalancers = GetLoadBalancers' {_glbPageToken = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pageToken', 'getLoadBalancers_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetLoadBalancers@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+newGetLoadBalancers ::
+  GetLoadBalancers
+newGetLoadBalancers =
+  GetLoadBalancers' {pageToken = Prelude.Nothing}
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetLoadBalancers@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+getLoadBalancers_pageToken :: Lens.Lens' GetLoadBalancers (Prelude.Maybe Prelude.Text)
+getLoadBalancers_pageToken = Lens.lens (\GetLoadBalancers' {pageToken} -> pageToken) (\s@GetLoadBalancers' {} a -> s {pageToken = a} :: GetLoadBalancers)
 
--- | A token used for paginating the results from your GetLoadBalancers request.
-glbPageToken :: Lens' GetLoadBalancers (Maybe Text)
-glbPageToken = lens _glbPageToken (\ s a -> s{_glbPageToken = a})
+instance Core.AWSPager GetLoadBalancers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getLoadBalancersResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getLoadBalancersResponse_loadBalancers
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getLoadBalancers_pageToken
+          Lens..~ rs
+          Lens.^? getLoadBalancersResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance AWSRequest GetLoadBalancers where
-        type Rs GetLoadBalancers = GetLoadBalancersResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetLoadBalancersResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "loadBalancers" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetLoadBalancers where
+  type
+    AWSResponse GetLoadBalancers =
+      GetLoadBalancersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetLoadBalancersResponse'
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "loadBalancers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetLoadBalancers where
+instance Prelude.Hashable GetLoadBalancers
 
-instance NFData GetLoadBalancers where
+instance Prelude.NFData GetLoadBalancers
 
-instance ToHeaders GetLoadBalancers where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetLoadBalancers" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetLoadBalancers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetLoadBalancers" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetLoadBalancers where
-        toJSON GetLoadBalancers'{..}
-          = object
-              (catMaybes [("pageToken" .=) <$> _glbPageToken])
+instance Core.ToJSON GetLoadBalancers where
+  toJSON GetLoadBalancers' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
+      )
 
-instance ToPath GetLoadBalancers where
-        toPath = const "/"
+instance Core.ToPath GetLoadBalancers where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetLoadBalancers where
-        toQuery = const mempty
+instance Core.ToQuery GetLoadBalancers where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getLoadBalancersResponse' smart constructor.
+-- | /See:/ 'newGetLoadBalancersResponse' smart constructor.
 data GetLoadBalancersResponse = GetLoadBalancersResponse'
-  { _glbsrsNextPageToken  :: !(Maybe Text)
-  , _glbsrsLoadBalancers  :: !(Maybe [LoadBalancer])
-  , _glbsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to
+    -- display.
+    --
+    -- To get the next page of results, perform another @GetLoadBalancers@
+    -- request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of LoadBalancer objects describing your load balancers.
+    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetLoadBalancersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLoadBalancersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'glbsrsNextPageToken' - A token used for advancing to the next page of results from your GetLoadBalancers request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'glbsrsLoadBalancers' - An array of LoadBalancer objects describing your load balancers.
+-- 'nextPageToken', 'getLoadBalancersResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'glbsrsResponseStatus' - -- | The response status code.
-getLoadBalancersResponse
-    :: Int -- ^ 'glbsrsResponseStatus'
-    -> GetLoadBalancersResponse
-getLoadBalancersResponse pResponseStatus_ =
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetLoadBalancers@
+-- request and specify the next page token using the @pageToken@ parameter.
+--
+-- 'loadBalancers', 'getLoadBalancersResponse_loadBalancers' - An array of LoadBalancer objects describing your load balancers.
+--
+-- 'httpStatus', 'getLoadBalancersResponse_httpStatus' - The response's http status code.
+newGetLoadBalancersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetLoadBalancersResponse
+newGetLoadBalancersResponse pHttpStatus_ =
   GetLoadBalancersResponse'
-    { _glbsrsNextPageToken = Nothing
-    , _glbsrsLoadBalancers = Nothing
-    , _glbsrsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | A token used for advancing to the next page of results from your GetLoadBalancers request.
-glbsrsNextPageToken :: Lens' GetLoadBalancersResponse (Maybe Text)
-glbsrsNextPageToken = lens _glbsrsNextPageToken (\ s a -> s{_glbsrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetLoadBalancers@
+-- request and specify the next page token using the @pageToken@ parameter.
+getLoadBalancersResponse_nextPageToken :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe Prelude.Text)
+getLoadBalancersResponse_nextPageToken = Lens.lens (\GetLoadBalancersResponse' {nextPageToken} -> nextPageToken) (\s@GetLoadBalancersResponse' {} a -> s {nextPageToken = a} :: GetLoadBalancersResponse)
 
 -- | An array of LoadBalancer objects describing your load balancers.
-glbsrsLoadBalancers :: Lens' GetLoadBalancersResponse [LoadBalancer]
-glbsrsLoadBalancers = lens _glbsrsLoadBalancers (\ s a -> s{_glbsrsLoadBalancers = a}) . _Default . _Coerce
+getLoadBalancersResponse_loadBalancers :: Lens.Lens' GetLoadBalancersResponse (Prelude.Maybe [LoadBalancer])
+getLoadBalancersResponse_loadBalancers = Lens.lens (\GetLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@GetLoadBalancersResponse' {} a -> s {loadBalancers = a} :: GetLoadBalancersResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-glbsrsResponseStatus :: Lens' GetLoadBalancersResponse Int
-glbsrsResponseStatus = lens _glbsrsResponseStatus (\ s a -> s{_glbsrsResponseStatus = a})
+-- | The response's http status code.
+getLoadBalancersResponse_httpStatus :: Lens.Lens' GetLoadBalancersResponse Prelude.Int
+getLoadBalancersResponse_httpStatus = Lens.lens (\GetLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancersResponse' {} a -> s {httpStatus = a} :: GetLoadBalancersResponse)
 
-instance NFData GetLoadBalancersResponse where
+instance Prelude.NFData GetLoadBalancersResponse

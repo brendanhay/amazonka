@@ -1,174 +1,236 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ListJobsByStatus operation gets a list of jobs that have a specified status. The response body contains one element for each job that satisfies the search criteria.
---
---
+-- The ListJobsByStatus operation gets a list of jobs that have a specified
+-- status. The response body contains one element for each job that
+-- satisfies the search criteria.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
-    (
-    -- * Creating a Request
-      listJobsByStatus
-    , ListJobsByStatus
+  ( -- * Creating a Request
+    ListJobsByStatus (..),
+    newListJobsByStatus,
+
     -- * Request Lenses
-    , ljbsAscending
-    , ljbsPageToken
-    , ljbsStatus
+    listJobsByStatus_ascending,
+    listJobsByStatus_pageToken,
+    listJobsByStatus_status,
 
     -- * Destructuring the Response
-    , listJobsByStatusResponse
-    , ListJobsByStatusResponse
-    -- * Response Lenses
-    , ljbsrsNextPageToken
-    , ljbsrsJobs
-    , ljbsrsResponseStatus
-    ) where
+    ListJobsByStatusResponse (..),
+    newListJobsByStatusResponse,
 
+    -- * Response Lenses
+    listJobsByStatusResponse_nextPageToken,
+    listJobsByStatusResponse_jobs,
+    listJobsByStatusResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @ListJobsByStatusRequest@ structure.
 --
---
---
--- /See:/ 'listJobsByStatus' smart constructor.
+-- /See:/ 'newListJobsByStatus' smart constructor.
 data ListJobsByStatus = ListJobsByStatus'
-  { _ljbsAscending :: !(Maybe Text)
-  , _ljbsPageToken :: !(Maybe Text)
-  , _ljbsStatus    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | To list jobs in chronological order by the date and time that they were
+    -- submitted, enter @true@. To list jobs in reverse chronological order,
+    -- enter @false@.
+    ascending :: Prelude.Maybe Prelude.Text,
+    -- | When Elastic Transcoder returns more than one page of results, use
+    -- @pageToken@ in subsequent @GET@ requests to get each successive page of
+    -- results.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | To get information about all of the jobs associated with the current AWS
+    -- account that have a given status, specify the following status:
+    -- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
+    status :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListJobsByStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListJobsByStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ljbsAscending' - To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ljbsPageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
+-- 'ascending', 'listJobsByStatus_ascending' - To list jobs in chronological order by the date and time that they were
+-- submitted, enter @true@. To list jobs in reverse chronological order,
+-- enter @false@.
 --
--- * 'ljbsStatus' - To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
-listJobsByStatus
-    :: Text -- ^ 'ljbsStatus'
-    -> ListJobsByStatus
-listJobsByStatus pStatus_ =
+-- 'pageToken', 'listJobsByStatus_pageToken' - When Elastic Transcoder returns more than one page of results, use
+-- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- results.
+--
+-- 'status', 'listJobsByStatus_status' - To get information about all of the jobs associated with the current AWS
+-- account that have a given status, specify the following status:
+-- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
+newListJobsByStatus ::
+  -- | 'status'
+  Prelude.Text ->
+  ListJobsByStatus
+newListJobsByStatus pStatus_ =
   ListJobsByStatus'
-    {_ljbsAscending = Nothing, _ljbsPageToken = Nothing, _ljbsStatus = pStatus_}
+    { ascending = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      status = pStatus_
+    }
 
+-- | To list jobs in chronological order by the date and time that they were
+-- submitted, enter @true@. To list jobs in reverse chronological order,
+-- enter @false@.
+listJobsByStatus_ascending :: Lens.Lens' ListJobsByStatus (Prelude.Maybe Prelude.Text)
+listJobsByStatus_ascending = Lens.lens (\ListJobsByStatus' {ascending} -> ascending) (\s@ListJobsByStatus' {} a -> s {ascending = a} :: ListJobsByStatus)
 
--- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
-ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
-ljbsAscending = lens _ljbsAscending (\ s a -> s{_ljbsAscending = a})
+-- | When Elastic Transcoder returns more than one page of results, use
+-- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- results.
+listJobsByStatus_pageToken :: Lens.Lens' ListJobsByStatus (Prelude.Maybe Prelude.Text)
+listJobsByStatus_pageToken = Lens.lens (\ListJobsByStatus' {pageToken} -> pageToken) (\s@ListJobsByStatus' {} a -> s {pageToken = a} :: ListJobsByStatus)
 
--- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
-ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
-ljbsPageToken = lens _ljbsPageToken (\ s a -> s{_ljbsPageToken = a})
+-- | To get information about all of the jobs associated with the current AWS
+-- account that have a given status, specify the following status:
+-- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
+listJobsByStatus_status :: Lens.Lens' ListJobsByStatus Prelude.Text
+listJobsByStatus_status = Lens.lens (\ListJobsByStatus' {status} -> status) (\s@ListJobsByStatus' {} a -> s {status = a} :: ListJobsByStatus)
 
--- | To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
-ljbsStatus :: Lens' ListJobsByStatus Text
-ljbsStatus = lens _ljbsStatus (\ s a -> s{_ljbsStatus = a})
+instance Core.AWSPager ListJobsByStatus where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listJobsByStatusResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listJobsByStatusResponse_jobs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listJobsByStatus_pageToken
+          Lens..~ rs
+          Lens.^? listJobsByStatusResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance AWSPager ListJobsByStatus where
-        page rq rs
-          | stop (rs ^. ljbsrsNextPageToken) = Nothing
-          | stop (rs ^. ljbsrsJobs) = Nothing
-          | otherwise =
-            Just $ rq &
-              ljbsPageToken .~ rs ^. ljbsrsNextPageToken
+instance Core.AWSRequest ListJobsByStatus where
+  type
+    AWSResponse ListJobsByStatus =
+      ListJobsByStatusResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListJobsByStatusResponse'
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListJobsByStatus where
-        type Rs ListJobsByStatus = ListJobsByStatusResponse
-        request = get elasticTranscoder
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListJobsByStatusResponse' <$>
-                   (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListJobsByStatus
 
-instance Hashable ListJobsByStatus where
+instance Prelude.NFData ListJobsByStatus
 
-instance NFData ListJobsByStatus where
+instance Core.ToHeaders ListJobsByStatus where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListJobsByStatus where
-        toHeaders = const mempty
+instance Core.ToPath ListJobsByStatus where
+  toPath ListJobsByStatus' {..} =
+    Prelude.mconcat
+      ["/2012-09-25/jobsByStatus/", Core.toBS status]
 
-instance ToPath ListJobsByStatus where
-        toPath ListJobsByStatus'{..}
-          = mconcat
-              ["/2012-09-25/jobsByStatus/", toBS _ljbsStatus]
-
-instance ToQuery ListJobsByStatus where
-        toQuery ListJobsByStatus'{..}
-          = mconcat
-              ["Ascending" =: _ljbsAscending,
-               "PageToken" =: _ljbsPageToken]
+instance Core.ToQuery ListJobsByStatus where
+  toQuery ListJobsByStatus' {..} =
+    Prelude.mconcat
+      [ "Ascending" Core.=: ascending,
+        "PageToken" Core.=: pageToken
+      ]
 
 -- | The @ListJobsByStatusResponse@ structure.
 --
---
---
--- /See:/ 'listJobsByStatusResponse' smart constructor.
+-- /See:/ 'newListJobsByStatusResponse' smart constructor.
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-  { _ljbsrsNextPageToken  :: !(Maybe Text)
-  , _ljbsrsJobs           :: !(Maybe [Job'])
-  , _ljbsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A value that you use to access the second and subsequent pages of
+    -- results, if any. When the jobs in the specified pipeline fit on one page
+    -- or when you\'ve reached the last page of results, the value of
+    -- @NextPageToken@ is @null@.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @Job@ objects that have the specified status.
+    jobs :: Prelude.Maybe [Job'],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListJobsByStatusResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListJobsByStatusResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ljbsrsNextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ljbsrsJobs' - An array of @Job@ objects that have the specified status.
+-- 'nextPageToken', 'listJobsByStatusResponse_nextPageToken' - A value that you use to access the second and subsequent pages of
+-- results, if any. When the jobs in the specified pipeline fit on one page
+-- or when you\'ve reached the last page of results, the value of
+-- @NextPageToken@ is @null@.
 --
--- * 'ljbsrsResponseStatus' - -- | The response status code.
-listJobsByStatusResponse
-    :: Int -- ^ 'ljbsrsResponseStatus'
-    -> ListJobsByStatusResponse
-listJobsByStatusResponse pResponseStatus_ =
+-- 'jobs', 'listJobsByStatusResponse_jobs' - An array of @Job@ objects that have the specified status.
+--
+-- 'httpStatus', 'listJobsByStatusResponse_httpStatus' - The response's http status code.
+newListJobsByStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListJobsByStatusResponse
+newListJobsByStatusResponse pHttpStatus_ =
   ListJobsByStatusResponse'
-    { _ljbsrsNextPageToken = Nothing
-    , _ljbsrsJobs = Nothing
-    , _ljbsrsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Prelude.Nothing,
+      jobs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
-ljbsrsNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
-ljbsrsNextPageToken = lens _ljbsrsNextPageToken (\ s a -> s{_ljbsrsNextPageToken = a})
+-- | A value that you use to access the second and subsequent pages of
+-- results, if any. When the jobs in the specified pipeline fit on one page
+-- or when you\'ve reached the last page of results, the value of
+-- @NextPageToken@ is @null@.
+listJobsByStatusResponse_nextPageToken :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe Prelude.Text)
+listJobsByStatusResponse_nextPageToken = Lens.lens (\ListJobsByStatusResponse' {nextPageToken} -> nextPageToken) (\s@ListJobsByStatusResponse' {} a -> s {nextPageToken = a} :: ListJobsByStatusResponse)
 
 -- | An array of @Job@ objects that have the specified status.
-ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job']
-ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default . _Coerce
+listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job'])
+listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ljbsrsResponseStatus :: Lens' ListJobsByStatusResponse Int
-ljbsrsResponseStatus = lens _ljbsrsResponseStatus (\ s a -> s{_ljbsrsResponseStatus = a})
+-- | The response's http status code.
+listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Prelude.Int
+listJobsByStatusResponse_httpStatus = Lens.lens (\ListJobsByStatusResponse' {httpStatus} -> httpStatus) (\s@ListJobsByStatusResponse' {} a -> s {httpStatus = a} :: ListJobsByStatusResponse)
 
-instance NFData ListJobsByStatusResponse where
+instance Prelude.NFData ListJobsByStatusResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.DeleteJobTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,95 +22,119 @@
 --
 -- Permanently delete a job template you have created.
 module Network.AWS.MediaConvert.DeleteJobTemplate
-    (
-    -- * Creating a Request
-      deleteJobTemplate
-    , DeleteJobTemplate
+  ( -- * Creating a Request
+    DeleteJobTemplate (..),
+    newDeleteJobTemplate,
+
     -- * Request Lenses
-    , djtName
+    deleteJobTemplate_name,
 
     -- * Destructuring the Response
-    , deleteJobTemplateResponse
-    , DeleteJobTemplateResponse
+    DeleteJobTemplateResponse (..),
+    newDeleteJobTemplateResponse,
+
     -- * Response Lenses
-    , djtrsResponseStatus
-    ) where
+    deleteJobTemplateResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteJobTemplate' smart constructor.
-newtype DeleteJobTemplate = DeleteJobTemplate'
-  { _djtName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteJobTemplate' smart constructor.
+data DeleteJobTemplate = DeleteJobTemplate'
+  { -- | The name of the job template to be deleted.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteJobTemplate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteJobTemplate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'djtName' - The name of the job template to be deleted.
-deleteJobTemplate
-    :: Text -- ^ 'djtName'
-    -> DeleteJobTemplate
-deleteJobTemplate pName_ = DeleteJobTemplate' {_djtName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteJobTemplate_name' - The name of the job template to be deleted.
+newDeleteJobTemplate ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteJobTemplate
+newDeleteJobTemplate pName_ =
+  DeleteJobTemplate' {name = pName_}
 
 -- | The name of the job template to be deleted.
-djtName :: Lens' DeleteJobTemplate Text
-djtName = lens _djtName (\ s a -> s{_djtName = a})
+deleteJobTemplate_name :: Lens.Lens' DeleteJobTemplate Prelude.Text
+deleteJobTemplate_name = Lens.lens (\DeleteJobTemplate' {name} -> name) (\s@DeleteJobTemplate' {} a -> s {name = a} :: DeleteJobTemplate)
 
-instance AWSRequest DeleteJobTemplate where
-        type Rs DeleteJobTemplate = DeleteJobTemplateResponse
-        request = delete mediaConvert
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteJobTemplateResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteJobTemplate where
+  type
+    AWSResponse DeleteJobTemplate =
+      DeleteJobTemplateResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteJobTemplateResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteJobTemplate where
+instance Prelude.Hashable DeleteJobTemplate
 
-instance NFData DeleteJobTemplate where
+instance Prelude.NFData DeleteJobTemplate
 
-instance ToHeaders DeleteJobTemplate where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteJobTemplate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DeleteJobTemplate where
-        toPath DeleteJobTemplate'{..}
-          = mconcat
-              ["/2017-08-29/jobTemplates/", toBS _djtName]
+instance Core.ToPath DeleteJobTemplate where
+  toPath DeleteJobTemplate' {..} =
+    Prelude.mconcat
+      ["/2017-08-29/jobTemplates/", Core.toBS name]
 
-instance ToQuery DeleteJobTemplate where
-        toQuery = const mempty
+instance Core.ToQuery DeleteJobTemplate where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteJobTemplateResponse' smart constructor.
-newtype DeleteJobTemplateResponse = DeleteJobTemplateResponse'
-  { _djtrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteJobTemplateResponse' smart constructor.
+data DeleteJobTemplateResponse = DeleteJobTemplateResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteJobTemplateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteJobTemplateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'djtrsResponseStatus' - -- | The response status code.
-deleteJobTemplateResponse
-    :: Int -- ^ 'djtrsResponseStatus'
-    -> DeleteJobTemplateResponse
-deleteJobTemplateResponse pResponseStatus_ =
-  DeleteJobTemplateResponse' {_djtrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteJobTemplateResponse_httpStatus' - The response's http status code.
+newDeleteJobTemplateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteJobTemplateResponse
+newDeleteJobTemplateResponse pHttpStatus_ =
+  DeleteJobTemplateResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteJobTemplateResponse_httpStatus :: Lens.Lens' DeleteJobTemplateResponse Prelude.Int
+deleteJobTemplateResponse_httpStatus = Lens.lens (\DeleteJobTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteJobTemplateResponse' {} a -> s {httpStatus = a} :: DeleteJobTemplateResponse)
 
--- | -- | The response status code.
-djtrsResponseStatus :: Lens' DeleteJobTemplateResponse Int
-djtrsResponseStatus = lens _djtrsResponseStatus (\ s a -> s{_djtrsResponseStatus = a})
-
-instance NFData DeleteJobTemplateResponse where
+instance Prelude.NFData DeleteJobTemplateResponse

@@ -1,98 +1,119 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetClientCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current 'ClientCertificate' resource.
---
---
+-- Gets information about the current ClientCertificate resource.
 module Network.AWS.APIGateway.GetClientCertificate
-    (
-    -- * Creating a Request
-      getClientCertificate
-    , GetClientCertificate
+  ( -- * Creating a Request
+    GetClientCertificate (..),
+    newGetClientCertificate,
+
     -- * Request Lenses
-    , gccClientCertificateId
+    getClientCertificate_clientCertificateId,
 
     -- * Destructuring the Response
-    , clientCertificate
-    , ClientCertificate
+    ClientCertificate (..),
+    newClientCertificate,
+
     -- * Response Lenses
-    , ccPemEncodedCertificate
-    , ccClientCertificateId
-    , ccCreatedDate
-    , ccExpirationDate
-    , ccDescription
-    ) where
+    clientCertificate_createdDate,
+    clientCertificate_expirationDate,
+    clientCertificate_pemEncodedCertificate,
+    clientCertificate_tags,
+    clientCertificate_clientCertificateId,
+    clientCertificate_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | A request to get information about the current 'ClientCertificate' resource.
+-- | A request to get information about the current ClientCertificate
+-- resource.
 --
+-- /See:/ 'newGetClientCertificate' smart constructor.
+data GetClientCertificate = GetClientCertificate'
+  { -- | [Required] The identifier of the ClientCertificate resource to be
+    -- described.
+    clientCertificateId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetClientCertificate' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getClientCertificate' smart constructor.
-newtype GetClientCertificate = GetClientCertificate'
-  { _gccClientCertificateId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetClientCertificate' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be described.
-getClientCertificate
-    :: Text -- ^ 'gccClientCertificateId'
-    -> GetClientCertificate
-getClientCertificate pClientCertificateId_ =
-  GetClientCertificate' {_gccClientCertificateId = pClientCertificateId_}
+-- 'clientCertificateId', 'getClientCertificate_clientCertificateId' - [Required] The identifier of the ClientCertificate resource to be
+-- described.
+newGetClientCertificate ::
+  -- | 'clientCertificateId'
+  Prelude.Text ->
+  GetClientCertificate
+newGetClientCertificate pClientCertificateId_ =
+  GetClientCertificate'
+    { clientCertificateId =
+        pClientCertificateId_
+    }
 
+-- | [Required] The identifier of the ClientCertificate resource to be
+-- described.
+getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Prelude.Text
+getClientCertificate_clientCertificateId = Lens.lens (\GetClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@GetClientCertificate' {} a -> s {clientCertificateId = a} :: GetClientCertificate)
 
--- | [Required] The identifier of the 'ClientCertificate' resource to be described.
-gccClientCertificateId :: Lens' GetClientCertificate Text
-gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCertificateId = a})
+instance Core.AWSRequest GetClientCertificate where
+  type
+    AWSResponse GetClientCertificate =
+      ClientCertificate
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetClientCertificate where
-        type Rs GetClientCertificate = ClientCertificate
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetClientCertificate
 
-instance Hashable GetClientCertificate where
+instance Prelude.NFData GetClientCertificate
 
-instance NFData GetClientCertificate where
+instance Core.ToHeaders GetClientCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetClientCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetClientCertificate where
+  toPath GetClientCertificate' {..} =
+    Prelude.mconcat
+      [ "/clientcertificates/",
+        Core.toBS clientCertificateId
+      ]
 
-instance ToPath GetClientCertificate where
-        toPath GetClientCertificate'{..}
-          = mconcat
-              ["/clientcertificates/",
-               toBS _gccClientCertificateId]
-
-instance ToQuery GetClientCertificate where
-        toQuery = const mempty
+instance Core.ToQuery GetClientCertificate where
+  toQuery = Prelude.const Prelude.mempty

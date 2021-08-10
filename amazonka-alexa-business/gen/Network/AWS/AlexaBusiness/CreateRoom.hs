@@ -1,185 +1,220 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.CreateRoom
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a room with the specified details.
---
---
 module Network.AWS.AlexaBusiness.CreateRoom
-    (
-    -- * Creating a Request
-      createRoom
-    , CreateRoom
+  ( -- * Creating a Request
+    CreateRoom (..),
+    newCreateRoom,
+
     -- * Request Lenses
-    , crProfileARN
-    , crProviderCalendarId
-    , crClientRequestToken
-    , crDescription
-    , crTags
-    , crRoomName
+    createRoom_tags,
+    createRoom_providerCalendarId,
+    createRoom_profileArn,
+    createRoom_description,
+    createRoom_clientRequestToken,
+    createRoom_roomName,
 
     -- * Destructuring the Response
-    , createRoomResponse
-    , CreateRoomResponse
+    CreateRoomResponse (..),
+    newCreateRoomResponse,
+
     -- * Response Lenses
-    , crrsRoomARN
-    , crrsResponseStatus
-    ) where
+    createRoomResponse_roomArn,
+    createRoomResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createRoom' smart constructor.
+-- | /See:/ 'newCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
-  { _crProfileARN         :: !(Maybe Text)
-  , _crProviderCalendarId :: !(Maybe Text)
-  , _crClientRequestToken :: !(Maybe Text)
-  , _crDescription        :: !(Maybe Text)
-  , _crTags               :: !(Maybe [Tag])
-  , _crRoomName           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags for the room.
+    tags :: Prelude.Maybe [Tag],
+    -- | The calendar ARN for the room.
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
+    -- | The profile ARN for the room. This is required.
+    profileArn :: Prelude.Maybe Prelude.Text,
+    -- | The description for the room.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A unique, user-specified identifier for this request that ensures
+    -- idempotency.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name for the room.
+    roomName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateRoom' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateRoom' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crProfileARN' - The profile ARN for the room.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crProviderCalendarId' - The calendar ARN for the room.
+-- 'tags', 'createRoom_tags' - The tags for the room.
 --
--- * 'crClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.
 --
--- * 'crDescription' - The description for the room.
+-- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.
 --
--- * 'crTags' - The tags for the room.
+-- 'description', 'createRoom_description' - The description for the room.
 --
--- * 'crRoomName' - The name for the room.
-createRoom
-    :: Text -- ^ 'crRoomName'
-    -> CreateRoom
-createRoom pRoomName_ =
+-- 'clientRequestToken', 'createRoom_clientRequestToken' - A unique, user-specified identifier for this request that ensures
+-- idempotency.
+--
+-- 'roomName', 'createRoom_roomName' - The name for the room.
+newCreateRoom ::
+  -- | 'roomName'
+  Prelude.Text ->
+  CreateRoom
+newCreateRoom pRoomName_ =
   CreateRoom'
-    { _crProfileARN = Nothing
-    , _crProviderCalendarId = Nothing
-    , _crClientRequestToken = Nothing
-    , _crDescription = Nothing
-    , _crTags = Nothing
-    , _crRoomName = pRoomName_
+    { tags = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      roomName = pRoomName_
     }
 
-
--- | The profile ARN for the room.
-crProfileARN :: Lens' CreateRoom (Maybe Text)
-crProfileARN = lens _crProfileARN (\ s a -> s{_crProfileARN = a})
+-- | The tags for the room.
+createRoom_tags :: Lens.Lens' CreateRoom (Prelude.Maybe [Tag])
+createRoom_tags = Lens.lens (\CreateRoom' {tags} -> tags) (\s@CreateRoom' {} a -> s {tags = a} :: CreateRoom) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The calendar ARN for the room.
-crProviderCalendarId :: Lens' CreateRoom (Maybe Text)
-crProviderCalendarId = lens _crProviderCalendarId (\ s a -> s{_crProviderCalendarId = a})
+createRoom_providerCalendarId :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_providerCalendarId = Lens.lens (\CreateRoom' {providerCalendarId} -> providerCalendarId) (\s@CreateRoom' {} a -> s {providerCalendarId = a} :: CreateRoom)
 
--- | A unique, user-specified identifier for this request that ensures idempotency.
-crClientRequestToken :: Lens' CreateRoom (Maybe Text)
-crClientRequestToken = lens _crClientRequestToken (\ s a -> s{_crClientRequestToken = a})
+-- | The profile ARN for the room. This is required.
+createRoom_profileArn :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_profileArn = Lens.lens (\CreateRoom' {profileArn} -> profileArn) (\s@CreateRoom' {} a -> s {profileArn = a} :: CreateRoom)
 
 -- | The description for the room.
-crDescription :: Lens' CreateRoom (Maybe Text)
-crDescription = lens _crDescription (\ s a -> s{_crDescription = a})
+createRoom_description :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_description = Lens.lens (\CreateRoom' {description} -> description) (\s@CreateRoom' {} a -> s {description = a} :: CreateRoom)
 
--- | The tags for the room.
-crTags :: Lens' CreateRoom [Tag]
-crTags = lens _crTags (\ s a -> s{_crTags = a}) . _Default . _Coerce
+-- | A unique, user-specified identifier for this request that ensures
+-- idempotency.
+createRoom_clientRequestToken :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom)
 
 -- | The name for the room.
-crRoomName :: Lens' CreateRoom Text
-crRoomName = lens _crRoomName (\ s a -> s{_crRoomName = a})
+createRoom_roomName :: Lens.Lens' CreateRoom Prelude.Text
+createRoom_roomName = Lens.lens (\CreateRoom' {roomName} -> roomName) (\s@CreateRoom' {} a -> s {roomName = a} :: CreateRoom)
 
-instance AWSRequest CreateRoom where
-        type Rs CreateRoom = CreateRoomResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateRoomResponse' <$>
-                   (x .?> "RoomArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateRoom where
+  type AWSResponse CreateRoom = CreateRoomResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateRoomResponse'
+            Prelude.<$> (x Core..?> "RoomArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateRoom where
+instance Prelude.Hashable CreateRoom
 
-instance NFData CreateRoom where
+instance Prelude.NFData CreateRoom
 
-instance ToHeaders CreateRoom where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.CreateRoom" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateRoom where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.CreateRoom" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateRoom where
-        toJSON CreateRoom'{..}
-          = object
-              (catMaybes
-                 [("ProfileArn" .=) <$> _crProfileARN,
-                  ("ProviderCalendarId" .=) <$> _crProviderCalendarId,
-                  ("ClientRequestToken" .=) <$> _crClientRequestToken,
-                  ("Description" .=) <$> _crDescription,
-                  ("Tags" .=) <$> _crTags,
-                  Just ("RoomName" .= _crRoomName)])
+instance Core.ToJSON CreateRoom where
+  toJSON CreateRoom' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ProviderCalendarId" Core..=)
+              Prelude.<$> providerCalendarId,
+            ("ProfileArn" Core..=) Prelude.<$> profileArn,
+            ("Description" Core..=) Prelude.<$> description,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("RoomName" Core..= roomName)
+          ]
+      )
 
-instance ToPath CreateRoom where
-        toPath = const "/"
+instance Core.ToPath CreateRoom where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateRoom where
-        toQuery = const mempty
+instance Core.ToQuery CreateRoom where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createRoomResponse' smart constructor.
+-- | /See:/ 'newCreateRoomResponse' smart constructor.
 data CreateRoomResponse = CreateRoomResponse'
-  { _crrsRoomARN        :: !(Maybe Text)
-  , _crrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the newly created room in the response.
+    roomArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateRoomResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateRoomResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crrsRoomARN' - The ARN of the newly created room in the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crrsResponseStatus' - -- | The response status code.
-createRoomResponse
-    :: Int -- ^ 'crrsResponseStatus'
-    -> CreateRoomResponse
-createRoomResponse pResponseStatus_ =
+-- 'roomArn', 'createRoomResponse_roomArn' - The ARN of the newly created room in the response.
+--
+-- 'httpStatus', 'createRoomResponse_httpStatus' - The response's http status code.
+newCreateRoomResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateRoomResponse
+newCreateRoomResponse pHttpStatus_ =
   CreateRoomResponse'
-    {_crrsRoomARN = Nothing, _crrsResponseStatus = pResponseStatus_}
-
+    { roomArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the newly created room in the response.
-crrsRoomARN :: Lens' CreateRoomResponse (Maybe Text)
-crrsRoomARN = lens _crrsRoomARN (\ s a -> s{_crrsRoomARN = a})
+createRoomResponse_roomArn :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.Text)
+createRoomResponse_roomArn = Lens.lens (\CreateRoomResponse' {roomArn} -> roomArn) (\s@CreateRoomResponse' {} a -> s {roomArn = a} :: CreateRoomResponse)
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRoomResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
+-- | The response's http status code.
+createRoomResponse_httpStatus :: Lens.Lens' CreateRoomResponse Prelude.Int
+createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> httpStatus) (\s@CreateRoomResponse' {} a -> s {httpStatus = a} :: CreateRoomResponse)
 
-instance NFData CreateRoomResponse where
+instance Prelude.NFData CreateRoomResponse

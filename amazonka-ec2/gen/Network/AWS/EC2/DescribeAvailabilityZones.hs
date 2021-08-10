@@ -1,158 +1,346 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of the Availability Zones that are available to you. The results include zones only for the region you're currently using. If there is an event impacting an Availability Zone, you can use this request to view the state and any provided message for that Availability Zone.
+-- Describes the Availability Zones, Local Zones, and Wavelength Zones that
+-- are available to you. If there is an event impacting a zone, you can use
+-- this request to view the state and any provided messages for that zone.
 --
---
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones> in the /Amazon Elastic Compute Cloud User Guide/ .
---
+-- For more information about Availability Zones, Local Zones, and
+-- Wavelength Zones, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions, Zones and Outposts>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeAvailabilityZones
-    (
-    -- * Creating a Request
-      describeAvailabilityZones
-    , DescribeAvailabilityZones
+  ( -- * Creating a Request
+    DescribeAvailabilityZones (..),
+    newDescribeAvailabilityZones,
+
     -- * Request Lenses
-    , dazZoneNames
-    , dazFilters
-    , dazDryRun
+    describeAvailabilityZones_dryRun,
+    describeAvailabilityZones_filters,
+    describeAvailabilityZones_zoneIds,
+    describeAvailabilityZones_allAvailabilityZones,
+    describeAvailabilityZones_zoneNames,
 
     -- * Destructuring the Response
-    , describeAvailabilityZonesResponse
-    , DescribeAvailabilityZonesResponse
+    DescribeAvailabilityZonesResponse (..),
+    newDescribeAvailabilityZonesResponse,
+
     -- * Response Lenses
-    , dazrsAvailabilityZones
-    , dazrsResponseStatus
-    ) where
+    describeAvailabilityZonesResponse_availabilityZones,
+    describeAvailabilityZonesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DescribeAvailabilityZones.
---
---
---
--- /See:/ 'describeAvailabilityZones' smart constructor.
+-- | /See:/ 'newDescribeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-  { _dazZoneNames :: !(Maybe [Text])
-  , _dazFilters   :: !(Maybe [Filter])
-  , _dazDryRun    :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The filters.
+    --
+    -- -   @group-name@ - For Availability Zones, use the Region name. For
+    --     Local Zones, use the name of the group associated with the Local
+    --     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the
+    --     name of the group associated with the Wavelength Zone (for example,
+    --     @us-east-1-wl1-bos-wlz-1@).
+    --
+    -- -   @message@ - The Zone message.
+    --
+    -- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
+    --     | @opt-in-not-required@).
+    --
+    -- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
+    --     Zone and Wavelength Zone control plane operations, such as API
+    --     calls.
+    --
+    -- -   @parent-zoneName@ - The ID of the zone that handles some of the
+    --     Local Zone and Wavelength Zone control plane operations, such as API
+    --     calls.
+    --
+    -- -   @region-name@ - The name of the Region for the Zone (for example,
+    --     @us-east-1@).
+    --
+    -- -   @state@ - The state of the Availability Zone, the Local Zone, or the
+    --     Wavelength Zone (@available@ | @information@ | @impaired@ |
+    --     @unavailable@).
+    --
+    -- -   @zone-id@ - The ID of the Availability Zone (for example,
+    --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
+    --     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+    --
+    -- -   @zone-type@ - The type of zone, for example, @local-zone@.
+    --
+    -- -   @zone-name@ - The name of the Availability Zone (for example,
+    --     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
+    --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+    --
+    -- -   @zone-type@ - The type of zone, for example, @local-zone@.
+    filters :: Prelude.Maybe [Filter],
+    -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneIds :: Prelude.Maybe [Prelude.Text],
+    -- | Include all Availability Zones, Local Zones, and Wavelength Zones
+    -- regardless of your opt-in status.
+    --
+    -- If you do not use this parameter, the results include only the zones for
+    -- the Regions where you have chosen the option to opt in.
+    allAvailabilityZones :: Prelude.Maybe Prelude.Bool,
+    -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneNames :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAvailabilityZones' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAvailabilityZones' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dazZoneNames' - The names of one or more Availability Zones.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dazFilters' - One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
+-- 'dryRun', 'describeAvailabilityZones_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dazDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeAvailabilityZones
-    :: DescribeAvailabilityZones
-describeAvailabilityZones =
+-- 'filters', 'describeAvailabilityZones_filters' - The filters.
+--
+-- -   @group-name@ - For Availability Zones, use the Region name. For
+--     Local Zones, use the name of the group associated with the Local
+--     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the
+--     name of the group associated with the Wavelength Zone (for example,
+--     @us-east-1-wl1-bos-wlz-1@).
+--
+-- -   @message@ - The Zone message.
+--
+-- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
+--     | @opt-in-not-required@).
+--
+-- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
+--     Zone and Wavelength Zone control plane operations, such as API
+--     calls.
+--
+-- -   @parent-zoneName@ - The ID of the zone that handles some of the
+--     Local Zone and Wavelength Zone control plane operations, such as API
+--     calls.
+--
+-- -   @region-name@ - The name of the Region for the Zone (for example,
+--     @us-east-1@).
+--
+-- -   @state@ - The state of the Availability Zone, the Local Zone, or the
+--     Wavelength Zone (@available@ | @information@ | @impaired@ |
+--     @unavailable@).
+--
+-- -   @zone-id@ - The ID of the Availability Zone (for example,
+--     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
+--     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+--
+-- -   @zone-type@ - The type of zone, for example, @local-zone@.
+--
+-- -   @zone-name@ - The name of the Availability Zone (for example,
+--     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
+--     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+--
+-- -   @zone-type@ - The type of zone, for example, @local-zone@.
+--
+-- 'zoneIds', 'describeAvailabilityZones_zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+--
+-- 'allAvailabilityZones', 'describeAvailabilityZones_allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones
+-- regardless of your opt-in status.
+--
+-- If you do not use this parameter, the results include only the zones for
+-- the Regions where you have chosen the option to opt in.
+--
+-- 'zoneNames', 'describeAvailabilityZones_zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
+newDescribeAvailabilityZones ::
+  DescribeAvailabilityZones
+newDescribeAvailabilityZones =
   DescribeAvailabilityZones'
-    {_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing}
+    { dryRun =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      zoneIds = Prelude.Nothing,
+      allAvailabilityZones = Prelude.Nothing,
+      zoneNames = Prelude.Nothing
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeAvailabilityZones_dryRun :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
+describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRun} -> dryRun) (\s@DescribeAvailabilityZones' {} a -> s {dryRun = a} :: DescribeAvailabilityZones)
 
--- | The names of one or more Availability Zones.
-dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _Coerce
-
--- | One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
-dazFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default . _Coerce
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
-dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a})
-
-instance AWSRequest DescribeAvailabilityZones where
-        type Rs DescribeAvailabilityZones =
-             DescribeAvailabilityZonesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeAvailabilityZonesResponse' <$>
-                   (x .@? "availabilityZoneInfo" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeAvailabilityZones where
-
-instance NFData DescribeAvailabilityZones where
-
-instance ToHeaders DescribeAvailabilityZones where
-        toHeaders = const mempty
-
-instance ToPath DescribeAvailabilityZones where
-        toPath = const "/"
-
-instance ToQuery DescribeAvailabilityZones where
-        toQuery DescribeAvailabilityZones'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeAvailabilityZones" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
-               toQuery (toQueryList "Filter" <$> _dazFilters),
-               "DryRun" =: _dazDryRun]
-
--- | Contains the output of DescribeAvailabiltyZones.
+-- | The filters.
 --
+-- -   @group-name@ - For Availability Zones, use the Region name. For
+--     Local Zones, use the name of the group associated with the Local
+--     Zone (for example, @us-west-2-lax-1@) For Wavelength Zones, use the
+--     name of the group associated with the Wavelength Zone (for example,
+--     @us-east-1-wl1-bos-wlz-1@).
 --
+-- -   @message@ - The Zone message.
 --
--- /See:/ 'describeAvailabilityZonesResponse' smart constructor.
+-- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
+--     | @opt-in-not-required@).
+--
+-- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
+--     Zone and Wavelength Zone control plane operations, such as API
+--     calls.
+--
+-- -   @parent-zoneName@ - The ID of the zone that handles some of the
+--     Local Zone and Wavelength Zone control plane operations, such as API
+--     calls.
+--
+-- -   @region-name@ - The name of the Region for the Zone (for example,
+--     @us-east-1@).
+--
+-- -   @state@ - The state of the Availability Zone, the Local Zone, or the
+--     Wavelength Zone (@available@ | @information@ | @impaired@ |
+--     @unavailable@).
+--
+-- -   @zone-id@ - The ID of the Availability Zone (for example,
+--     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
+--     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+--
+-- -   @zone-type@ - The type of zone, for example, @local-zone@.
+--
+-- -   @zone-name@ - The name of the Availability Zone (for example,
+--     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
+--     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
+--
+-- -   @zone-type@ - The type of zone, for example, @local-zone@.
+describeAvailabilityZones_filters :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Filter])
+describeAvailabilityZones_filters = Lens.lens (\DescribeAvailabilityZones' {filters} -> filters) (\s@DescribeAvailabilityZones' {} a -> s {filters = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+describeAvailabilityZones_zoneIds :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
+describeAvailabilityZones_zoneIds = Lens.lens (\DescribeAvailabilityZones' {zoneIds} -> zoneIds) (\s@DescribeAvailabilityZones' {} a -> s {zoneIds = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Include all Availability Zones, Local Zones, and Wavelength Zones
+-- regardless of your opt-in status.
+--
+-- If you do not use this parameter, the results include only the zones for
+-- the Regions where you have chosen the option to opt in.
+describeAvailabilityZones_allAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
+describeAvailabilityZones_allAvailabilityZones = Lens.lens (\DescribeAvailabilityZones' {allAvailabilityZones} -> allAvailabilityZones) (\s@DescribeAvailabilityZones' {} a -> s {allAvailabilityZones = a} :: DescribeAvailabilityZones)
+
+-- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+describeAvailabilityZones_zoneNames :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
+describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zoneNames} -> zoneNames) (\s@DescribeAvailabilityZones' {} a -> s {zoneNames = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
+
+instance Core.AWSRequest DescribeAvailabilityZones where
+  type
+    AWSResponse DescribeAvailabilityZones =
+      DescribeAvailabilityZonesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeAvailabilityZonesResponse'
+            Prelude.<$> ( x Core..@? "availabilityZoneInfo"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeAvailabilityZones
+
+instance Prelude.NFData DescribeAvailabilityZones
+
+instance Core.ToHeaders DescribeAvailabilityZones where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeAvailabilityZones where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeAvailabilityZones where
+  toQuery DescribeAvailabilityZones' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeAvailabilityZones" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "ZoneId" Prelude.<$> zoneIds),
+        "AllAvailabilityZones" Core.=: allAvailabilityZones,
+        Core.toQuery
+          (Core.toQueryList "ZoneName" Prelude.<$> zoneNames)
+      ]
+
+-- | /See:/ 'newDescribeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
-  { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
-  , _dazrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the Availability Zones, Local Zones, and Wavelength
+    -- Zones.
+    availabilityZones :: Prelude.Maybe [AvailabilityZone],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAvailabilityZonesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAvailabilityZonesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dazrsAvailabilityZones' - Information about one or more Availability Zones.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dazrsResponseStatus' - -- | The response status code.
-describeAvailabilityZonesResponse
-    :: Int -- ^ 'dazrsResponseStatus'
-    -> DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse pResponseStatus_ =
+-- 'availabilityZones', 'describeAvailabilityZonesResponse_availabilityZones' - Information about the Availability Zones, Local Zones, and Wavelength
+-- Zones.
+--
+-- 'httpStatus', 'describeAvailabilityZonesResponse_httpStatus' - The response's http status code.
+newDescribeAvailabilityZonesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAvailabilityZonesResponse
+newDescribeAvailabilityZonesResponse pHttpStatus_ =
   DescribeAvailabilityZonesResponse'
-    {_dazrsAvailabilityZones = Nothing, _dazrsResponseStatus = pResponseStatus_}
+    { availabilityZones =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the Availability Zones, Local Zones, and Wavelength
+-- Zones.
+describeAvailabilityZonesResponse_availabilityZones :: Lens.Lens' DescribeAvailabilityZonesResponse (Prelude.Maybe [AvailabilityZone])
+describeAvailabilityZonesResponse_availabilityZones = Lens.lens (\DescribeAvailabilityZonesResponse' {availabilityZones} -> availabilityZones) (\s@DescribeAvailabilityZonesResponse' {} a -> s {availabilityZones = a} :: DescribeAvailabilityZonesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about one or more Availability Zones.
-dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeAvailabilityZonesResponse_httpStatus :: Lens.Lens' DescribeAvailabilityZonesResponse Prelude.Int
+describeAvailabilityZonesResponse_httpStatus = Lens.lens (\DescribeAvailabilityZonesResponse' {httpStatus} -> httpStatus) (\s@DescribeAvailabilityZonesResponse' {} a -> s {httpStatus = a} :: DescribeAvailabilityZonesResponse)
 
--- | -- | The response status code.
-dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
-dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a})
-
-instance NFData DescribeAvailabilityZonesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeAvailabilityZonesResponse

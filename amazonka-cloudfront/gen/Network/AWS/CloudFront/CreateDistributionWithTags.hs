@@ -1,161 +1,180 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistributionWithTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new distribution with tags.
---
---
 module Network.AWS.CloudFront.CreateDistributionWithTags
-    (
-    -- * Creating a Request
-      createDistributionWithTags
-    , CreateDistributionWithTags
+  ( -- * Creating a Request
+    CreateDistributionWithTags (..),
+    newCreateDistributionWithTags,
+
     -- * Request Lenses
-    , cdwtDistributionConfigWithTags
+    createDistributionWithTags_distributionConfigWithTags,
 
     -- * Destructuring the Response
-    , createDistributionWithTagsResponse
-    , CreateDistributionWithTagsResponse
+    CreateDistributionWithTagsResponse (..),
+    newCreateDistributionWithTagsResponse,
+
     -- * Response Lenses
-    , cdwtrsETag
-    , cdwtrsDistribution
-    , cdwtrsLocation
-    , cdwtrsResponseStatus
-    ) where
+    createDistributionWithTagsResponse_eTag,
+    createDistributionWithTagsResponse_distribution,
+    createDistributionWithTagsResponse_location,
+    createDistributionWithTagsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to create a new distribution with tags.
 --
+-- /See:/ 'newCreateDistributionWithTags' smart constructor.
+data CreateDistributionWithTags = CreateDistributionWithTags'
+  { -- | The distribution\'s configuration information.
+    distributionConfigWithTags :: DistributionConfigWithTags
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateDistributionWithTags' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'createDistributionWithTags' smart constructor.
-newtype CreateDistributionWithTags = CreateDistributionWithTags'
-  { _cdwtDistributionConfigWithTags :: DistributionConfigWithTags
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDistributionWithTags' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdwtDistributionConfigWithTags' - The distribution's configuration information.
-createDistributionWithTags
-    :: DistributionConfigWithTags -- ^ 'cdwtDistributionConfigWithTags'
-    -> CreateDistributionWithTags
-createDistributionWithTags pDistributionConfigWithTags_ =
-  CreateDistributionWithTags'
-    {_cdwtDistributionConfigWithTags = pDistributionConfigWithTags_}
+-- 'distributionConfigWithTags', 'createDistributionWithTags_distributionConfigWithTags' - The distribution\'s configuration information.
+newCreateDistributionWithTags ::
+  -- | 'distributionConfigWithTags'
+  DistributionConfigWithTags ->
+  CreateDistributionWithTags
+newCreateDistributionWithTags
+  pDistributionConfigWithTags_ =
+    CreateDistributionWithTags'
+      { distributionConfigWithTags =
+          pDistributionConfigWithTags_
+      }
 
+-- | The distribution\'s configuration information.
+createDistributionWithTags_distributionConfigWithTags :: Lens.Lens' CreateDistributionWithTags DistributionConfigWithTags
+createDistributionWithTags_distributionConfigWithTags = Lens.lens (\CreateDistributionWithTags' {distributionConfigWithTags} -> distributionConfigWithTags) (\s@CreateDistributionWithTags' {} a -> s {distributionConfigWithTags = a} :: CreateDistributionWithTags)
 
--- | The distribution's configuration information.
-cdwtDistributionConfigWithTags :: Lens' CreateDistributionWithTags DistributionConfigWithTags
-cdwtDistributionConfigWithTags = lens _cdwtDistributionConfigWithTags (\ s a -> s{_cdwtDistributionConfigWithTags = a})
+instance Core.AWSRequest CreateDistributionWithTags where
+  type
+    AWSResponse CreateDistributionWithTags =
+      CreateDistributionWithTagsResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateDistributionWithTagsResponse'
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateDistributionWithTags where
-        type Rs CreateDistributionWithTags =
-             CreateDistributionWithTagsResponse
-        request = postXML cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 CreateDistributionWithTagsResponse' <$>
-                   (h .#? "ETag") <*> (parseXML x) <*>
-                     (h .#? "Location")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateDistributionWithTags
 
-instance Hashable CreateDistributionWithTags where
+instance Prelude.NFData CreateDistributionWithTags
 
-instance NFData CreateDistributionWithTags where
+instance Core.ToElement CreateDistributionWithTags where
+  toElement CreateDistributionWithTags' {..} =
+    Core.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfigWithTags"
+      distributionConfigWithTags
 
-instance ToElement CreateDistributionWithTags where
-        toElement
-          = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}DistributionConfigWithTags"
-              .
-              _cdwtDistributionConfigWithTags
+instance Core.ToHeaders CreateDistributionWithTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders CreateDistributionWithTags where
-        toHeaders = const mempty
+instance Core.ToPath CreateDistributionWithTags where
+  toPath = Prelude.const "/2020-05-31/distribution"
 
-instance ToPath CreateDistributionWithTags where
-        toPath = const "/2017-10-30/distribution"
-
-instance ToQuery CreateDistributionWithTags where
-        toQuery = const (mconcat ["WithTags"])
+instance Core.ToQuery CreateDistributionWithTags where
+  toQuery =
+    Prelude.const (Prelude.mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createDistributionWithTagsResponse' smart constructor.
+-- /See:/ 'newCreateDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-  { _cdwtrsETag           :: !(Maybe Text)
-  , _cdwtrsDistribution   :: !(Maybe Distribution)
-  , _cdwtrsLocation       :: !(Maybe Text)
-  , _cdwtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current version of the distribution created.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The distribution\'s information.
+    distribution :: Prelude.Maybe Distribution,
+    -- | The fully qualified URI of the new distribution resource just created.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDistributionWithTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDistributionWithTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdwtrsETag' - The current version of the distribution created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdwtrsDistribution' - The distribution's information.
+-- 'eTag', 'createDistributionWithTagsResponse_eTag' - The current version of the distribution created.
 --
--- * 'cdwtrsLocation' - The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
+-- 'distribution', 'createDistributionWithTagsResponse_distribution' - The distribution\'s information.
 --
--- * 'cdwtrsResponseStatus' - -- | The response status code.
-createDistributionWithTagsResponse
-    :: Int -- ^ 'cdwtrsResponseStatus'
-    -> CreateDistributionWithTagsResponse
-createDistributionWithTagsResponse pResponseStatus_ =
+-- 'location', 'createDistributionWithTagsResponse_location' - The fully qualified URI of the new distribution resource just created.
+--
+-- 'httpStatus', 'createDistributionWithTagsResponse_httpStatus' - The response's http status code.
+newCreateDistributionWithTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDistributionWithTagsResponse
+newCreateDistributionWithTagsResponse pHttpStatus_ =
   CreateDistributionWithTagsResponse'
-    { _cdwtrsETag = Nothing
-    , _cdwtrsDistribution = Nothing
-    , _cdwtrsLocation = Nothing
-    , _cdwtrsResponseStatus = pResponseStatus_
+    { eTag =
+        Prelude.Nothing,
+      distribution = Prelude.Nothing,
+      location = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The current version of the distribution created.
-cdwtrsETag :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
-cdwtrsETag = lens _cdwtrsETag (\ s a -> s{_cdwtrsETag = a})
+createDistributionWithTagsResponse_eTag :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
+createDistributionWithTagsResponse_eTag = Lens.lens (\CreateDistributionWithTagsResponse' {eTag} -> eTag) (\s@CreateDistributionWithTagsResponse' {} a -> s {eTag = a} :: CreateDistributionWithTagsResponse)
 
--- | The distribution's information.
-cdwtrsDistribution :: Lens' CreateDistributionWithTagsResponse (Maybe Distribution)
-cdwtrsDistribution = lens _cdwtrsDistribution (\ s a -> s{_cdwtrsDistribution = a})
+-- | The distribution\'s information.
+createDistributionWithTagsResponse_distribution :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Distribution)
+createDistributionWithTagsResponse_distribution = Lens.lens (\CreateDistributionWithTagsResponse' {distribution} -> distribution) (\s@CreateDistributionWithTagsResponse' {} a -> s {distribution = a} :: CreateDistributionWithTagsResponse)
 
--- | The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
-cdwtrsLocation :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
-cdwtrsLocation = lens _cdwtrsLocation (\ s a -> s{_cdwtrsLocation = a})
+-- | The fully qualified URI of the new distribution resource just created.
+createDistributionWithTagsResponse_location :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
+createDistributionWithTagsResponse_location = Lens.lens (\CreateDistributionWithTagsResponse' {location} -> location) (\s@CreateDistributionWithTagsResponse' {} a -> s {location = a} :: CreateDistributionWithTagsResponse)
 
--- | -- | The response status code.
-cdwtrsResponseStatus :: Lens' CreateDistributionWithTagsResponse Int
-cdwtrsResponseStatus = lens _cdwtrsResponseStatus (\ s a -> s{_cdwtrsResponseStatus = a})
+-- | The response's http status code.
+createDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateDistributionWithTagsResponse Prelude.Int
+createDistributionWithTagsResponse_httpStatus = Lens.lens (\CreateDistributionWithTagsResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionWithTagsResponse' {} a -> s {httpStatus = a} :: CreateDistributionWithTagsResponse)
 
-instance NFData CreateDistributionWithTagsResponse
-         where
+instance
+  Prelude.NFData
+    CreateDistributionWithTagsResponse

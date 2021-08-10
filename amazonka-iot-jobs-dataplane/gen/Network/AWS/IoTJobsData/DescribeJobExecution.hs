@@ -1,158 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTJobsData.DescribeJobExecution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets details of a job execution.
---
---
 module Network.AWS.IoTJobsData.DescribeJobExecution
-    (
-    -- * Creating a Request
-      describeJobExecution
-    , DescribeJobExecution
+  ( -- * Creating a Request
+    DescribeJobExecution (..),
+    newDescribeJobExecution,
+
     -- * Request Lenses
-    , djeIncludeJobDocument
-    , djeExecutionNumber
-    , djeJobId
-    , djeThingName
+    describeJobExecution_includeJobDocument,
+    describeJobExecution_executionNumber,
+    describeJobExecution_jobId,
+    describeJobExecution_thingName,
 
     -- * Destructuring the Response
-    , describeJobExecutionResponse
-    , DescribeJobExecutionResponse
+    DescribeJobExecutionResponse (..),
+    newDescribeJobExecutionResponse,
+
     -- * Response Lenses
-    , djersExecution
-    , djersResponseStatus
-    ) where
+    describeJobExecutionResponse_execution,
+    describeJobExecutionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTJobsData.Types
-import Network.AWS.IoTJobsData.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeJobExecution' smart constructor.
+-- | /See:/ 'newDescribeJobExecution' smart constructor.
 data DescribeJobExecution = DescribeJobExecution'
-  { _djeIncludeJobDocument :: !(Maybe Bool)
-  , _djeExecutionNumber    :: !(Maybe Integer)
-  , _djeJobId              :: !Text
-  , _djeThingName          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Optional. When set to true, the response contains the job document. The
+    -- default is false.
+    includeJobDocument :: Prelude.Maybe Prelude.Bool,
+    -- | Optional. A number that identifies a particular job execution on a
+    -- particular device. If not specified, the latest job execution is
+    -- returned.
+    executionNumber :: Prelude.Maybe Prelude.Integer,
+    -- | The unique identifier assigned to this job when it was created.
+    jobId :: Prelude.Text,
+    -- | The thing name associated with the device the job execution is running
+    -- on.
+    thingName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeJobExecution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeJobExecution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'djeIncludeJobDocument' - Optional. When set to true, the response contains the job document. The default is false.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'djeExecutionNumber' - Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
+-- 'includeJobDocument', 'describeJobExecution_includeJobDocument' - Optional. When set to true, the response contains the job document. The
+-- default is false.
 --
--- * 'djeJobId' - The unique identifier assigned to this job when it was created.
+-- 'executionNumber', 'describeJobExecution_executionNumber' - Optional. A number that identifies a particular job execution on a
+-- particular device. If not specified, the latest job execution is
+-- returned.
 --
--- * 'djeThingName' - The thing name associated with the device the job execution is running on.
-describeJobExecution
-    :: Text -- ^ 'djeJobId'
-    -> Text -- ^ 'djeThingName'
-    -> DescribeJobExecution
-describeJobExecution pJobId_ pThingName_ =
+-- 'jobId', 'describeJobExecution_jobId' - The unique identifier assigned to this job when it was created.
+--
+-- 'thingName', 'describeJobExecution_thingName' - The thing name associated with the device the job execution is running
+-- on.
+newDescribeJobExecution ::
+  -- | 'jobId'
+  Prelude.Text ->
+  -- | 'thingName'
+  Prelude.Text ->
+  DescribeJobExecution
+newDescribeJobExecution pJobId_ pThingName_ =
   DescribeJobExecution'
-    { _djeIncludeJobDocument = Nothing
-    , _djeExecutionNumber = Nothing
-    , _djeJobId = pJobId_
-    , _djeThingName = pThingName_
+    { includeJobDocument =
+        Prelude.Nothing,
+      executionNumber = Prelude.Nothing,
+      jobId = pJobId_,
+      thingName = pThingName_
     }
 
+-- | Optional. When set to true, the response contains the job document. The
+-- default is false.
+describeJobExecution_includeJobDocument :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Bool)
+describeJobExecution_includeJobDocument = Lens.lens (\DescribeJobExecution' {includeJobDocument} -> includeJobDocument) (\s@DescribeJobExecution' {} a -> s {includeJobDocument = a} :: DescribeJobExecution)
 
--- | Optional. When set to true, the response contains the job document. The default is false.
-djeIncludeJobDocument :: Lens' DescribeJobExecution (Maybe Bool)
-djeIncludeJobDocument = lens _djeIncludeJobDocument (\ s a -> s{_djeIncludeJobDocument = a})
-
--- | Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
-djeExecutionNumber :: Lens' DescribeJobExecution (Maybe Integer)
-djeExecutionNumber = lens _djeExecutionNumber (\ s a -> s{_djeExecutionNumber = a})
+-- | Optional. A number that identifies a particular job execution on a
+-- particular device. If not specified, the latest job execution is
+-- returned.
+describeJobExecution_executionNumber :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Integer)
+describeJobExecution_executionNumber = Lens.lens (\DescribeJobExecution' {executionNumber} -> executionNumber) (\s@DescribeJobExecution' {} a -> s {executionNumber = a} :: DescribeJobExecution)
 
 -- | The unique identifier assigned to this job when it was created.
-djeJobId :: Lens' DescribeJobExecution Text
-djeJobId = lens _djeJobId (\ s a -> s{_djeJobId = a})
+describeJobExecution_jobId :: Lens.Lens' DescribeJobExecution Prelude.Text
+describeJobExecution_jobId = Lens.lens (\DescribeJobExecution' {jobId} -> jobId) (\s@DescribeJobExecution' {} a -> s {jobId = a} :: DescribeJobExecution)
 
--- | The thing name associated with the device the job execution is running on.
-djeThingName :: Lens' DescribeJobExecution Text
-djeThingName = lens _djeThingName (\ s a -> s{_djeThingName = a})
+-- | The thing name associated with the device the job execution is running
+-- on.
+describeJobExecution_thingName :: Lens.Lens' DescribeJobExecution Prelude.Text
+describeJobExecution_thingName = Lens.lens (\DescribeJobExecution' {thingName} -> thingName) (\s@DescribeJobExecution' {} a -> s {thingName = a} :: DescribeJobExecution)
 
-instance AWSRequest DescribeJobExecution where
-        type Rs DescribeJobExecution =
-             DescribeJobExecutionResponse
-        request = get ioTJobsData
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeJobExecutionResponse' <$>
-                   (x .?> "execution") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeJobExecution where
+  type
+    AWSResponse DescribeJobExecution =
+      DescribeJobExecutionResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeJobExecutionResponse'
+            Prelude.<$> (x Core..?> "execution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeJobExecution where
+instance Prelude.Hashable DescribeJobExecution
 
-instance NFData DescribeJobExecution where
+instance Prelude.NFData DescribeJobExecution
 
-instance ToHeaders DescribeJobExecution where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeJobExecution where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeJobExecution where
-        toPath DescribeJobExecution'{..}
-          = mconcat
-              ["/things/", toBS _djeThingName, "/jobs/",
-               toBS _djeJobId]
+instance Core.ToPath DescribeJobExecution where
+  toPath DescribeJobExecution' {..} =
+    Prelude.mconcat
+      [ "/things/",
+        Core.toBS thingName,
+        "/jobs/",
+        Core.toBS jobId
+      ]
 
-instance ToQuery DescribeJobExecution where
-        toQuery DescribeJobExecution'{..}
-          = mconcat
-              ["includeJobDocument" =: _djeIncludeJobDocument,
-               "executionNumber" =: _djeExecutionNumber]
+instance Core.ToQuery DescribeJobExecution where
+  toQuery DescribeJobExecution' {..} =
+    Prelude.mconcat
+      [ "includeJobDocument" Core.=: includeJobDocument,
+        "executionNumber" Core.=: executionNumber
+      ]
 
--- | /See:/ 'describeJobExecutionResponse' smart constructor.
+-- | /See:/ 'newDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
-  { _djersExecution      :: !(Maybe JobExecution)
-  , _djersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Contains data about a job execution.
+    execution :: Prelude.Maybe JobExecution,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeJobExecutionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeJobExecutionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'djersExecution' - Contains data about a job execution.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'djersResponseStatus' - -- | The response status code.
-describeJobExecutionResponse
-    :: Int -- ^ 'djersResponseStatus'
-    -> DescribeJobExecutionResponse
-describeJobExecutionResponse pResponseStatus_ =
+-- 'execution', 'describeJobExecutionResponse_execution' - Contains data about a job execution.
+--
+-- 'httpStatus', 'describeJobExecutionResponse_httpStatus' - The response's http status code.
+newDescribeJobExecutionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeJobExecutionResponse
+newDescribeJobExecutionResponse pHttpStatus_ =
   DescribeJobExecutionResponse'
-    {_djersExecution = Nothing, _djersResponseStatus = pResponseStatus_}
-
+    { execution =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains data about a job execution.
-djersExecution :: Lens' DescribeJobExecutionResponse (Maybe JobExecution)
-djersExecution = lens _djersExecution (\ s a -> s{_djersExecution = a})
+describeJobExecutionResponse_execution :: Lens.Lens' DescribeJobExecutionResponse (Prelude.Maybe JobExecution)
+describeJobExecutionResponse_execution = Lens.lens (\DescribeJobExecutionResponse' {execution} -> execution) (\s@DescribeJobExecutionResponse' {} a -> s {execution = a} :: DescribeJobExecutionResponse)
 
--- | -- | The response status code.
-djersResponseStatus :: Lens' DescribeJobExecutionResponse Int
-djersResponseStatus = lens _djersResponseStatus (\ s a -> s{_djersResponseStatus = a})
+-- | The response's http status code.
+describeJobExecutionResponse_httpStatus :: Lens.Lens' DescribeJobExecutionResponse Prelude.Int
+describeJobExecutionResponse_httpStatus = Lens.lens (\DescribeJobExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeJobExecutionResponse' {} a -> s {httpStatus = a} :: DescribeJobExecutionResponse)
 
-instance NFData DescribeJobExecutionResponse where
+instance Prelude.NFData DescribeJobExecutionResponse

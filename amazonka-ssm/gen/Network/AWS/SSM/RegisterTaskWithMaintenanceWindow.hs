@@ -1,282 +1,509 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new task to a Maintenance Window.
---
---
+-- Adds a new task to a maintenance window.
 module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
-    (
-    -- * Creating a Request
-      registerTaskWithMaintenanceWindow
-    , RegisterTaskWithMaintenanceWindow
+  ( -- * Creating a Request
+    RegisterTaskWithMaintenanceWindow (..),
+    newRegisterTaskWithMaintenanceWindow,
+
     -- * Request Lenses
-    , rtwmwTaskParameters
-    , rtwmwPriority
-    , rtwmwClientToken
-    , rtwmwTaskInvocationParameters
-    , rtwmwName
-    , rtwmwLoggingInfo
-    , rtwmwDescription
-    , rtwmwWindowId
-    , rtwmwTargets
-    , rtwmwTaskARN
-    , rtwmwServiceRoleARN
-    , rtwmwTaskType
-    , rtwmwMaxConcurrency
-    , rtwmwMaxErrors
+    registerTaskWithMaintenanceWindow_maxErrors,
+    registerTaskWithMaintenanceWindow_taskParameters,
+    registerTaskWithMaintenanceWindow_serviceRoleArn,
+    registerTaskWithMaintenanceWindow_priority,
+    registerTaskWithMaintenanceWindow_targets,
+    registerTaskWithMaintenanceWindow_taskInvocationParameters,
+    registerTaskWithMaintenanceWindow_name,
+    registerTaskWithMaintenanceWindow_maxConcurrency,
+    registerTaskWithMaintenanceWindow_description,
+    registerTaskWithMaintenanceWindow_loggingInfo,
+    registerTaskWithMaintenanceWindow_clientToken,
+    registerTaskWithMaintenanceWindow_windowId,
+    registerTaskWithMaintenanceWindow_taskArn,
+    registerTaskWithMaintenanceWindow_taskType,
 
     -- * Destructuring the Response
-    , registerTaskWithMaintenanceWindowResponse
-    , RegisterTaskWithMaintenanceWindowResponse
+    RegisterTaskWithMaintenanceWindowResponse (..),
+    newRegisterTaskWithMaintenanceWindowResponse,
+
     -- * Response Lenses
-    , rtwmwrsWindowTaskId
-    , rtwmwrsResponseStatus
-    ) where
+    registerTaskWithMaintenanceWindowResponse_windowTaskId,
+    registerTaskWithMaintenanceWindowResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'registerTaskWithMaintenanceWindow' smart constructor.
+-- | /See:/ 'newRegisterTaskWithMaintenanceWindow' smart constructor.
 data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
-  { _rtwmwTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-  , _rtwmwPriority :: !(Maybe Nat)
-  , _rtwmwClientToken :: !(Maybe Text)
-  , _rtwmwTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
-  , _rtwmwName :: !(Maybe Text)
-  , _rtwmwLoggingInfo :: !(Maybe LoggingInfo)
-  , _rtwmwDescription :: !(Maybe (Sensitive Text))
-  , _rtwmwWindowId :: !Text
-  , _rtwmwTargets :: ![Target]
-  , _rtwmwTaskARN :: !Text
-  , _rtwmwServiceRoleARN :: !Text
-  , _rtwmwTaskType :: !MaintenanceWindowTaskType
-  , _rtwmwMaxConcurrency :: !Text
-  , _rtwmwMaxErrors :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The maximum number of errors allowed before this task stops being
+    -- scheduled.
+    --
+    -- For maintenance window tasks without a target specified, you cannot
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value does not affect the running of your
+    -- task.
+    maxErrors :: Prelude.Maybe Prelude.Text,
+    -- | The parameters that should be passed to the task when it is run.
+    --
+    -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+    -- task when it runs, instead use the @Parameters@ option in the
+    -- @TaskInvocationParameters@ structure. For information about how Systems
+    -- Manager handles these options for the supported maintenance window task
+    -- types, see MaintenanceWindowTaskInvocationParameters.
+    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    -- | The ARN of the IAM service role for Systems Manager to assume when
+    -- running a maintenance window task. If you do not specify a service role
+    -- ARN, Systems Manager uses your account\'s service-linked role. If no
+    -- service-linked role for Systems Manager exists in your account, it is
+    -- created when you run @RegisterTaskWithMaintenanceWindow@.
+    --
+    -- For more information, see the following topics in the in the /AWS
+    -- Systems Manager User Guide/:
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The priority of the task in the maintenance window, the lower the number
+    -- the higher the priority. Tasks in a maintenance window are scheduled in
+    -- priority order with tasks that have the same priority scheduled in
+    -- parallel.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The targets (either instances or maintenance window targets).
+    --
+    -- One or more targets must be specified for maintenance window Run
+    -- Command-type tasks. Depending on the task, targets are optional for
+    -- other maintenance window task types (Automation, AWS Lambda, and AWS
+    -- Step Functions). For more information about running tasks that do not
+    -- specify targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+    -- in the /AWS Systems Manager User Guide/.
+    --
+    -- Specify instances using the following format:
+    --
+    -- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
+    --
+    -- Specify maintenance window targets using the following format:
+    --
+    -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
+    targets :: Prelude.Maybe [Target],
+    -- | The parameters that the task should use during execution. Populate only
+    -- the fields that match the task type. All other fields should be empty.
+    taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
+    -- | An optional name for the task.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of targets this task can be run for in parallel.
+    --
+    -- For maintenance window tasks without a target specified, you cannot
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value does not affect the running of your
+    -- task.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | An optional description for the task.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A structure containing information about an S3 bucket to write
+    -- instance-level logs to.
+    --
+    -- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
+    -- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
+    -- options in the @TaskInvocationParameters@ structure. For information
+    -- about how Systems Manager handles these options for the supported
+    -- maintenance window task types, see
+    -- MaintenanceWindowTaskInvocationParameters.
+    loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | User-provided idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the maintenance window the task should be added to.
+    windowId :: Prelude.Text,
+    -- | The ARN of the task to run.
+    taskArn :: Prelude.Text,
+    -- | The type of task being registered.
+    taskType :: MaintenanceWindowTaskType
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'RegisterTaskWithMaintenanceWindow' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'maxErrors', 'registerTaskWithMaintenanceWindow_maxErrors' - The maximum number of errors allowed before this task stops being
+-- scheduled.
+--
+-- For maintenance window tasks without a target specified, you cannot
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value does not affect the running of your
+-- task.
+--
+-- 'taskParameters', 'registerTaskWithMaintenanceWindow_taskParameters' - The parameters that should be passed to the task when it is run.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+--
+-- 'serviceRoleArn', 'registerTaskWithMaintenanceWindow_serviceRoleArn' - The ARN of the IAM service role for Systems Manager to assume when
+-- running a maintenance window task. If you do not specify a service role
+-- ARN, Systems Manager uses your account\'s service-linked role. If no
+-- service-linked role for Systems Manager exists in your account, it is
+-- created when you run @RegisterTaskWithMaintenanceWindow@.
+--
+-- For more information, see the following topics in the in the /AWS
+-- Systems Manager User Guide/:
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+--
+-- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
+--
+-- 'targets', 'registerTaskWithMaintenanceWindow_targets' - The targets (either instances or maintenance window targets).
+--
+-- One or more targets must be specified for maintenance window Run
+-- Command-type tasks. Depending on the task, targets are optional for
+-- other maintenance window task types (Automation, AWS Lambda, and AWS
+-- Step Functions). For more information about running tasks that do not
+-- specify targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+-- in the /AWS Systems Manager User Guide/.
+--
+-- Specify instances using the following format:
+--
+-- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
+--
+-- Specify maintenance window targets using the following format:
+--
+-- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
+--
+-- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+--
+-- 'name', 'registerTaskWithMaintenanceWindow_name' - An optional name for the task.
+--
+-- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for in parallel.
+--
+-- For maintenance window tasks without a target specified, you cannot
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value does not affect the running of your
+-- task.
+--
+-- 'description', 'registerTaskWithMaintenanceWindow_description' - An optional description for the task.
+--
+-- 'loggingInfo', 'registerTaskWithMaintenanceWindow_loggingInfo' - A structure containing information about an S3 bucket to write
+-- instance-level logs to.
+--
+-- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
+-- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
+-- options in the @TaskInvocationParameters@ structure. For information
+-- about how Systems Manager handles these options for the supported
+-- maintenance window task types, see
+-- MaintenanceWindowTaskInvocationParameters.
+--
+-- 'clientToken', 'registerTaskWithMaintenanceWindow_clientToken' - User-provided idempotency token.
+--
+-- 'windowId', 'registerTaskWithMaintenanceWindow_windowId' - The ID of the maintenance window the task should be added to.
+--
+-- 'taskArn', 'registerTaskWithMaintenanceWindow_taskArn' - The ARN of the task to run.
+--
+-- 'taskType', 'registerTaskWithMaintenanceWindow_taskType' - The type of task being registered.
+newRegisterTaskWithMaintenanceWindow ::
+  -- | 'windowId'
+  Prelude.Text ->
+  -- | 'taskArn'
+  Prelude.Text ->
+  -- | 'taskType'
+  MaintenanceWindowTaskType ->
+  RegisterTaskWithMaintenanceWindow
+newRegisterTaskWithMaintenanceWindow
+  pWindowId_
+  pTaskArn_
+  pTaskType_ =
+    RegisterTaskWithMaintenanceWindow'
+      { maxErrors =
+          Prelude.Nothing,
+        taskParameters = Prelude.Nothing,
+        serviceRoleArn = Prelude.Nothing,
+        priority = Prelude.Nothing,
+        targets = Prelude.Nothing,
+        taskInvocationParameters =
+          Prelude.Nothing,
+        name = Prelude.Nothing,
+        maxConcurrency = Prelude.Nothing,
+        description = Prelude.Nothing,
+        loggingInfo = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        windowId = pWindowId_,
+        taskArn = pTaskArn_,
+        taskType = pTaskType_
+      }
 
--- | Creates a value of 'RegisterTaskWithMaintenanceWindow' with the minimum fields required to make a request.
+-- | The maximum number of errors allowed before this task stops being
+-- scheduled.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtwmwTaskParameters' - The parameters that should be passed to the task when it is executed.
---
--- * 'rtwmwPriority' - The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
---
--- * 'rtwmwClientToken' - User-provided idempotency token.
---
--- * 'rtwmwTaskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
---
--- * 'rtwmwName' - An optional name for the task.
---
--- * 'rtwmwLoggingInfo' - A structure containing information about an Amazon S3 bucket to write instance-level logs to.
---
--- * 'rtwmwDescription' - An optional description for the task.
---
--- * 'rtwmwWindowId' - The ID of the Maintenance Window the task should be added to.
---
--- * 'rtwmwTargets' - The targets (either instances or Maintenance Window targets). Specify instances using the following format:  @Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>@  Specify Maintenance Window targets using the following format: @Key=<WindowTargetIds>,Values=<window-target-id-1>,<window-target-id-2>@
---
--- * 'rtwmwTaskARN' - The ARN of the task to execute
---
--- * 'rtwmwServiceRoleARN' - The role that should be assumed when executing the task.
---
--- * 'rtwmwTaskType' - The type of task being registered.
---
--- * 'rtwmwMaxConcurrency' - The maximum number of targets this task can be run for in parallel.
---
--- * 'rtwmwMaxErrors' - The maximum number of errors allowed before this task stops being scheduled.
-registerTaskWithMaintenanceWindow
-    :: Text -- ^ 'rtwmwWindowId'
-    -> Text -- ^ 'rtwmwTaskARN'
-    -> Text -- ^ 'rtwmwServiceRoleARN'
-    -> MaintenanceWindowTaskType -- ^ 'rtwmwTaskType'
-    -> Text -- ^ 'rtwmwMaxConcurrency'
-    -> Text -- ^ 'rtwmwMaxErrors'
-    -> RegisterTaskWithMaintenanceWindow
-registerTaskWithMaintenanceWindow pWindowId_ pTaskARN_ pServiceRoleARN_ pTaskType_ pMaxConcurrency_ pMaxErrors_ =
-  RegisterTaskWithMaintenanceWindow'
-    { _rtwmwTaskParameters = Nothing
-    , _rtwmwPriority = Nothing
-    , _rtwmwClientToken = Nothing
-    , _rtwmwTaskInvocationParameters = Nothing
-    , _rtwmwName = Nothing
-    , _rtwmwLoggingInfo = Nothing
-    , _rtwmwDescription = Nothing
-    , _rtwmwWindowId = pWindowId_
-    , _rtwmwTargets = mempty
-    , _rtwmwTaskARN = pTaskARN_
-    , _rtwmwServiceRoleARN = pServiceRoleARN_
-    , _rtwmwTaskType = pTaskType_
-    , _rtwmwMaxConcurrency = pMaxConcurrency_
-    , _rtwmwMaxErrors = pMaxErrors_
-    }
+-- For maintenance window tasks without a target specified, you cannot
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value does not affect the running of your
+-- task.
+registerTaskWithMaintenanceWindow_maxErrors :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxErrors} -> maxErrors) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxErrors = a} :: RegisterTaskWithMaintenanceWindow)
 
+-- | The parameters that should be passed to the task when it is run.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+registerTaskWithMaintenanceWindow_taskParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
+registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskParameters} -> taskParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskParameters = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
--- | The parameters that should be passed to the task when it is executed.
-rtwmwTaskParameters :: Lens' RegisterTaskWithMaintenanceWindow (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression))
-rtwmwTaskParameters = lens _rtwmwTaskParameters (\ s a -> s{_rtwmwTaskParameters = a}) . mapping (_Sensitive . _Map)
+-- | The ARN of the IAM service role for Systems Manager to assume when
+-- running a maintenance window task. If you do not specify a service role
+-- ARN, Systems Manager uses your account\'s service-linked role. If no
+-- service-linked role for Systems Manager exists in your account, it is
+-- created when you run @RegisterTaskWithMaintenanceWindow@.
+--
+-- For more information, see the following topics in the in the /AWS
+-- Systems Manager User Guide/:
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+registerTaskWithMaintenanceWindow_serviceRoleArn :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_serviceRoleArn = Lens.lens (\RegisterTaskWithMaintenanceWindow' {serviceRoleArn} -> serviceRoleArn) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {serviceRoleArn = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-rtwmwPriority :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Natural)
-rtwmwPriority = lens _rtwmwPriority (\ s a -> s{_rtwmwPriority = a}) . mapping _Nat
+-- | The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
+registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
+registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | User-provided idempotency token.
-rtwmwClientToken :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
-rtwmwClientToken = lens _rtwmwClientToken (\ s a -> s{_rtwmwClientToken = a})
+-- | The targets (either instances or maintenance window targets).
+--
+-- One or more targets must be specified for maintenance window Run
+-- Command-type tasks. Depending on the task, targets are optional for
+-- other maintenance window task types (Automation, AWS Lambda, and AWS
+-- Step Functions). For more information about running tasks that do not
+-- specify targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+-- in the /AWS Systems Manager User Guide/.
+--
+-- Specify instances using the following format:
+--
+-- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
+--
+-- Specify maintenance window targets using the following format:
+--
+-- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
+registerTaskWithMaintenanceWindow_targets :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe [Target])
+registerTaskWithMaintenanceWindow_targets = Lens.lens (\RegisterTaskWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Lens._Coerce
 
--- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
-rtwmwTaskInvocationParameters :: Lens' RegisterTaskWithMaintenanceWindow (Maybe MaintenanceWindowTaskInvocationParameters)
-rtwmwTaskInvocationParameters = lens _rtwmwTaskInvocationParameters (\ s a -> s{_rtwmwTaskInvocationParameters = a})
+-- | The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
+registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | An optional name for the task.
-rtwmwName :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
-rtwmwName = lens _rtwmwName (\ s a -> s{_rtwmwName = a})
-
--- | A structure containing information about an Amazon S3 bucket to write instance-level logs to.
-rtwmwLoggingInfo :: Lens' RegisterTaskWithMaintenanceWindow (Maybe LoggingInfo)
-rtwmwLoggingInfo = lens _rtwmwLoggingInfo (\ s a -> s{_rtwmwLoggingInfo = a})
-
--- | An optional description for the task.
-rtwmwDescription :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
-rtwmwDescription = lens _rtwmwDescription (\ s a -> s{_rtwmwDescription = a}) . mapping _Sensitive
-
--- | The ID of the Maintenance Window the task should be added to.
-rtwmwWindowId :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwWindowId = lens _rtwmwWindowId (\ s a -> s{_rtwmwWindowId = a})
-
--- | The targets (either instances or Maintenance Window targets). Specify instances using the following format:  @Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>@  Specify Maintenance Window targets using the following format: @Key=<WindowTargetIds>,Values=<window-target-id-1>,<window-target-id-2>@
-rtwmwTargets :: Lens' RegisterTaskWithMaintenanceWindow [Target]
-rtwmwTargets = lens _rtwmwTargets (\ s a -> s{_rtwmwTargets = a}) . _Coerce
-
--- | The ARN of the task to execute
-rtwmwTaskARN :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwTaskARN = lens _rtwmwTaskARN (\ s a -> s{_rtwmwTaskARN = a})
-
--- | The role that should be assumed when executing the task.
-rtwmwServiceRoleARN :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwServiceRoleARN = lens _rtwmwServiceRoleARN (\ s a -> s{_rtwmwServiceRoleARN = a})
-
--- | The type of task being registered.
-rtwmwTaskType :: Lens' RegisterTaskWithMaintenanceWindow MaintenanceWindowTaskType
-rtwmwTaskType = lens _rtwmwTaskType (\ s a -> s{_rtwmwTaskType = a})
+registerTaskWithMaintenanceWindow_name :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_name = Lens.lens (\RegisterTaskWithMaintenanceWindow' {name} -> name) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | The maximum number of targets this task can be run for in parallel.
-rtwmwMaxConcurrency :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwMaxConcurrency = lens _rtwmwMaxConcurrency (\ s a -> s{_rtwmwMaxConcurrency = a})
+--
+-- For maintenance window tasks without a target specified, you cannot
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value does not affect the running of your
+-- task.
+registerTaskWithMaintenanceWindow_maxConcurrency :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxConcurrency} -> maxConcurrency) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxConcurrency = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | The maximum number of errors allowed before this task stops being scheduled.
-rtwmwMaxErrors :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwMaxErrors = lens _rtwmwMaxErrors (\ s a -> s{_rtwmwMaxErrors = a})
+-- | An optional description for the task.
+registerTaskWithMaintenanceWindow_description :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMaintenanceWindow' {description} -> description) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
-instance AWSRequest RegisterTaskWithMaintenanceWindow
-         where
-        type Rs RegisterTaskWithMaintenanceWindow =
-             RegisterTaskWithMaintenanceWindowResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterTaskWithMaintenanceWindowResponse' <$>
-                   (x .?> "WindowTaskId") <*> (pure (fromEnum s)))
+-- | A structure containing information about an S3 bucket to write
+-- instance-level logs to.
+--
+-- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
+-- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
+-- options in the @TaskInvocationParameters@ structure. For information
+-- about how Systems Manager handles these options for the supported
+-- maintenance window task types, see
+-- MaintenanceWindowTaskInvocationParameters.
+registerTaskWithMaintenanceWindow_loggingInfo :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe LoggingInfo)
+registerTaskWithMaintenanceWindow_loggingInfo = Lens.lens (\RegisterTaskWithMaintenanceWindow' {loggingInfo} -> loggingInfo) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {loggingInfo = a} :: RegisterTaskWithMaintenanceWindow)
 
-instance Hashable RegisterTaskWithMaintenanceWindow
-         where
+-- | User-provided idempotency token.
+registerTaskWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTaskWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTaskWithMaintenanceWindow)
 
-instance NFData RegisterTaskWithMaintenanceWindow
-         where
+-- | The ID of the maintenance window the task should be added to.
+registerTaskWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTaskWithMaintenanceWindow Prelude.Text
+registerTaskWithMaintenanceWindow_windowId = Lens.lens (\RegisterTaskWithMaintenanceWindow' {windowId} -> windowId) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {windowId = a} :: RegisterTaskWithMaintenanceWindow)
 
-instance ToHeaders RegisterTaskWithMaintenanceWindow
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.RegisterTaskWithMaintenanceWindow" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | The ARN of the task to run.
+registerTaskWithMaintenanceWindow_taskArn :: Lens.Lens' RegisterTaskWithMaintenanceWindow Prelude.Text
+registerTaskWithMaintenanceWindow_taskArn = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskArn} -> taskArn) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskArn = a} :: RegisterTaskWithMaintenanceWindow)
 
-instance ToJSON RegisterTaskWithMaintenanceWindow
-         where
-        toJSON RegisterTaskWithMaintenanceWindow'{..}
-          = object
-              (catMaybes
-                 [("TaskParameters" .=) <$> _rtwmwTaskParameters,
-                  ("Priority" .=) <$> _rtwmwPriority,
-                  ("ClientToken" .=) <$> _rtwmwClientToken,
-                  ("TaskInvocationParameters" .=) <$>
-                    _rtwmwTaskInvocationParameters,
-                  ("Name" .=) <$> _rtwmwName,
-                  ("LoggingInfo" .=) <$> _rtwmwLoggingInfo,
-                  ("Description" .=) <$> _rtwmwDescription,
-                  Just ("WindowId" .= _rtwmwWindowId),
-                  Just ("Targets" .= _rtwmwTargets),
-                  Just ("TaskArn" .= _rtwmwTaskARN),
-                  Just ("ServiceRoleArn" .= _rtwmwServiceRoleARN),
-                  Just ("TaskType" .= _rtwmwTaskType),
-                  Just ("MaxConcurrency" .= _rtwmwMaxConcurrency),
-                  Just ("MaxErrors" .= _rtwmwMaxErrors)])
+-- | The type of task being registered.
+registerTaskWithMaintenanceWindow_taskType :: Lens.Lens' RegisterTaskWithMaintenanceWindow MaintenanceWindowTaskType
+registerTaskWithMaintenanceWindow_taskType = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskType} -> taskType) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskType = a} :: RegisterTaskWithMaintenanceWindow)
 
-instance ToPath RegisterTaskWithMaintenanceWindow
-         where
-        toPath = const "/"
+instance
+  Core.AWSRequest
+    RegisterTaskWithMaintenanceWindow
+  where
+  type
+    AWSResponse RegisterTaskWithMaintenanceWindow =
+      RegisterTaskWithMaintenanceWindowResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterTaskWithMaintenanceWindowResponse'
+            Prelude.<$> (x Core..?> "WindowTaskId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToQuery RegisterTaskWithMaintenanceWindow
-         where
-        toQuery = const mempty
+instance
+  Prelude.Hashable
+    RegisterTaskWithMaintenanceWindow
 
--- | /See:/ 'registerTaskWithMaintenanceWindowResponse' smart constructor.
+instance
+  Prelude.NFData
+    RegisterTaskWithMaintenanceWindow
+
+instance
+  Core.ToHeaders
+    RegisterTaskWithMaintenanceWindow
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.RegisterTaskWithMaintenanceWindow" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToJSON
+    RegisterTaskWithMaintenanceWindow
+  where
+  toJSON RegisterTaskWithMaintenanceWindow' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("TaskParameters" Core..=)
+              Prelude.<$> taskParameters,
+            ("ServiceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("TaskInvocationParameters" Core..=)
+              Prelude.<$> taskInvocationParameters,
+            ("Name" Core..=) Prelude.<$> name,
+            ("MaxConcurrency" Core..=)
+              Prelude.<$> maxConcurrency,
+            ("Description" Core..=) Prelude.<$> description,
+            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("WindowId" Core..= windowId),
+            Prelude.Just ("TaskArn" Core..= taskArn),
+            Prelude.Just ("TaskType" Core..= taskType)
+          ]
+      )
+
+instance
+  Core.ToPath
+    RegisterTaskWithMaintenanceWindow
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    RegisterTaskWithMaintenanceWindow
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newRegisterTaskWithMaintenanceWindowResponse' smart constructor.
 data RegisterTaskWithMaintenanceWindowResponse = RegisterTaskWithMaintenanceWindowResponse'
-  { _rtwmwrsWindowTaskId   :: !(Maybe Text)
-  , _rtwmwrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the task in the maintenance window.
+    windowTaskId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterTaskWithMaintenanceWindowResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterTaskWithMaintenanceWindowResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtwmwrsWindowTaskId' - The id of the task in the Maintenance Window.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtwmwrsResponseStatus' - -- | The response status code.
-registerTaskWithMaintenanceWindowResponse
-    :: Int -- ^ 'rtwmwrsResponseStatus'
-    -> RegisterTaskWithMaintenanceWindowResponse
-registerTaskWithMaintenanceWindowResponse pResponseStatus_ =
-  RegisterTaskWithMaintenanceWindowResponse'
-    {_rtwmwrsWindowTaskId = Nothing, _rtwmwrsResponseStatus = pResponseStatus_}
+-- 'windowTaskId', 'registerTaskWithMaintenanceWindowResponse_windowTaskId' - The ID of the task in the maintenance window.
+--
+-- 'httpStatus', 'registerTaskWithMaintenanceWindowResponse_httpStatus' - The response's http status code.
+newRegisterTaskWithMaintenanceWindowResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterTaskWithMaintenanceWindowResponse
+newRegisterTaskWithMaintenanceWindowResponse
+  pHttpStatus_ =
+    RegisterTaskWithMaintenanceWindowResponse'
+      { windowTaskId =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | The ID of the task in the maintenance window.
+registerTaskWithMaintenanceWindowResponse_windowTaskId :: Lens.Lens' RegisterTaskWithMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindowResponse_windowTaskId = Lens.lens (\RegisterTaskWithMaintenanceWindowResponse' {windowTaskId} -> windowTaskId) (\s@RegisterTaskWithMaintenanceWindowResponse' {} a -> s {windowTaskId = a} :: RegisterTaskWithMaintenanceWindowResponse)
 
--- | The id of the task in the Maintenance Window.
-rtwmwrsWindowTaskId :: Lens' RegisterTaskWithMaintenanceWindowResponse (Maybe Text)
-rtwmwrsWindowTaskId = lens _rtwmwrsWindowTaskId (\ s a -> s{_rtwmwrsWindowTaskId = a})
+-- | The response's http status code.
+registerTaskWithMaintenanceWindowResponse_httpStatus :: Lens.Lens' RegisterTaskWithMaintenanceWindowResponse Prelude.Int
+registerTaskWithMaintenanceWindowResponse_httpStatus = Lens.lens (\RegisterTaskWithMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@RegisterTaskWithMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: RegisterTaskWithMaintenanceWindowResponse)
 
--- | -- | The response status code.
-rtwmwrsResponseStatus :: Lens' RegisterTaskWithMaintenanceWindowResponse Int
-rtwmwrsResponseStatus = lens _rtwmwrsResponseStatus (\ s a -> s{_rtwmwrsResponseStatus = a})
-
-instance NFData
-           RegisterTaskWithMaintenanceWindowResponse
-         where
+instance
+  Prelude.NFData
+    RegisterTaskWithMaintenanceWindowResponse

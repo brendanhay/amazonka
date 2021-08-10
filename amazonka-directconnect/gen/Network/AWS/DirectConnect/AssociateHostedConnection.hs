@@ -1,126 +1,156 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateHostedConnection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to AWS as it is being migrated.
+-- Associates a hosted connection and its virtual interfaces with a link
+-- aggregation group (LAG) or interconnect. If the target interconnect or
+-- LAG has an existing hosted connection with a conflicting VLAN number or
+-- IP address, the operation fails. This action temporarily interrupts the
+-- hosted connection\'s connectivity to AWS as it is being migrated.
 --
---
+-- Intended for use by AWS Direct Connect Partners only.
 module Network.AWS.DirectConnect.AssociateHostedConnection
-    (
-    -- * Creating a Request
-      associateHostedConnection
-    , AssociateHostedConnection
+  ( -- * Creating a Request
+    AssociateHostedConnection (..),
+    newAssociateHostedConnection,
+
     -- * Request Lenses
-    , assConnectionId
-    , assParentConnectionId
+    associateHostedConnection_connectionId,
+    associateHostedConnection_parentConnectionId,
 
     -- * Destructuring the Response
-    , connection
-    , Connection
+    Connection (..),
+    newConnection,
+
     -- * Response Lenses
-    , cLagId
-    , cVlan
-    , cLocation
-    , cAwsDevice
-    , cConnectionId
-    , cLoaIssueTime
-    , cPartnerName
-    , cConnectionName
-    , cBandwidth
-    , cOwnerAccount
-    , cRegion
-    , cConnectionState
-    ) where
+    connection_bandwidth,
+    connection_connectionState,
+    connection_awsDeviceV2,
+    connection_connectionName,
+    connection_providerName,
+    connection_connectionId,
+    connection_hasLogicalRedundancy,
+    connection_awsDevice,
+    connection_jumboFrameCapable,
+    connection_lagId,
+    connection_partnerName,
+    connection_tags,
+    connection_loaIssueTime,
+    connection_ownerAccount,
+    connection_region,
+    connection_location,
+    connection_vlan,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the AssociateHostedConnection operation.
---
---
---
--- /See:/ 'associateHostedConnection' smart constructor.
+-- | /See:/ 'newAssociateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
-  { _assConnectionId       :: !Text
-  , _assParentConnectionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the hosted connection.
+    connectionId :: Prelude.Text,
+    -- | The ID of the interconnect or the LAG.
+    parentConnectionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateHostedConnection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateHostedConnection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'assConnectionId' - The ID of the hosted connection. Example: dxcon-abc123 Default: None
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'assParentConnectionId' - The ID of the interconnect or the LAG. Example: dxcon-abc123 or dxlag-abc123 Default: None
-associateHostedConnection
-    :: Text -- ^ 'assConnectionId'
-    -> Text -- ^ 'assParentConnectionId'
-    -> AssociateHostedConnection
-associateHostedConnection pConnectionId_ pParentConnectionId_ =
-  AssociateHostedConnection'
-    { _assConnectionId = pConnectionId_
-    , _assParentConnectionId = pParentConnectionId_
-    }
+-- 'connectionId', 'associateHostedConnection_connectionId' - The ID of the hosted connection.
+--
+-- 'parentConnectionId', 'associateHostedConnection_parentConnectionId' - The ID of the interconnect or the LAG.
+newAssociateHostedConnection ::
+  -- | 'connectionId'
+  Prelude.Text ->
+  -- | 'parentConnectionId'
+  Prelude.Text ->
+  AssociateHostedConnection
+newAssociateHostedConnection
+  pConnectionId_
+  pParentConnectionId_ =
+    AssociateHostedConnection'
+      { connectionId =
+          pConnectionId_,
+        parentConnectionId = pParentConnectionId_
+      }
 
+-- | The ID of the hosted connection.
+associateHostedConnection_connectionId :: Lens.Lens' AssociateHostedConnection Prelude.Text
+associateHostedConnection_connectionId = Lens.lens (\AssociateHostedConnection' {connectionId} -> connectionId) (\s@AssociateHostedConnection' {} a -> s {connectionId = a} :: AssociateHostedConnection)
 
--- | The ID of the hosted connection. Example: dxcon-abc123 Default: None
-assConnectionId :: Lens' AssociateHostedConnection Text
-assConnectionId = lens _assConnectionId (\ s a -> s{_assConnectionId = a})
+-- | The ID of the interconnect or the LAG.
+associateHostedConnection_parentConnectionId :: Lens.Lens' AssociateHostedConnection Prelude.Text
+associateHostedConnection_parentConnectionId = Lens.lens (\AssociateHostedConnection' {parentConnectionId} -> parentConnectionId) (\s@AssociateHostedConnection' {} a -> s {parentConnectionId = a} :: AssociateHostedConnection)
 
--- | The ID of the interconnect or the LAG. Example: dxcon-abc123 or dxlag-abc123 Default: None
-assParentConnectionId :: Lens' AssociateHostedConnection Text
-assParentConnectionId = lens _assParentConnectionId (\ s a -> s{_assParentConnectionId = a})
+instance Core.AWSRequest AssociateHostedConnection where
+  type
+    AWSResponse AssociateHostedConnection =
+      Connection
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest AssociateHostedConnection where
-        type Rs AssociateHostedConnection = Connection
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable AssociateHostedConnection
 
-instance Hashable AssociateHostedConnection where
+instance Prelude.NFData AssociateHostedConnection
 
-instance NFData AssociateHostedConnection where
+instance Core.ToHeaders AssociateHostedConnection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.AssociateHostedConnection" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders AssociateHostedConnection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.AssociateHostedConnection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON AssociateHostedConnection where
+  toJSON AssociateHostedConnection' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just
+              ("parentConnectionId" Core..= parentConnectionId)
+          ]
+      )
 
-instance ToJSON AssociateHostedConnection where
-        toJSON AssociateHostedConnection'{..}
-          = object
-              (catMaybes
-                 [Just ("connectionId" .= _assConnectionId),
-                  Just
-                    ("parentConnectionId" .= _assParentConnectionId)])
+instance Core.ToPath AssociateHostedConnection where
+  toPath = Prelude.const "/"
 
-instance ToPath AssociateHostedConnection where
-        toPath = const "/"
-
-instance ToQuery AssociateHostedConnection where
-        toQuery = const mempty
+instance Core.ToQuery AssociateHostedConnection where
+  toQuery = Prelude.const Prelude.mempty

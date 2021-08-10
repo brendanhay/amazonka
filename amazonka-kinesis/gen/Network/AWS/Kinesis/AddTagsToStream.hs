@@ -1,126 +1,150 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates tags for the specified Kinesis data stream. Each stream can have up to 10 tags.
+-- Adds or updates tags for the specified Kinesis data stream. Each time
+-- you invoke this operation, you can specify up to 10 tags. If you want to
+-- add more than 10 tags to your stream, you can invoke this operation
+-- multiple times. In total, each stream can have up to 50 tags.
 --
+-- If tags have already been assigned to the stream, @AddTagsToStream@
+-- overwrites any existing tags that correspond to the specified tag keys.
 --
--- If tags have already been assigned to the stream, @AddTagsToStream@ overwrites any existing tags that correspond to the specified tag keys.
---
--- 'AddTagsToStream' has a limit of five transactions per second per account.
---
+-- AddTagsToStream has a limit of five transactions per second per account.
 module Network.AWS.Kinesis.AddTagsToStream
-    (
-    -- * Creating a Request
-      addTagsToStream
-    , AddTagsToStream
+  ( -- * Creating a Request
+    AddTagsToStream (..),
+    newAddTagsToStream,
+
     -- * Request Lenses
-    , attsStreamName
-    , attsTags
+    addTagsToStream_streamName,
+    addTagsToStream_tags,
 
     -- * Destructuring the Response
-    , addTagsToStreamResponse
-    , AddTagsToStreamResponse
-    ) where
+    AddTagsToStreamResponse (..),
+    newAddTagsToStreamResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for @AddTagsToStream@ .
+-- | Represents the input for @AddTagsToStream@.
 --
---
---
--- /See:/ 'addTagsToStream' smart constructor.
+-- /See:/ 'newAddTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
-  { _attsStreamName :: !Text
-  , _attsTags       :: !(Map Text Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the stream.
+    streamName :: Prelude.Text,
+    -- | A set of up to 10 key-value pairs to use to create the tags.
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'attsStreamName' - The name of the stream.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'attsTags' - The set of key-value pairs to use to create the tags.
-addTagsToStream
-    :: Text -- ^ 'attsStreamName'
-    -> AddTagsToStream
-addTagsToStream pStreamName_ =
-  AddTagsToStream' {_attsStreamName = pStreamName_, _attsTags = mempty}
-
+-- 'streamName', 'addTagsToStream_streamName' - The name of the stream.
+--
+-- 'tags', 'addTagsToStream_tags' - A set of up to 10 key-value pairs to use to create the tags.
+newAddTagsToStream ::
+  -- | 'streamName'
+  Prelude.Text ->
+  AddTagsToStream
+newAddTagsToStream pStreamName_ =
+  AddTagsToStream'
+    { streamName = pStreamName_,
+      tags = Prelude.mempty
+    }
 
 -- | The name of the stream.
-attsStreamName :: Lens' AddTagsToStream Text
-attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a})
+addTagsToStream_streamName :: Lens.Lens' AddTagsToStream Prelude.Text
+addTagsToStream_streamName = Lens.lens (\AddTagsToStream' {streamName} -> streamName) (\s@AddTagsToStream' {} a -> s {streamName = a} :: AddTagsToStream)
 
--- | The set of key-value pairs to use to create the tags.
-attsTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map
+-- | A set of up to 10 key-value pairs to use to create the tags.
+addTagsToStream_tags :: Lens.Lens' AddTagsToStream (Prelude.HashMap Prelude.Text Prelude.Text)
+addTagsToStream_tags = Lens.lens (\AddTagsToStream' {tags} -> tags) (\s@AddTagsToStream' {} a -> s {tags = a} :: AddTagsToStream) Prelude.. Lens._Coerce
 
-instance AWSRequest AddTagsToStream where
-        type Rs AddTagsToStream = AddTagsToStreamResponse
-        request = postJSON kinesis
-        response = receiveNull AddTagsToStreamResponse'
+instance Core.AWSRequest AddTagsToStream where
+  type
+    AWSResponse AddTagsToStream =
+      AddTagsToStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull AddTagsToStreamResponse'
 
-instance Hashable AddTagsToStream where
+instance Prelude.Hashable AddTagsToStream
 
-instance NFData AddTagsToStream where
+instance Prelude.NFData AddTagsToStream
 
-instance ToHeaders AddTagsToStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Kinesis_20131202.AddTagsToStream" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AddTagsToStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Kinesis_20131202.AddTagsToStream" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AddTagsToStream where
-        toJSON AddTagsToStream'{..}
-          = object
-              (catMaybes
-                 [Just ("StreamName" .= _attsStreamName),
-                  Just ("Tags" .= _attsTags)])
+instance Core.ToJSON AddTagsToStream where
+  toJSON AddTagsToStream' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just ("Tags" Core..= tags)
+          ]
+      )
 
-instance ToPath AddTagsToStream where
-        toPath = const "/"
+instance Core.ToPath AddTagsToStream where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddTagsToStream where
-        toQuery = const mempty
+instance Core.ToQuery AddTagsToStream where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'addTagsToStreamResponse' smart constructor.
-data AddTagsToStreamResponse =
-  AddTagsToStreamResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAddTagsToStreamResponse' smart constructor.
+data AddTagsToStreamResponse = AddTagsToStreamResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToStreamResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToStreamResponse' with all optional fields omitted.
 --
-addTagsToStreamResponse
-    :: AddTagsToStreamResponse
-addTagsToStreamResponse = AddTagsToStreamResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAddTagsToStreamResponse ::
+  AddTagsToStreamResponse
+newAddTagsToStreamResponse = AddTagsToStreamResponse'
 
-
-instance NFData AddTagsToStreamResponse where
+instance Prelude.NFData AddTagsToStreamResponse

@@ -1,139 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.StopMatchmaking
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a matchmaking ticket that is currently being processed. To stop the matchmaking operation, specify the ticket ID. If successful, work on the ticket is stopped, and the ticket status is changed to @CANCELLED@ .
+-- Cancels a matchmaking ticket or match backfill ticket that is currently
+-- being processed. To stop the matchmaking operation, specify the ticket
+-- ID. If successful, work on the ticket is stopped, and the ticket status
+-- is changed to @CANCELLED@.
 --
+-- This call is also used to turn off automatic backfill for an individual
+-- game session. This is for game sessions that are created with a
+-- matchmaking configuration that has automatic backfill enabled. The
+-- ticket ID is included in the @MatchmakerData@ of an updated game session
+-- object, which is provided to the game server.
 --
--- Matchmaking-related operations include:
+-- If the operation is successful, the service sends back an empty JSON
+-- struct with the HTTP 200 response (not an empty HTTP body).
 --
---     * 'StartMatchmaking'
+-- __Learn more__
 --
---     * 'DescribeMatchmaking'
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a Game Client>
 --
---     * 'StopMatchmaking'
+-- __Related operations__
 --
---     * 'AcceptMatch'
+-- -   StartMatchmaking
 --
---     * 'StartMatchBackfill'
+-- -   DescribeMatchmaking
 --
+-- -   StopMatchmaking
 --
+-- -   AcceptMatch
 --
+-- -   StartMatchBackfill
 module Network.AWS.GameLift.StopMatchmaking
-    (
-    -- * Creating a Request
-      stopMatchmaking
-    , StopMatchmaking
+  ( -- * Creating a Request
+    StopMatchmaking (..),
+    newStopMatchmaking,
+
     -- * Request Lenses
-    , smTicketId
+    stopMatchmaking_ticketId,
 
     -- * Destructuring the Response
-    , stopMatchmakingResponse
-    , StopMatchmakingResponse
+    StopMatchmakingResponse (..),
+    newStopMatchmakingResponse,
+
     -- * Response Lenses
-    , smrsResponseStatus
-    ) where
+    stopMatchmakingResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
+-- /See:/ 'newStopMatchmaking' smart constructor.
+data StopMatchmaking = StopMatchmaking'
+  { -- | A unique identifier for a matchmaking ticket.
+    ticketId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'StopMatchmaking' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'stopMatchmaking' smart constructor.
-newtype StopMatchmaking = StopMatchmaking'
-  { _smTicketId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StopMatchmaking' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'ticketId', 'stopMatchmaking_ticketId' - A unique identifier for a matchmaking ticket.
+newStopMatchmaking ::
+  -- | 'ticketId'
+  Prelude.Text ->
+  StopMatchmaking
+newStopMatchmaking pTicketId_ =
+  StopMatchmaking' {ticketId = pTicketId_}
+
+-- | A unique identifier for a matchmaking ticket.
+stopMatchmaking_ticketId :: Lens.Lens' StopMatchmaking Prelude.Text
+stopMatchmaking_ticketId = Lens.lens (\StopMatchmaking' {ticketId} -> ticketId) (\s@StopMatchmaking' {} a -> s {ticketId = a} :: StopMatchmaking)
+
+instance Core.AWSRequest StopMatchmaking where
+  type
+    AWSResponse StopMatchmaking =
+      StopMatchmakingResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          StopMatchmakingResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable StopMatchmaking
+
+instance Prelude.NFData StopMatchmaking
+
+instance Core.ToHeaders StopMatchmaking where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("GameLift.StopMatchmaking" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON StopMatchmaking where
+  toJSON StopMatchmaking' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("TicketId" Core..= ticketId)]
+      )
+
+instance Core.ToPath StopMatchmaking where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery StopMatchmaking where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newStopMatchmakingResponse' smart constructor.
+data StopMatchmakingResponse = StopMatchmakingResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'StopMatchmakingResponse' with all optional fields omitted.
 --
--- * 'smTicketId' - Unique identifier for a matchmaking ticket.
-stopMatchmaking
-    :: Text -- ^ 'smTicketId'
-    -> StopMatchmaking
-stopMatchmaking pTicketId_ = StopMatchmaking' {_smTicketId = pTicketId_}
-
-
--- | Unique identifier for a matchmaking ticket.
-smTicketId :: Lens' StopMatchmaking Text
-smTicketId = lens _smTicketId (\ s a -> s{_smTicketId = a})
-
-instance AWSRequest StopMatchmaking where
-        type Rs StopMatchmaking = StopMatchmakingResponse
-        request = postJSON gameLift
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StopMatchmakingResponse' <$> (pure (fromEnum s)))
-
-instance Hashable StopMatchmaking where
-
-instance NFData StopMatchmaking where
-
-instance ToHeaders StopMatchmaking where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.StopMatchmaking" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON StopMatchmaking where
-        toJSON StopMatchmaking'{..}
-          = object
-              (catMaybes [Just ("TicketId" .= _smTicketId)])
-
-instance ToPath StopMatchmaking where
-        toPath = const "/"
-
-instance ToQuery StopMatchmaking where
-        toQuery = const mempty
-
--- | /See:/ 'stopMatchmakingResponse' smart constructor.
-newtype StopMatchmakingResponse = StopMatchmakingResponse'
-  { _smrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StopMatchmakingResponse' with the minimum fields required to make a request.
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'smrsResponseStatus' - -- | The response status code.
-stopMatchmakingResponse
-    :: Int -- ^ 'smrsResponseStatus'
-    -> StopMatchmakingResponse
-stopMatchmakingResponse pResponseStatus_ =
-  StopMatchmakingResponse' {_smrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'stopMatchmakingResponse_httpStatus' - The response's http status code.
+newStopMatchmakingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopMatchmakingResponse
+newStopMatchmakingResponse pHttpStatus_ =
+  StopMatchmakingResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Prelude.Int
+stopMatchmakingResponse_httpStatus = Lens.lens (\StopMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StopMatchmakingResponse' {} a -> s {httpStatus = a} :: StopMatchmakingResponse)
 
--- | -- | The response status code.
-smrsResponseStatus :: Lens' StopMatchmakingResponse Int
-smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a})
-
-instance NFData StopMatchmakingResponse where
+instance Prelude.NFData StopMatchmakingResponse

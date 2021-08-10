@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Batch.DeleteComputeEnvironment
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,108 +22,144 @@
 --
 -- Deletes an AWS Batch compute environment.
 --
---
--- Before you can delete a compute environment, you must set its state to @DISABLED@ with the 'UpdateComputeEnvironment' API operation and disassociate it from any job queues with the 'UpdateJobQueue' API operation.
---
+-- Before you can delete a compute environment, you must set its state to
+-- @DISABLED@ with the UpdateComputeEnvironment API operation and
+-- disassociate it from any job queues with the UpdateJobQueue API
+-- operation. Compute environments that use AWS Fargate resources must
+-- terminate all active jobs on that compute environment before deleting
+-- the compute environment. If this isn\'t done, the compute environment
+-- will end up in an invalid state.
 module Network.AWS.Batch.DeleteComputeEnvironment
-    (
-    -- * Creating a Request
-      deleteComputeEnvironment
-    , DeleteComputeEnvironment
+  ( -- * Creating a Request
+    DeleteComputeEnvironment (..),
+    newDeleteComputeEnvironment,
+
     -- * Request Lenses
-    , dceComputeEnvironment
+    deleteComputeEnvironment_computeEnvironment,
 
     -- * Destructuring the Response
-    , deleteComputeEnvironmentResponse
-    , DeleteComputeEnvironmentResponse
+    DeleteComputeEnvironmentResponse (..),
+    newDeleteComputeEnvironmentResponse,
+
     -- * Response Lenses
-    , dcersResponseStatus
-    ) where
+    deleteComputeEnvironmentResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Batch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteComputeEnvironment' smart constructor.
-newtype DeleteComputeEnvironment = DeleteComputeEnvironment'
-  { _dceComputeEnvironment :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteComputeEnvironment' with the minimum fields required to make a request.
+-- | Contains the parameters for @DeleteComputeEnvironment@.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- /See:/ 'newDeleteComputeEnvironment' smart constructor.
+data DeleteComputeEnvironment = DeleteComputeEnvironment'
+  { -- | The name or Amazon Resource Name (ARN) of the compute environment to
+    -- delete.
+    computeEnvironment :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteComputeEnvironment' with all optional fields omitted.
 --
--- * 'dceComputeEnvironment' - The name or Amazon Resource Name (ARN) of the compute environment to delete.
-deleteComputeEnvironment
-    :: Text -- ^ 'dceComputeEnvironment'
-    -> DeleteComputeEnvironment
-deleteComputeEnvironment pComputeEnvironment_ =
-  DeleteComputeEnvironment' {_dceComputeEnvironment = pComputeEnvironment_}
-
-
--- | The name or Amazon Resource Name (ARN) of the compute environment to delete.
-dceComputeEnvironment :: Lens' DeleteComputeEnvironment Text
-dceComputeEnvironment = lens _dceComputeEnvironment (\ s a -> s{_dceComputeEnvironment = a})
-
-instance AWSRequest DeleteComputeEnvironment where
-        type Rs DeleteComputeEnvironment =
-             DeleteComputeEnvironmentResponse
-        request = postJSON batch
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteComputeEnvironmentResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable DeleteComputeEnvironment where
-
-instance NFData DeleteComputeEnvironment where
-
-instance ToHeaders DeleteComputeEnvironment where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteComputeEnvironment where
-        toJSON DeleteComputeEnvironment'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("computeEnvironment" .= _dceComputeEnvironment)])
-
-instance ToPath DeleteComputeEnvironment where
-        toPath = const "/v1/deletecomputeenvironment"
-
-instance ToQuery DeleteComputeEnvironment where
-        toQuery = const mempty
-
--- | /See:/ 'deleteComputeEnvironmentResponse' smart constructor.
-newtype DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
-  { _dcersResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteComputeEnvironmentResponse' with the minimum fields required to make a request.
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcersResponseStatus' - -- | The response status code.
-deleteComputeEnvironmentResponse
-    :: Int -- ^ 'dcersResponseStatus'
-    -> DeleteComputeEnvironmentResponse
-deleteComputeEnvironmentResponse pResponseStatus_ =
-  DeleteComputeEnvironmentResponse' {_dcersResponseStatus = pResponseStatus_}
+-- 'computeEnvironment', 'deleteComputeEnvironment_computeEnvironment' - The name or Amazon Resource Name (ARN) of the compute environment to
+-- delete.
+newDeleteComputeEnvironment ::
+  -- | 'computeEnvironment'
+  Prelude.Text ->
+  DeleteComputeEnvironment
+newDeleteComputeEnvironment pComputeEnvironment_ =
+  DeleteComputeEnvironment'
+    { computeEnvironment =
+        pComputeEnvironment_
+    }
 
+-- | The name or Amazon Resource Name (ARN) of the compute environment to
+-- delete.
+deleteComputeEnvironment_computeEnvironment :: Lens.Lens' DeleteComputeEnvironment Prelude.Text
+deleteComputeEnvironment_computeEnvironment = Lens.lens (\DeleteComputeEnvironment' {computeEnvironment} -> computeEnvironment) (\s@DeleteComputeEnvironment' {} a -> s {computeEnvironment = a} :: DeleteComputeEnvironment)
 
--- | -- | The response status code.
-dcersResponseStatus :: Lens' DeleteComputeEnvironmentResponse Int
-dcersResponseStatus = lens _dcersResponseStatus (\ s a -> s{_dcersResponseStatus = a})
+instance Core.AWSRequest DeleteComputeEnvironment where
+  type
+    AWSResponse DeleteComputeEnvironment =
+      DeleteComputeEnvironmentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteComputeEnvironmentResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DeleteComputeEnvironmentResponse
-         where
+instance Prelude.Hashable DeleteComputeEnvironment
+
+instance Prelude.NFData DeleteComputeEnvironment
+
+instance Core.ToHeaders DeleteComputeEnvironment where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteComputeEnvironment where
+  toJSON DeleteComputeEnvironment' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("computeEnvironment" Core..= computeEnvironment)
+          ]
+      )
+
+instance Core.ToPath DeleteComputeEnvironment where
+  toPath = Prelude.const "/v1/deletecomputeenvironment"
+
+instance Core.ToQuery DeleteComputeEnvironment where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteComputeEnvironmentResponse' smart constructor.
+data DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteComputeEnvironmentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteComputeEnvironmentResponse_httpStatus' - The response's http status code.
+newDeleteComputeEnvironmentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteComputeEnvironmentResponse
+newDeleteComputeEnvironmentResponse pHttpStatus_ =
+  DeleteComputeEnvironmentResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+deleteComputeEnvironmentResponse_httpStatus :: Lens.Lens' DeleteComputeEnvironmentResponse Prelude.Int
+deleteComputeEnvironmentResponse_httpStatus = Lens.lens (\DeleteComputeEnvironmentResponse' {httpStatus} -> httpStatus) (\s@DeleteComputeEnvironmentResponse' {} a -> s {httpStatus = a} :: DeleteComputeEnvironmentResponse)
+
+instance
+  Prelude.NFData
+    DeleteComputeEnvironmentResponse

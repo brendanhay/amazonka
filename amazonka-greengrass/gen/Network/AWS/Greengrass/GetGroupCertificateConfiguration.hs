@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupCertificateConfiguration
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,139 +22,183 @@
 --
 -- Retrieves the current configuration for the CA used by the group.
 module Network.AWS.Greengrass.GetGroupCertificateConfiguration
-    (
-    -- * Creating a Request
-      getGroupCertificateConfiguration
-    , GetGroupCertificateConfiguration
+  ( -- * Creating a Request
+    GetGroupCertificateConfiguration (..),
+    newGetGroupCertificateConfiguration,
+
     -- * Request Lenses
-    , ggccGroupId
+    getGroupCertificateConfiguration_groupId,
 
     -- * Destructuring the Response
-    , getGroupCertificateConfigurationResponse
-    , GetGroupCertificateConfigurationResponse
+    GetGroupCertificateConfigurationResponse (..),
+    newGetGroupCertificateConfigurationResponse,
+
     -- * Response Lenses
-    , ggccrsCertificateAuthorityExpiryInMilliseconds
-    , ggccrsGroupId
-    , ggccrsCertificateExpiryInMilliseconds
-    , ggccrsResponseStatus
-    ) where
+    getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds,
+    getGroupCertificateConfigurationResponse_groupId,
+    getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds,
+    getGroupCertificateConfigurationResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getGroupCertificateConfiguration' smart constructor.
-newtype GetGroupCertificateConfiguration = GetGroupCertificateConfiguration'
-  { _ggccGroupId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetGroupCertificateConfiguration' smart constructor.
+data GetGroupCertificateConfiguration = GetGroupCertificateConfiguration'
+  { -- | The ID of the Greengrass group.
+    groupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGroupCertificateConfiguration' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGroupCertificateConfiguration' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggccGroupId' - The ID of the AWS Greengrass group.
-getGroupCertificateConfiguration
-    :: Text -- ^ 'ggccGroupId'
-    -> GetGroupCertificateConfiguration
-getGroupCertificateConfiguration pGroupId_ =
-  GetGroupCertificateConfiguration' {_ggccGroupId = pGroupId_}
-
-
--- | The ID of the AWS Greengrass group.
-ggccGroupId :: Lens' GetGroupCertificateConfiguration Text
-ggccGroupId = lens _ggccGroupId (\ s a -> s{_ggccGroupId = a})
-
-instance AWSRequest GetGroupCertificateConfiguration
-         where
-        type Rs GetGroupCertificateConfiguration =
-             GetGroupCertificateConfigurationResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetGroupCertificateConfigurationResponse' <$>
-                   (x .?> "CertificateAuthorityExpiryInMilliseconds")
-                     <*> (x .?> "GroupId")
-                     <*> (x .?> "CertificateExpiryInMilliseconds")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetGroupCertificateConfiguration
-         where
-
-instance NFData GetGroupCertificateConfiguration
-         where
-
-instance ToHeaders GetGroupCertificateConfiguration
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetGroupCertificateConfiguration
-         where
-        toPath GetGroupCertificateConfiguration'{..}
-          = mconcat
-              ["/greengrass/groups/", toBS _ggccGroupId,
-               "/certificateauthorities/configuration/expiry"]
-
-instance ToQuery GetGroupCertificateConfiguration
-         where
-        toQuery = const mempty
-
--- | /See:/ 'getGroupCertificateConfigurationResponse' smart constructor.
-data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfigurationResponse'
-  { _ggccrsCertificateAuthorityExpiryInMilliseconds :: !(Maybe Text)
-  , _ggccrsGroupId                                  :: !(Maybe Text)
-  , _ggccrsCertificateExpiryInMilliseconds          :: !(Maybe Text)
-  , _ggccrsResponseStatus                           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetGroupCertificateConfigurationResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggccrsCertificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
---
--- * 'ggccrsGroupId' - The ID of the group certificate configuration.
---
--- * 'ggccrsCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
---
--- * 'ggccrsResponseStatus' - -- | The response status code.
-getGroupCertificateConfigurationResponse
-    :: Int -- ^ 'ggccrsResponseStatus'
-    -> GetGroupCertificateConfigurationResponse
-getGroupCertificateConfigurationResponse pResponseStatus_ =
-  GetGroupCertificateConfigurationResponse'
-    { _ggccrsCertificateAuthorityExpiryInMilliseconds = Nothing
-    , _ggccrsGroupId = Nothing
-    , _ggccrsCertificateExpiryInMilliseconds = Nothing
-    , _ggccrsResponseStatus = pResponseStatus_
+-- 'groupId', 'getGroupCertificateConfiguration_groupId' - The ID of the Greengrass group.
+newGetGroupCertificateConfiguration ::
+  -- | 'groupId'
+  Prelude.Text ->
+  GetGroupCertificateConfiguration
+newGetGroupCertificateConfiguration pGroupId_ =
+  GetGroupCertificateConfiguration'
+    { groupId =
+        pGroupId_
     }
 
+-- | The ID of the Greengrass group.
+getGroupCertificateConfiguration_groupId :: Lens.Lens' GetGroupCertificateConfiguration Prelude.Text
+getGroupCertificateConfiguration_groupId = Lens.lens (\GetGroupCertificateConfiguration' {groupId} -> groupId) (\s@GetGroupCertificateConfiguration' {} a -> s {groupId = a} :: GetGroupCertificateConfiguration)
 
--- | The amount of time remaining before the certificate authority expires, in milliseconds.
-ggccrsCertificateAuthorityExpiryInMilliseconds :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsCertificateAuthorityExpiryInMilliseconds = lens _ggccrsCertificateAuthorityExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateAuthorityExpiryInMilliseconds = a})
+instance
+  Core.AWSRequest
+    GetGroupCertificateConfiguration
+  where
+  type
+    AWSResponse GetGroupCertificateConfiguration =
+      GetGroupCertificateConfigurationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGroupCertificateConfigurationResponse'
+            Prelude.<$> (x Core..?> "CertificateExpiryInMilliseconds")
+            Prelude.<*> (x Core..?> "GroupId")
+            Prelude.<*> ( x
+                            Core..?> "CertificateAuthorityExpiryInMilliseconds"
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    GetGroupCertificateConfiguration
+
+instance
+  Prelude.NFData
+    GetGroupCertificateConfiguration
+
+instance
+  Core.ToHeaders
+    GetGroupCertificateConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetGroupCertificateConfiguration where
+  toPath GetGroupCertificateConfiguration' {..} =
+    Prelude.mconcat
+      [ "/greengrass/groups/",
+        Core.toBS groupId,
+        "/certificateauthorities/configuration/expiry"
+      ]
+
+instance
+  Core.ToQuery
+    GetGroupCertificateConfiguration
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetGroupCertificateConfigurationResponse' smart constructor.
+data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfigurationResponse'
+  { -- | The amount of time remaining before the certificate expires, in
+    -- milliseconds.
+    certificateExpiryInMilliseconds :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group certificate configuration.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time remaining before the certificate authority expires,
+    -- in milliseconds.
+    certificateAuthorityExpiryInMilliseconds :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetGroupCertificateConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'certificateExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in
+-- milliseconds.
+--
+-- 'groupId', 'getGroupCertificateConfigurationResponse_groupId' - The ID of the group certificate configuration.
+--
+-- 'certificateAuthorityExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires,
+-- in milliseconds.
+--
+-- 'httpStatus', 'getGroupCertificateConfigurationResponse_httpStatus' - The response's http status code.
+newGetGroupCertificateConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetGroupCertificateConfigurationResponse
+newGetGroupCertificateConfigurationResponse
+  pHttpStatus_ =
+    GetGroupCertificateConfigurationResponse'
+      { certificateExpiryInMilliseconds =
+          Prelude.Nothing,
+        groupId = Prelude.Nothing,
+        certificateAuthorityExpiryInMilliseconds =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | The amount of time remaining before the certificate expires, in
+-- milliseconds.
+getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds = Lens.lens (\GetGroupCertificateConfigurationResponse' {certificateExpiryInMilliseconds} -> certificateExpiryInMilliseconds) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {certificateExpiryInMilliseconds = a} :: GetGroupCertificateConfigurationResponse)
 
 -- | The ID of the group certificate configuration.
-ggccrsGroupId :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsGroupId = lens _ggccrsGroupId (\ s a -> s{_ggccrsGroupId = a})
+getGroupCertificateConfigurationResponse_groupId :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateConfigurationResponse_groupId = Lens.lens (\GetGroupCertificateConfigurationResponse' {groupId} -> groupId) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {groupId = a} :: GetGroupCertificateConfigurationResponse)
 
--- | The amount of time remaining before the certificate expires, in milliseconds.
-ggccrsCertificateExpiryInMilliseconds :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsCertificateExpiryInMilliseconds = lens _ggccrsCertificateExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateExpiryInMilliseconds = a})
+-- | The amount of time remaining before the certificate authority expires,
+-- in milliseconds.
+getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds = Lens.lens (\GetGroupCertificateConfigurationResponse' {certificateAuthorityExpiryInMilliseconds} -> certificateAuthorityExpiryInMilliseconds) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {certificateAuthorityExpiryInMilliseconds = a} :: GetGroupCertificateConfigurationResponse)
 
--- | -- | The response status code.
-ggccrsResponseStatus :: Lens' GetGroupCertificateConfigurationResponse Int
-ggccrsResponseStatus = lens _ggccrsResponseStatus (\ s a -> s{_ggccrsResponseStatus = a})
+-- | The response's http status code.
+getGroupCertificateConfigurationResponse_httpStatus :: Lens.Lens' GetGroupCertificateConfigurationResponse Prelude.Int
+getGroupCertificateConfigurationResponse_httpStatus = Lens.lens (\GetGroupCertificateConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {httpStatus = a} :: GetGroupCertificateConfigurationResponse)
 
-instance NFData
-           GetGroupCertificateConfigurationResponse
-         where
+instance
+  Prelude.NFData
+    GetGroupCertificateConfigurationResponse

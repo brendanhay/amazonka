@@ -1,201 +1,421 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified alarms. If no alarms are specified, all alarms are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
---
---
+-- Retrieves the specified alarms. You can filter the results by specifying
+-- a prefix for the alarm name, the alarm state, or a prefix for any
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
-    (
-    -- * Creating a Request
-      describeAlarms
-    , DescribeAlarms
+  ( -- * Creating a Request
+    DescribeAlarms (..),
+    newDescribeAlarms,
+
     -- * Request Lenses
-    , daAlarmNamePrefix
-    , daActionPrefix
-    , daNextToken
-    , daStateValue
-    , daAlarmNames
-    , daMaxRecords
+    describeAlarms_nextToken,
+    describeAlarms_alarmTypes,
+    describeAlarms_alarmNames,
+    describeAlarms_stateValue,
+    describeAlarms_alarmNamePrefix,
+    describeAlarms_actionPrefix,
+    describeAlarms_childrenOfAlarmName,
+    describeAlarms_parentsOfAlarmName,
+    describeAlarms_maxRecords,
 
     -- * Destructuring the Response
-    , describeAlarmsResponse
-    , DescribeAlarmsResponse
+    DescribeAlarmsResponse (..),
+    newDescribeAlarmsResponse,
+
     -- * Response Lenses
-    , darsMetricAlarms
-    , darsNextToken
-    , darsResponseStatus
-    ) where
+    describeAlarmsResponse_nextToken,
+    describeAlarmsResponse_metricAlarms,
+    describeAlarmsResponse_compositeAlarms,
+    describeAlarmsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAlarms' smart constructor.
+-- | /See:/ 'newDescribeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
-  { _daAlarmNamePrefix :: !(Maybe Text)
-  , _daActionPrefix    :: !(Maybe Text)
-  , _daNextToken       :: !(Maybe Text)
-  , _daStateValue      :: !(Maybe StateValue)
-  , _daAlarmNames      :: !(Maybe [Text])
-  , _daMaxRecords      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned by a previous call to indicate that there is more
+    -- data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify whether you want the operation to return
+    -- metric alarms or composite alarms. If you omit this parameter, only
+    -- metric alarms are returned.
+    alarmTypes :: Prelude.Maybe [AlarmType],
+    -- | The names of the alarms to retrieve information about.
+    alarmNames :: Prelude.Maybe [Prelude.Text],
+    -- | Specify this parameter to receive information only about alarms that are
+    -- currently in the state that you specify.
+    stateValue :: Prelude.Maybe StateValue,
+    -- | An alarm name prefix. If you specify this parameter, you receive
+    -- information about all alarms that have names that start with this
+    -- prefix.
+    --
+    -- If this parameter is specified, you cannot specify @AlarmNames@.
+    alarmNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to filter the results of the operation to only those
+    -- alarms that use a certain alarm action. For example, you could specify
+    -- the ARN of an SNS topic to find all alarms that send notifications to
+    -- that topic.
+    actionPrefix :: Prelude.Maybe Prelude.Text,
+    -- | If you use this parameter and specify the name of a composite alarm, the
+    -- operation returns information about the \"children\" alarms of the alarm
+    -- you specify. These are the metric alarms and composite alarms referenced
+    -- in the @AlarmRule@ field of the composite alarm that you specify in
+    -- @ChildrenOfAlarmName@. Information about the composite alarm that you
+    -- name in @ChildrenOfAlarmName@ is not returned.
+    --
+    -- If you specify @ChildrenOfAlarmName@, you cannot specify any other
+    -- parameters in the request except for @MaxRecords@ and @NextToken@. If
+    -- you do so, you receive a validation error.
+    --
+    -- Only the @Alarm Name@, @ARN@, @StateValue@
+    -- (OK\/ALARM\/INSUFFICIENT_DATA), and @StateUpdatedTimestamp@ information
+    -- are returned by this operation when you use this parameter. To get
+    -- complete information about these alarms, perform another
+    -- @DescribeAlarms@ operation and specify the parent alarm names in the
+    -- @AlarmNames@ parameter.
+    childrenOfAlarmName :: Prelude.Maybe Prelude.Text,
+    -- | If you use this parameter and specify the name of a metric or composite
+    -- alarm, the operation returns information about the \"parent\" alarms of
+    -- the alarm you specify. These are the composite alarms that have
+    -- @AlarmRule@ parameters that reference the alarm named in
+    -- @ParentsOfAlarmName@. Information about the alarm that you specify in
+    -- @ParentsOfAlarmName@ is not returned.
+    --
+    -- If you specify @ParentsOfAlarmName@, you cannot specify any other
+    -- parameters in the request except for @MaxRecords@ and @NextToken@. If
+    -- you do so, you receive a validation error.
+    --
+    -- Only the Alarm Name and ARN are returned by this operation when you use
+    -- this parameter. To get complete information about these alarms, perform
+    -- another @DescribeAlarms@ operation and specify the parent alarm names in
+    -- the @AlarmNames@ parameter.
+    parentsOfAlarmName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of alarm descriptions to retrieve.
+    maxRecords :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAlarms' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAlarms' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daAlarmNamePrefix' - The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daActionPrefix' - The action name prefix.
+-- 'nextToken', 'describeAlarms_nextToken' - The token returned by a previous call to indicate that there is more
+-- data available.
 --
--- * 'daNextToken' - The token returned by a previous call to indicate that there is more data available.
+-- 'alarmTypes', 'describeAlarms_alarmTypes' - Use this parameter to specify whether you want the operation to return
+-- metric alarms or composite alarms. If you omit this parameter, only
+-- metric alarms are returned.
 --
--- * 'daStateValue' - The state value to be used in matching alarms.
+-- 'alarmNames', 'describeAlarms_alarmNames' - The names of the alarms to retrieve information about.
 --
--- * 'daAlarmNames' - The names of the alarms.
+-- 'stateValue', 'describeAlarms_stateValue' - Specify this parameter to receive information only about alarms that are
+-- currently in the state that you specify.
 --
--- * 'daMaxRecords' - The maximum number of alarm descriptions to retrieve.
-describeAlarms
-    :: DescribeAlarms
-describeAlarms =
+-- 'alarmNamePrefix', 'describeAlarms_alarmNamePrefix' - An alarm name prefix. If you specify this parameter, you receive
+-- information about all alarms that have names that start with this
+-- prefix.
+--
+-- If this parameter is specified, you cannot specify @AlarmNames@.
+--
+-- 'actionPrefix', 'describeAlarms_actionPrefix' - Use this parameter to filter the results of the operation to only those
+-- alarms that use a certain alarm action. For example, you could specify
+-- the ARN of an SNS topic to find all alarms that send notifications to
+-- that topic.
+--
+-- 'childrenOfAlarmName', 'describeAlarms_childrenOfAlarmName' - If you use this parameter and specify the name of a composite alarm, the
+-- operation returns information about the \"children\" alarms of the alarm
+-- you specify. These are the metric alarms and composite alarms referenced
+-- in the @AlarmRule@ field of the composite alarm that you specify in
+-- @ChildrenOfAlarmName@. Information about the composite alarm that you
+-- name in @ChildrenOfAlarmName@ is not returned.
+--
+-- If you specify @ChildrenOfAlarmName@, you cannot specify any other
+-- parameters in the request except for @MaxRecords@ and @NextToken@. If
+-- you do so, you receive a validation error.
+--
+-- Only the @Alarm Name@, @ARN@, @StateValue@
+-- (OK\/ALARM\/INSUFFICIENT_DATA), and @StateUpdatedTimestamp@ information
+-- are returned by this operation when you use this parameter. To get
+-- complete information about these alarms, perform another
+-- @DescribeAlarms@ operation and specify the parent alarm names in the
+-- @AlarmNames@ parameter.
+--
+-- 'parentsOfAlarmName', 'describeAlarms_parentsOfAlarmName' - If you use this parameter and specify the name of a metric or composite
+-- alarm, the operation returns information about the \"parent\" alarms of
+-- the alarm you specify. These are the composite alarms that have
+-- @AlarmRule@ parameters that reference the alarm named in
+-- @ParentsOfAlarmName@. Information about the alarm that you specify in
+-- @ParentsOfAlarmName@ is not returned.
+--
+-- If you specify @ParentsOfAlarmName@, you cannot specify any other
+-- parameters in the request except for @MaxRecords@ and @NextToken@. If
+-- you do so, you receive a validation error.
+--
+-- Only the Alarm Name and ARN are returned by this operation when you use
+-- this parameter. To get complete information about these alarms, perform
+-- another @DescribeAlarms@ operation and specify the parent alarm names in
+-- the @AlarmNames@ parameter.
+--
+-- 'maxRecords', 'describeAlarms_maxRecords' - The maximum number of alarm descriptions to retrieve.
+newDescribeAlarms ::
+  DescribeAlarms
+newDescribeAlarms =
   DescribeAlarms'
-    { _daAlarmNamePrefix = Nothing
-    , _daActionPrefix = Nothing
-    , _daNextToken = Nothing
-    , _daStateValue = Nothing
-    , _daAlarmNames = Nothing
-    , _daMaxRecords = Nothing
+    { nextToken = Prelude.Nothing,
+      alarmTypes = Prelude.Nothing,
+      alarmNames = Prelude.Nothing,
+      stateValue = Prelude.Nothing,
+      alarmNamePrefix = Prelude.Nothing,
+      actionPrefix = Prelude.Nothing,
+      childrenOfAlarmName = Prelude.Nothing,
+      parentsOfAlarmName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | The token returned by a previous call to indicate that there is more
+-- data available.
+describeAlarms_nextToken :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
+describeAlarms_nextToken = Lens.lens (\DescribeAlarms' {nextToken} -> nextToken) (\s@DescribeAlarms' {} a -> s {nextToken = a} :: DescribeAlarms)
 
--- | The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
-daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
-daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a})
+-- | Use this parameter to specify whether you want the operation to return
+-- metric alarms or composite alarms. If you omit this parameter, only
+-- metric alarms are returned.
+describeAlarms_alarmTypes :: Lens.Lens' DescribeAlarms (Prelude.Maybe [AlarmType])
+describeAlarms_alarmTypes = Lens.lens (\DescribeAlarms' {alarmTypes} -> alarmTypes) (\s@DescribeAlarms' {} a -> s {alarmTypes = a} :: DescribeAlarms) Prelude.. Lens.mapping Lens._Coerce
 
--- | The action name prefix.
-daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
-daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a})
+-- | The names of the alarms to retrieve information about.
+describeAlarms_alarmNames :: Lens.Lens' DescribeAlarms (Prelude.Maybe [Prelude.Text])
+describeAlarms_alarmNames = Lens.lens (\DescribeAlarms' {alarmNames} -> alarmNames) (\s@DescribeAlarms' {} a -> s {alarmNames = a} :: DescribeAlarms) Prelude.. Lens.mapping Lens._Coerce
 
--- | The token returned by a previous call to indicate that there is more data available.
-daNextToken :: Lens' DescribeAlarms (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a})
+-- | Specify this parameter to receive information only about alarms that are
+-- currently in the state that you specify.
+describeAlarms_stateValue :: Lens.Lens' DescribeAlarms (Prelude.Maybe StateValue)
+describeAlarms_stateValue = Lens.lens (\DescribeAlarms' {stateValue} -> stateValue) (\s@DescribeAlarms' {} a -> s {stateValue = a} :: DescribeAlarms)
 
--- | The state value to be used in matching alarms.
-daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
-daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a})
+-- | An alarm name prefix. If you specify this parameter, you receive
+-- information about all alarms that have names that start with this
+-- prefix.
+--
+-- If this parameter is specified, you cannot specify @AlarmNames@.
+describeAlarms_alarmNamePrefix :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
+describeAlarms_alarmNamePrefix = Lens.lens (\DescribeAlarms' {alarmNamePrefix} -> alarmNamePrefix) (\s@DescribeAlarms' {} a -> s {alarmNamePrefix = a} :: DescribeAlarms)
 
--- | The names of the alarms.
-daAlarmNames :: Lens' DescribeAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce
+-- | Use this parameter to filter the results of the operation to only those
+-- alarms that use a certain alarm action. For example, you could specify
+-- the ARN of an SNS topic to find all alarms that send notifications to
+-- that topic.
+describeAlarms_actionPrefix :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
+describeAlarms_actionPrefix = Lens.lens (\DescribeAlarms' {actionPrefix} -> actionPrefix) (\s@DescribeAlarms' {} a -> s {actionPrefix = a} :: DescribeAlarms)
+
+-- | If you use this parameter and specify the name of a composite alarm, the
+-- operation returns information about the \"children\" alarms of the alarm
+-- you specify. These are the metric alarms and composite alarms referenced
+-- in the @AlarmRule@ field of the composite alarm that you specify in
+-- @ChildrenOfAlarmName@. Information about the composite alarm that you
+-- name in @ChildrenOfAlarmName@ is not returned.
+--
+-- If you specify @ChildrenOfAlarmName@, you cannot specify any other
+-- parameters in the request except for @MaxRecords@ and @NextToken@. If
+-- you do so, you receive a validation error.
+--
+-- Only the @Alarm Name@, @ARN@, @StateValue@
+-- (OK\/ALARM\/INSUFFICIENT_DATA), and @StateUpdatedTimestamp@ information
+-- are returned by this operation when you use this parameter. To get
+-- complete information about these alarms, perform another
+-- @DescribeAlarms@ operation and specify the parent alarm names in the
+-- @AlarmNames@ parameter.
+describeAlarms_childrenOfAlarmName :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
+describeAlarms_childrenOfAlarmName = Lens.lens (\DescribeAlarms' {childrenOfAlarmName} -> childrenOfAlarmName) (\s@DescribeAlarms' {} a -> s {childrenOfAlarmName = a} :: DescribeAlarms)
+
+-- | If you use this parameter and specify the name of a metric or composite
+-- alarm, the operation returns information about the \"parent\" alarms of
+-- the alarm you specify. These are the composite alarms that have
+-- @AlarmRule@ parameters that reference the alarm named in
+-- @ParentsOfAlarmName@. Information about the alarm that you specify in
+-- @ParentsOfAlarmName@ is not returned.
+--
+-- If you specify @ParentsOfAlarmName@, you cannot specify any other
+-- parameters in the request except for @MaxRecords@ and @NextToken@. If
+-- you do so, you receive a validation error.
+--
+-- Only the Alarm Name and ARN are returned by this operation when you use
+-- this parameter. To get complete information about these alarms, perform
+-- another @DescribeAlarms@ operation and specify the parent alarm names in
+-- the @AlarmNames@ parameter.
+describeAlarms_parentsOfAlarmName :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
+describeAlarms_parentsOfAlarmName = Lens.lens (\DescribeAlarms' {parentsOfAlarmName} -> parentsOfAlarmName) (\s@DescribeAlarms' {} a -> s {parentsOfAlarmName = a} :: DescribeAlarms)
 
 -- | The maximum number of alarm descriptions to retrieve.
-daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
-daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat
+describeAlarms_maxRecords :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Natural)
+describeAlarms_maxRecords = Lens.lens (\DescribeAlarms' {maxRecords} -> maxRecords) (\s@DescribeAlarms' {} a -> s {maxRecords = a} :: DescribeAlarms)
 
-instance AWSPager DescribeAlarms where
-        page rq rs
-          | stop (rs ^. darsNextToken) = Nothing
-          | stop (rs ^. darsMetricAlarms) = Nothing
-          | otherwise =
-            Just $ rq & daNextToken .~ rs ^. darsNextToken
+instance Core.AWSPager DescribeAlarms where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeAlarmsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeAlarmsResponse_metricAlarms
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeAlarmsResponse_compositeAlarms
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeAlarms_nextToken
+          Lens..~ rs
+          Lens.^? describeAlarmsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest DescribeAlarms where
-        type Rs DescribeAlarms = DescribeAlarmsResponse
-        request = postQuery cloudWatch
-        response
-          = receiveXMLWrapper "DescribeAlarmsResult"
-              (\ s h x ->
-                 DescribeAlarmsResponse' <$>
-                   (x .@? "MetricAlarms" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeAlarms where
+  type
+    AWSResponse DescribeAlarms =
+      DescribeAlarmsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeAlarmsResult"
+      ( \s h x ->
+          DescribeAlarmsResponse'
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "MetricAlarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "CompositeAlarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeAlarms where
+instance Prelude.Hashable DescribeAlarms
 
-instance NFData DescribeAlarms where
+instance Prelude.NFData DescribeAlarms
 
-instance ToHeaders DescribeAlarms where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeAlarms where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeAlarms where
-        toPath = const "/"
+instance Core.ToPath DescribeAlarms where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeAlarms where
-        toQuery DescribeAlarms'{..}
-          = mconcat
-              ["Action" =: ("DescribeAlarms" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNamePrefix" =: _daAlarmNamePrefix,
-               "ActionPrefix" =: _daActionPrefix,
-               "NextToken" =: _daNextToken,
-               "StateValue" =: _daStateValue,
-               "AlarmNames" =:
-                 toQuery (toQueryList "member" <$> _daAlarmNames),
-               "MaxRecords" =: _daMaxRecords]
+instance Core.ToQuery DescribeAlarms where
+  toQuery DescribeAlarms' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeAlarms" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        "AlarmTypes"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> alarmTypes),
+        "AlarmNames"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> alarmNames),
+        "StateValue" Core.=: stateValue,
+        "AlarmNamePrefix" Core.=: alarmNamePrefix,
+        "ActionPrefix" Core.=: actionPrefix,
+        "ChildrenOfAlarmName" Core.=: childrenOfAlarmName,
+        "ParentsOfAlarmName" Core.=: parentsOfAlarmName,
+        "MaxRecords" Core.=: maxRecords
+      ]
 
--- | /See:/ 'describeAlarmsResponse' smart constructor.
+-- | /See:/ 'newDescribeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-  { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
-  , _darsNextToken      :: !(Maybe Text)
-  , _darsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token that marks the start of the next batch of returned results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The information about any metric alarms returned by the operation.
+    metricAlarms :: Prelude.Maybe [MetricAlarm],
+    -- | The information about any composite alarms returned by the operation.
+    compositeAlarms :: Prelude.Maybe [CompositeAlarm],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAlarmsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAlarmsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'darsMetricAlarms' - The information for the specified alarms.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'darsNextToken' - The token that marks the start of the next batch of returned results.
+-- 'nextToken', 'describeAlarmsResponse_nextToken' - The token that marks the start of the next batch of returned results.
 --
--- * 'darsResponseStatus' - -- | The response status code.
-describeAlarmsResponse
-    :: Int -- ^ 'darsResponseStatus'
-    -> DescribeAlarmsResponse
-describeAlarmsResponse pResponseStatus_ =
+-- 'metricAlarms', 'describeAlarmsResponse_metricAlarms' - The information about any metric alarms returned by the operation.
+--
+-- 'compositeAlarms', 'describeAlarmsResponse_compositeAlarms' - The information about any composite alarms returned by the operation.
+--
+-- 'httpStatus', 'describeAlarmsResponse_httpStatus' - The response's http status code.
+newDescribeAlarmsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAlarmsResponse
+newDescribeAlarmsResponse pHttpStatus_ =
   DescribeAlarmsResponse'
-    { _darsMetricAlarms = Nothing
-    , _darsNextToken = Nothing
-    , _darsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      metricAlarms = Prelude.Nothing,
+      compositeAlarms = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The information for the specified alarms.
-darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce
-
 -- | The token that marks the start of the next batch of returned results.
-darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a})
+describeAlarmsResponse_nextToken :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe Prelude.Text)
+describeAlarmsResponse_nextToken = Lens.lens (\DescribeAlarmsResponse' {nextToken} -> nextToken) (\s@DescribeAlarmsResponse' {} a -> s {nextToken = a} :: DescribeAlarmsResponse)
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAlarmsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
+-- | The information about any metric alarms returned by the operation.
+describeAlarmsResponse_metricAlarms :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe [MetricAlarm])
+describeAlarmsResponse_metricAlarms = Lens.lens (\DescribeAlarmsResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData DescribeAlarmsResponse where
+-- | The information about any composite alarms returned by the operation.
+describeAlarmsResponse_compositeAlarms :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe [CompositeAlarm])
+describeAlarmsResponse_compositeAlarms = Lens.lens (\DescribeAlarmsResponse' {compositeAlarms} -> compositeAlarms) (\s@DescribeAlarmsResponse' {} a -> s {compositeAlarms = a} :: DescribeAlarmsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+describeAlarmsResponse_httpStatus :: Lens.Lens' DescribeAlarmsResponse Prelude.Int
+describeAlarmsResponse_httpStatus = Lens.lens (\DescribeAlarmsResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmsResponse' {} a -> s {httpStatus = a} :: DescribeAlarmsResponse)
+
+instance Prelude.NFData DescribeAlarmsResponse

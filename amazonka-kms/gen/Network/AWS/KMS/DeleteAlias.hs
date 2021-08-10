@@ -1,111 +1,157 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.DeleteAlias
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account.
+-- Deletes the specified alias.
 --
+-- Because an alias is not a property of a CMK, you can delete and change
+-- the aliases of a CMK without affecting the CMK. Also, aliases do not
+-- appear in the response from the DescribeKey operation. To get the
+-- aliases of all CMKs, use the ListAliases operation.
 --
--- Because an alias is not a property of a CMK, you can delete and change the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the 'DescribeKey' operation. To get the aliases of all CMKs, use the 'ListAliases' operation.
+-- Each CMK can have multiple aliases. To change the alias of a CMK, use
+-- DeleteAlias to delete the current alias and CreateAlias to create a new
+-- alias. To associate an existing alias with a different customer master
+-- key (CMK), call UpdateAlias.
 --
--- Each CMK can have multiple aliases. To change the alias of a CMK, use 'DeleteAlias' to delete the current alias and 'CreateAlias' to create a new alias. To associate an existing alias with a different customer master key (CMK), call 'UpdateAlias' .
+-- __Cross-account use__: No. You cannot perform this operation on an alias
+-- in a different AWS account.
 --
+-- __Required permissions__
+--
+-- -   <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteAlias>
+--     on the alias (IAM policy).
+--
+-- -   <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteAlias>
+--     on the CMK (key policy).
+--
+-- For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access Controlling access to aliases>
+-- in the /AWS Key Management Service Developer Guide/.
+--
+-- __Related operations:__
+--
+-- -   CreateAlias
+--
+-- -   ListAliases
+--
+-- -   UpdateAlias
 module Network.AWS.KMS.DeleteAlias
-    (
-    -- * Creating a Request
-      deleteAlias
-    , DeleteAlias
+  ( -- * Creating a Request
+    DeleteAlias (..),
+    newDeleteAlias,
+
     -- * Request Lenses
-    , daAliasName
+    deleteAlias_aliasName,
 
     -- * Destructuring the Response
-    , deleteAliasResponse
-    , DeleteAliasResponse
-    ) where
+    DeleteAliasResponse (..),
+    newDeleteAliasResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteAlias' smart constructor.
-newtype DeleteAlias = DeleteAlias'
-  { _daAliasName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteAlias' smart constructor.
+data DeleteAlias = DeleteAlias'
+  { -- | The alias to be deleted. The alias name must begin with @alias\/@
+    -- followed by the alias name, such as @alias\/ExampleAlias@.
+    aliasName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAlias' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daAliasName' - The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
-deleteAlias
-    :: Text -- ^ 'daAliasName'
-    -> DeleteAlias
-deleteAlias pAliasName_ = DeleteAlias' {_daAliasName = pAliasName_}
-
-
--- | The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
-daAliasName :: Lens' DeleteAlias Text
-daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a})
-
-instance AWSRequest DeleteAlias where
-        type Rs DeleteAlias = DeleteAliasResponse
-        request = postJSON kms
-        response = receiveNull DeleteAliasResponse'
-
-instance Hashable DeleteAlias where
-
-instance NFData DeleteAlias where
-
-instance ToHeaders DeleteAlias where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.DeleteAlias" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteAlias where
-        toJSON DeleteAlias'{..}
-          = object
-              (catMaybes [Just ("AliasName" .= _daAliasName)])
-
-instance ToPath DeleteAlias where
-        toPath = const "/"
-
-instance ToQuery DeleteAlias where
-        toQuery = const mempty
-
--- | /See:/ 'deleteAliasResponse' smart constructor.
-data DeleteAliasResponse =
-  DeleteAliasResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
-deleteAliasResponse
-    :: DeleteAliasResponse
-deleteAliasResponse = DeleteAliasResponse'
+-- 'aliasName', 'deleteAlias_aliasName' - The alias to be deleted. The alias name must begin with @alias\/@
+-- followed by the alias name, such as @alias\/ExampleAlias@.
+newDeleteAlias ::
+  -- | 'aliasName'
+  Prelude.Text ->
+  DeleteAlias
+newDeleteAlias pAliasName_ =
+  DeleteAlias' {aliasName = pAliasName_}
 
+-- | The alias to be deleted. The alias name must begin with @alias\/@
+-- followed by the alias name, such as @alias\/ExampleAlias@.
+deleteAlias_aliasName :: Lens.Lens' DeleteAlias Prelude.Text
+deleteAlias_aliasName = Lens.lens (\DeleteAlias' {aliasName} -> aliasName) (\s@DeleteAlias' {} a -> s {aliasName = a} :: DeleteAlias)
 
-instance NFData DeleteAliasResponse where
+instance Core.AWSRequest DeleteAlias where
+  type AWSResponse DeleteAlias = DeleteAliasResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull DeleteAliasResponse'
+
+instance Prelude.Hashable DeleteAlias
+
+instance Prelude.NFData DeleteAlias
+
+instance Core.ToHeaders DeleteAlias where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("TrentService.DeleteAlias" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteAlias where
+  toJSON DeleteAlias' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasName" Core..= aliasName)]
+      )
+
+instance Core.ToPath DeleteAlias where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteAlias where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteAliasResponse' smart constructor.
+data DeleteAliasResponse = DeleteAliasResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteAliasResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAliasResponse ::
+  DeleteAliasResponse
+newDeleteAliasResponse = DeleteAliasResponse'
+
+instance Prelude.NFData DeleteAliasResponse

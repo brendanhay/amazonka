@@ -1,118 +1,185 @@
-name:                  amazonka-appstream
-version:               1.6.1
-synopsis:              Amazon AppStream SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-appstream
+version:            1.6.1
+synopsis:           Amazon AppStream SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.AppStream" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2016-12-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AppStream.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AppStream" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-appstream
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-appstream
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.AppStream
+    Network.AWS.AppStream.AssociateFleet
+    Network.AWS.AppStream.BatchAssociateUserStack
+    Network.AWS.AppStream.BatchDisassociateUserStack
+    Network.AWS.AppStream.CopyImage
+    Network.AWS.AppStream.CreateDirectoryConfig
+    Network.AWS.AppStream.CreateFleet
+    Network.AWS.AppStream.CreateImageBuilder
+    Network.AWS.AppStream.CreateImageBuilderStreamingURL
+    Network.AWS.AppStream.CreateStack
+    Network.AWS.AppStream.CreateStreamingURL
+    Network.AWS.AppStream.CreateUsageReportSubscription
+    Network.AWS.AppStream.CreateUser
+    Network.AWS.AppStream.DeleteDirectoryConfig
+    Network.AWS.AppStream.DeleteFleet
+    Network.AWS.AppStream.DeleteImage
+    Network.AWS.AppStream.DeleteImageBuilder
+    Network.AWS.AppStream.DeleteImagePermissions
+    Network.AWS.AppStream.DeleteStack
+    Network.AWS.AppStream.DeleteUsageReportSubscription
+    Network.AWS.AppStream.DeleteUser
+    Network.AWS.AppStream.DescribeDirectoryConfigs
+    Network.AWS.AppStream.DescribeFleets
+    Network.AWS.AppStream.DescribeImageBuilders
+    Network.AWS.AppStream.DescribeImagePermissions
+    Network.AWS.AppStream.DescribeImages
+    Network.AWS.AppStream.DescribeSessions
+    Network.AWS.AppStream.DescribeStacks
+    Network.AWS.AppStream.DescribeUsageReportSubscriptions
+    Network.AWS.AppStream.DescribeUsers
+    Network.AWS.AppStream.DescribeUserStackAssociations
+    Network.AWS.AppStream.DisableUser
+    Network.AWS.AppStream.DisassociateFleet
+    Network.AWS.AppStream.EnableUser
+    Network.AWS.AppStream.ExpireSession
+    Network.AWS.AppStream.Lens
+    Network.AWS.AppStream.ListAssociatedFleets
+    Network.AWS.AppStream.ListAssociatedStacks
+    Network.AWS.AppStream.ListTagsForResource
+    Network.AWS.AppStream.StartFleet
+    Network.AWS.AppStream.StartImageBuilder
+    Network.AWS.AppStream.StopFleet
+    Network.AWS.AppStream.StopImageBuilder
+    Network.AWS.AppStream.TagResource
+    Network.AWS.AppStream.Types
+    Network.AWS.AppStream.Types.AccessEndpoint
+    Network.AWS.AppStream.Types.AccessEndpointType
+    Network.AWS.AppStream.Types.Action
+    Network.AWS.AppStream.Types.Application
+    Network.AWS.AppStream.Types.ApplicationSettings
+    Network.AWS.AppStream.Types.ApplicationSettingsResponse
+    Network.AWS.AppStream.Types.AuthenticationType
+    Network.AWS.AppStream.Types.ComputeCapacity
+    Network.AWS.AppStream.Types.ComputeCapacityStatus
+    Network.AWS.AppStream.Types.DirectoryConfig
+    Network.AWS.AppStream.Types.DomainJoinInfo
+    Network.AWS.AppStream.Types.Fleet
+    Network.AWS.AppStream.Types.FleetAttribute
+    Network.AWS.AppStream.Types.FleetError
+    Network.AWS.AppStream.Types.FleetErrorCode
+    Network.AWS.AppStream.Types.FleetState
+    Network.AWS.AppStream.Types.FleetType
+    Network.AWS.AppStream.Types.Image
+    Network.AWS.AppStream.Types.ImageBuilder
+    Network.AWS.AppStream.Types.ImageBuilderState
+    Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
+    Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
+    Network.AWS.AppStream.Types.ImagePermissions
+    Network.AWS.AppStream.Types.ImageState
+    Network.AWS.AppStream.Types.ImageStateChangeReason
+    Network.AWS.AppStream.Types.ImageStateChangeReasonCode
+    Network.AWS.AppStream.Types.LastReportGenerationExecutionError
+    Network.AWS.AppStream.Types.MessageAction
+    Network.AWS.AppStream.Types.NetworkAccessConfiguration
+    Network.AWS.AppStream.Types.Permission
+    Network.AWS.AppStream.Types.PlatformType
+    Network.AWS.AppStream.Types.ResourceError
+    Network.AWS.AppStream.Types.ServiceAccountCredentials
+    Network.AWS.AppStream.Types.Session
+    Network.AWS.AppStream.Types.SessionConnectionState
+    Network.AWS.AppStream.Types.SessionState
+    Network.AWS.AppStream.Types.SharedImagePermissions
+    Network.AWS.AppStream.Types.Stack
+    Network.AWS.AppStream.Types.StackAttribute
+    Network.AWS.AppStream.Types.StackError
+    Network.AWS.AppStream.Types.StackErrorCode
+    Network.AWS.AppStream.Types.StorageConnector
+    Network.AWS.AppStream.Types.StorageConnectorType
+    Network.AWS.AppStream.Types.StreamView
+    Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
+    Network.AWS.AppStream.Types.UsageReportSchedule
+    Network.AWS.AppStream.Types.UsageReportSubscription
+    Network.AWS.AppStream.Types.User
+    Network.AWS.AppStream.Types.UserSetting
+    Network.AWS.AppStream.Types.UserStackAssociation
+    Network.AWS.AppStream.Types.UserStackAssociationError
+    Network.AWS.AppStream.Types.UserStackAssociationErrorCode
+    Network.AWS.AppStream.Types.VisibilityType
+    Network.AWS.AppStream.Types.VpcConfig
+    Network.AWS.AppStream.UntagResource
+    Network.AWS.AppStream.UpdateDirectoryConfig
+    Network.AWS.AppStream.UpdateFleet
+    Network.AWS.AppStream.UpdateImagePermissions
+    Network.AWS.AppStream.UpdateStack
+    Network.AWS.AppStream.Waiters
 
-    exposed-modules:
-          Network.AWS.AppStream
-        , Network.AWS.AppStream.AssociateFleet
-        , Network.AWS.AppStream.CopyImage
-        , Network.AWS.AppStream.CreateDirectoryConfig
-        , Network.AWS.AppStream.CreateFleet
-        , Network.AWS.AppStream.CreateImageBuilder
-        , Network.AWS.AppStream.CreateImageBuilderStreamingURL
-        , Network.AWS.AppStream.CreateStack
-        , Network.AWS.AppStream.CreateStreamingURL
-        , Network.AWS.AppStream.DeleteDirectoryConfig
-        , Network.AWS.AppStream.DeleteFleet
-        , Network.AWS.AppStream.DeleteImage
-        , Network.AWS.AppStream.DeleteImageBuilder
-        , Network.AWS.AppStream.DeleteStack
-        , Network.AWS.AppStream.DescribeDirectoryConfigs
-        , Network.AWS.AppStream.DescribeFleets
-        , Network.AWS.AppStream.DescribeImageBuilders
-        , Network.AWS.AppStream.DescribeImages
-        , Network.AWS.AppStream.DescribeSessions
-        , Network.AWS.AppStream.DescribeStacks
-        , Network.AWS.AppStream.DisassociateFleet
-        , Network.AWS.AppStream.ExpireSession
-        , Network.AWS.AppStream.ListAssociatedFleets
-        , Network.AWS.AppStream.ListAssociatedStacks
-        , Network.AWS.AppStream.ListTagsForResource
-        , Network.AWS.AppStream.StartFleet
-        , Network.AWS.AppStream.StartImageBuilder
-        , Network.AWS.AppStream.StopFleet
-        , Network.AWS.AppStream.StopImageBuilder
-        , Network.AWS.AppStream.TagResource
-        , Network.AWS.AppStream.Types
-        , Network.AWS.AppStream.UntagResource
-        , Network.AWS.AppStream.UpdateDirectoryConfig
-        , Network.AWS.AppStream.UpdateFleet
-        , Network.AWS.AppStream.UpdateStack
-        , Network.AWS.AppStream.Waiters
-
-    other-modules:
-          Network.AWS.AppStream.Types.Product
-        , Network.AWS.AppStream.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-appstream-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AppStream
+    Test.AWS.AppStream.Internal
+    Test.AWS.Gen.AppStream
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.AppStream
-        , Test.AWS.Gen.AppStream
-        , Test.AWS.AppStream.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-appstream
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-appstream
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

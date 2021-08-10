@@ -1,205 +1,268 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateSoftwareUpdateJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
+-- Creates a software update for a core or group of cores (specified as an
+-- IoT thing group.) Use this to update the OTA Agent as well as the
+-- Greengrass core software. It makes use of the IoT Jobs feature which
+-- provides additional commands to manage a Greengrass core software update
+-- job.
 module Network.AWS.Greengrass.CreateSoftwareUpdateJob
-    (
-    -- * Creating a Request
-      createSoftwareUpdateJob
-    , CreateSoftwareUpdateJob
+  ( -- * Creating a Request
+    CreateSoftwareUpdateJob (..),
+    newCreateSoftwareUpdateJob,
+
     -- * Request Lenses
-    , csujUpdateAgentLogLevel
-    , csujAmznClientToken
-    , csujSoftwareToUpdate
-    , csujUpdateTargetsOperatingSystem
-    , csujS3URLSignerRole
-    , csujUpdateTargets
-    , csujUpdateTargetsArchitecture
+    createSoftwareUpdateJob_updateAgentLogLevel,
+    createSoftwareUpdateJob_amznClientToken,
+    createSoftwareUpdateJob_s3UrlSignerRole,
+    createSoftwareUpdateJob_updateTargetsArchitecture,
+    createSoftwareUpdateJob_softwareToUpdate,
+    createSoftwareUpdateJob_updateTargets,
+    createSoftwareUpdateJob_updateTargetsOperatingSystem,
 
     -- * Destructuring the Response
-    , createSoftwareUpdateJobResponse
-    , CreateSoftwareUpdateJobResponse
+    CreateSoftwareUpdateJobResponse (..),
+    newCreateSoftwareUpdateJobResponse,
+
     -- * Response Lenses
-    , csujrsIotJobARN
-    , csujrsIotJobId
-    , csujrsResponseStatus
-    ) where
+    createSoftwareUpdateJobResponse_iotJobId,
+    createSoftwareUpdateJobResponse_iotJobArn,
+    createSoftwareUpdateJobResponse_platformSoftwareVersion,
+    createSoftwareUpdateJobResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createSoftwareUpdateJob' smart constructor.
+-- | /See:/ 'newCreateSoftwareUpdateJob' smart constructor.
 data CreateSoftwareUpdateJob = CreateSoftwareUpdateJob'
-  { _csujUpdateAgentLogLevel          :: !(Maybe UpdateAgentLogLevel)
-  , _csujAmznClientToken              :: !(Maybe Text)
-  , _csujSoftwareToUpdate             :: !(Maybe SoftwareToUpdate)
-  , _csujUpdateTargetsOperatingSystem :: !(Maybe UpdateTargetsOperatingSystem)
-  , _csujS3URLSignerRole              :: !(Maybe Text)
-  , _csujUpdateTargets                :: !(Maybe [Text])
-  , _csujUpdateTargetsArchitecture    :: !(Maybe UpdateTargetsArchitecture)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { updateAgentLogLevel :: Prelude.Maybe UpdateAgentLogLevel,
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
+    s3UrlSignerRole :: Prelude.Text,
+    updateTargetsArchitecture :: UpdateTargetsArchitecture,
+    softwareToUpdate :: SoftwareToUpdate,
+    updateTargets :: [Prelude.Text],
+    updateTargetsOperatingSystem :: UpdateTargetsOperatingSystem
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSoftwareUpdateJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSoftwareUpdateJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csujUpdateAgentLogLevel' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csujAmznClientToken' - A client token used to correlate requests and responses.
+-- 'updateAgentLogLevel', 'createSoftwareUpdateJob_updateAgentLogLevel' - Undocumented member.
 --
--- * 'csujSoftwareToUpdate' - Undocumented member.
+-- 'amznClientToken', 'createSoftwareUpdateJob_amznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'csujUpdateTargetsOperatingSystem' - Undocumented member.
+-- 's3UrlSignerRole', 'createSoftwareUpdateJob_s3UrlSignerRole' - Undocumented member.
 --
--- * 'csujS3URLSignerRole' - Undocumented member.
+-- 'updateTargetsArchitecture', 'createSoftwareUpdateJob_updateTargetsArchitecture' - Undocumented member.
 --
--- * 'csujUpdateTargets' - Undocumented member.
+-- 'softwareToUpdate', 'createSoftwareUpdateJob_softwareToUpdate' - Undocumented member.
 --
--- * 'csujUpdateTargetsArchitecture' - Undocumented member.
-createSoftwareUpdateJob
-    :: CreateSoftwareUpdateJob
-createSoftwareUpdateJob =
-  CreateSoftwareUpdateJob'
-    { _csujUpdateAgentLogLevel = Nothing
-    , _csujAmznClientToken = Nothing
-    , _csujSoftwareToUpdate = Nothing
-    , _csujUpdateTargetsOperatingSystem = Nothing
-    , _csujS3URLSignerRole = Nothing
-    , _csujUpdateTargets = Nothing
-    , _csujUpdateTargetsArchitecture = Nothing
-    }
-
+-- 'updateTargets', 'createSoftwareUpdateJob_updateTargets' - Undocumented member.
+--
+-- 'updateTargetsOperatingSystem', 'createSoftwareUpdateJob_updateTargetsOperatingSystem' - Undocumented member.
+newCreateSoftwareUpdateJob ::
+  -- | 's3UrlSignerRole'
+  Prelude.Text ->
+  -- | 'updateTargetsArchitecture'
+  UpdateTargetsArchitecture ->
+  -- | 'softwareToUpdate'
+  SoftwareToUpdate ->
+  -- | 'updateTargetsOperatingSystem'
+  UpdateTargetsOperatingSystem ->
+  CreateSoftwareUpdateJob
+newCreateSoftwareUpdateJob
+  pS3UrlSignerRole_
+  pUpdateTargetsArchitecture_
+  pSoftwareToUpdate_
+  pUpdateTargetsOperatingSystem_ =
+    CreateSoftwareUpdateJob'
+      { updateAgentLogLevel =
+          Prelude.Nothing,
+        amznClientToken = Prelude.Nothing,
+        s3UrlSignerRole = pS3UrlSignerRole_,
+        updateTargetsArchitecture =
+          pUpdateTargetsArchitecture_,
+        softwareToUpdate = pSoftwareToUpdate_,
+        updateTargets = Prelude.mempty,
+        updateTargetsOperatingSystem =
+          pUpdateTargetsOperatingSystem_
+      }
 
 -- | Undocumented member.
-csujUpdateAgentLogLevel :: Lens' CreateSoftwareUpdateJob (Maybe UpdateAgentLogLevel)
-csujUpdateAgentLogLevel = lens _csujUpdateAgentLogLevel (\ s a -> s{_csujUpdateAgentLogLevel = a})
+createSoftwareUpdateJob_updateAgentLogLevel :: Lens.Lens' CreateSoftwareUpdateJob (Prelude.Maybe UpdateAgentLogLevel)
+createSoftwareUpdateJob_updateAgentLogLevel = Lens.lens (\CreateSoftwareUpdateJob' {updateAgentLogLevel} -> updateAgentLogLevel) (\s@CreateSoftwareUpdateJob' {} a -> s {updateAgentLogLevel = a} :: CreateSoftwareUpdateJob)
 
 -- | A client token used to correlate requests and responses.
-csujAmznClientToken :: Lens' CreateSoftwareUpdateJob (Maybe Text)
-csujAmznClientToken = lens _csujAmznClientToken (\ s a -> s{_csujAmznClientToken = a})
+createSoftwareUpdateJob_amznClientToken :: Lens.Lens' CreateSoftwareUpdateJob (Prelude.Maybe Prelude.Text)
+createSoftwareUpdateJob_amznClientToken = Lens.lens (\CreateSoftwareUpdateJob' {amznClientToken} -> amznClientToken) (\s@CreateSoftwareUpdateJob' {} a -> s {amznClientToken = a} :: CreateSoftwareUpdateJob)
 
 -- | Undocumented member.
-csujSoftwareToUpdate :: Lens' CreateSoftwareUpdateJob (Maybe SoftwareToUpdate)
-csujSoftwareToUpdate = lens _csujSoftwareToUpdate (\ s a -> s{_csujSoftwareToUpdate = a})
+createSoftwareUpdateJob_s3UrlSignerRole :: Lens.Lens' CreateSoftwareUpdateJob Prelude.Text
+createSoftwareUpdateJob_s3UrlSignerRole = Lens.lens (\CreateSoftwareUpdateJob' {s3UrlSignerRole} -> s3UrlSignerRole) (\s@CreateSoftwareUpdateJob' {} a -> s {s3UrlSignerRole = a} :: CreateSoftwareUpdateJob)
 
 -- | Undocumented member.
-csujUpdateTargetsOperatingSystem :: Lens' CreateSoftwareUpdateJob (Maybe UpdateTargetsOperatingSystem)
-csujUpdateTargetsOperatingSystem = lens _csujUpdateTargetsOperatingSystem (\ s a -> s{_csujUpdateTargetsOperatingSystem = a})
+createSoftwareUpdateJob_updateTargetsArchitecture :: Lens.Lens' CreateSoftwareUpdateJob UpdateTargetsArchitecture
+createSoftwareUpdateJob_updateTargetsArchitecture = Lens.lens (\CreateSoftwareUpdateJob' {updateTargetsArchitecture} -> updateTargetsArchitecture) (\s@CreateSoftwareUpdateJob' {} a -> s {updateTargetsArchitecture = a} :: CreateSoftwareUpdateJob)
 
 -- | Undocumented member.
-csujS3URLSignerRole :: Lens' CreateSoftwareUpdateJob (Maybe Text)
-csujS3URLSignerRole = lens _csujS3URLSignerRole (\ s a -> s{_csujS3URLSignerRole = a})
+createSoftwareUpdateJob_softwareToUpdate :: Lens.Lens' CreateSoftwareUpdateJob SoftwareToUpdate
+createSoftwareUpdateJob_softwareToUpdate = Lens.lens (\CreateSoftwareUpdateJob' {softwareToUpdate} -> softwareToUpdate) (\s@CreateSoftwareUpdateJob' {} a -> s {softwareToUpdate = a} :: CreateSoftwareUpdateJob)
 
 -- | Undocumented member.
-csujUpdateTargets :: Lens' CreateSoftwareUpdateJob [Text]
-csujUpdateTargets = lens _csujUpdateTargets (\ s a -> s{_csujUpdateTargets = a}) . _Default . _Coerce
+createSoftwareUpdateJob_updateTargets :: Lens.Lens' CreateSoftwareUpdateJob [Prelude.Text]
+createSoftwareUpdateJob_updateTargets = Lens.lens (\CreateSoftwareUpdateJob' {updateTargets} -> updateTargets) (\s@CreateSoftwareUpdateJob' {} a -> s {updateTargets = a} :: CreateSoftwareUpdateJob) Prelude.. Lens._Coerce
 
 -- | Undocumented member.
-csujUpdateTargetsArchitecture :: Lens' CreateSoftwareUpdateJob (Maybe UpdateTargetsArchitecture)
-csujUpdateTargetsArchitecture = lens _csujUpdateTargetsArchitecture (\ s a -> s{_csujUpdateTargetsArchitecture = a})
+createSoftwareUpdateJob_updateTargetsOperatingSystem :: Lens.Lens' CreateSoftwareUpdateJob UpdateTargetsOperatingSystem
+createSoftwareUpdateJob_updateTargetsOperatingSystem = Lens.lens (\CreateSoftwareUpdateJob' {updateTargetsOperatingSystem} -> updateTargetsOperatingSystem) (\s@CreateSoftwareUpdateJob' {} a -> s {updateTargetsOperatingSystem = a} :: CreateSoftwareUpdateJob)
 
-instance AWSRequest CreateSoftwareUpdateJob where
-        type Rs CreateSoftwareUpdateJob =
-             CreateSoftwareUpdateJobResponse
-        request = postJSON greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateSoftwareUpdateJobResponse' <$>
-                   (x .?> "IotJobArn") <*> (x .?> "IotJobId") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest CreateSoftwareUpdateJob where
+  type
+    AWSResponse CreateSoftwareUpdateJob =
+      CreateSoftwareUpdateJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateSoftwareUpdateJobResponse'
+            Prelude.<$> (x Core..?> "IotJobId")
+            Prelude.<*> (x Core..?> "IotJobArn")
+            Prelude.<*> (x Core..?> "PlatformSoftwareVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateSoftwareUpdateJob where
+instance Prelude.Hashable CreateSoftwareUpdateJob
 
-instance NFData CreateSoftwareUpdateJob where
+instance Prelude.NFData CreateSoftwareUpdateJob
 
-instance ToHeaders CreateSoftwareUpdateJob where
-        toHeaders CreateSoftwareUpdateJob'{..}
-          = mconcat
-              ["X-Amzn-Client-Token" =# _csujAmznClientToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders CreateSoftwareUpdateJob where
+  toHeaders CreateSoftwareUpdateJob' {..} =
+    Prelude.mconcat
+      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToJSON CreateSoftwareUpdateJob where
-        toJSON CreateSoftwareUpdateJob'{..}
-          = object
-              (catMaybes
-                 [("UpdateAgentLogLevel" .=) <$>
-                    _csujUpdateAgentLogLevel,
-                  ("SoftwareToUpdate" .=) <$> _csujSoftwareToUpdate,
-                  ("UpdateTargetsOperatingSystem" .=) <$>
-                    _csujUpdateTargetsOperatingSystem,
-                  ("S3UrlSignerRole" .=) <$> _csujS3URLSignerRole,
-                  ("UpdateTargets" .=) <$> _csujUpdateTargets,
-                  ("UpdateTargetsArchitecture" .=) <$>
-                    _csujUpdateTargetsArchitecture])
+instance Core.ToJSON CreateSoftwareUpdateJob where
+  toJSON CreateSoftwareUpdateJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("UpdateAgentLogLevel" Core..=)
+              Prelude.<$> updateAgentLogLevel,
+            Prelude.Just
+              ("S3UrlSignerRole" Core..= s3UrlSignerRole),
+            Prelude.Just
+              ( "UpdateTargetsArchitecture"
+                  Core..= updateTargetsArchitecture
+              ),
+            Prelude.Just
+              ("SoftwareToUpdate" Core..= softwareToUpdate),
+            Prelude.Just ("UpdateTargets" Core..= updateTargets),
+            Prelude.Just
+              ( "UpdateTargetsOperatingSystem"
+                  Core..= updateTargetsOperatingSystem
+              )
+          ]
+      )
 
-instance ToPath CreateSoftwareUpdateJob where
-        toPath = const "/greengrass/updates"
+instance Core.ToPath CreateSoftwareUpdateJob where
+  toPath = Prelude.const "/greengrass/updates"
 
-instance ToQuery CreateSoftwareUpdateJob where
-        toQuery = const mempty
+instance Core.ToQuery CreateSoftwareUpdateJob where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createSoftwareUpdateJobResponse' smart constructor.
+-- | /See:/ 'newCreateSoftwareUpdateJobResponse' smart constructor.
 data CreateSoftwareUpdateJobResponse = CreateSoftwareUpdateJobResponse'
-  { _csujrsIotJobARN      :: !(Maybe Text)
-  , _csujrsIotJobId       :: !(Maybe Text)
-  , _csujrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The IoT Job Id corresponding to this update.
+    iotJobId :: Prelude.Maybe Prelude.Text,
+    -- | The IoT Job ARN corresponding to this update.
+    iotJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The software version installed on the device or devices after the
+    -- update.
+    platformSoftwareVersion :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSoftwareUpdateJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSoftwareUpdateJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csujrsIotJobARN' - The IoT Job ARN corresponding to this update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csujrsIotJobId' - The IoT Job Id corresponding to this update.
+-- 'iotJobId', 'createSoftwareUpdateJobResponse_iotJobId' - The IoT Job Id corresponding to this update.
 --
--- * 'csujrsResponseStatus' - -- | The response status code.
-createSoftwareUpdateJobResponse
-    :: Int -- ^ 'csujrsResponseStatus'
-    -> CreateSoftwareUpdateJobResponse
-createSoftwareUpdateJobResponse pResponseStatus_ =
+-- 'iotJobArn', 'createSoftwareUpdateJobResponse_iotJobArn' - The IoT Job ARN corresponding to this update.
+--
+-- 'platformSoftwareVersion', 'createSoftwareUpdateJobResponse_platformSoftwareVersion' - The software version installed on the device or devices after the
+-- update.
+--
+-- 'httpStatus', 'createSoftwareUpdateJobResponse_httpStatus' - The response's http status code.
+newCreateSoftwareUpdateJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateSoftwareUpdateJobResponse
+newCreateSoftwareUpdateJobResponse pHttpStatus_ =
   CreateSoftwareUpdateJobResponse'
-    { _csujrsIotJobARN = Nothing
-    , _csujrsIotJobId = Nothing
-    , _csujrsResponseStatus = pResponseStatus_
+    { iotJobId =
+        Prelude.Nothing,
+      iotJobArn = Prelude.Nothing,
+      platformSoftwareVersion = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The IoT Job Id corresponding to this update.
+createSoftwareUpdateJobResponse_iotJobId :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
+createSoftwareUpdateJobResponse_iotJobId = Lens.lens (\CreateSoftwareUpdateJobResponse' {iotJobId} -> iotJobId) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {iotJobId = a} :: CreateSoftwareUpdateJobResponse)
 
 -- | The IoT Job ARN corresponding to this update.
-csujrsIotJobARN :: Lens' CreateSoftwareUpdateJobResponse (Maybe Text)
-csujrsIotJobARN = lens _csujrsIotJobARN (\ s a -> s{_csujrsIotJobARN = a})
+createSoftwareUpdateJobResponse_iotJobArn :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
+createSoftwareUpdateJobResponse_iotJobArn = Lens.lens (\CreateSoftwareUpdateJobResponse' {iotJobArn} -> iotJobArn) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {iotJobArn = a} :: CreateSoftwareUpdateJobResponse)
 
--- | The IoT Job Id corresponding to this update.
-csujrsIotJobId :: Lens' CreateSoftwareUpdateJobResponse (Maybe Text)
-csujrsIotJobId = lens _csujrsIotJobId (\ s a -> s{_csujrsIotJobId = a})
+-- | The software version installed on the device or devices after the
+-- update.
+createSoftwareUpdateJobResponse_platformSoftwareVersion :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
+createSoftwareUpdateJobResponse_platformSoftwareVersion = Lens.lens (\CreateSoftwareUpdateJobResponse' {platformSoftwareVersion} -> platformSoftwareVersion) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {platformSoftwareVersion = a} :: CreateSoftwareUpdateJobResponse)
 
--- | -- | The response status code.
-csujrsResponseStatus :: Lens' CreateSoftwareUpdateJobResponse Int
-csujrsResponseStatus = lens _csujrsResponseStatus (\ s a -> s{_csujrsResponseStatus = a})
+-- | The response's http status code.
+createSoftwareUpdateJobResponse_httpStatus :: Lens.Lens' CreateSoftwareUpdateJobResponse Prelude.Int
+createSoftwareUpdateJobResponse_httpStatus = Lens.lens (\CreateSoftwareUpdateJobResponse' {httpStatus} -> httpStatus) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {httpStatus = a} :: CreateSoftwareUpdateJobResponse)
 
-instance NFData CreateSoftwareUpdateJobResponse where
+instance
+  Prelude.NFData
+    CreateSoftwareUpdateJobResponse

@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-apigateway",
-    "typeOverrides": {
-        "AuthorizerType": {
-            "enumPrefix": "Authorizer"
-        }
-    }
-}

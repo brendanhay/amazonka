@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,167 +22,203 @@
 --
 -- Retrieves attributes attached to the facet.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListFacetAttributes
-    (
-    -- * Creating a Request
-      listFacetAttributes
-    , ListFacetAttributes
+  ( -- * Creating a Request
+    ListFacetAttributes (..),
+    newListFacetAttributes,
+
     -- * Request Lenses
-    , lfaNextToken
-    , lfaMaxResults
-    , lfaSchemaARN
-    , lfaName
+    listFacetAttributes_nextToken,
+    listFacetAttributes_maxResults,
+    listFacetAttributes_schemaArn,
+    listFacetAttributes_name,
 
     -- * Destructuring the Response
-    , listFacetAttributesResponse
-    , ListFacetAttributesResponse
+    ListFacetAttributesResponse (..),
+    newListFacetAttributesResponse,
+
     -- * Response Lenses
-    , lfarsNextToken
-    , lfarsAttributes
-    , lfarsResponseStatus
-    ) where
+    listFacetAttributesResponse_nextToken,
+    listFacetAttributesResponse_attributes,
+    listFacetAttributesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listFacetAttributes' smart constructor.
+-- | /See:/ 'newListFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
-  { _lfaNextToken  :: !(Maybe Text)
-  , _lfaMaxResults :: !(Maybe Nat)
-  , _lfaSchemaARN  :: !Text
-  , _lfaName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the schema where the facet resides.
+    schemaArn :: Prelude.Text,
+    -- | The name of the facet whose attributes will be retrieved.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListFacetAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFacetAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfaNextToken' - The pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfaMaxResults' - The maximum number of results to retrieve.
+-- 'nextToken', 'listFacetAttributes_nextToken' - The pagination token.
 --
--- * 'lfaSchemaARN' - The ARN of the schema where the facet resides.
+-- 'maxResults', 'listFacetAttributes_maxResults' - The maximum number of results to retrieve.
 --
--- * 'lfaName' - The name of the facet whose attributes will be retrieved.
-listFacetAttributes
-    :: Text -- ^ 'lfaSchemaARN'
-    -> Text -- ^ 'lfaName'
-    -> ListFacetAttributes
-listFacetAttributes pSchemaARN_ pName_ =
+-- 'schemaArn', 'listFacetAttributes_schemaArn' - The ARN of the schema where the facet resides.
+--
+-- 'name', 'listFacetAttributes_name' - The name of the facet whose attributes will be retrieved.
+newListFacetAttributes ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  ListFacetAttributes
+newListFacetAttributes pSchemaArn_ pName_ =
   ListFacetAttributes'
-    { _lfaNextToken = Nothing
-    , _lfaMaxResults = Nothing
-    , _lfaSchemaARN = pSchemaARN_
-    , _lfaName = pName_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      schemaArn = pSchemaArn_,
+      name = pName_
     }
 
-
 -- | The pagination token.
-lfaNextToken :: Lens' ListFacetAttributes (Maybe Text)
-lfaNextToken = lens _lfaNextToken (\ s a -> s{_lfaNextToken = a})
+listFacetAttributes_nextToken :: Lens.Lens' ListFacetAttributes (Prelude.Maybe Prelude.Text)
+listFacetAttributes_nextToken = Lens.lens (\ListFacetAttributes' {nextToken} -> nextToken) (\s@ListFacetAttributes' {} a -> s {nextToken = a} :: ListFacetAttributes)
 
 -- | The maximum number of results to retrieve.
-lfaMaxResults :: Lens' ListFacetAttributes (Maybe Natural)
-lfaMaxResults = lens _lfaMaxResults (\ s a -> s{_lfaMaxResults = a}) . mapping _Nat
+listFacetAttributes_maxResults :: Lens.Lens' ListFacetAttributes (Prelude.Maybe Prelude.Natural)
+listFacetAttributes_maxResults = Lens.lens (\ListFacetAttributes' {maxResults} -> maxResults) (\s@ListFacetAttributes' {} a -> s {maxResults = a} :: ListFacetAttributes)
 
 -- | The ARN of the schema where the facet resides.
-lfaSchemaARN :: Lens' ListFacetAttributes Text
-lfaSchemaARN = lens _lfaSchemaARN (\ s a -> s{_lfaSchemaARN = a})
+listFacetAttributes_schemaArn :: Lens.Lens' ListFacetAttributes Prelude.Text
+listFacetAttributes_schemaArn = Lens.lens (\ListFacetAttributes' {schemaArn} -> schemaArn) (\s@ListFacetAttributes' {} a -> s {schemaArn = a} :: ListFacetAttributes)
 
 -- | The name of the facet whose attributes will be retrieved.
-lfaName :: Lens' ListFacetAttributes Text
-lfaName = lens _lfaName (\ s a -> s{_lfaName = a})
+listFacetAttributes_name :: Lens.Lens' ListFacetAttributes Prelude.Text
+listFacetAttributes_name = Lens.lens (\ListFacetAttributes' {name} -> name) (\s@ListFacetAttributes' {} a -> s {name = a} :: ListFacetAttributes)
 
-instance AWSPager ListFacetAttributes where
-        page rq rs
-          | stop (rs ^. lfarsNextToken) = Nothing
-          | stop (rs ^. lfarsAttributes) = Nothing
-          | otherwise =
-            Just $ rq & lfaNextToken .~ rs ^. lfarsNextToken
+instance Core.AWSPager ListFacetAttributes where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listFacetAttributesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listFacetAttributesResponse_attributes
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listFacetAttributes_nextToken
+          Lens..~ rs
+          Lens.^? listFacetAttributesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListFacetAttributes where
-        type Rs ListFacetAttributes =
-             ListFacetAttributesResponse
-        request = postJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListFacetAttributesResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Attributes" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListFacetAttributes where
+  type
+    AWSResponse ListFacetAttributes =
+      ListFacetAttributesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFacetAttributesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListFacetAttributes where
+instance Prelude.Hashable ListFacetAttributes
 
-instance NFData ListFacetAttributes where
+instance Prelude.NFData ListFacetAttributes
 
-instance ToHeaders ListFacetAttributes where
-        toHeaders ListFacetAttributes'{..}
-          = mconcat ["x-amz-data-partition" =# _lfaSchemaARN]
+instance Core.ToHeaders ListFacetAttributes where
+  toHeaders ListFacetAttributes' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# schemaArn]
 
-instance ToJSON ListFacetAttributes where
-        toJSON ListFacetAttributes'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lfaNextToken,
-                  ("MaxResults" .=) <$> _lfaMaxResults,
-                  Just ("Name" .= _lfaName)])
+instance Core.ToJSON ListFacetAttributes where
+  toJSON ListFacetAttributes' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToPath ListFacetAttributes where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/facet/attributes"
+instance Core.ToPath ListFacetAttributes where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet/attributes"
 
-instance ToQuery ListFacetAttributes where
-        toQuery = const mempty
+instance Core.ToQuery ListFacetAttributes where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listFacetAttributesResponse' smart constructor.
+-- | /See:/ 'newListFacetAttributesResponse' smart constructor.
 data ListFacetAttributesResponse = ListFacetAttributesResponse'
-  { _lfarsNextToken      :: !(Maybe Text)
-  , _lfarsAttributes     :: !(Maybe [FacetAttribute])
-  , _lfarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The attributes attached to the facet.
+    attributes :: Prelude.Maybe [FacetAttribute],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListFacetAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFacetAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfarsNextToken' - The pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfarsAttributes' - The attributes attached to the facet.
+-- 'nextToken', 'listFacetAttributesResponse_nextToken' - The pagination token.
 --
--- * 'lfarsResponseStatus' - -- | The response status code.
-listFacetAttributesResponse
-    :: Int -- ^ 'lfarsResponseStatus'
-    -> ListFacetAttributesResponse
-listFacetAttributesResponse pResponseStatus_ =
+-- 'attributes', 'listFacetAttributesResponse_attributes' - The attributes attached to the facet.
+--
+-- 'httpStatus', 'listFacetAttributesResponse_httpStatus' - The response's http status code.
+newListFacetAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFacetAttributesResponse
+newListFacetAttributesResponse pHttpStatus_ =
   ListFacetAttributesResponse'
-    { _lfarsNextToken = Nothing
-    , _lfarsAttributes = Nothing
-    , _lfarsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The pagination token.
-lfarsNextToken :: Lens' ListFacetAttributesResponse (Maybe Text)
-lfarsNextToken = lens _lfarsNextToken (\ s a -> s{_lfarsNextToken = a})
+listFacetAttributesResponse_nextToken :: Lens.Lens' ListFacetAttributesResponse (Prelude.Maybe Prelude.Text)
+listFacetAttributesResponse_nextToken = Lens.lens (\ListFacetAttributesResponse' {nextToken} -> nextToken) (\s@ListFacetAttributesResponse' {} a -> s {nextToken = a} :: ListFacetAttributesResponse)
 
 -- | The attributes attached to the facet.
-lfarsAttributes :: Lens' ListFacetAttributesResponse [FacetAttribute]
-lfarsAttributes = lens _lfarsAttributes (\ s a -> s{_lfarsAttributes = a}) . _Default . _Coerce
+listFacetAttributesResponse_attributes :: Lens.Lens' ListFacetAttributesResponse (Prelude.Maybe [FacetAttribute])
+listFacetAttributesResponse_attributes = Lens.lens (\ListFacetAttributesResponse' {attributes} -> attributes) (\s@ListFacetAttributesResponse' {} a -> s {attributes = a} :: ListFacetAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lfarsResponseStatus :: Lens' ListFacetAttributesResponse Int
-lfarsResponseStatus = lens _lfarsResponseStatus (\ s a -> s{_lfarsResponseStatus = a})
+-- | The response's http status code.
+listFacetAttributesResponse_httpStatus :: Lens.Lens' ListFacetAttributesResponse Prelude.Int
+listFacetAttributesResponse_httpStatus = Lens.lens (\ListFacetAttributesResponse' {httpStatus} -> httpStatus) (\s@ListFacetAttributesResponse' {} a -> s {httpStatus = a} :: ListFacetAttributesResponse)
 
-instance NFData ListFacetAttributesResponse where
+instance Prelude.NFData ListFacetAttributesResponse

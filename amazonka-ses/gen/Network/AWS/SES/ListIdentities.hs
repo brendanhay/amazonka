@@ -1,176 +1,224 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.ListIdentities
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.
---
+-- Returns a list containing all of the identities (email addresses and
+-- domains) for your AWS account in the current AWS Region, regardless of
+-- verification status.
 --
 -- You can execute this operation no more than once per second.
 --
---
 -- This operation returns paginated results.
 module Network.AWS.SES.ListIdentities
-    (
-    -- * Creating a Request
-      listIdentities
-    , ListIdentities
+  ( -- * Creating a Request
+    ListIdentities (..),
+    newListIdentities,
+
     -- * Request Lenses
-    , liIdentityType
-    , liNextToken
-    , liMaxItems
+    listIdentities_nextToken,
+    listIdentities_identityType,
+    listIdentities_maxItems,
 
     -- * Destructuring the Response
-    , listIdentitiesResponse
-    , ListIdentitiesResponse
+    ListIdentitiesResponse (..),
+    newListIdentitiesResponse,
+
     -- * Response Lenses
-    , lirsNextToken
-    , lirsResponseStatus
-    , lirsIdentities
-    ) where
+    listIdentitiesResponse_nextToken,
+    listIdentitiesResponse_httpStatus,
+    listIdentitiesResponse_identities,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.
+-- | Represents a request to return a list of all identities (email addresses
+-- and domains) that you have attempted to verify under your AWS account,
+-- regardless of verification status.
 --
---
---
--- /See:/ 'listIdentities' smart constructor.
+-- /See:/ 'newListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { _liIdentityType :: !(Maybe IdentityType)
-  , _liNextToken    :: !(Maybe Text)
-  , _liMaxItems     :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of the identities to list. Possible values are \"EmailAddress\"
+    -- and \"Domain\". If this parameter is omitted, then all identities will
+    -- be listed.
+    identityType :: Prelude.Maybe IdentityType,
+    -- | The maximum number of identities per page. Possible values are 1-1000
+    -- inclusive.
+    maxItems :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIdentities' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'liIdentityType' - The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'liNextToken' - The token to use for pagination.
+-- 'nextToken', 'listIdentities_nextToken' - The token to use for pagination.
 --
--- * 'liMaxItems' - The maximum number of identities per page. Possible values are 1-1000 inclusive.
-listIdentities
-    :: ListIdentities
-listIdentities =
+-- 'identityType', 'listIdentities_identityType' - The type of the identities to list. Possible values are \"EmailAddress\"
+-- and \"Domain\". If this parameter is omitted, then all identities will
+-- be listed.
+--
+-- 'maxItems', 'listIdentities_maxItems' - The maximum number of identities per page. Possible values are 1-1000
+-- inclusive.
+newListIdentities ::
+  ListIdentities
+newListIdentities =
   ListIdentities'
-    {_liIdentityType = Nothing, _liNextToken = Nothing, _liMaxItems = Nothing}
-
-
--- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
-liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a})
-
--- | The token to use for pagination.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
-
--- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
-liMaxItems :: Lens' ListIdentities (Maybe Int)
-liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a})
-
-instance AWSPager ListIdentities where
-        page rq rs
-          | stop (rs ^. lirsNextToken) = Nothing
-          | stop (rs ^. lirsIdentities) = Nothing
-          | otherwise =
-            Just $ rq & liNextToken .~ rs ^. lirsNextToken
-
-instance AWSRequest ListIdentities where
-        type Rs ListIdentities = ListIdentitiesResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "ListIdentitiesResult"
-              (\ s h x ->
-                 ListIdentitiesResponse' <$>
-                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .@? "Identities" .!@ mempty >>=
-                        parseXMLList "member"))
-
-instance Hashable ListIdentities where
-
-instance NFData ListIdentities where
-
-instance ToHeaders ListIdentities where
-        toHeaders = const mempty
-
-instance ToPath ListIdentities where
-        toPath = const "/"
-
-instance ToQuery ListIdentities where
-        toQuery ListIdentities'{..}
-          = mconcat
-              ["Action" =: ("ListIdentities" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "IdentityType" =: _liIdentityType,
-               "NextToken" =: _liNextToken,
-               "MaxItems" =: _liMaxItems]
-
--- | A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.
---
---
---
--- /See:/ 'listIdentitiesResponse' smart constructor.
-data ListIdentitiesResponse = ListIdentitiesResponse'
-  { _lirsNextToken      :: !(Maybe Text)
-  , _lirsResponseStatus :: !Int
-  , _lirsIdentities     :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsNextToken' - The token used for pagination.
---
--- * 'lirsResponseStatus' - -- | The response status code.
---
--- * 'lirsIdentities' - A list of identities.
-listIdentitiesResponse
-    :: Int -- ^ 'lirsResponseStatus'
-    -> ListIdentitiesResponse
-listIdentitiesResponse pResponseStatus_ =
-  ListIdentitiesResponse'
-    { _lirsNextToken = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    , _lirsIdentities = mempty
+    { nextToken = Prelude.Nothing,
+      identityType = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
+-- | The token to use for pagination.
+listIdentities_nextToken :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Text)
+listIdentities_nextToken = Lens.lens (\ListIdentities' {nextToken} -> nextToken) (\s@ListIdentities' {} a -> s {nextToken = a} :: ListIdentities)
+
+-- | The type of the identities to list. Possible values are \"EmailAddress\"
+-- and \"Domain\". If this parameter is omitted, then all identities will
+-- be listed.
+listIdentities_identityType :: Lens.Lens' ListIdentities (Prelude.Maybe IdentityType)
+listIdentities_identityType = Lens.lens (\ListIdentities' {identityType} -> identityType) (\s@ListIdentities' {} a -> s {identityType = a} :: ListIdentities)
+
+-- | The maximum number of identities per page. Possible values are 1-1000
+-- inclusive.
+listIdentities_maxItems :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Int)
+listIdentities_maxItems = Lens.lens (\ListIdentities' {maxItems} -> maxItems) (\s@ListIdentities' {} a -> s {maxItems = a} :: ListIdentities)
+
+instance Core.AWSPager ListIdentities where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listIdentitiesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listIdentitiesResponse_identities) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listIdentities_nextToken
+          Lens..~ rs
+          Lens.^? listIdentitiesResponse_nextToken Prelude.. Lens._Just
+
+instance Core.AWSRequest ListIdentities where
+  type
+    AWSResponse ListIdentities =
+      ListIdentitiesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListIdentitiesResult"
+      ( \s h x ->
+          ListIdentitiesResponse'
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Identities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
+      )
+
+instance Prelude.Hashable ListIdentities
+
+instance Prelude.NFData ListIdentities
+
+instance Core.ToHeaders ListIdentities where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListIdentities where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListIdentities where
+  toQuery ListIdentities' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListIdentities" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        "IdentityType" Core.=: identityType,
+        "MaxItems" Core.=: maxItems
+      ]
+
+-- | A list of all identities that you have attempted to verify under your
+-- AWS account, regardless of verification status.
+--
+-- /See:/ 'newListIdentitiesResponse' smart constructor.
+data ListIdentitiesResponse = ListIdentitiesResponse'
+  { -- | The token used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of identities.
+    identities :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListIdentitiesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listIdentitiesResponse_nextToken' - The token used for pagination.
+--
+-- 'httpStatus', 'listIdentitiesResponse_httpStatus' - The response's http status code.
+--
+-- 'identities', 'listIdentitiesResponse_identities' - A list of identities.
+newListIdentitiesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListIdentitiesResponse
+newListIdentitiesResponse pHttpStatus_ =
+  ListIdentitiesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      identities = Prelude.mempty
+    }
 
 -- | The token used for pagination.
-lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
+listIdentitiesResponse_nextToken :: Lens.Lens' ListIdentitiesResponse (Prelude.Maybe Prelude.Text)
+listIdentitiesResponse_nextToken = Lens.lens (\ListIdentitiesResponse' {nextToken} -> nextToken) (\s@ListIdentitiesResponse' {} a -> s {nextToken = a} :: ListIdentitiesResponse)
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListIdentitiesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
+-- | The response's http status code.
+listIdentitiesResponse_httpStatus :: Lens.Lens' ListIdentitiesResponse Prelude.Int
+listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpStatus} -> httpStatus) (\s@ListIdentitiesResponse' {} a -> s {httpStatus = a} :: ListIdentitiesResponse)
 
 -- | A list of identities.
-lirsIdentities :: Lens' ListIdentitiesResponse [Text]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Coerce
+listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse [Prelude.Text]
+listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Lens._Coerce
 
-instance NFData ListIdentitiesResponse where
+instance Prelude.NFData ListIdentitiesResponse

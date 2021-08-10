@@ -1,134 +1,167 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetVPCEConfiguration
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the configuration settings for your Amazon Virtual Private Cloud (VPC) endpoint.
---
---
+-- Returns information about the configuration settings for your Amazon
+-- Virtual Private Cloud (VPC) endpoint.
 module Network.AWS.DeviceFarm.GetVPCEConfiguration
-    (
-    -- * Creating a Request
-      getVPCEConfiguration
-    , GetVPCEConfiguration
+  ( -- * Creating a Request
+    GetVPCEConfiguration (..),
+    newGetVPCEConfiguration,
+
     -- * Request Lenses
-    , gvecArn
+    getVPCEConfiguration_arn,
 
     -- * Destructuring the Response
-    , getVPCEConfigurationResponse
-    , GetVPCEConfigurationResponse
+    GetVPCEConfigurationResponse (..),
+    newGetVPCEConfigurationResponse,
+
     -- * Response Lenses
-    , gvecrsVpceConfiguration
-    , gvecrsResponseStatus
-    ) where
+    getVPCEConfigurationResponse_vpceConfiguration,
+    getVPCEConfigurationResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getVPCEConfiguration' smart constructor.
-newtype GetVPCEConfiguration = GetVPCEConfiguration'
-  { _gvecArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetVPCEConfiguration' smart constructor.
+data GetVPCEConfiguration = GetVPCEConfiguration'
+  { -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
+    -- want to describe.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetVPCEConfiguration' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetVPCEConfiguration' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gvecArn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
-getVPCEConfiguration
-    :: Text -- ^ 'gvecArn'
-    -> GetVPCEConfiguration
-getVPCEConfiguration pArn_ = GetVPCEConfiguration' {_gvecArn = pArn_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'arn', 'getVPCEConfiguration_arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you
+-- want to describe.
+newGetVPCEConfiguration ::
+  -- | 'arn'
+  Prelude.Text ->
+  GetVPCEConfiguration
+newGetVPCEConfiguration pArn_ =
+  GetVPCEConfiguration' {arn = pArn_}
 
+-- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
+-- want to describe.
+getVPCEConfiguration_arn :: Lens.Lens' GetVPCEConfiguration Prelude.Text
+getVPCEConfiguration_arn = Lens.lens (\GetVPCEConfiguration' {arn} -> arn) (\s@GetVPCEConfiguration' {} a -> s {arn = a} :: GetVPCEConfiguration)
 
--- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
-gvecArn :: Lens' GetVPCEConfiguration Text
-gvecArn = lens _gvecArn (\ s a -> s{_gvecArn = a})
+instance Core.AWSRequest GetVPCEConfiguration where
+  type
+    AWSResponse GetVPCEConfiguration =
+      GetVPCEConfigurationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetVPCEConfigurationResponse'
+            Prelude.<$> (x Core..?> "vpceConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetVPCEConfiguration where
-        type Rs GetVPCEConfiguration =
-             GetVPCEConfigurationResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetVPCEConfigurationResponse' <$>
-                   (x .?> "vpceConfiguration") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetVPCEConfiguration
 
-instance Hashable GetVPCEConfiguration where
+instance Prelude.NFData GetVPCEConfiguration
 
-instance NFData GetVPCEConfiguration where
+instance Core.ToHeaders GetVPCEConfiguration where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.GetVPCEConfiguration" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetVPCEConfiguration where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.GetVPCEConfiguration" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetVPCEConfiguration where
+  toJSON GetVPCEConfiguration' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
-instance ToJSON GetVPCEConfiguration where
-        toJSON GetVPCEConfiguration'{..}
-          = object (catMaybes [Just ("arn" .= _gvecArn)])
+instance Core.ToPath GetVPCEConfiguration where
+  toPath = Prelude.const "/"
 
-instance ToPath GetVPCEConfiguration where
-        toPath = const "/"
+instance Core.ToQuery GetVPCEConfiguration where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetVPCEConfiguration where
-        toQuery = const mempty
-
--- | /See:/ 'getVPCEConfigurationResponse' smart constructor.
+-- | /See:/ 'newGetVPCEConfigurationResponse' smart constructor.
 data GetVPCEConfigurationResponse = GetVPCEConfigurationResponse'
-  { _gvecrsVpceConfiguration :: !(Maybe VPCEConfiguration)
-  , _gvecrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object that contains information about your VPC endpoint
+    -- configuration.
+    vpceConfiguration :: Prelude.Maybe VPCEConfiguration,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetVPCEConfigurationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetVPCEConfigurationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gvecrsVpceConfiguration' - An object containing information about your VPC endpoint configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gvecrsResponseStatus' - -- | The response status code.
-getVPCEConfigurationResponse
-    :: Int -- ^ 'gvecrsResponseStatus'
-    -> GetVPCEConfigurationResponse
-getVPCEConfigurationResponse pResponseStatus_ =
+-- 'vpceConfiguration', 'getVPCEConfigurationResponse_vpceConfiguration' - An object that contains information about your VPC endpoint
+-- configuration.
+--
+-- 'httpStatus', 'getVPCEConfigurationResponse_httpStatus' - The response's http status code.
+newGetVPCEConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetVPCEConfigurationResponse
+newGetVPCEConfigurationResponse pHttpStatus_ =
   GetVPCEConfigurationResponse'
-    { _gvecrsVpceConfiguration = Nothing
-    , _gvecrsResponseStatus = pResponseStatus_
+    { vpceConfiguration =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An object that contains information about your VPC endpoint
+-- configuration.
+getVPCEConfigurationResponse_vpceConfiguration :: Lens.Lens' GetVPCEConfigurationResponse (Prelude.Maybe VPCEConfiguration)
+getVPCEConfigurationResponse_vpceConfiguration = Lens.lens (\GetVPCEConfigurationResponse' {vpceConfiguration} -> vpceConfiguration) (\s@GetVPCEConfigurationResponse' {} a -> s {vpceConfiguration = a} :: GetVPCEConfigurationResponse)
 
--- | An object containing information about your VPC endpoint configuration.
-gvecrsVpceConfiguration :: Lens' GetVPCEConfigurationResponse (Maybe VPCEConfiguration)
-gvecrsVpceConfiguration = lens _gvecrsVpceConfiguration (\ s a -> s{_gvecrsVpceConfiguration = a})
+-- | The response's http status code.
+getVPCEConfigurationResponse_httpStatus :: Lens.Lens' GetVPCEConfigurationResponse Prelude.Int
+getVPCEConfigurationResponse_httpStatus = Lens.lens (\GetVPCEConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetVPCEConfigurationResponse' {} a -> s {httpStatus = a} :: GetVPCEConfigurationResponse)
 
--- | -- | The response status code.
-gvecrsResponseStatus :: Lens' GetVPCEConfigurationResponse Int
-gvecrsResponseStatus = lens _gvecrsResponseStatus (\ s a -> s{_gvecrsResponseStatus = a})
-
-instance NFData GetVPCEConfigurationResponse where
+instance Prelude.NFData GetVPCEConfigurationResponse

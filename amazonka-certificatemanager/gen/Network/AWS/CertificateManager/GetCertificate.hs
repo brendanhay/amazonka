@@ -1,145 +1,199 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManager.GetCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a certificate specified by an ARN and its certificate chain . The chain is an ordered list of certificates that contains the end entity certificate, intermediate certificates of subordinate CAs, and the root certificate in that order. The certificate and certificate chain are base64 encoded. If you want to decode the certificate to see the individual fields, you can use OpenSSL.
---
---
+-- Retrieves an Amazon-issued certificate and its certificate chain. The
+-- chain consists of the certificate of the issuing CA and the intermediate
+-- certificates of any other subordinate CAs. All of the certificates are
+-- base64 encoded. You can use
+-- <https://wiki.openssl.org/index.php/Command_Line_Utilities OpenSSL> to
+-- decode the certificates and inspect individual fields.
 module Network.AWS.CertificateManager.GetCertificate
-    (
-    -- * Creating a Request
-      getCertificate
-    , GetCertificate
+  ( -- * Creating a Request
+    GetCertificate (..),
+    newGetCertificate,
+
     -- * Request Lenses
-    , gcCertificateARN
+    getCertificate_certificateArn,
 
     -- * Destructuring the Response
-    , getCertificateResponse
-    , GetCertificateResponse
+    GetCertificateResponse (..),
+    newGetCertificateResponse,
+
     -- * Response Lenses
-    , gcrsCertificate
-    , gcrsCertificateChain
-    , gcrsResponseStatus
-    ) where
+    getCertificateResponse_certificateChain,
+    getCertificateResponse_certificate,
+    getCertificateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getCertificate' smart constructor.
-newtype GetCertificate = GetCertificate'
-  { _gcCertificateARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetCertificate' smart constructor.
+data GetCertificate = GetCertificate'
+  { -- | String that contains a certificate ARN in the following format:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+    certificateArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcCertificateARN' - String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-getCertificate
-    :: Text -- ^ 'gcCertificateARN'
-    -> GetCertificate
-getCertificate pCertificateARN_ =
-  GetCertificate' {_gcCertificateARN = pCertificateARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'certificateArn', 'getCertificate_certificateArn' - String that contains a certificate ARN in the following format:
+--
+-- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+newGetCertificate ::
+  -- | 'certificateArn'
+  Prelude.Text ->
+  GetCertificate
+newGetCertificate pCertificateArn_ =
+  GetCertificate' {certificateArn = pCertificateArn_}
 
+-- | String that contains a certificate ARN in the following format:
+--
+-- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+getCertificate_certificateArn :: Lens.Lens' GetCertificate Prelude.Text
+getCertificate_certificateArn = Lens.lens (\GetCertificate' {certificateArn} -> certificateArn) (\s@GetCertificate' {} a -> s {certificateArn = a} :: GetCertificate)
 
--- | String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-gcCertificateARN :: Lens' GetCertificate Text
-gcCertificateARN = lens _gcCertificateARN (\ s a -> s{_gcCertificateARN = a})
+instance Core.AWSRequest GetCertificate where
+  type
+    AWSResponse GetCertificate =
+      GetCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCertificateResponse'
+            Prelude.<$> (x Core..?> "CertificateChain")
+            Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetCertificate where
-        type Rs GetCertificate = GetCertificateResponse
-        request = postJSON certificateManager
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCertificateResponse' <$>
-                   (x .?> "Certificate") <*> (x .?> "CertificateChain")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetCertificate
 
-instance Hashable GetCertificate where
+instance Prelude.NFData GetCertificate
 
-instance NFData GetCertificate where
+instance Core.ToHeaders GetCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CertificateManager.GetCertificate" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CertificateManager.GetCertificate" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetCertificate where
+  toJSON GetCertificate' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("CertificateArn" Core..= certificateArn)
+          ]
+      )
 
-instance ToJSON GetCertificate where
-        toJSON GetCertificate'{..}
-          = object
-              (catMaybes
-                 [Just ("CertificateArn" .= _gcCertificateARN)])
+instance Core.ToPath GetCertificate where
+  toPath = Prelude.const "/"
 
-instance ToPath GetCertificate where
-        toPath = const "/"
+instance Core.ToQuery GetCertificate where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetCertificate where
-        toQuery = const mempty
-
--- | /See:/ 'getCertificateResponse' smart constructor.
+-- | /See:/ 'newGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { _gcrsCertificate      :: !(Maybe Text)
-  , _gcrsCertificateChain :: !(Maybe Text)
-  , _gcrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Certificates forming the requested certificate\'s chain of trust. The
+    -- chain consists of the certificate of the issuing CA and the intermediate
+    -- certificates of any other subordinate CAs.
+    certificateChain :: Prelude.Maybe Prelude.Text,
+    -- | The ACM-issued certificate corresponding to the ARN specified as input.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcrsCertificate' - String that contains the ACM certificate represented by the ARN specified at input.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcrsCertificateChain' - The certificate chain that contains the root certificate issued by the certificate authority (CA).
+-- 'certificateChain', 'getCertificateResponse_certificateChain' - Certificates forming the requested certificate\'s chain of trust. The
+-- chain consists of the certificate of the issuing CA and the intermediate
+-- certificates of any other subordinate CAs.
 --
--- * 'gcrsResponseStatus' - -- | The response status code.
-getCertificateResponse
-    :: Int -- ^ 'gcrsResponseStatus'
-    -> GetCertificateResponse
-getCertificateResponse pResponseStatus_ =
+-- 'certificate', 'getCertificateResponse_certificate' - The ACM-issued certificate corresponding to the ARN specified as input.
+--
+-- 'httpStatus', 'getCertificateResponse_httpStatus' - The response's http status code.
+newGetCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCertificateResponse
+newGetCertificateResponse pHttpStatus_ =
   GetCertificateResponse'
-    { _gcrsCertificate = Nothing
-    , _gcrsCertificateChain = Nothing
-    , _gcrsResponseStatus = pResponseStatus_
+    { certificateChain =
+        Prelude.Nothing,
+      certificate = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Certificates forming the requested certificate\'s chain of trust. The
+-- chain consists of the certificate of the issuing CA and the intermediate
+-- certificates of any other subordinate CAs.
+getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
 
--- | String that contains the ACM certificate represented by the ARN specified at input.
-gcrsCertificate :: Lens' GetCertificateResponse (Maybe Text)
-gcrsCertificate = lens _gcrsCertificate (\ s a -> s{_gcrsCertificate = a})
+-- | The ACM-issued certificate corresponding to the ARN specified as input.
+getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
 
--- | The certificate chain that contains the root certificate issued by the certificate authority (CA).
-gcrsCertificateChain :: Lens' GetCertificateResponse (Maybe Text)
-gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateChain = a})
+-- | The response's http status code.
+getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Prelude.Int
+getCertificateResponse_httpStatus = Lens.lens (\GetCertificateResponse' {httpStatus} -> httpStatus) (\s@GetCertificateResponse' {} a -> s {httpStatus = a} :: GetCertificateResponse)
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetCertificateResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
-
-instance NFData GetCertificateResponse where
+instance Prelude.NFData GetCertificateResponse

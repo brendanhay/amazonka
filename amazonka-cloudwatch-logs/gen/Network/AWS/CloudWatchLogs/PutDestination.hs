@@ -1,159 +1,218 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestination
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using 'PutLogEvents' . Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.
+-- Creates or updates a destination. This operation is used only to create
+-- destinations for cross-account subscriptions.
 --
+-- A destination encapsulates a physical resource (such as an Amazon
+-- Kinesis stream) and enables you to subscribe to a real-time stream of
+-- log events for a different account, ingested using
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html PutLogEvents>.
 --
--- Through an access policy, a destination controls what is written to its Kinesis stream. By default, @PutDestination@ does not set any access policy with the destination, which means a cross-account user cannot call 'PutSubscriptionFilter' against this destination. To enable this, the destination owner must call 'PutDestinationPolicy' after @PutDestination@ .
+-- Through an access policy, a destination controls what is written to it.
+-- By default, @PutDestination@ does not set any access policy with the
+-- destination, which means a cross-account user cannot call
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html PutSubscriptionFilter>
+-- against this destination. To enable this, the destination owner must
+-- call
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html PutDestinationPolicy>
+-- after @PutDestination@.
 --
+-- To perform a @PutDestination@ operation, you must also have the
+-- @iam:PassRole@ permission.
 module Network.AWS.CloudWatchLogs.PutDestination
-    (
-    -- * Creating a Request
-      putDestination
-    , PutDestination
+  ( -- * Creating a Request
+    PutDestination (..),
+    newPutDestination,
+
     -- * Request Lenses
-    , pdDestinationName
-    , pdTargetARN
-    , pdRoleARN
+    putDestination_destinationName,
+    putDestination_targetArn,
+    putDestination_roleArn,
 
     -- * Destructuring the Response
-    , putDestinationResponse
-    , PutDestinationResponse
+    PutDestinationResponse (..),
+    newPutDestinationResponse,
+
     -- * Response Lenses
-    , pdrsDestination
-    , pdrsResponseStatus
-    ) where
+    putDestinationResponse_destination,
+    putDestinationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putDestination' smart constructor.
+-- | /See:/ 'newPutDestination' smart constructor.
 data PutDestination = PutDestination'
-  { _pdDestinationName :: !Text
-  , _pdTargetARN       :: !Text
-  , _pdRoleARN         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A name for the destination.
+    destinationName :: Prelude.Text,
+    -- | The ARN of an Amazon Kinesis stream to which to deliver matching log
+    -- events.
+    targetArn :: Prelude.Text,
+    -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call
+    -- the Amazon Kinesis @PutRecord@ operation on the destination stream.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutDestination' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutDestination' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pdDestinationName' - A name for the destination.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pdTargetARN' - The ARN of an Amazon Kinesis stream to which to deliver matching log events.
+-- 'destinationName', 'putDestination_destinationName' - A name for the destination.
 --
--- * 'pdRoleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.
-putDestination
-    :: Text -- ^ 'pdDestinationName'
-    -> Text -- ^ 'pdTargetARN'
-    -> Text -- ^ 'pdRoleARN'
-    -> PutDestination
-putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
-  PutDestination'
-    { _pdDestinationName = pDestinationName_
-    , _pdTargetARN = pTargetARN_
-    , _pdRoleARN = pRoleARN_
-    }
-
+-- 'targetArn', 'putDestination_targetArn' - The ARN of an Amazon Kinesis stream to which to deliver matching log
+-- events.
+--
+-- 'roleArn', 'putDestination_roleArn' - The ARN of an IAM role that grants CloudWatch Logs permissions to call
+-- the Amazon Kinesis @PutRecord@ operation on the destination stream.
+newPutDestination ::
+  -- | 'destinationName'
+  Prelude.Text ->
+  -- | 'targetArn'
+  Prelude.Text ->
+  -- | 'roleArn'
+  Prelude.Text ->
+  PutDestination
+newPutDestination
+  pDestinationName_
+  pTargetArn_
+  pRoleArn_ =
+    PutDestination'
+      { destinationName =
+          pDestinationName_,
+        targetArn = pTargetArn_,
+        roleArn = pRoleArn_
+      }
 
 -- | A name for the destination.
-pdDestinationName :: Lens' PutDestination Text
-pdDestinationName = lens _pdDestinationName (\ s a -> s{_pdDestinationName = a})
+putDestination_destinationName :: Lens.Lens' PutDestination Prelude.Text
+putDestination_destinationName = Lens.lens (\PutDestination' {destinationName} -> destinationName) (\s@PutDestination' {} a -> s {destinationName = a} :: PutDestination)
 
--- | The ARN of an Amazon Kinesis stream to which to deliver matching log events.
-pdTargetARN :: Lens' PutDestination Text
-pdTargetARN = lens _pdTargetARN (\ s a -> s{_pdTargetARN = a})
+-- | The ARN of an Amazon Kinesis stream to which to deliver matching log
+-- events.
+putDestination_targetArn :: Lens.Lens' PutDestination Prelude.Text
+putDestination_targetArn = Lens.lens (\PutDestination' {targetArn} -> targetArn) (\s@PutDestination' {} a -> s {targetArn = a} :: PutDestination)
 
--- | The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.
-pdRoleARN :: Lens' PutDestination Text
-pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a})
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to call
+-- the Amazon Kinesis @PutRecord@ operation on the destination stream.
+putDestination_roleArn :: Lens.Lens' PutDestination Prelude.Text
+putDestination_roleArn = Lens.lens (\PutDestination' {roleArn} -> roleArn) (\s@PutDestination' {} a -> s {roleArn = a} :: PutDestination)
 
-instance AWSRequest PutDestination where
-        type Rs PutDestination = PutDestinationResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutDestinationResponse' <$>
-                   (x .?> "destination") <*> (pure (fromEnum s)))
+instance Core.AWSRequest PutDestination where
+  type
+    AWSResponse PutDestination =
+      PutDestinationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutDestinationResponse'
+            Prelude.<$> (x Core..?> "destination")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable PutDestination where
+instance Prelude.Hashable PutDestination
 
-instance NFData PutDestination where
+instance Prelude.NFData PutDestination
 
-instance ToHeaders PutDestination where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.PutDestination" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders PutDestination where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.PutDestination" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON PutDestination where
-        toJSON PutDestination'{..}
-          = object
-              (catMaybes
-                 [Just ("destinationName" .= _pdDestinationName),
-                  Just ("targetArn" .= _pdTargetARN),
-                  Just ("roleArn" .= _pdRoleARN)])
+instance Core.ToJSON PutDestination where
+  toJSON PutDestination' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("destinationName" Core..= destinationName),
+            Prelude.Just ("targetArn" Core..= targetArn),
+            Prelude.Just ("roleArn" Core..= roleArn)
+          ]
+      )
 
-instance ToPath PutDestination where
-        toPath = const "/"
+instance Core.ToPath PutDestination where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutDestination where
-        toQuery = const mempty
+instance Core.ToQuery PutDestination where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putDestinationResponse' smart constructor.
+-- | /See:/ 'newPutDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-  { _pdrsDestination    :: !(Maybe Destination)
-  , _pdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The destination.
+    destination :: Prelude.Maybe Destination,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutDestinationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pdrsDestination' - The destination.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pdrsResponseStatus' - -- | The response status code.
-putDestinationResponse
-    :: Int -- ^ 'pdrsResponseStatus'
-    -> PutDestinationResponse
-putDestinationResponse pResponseStatus_ =
+-- 'destination', 'putDestinationResponse_destination' - The destination.
+--
+-- 'httpStatus', 'putDestinationResponse_httpStatus' - The response's http status code.
+newPutDestinationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutDestinationResponse
+newPutDestinationResponse pHttpStatus_ =
   PutDestinationResponse'
-    {_pdrsDestination = Nothing, _pdrsResponseStatus = pResponseStatus_}
-
+    { destination =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The destination.
-pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
-pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a})
+putDestinationResponse_destination :: Lens.Lens' PutDestinationResponse (Prelude.Maybe Destination)
+putDestinationResponse_destination = Lens.lens (\PutDestinationResponse' {destination} -> destination) (\s@PutDestinationResponse' {} a -> s {destination = a} :: PutDestinationResponse)
 
--- | -- | The response status code.
-pdrsResponseStatus :: Lens' PutDestinationResponse Int
-pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a})
+-- | The response's http status code.
+putDestinationResponse_httpStatus :: Lens.Lens' PutDestinationResponse Prelude.Int
+putDestinationResponse_httpStatus = Lens.lens (\PutDestinationResponse' {httpStatus} -> httpStatus) (\s@PutDestinationResponse' {} a -> s {httpStatus = a} :: PutDestinationResponse)
 
-instance NFData PutDestinationResponse where
+instance Prelude.NFData PutDestinationResponse

@@ -1,259 +1,434 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeDataSources
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @DataSource@ that match the search criteria in the request.
---
---
+-- Returns a list of @DataSource@ that match the search criteria in the
+-- request.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeDataSources
-    (
-    -- * Creating a Request
-      describeDataSources
-    , DescribeDataSources
+  ( -- * Creating a Request
+    DescribeDataSources (..),
+    newDescribeDataSources,
+
     -- * Request Lenses
-    , ddsEQ
-    , ddsGE
-    , ddsPrefix
-    , ddsGT
-    , ddsNE
-    , ddsNextToken
-    , ddsSortOrder
-    , ddsLimit
-    , ddsLT
-    , ddsFilterVariable
-    , ddsLE
+    describeDataSources_sortOrder,
+    describeDataSources_eq,
+    describeDataSources_nextToken,
+    describeDataSources_filterVariable,
+    describeDataSources_gt,
+    describeDataSources_ne,
+    describeDataSources_prefix,
+    describeDataSources_ge,
+    describeDataSources_le,
+    describeDataSources_lt,
+    describeDataSources_limit,
 
     -- * Destructuring the Response
-    , describeDataSourcesResponse
-    , DescribeDataSourcesResponse
+    DescribeDataSourcesResponse (..),
+    newDescribeDataSourcesResponse,
+
     -- * Response Lenses
-    , ddssrsResults
-    , ddssrsNextToken
-    , ddssrsResponseStatus
-    ) where
+    describeDataSourcesResponse_nextToken,
+    describeDataSourcesResponse_results,
+    describeDataSourcesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeDataSources' smart constructor.
+-- | /See:/ 'newDescribeDataSources' smart constructor.
 data DescribeDataSources = DescribeDataSources'
-  { _ddsEQ             :: !(Maybe Text)
-  , _ddsGE             :: !(Maybe Text)
-  , _ddsPrefix         :: !(Maybe Text)
-  , _ddsGT             :: !(Maybe Text)
-  , _ddsNE             :: !(Maybe Text)
-  , _ddsNextToken      :: !(Maybe Text)
-  , _ddsSortOrder      :: !(Maybe SortOrder)
-  , _ddsLimit          :: !(Maybe Nat)
-  , _ddsLT             :: !(Maybe Text)
-  , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
-  , _ddsLE             :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @DataSource@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | The equal to operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that exactly match the value specified with
+    -- @EQ@.
+    eq :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the page in the paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use one of the following variables to filter a list of @DataSource@:
+    --
+    -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
+    --     dates.
+    -- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+    -- -   @Name@ - Sets the search criteria to the contents of @DataSource@
+    --     ____ @Name@.
+    -- -   @DataUri@ - Sets the search criteria to the URI of data files used
+    --     to create the @DataSource@. The URI can identify either a file or an
+    --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+    -- -   @IAMUser@ - Sets the search criteria to the user account that
+    --     invoked the @DataSource@ creation.
+    filterVariable :: Prelude.Maybe DataSourceFilterVariable,
+    -- | The greater than operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that are greater than the value specified with
+    -- @GT@.
+    gt :: Prelude.Maybe Prelude.Text,
+    -- | The not equal to operator. The @DataSource@ results will have
+    -- @FilterVariable@ values not equal to the value specified with @NE@.
+    ne :: Prelude.Maybe Prelude.Text,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or
+    -- @Id@.
+    --
+    -- For example, a @DataSource@ could have the @Name@
+    -- @2014-09-09-HolidayGiftMailer@. To search for this @DataSource@, select
+    -- @Name@ for the @FilterVariable@ and any of the following strings for the
+    -- @Prefix@:
+    --
+    -- -   2014-09
+    --
+    -- -   2014-09-09
+    --
+    -- -   2014-09-09-Holiday
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The greater than or equal to operator. The @DataSource@ results will
+    -- have @FilterVariable@ values that are greater than or equal to the value
+    -- specified with @GE@.
+    ge :: Prelude.Maybe Prelude.Text,
+    -- | The less than or equal to operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that are less than or equal to the value
+    -- specified with @LE@.
+    le :: Prelude.Maybe Prelude.Text,
+    -- | The less than operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that are less than the value specified with
+    -- @LT@.
+    lt :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of @DataSource@ to include in the result.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDataSources' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDataSources' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddsEQ' - The equal to operator. The @DataSource@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddsGE' - The greater than or equal to operator. The @DataSource@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+-- 'sortOrder', 'describeDataSources_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @DataSource@.
 --
--- * 'ddsPrefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ . For example, a @DataSource@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @DataSource@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :      * 2014-09     * 2014-09-09     * 2014-09-09-Holiday
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
--- * 'ddsGT' - The greater than operator. The @DataSource@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+-- Results are sorted by @FilterVariable@.
 --
--- * 'ddsNE' - The not equal to operator. The @DataSource@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+-- 'eq', 'describeDataSources_eq' - The equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
 --
--- * 'ddsNextToken' - The ID of the page in the paginated results.
+-- 'nextToken', 'describeDataSources_nextToken' - The ID of the page in the paginated results.
 --
--- * 'ddsSortOrder' - A two-value parameter that determines the sequence of the resulting list of @DataSource@ .     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).    * @dsc@ - Arranges the list in descending order (Z-A, 9-0). Results are sorted by @FilterVariable@ .
+-- 'filterVariable', 'describeDataSources_filterVariable' - Use one of the following variables to filter a list of @DataSource@:
 --
--- * 'ddsLimit' - The maximum number of @DataSource@ to include in the result.
+-- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
+--     dates.
+-- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+-- -   @Name@ - Sets the search criteria to the contents of @DataSource@
+--     ____ @Name@.
+-- -   @DataUri@ - Sets the search criteria to the URI of data files used
+--     to create the @DataSource@. The URI can identify either a file or an
+--     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @DataSource@ creation.
 --
--- * 'ddsLT' - The less than operator. The @DataSource@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
+-- 'gt', 'describeDataSources_gt' - The greater than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
 --
--- * 'ddsFilterVariable' - Use one of the following variables to filter a list of @DataSource@ :     * @CreatedAt@ - Sets the search criteria to @DataSource@ creation dates.    * @Status@ - Sets the search criteria to @DataSource@ statuses.    * @Name@ - Sets the search criteria to the contents of @DataSource@ ____ @Name@ .    * @DataUri@ - Sets the search criteria to the URI of data files used to create the @DataSource@ . The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.    * @IAMUser@ - Sets the search criteria to the user account that invoked the @DataSource@ creation.
+-- 'ne', 'describeDataSources_ne' - The not equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
 --
--- * 'ddsLE' - The less than or equal to operator. The @DataSource@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-describeDataSources
-    :: DescribeDataSources
-describeDataSources =
+-- 'prefix', 'describeDataSources_prefix' - A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
+--
+-- For example, a @DataSource@ could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @DataSource@, select
+-- @Name@ for the @FilterVariable@ and any of the following strings for the
+-- @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+--
+-- 'ge', 'describeDataSources_ge' - The greater than or equal to operator. The @DataSource@ results will
+-- have @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+--
+-- 'le', 'describeDataSources_le' - The less than or equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+--
+-- 'lt', 'describeDataSources_lt' - The less than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+--
+-- 'limit', 'describeDataSources_limit' - The maximum number of @DataSource@ to include in the result.
+newDescribeDataSources ::
+  DescribeDataSources
+newDescribeDataSources =
   DescribeDataSources'
-    { _ddsEQ = Nothing
-    , _ddsGE = Nothing
-    , _ddsPrefix = Nothing
-    , _ddsGT = Nothing
-    , _ddsNE = Nothing
-    , _ddsNextToken = Nothing
-    , _ddsSortOrder = Nothing
-    , _ddsLimit = Nothing
-    , _ddsLT = Nothing
-    , _ddsFilterVariable = Nothing
-    , _ddsLE = Nothing
+    { sortOrder = Prelude.Nothing,
+      eq = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      filterVariable = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      ne = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      ge = Prelude.Nothing,
+      le = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @DataSource@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeDataSources_sortOrder :: Lens.Lens' DescribeDataSources (Prelude.Maybe SortOrder)
+describeDataSources_sortOrder = Lens.lens (\DescribeDataSources' {sortOrder} -> sortOrder) (\s@DescribeDataSources' {} a -> s {sortOrder = a} :: DescribeDataSources)
 
--- | The equal to operator. The @DataSource@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
-ddsEQ :: Lens' DescribeDataSources (Maybe Text)
-ddsEQ = lens _ddsEQ (\ s a -> s{_ddsEQ = a})
-
--- | The greater than or equal to operator. The @DataSource@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
-ddsGE :: Lens' DescribeDataSources (Maybe Text)
-ddsGE = lens _ddsGE (\ s a -> s{_ddsGE = a})
-
--- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ . For example, a @DataSource@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @DataSource@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :      * 2014-09     * 2014-09-09     * 2014-09-09-Holiday
-ddsPrefix :: Lens' DescribeDataSources (Maybe Text)
-ddsPrefix = lens _ddsPrefix (\ s a -> s{_ddsPrefix = a})
-
--- | The greater than operator. The @DataSource@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
-ddsGT :: Lens' DescribeDataSources (Maybe Text)
-ddsGT = lens _ddsGT (\ s a -> s{_ddsGT = a})
-
--- | The not equal to operator. The @DataSource@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
-ddsNE :: Lens' DescribeDataSources (Maybe Text)
-ddsNE = lens _ddsNE (\ s a -> s{_ddsNE = a})
+-- | The equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+describeDataSources_eq :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_eq = Lens.lens (\DescribeDataSources' {eq} -> eq) (\s@DescribeDataSources' {} a -> s {eq = a} :: DescribeDataSources)
 
 -- | The ID of the page in the paginated results.
-ddsNextToken :: Lens' DescribeDataSources (Maybe Text)
-ddsNextToken = lens _ddsNextToken (\ s a -> s{_ddsNextToken = a})
+describeDataSources_nextToken :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_nextToken = Lens.lens (\DescribeDataSources' {nextToken} -> nextToken) (\s@DescribeDataSources' {} a -> s {nextToken = a} :: DescribeDataSources)
 
--- | A two-value parameter that determines the sequence of the resulting list of @DataSource@ .     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).    * @dsc@ - Arranges the list in descending order (Z-A, 9-0). Results are sorted by @FilterVariable@ .
-ddsSortOrder :: Lens' DescribeDataSources (Maybe SortOrder)
-ddsSortOrder = lens _ddsSortOrder (\ s a -> s{_ddsSortOrder = a})
+-- | Use one of the following variables to filter a list of @DataSource@:
+--
+-- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
+--     dates.
+-- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+-- -   @Name@ - Sets the search criteria to the contents of @DataSource@
+--     ____ @Name@.
+-- -   @DataUri@ - Sets the search criteria to the URI of data files used
+--     to create the @DataSource@. The URI can identify either a file or an
+--     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @DataSource@ creation.
+describeDataSources_filterVariable :: Lens.Lens' DescribeDataSources (Prelude.Maybe DataSourceFilterVariable)
+describeDataSources_filterVariable = Lens.lens (\DescribeDataSources' {filterVariable} -> filterVariable) (\s@DescribeDataSources' {} a -> s {filterVariable = a} :: DescribeDataSources)
+
+-- | The greater than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+describeDataSources_gt :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_gt = Lens.lens (\DescribeDataSources' {gt} -> gt) (\s@DescribeDataSources' {} a -> s {gt = a} :: DescribeDataSources)
+
+-- | The not equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+describeDataSources_ne :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_ne = Lens.lens (\DescribeDataSources' {ne} -> ne) (\s@DescribeDataSources' {} a -> s {ne = a} :: DescribeDataSources)
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
+--
+-- For example, a @DataSource@ could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @DataSource@, select
+-- @Name@ for the @FilterVariable@ and any of the following strings for the
+-- @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+describeDataSources_prefix :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_prefix = Lens.lens (\DescribeDataSources' {prefix} -> prefix) (\s@DescribeDataSources' {} a -> s {prefix = a} :: DescribeDataSources)
+
+-- | The greater than or equal to operator. The @DataSource@ results will
+-- have @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+describeDataSources_ge :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_ge = Lens.lens (\DescribeDataSources' {ge} -> ge) (\s@DescribeDataSources' {} a -> s {ge = a} :: DescribeDataSources)
+
+-- | The less than or equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+describeDataSources_le :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_le = Lens.lens (\DescribeDataSources' {le} -> le) (\s@DescribeDataSources' {} a -> s {le = a} :: DescribeDataSources)
+
+-- | The less than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+describeDataSources_lt :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_lt = Lens.lens (\DescribeDataSources' {lt} -> lt) (\s@DescribeDataSources' {} a -> s {lt = a} :: DescribeDataSources)
 
 -- | The maximum number of @DataSource@ to include in the result.
-ddsLimit :: Lens' DescribeDataSources (Maybe Natural)
-ddsLimit = lens _ddsLimit (\ s a -> s{_ddsLimit = a}) . mapping _Nat
+describeDataSources_limit :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Natural)
+describeDataSources_limit = Lens.lens (\DescribeDataSources' {limit} -> limit) (\s@DescribeDataSources' {} a -> s {limit = a} :: DescribeDataSources)
 
--- | The less than operator. The @DataSource@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
-ddsLT :: Lens' DescribeDataSources (Maybe Text)
-ddsLT = lens _ddsLT (\ s a -> s{_ddsLT = a})
+instance Core.AWSPager DescribeDataSources where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDataSourcesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDataSourcesResponse_results
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDataSources_nextToken
+          Lens..~ rs
+          Lens.^? describeDataSourcesResponse_nextToken
+            Prelude.. Lens._Just
 
--- | Use one of the following variables to filter a list of @DataSource@ :     * @CreatedAt@ - Sets the search criteria to @DataSource@ creation dates.    * @Status@ - Sets the search criteria to @DataSource@ statuses.    * @Name@ - Sets the search criteria to the contents of @DataSource@ ____ @Name@ .    * @DataUri@ - Sets the search criteria to the URI of data files used to create the @DataSource@ . The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.    * @IAMUser@ - Sets the search criteria to the user account that invoked the @DataSource@ creation.
-ddsFilterVariable :: Lens' DescribeDataSources (Maybe DataSourceFilterVariable)
-ddsFilterVariable = lens _ddsFilterVariable (\ s a -> s{_ddsFilterVariable = a})
+instance Core.AWSRequest DescribeDataSources where
+  type
+    AWSResponse DescribeDataSources =
+      DescribeDataSourcesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDataSourcesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | The less than or equal to operator. The @DataSource@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-ddsLE :: Lens' DescribeDataSources (Maybe Text)
-ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a})
+instance Prelude.Hashable DescribeDataSources
 
-instance AWSPager DescribeDataSources where
-        page rq rs
-          | stop (rs ^. ddssrsNextToken) = Nothing
-          | stop (rs ^. ddssrsResults) = Nothing
-          | otherwise =
-            Just $ rq & ddsNextToken .~ rs ^. ddssrsNextToken
+instance Prelude.NFData DescribeDataSources
 
-instance AWSRequest DescribeDataSources where
-        type Rs DescribeDataSources =
-             DescribeDataSourcesResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDataSourcesResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.ToHeaders DescribeDataSources where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonML_20141212.DescribeDataSources" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance Hashable DescribeDataSources where
+instance Core.ToJSON DescribeDataSources where
+  toJSON DescribeDataSources' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("EQ" Core..=) Prelude.<$> eq,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("FilterVariable" Core..=)
+              Prelude.<$> filterVariable,
+            ("GT" Core..=) Prelude.<$> gt,
+            ("NE" Core..=) Prelude.<$> ne,
+            ("Prefix" Core..=) Prelude.<$> prefix,
+            ("GE" Core..=) Prelude.<$> ge,
+            ("LE" Core..=) Prelude.<$> le,
+            ("LT" Core..=) Prelude.<$> lt,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance NFData DescribeDataSources where
+instance Core.ToPath DescribeDataSources where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DescribeDataSources where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.DescribeDataSources" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToQuery DescribeDataSources where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToJSON DescribeDataSources where
-        toJSON DescribeDataSources'{..}
-          = object
-              (catMaybes
-                 [("EQ" .=) <$> _ddsEQ, ("GE" .=) <$> _ddsGE,
-                  ("Prefix" .=) <$> _ddsPrefix, ("GT" .=) <$> _ddsGT,
-                  ("NE" .=) <$> _ddsNE,
-                  ("NextToken" .=) <$> _ddsNextToken,
-                  ("SortOrder" .=) <$> _ddsSortOrder,
-                  ("Limit" .=) <$> _ddsLimit, ("LT" .=) <$> _ddsLT,
-                  ("FilterVariable" .=) <$> _ddsFilterVariable,
-                  ("LE" .=) <$> _ddsLE])
-
-instance ToPath DescribeDataSources where
-        toPath = const "/"
-
-instance ToQuery DescribeDataSources where
-        toQuery = const mempty
-
--- | Represents the query results from a 'DescribeDataSources' operation. The content is essentially a list of @DataSource@ .
+-- | Represents the query results from a DescribeDataSources operation. The
+-- content is essentially a list of @DataSource@.
 --
---
---
--- /See:/ 'describeDataSourcesResponse' smart constructor.
+-- /See:/ 'newDescribeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-  { _ddssrsResults        :: !(Maybe [DataSource])
-  , _ddssrsNextToken      :: !(Maybe Text)
-  , _ddssrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An ID of the next page in the paginated results that indicates at least
+    -- one more page follows.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @DataSource@ that meet the search criteria.
+    results :: Prelude.Maybe [DataSource],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDataSourcesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDataSourcesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddssrsResults' - A list of @DataSource@ that meet the search criteria.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddssrsNextToken' - An ID of the next page in the paginated results that indicates at least one more page follows.
+-- 'nextToken', 'describeDataSourcesResponse_nextToken' - An ID of the next page in the paginated results that indicates at least
+-- one more page follows.
 --
--- * 'ddssrsResponseStatus' - -- | The response status code.
-describeDataSourcesResponse
-    :: Int -- ^ 'ddssrsResponseStatus'
-    -> DescribeDataSourcesResponse
-describeDataSourcesResponse pResponseStatus_ =
+-- 'results', 'describeDataSourcesResponse_results' - A list of @DataSource@ that meet the search criteria.
+--
+-- 'httpStatus', 'describeDataSourcesResponse_httpStatus' - The response's http status code.
+newDescribeDataSourcesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDataSourcesResponse
+newDescribeDataSourcesResponse pHttpStatus_ =
   DescribeDataSourcesResponse'
-    { _ddssrsResults = Nothing
-    , _ddssrsNextToken = Nothing
-    , _ddssrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      results = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An ID of the next page in the paginated results that indicates at least
+-- one more page follows.
+describeDataSourcesResponse_nextToken :: Lens.Lens' DescribeDataSourcesResponse (Prelude.Maybe Prelude.Text)
+describeDataSourcesResponse_nextToken = Lens.lens (\DescribeDataSourcesResponse' {nextToken} -> nextToken) (\s@DescribeDataSourcesResponse' {} a -> s {nextToken = a} :: DescribeDataSourcesResponse)
 
 -- | A list of @DataSource@ that meet the search criteria.
-ddssrsResults :: Lens' DescribeDataSourcesResponse [DataSource]
-ddssrsResults = lens _ddssrsResults (\ s a -> s{_ddssrsResults = a}) . _Default . _Coerce
+describeDataSourcesResponse_results :: Lens.Lens' DescribeDataSourcesResponse (Prelude.Maybe [DataSource])
+describeDataSourcesResponse_results = Lens.lens (\DescribeDataSourcesResponse' {results} -> results) (\s@DescribeDataSourcesResponse' {} a -> s {results = a} :: DescribeDataSourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An ID of the next page in the paginated results that indicates at least one more page follows.
-ddssrsNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
-ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a})
+-- | The response's http status code.
+describeDataSourcesResponse_httpStatus :: Lens.Lens' DescribeDataSourcesResponse Prelude.Int
+describeDataSourcesResponse_httpStatus = Lens.lens (\DescribeDataSourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeDataSourcesResponse' {} a -> s {httpStatus = a} :: DescribeDataSourcesResponse)
 
--- | -- | The response status code.
-ddssrsResponseStatus :: Lens' DescribeDataSourcesResponse Int
-ddssrsResponseStatus = lens _ddssrsResponseStatus (\ s a -> s{_ddssrsResponseStatus = a})
-
-instance NFData DescribeDataSourcesResponse where
+instance Prelude.NFData DescribeDataSourcesResponse

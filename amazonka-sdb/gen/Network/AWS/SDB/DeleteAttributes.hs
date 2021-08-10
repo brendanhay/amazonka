@@ -1,138 +1,179 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted.
+-- Deletes one or more attributes associated with an item. If all
+-- attributes of the item are deleted, the item is deleted.
 --
+-- @DeleteAttributes@ is an idempotent operation; running it multiple times
+-- on the same item or attribute does not result in an error response.
 --
--- @DeleteAttributes@ is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response.
---
--- Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a 'GetAttributes' or 'Select' operation (read) immediately after a @DeleteAttributes@ or 'PutAttributes' operation (write) might not return updated item data.
---
+-- Because Amazon SimpleDB makes multiple copies of item data and uses an
+-- eventual consistency update model, performing a GetAttributes or Select
+-- operation (read) immediately after a @DeleteAttributes@ or PutAttributes
+-- operation (write) might not return updated item data.
 module Network.AWS.SDB.DeleteAttributes
-    (
-    -- * Creating a Request
-      deleteAttributes
-    , DeleteAttributes
+  ( -- * Creating a Request
+    DeleteAttributes (..),
+    newDeleteAttributes,
+
     -- * Request Lenses
-    , daAttributes
-    , daExpected
-    , daDomainName
-    , daItemName
+    deleteAttributes_expected,
+    deleteAttributes_attributes,
+    deleteAttributes_domainName,
+    deleteAttributes_itemName,
 
     -- * Destructuring the Response
-    , deleteAttributesResponse
-    , DeleteAttributesResponse
-    ) where
+    DeleteAttributesResponse (..),
+    newDeleteAttributesResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
-import Network.AWS.SDB.Types.Product
 
--- | /See:/ 'deleteAttributes' smart constructor.
+-- | /See:/ 'newDeleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { _daAttributes :: !(Maybe [Attribute])
-  , _daExpected   :: !(Maybe UpdateCondition)
-  , _daDomainName :: !Text
-  , _daItemName   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The update condition which, if specified, determines whether the
+    -- specified attributes will be deleted or not. The update condition must
+    -- be satisfied in order for this request to be processed and the
+    -- attributes to be deleted.
+    expected :: Prelude.Maybe UpdateCondition,
+    -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+    -- represent categories of data that can be assigned to items.
+    attributes :: Prelude.Maybe [Attribute],
+    -- | The name of the domain in which to perform the operation.
+    domainName :: Prelude.Text,
+    -- | The name of the item. Similar to rows on a spreadsheet, items represent
+    -- individual objects that contain one or more value-attribute pairs.
+    itemName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daAttributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daExpected' - The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
+-- 'expected', 'deleteAttributes_expected' - The update condition which, if specified, determines whether the
+-- specified attributes will be deleted or not. The update condition must
+-- be satisfied in order for this request to be processed and the
+-- attributes to be deleted.
 --
--- * 'daDomainName' - The name of the domain in which to perform the operation.
+-- 'attributes', 'deleteAttributes_attributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes
+-- represent categories of data that can be assigned to items.
 --
--- * 'daItemName' - The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
-deleteAttributes
-    :: Text -- ^ 'daDomainName'
-    -> Text -- ^ 'daItemName'
-    -> DeleteAttributes
-deleteAttributes pDomainName_ pItemName_ =
+-- 'domainName', 'deleteAttributes_domainName' - The name of the domain in which to perform the operation.
+--
+-- 'itemName', 'deleteAttributes_itemName' - The name of the item. Similar to rows on a spreadsheet, items represent
+-- individual objects that contain one or more value-attribute pairs.
+newDeleteAttributes ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'itemName'
+  Prelude.Text ->
+  DeleteAttributes
+newDeleteAttributes pDomainName_ pItemName_ =
   DeleteAttributes'
-    { _daAttributes = Nothing
-    , _daExpected = Nothing
-    , _daDomainName = pDomainName_
-    , _daItemName = pItemName_
+    { expected = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      domainName = pDomainName_,
+      itemName = pItemName_
     }
 
+-- | The update condition which, if specified, determines whether the
+-- specified attributes will be deleted or not. The update condition must
+-- be satisfied in order for this request to be processed and the
+-- attributes to be deleted.
+deleteAttributes_expected :: Lens.Lens' DeleteAttributes (Prelude.Maybe UpdateCondition)
+deleteAttributes_expected = Lens.lens (\DeleteAttributes' {expected} -> expected) (\s@DeleteAttributes' {} a -> s {expected = a} :: DeleteAttributes)
 
--- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
-daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default . _Coerce
-
--- | The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
-daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-daExpected = lens _daExpected (\ s a -> s{_daExpected = a})
+-- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+-- represent categories of data that can be assigned to items.
+deleteAttributes_attributes :: Lens.Lens' DeleteAttributes (Prelude.Maybe [Attribute])
+deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain in which to perform the operation.
-daDomainName :: Lens' DeleteAttributes Text
-daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a})
+deleteAttributes_domainName :: Lens.Lens' DeleteAttributes Prelude.Text
+deleteAttributes_domainName = Lens.lens (\DeleteAttributes' {domainName} -> domainName) (\s@DeleteAttributes' {} a -> s {domainName = a} :: DeleteAttributes)
 
--- | The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
-daItemName :: Lens' DeleteAttributes Text
-daItemName = lens _daItemName (\ s a -> s{_daItemName = a})
+-- | The name of the item. Similar to rows on a spreadsheet, items represent
+-- individual objects that contain one or more value-attribute pairs.
+deleteAttributes_itemName :: Lens.Lens' DeleteAttributes Prelude.Text
+deleteAttributes_itemName = Lens.lens (\DeleteAttributes' {itemName} -> itemName) (\s@DeleteAttributes' {} a -> s {itemName = a} :: DeleteAttributes)
 
-instance AWSRequest DeleteAttributes where
-        type Rs DeleteAttributes = DeleteAttributesResponse
-        request = postQuery sdb
-        response = receiveNull DeleteAttributesResponse'
+instance Core.AWSRequest DeleteAttributes where
+  type
+    AWSResponse DeleteAttributes =
+      DeleteAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeleteAttributesResponse'
 
-instance Hashable DeleteAttributes where
+instance Prelude.Hashable DeleteAttributes
 
-instance NFData DeleteAttributes where
+instance Prelude.NFData DeleteAttributes
 
-instance ToHeaders DeleteAttributes where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteAttributes where
-        toPath = const "/"
+instance Core.ToPath DeleteAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteAttributes where
-        toQuery DeleteAttributes'{..}
-          = mconcat
-              ["Action" =: ("DeleteAttributes" :: ByteString),
-               "Version" =: ("2009-04-15" :: ByteString),
-               toQuery (toQueryList "Attribute" <$> _daAttributes),
-               "Expected" =: _daExpected,
-               "DomainName" =: _daDomainName,
-               "ItemName" =: _daItemName]
+instance Core.ToQuery DeleteAttributes where
+  toQuery DeleteAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2009-04-15" :: Prelude.ByteString),
+        "Expected" Core.=: expected,
+        Core.toQuery
+          ( Core.toQueryList "Attribute"
+              Prelude.<$> attributes
+          ),
+        "DomainName" Core.=: domainName,
+        "ItemName" Core.=: itemName
+      ]
 
--- | /See:/ 'deleteAttributesResponse' smart constructor.
-data DeleteAttributesResponse =
-  DeleteAttributesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteAttributesResponse' smart constructor.
+data DeleteAttributesResponse = DeleteAttributesResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAttributesResponse' with all optional fields omitted.
 --
-deleteAttributesResponse
-    :: DeleteAttributesResponse
-deleteAttributesResponse = DeleteAttributesResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAttributesResponse ::
+  DeleteAttributesResponse
+newDeleteAttributesResponse =
+  DeleteAttributesResponse'
 
-
-instance NFData DeleteAttributesResponse where
+instance Prelude.NFData DeleteAttributesResponse

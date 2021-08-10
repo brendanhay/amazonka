@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListResourceServers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,150 +22,200 @@
 --
 -- Lists the resource servers for a user pool.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListResourceServers
-    (
-    -- * Creating a Request
-      listResourceServers
-    , ListResourceServers
+  ( -- * Creating a Request
+    ListResourceServers (..),
+    newListResourceServers,
+
     -- * Request Lenses
-    , lrsNextToken
-    , lrsMaxResults
-    , lrsUserPoolId
+    listResourceServers_nextToken,
+    listResourceServers_maxResults,
+    listResourceServers_userPoolId,
 
     -- * Destructuring the Response
-    , listResourceServersResponse
-    , ListResourceServersResponse
+    ListResourceServersResponse (..),
+    newListResourceServersResponse,
+
     -- * Response Lenses
-    , lrsrsNextToken
-    , lrsrsResponseStatus
-    , lrsrsResourceServers
-    ) where
+    listResourceServersResponse_nextToken,
+    listResourceServersResponse_httpStatus,
+    listResourceServersResponse_resourceServers,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listResourceServers' smart constructor.
+-- | /See:/ 'newListResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
-  { _lrsNextToken  :: !(Maybe Text)
-  , _lrsMaxResults :: !(Maybe Nat)
-  , _lrsUserPoolId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of resource servers to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListResourceServers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListResourceServers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrsNextToken' - A pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrsMaxResults' - The maximum number of resource servers to return.
+-- 'nextToken', 'listResourceServers_nextToken' - A pagination token.
 --
--- * 'lrsUserPoolId' - The user pool ID for the user pool.
-listResourceServers
-    :: Text -- ^ 'lrsUserPoolId'
-    -> ListResourceServers
-listResourceServers pUserPoolId_ =
+-- 'maxResults', 'listResourceServers_maxResults' - The maximum number of resource servers to return.
+--
+-- 'userPoolId', 'listResourceServers_userPoolId' - The user pool ID for the user pool.
+newListResourceServers ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  ListResourceServers
+newListResourceServers pUserPoolId_ =
   ListResourceServers'
-    { _lrsNextToken = Nothing
-    , _lrsMaxResults = Nothing
-    , _lrsUserPoolId = pUserPoolId_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      userPoolId = pUserPoolId_
     }
 
-
 -- | A pagination token.
-lrsNextToken :: Lens' ListResourceServers (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
+listResourceServers_nextToken :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Text)
+listResourceServers_nextToken = Lens.lens (\ListResourceServers' {nextToken} -> nextToken) (\s@ListResourceServers' {} a -> s {nextToken = a} :: ListResourceServers)
 
 -- | The maximum number of resource servers to return.
-lrsMaxResults :: Lens' ListResourceServers (Maybe Natural)
-lrsMaxResults = lens _lrsMaxResults (\ s a -> s{_lrsMaxResults = a}) . mapping _Nat
+listResourceServers_maxResults :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Natural)
+listResourceServers_maxResults = Lens.lens (\ListResourceServers' {maxResults} -> maxResults) (\s@ListResourceServers' {} a -> s {maxResults = a} :: ListResourceServers)
 
 -- | The user pool ID for the user pool.
-lrsUserPoolId :: Lens' ListResourceServers Text
-lrsUserPoolId = lens _lrsUserPoolId (\ s a -> s{_lrsUserPoolId = a})
+listResourceServers_userPoolId :: Lens.Lens' ListResourceServers Prelude.Text
+listResourceServers_userPoolId = Lens.lens (\ListResourceServers' {userPoolId} -> userPoolId) (\s@ListResourceServers' {} a -> s {userPoolId = a} :: ListResourceServers)
 
-instance AWSRequest ListResourceServers where
-        type Rs ListResourceServers =
-             ListResourceServersResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListResourceServersResponse' <$>
-                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "ResourceServers" .!@ mempty))
+instance Core.AWSPager ListResourceServers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listResourceServersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^. listResourceServersResponse_resourceServers
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listResourceServers_nextToken
+          Lens..~ rs
+          Lens.^? listResourceServersResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListResourceServers where
+instance Core.AWSRequest ListResourceServers where
+  type
+    AWSResponse ListResourceServers =
+      ListResourceServersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListResourceServersResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "ResourceServers"
+                            Core..!@ Prelude.mempty
+                        )
+      )
 
-instance NFData ListResourceServers where
+instance Prelude.Hashable ListResourceServers
 
-instance ToHeaders ListResourceServers where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.ListResourceServers"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListResourceServers
 
-instance ToJSON ListResourceServers where
-        toJSON ListResourceServers'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lrsNextToken,
-                  ("MaxResults" .=) <$> _lrsMaxResults,
-                  Just ("UserPoolId" .= _lrsUserPoolId)])
+instance Core.ToHeaders ListResourceServers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.ListResourceServers" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListResourceServers where
-        toPath = const "/"
+instance Core.ToJSON ListResourceServers where
+  toJSON ListResourceServers' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          ]
+      )
 
-instance ToQuery ListResourceServers where
-        toQuery = const mempty
+instance Core.ToPath ListResourceServers where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'listResourceServersResponse' smart constructor.
+instance Core.ToQuery ListResourceServers where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListResourceServersResponse' smart constructor.
 data ListResourceServersResponse = ListResourceServersResponse'
-  { _lrsrsNextToken       :: !(Maybe Text)
-  , _lrsrsResponseStatus  :: !Int
-  , _lrsrsResourceServers :: ![ResourceServerType]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The resource servers.
+    resourceServers :: [ResourceServerType]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListResourceServersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListResourceServersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrsrsNextToken' - A pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrsrsResponseStatus' - -- | The response status code.
+-- 'nextToken', 'listResourceServersResponse_nextToken' - A pagination token.
 --
--- * 'lrsrsResourceServers' - The resource servers.
-listResourceServersResponse
-    :: Int -- ^ 'lrsrsResponseStatus'
-    -> ListResourceServersResponse
-listResourceServersResponse pResponseStatus_ =
+-- 'httpStatus', 'listResourceServersResponse_httpStatus' - The response's http status code.
+--
+-- 'resourceServers', 'listResourceServersResponse_resourceServers' - The resource servers.
+newListResourceServersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListResourceServersResponse
+newListResourceServersResponse pHttpStatus_ =
   ListResourceServersResponse'
-    { _lrsrsNextToken = Nothing
-    , _lrsrsResponseStatus = pResponseStatus_
-    , _lrsrsResourceServers = mempty
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      resourceServers = Prelude.mempty
     }
 
-
 -- | A pagination token.
-lrsrsNextToken :: Lens' ListResourceServersResponse (Maybe Text)
-lrsrsNextToken = lens _lrsrsNextToken (\ s a -> s{_lrsrsNextToken = a})
+listResourceServersResponse_nextToken :: Lens.Lens' ListResourceServersResponse (Prelude.Maybe Prelude.Text)
+listResourceServersResponse_nextToken = Lens.lens (\ListResourceServersResponse' {nextToken} -> nextToken) (\s@ListResourceServersResponse' {} a -> s {nextToken = a} :: ListResourceServersResponse)
 
--- | -- | The response status code.
-lrsrsResponseStatus :: Lens' ListResourceServersResponse Int
-lrsrsResponseStatus = lens _lrsrsResponseStatus (\ s a -> s{_lrsrsResponseStatus = a})
+-- | The response's http status code.
+listResourceServersResponse_httpStatus :: Lens.Lens' ListResourceServersResponse Prelude.Int
+listResourceServersResponse_httpStatus = Lens.lens (\ListResourceServersResponse' {httpStatus} -> httpStatus) (\s@ListResourceServersResponse' {} a -> s {httpStatus = a} :: ListResourceServersResponse)
 
 -- | The resource servers.
-lrsrsResourceServers :: Lens' ListResourceServersResponse [ResourceServerType]
-lrsrsResourceServers = lens _lrsrsResourceServers (\ s a -> s{_lrsrsResourceServers = a}) . _Coerce
+listResourceServersResponse_resourceServers :: Lens.Lens' ListResourceServersResponse [ResourceServerType]
+listResourceServersResponse_resourceServers = Lens.lens (\ListResourceServersResponse' {resourceServers} -> resourceServers) (\s@ListResourceServersResponse' {} a -> s {resourceServers = a} :: ListResourceServersResponse) Prelude.. Lens._Coerce
 
-instance NFData ListResourceServersResponse where
+instance Prelude.NFData ListResourceServersResponse

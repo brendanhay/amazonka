@@ -1,163 +1,193 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.StartFleetActions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resumes activity on a fleet that was suspended with 'StopFleetActions' . Currently, this operation is used to restart a fleet's auto-scaling activity.
+-- Resumes activity on a fleet that was suspended with StopFleetActions.
+-- Currently, this operation is used to restart a fleet\'s auto-scaling
+-- activity.
 --
+-- To start fleet actions, specify the fleet ID and the type of actions to
+-- restart. When auto-scaling fleet actions are restarted, Amazon GameLift
+-- once again initiates scaling events as triggered by the fleet\'s scaling
+-- policies. If actions on the fleet were never stopped, this operation
+-- will have no effect. You can view a fleet\'s stopped actions using
+-- DescribeFleetAttributes.
 --
--- To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet's scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet's stopped actions using 'DescribeFleetAttributes' .
+-- __Learn more__
 --
--- Operations related to fleet capacity scaling include:
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
 --
---     * 'DescribeFleetCapacity'
+-- __Related operations__
 --
---     * 'UpdateFleetCapacity'
+-- -   CreateFleet
 --
---     * 'DescribeEC2InstanceLimits'
+-- -   ListFleets
 --
---     * Manage scaling policies:
+-- -   DeleteFleet
 --
---     * 'PutScalingPolicy' (auto-scaling)
+-- -   DescribeFleetAttributes
 --
---     * 'DescribeScalingPolicies' (auto-scaling)
+-- -   UpdateFleetAttributes
 --
---     * 'DeleteScalingPolicy' (auto-scaling)
---
---
---
---     * Manage fleet actions:
---
---     * 'StartFleetActions'
---
---     * 'StopFleetActions'
---
---
---
---
---
+-- -   StartFleetActions or StopFleetActions
 module Network.AWS.GameLift.StartFleetActions
-    (
-    -- * Creating a Request
-      startFleetActions
-    , StartFleetActions
+  ( -- * Creating a Request
+    StartFleetActions (..),
+    newStartFleetActions,
+
     -- * Request Lenses
-    , sfaFleetId
-    , sfaActions
+    startFleetActions_fleetId,
+    startFleetActions_actions,
 
     -- * Destructuring the Response
-    , startFleetActionsResponse
-    , StartFleetActionsResponse
+    StartFleetActionsResponse (..),
+    newStartFleetActionsResponse,
+
     -- * Response Lenses
-    , sfarsResponseStatus
-    ) where
+    startFleetActionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startFleetActions' smart constructor.
+-- | /See:/ 'newStartFleetActions' smart constructor.
 data StartFleetActions = StartFleetActions'
-  { _sfaFleetId :: !Text
-  , _sfaActions :: !(List1 FleetAction)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier for a fleet to start actions on. You can use either
+    -- the fleet ID or ARN value.
+    fleetId :: Prelude.Text,
+    -- | List of actions to restart on the fleet.
+    actions :: Prelude.NonEmpty FleetAction
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartFleetActions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFleetActions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfaFleetId' - Unique identifier for a fleet
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sfaActions' - List of actions to restart on the fleet.
-startFleetActions
-    :: Text -- ^ 'sfaFleetId'
-    -> NonEmpty FleetAction -- ^ 'sfaActions'
-    -> StartFleetActions
-startFleetActions pFleetId_ pActions_ =
-  StartFleetActions' {_sfaFleetId = pFleetId_, _sfaActions = _List1 # pActions_}
+-- 'fleetId', 'startFleetActions_fleetId' - A unique identifier for a fleet to start actions on. You can use either
+-- the fleet ID or ARN value.
+--
+-- 'actions', 'startFleetActions_actions' - List of actions to restart on the fleet.
+newStartFleetActions ::
+  -- | 'fleetId'
+  Prelude.Text ->
+  -- | 'actions'
+  Prelude.NonEmpty FleetAction ->
+  StartFleetActions
+newStartFleetActions pFleetId_ pActions_ =
+  StartFleetActions'
+    { fleetId = pFleetId_,
+      actions = Lens._Coerce Lens.# pActions_
+    }
 
-
--- | Unique identifier for a fleet
-sfaFleetId :: Lens' StartFleetActions Text
-sfaFleetId = lens _sfaFleetId (\ s a -> s{_sfaFleetId = a})
+-- | A unique identifier for a fleet to start actions on. You can use either
+-- the fleet ID or ARN value.
+startFleetActions_fleetId :: Lens.Lens' StartFleetActions Prelude.Text
+startFleetActions_fleetId = Lens.lens (\StartFleetActions' {fleetId} -> fleetId) (\s@StartFleetActions' {} a -> s {fleetId = a} :: StartFleetActions)
 
 -- | List of actions to restart on the fleet.
-sfaActions :: Lens' StartFleetActions (NonEmpty FleetAction)
-sfaActions = lens _sfaActions (\ s a -> s{_sfaActions = a}) . _List1
+startFleetActions_actions :: Lens.Lens' StartFleetActions (Prelude.NonEmpty FleetAction)
+startFleetActions_actions = Lens.lens (\StartFleetActions' {actions} -> actions) (\s@StartFleetActions' {} a -> s {actions = a} :: StartFleetActions) Prelude.. Lens._Coerce
 
-instance AWSRequest StartFleetActions where
-        type Rs StartFleetActions = StartFleetActionsResponse
-        request = postJSON gameLift
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StartFleetActionsResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest StartFleetActions where
+  type
+    AWSResponse StartFleetActions =
+      StartFleetActionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          StartFleetActionsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartFleetActions where
+instance Prelude.Hashable StartFleetActions
 
-instance NFData StartFleetActions where
+instance Prelude.NFData StartFleetActions
 
-instance ToHeaders StartFleetActions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.StartFleetActions" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders StartFleetActions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("GameLift.StartFleetActions" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON StartFleetActions where
-        toJSON StartFleetActions'{..}
-          = object
-              (catMaybes
-                 [Just ("FleetId" .= _sfaFleetId),
-                  Just ("Actions" .= _sfaActions)])
+instance Core.ToJSON StartFleetActions where
+  toJSON StartFleetActions' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just ("Actions" Core..= actions)
+          ]
+      )
 
-instance ToPath StartFleetActions where
-        toPath = const "/"
+instance Core.ToPath StartFleetActions where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartFleetActions where
-        toQuery = const mempty
+instance Core.ToQuery StartFleetActions where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startFleetActionsResponse' smart constructor.
-newtype StartFleetActionsResponse = StartFleetActionsResponse'
-  { _sfarsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStartFleetActionsResponse' smart constructor.
+data StartFleetActionsResponse = StartFleetActionsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartFleetActionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFleetActionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfarsResponseStatus' - -- | The response status code.
-startFleetActionsResponse
-    :: Int -- ^ 'sfarsResponseStatus'
-    -> StartFleetActionsResponse
-startFleetActionsResponse pResponseStatus_ =
-  StartFleetActionsResponse' {_sfarsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'startFleetActionsResponse_httpStatus' - The response's http status code.
+newStartFleetActionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartFleetActionsResponse
+newStartFleetActionsResponse pHttpStatus_ =
+  StartFleetActionsResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+startFleetActionsResponse_httpStatus :: Lens.Lens' StartFleetActionsResponse Prelude.Int
+startFleetActionsResponse_httpStatus = Lens.lens (\StartFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StartFleetActionsResponse' {} a -> s {httpStatus = a} :: StartFleetActionsResponse)
 
--- | -- | The response status code.
-sfarsResponseStatus :: Lens' StartFleetActionsResponse Int
-sfarsResponseStatus = lens _sfarsResponseStatus (\ s a -> s{_sfarsResponseStatus = a})
-
-instance NFData StartFleetActionsResponse where
+instance Prelude.NFData StartFleetActionsResponse

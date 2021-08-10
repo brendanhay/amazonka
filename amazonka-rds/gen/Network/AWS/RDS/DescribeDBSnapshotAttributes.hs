@@ -1,142 +1,172 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSnapshotAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of DB snapshot attribute names and values for a manual DB snapshot.
+-- Returns a list of DB snapshot attribute names and values for a manual DB
+-- snapshot.
 --
+-- When sharing snapshots with other AWS accounts,
+-- @DescribeDBSnapshotAttributes@ returns the @restore@ attribute and a
+-- list of IDs for the AWS accounts that are authorized to copy or restore
+-- the manual DB snapshot. If @all@ is included in the list of values for
+-- the @restore@ attribute, then the manual DB snapshot is public and can
+-- be copied or restored by all AWS accounts.
 --
--- When sharing snapshots with other AWS accounts, @DescribeDBSnapshotAttributes@ returns the @restore@ attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB snapshot. If @all@ is included in the list of values for the @restore@ attribute, then the manual DB snapshot is public and can be copied or restored by all AWS accounts.
---
--- To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the manual DB snapshot public or private, use the 'ModifyDBSnapshotAttribute' API action.
---
+-- To add or remove access for an AWS account to copy or restore a manual
+-- DB snapshot, or to make the manual DB snapshot public or private, use
+-- the @ModifyDBSnapshotAttribute@ API action.
 module Network.AWS.RDS.DescribeDBSnapshotAttributes
-    (
-    -- * Creating a Request
-      describeDBSnapshotAttributes
-    , DescribeDBSnapshotAttributes
+  ( -- * Creating a Request
+    DescribeDBSnapshotAttributes (..),
+    newDescribeDBSnapshotAttributes,
+
     -- * Request Lenses
-    , ddsaDBSnapshotIdentifier
+    describeDBSnapshotAttributes_dbSnapshotIdentifier,
 
     -- * Destructuring the Response
-    , describeDBSnapshotAttributesResponse
-    , DescribeDBSnapshotAttributesResponse
-    -- * Response Lenses
-    , ddsarsDBSnapshotAttributesResult
-    , ddsarsResponseStatus
-    ) where
+    DescribeDBSnapshotAttributesResponse (..),
+    newDescribeDBSnapshotAttributesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult,
+    describeDBSnapshotAttributesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeDBSnapshotAttributes' smart constructor.
-newtype DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
-  { _ddsaDBSnapshotIdentifier :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeDBSnapshotAttributes' smart constructor.
+data DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
+  { -- | The identifier for the DB snapshot to describe the attributes for.
+    dbSnapshotIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDBSnapshotAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDBSnapshotAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddsaDBSnapshotIdentifier' - The identifier for the DB snapshot to describe the attributes for.
-describeDBSnapshotAttributes
-    :: Text -- ^ 'ddsaDBSnapshotIdentifier'
-    -> DescribeDBSnapshotAttributes
-describeDBSnapshotAttributes pDBSnapshotIdentifier_ =
-  DescribeDBSnapshotAttributes'
-    {_ddsaDBSnapshotIdentifier = pDBSnapshotIdentifier_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbSnapshotIdentifier', 'describeDBSnapshotAttributes_dbSnapshotIdentifier' - The identifier for the DB snapshot to describe the attributes for.
+newDescribeDBSnapshotAttributes ::
+  -- | 'dbSnapshotIdentifier'
+  Prelude.Text ->
+  DescribeDBSnapshotAttributes
+newDescribeDBSnapshotAttributes
+  pDBSnapshotIdentifier_ =
+    DescribeDBSnapshotAttributes'
+      { dbSnapshotIdentifier =
+          pDBSnapshotIdentifier_
+      }
 
 -- | The identifier for the DB snapshot to describe the attributes for.
-ddsaDBSnapshotIdentifier :: Lens' DescribeDBSnapshotAttributes Text
-ddsaDBSnapshotIdentifier = lens _ddsaDBSnapshotIdentifier (\ s a -> s{_ddsaDBSnapshotIdentifier = a})
+describeDBSnapshotAttributes_dbSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshotAttributes Prelude.Text
+describeDBSnapshotAttributes_dbSnapshotIdentifier = Lens.lens (\DescribeDBSnapshotAttributes' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DescribeDBSnapshotAttributes' {} a -> s {dbSnapshotIdentifier = a} :: DescribeDBSnapshotAttributes)
 
-instance AWSRequest DescribeDBSnapshotAttributes
-         where
-        type Rs DescribeDBSnapshotAttributes =
-             DescribeDBSnapshotAttributesResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper
-              "DescribeDBSnapshotAttributesResult"
-              (\ s h x ->
-                 DescribeDBSnapshotAttributesResponse' <$>
-                   (x .@? "DBSnapshotAttributesResult") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest DescribeDBSnapshotAttributes where
+  type
+    AWSResponse DescribeDBSnapshotAttributes =
+      DescribeDBSnapshotAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeDBSnapshotAttributesResult"
+      ( \s h x ->
+          DescribeDBSnapshotAttributesResponse'
+            Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeDBSnapshotAttributes where
+instance
+  Prelude.Hashable
+    DescribeDBSnapshotAttributes
 
-instance NFData DescribeDBSnapshotAttributes where
+instance Prelude.NFData DescribeDBSnapshotAttributes
 
-instance ToHeaders DescribeDBSnapshotAttributes where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeDBSnapshotAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeDBSnapshotAttributes where
-        toPath = const "/"
+instance Core.ToPath DescribeDBSnapshotAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeDBSnapshotAttributes where
-        toQuery DescribeDBSnapshotAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeDBSnapshotAttributes" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "DBSnapshotIdentifier" =: _ddsaDBSnapshotIdentifier]
+instance Core.ToQuery DescribeDBSnapshotAttributes where
+  toQuery DescribeDBSnapshotAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeDBSnapshotAttributes" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
+      ]
 
--- | /See:/ 'describeDBSnapshotAttributesResponse' smart constructor.
+-- | /See:/ 'newDescribeDBSnapshotAttributesResponse' smart constructor.
 data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse'
-  { _ddsarsDBSnapshotAttributesResult :: !(Maybe DBSnapshotAttributesResult)
-  , _ddsarsResponseStatus             :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dbSnapshotAttributesResult :: Prelude.Maybe DBSnapshotAttributesResult,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDBSnapshotAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDBSnapshotAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddsarsDBSnapshotAttributesResult' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddsarsResponseStatus' - -- | The response status code.
-describeDBSnapshotAttributesResponse
-    :: Int -- ^ 'ddsarsResponseStatus'
-    -> DescribeDBSnapshotAttributesResponse
-describeDBSnapshotAttributesResponse pResponseStatus_ =
+-- 'dbSnapshotAttributesResult', 'describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult' - Undocumented member.
+--
+-- 'httpStatus', 'describeDBSnapshotAttributesResponse_httpStatus' - The response's http status code.
+newDescribeDBSnapshotAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDBSnapshotAttributesResponse
+newDescribeDBSnapshotAttributesResponse pHttpStatus_ =
   DescribeDBSnapshotAttributesResponse'
-    { _ddsarsDBSnapshotAttributesResult = Nothing
-    , _ddsarsResponseStatus = pResponseStatus_
+    { dbSnapshotAttributesResult =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Undocumented member.
-ddsarsDBSnapshotAttributesResult :: Lens' DescribeDBSnapshotAttributesResponse (Maybe DBSnapshotAttributesResult)
-ddsarsDBSnapshotAttributesResult = lens _ddsarsDBSnapshotAttributesResult (\ s a -> s{_ddsarsDBSnapshotAttributesResult = a})
+describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult :: Lens.Lens' DescribeDBSnapshotAttributesResponse (Prelude.Maybe DBSnapshotAttributesResult)
+describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult = Lens.lens (\DescribeDBSnapshotAttributesResponse' {dbSnapshotAttributesResult} -> dbSnapshotAttributesResult) (\s@DescribeDBSnapshotAttributesResponse' {} a -> s {dbSnapshotAttributesResult = a} :: DescribeDBSnapshotAttributesResponse)
 
--- | -- | The response status code.
-ddsarsResponseStatus :: Lens' DescribeDBSnapshotAttributesResponse Int
-ddsarsResponseStatus = lens _ddsarsResponseStatus (\ s a -> s{_ddsarsResponseStatus = a})
+-- | The response's http status code.
+describeDBSnapshotAttributesResponse_httpStatus :: Lens.Lens' DescribeDBSnapshotAttributesResponse Prelude.Int
+describeDBSnapshotAttributesResponse_httpStatus = Lens.lens (\DescribeDBSnapshotAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBSnapshotAttributesResponse' {} a -> s {httpStatus = a} :: DescribeDBSnapshotAttributesResponse)
 
-instance NFData DescribeDBSnapshotAttributesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeDBSnapshotAttributesResponse

@@ -1,136 +1,224 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.CreateOrganization
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS organization. The account whose user is calling the CreateOrganization operation automatically becomes the <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account master account> of the new organization.
+-- Creates an AWS organization. The account whose user is calling the
+-- @CreateOrganization@ operation automatically becomes the
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account management account>
+-- of the new organization.
 --
+-- This operation must be called using credentials from the account that is
+-- to become the new organization\'s management account. The principal must
+-- also have the relevant IAM permissions.
 --
--- This operation must be called using credentials from the account that is to become the new organization's master account. The principal must also have the relevant IAM permissions.
---
--- By default (or if you set the @FeatureSet@ parameter to @ALL@ ), the new organization is created with all features enabled and service control policies automatically enabled in the root. If you instead choose to create the organization supporting only the consolidated billing features by setting the @FeatureSet@ parameter to @CONSOLIDATED_BILLING"@ , then no policy types are enabled by default and you cannot use organization policies.
---
+-- By default (or if you set the @FeatureSet@ parameter to @ALL@), the new
+-- organization is created with all features enabled and service control
+-- policies automatically enabled in the root. If you instead choose to
+-- create the organization supporting only the consolidated billing
+-- features by setting the @FeatureSet@ parameter to
+-- @CONSOLIDATED_BILLING\"@, no policy types are enabled by default, and
+-- you can\'t use organization policies
 module Network.AWS.Organizations.CreateOrganization
-    (
-    -- * Creating a Request
-      createOrganization
-    , CreateOrganization
+  ( -- * Creating a Request
+    CreateOrganization (..),
+    newCreateOrganization,
+
     -- * Request Lenses
-    , coFeatureSet
+    createOrganization_featureSet,
 
     -- * Destructuring the Response
-    , createOrganizationResponse
-    , CreateOrganizationResponse
+    CreateOrganizationResponse (..),
+    newCreateOrganizationResponse,
+
     -- * Response Lenses
-    , corsOrganization
-    , corsResponseStatus
-    ) where
+    createOrganizationResponse_organization,
+    createOrganizationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createOrganization' smart constructor.
-newtype CreateOrganization = CreateOrganization'
-  { _coFeatureSet :: Maybe OrganizationFeatureSet
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateOrganization' smart constructor.
+data CreateOrganization = CreateOrganization'
+  { -- | Specifies the feature set supported by the new organization. Each
+    -- feature set supports different levels of functionality.
+    --
+    -- -   @CONSOLIDATED_BILLING@: All member accounts have their bills
+    --     consolidated to and paid by the management account. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
+    --     in the /AWS Organizations User Guide./
+    --
+    --     The consolidated billing feature subset isn\'t available for
+    --     organizations in the AWS GovCloud (US) Region.
+    --
+    -- -   @ALL@: In addition to all the features supported by the consolidated
+    --     billing feature set, the management account can also apply any
+    --     policy type to any member account in the organization. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
+    --     in the /AWS Organizations User Guide./
+    featureSet :: Prelude.Maybe OrganizationFeatureSet
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateOrganization' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateOrganization' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'coFeatureSet' - Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.     * /CONSOLIDATED_BILLING/ : All member accounts have their bills consolidated to and paid by the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated Billing> in the /AWS Organizations User Guide/ .     * /ALL/ : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide/ .
-createOrganization
-    :: CreateOrganization
-createOrganization = CreateOrganization' {_coFeatureSet = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'featureSet', 'createOrganization_featureSet' - Specifies the feature set supported by the new organization. Each
+-- feature set supports different levels of functionality.
+--
+-- -   @CONSOLIDATED_BILLING@: All member accounts have their bills
+--     consolidated to and paid by the management account. For more
+--     information, see
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
+--     in the /AWS Organizations User Guide./
+--
+--     The consolidated billing feature subset isn\'t available for
+--     organizations in the AWS GovCloud (US) Region.
+--
+-- -   @ALL@: In addition to all the features supported by the consolidated
+--     billing feature set, the management account can also apply any
+--     policy type to any member account in the organization. For more
+--     information, see
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
+--     in the /AWS Organizations User Guide./
+newCreateOrganization ::
+  CreateOrganization
+newCreateOrganization =
+  CreateOrganization' {featureSet = Prelude.Nothing}
 
+-- | Specifies the feature set supported by the new organization. Each
+-- feature set supports different levels of functionality.
+--
+-- -   @CONSOLIDATED_BILLING@: All member accounts have their bills
+--     consolidated to and paid by the management account. For more
+--     information, see
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
+--     in the /AWS Organizations User Guide./
+--
+--     The consolidated billing feature subset isn\'t available for
+--     organizations in the AWS GovCloud (US) Region.
+--
+-- -   @ALL@: In addition to all the features supported by the consolidated
+--     billing feature set, the management account can also apply any
+--     policy type to any member account in the organization. For more
+--     information, see
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
+--     in the /AWS Organizations User Guide./
+createOrganization_featureSet :: Lens.Lens' CreateOrganization (Prelude.Maybe OrganizationFeatureSet)
+createOrganization_featureSet = Lens.lens (\CreateOrganization' {featureSet} -> featureSet) (\s@CreateOrganization' {} a -> s {featureSet = a} :: CreateOrganization)
 
--- | Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.     * /CONSOLIDATED_BILLING/ : All member accounts have their bills consolidated to and paid by the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated Billing> in the /AWS Organizations User Guide/ .     * /ALL/ : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide/ .
-coFeatureSet :: Lens' CreateOrganization (Maybe OrganizationFeatureSet)
-coFeatureSet = lens _coFeatureSet (\ s a -> s{_coFeatureSet = a})
+instance Core.AWSRequest CreateOrganization where
+  type
+    AWSResponse CreateOrganization =
+      CreateOrganizationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateOrganizationResponse'
+            Prelude.<$> (x Core..?> "Organization")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateOrganization where
-        type Rs CreateOrganization =
-             CreateOrganizationResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateOrganizationResponse' <$>
-                   (x .?> "Organization") <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateOrganization
 
-instance Hashable CreateOrganization where
+instance Prelude.NFData CreateOrganization
 
-instance NFData CreateOrganization where
+instance Core.ToHeaders CreateOrganization where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrganizationsV20161128.CreateOrganization" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders CreateOrganization where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.CreateOrganization" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON CreateOrganization where
+  toJSON CreateOrganization' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("FeatureSet" Core..=) Prelude.<$> featureSet]
+      )
 
-instance ToJSON CreateOrganization where
-        toJSON CreateOrganization'{..}
-          = object
-              (catMaybes [("FeatureSet" .=) <$> _coFeatureSet])
+instance Core.ToPath CreateOrganization where
+  toPath = Prelude.const "/"
 
-instance ToPath CreateOrganization where
-        toPath = const "/"
+instance Core.ToQuery CreateOrganization where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery CreateOrganization where
-        toQuery = const mempty
-
--- | /See:/ 'createOrganizationResponse' smart constructor.
+-- | /See:/ 'newCreateOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
-  { _corsOrganization   :: !(Maybe Organization)
-  , _corsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | A structure that contains details about the newly created organization.
+    organization :: Prelude.Maybe Organization,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateOrganizationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateOrganizationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'corsOrganization' - A structure that contains details about the newly created organization.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'corsResponseStatus' - -- | The response status code.
-createOrganizationResponse
-    :: Int -- ^ 'corsResponseStatus'
-    -> CreateOrganizationResponse
-createOrganizationResponse pResponseStatus_ =
+-- 'organization', 'createOrganizationResponse_organization' - A structure that contains details about the newly created organization.
+--
+-- 'httpStatus', 'createOrganizationResponse_httpStatus' - The response's http status code.
+newCreateOrganizationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateOrganizationResponse
+newCreateOrganizationResponse pHttpStatus_ =
   CreateOrganizationResponse'
-    {_corsOrganization = Nothing, _corsResponseStatus = pResponseStatus_}
-
+    { organization =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A structure that contains details about the newly created organization.
-corsOrganization :: Lens' CreateOrganizationResponse (Maybe Organization)
-corsOrganization = lens _corsOrganization (\ s a -> s{_corsOrganization = a})
+createOrganizationResponse_organization :: Lens.Lens' CreateOrganizationResponse (Prelude.Maybe Organization)
+createOrganizationResponse_organization = Lens.lens (\CreateOrganizationResponse' {organization} -> organization) (\s@CreateOrganizationResponse' {} a -> s {organization = a} :: CreateOrganizationResponse)
 
--- | -- | The response status code.
-corsResponseStatus :: Lens' CreateOrganizationResponse Int
-corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a})
+-- | The response's http status code.
+createOrganizationResponse_httpStatus :: Lens.Lens' CreateOrganizationResponse Prelude.Int
+createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' {httpStatus} -> httpStatus) (\s@CreateOrganizationResponse' {} a -> s {httpStatus = a} :: CreateOrganizationResponse)
 
-instance NFData CreateOrganizationResponse where
+instance Prelude.NFData CreateOrganizationResponse

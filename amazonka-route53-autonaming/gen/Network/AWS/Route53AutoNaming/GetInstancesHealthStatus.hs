@@ -1,180 +1,277 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the current health status (@Healthy@ , @Unhealthy@ , or @Unknown@ ) of one or more instances that are associated with a specified service.
+-- Gets the current health status (@Healthy@, @Unhealthy@, or @Unknown@) of
+-- one or more instances that are associated with a specified service.
 --
---
+-- There is a brief delay between when you register an instance and when
+-- the health status for the instance is available.
 module Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
-    (
-    -- * Creating a Request
-      getInstancesHealthStatus
-    , GetInstancesHealthStatus
+  ( -- * Creating a Request
+    GetInstancesHealthStatus (..),
+    newGetInstancesHealthStatus,
+
     -- * Request Lenses
-    , gihsNextToken
-    , gihsInstances
-    , gihsMaxResults
-    , gihsServiceId
+    getInstancesHealthStatus_nextToken,
+    getInstancesHealthStatus_maxResults,
+    getInstancesHealthStatus_instances,
+    getInstancesHealthStatus_serviceId,
 
     -- * Destructuring the Response
-    , getInstancesHealthStatusResponse
-    , GetInstancesHealthStatusResponse
+    GetInstancesHealthStatusResponse (..),
+    newGetInstancesHealthStatusResponse,
+
     -- * Response Lenses
-    , gihsrsStatus
-    , gihsrsNextToken
-    , gihsrsResponseStatus
-    ) where
+    getInstancesHealthStatusResponse_status,
+    getInstancesHealthStatusResponse_nextToken,
+    getInstancesHealthStatusResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
-import Network.AWS.Route53AutoNaming.Types.Product
 
--- | /See:/ 'getInstancesHealthStatus' smart constructor.
+-- | /See:/ 'newGetInstancesHealthStatus' smart constructor.
 data GetInstancesHealthStatus = GetInstancesHealthStatus'
-  { _gihsNextToken  :: !(Maybe Text)
-  , _gihsInstances  :: !(Maybe (List1 Text))
-  , _gihsMaxResults :: !(Maybe Nat)
-  , _gihsServiceId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | For the first @GetInstancesHealthStatus@ request, omit this value.
+    --
+    -- If more than @MaxResults@ instances match the specified criteria, you
+    -- can submit another @GetInstancesHealthStatus@ request to get the next
+    -- group of results. Specify the value of @NextToken@ from the previous
+    -- response in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of instances that you want AWS Cloud Map to return in
+    -- the response to a @GetInstancesHealthStatus@ request. If you don\'t
+    -- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
+    -- instances.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An array that contains the IDs of all the instances that you want to get
+    -- the health status for.
+    --
+    -- If you omit @Instances@, AWS Cloud Map returns the health status for all
+    -- the instances that are associated with the specified service.
+    --
+    -- To get the IDs for the instances that you\'ve registered by using a
+    -- specified service, submit a
+    -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
+    -- request.
+    instances :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The ID of the service that the instance is associated with.
+    serviceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstancesHealthStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstancesHealthStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gihsNextToken' - For the first @GetInstancesHealthStatus@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gihsInstances' - An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , Amazon Route 53 returns the health status for all the instances that are associated with the specified service.
+-- 'nextToken', 'getInstancesHealthStatus_nextToken' - For the first @GetInstancesHealthStatus@ request, omit this value.
 --
--- * 'gihsMaxResults' - The maximum number of instances that you want Route 53 to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
+-- If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
 --
--- * 'gihsServiceId' - The ID of the service that the instance is associated with.
-getInstancesHealthStatus
-    :: Text -- ^ 'gihsServiceId'
-    -> GetInstancesHealthStatus
-getInstancesHealthStatus pServiceId_ =
+-- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want AWS Cloud Map to return in
+-- the response to a @GetInstancesHealthStatus@ request. If you don\'t
+-- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
+-- instances.
+--
+-- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get
+-- the health status for.
+--
+-- If you omit @Instances@, AWS Cloud Map returns the health status for all
+-- the instances that are associated with the specified service.
+--
+-- To get the IDs for the instances that you\'ve registered by using a
+-- specified service, submit a
+-- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
+-- request.
+--
+-- 'serviceId', 'getInstancesHealthStatus_serviceId' - The ID of the service that the instance is associated with.
+newGetInstancesHealthStatus ::
+  -- | 'serviceId'
+  Prelude.Text ->
+  GetInstancesHealthStatus
+newGetInstancesHealthStatus pServiceId_ =
   GetInstancesHealthStatus'
-    { _gihsNextToken = Nothing
-    , _gihsInstances = Nothing
-    , _gihsMaxResults = Nothing
-    , _gihsServiceId = pServiceId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      instances = Prelude.Nothing,
+      serviceId = pServiceId_
     }
 
+-- | For the first @GetInstancesHealthStatus@ request, omit this value.
+--
+-- If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
+getInstancesHealthStatus_nextToken :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Text)
+getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {nextToken} -> nextToken) (\s@GetInstancesHealthStatus' {} a -> s {nextToken = a} :: GetInstancesHealthStatus)
 
--- | For the first @GetInstancesHealthStatus@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-gihsNextToken :: Lens' GetInstancesHealthStatus (Maybe Text)
-gihsNextToken = lens _gihsNextToken (\ s a -> s{_gihsNextToken = a})
+-- | The maximum number of instances that you want AWS Cloud Map to return in
+-- the response to a @GetInstancesHealthStatus@ request. If you don\'t
+-- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
+-- instances.
+getInstancesHealthStatus_maxResults :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Natural)
+getInstancesHealthStatus_maxResults = Lens.lens (\GetInstancesHealthStatus' {maxResults} -> maxResults) (\s@GetInstancesHealthStatus' {} a -> s {maxResults = a} :: GetInstancesHealthStatus)
 
--- | An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , Amazon Route 53 returns the health status for all the instances that are associated with the specified service.
-gihsInstances :: Lens' GetInstancesHealthStatus (Maybe (NonEmpty Text))
-gihsInstances = lens _gihsInstances (\ s a -> s{_gihsInstances = a}) . mapping _List1
-
--- | The maximum number of instances that you want Route 53 to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
-gihsMaxResults :: Lens' GetInstancesHealthStatus (Maybe Natural)
-gihsMaxResults = lens _gihsMaxResults (\ s a -> s{_gihsMaxResults = a}) . mapping _Nat
+-- | An array that contains the IDs of all the instances that you want to get
+-- the health status for.
+--
+-- If you omit @Instances@, AWS Cloud Map returns the health status for all
+-- the instances that are associated with the specified service.
+--
+-- To get the IDs for the instances that you\'ve registered by using a
+-- specified service, submit a
+-- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
+-- request.
+getInstancesHealthStatus_instances :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getInstancesHealthStatus_instances = Lens.lens (\GetInstancesHealthStatus' {instances} -> instances) (\s@GetInstancesHealthStatus' {} a -> s {instances = a} :: GetInstancesHealthStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the service that the instance is associated with.
-gihsServiceId :: Lens' GetInstancesHealthStatus Text
-gihsServiceId = lens _gihsServiceId (\ s a -> s{_gihsServiceId = a})
+getInstancesHealthStatus_serviceId :: Lens.Lens' GetInstancesHealthStatus Prelude.Text
+getInstancesHealthStatus_serviceId = Lens.lens (\GetInstancesHealthStatus' {serviceId} -> serviceId) (\s@GetInstancesHealthStatus' {} a -> s {serviceId = a} :: GetInstancesHealthStatus)
 
-instance AWSRequest GetInstancesHealthStatus where
-        type Rs GetInstancesHealthStatus =
-             GetInstancesHealthStatusResponse
-        request = postJSON route53AutoNaming
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetInstancesHealthStatusResponse' <$>
-                   (x .?> "Status" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetInstancesHealthStatus where
+  type
+    AWSResponse GetInstancesHealthStatus =
+      GetInstancesHealthStatusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInstancesHealthStatusResponse'
+            Prelude.<$> (x Core..?> "Status" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetInstancesHealthStatus where
+instance Prelude.Hashable GetInstancesHealthStatus
 
-instance NFData GetInstancesHealthStatus where
+instance Prelude.NFData GetInstancesHealthStatus
 
-instance ToHeaders GetInstancesHealthStatus where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53AutoNaming_v20170314.GetInstancesHealthStatus"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetInstancesHealthStatus where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53AutoNaming_v20170314.GetInstancesHealthStatus" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetInstancesHealthStatus where
-        toJSON GetInstancesHealthStatus'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _gihsNextToken,
-                  ("Instances" .=) <$> _gihsInstances,
-                  ("MaxResults" .=) <$> _gihsMaxResults,
-                  Just ("ServiceId" .= _gihsServiceId)])
+instance Core.ToJSON GetInstancesHealthStatus where
+  toJSON GetInstancesHealthStatus' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Instances" Core..=) Prelude.<$> instances,
+            Prelude.Just ("ServiceId" Core..= serviceId)
+          ]
+      )
 
-instance ToPath GetInstancesHealthStatus where
-        toPath = const "/"
+instance Core.ToPath GetInstancesHealthStatus where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetInstancesHealthStatus where
-        toQuery = const mempty
+instance Core.ToQuery GetInstancesHealthStatus where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getInstancesHealthStatusResponse' smart constructor.
+-- | /See:/ 'newGetInstancesHealthStatusResponse' smart constructor.
 data GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse'
-  { _gihsrsStatus         :: !(Maybe (Map Text HealthStatus))
-  , _gihsrsNextToken      :: !(Maybe Text)
-  , _gihsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A complex type that contains the IDs and the health status of the
+    -- instances that you specified in the @GetInstancesHealthStatus@ request.
+    status :: Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus),
+    -- | If more than @MaxResults@ instances match the specified criteria, you
+    -- can submit another @GetInstancesHealthStatus@ request to get the next
+    -- group of results. Specify the value of @NextToken@ from the previous
+    -- response in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstancesHealthStatusResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstancesHealthStatusResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gihsrsStatus' - A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gihsrsNextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- 'status', 'getInstancesHealthStatusResponse_status' - A complex type that contains the IDs and the health status of the
+-- instances that you specified in the @GetInstancesHealthStatus@ request.
 --
--- * 'gihsrsResponseStatus' - -- | The response status code.
-getInstancesHealthStatusResponse
-    :: Int -- ^ 'gihsrsResponseStatus'
-    -> GetInstancesHealthStatusResponse
-getInstancesHealthStatusResponse pResponseStatus_ =
+-- 'nextToken', 'getInstancesHealthStatusResponse_nextToken' - If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
+--
+-- 'httpStatus', 'getInstancesHealthStatusResponse_httpStatus' - The response's http status code.
+newGetInstancesHealthStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetInstancesHealthStatusResponse
+newGetInstancesHealthStatusResponse pHttpStatus_ =
   GetInstancesHealthStatusResponse'
-    { _gihsrsStatus = Nothing
-    , _gihsrsNextToken = Nothing
-    , _gihsrsResponseStatus = pResponseStatus_
+    { status =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A complex type that contains the IDs and the health status of the
+-- instances that you specified in the @GetInstancesHealthStatus@ request.
+getInstancesHealthStatusResponse_status :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus))
+getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusResponse' {status} -> status) (\s@GetInstancesHealthStatusResponse' {} a -> s {status = a} :: GetInstancesHealthStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
-gihsrsStatus :: Lens' GetInstancesHealthStatusResponse (HashMap Text HealthStatus)
-gihsrsStatus = lens _gihsrsStatus (\ s a -> s{_gihsrsStatus = a}) . _Default . _Map
+-- | If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
+getInstancesHealthStatusResponse_nextToken :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe Prelude.Text)
+getInstancesHealthStatusResponse_nextToken = Lens.lens (\GetInstancesHealthStatusResponse' {nextToken} -> nextToken) (\s@GetInstancesHealthStatusResponse' {} a -> s {nextToken = a} :: GetInstancesHealthStatusResponse)
 
--- | If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-gihsrsNextToken :: Lens' GetInstancesHealthStatusResponse (Maybe Text)
-gihsrsNextToken = lens _gihsrsNextToken (\ s a -> s{_gihsrsNextToken = a})
+-- | The response's http status code.
+getInstancesHealthStatusResponse_httpStatus :: Lens.Lens' GetInstancesHealthStatusResponse Prelude.Int
+getInstancesHealthStatusResponse_httpStatus = Lens.lens (\GetInstancesHealthStatusResponse' {httpStatus} -> httpStatus) (\s@GetInstancesHealthStatusResponse' {} a -> s {httpStatus = a} :: GetInstancesHealthStatusResponse)
 
--- | -- | The response status code.
-gihsrsResponseStatus :: Lens' GetInstancesHealthStatusResponse Int
-gihsrsResponseStatus = lens _gihsrsResponseStatus (\ s a -> s{_gihsrsResponseStatus = a})
-
-instance NFData GetInstancesHealthStatusResponse
-         where
+instance
+  Prelude.NFData
+    GetInstancesHealthStatusResponse

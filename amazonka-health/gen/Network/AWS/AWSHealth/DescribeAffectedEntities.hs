@@ -1,192 +1,284 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeAffectedEntities
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.
+-- Returns a list of entities that have been affected by the specified
+-- events, based on the specified filter criteria. Entities can refer to
+-- individual customer resources, groups of customer resources, or any
+-- other construct, depending on the AWS service. Events that have impact
+-- beyond that of the affected entities, or where the extent of impact is
+-- unknown, include at least one entity indicating this.
 --
+-- At least one event ARN is required. Results are sorted by the
+-- @lastUpdatedTime@ of the entity, starting with the most recent.
 --
--- At least one event ARN is required. Results are sorted by the @lastUpdatedTime@ of the entity, starting with the most recent.
+-- -   This API operation uses pagination. Specify the @nextToken@
+--     parameter in the next request to return more results.
 --
+-- -   This operation supports resource-level permissions. You can use this
+--     operation to allow or deny access to specific AWS Health events. For
+--     more information, see
+--     <https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions Resource- and action-based conditions>
+--     in the /AWS Health User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeAffectedEntities
-    (
-    -- * Creating a Request
-      describeAffectedEntities
-    , DescribeAffectedEntities
+  ( -- * Creating a Request
+    DescribeAffectedEntities (..),
+    newDescribeAffectedEntities,
+
     -- * Request Lenses
-    , daeLocale
-    , daeNextToken
-    , daeMaxResults
-    , daeFilter
+    describeAffectedEntities_nextToken,
+    describeAffectedEntities_maxResults,
+    describeAffectedEntities_locale,
+    describeAffectedEntities_filter,
 
     -- * Destructuring the Response
-    , describeAffectedEntitiesResponse
-    , DescribeAffectedEntitiesResponse
+    DescribeAffectedEntitiesResponse (..),
+    newDescribeAffectedEntitiesResponse,
+
     -- * Response Lenses
-    , daersEntities
-    , daersNextToken
-    , daersResponseStatus
-    ) where
+    describeAffectedEntitiesResponse_nextToken,
+    describeAffectedEntitiesResponse_entities,
+    describeAffectedEntitiesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.AWSHealth.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAffectedEntities' smart constructor.
+-- | /See:/ 'newDescribeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-  { _daeLocale     :: !(Maybe Text)
-  , _daeNextToken  :: !(Maybe Text)
-  , _daeMaxResults :: !(Maybe Nat)
-  , _daeFilter     :: !EntityFilter
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return in one batch, between 10 and 100,
+    -- inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The locale (language) to return information in. English (en) is the
+    -- default and the only supported value at this time.
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | Values to narrow the results returned. At least one event ARN is
+    -- required.
+    filter' :: EntityFilter
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAffectedEntities' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAffectedEntities' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daeLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daeNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- 'nextToken', 'describeAffectedEntities_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
--- * 'daeMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
+-- 'maxResults', 'describeAffectedEntities_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
 --
--- * 'daeFilter' - Values to narrow the results returned. At least one event ARN is required.
-describeAffectedEntities
-    :: EntityFilter -- ^ 'daeFilter'
-    -> DescribeAffectedEntities
-describeAffectedEntities pFilter_ =
+-- 'locale', 'describeAffectedEntities_locale' - The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+--
+-- 'filter'', 'describeAffectedEntities_filter' - Values to narrow the results returned. At least one event ARN is
+-- required.
+newDescribeAffectedEntities ::
+  -- | 'filter''
+  EntityFilter ->
+  DescribeAffectedEntities
+newDescribeAffectedEntities pFilter_ =
   DescribeAffectedEntities'
-    { _daeLocale = Nothing
-    , _daeNextToken = Nothing
-    , _daeMaxResults = Nothing
-    , _daeFilter = pFilter_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      filter' = pFilter_
     }
 
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeAffectedEntities_nextToken :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Text)
+describeAffectedEntities_nextToken = Lens.lens (\DescribeAffectedEntities' {nextToken} -> nextToken) (\s@DescribeAffectedEntities' {} a -> s {nextToken = a} :: DescribeAffectedEntities)
 
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-daeLocale :: Lens' DescribeAffectedEntities (Maybe Text)
-daeLocale = lens _daeLocale (\ s a -> s{_daeLocale = a})
+-- | The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+describeAffectedEntities_maxResults :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Natural)
+describeAffectedEntities_maxResults = Lens.lens (\DescribeAffectedEntities' {maxResults} -> maxResults) (\s@DescribeAffectedEntities' {} a -> s {maxResults = a} :: DescribeAffectedEntities)
 
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-daeNextToken :: Lens' DescribeAffectedEntities (Maybe Text)
-daeNextToken = lens _daeNextToken (\ s a -> s{_daeNextToken = a})
+-- | The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+describeAffectedEntities_locale :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Text)
+describeAffectedEntities_locale = Lens.lens (\DescribeAffectedEntities' {locale} -> locale) (\s@DescribeAffectedEntities' {} a -> s {locale = a} :: DescribeAffectedEntities)
 
--- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-daeMaxResults :: Lens' DescribeAffectedEntities (Maybe Natural)
-daeMaxResults = lens _daeMaxResults (\ s a -> s{_daeMaxResults = a}) . mapping _Nat
+-- | Values to narrow the results returned. At least one event ARN is
+-- required.
+describeAffectedEntities_filter :: Lens.Lens' DescribeAffectedEntities EntityFilter
+describeAffectedEntities_filter = Lens.lens (\DescribeAffectedEntities' {filter'} -> filter') (\s@DescribeAffectedEntities' {} a -> s {filter' = a} :: DescribeAffectedEntities)
 
--- | Values to narrow the results returned. At least one event ARN is required.
-daeFilter :: Lens' DescribeAffectedEntities EntityFilter
-daeFilter = lens _daeFilter (\ s a -> s{_daeFilter = a})
+instance Core.AWSPager DescribeAffectedEntities where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeAffectedEntitiesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeAffectedEntitiesResponse_entities
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeAffectedEntities_nextToken
+          Lens..~ rs
+          Lens.^? describeAffectedEntitiesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeAffectedEntities where
-        page rq rs
-          | stop (rs ^. daersNextToken) = Nothing
-          | stop (rs ^. daersEntities) = Nothing
-          | otherwise =
-            Just $ rq & daeNextToken .~ rs ^. daersNextToken
+instance Core.AWSRequest DescribeAffectedEntities where
+  type
+    AWSResponse DescribeAffectedEntities =
+      DescribeAffectedEntitiesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeAffectedEntitiesResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeAffectedEntities where
-        type Rs DescribeAffectedEntities =
-             DescribeAffectedEntitiesResponse
-        request = postJSON awsHealth
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeAffectedEntitiesResponse' <$>
-                   (x .?> "entities" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeAffectedEntities
 
-instance Hashable DescribeAffectedEntities where
+instance Prelude.NFData DescribeAffectedEntities
 
-instance NFData DescribeAffectedEntities where
+instance Core.ToHeaders DescribeAffectedEntities where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSHealth_20160804.DescribeAffectedEntities" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeAffectedEntities where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSHealth_20160804.DescribeAffectedEntities" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeAffectedEntities where
+  toJSON DescribeAffectedEntities' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("locale" Core..=) Prelude.<$> locale,
+            Prelude.Just ("filter" Core..= filter')
+          ]
+      )
 
-instance ToJSON DescribeAffectedEntities where
-        toJSON DescribeAffectedEntities'{..}
-          = object
-              (catMaybes
-                 [("locale" .=) <$> _daeLocale,
-                  ("nextToken" .=) <$> _daeNextToken,
-                  ("maxResults" .=) <$> _daeMaxResults,
-                  Just ("filter" .= _daeFilter)])
+instance Core.ToPath DescribeAffectedEntities where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeAffectedEntities where
-        toPath = const "/"
+instance Core.ToQuery DescribeAffectedEntities where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeAffectedEntities where
-        toQuery = const mempty
-
--- | /See:/ 'describeAffectedEntitiesResponse' smart constructor.
+-- | /See:/ 'newDescribeAffectedEntitiesResponse' smart constructor.
 data DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse'
-  { _daersEntities       :: !(Maybe [AffectedEntity])
-  , _daersNextToken      :: !(Maybe Text)
-  , _daersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The entities that match the filter criteria.
+    entities :: Prelude.Maybe [AffectedEntity],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAffectedEntitiesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAffectedEntitiesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daersEntities' - The entities that match the filter criteria.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daersNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- 'nextToken', 'describeAffectedEntitiesResponse_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
--- * 'daersResponseStatus' - -- | The response status code.
-describeAffectedEntitiesResponse
-    :: Int -- ^ 'daersResponseStatus'
-    -> DescribeAffectedEntitiesResponse
-describeAffectedEntitiesResponse pResponseStatus_ =
+-- 'entities', 'describeAffectedEntitiesResponse_entities' - The entities that match the filter criteria.
+--
+-- 'httpStatus', 'describeAffectedEntitiesResponse_httpStatus' - The response's http status code.
+newDescribeAffectedEntitiesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAffectedEntitiesResponse
+newDescribeAffectedEntitiesResponse pHttpStatus_ =
   DescribeAffectedEntitiesResponse'
-    { _daersEntities = Nothing
-    , _daersNextToken = Nothing
-    , _daersResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      entities = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeAffectedEntitiesResponse_nextToken :: Lens.Lens' DescribeAffectedEntitiesResponse (Prelude.Maybe Prelude.Text)
+describeAffectedEntitiesResponse_nextToken = Lens.lens (\DescribeAffectedEntitiesResponse' {nextToken} -> nextToken) (\s@DescribeAffectedEntitiesResponse' {} a -> s {nextToken = a} :: DescribeAffectedEntitiesResponse)
 
 -- | The entities that match the filter criteria.
-daersEntities :: Lens' DescribeAffectedEntitiesResponse [AffectedEntity]
-daersEntities = lens _daersEntities (\ s a -> s{_daersEntities = a}) . _Default . _Coerce
+describeAffectedEntitiesResponse_entities :: Lens.Lens' DescribeAffectedEntitiesResponse (Prelude.Maybe [AffectedEntity])
+describeAffectedEntitiesResponse_entities = Lens.lens (\DescribeAffectedEntitiesResponse' {entities} -> entities) (\s@DescribeAffectedEntitiesResponse' {} a -> s {entities = a} :: DescribeAffectedEntitiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-daersNextToken :: Lens' DescribeAffectedEntitiesResponse (Maybe Text)
-daersNextToken = lens _daersNextToken (\ s a -> s{_daersNextToken = a})
+-- | The response's http status code.
+describeAffectedEntitiesResponse_httpStatus :: Lens.Lens' DescribeAffectedEntitiesResponse Prelude.Int
+describeAffectedEntitiesResponse_httpStatus = Lens.lens (\DescribeAffectedEntitiesResponse' {httpStatus} -> httpStatus) (\s@DescribeAffectedEntitiesResponse' {} a -> s {httpStatus = a} :: DescribeAffectedEntitiesResponse)
 
--- | -- | The response status code.
-daersResponseStatus :: Lens' DescribeAffectedEntitiesResponse Int
-daersResponseStatus = lens _daersResponseStatus (\ s a -> s{_daersResponseStatus = a})
-
-instance NFData DescribeAffectedEntitiesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeAffectedEntitiesResponse

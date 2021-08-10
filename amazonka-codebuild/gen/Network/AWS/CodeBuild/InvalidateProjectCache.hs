@@ -1,125 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.InvalidateProjectCache
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Resets the cache for a project.
---
---
 module Network.AWS.CodeBuild.InvalidateProjectCache
-    (
-    -- * Creating a Request
-      invalidateProjectCache
-    , InvalidateProjectCache
+  ( -- * Creating a Request
+    InvalidateProjectCache (..),
+    newInvalidateProjectCache,
+
     -- * Request Lenses
-    , ipcProjectName
+    invalidateProjectCache_projectName,
 
     -- * Destructuring the Response
-    , invalidateProjectCacheResponse
-    , InvalidateProjectCacheResponse
+    InvalidateProjectCacheResponse (..),
+    newInvalidateProjectCacheResponse,
+
     -- * Response Lenses
-    , ipcrsResponseStatus
-    ) where
+    invalidateProjectCacheResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'invalidateProjectCache' smart constructor.
-newtype InvalidateProjectCache = InvalidateProjectCache'
-  { _ipcProjectName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newInvalidateProjectCache' smart constructor.
+data InvalidateProjectCache = InvalidateProjectCache'
+  { -- | The name of the AWS CodeBuild build project that the cache is reset for.
+    projectName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'InvalidateProjectCache' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'InvalidateProjectCache' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ipcProjectName' - The name of the AWS CodeBuild build project that the cache will be reset for.
-invalidateProjectCache
-    :: Text -- ^ 'ipcProjectName'
-    -> InvalidateProjectCache
-invalidateProjectCache pProjectName_ =
-  InvalidateProjectCache' {_ipcProjectName = pProjectName_}
-
-
--- | The name of the AWS CodeBuild build project that the cache will be reset for.
-ipcProjectName :: Lens' InvalidateProjectCache Text
-ipcProjectName = lens _ipcProjectName (\ s a -> s{_ipcProjectName = a})
-
-instance AWSRequest InvalidateProjectCache where
-        type Rs InvalidateProjectCache =
-             InvalidateProjectCacheResponse
-        request = postJSON codeBuild
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 InvalidateProjectCacheResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable InvalidateProjectCache where
-
-instance NFData InvalidateProjectCache where
-
-instance ToHeaders InvalidateProjectCache where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.InvalidateProjectCache" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON InvalidateProjectCache where
-        toJSON InvalidateProjectCache'{..}
-          = object
-              (catMaybes [Just ("projectName" .= _ipcProjectName)])
-
-instance ToPath InvalidateProjectCache where
-        toPath = const "/"
-
-instance ToQuery InvalidateProjectCache where
-        toQuery = const mempty
-
--- | /See:/ 'invalidateProjectCacheResponse' smart constructor.
-newtype InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
-  { _ipcrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InvalidateProjectCacheResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'projectName', 'invalidateProjectCache_projectName' - The name of the AWS CodeBuild build project that the cache is reset for.
+newInvalidateProjectCache ::
+  -- | 'projectName'
+  Prelude.Text ->
+  InvalidateProjectCache
+newInvalidateProjectCache pProjectName_ =
+  InvalidateProjectCache'
+    { projectName =
+        pProjectName_
+    }
+
+-- | The name of the AWS CodeBuild build project that the cache is reset for.
+invalidateProjectCache_projectName :: Lens.Lens' InvalidateProjectCache Prelude.Text
+invalidateProjectCache_projectName = Lens.lens (\InvalidateProjectCache' {projectName} -> projectName) (\s@InvalidateProjectCache' {} a -> s {projectName = a} :: InvalidateProjectCache)
+
+instance Core.AWSRequest InvalidateProjectCache where
+  type
+    AWSResponse InvalidateProjectCache =
+      InvalidateProjectCacheResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          InvalidateProjectCacheResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable InvalidateProjectCache
+
+instance Prelude.NFData InvalidateProjectCache
+
+instance Core.ToHeaders InvalidateProjectCache where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeBuild_20161006.InvalidateProjectCache" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON InvalidateProjectCache where
+  toJSON InvalidateProjectCache' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("projectName" Core..= projectName)]
+      )
+
+instance Core.ToPath InvalidateProjectCache where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery InvalidateProjectCache where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newInvalidateProjectCacheResponse' smart constructor.
+data InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'InvalidateProjectCacheResponse' with all optional fields omitted.
 --
--- * 'ipcrsResponseStatus' - -- | The response status code.
-invalidateProjectCacheResponse
-    :: Int -- ^ 'ipcrsResponseStatus'
-    -> InvalidateProjectCacheResponse
-invalidateProjectCacheResponse pResponseStatus_ =
-  InvalidateProjectCacheResponse' {_ipcrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'invalidateProjectCacheResponse_httpStatus' - The response's http status code.
+newInvalidateProjectCacheResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  InvalidateProjectCacheResponse
+newInvalidateProjectCacheResponse pHttpStatus_ =
+  InvalidateProjectCacheResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+invalidateProjectCacheResponse_httpStatus :: Lens.Lens' InvalidateProjectCacheResponse Prelude.Int
+invalidateProjectCacheResponse_httpStatus = Lens.lens (\InvalidateProjectCacheResponse' {httpStatus} -> httpStatus) (\s@InvalidateProjectCacheResponse' {} a -> s {httpStatus = a} :: InvalidateProjectCacheResponse)
 
--- | -- | The response status code.
-ipcrsResponseStatus :: Lens' InvalidateProjectCacheResponse Int
-ipcrsResponseStatus = lens _ipcrsResponseStatus (\ s a -> s{_ipcrsResponseStatus = a})
-
-instance NFData InvalidateProjectCacheResponse where
+instance
+  Prelude.NFData
+    InvalidateProjectCacheResponse

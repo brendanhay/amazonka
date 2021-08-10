@@ -1,120 +1,139 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all search domains owned by an account.
---
---
 module Network.AWS.CloudSearch.ListDomainNames
-    (
-    -- * Creating a Request
-      listDomainNames
-    , ListDomainNames
+  ( -- * Creating a Request
+    ListDomainNames (..),
+    newListDomainNames,
 
     -- * Destructuring the Response
-    , listDomainNamesResponse
-    , ListDomainNamesResponse
+    ListDomainNamesResponse (..),
+    newListDomainNamesResponse,
+
     -- * Response Lenses
-    , ldnrsDomainNames
-    , ldnrsResponseStatus
-    ) where
+    listDomainNamesResponse_domainNames,
+    listDomainNamesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listDomainNames' smart constructor.
-data ListDomainNames =
-  ListDomainNames'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newListDomainNames' smart constructor.
+data ListDomainNames = ListDomainNames'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListDomainNames' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDomainNames' with all optional fields omitted.
 --
-listDomainNames
-    :: ListDomainNames
-listDomainNames = ListDomainNames'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newListDomainNames ::
+  ListDomainNames
+newListDomainNames = ListDomainNames'
 
+instance Core.AWSRequest ListDomainNames where
+  type
+    AWSResponse ListDomainNames =
+      ListDomainNamesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListDomainNamesResult"
+      ( \s h x ->
+          ListDomainNamesResponse'
+            Prelude.<$> ( x Core..@? "DomainNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListDomainNames where
-        type Rs ListDomainNames = ListDomainNamesResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "ListDomainNamesResult"
-              (\ s h x ->
-                 ListDomainNamesResponse' <$>
-                   (x .@? "DomainNames" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListDomainNames
 
-instance Hashable ListDomainNames where
+instance Prelude.NFData ListDomainNames
 
-instance NFData ListDomainNames where
+instance Core.ToHeaders ListDomainNames where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListDomainNames where
-        toHeaders = const mempty
+instance Core.ToPath ListDomainNames where
+  toPath = Prelude.const "/"
 
-instance ToPath ListDomainNames where
-        toPath = const "/"
+instance Core.ToQuery ListDomainNames where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Core.=: ("ListDomainNames" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2013-01-01" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToQuery ListDomainNames where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =: ("ListDomainNames" :: ByteString),
-                  "Version" =: ("2013-01-01" :: ByteString)])
-
--- | The result of a @ListDomainNames@ request. Contains a list of the domains owned by an account.
+-- | The result of a @ListDomainNames@ request. Contains a list of the
+-- domains owned by an account.
 --
---
---
--- /See:/ 'listDomainNamesResponse' smart constructor.
+-- /See:/ 'newListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
-  { _ldnrsDomainNames    :: !(Maybe (Map Text Text))
-  , _ldnrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The names of the search domains owned by an account.
+    domainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListDomainNamesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDomainNamesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ldnrsDomainNames' - The names of the search domains owned by an account.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ldnrsResponseStatus' - -- | The response status code.
-listDomainNamesResponse
-    :: Int -- ^ 'ldnrsResponseStatus'
-    -> ListDomainNamesResponse
-listDomainNamesResponse pResponseStatus_ =
+-- 'domainNames', 'listDomainNamesResponse_domainNames' - The names of the search domains owned by an account.
+--
+-- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
+newListDomainNamesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDomainNamesResponse
+newListDomainNamesResponse pHttpStatus_ =
   ListDomainNamesResponse'
-    {_ldnrsDomainNames = Nothing, _ldnrsResponseStatus = pResponseStatus_}
-
+    { domainNames =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The names of the search domains owned by an account.
-ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map
+listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
-ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a})
+-- | The response's http status code.
+listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Prelude.Int
+listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpStatus} -> httpStatus) (\s@ListDomainNamesResponse' {} a -> s {httpStatus = a} :: ListDomainNamesResponse)
 
-instance NFData ListDomainNamesResponse where
+instance Prelude.NFData ListDomainNamesResponse

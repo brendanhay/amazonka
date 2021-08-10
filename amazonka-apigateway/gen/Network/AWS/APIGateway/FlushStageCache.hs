@@ -1,116 +1,136 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageCache
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Flushes a stage's cache.
---
---
+-- Flushes a stage\'s cache.
 module Network.AWS.APIGateway.FlushStageCache
-    (
-    -- * Creating a Request
-      flushStageCache
-    , FlushStageCache
+  ( -- * Creating a Request
+    FlushStageCache (..),
+    newFlushStageCache,
+
     -- * Request Lenses
-    , fscRestAPIId
-    , fscStageName
+    flushStageCache_restApiId,
+    flushStageCache_stageName,
 
     -- * Destructuring the Response
-    , flushStageCacheResponse
-    , FlushStageCacheResponse
-    ) where
+    FlushStageCacheResponse (..),
+    newFlushStageCacheResponse,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests API Gateway to flush a stage's cache.
+-- | Requests API Gateway to flush a stage\'s cache.
 --
---
---
--- /See:/ 'flushStageCache' smart constructor.
+-- /See:/ 'newFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-  { _fscRestAPIId :: !Text
-  , _fscStageName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name of the stage to flush its cache.
+    stageName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'FlushStageCache' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'FlushStageCache' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'fscRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'fscStageName' - [Required] The name of the stage to flush its cache.
-flushStageCache
-    :: Text -- ^ 'fscRestAPIId'
-    -> Text -- ^ 'fscStageName'
-    -> FlushStageCache
-flushStageCache pRestAPIId_ pStageName_ =
-  FlushStageCache' {_fscRestAPIId = pRestAPIId_, _fscStageName = pStageName_}
+-- 'restApiId', 'flushStageCache_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'stageName', 'flushStageCache_stageName' - [Required] The name of the stage to flush its cache.
+newFlushStageCache ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'stageName'
+  Prelude.Text ->
+  FlushStageCache
+newFlushStageCache pRestApiId_ pStageName_ =
+  FlushStageCache'
+    { restApiId = pRestApiId_,
+      stageName = pStageName_
+    }
 
-
--- | [Required] The string identifier of the associated 'RestApi' .
-fscRestAPIId :: Lens' FlushStageCache Text
-fscRestAPIId = lens _fscRestAPIId (\ s a -> s{_fscRestAPIId = a})
+-- | [Required] The string identifier of the associated RestApi.
+flushStageCache_restApiId :: Lens.Lens' FlushStageCache Prelude.Text
+flushStageCache_restApiId = Lens.lens (\FlushStageCache' {restApiId} -> restApiId) (\s@FlushStageCache' {} a -> s {restApiId = a} :: FlushStageCache)
 
 -- | [Required] The name of the stage to flush its cache.
-fscStageName :: Lens' FlushStageCache Text
-fscStageName = lens _fscStageName (\ s a -> s{_fscStageName = a})
+flushStageCache_stageName :: Lens.Lens' FlushStageCache Prelude.Text
+flushStageCache_stageName = Lens.lens (\FlushStageCache' {stageName} -> stageName) (\s@FlushStageCache' {} a -> s {stageName = a} :: FlushStageCache)
 
-instance AWSRequest FlushStageCache where
-        type Rs FlushStageCache = FlushStageCacheResponse
-        request = delete apiGateway
-        response = receiveNull FlushStageCacheResponse'
+instance Core.AWSRequest FlushStageCache where
+  type
+    AWSResponse FlushStageCache =
+      FlushStageCacheResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull FlushStageCacheResponse'
 
-instance Hashable FlushStageCache where
+instance Prelude.Hashable FlushStageCache
 
-instance NFData FlushStageCache where
+instance Prelude.NFData FlushStageCache
 
-instance ToHeaders FlushStageCache where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders FlushStageCache where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToPath FlushStageCache where
-        toPath FlushStageCache'{..}
-          = mconcat
-              ["/restapis/", toBS _fscRestAPIId, "/stages/",
-               toBS _fscStageName, "/cache/data"]
+instance Core.ToPath FlushStageCache where
+  toPath FlushStageCache' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/stages/",
+        Core.toBS stageName,
+        "/cache/data"
+      ]
 
-instance ToQuery FlushStageCache where
-        toQuery = const mempty
+instance Core.ToQuery FlushStageCache where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'flushStageCacheResponse' smart constructor.
-data FlushStageCacheResponse =
-  FlushStageCacheResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newFlushStageCacheResponse' smart constructor.
+data FlushStageCacheResponse = FlushStageCacheResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'FlushStageCacheResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'FlushStageCacheResponse' with all optional fields omitted.
 --
-flushStageCacheResponse
-    :: FlushStageCacheResponse
-flushStageCacheResponse = FlushStageCacheResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newFlushStageCacheResponse ::
+  FlushStageCacheResponse
+newFlushStageCacheResponse = FlushStageCacheResponse'
 
-
-instance NFData FlushStageCacheResponse where
+instance Prelude.NFData FlushStageCacheResponse

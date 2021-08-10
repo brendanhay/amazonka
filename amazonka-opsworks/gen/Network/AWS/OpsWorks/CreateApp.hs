@@ -1,252 +1,358 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateApp
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an app for a specified stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps> .
+-- Creates an app for a specified stack. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps>.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.CreateApp
-    (
-    -- * Creating a Request
-      createApp
-    , CreateApp
+  ( -- * Creating a Request
+    CreateApp (..),
+    newCreateApp,
+
     -- * Request Lenses
-    , caSSLConfiguration
-    , caEnvironment
-    , caEnableSSL
-    , caShortname
-    , caDataSources
-    , caAppSource
-    , caAttributes
-    , caDomains
-    , caDescription
-    , caStackId
-    , caName
-    , caType
+    createApp_sslConfiguration,
+    createApp_appSource,
+    createApp_dataSources,
+    createApp_domains,
+    createApp_enableSsl,
+    createApp_shortname,
+    createApp_environment,
+    createApp_attributes,
+    createApp_description,
+    createApp_stackId,
+    createApp_name,
+    createApp_type,
 
     -- * Destructuring the Response
-    , createAppResponse
-    , CreateAppResponse
+    CreateAppResponse (..),
+    newCreateAppResponse,
+
     -- * Response Lenses
-    , carsAppId
-    , carsResponseStatus
-    ) where
+    createAppResponse_appId,
+    createAppResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createApp' smart constructor.
+-- | /See:/ 'newCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-  , _caEnvironment      :: !(Maybe [EnvironmentVariable])
-  , _caEnableSSL        :: !(Maybe Bool)
-  , _caShortname        :: !(Maybe Text)
-  , _caDataSources      :: !(Maybe [DataSource])
-  , _caAppSource        :: !(Maybe Source)
-  , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-  , _caDomains          :: !(Maybe [Text])
-  , _caDescription      :: !(Maybe Text)
-  , _caStackId          :: !Text
-  , _caName             :: !Text
-  , _caType             :: !AppType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An @SslConfiguration@ object with the SSL configuration.
+    sslConfiguration :: Prelude.Maybe SslConfiguration,
+    -- | A @Source@ object that specifies the app repository.
+    appSource :: Prelude.Maybe Source,
+    -- | The app\'s data source.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | The app virtual host settings, with multiple domains separated by
+    -- commas. For example: @\'www.example.com, example.com\'@
+    domains :: Prelude.Maybe [Prelude.Text],
+    -- | Whether to enable SSL for the app.
+    enableSsl :: Prelude.Maybe Prelude.Bool,
+    -- | The app\'s short name.
+    shortname :: Prelude.Maybe Prelude.Text,
+    -- | An array of @EnvironmentVariable@ objects that specify environment
+    -- variables to be associated with the app. After you deploy the app, these
+    -- variables are defined on the associated app server instance. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+    --
+    -- There is no specific limit on the number of environment variables.
+    -- However, the size of the associated data structure - which includes the
+    -- variables\' names, values, and protected flag values - cannot exceed 20
+    -- KB. This limit should accommodate most if not all use cases. Exceeding
+    -- it will cause an exception with the message, \"Environment: is too large
+    -- (maximum is 20KB).\"
+    --
+    -- If you have specified one or more environment variables, you cannot
+    -- modify the stack\'s Chef version.
+    environment :: Prelude.Maybe [EnvironmentVariable],
+    -- | One or more user-defined key\/value pairs to be added to the stack
+    -- attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text),
+    -- | A description of the app.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The stack ID.
+    stackId :: Prelude.Text,
+    -- | The app name.
+    name :: Prelude.Text,
+    -- | The app type. Each supported type is associated with a particular layer.
+    -- For example, PHP applications are associated with a PHP layer. AWS
+    -- OpsWorks Stacks deploys an application to those instances that are
+    -- members of the corresponding layer. If your app isn\'t one of the
+    -- standard types, or you prefer to implement your own Deploy recipes,
+    -- specify @other@.
+    type' :: AppType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApp' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'caSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'caEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
+-- 'sslConfiguration', 'createApp_sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 --
--- * 'caEnableSSL' - Whether to enable SSL for the app.
+-- 'appSource', 'createApp_appSource' - A @Source@ object that specifies the app repository.
 --
--- * 'caShortname' - The app's short name.
+-- 'dataSources', 'createApp_dataSources' - The app\'s data source.
 --
--- * 'caDataSources' - The app's data source.
+-- 'domains', 'createApp_domains' - The app virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
 --
--- * 'caAppSource' - A @Source@ object that specifies the app repository.
+-- 'enableSsl', 'createApp_enableSsl' - Whether to enable SSL for the app.
 --
--- * 'caAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- 'shortname', 'createApp_shortname' - The app\'s short name.
 --
--- * 'caDomains' - The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- 'environment', 'createApp_environment' - An array of @EnvironmentVariable@ objects that specify environment
+-- variables to be associated with the app. After you deploy the app, these
+-- variables are defined on the associated app server instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- * 'caDescription' - A description of the app.
+-- There is no specific limit on the number of environment variables.
+-- However, the size of the associated data structure - which includes the
+-- variables\' names, values, and protected flag values - cannot exceed 20
+-- KB. This limit should accommodate most if not all use cases. Exceeding
+-- it will cause an exception with the message, \"Environment: is too large
+-- (maximum is 20KB).\"
 --
--- * 'caStackId' - The stack ID.
+-- If you have specified one or more environment variables, you cannot
+-- modify the stack\'s Chef version.
 --
--- * 'caName' - The app name.
+-- 'attributes', 'createApp_attributes' - One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
 --
--- * 'caType' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
-createApp
-    :: Text -- ^ 'caStackId'
-    -> Text -- ^ 'caName'
-    -> AppType -- ^ 'caType'
-    -> CreateApp
-createApp pStackId_ pName_ pType_ =
+-- 'description', 'createApp_description' - A description of the app.
+--
+-- 'stackId', 'createApp_stackId' - The stack ID.
+--
+-- 'name', 'createApp_name' - The app name.
+--
+-- 'type'', 'createApp_type' - The app type. Each supported type is associated with a particular layer.
+-- For example, PHP applications are associated with a PHP layer. AWS
+-- OpsWorks Stacks deploys an application to those instances that are
+-- members of the corresponding layer. If your app isn\'t one of the
+-- standard types, or you prefer to implement your own Deploy recipes,
+-- specify @other@.
+newCreateApp ::
+  -- | 'stackId'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'type''
+  AppType ->
+  CreateApp
+newCreateApp pStackId_ pName_ pType_ =
   CreateApp'
-    { _caSSLConfiguration = Nothing
-    , _caEnvironment = Nothing
-    , _caEnableSSL = Nothing
-    , _caShortname = Nothing
-    , _caDataSources = Nothing
-    , _caAppSource = Nothing
-    , _caAttributes = Nothing
-    , _caDomains = Nothing
-    , _caDescription = Nothing
-    , _caStackId = pStackId_
-    , _caName = pName_
-    , _caType = pType_
+    { sslConfiguration = Prelude.Nothing,
+      appSource = Prelude.Nothing,
+      dataSources = Prelude.Nothing,
+      domains = Prelude.Nothing,
+      enableSsl = Prelude.Nothing,
+      shortname = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      description = Prelude.Nothing,
+      stackId = pStackId_,
+      name = pName_,
+      type' = pType_
     }
 
-
 -- | An @SslConfiguration@ object with the SSL configuration.
-caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
-caSSLConfiguration = lens _caSSLConfiguration (\ s a -> s{_caSSLConfiguration = a})
-
--- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
-caEnvironment :: Lens' CreateApp [EnvironmentVariable]
-caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default . _Coerce
-
--- | Whether to enable SSL for the app.
-caEnableSSL :: Lens' CreateApp (Maybe Bool)
-caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a})
-
--- | The app's short name.
-caShortname :: Lens' CreateApp (Maybe Text)
-caShortname = lens _caShortname (\ s a -> s{_caShortname = a})
-
--- | The app's data source.
-caDataSources :: Lens' CreateApp [DataSource]
-caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default . _Coerce
+createApp_sslConfiguration :: Lens.Lens' CreateApp (Prelude.Maybe SslConfiguration)
+createApp_sslConfiguration = Lens.lens (\CreateApp' {sslConfiguration} -> sslConfiguration) (\s@CreateApp' {} a -> s {sslConfiguration = a} :: CreateApp)
 
 -- | A @Source@ object that specifies the app repository.
-caAppSource :: Lens' CreateApp (Maybe Source)
-caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a})
+createApp_appSource :: Lens.Lens' CreateApp (Prelude.Maybe Source)
+createApp_appSource = Lens.lens (\CreateApp' {appSource} -> appSource) (\s@CreateApp' {} a -> s {appSource = a} :: CreateApp)
 
--- | One or more user-defined key/value pairs to be added to the stack attributes.
-caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
-caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _Map
+-- | The app\'s data source.
+createApp_dataSources :: Lens.Lens' CreateApp (Prelude.Maybe [DataSource])
+createApp_dataSources = Lens.lens (\CreateApp' {dataSources} -> dataSources) (\s@CreateApp' {} a -> s {dataSources = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
 
--- | The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
-caDomains :: Lens' CreateApp [Text]
-caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default . _Coerce
+-- | The app virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
+createApp_domains :: Lens.Lens' CreateApp (Prelude.Maybe [Prelude.Text])
+createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' {} a -> s {domains = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Whether to enable SSL for the app.
+createApp_enableSsl :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Bool)
+createApp_enableSsl = Lens.lens (\CreateApp' {enableSsl} -> enableSsl) (\s@CreateApp' {} a -> s {enableSsl = a} :: CreateApp)
+
+-- | The app\'s short name.
+createApp_shortname :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
+createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@CreateApp' {} a -> s {shortname = a} :: CreateApp)
+
+-- | An array of @EnvironmentVariable@ objects that specify environment
+-- variables to be associated with the app. After you deploy the app, these
+-- variables are defined on the associated app server instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+--
+-- There is no specific limit on the number of environment variables.
+-- However, the size of the associated data structure - which includes the
+-- variables\' names, values, and protected flag values - cannot exceed 20
+-- KB. This limit should accommodate most if not all use cases. Exceeding
+-- it will cause an exception with the message, \"Environment: is too large
+-- (maximum is 20KB).\"
+--
+-- If you have specified one or more environment variables, you cannot
+-- modify the stack\'s Chef version.
+createApp_environment :: Lens.Lens' CreateApp (Prelude.Maybe [EnvironmentVariable])
+createApp_environment = Lens.lens (\CreateApp' {environment} -> environment) (\s@CreateApp' {} a -> s {environment = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+createApp_attributes :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
+createApp_attributes = Lens.lens (\CreateApp' {attributes} -> attributes) (\s@CreateApp' {} a -> s {attributes = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the app.
-caDescription :: Lens' CreateApp (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
+createApp_description :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
+createApp_description = Lens.lens (\CreateApp' {description} -> description) (\s@CreateApp' {} a -> s {description = a} :: CreateApp)
 
 -- | The stack ID.
-caStackId :: Lens' CreateApp Text
-caStackId = lens _caStackId (\ s a -> s{_caStackId = a})
+createApp_stackId :: Lens.Lens' CreateApp Prelude.Text
+createApp_stackId = Lens.lens (\CreateApp' {stackId} -> stackId) (\s@CreateApp' {} a -> s {stackId = a} :: CreateApp)
 
 -- | The app name.
-caName :: Lens' CreateApp Text
-caName = lens _caName (\ s a -> s{_caName = a})
+createApp_name :: Lens.Lens' CreateApp Prelude.Text
+createApp_name = Lens.lens (\CreateApp' {name} -> name) (\s@CreateApp' {} a -> s {name = a} :: CreateApp)
 
--- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
-caType :: Lens' CreateApp AppType
-caType = lens _caType (\ s a -> s{_caType = a})
+-- | The app type. Each supported type is associated with a particular layer.
+-- For example, PHP applications are associated with a PHP layer. AWS
+-- OpsWorks Stacks deploys an application to those instances that are
+-- members of the corresponding layer. If your app isn\'t one of the
+-- standard types, or you prefer to implement your own Deploy recipes,
+-- specify @other@.
+createApp_type :: Lens.Lens' CreateApp AppType
+createApp_type = Lens.lens (\CreateApp' {type'} -> type') (\s@CreateApp' {} a -> s {type' = a} :: CreateApp)
 
-instance AWSRequest CreateApp where
-        type Rs CreateApp = CreateAppResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateAppResponse' <$>
-                   (x .?> "AppId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateApp where
+  type AWSResponse CreateApp = CreateAppResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateAppResponse'
+            Prelude.<$> (x Core..?> "AppId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateApp where
+instance Prelude.Hashable CreateApp
 
-instance NFData CreateApp where
+instance Prelude.NFData CreateApp
 
-instance ToHeaders CreateApp where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.CreateApp" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateApp where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.CreateApp" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateApp where
-        toJSON CreateApp'{..}
-          = object
-              (catMaybes
-                 [("SslConfiguration" .=) <$> _caSSLConfiguration,
-                  ("Environment" .=) <$> _caEnvironment,
-                  ("EnableSsl" .=) <$> _caEnableSSL,
-                  ("Shortname" .=) <$> _caShortname,
-                  ("DataSources" .=) <$> _caDataSources,
-                  ("AppSource" .=) <$> _caAppSource,
-                  ("Attributes" .=) <$> _caAttributes,
-                  ("Domains" .=) <$> _caDomains,
-                  ("Description" .=) <$> _caDescription,
-                  Just ("StackId" .= _caStackId),
-                  Just ("Name" .= _caName), Just ("Type" .= _caType)])
+instance Core.ToJSON CreateApp where
+  toJSON CreateApp' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("SslConfiguration" Core..=)
+              Prelude.<$> sslConfiguration,
+            ("AppSource" Core..=) Prelude.<$> appSource,
+            ("DataSources" Core..=) Prelude.<$> dataSources,
+            ("Domains" Core..=) Prelude.<$> domains,
+            ("EnableSsl" Core..=) Prelude.<$> enableSsl,
+            ("Shortname" Core..=) Prelude.<$> shortname,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("StackId" Core..= stackId),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Type" Core..= type')
+          ]
+      )
 
-instance ToPath CreateApp where
-        toPath = const "/"
+instance Core.ToPath CreateApp where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateApp where
-        toQuery = const mempty
+instance Core.ToQuery CreateApp where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateApp@ request.
 --
---
---
--- /See:/ 'createAppResponse' smart constructor.
+-- /See:/ 'newCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsAppId          :: !(Maybe Text)
-  , _carsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The app ID.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateAppResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'carsAppId' - The app ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'carsResponseStatus' - -- | The response status code.
-createAppResponse
-    :: Int -- ^ 'carsResponseStatus'
-    -> CreateAppResponse
-createAppResponse pResponseStatus_ =
+-- 'appId', 'createAppResponse_appId' - The app ID.
+--
+-- 'httpStatus', 'createAppResponse_httpStatus' - The response's http status code.
+newCreateAppResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateAppResponse
+newCreateAppResponse pHttpStatus_ =
   CreateAppResponse'
-    {_carsAppId = Nothing, _carsResponseStatus = pResponseStatus_}
-
+    { appId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The app ID.
-carsAppId :: Lens' CreateAppResponse (Maybe Text)
-carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a})
+createAppResponse_appId :: Lens.Lens' CreateAppResponse (Prelude.Maybe Prelude.Text)
+createAppResponse_appId = Lens.lens (\CreateAppResponse' {appId} -> appId) (\s@CreateAppResponse' {} a -> s {appId = a} :: CreateAppResponse)
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAppResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
+-- | The response's http status code.
+createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Prelude.Int
+createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> httpStatus) (\s@CreateAppResponse' {} a -> s {httpStatus = a} :: CreateAppResponse)
 
-instance NFData CreateAppResponse where
+instance Prelude.NFData CreateAppResponse

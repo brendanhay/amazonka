@@ -1,114 +1,144 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.StopNotebookInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume.
+-- Terminates the ML compute instance. Before terminating the instance,
+-- Amazon SageMaker disconnects the ML storage volume from it. Amazon
+-- SageMaker preserves the ML storage volume. Amazon SageMaker stops
+-- charging you for the ML compute instance when you call
+-- @StopNotebookInstance@.
 --
---
--- To access data on the ML storage volume for a notebook instance that has been terminated, call the @StartNotebookInstance@ API. @StartNotebookInstance@ launches another ML compute instance, configures it, and attaches the preserved ML storage volume so you can continue your work.
---
+-- To access data on the ML storage volume for a notebook instance that has
+-- been terminated, call the @StartNotebookInstance@ API.
+-- @StartNotebookInstance@ launches another ML compute instance, configures
+-- it, and attaches the preserved ML storage volume so you can continue
+-- your work.
 module Network.AWS.SageMaker.StopNotebookInstance
-    (
-    -- * Creating a Request
-      stopNotebookInstance
-    , StopNotebookInstance
+  ( -- * Creating a Request
+    StopNotebookInstance (..),
+    newStopNotebookInstance,
+
     -- * Request Lenses
-    , sniNotebookInstanceName
+    stopNotebookInstance_notebookInstanceName,
 
     -- * Destructuring the Response
-    , stopNotebookInstanceResponse
-    , StopNotebookInstanceResponse
-    ) where
+    StopNotebookInstanceResponse (..),
+    newStopNotebookInstanceResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'stopNotebookInstance' smart constructor.
-newtype StopNotebookInstance = StopNotebookInstance'
-  { _sniNotebookInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopNotebookInstance' smart constructor.
+data StopNotebookInstance = StopNotebookInstance'
+  { -- | The name of the notebook instance to terminate.
+    notebookInstanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StopNotebookInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopNotebookInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sniNotebookInstanceName' - The name of the notebook instance to terminate.
-stopNotebookInstance
-    :: Text -- ^ 'sniNotebookInstanceName'
-    -> StopNotebookInstance
-stopNotebookInstance pNotebookInstanceName_ =
-  StopNotebookInstance' {_sniNotebookInstanceName = pNotebookInstanceName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'notebookInstanceName', 'stopNotebookInstance_notebookInstanceName' - The name of the notebook instance to terminate.
+newStopNotebookInstance ::
+  -- | 'notebookInstanceName'
+  Prelude.Text ->
+  StopNotebookInstance
+newStopNotebookInstance pNotebookInstanceName_ =
+  StopNotebookInstance'
+    { notebookInstanceName =
+        pNotebookInstanceName_
+    }
 
 -- | The name of the notebook instance to terminate.
-sniNotebookInstanceName :: Lens' StopNotebookInstance Text
-sniNotebookInstanceName = lens _sniNotebookInstanceName (\ s a -> s{_sniNotebookInstanceName = a})
+stopNotebookInstance_notebookInstanceName :: Lens.Lens' StopNotebookInstance Prelude.Text
+stopNotebookInstance_notebookInstanceName = Lens.lens (\StopNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@StopNotebookInstance' {} a -> s {notebookInstanceName = a} :: StopNotebookInstance)
 
-instance AWSRequest StopNotebookInstance where
-        type Rs StopNotebookInstance =
-             StopNotebookInstanceResponse
-        request = postJSON sageMaker
-        response = receiveNull StopNotebookInstanceResponse'
+instance Core.AWSRequest StopNotebookInstance where
+  type
+    AWSResponse StopNotebookInstance =
+      StopNotebookInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull StopNotebookInstanceResponse'
 
-instance Hashable StopNotebookInstance where
+instance Prelude.Hashable StopNotebookInstance
 
-instance NFData StopNotebookInstance where
+instance Prelude.NFData StopNotebookInstance
 
-instance ToHeaders StopNotebookInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.StopNotebookInstance" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders StopNotebookInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SageMaker.StopNotebookInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON StopNotebookInstance where
-        toJSON StopNotebookInstance'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("NotebookInstanceName" .=
-                       _sniNotebookInstanceName)])
+instance Core.ToJSON StopNotebookInstance where
+  toJSON StopNotebookInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "NotebookInstanceName"
+                  Core..= notebookInstanceName
+              )
+          ]
+      )
 
-instance ToPath StopNotebookInstance where
-        toPath = const "/"
+instance Core.ToPath StopNotebookInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery StopNotebookInstance where
-        toQuery = const mempty
+instance Core.ToQuery StopNotebookInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'stopNotebookInstanceResponse' smart constructor.
-data StopNotebookInstanceResponse =
-  StopNotebookInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopNotebookInstanceResponse' smart constructor.
+data StopNotebookInstanceResponse = StopNotebookInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StopNotebookInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopNotebookInstanceResponse' with all optional fields omitted.
 --
-stopNotebookInstanceResponse
-    :: StopNotebookInstanceResponse
-stopNotebookInstanceResponse = StopNotebookInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newStopNotebookInstanceResponse ::
+  StopNotebookInstanceResponse
+newStopNotebookInstanceResponse =
+  StopNotebookInstanceResponse'
 
-
-instance NFData StopNotebookInstanceResponse where
+instance Prelude.NFData StopNotebookInstanceResponse

@@ -1,230 +1,319 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.CreateProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new room profile with the specified details.
---
---
 module Network.AWS.AlexaBusiness.CreateProfile
-    (
-    -- * Creating a Request
-      createProfile
-    , CreateProfile
+  ( -- * Creating a Request
+    CreateProfile (..),
+    newCreateProfile,
+
     -- * Request Lenses
-    , cpSetupModeDisabled
-    , cpPSTNEnabled
-    , cpClientRequestToken
-    , cpMaxVolumeLimit
-    , cpProfileName
-    , cpTimezone
-    , cpAddress
-    , cpDistanceUnit
-    , cpTemperatureUnit
-    , cpWakeWord
+    createProfile_locale,
+    createProfile_setupModeDisabled,
+    createProfile_pSTNEnabled,
+    createProfile_tags,
+    createProfile_maxVolumeLimit,
+    createProfile_meetingRoomConfiguration,
+    createProfile_clientRequestToken,
+    createProfile_profileName,
+    createProfile_timezone,
+    createProfile_address,
+    createProfile_distanceUnit,
+    createProfile_temperatureUnit,
+    createProfile_wakeWord,
 
     -- * Destructuring the Response
-    , createProfileResponse
-    , CreateProfileResponse
+    CreateProfileResponse (..),
+    newCreateProfileResponse,
+
     -- * Response Lenses
-    , cprsProfileARN
-    , cprsResponseStatus
-    ) where
+    createProfileResponse_profileArn,
+    createProfileResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createProfile' smart constructor.
+-- | /See:/ 'newCreateProfile' smart constructor.
 data CreateProfile = CreateProfile'
-  { _cpSetupModeDisabled  :: !(Maybe Bool)
-  , _cpPSTNEnabled        :: !(Maybe Bool)
-  , _cpClientRequestToken :: !(Maybe Text)
-  , _cpMaxVolumeLimit     :: !(Maybe Int)
-  , _cpProfileName        :: !Text
-  , _cpTimezone           :: !Text
-  , _cpAddress            :: !Text
-  , _cpDistanceUnit       :: !DistanceUnit
-  , _cpTemperatureUnit    :: !TemperatureUnit
-  , _cpWakeWord           :: !WakeWord
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The locale of the room profile. (This is currently only available to a
+    -- limited preview audience.)
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | Whether room profile setup is enabled.
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether PSTN calling is enabled.
+    pSTNEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The tags for the profile.
+    tags :: Prelude.Maybe [Tag],
+    -- | The maximum volume limit for a room profile.
+    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
+    -- | The meeting room settings of a room profile.
+    meetingRoomConfiguration :: Prelude.Maybe CreateMeetingRoomConfiguration,
+    -- | The user-specified token that is used during the creation of a profile.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of a room profile.
+    profileName :: Prelude.Text,
+    -- | The time zone used by a room profile.
+    timezone :: Prelude.Text,
+    -- | The valid address for the room.
+    address :: Prelude.Text,
+    -- | The distance unit to be used by devices in the profile.
+    distanceUnit :: DistanceUnit,
+    -- | The temperature unit to be used by devices in the profile.
+    temperatureUnit :: TemperatureUnit,
+    -- | A wake word for Alexa, Echo, Amazon, or a computer.
+    wakeWord :: WakeWord
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateProfile' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'locale', 'createProfile_locale' - The locale of the room profile. (This is currently only available to a
+-- limited preview audience.)
+--
+-- 'setupModeDisabled', 'createProfile_setupModeDisabled' - Whether room profile setup is enabled.
+--
+-- 'pSTNEnabled', 'createProfile_pSTNEnabled' - Whether PSTN calling is enabled.
+--
+-- 'tags', 'createProfile_tags' - The tags for the profile.
+--
+-- 'maxVolumeLimit', 'createProfile_maxVolumeLimit' - The maximum volume limit for a room profile.
+--
+-- 'meetingRoomConfiguration', 'createProfile_meetingRoomConfiguration' - The meeting room settings of a room profile.
+--
+-- 'clientRequestToken', 'createProfile_clientRequestToken' - The user-specified token that is used during the creation of a profile.
+--
+-- 'profileName', 'createProfile_profileName' - The name of a room profile.
+--
+-- 'timezone', 'createProfile_timezone' - The time zone used by a room profile.
+--
+-- 'address', 'createProfile_address' - The valid address for the room.
+--
+-- 'distanceUnit', 'createProfile_distanceUnit' - The distance unit to be used by devices in the profile.
+--
+-- 'temperatureUnit', 'createProfile_temperatureUnit' - The temperature unit to be used by devices in the profile.
+--
+-- 'wakeWord', 'createProfile_wakeWord' - A wake word for Alexa, Echo, Amazon, or a computer.
+newCreateProfile ::
+  -- | 'profileName'
+  Prelude.Text ->
+  -- | 'timezone'
+  Prelude.Text ->
+  -- | 'address'
+  Prelude.Text ->
+  -- | 'distanceUnit'
+  DistanceUnit ->
+  -- | 'temperatureUnit'
+  TemperatureUnit ->
+  -- | 'wakeWord'
+  WakeWord ->
+  CreateProfile
+newCreateProfile
+  pProfileName_
+  pTimezone_
+  pAddress_
+  pDistanceUnit_
+  pTemperatureUnit_
+  pWakeWord_ =
+    CreateProfile'
+      { locale = Prelude.Nothing,
+        setupModeDisabled = Prelude.Nothing,
+        pSTNEnabled = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        maxVolumeLimit = Prelude.Nothing,
+        meetingRoomConfiguration = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
+        profileName = pProfileName_,
+        timezone = pTimezone_,
+        address = pAddress_,
+        distanceUnit = pDistanceUnit_,
+        temperatureUnit = pTemperatureUnit_,
+        wakeWord = pWakeWord_
+      }
 
--- | Creates a value of 'CreateProfile' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpSetupModeDisabled' - Whether room profile setup is enabled.
---
--- * 'cpPSTNEnabled' - Whether PSTN calling is enabled.
---
--- * 'cpClientRequestToken' - The user-specified token that is used during the creation of a profile.
---
--- * 'cpMaxVolumeLimit' - The maximum volume limit for a room profile.
---
--- * 'cpProfileName' - The name of a room profile.
---
--- * 'cpTimezone' - The time zone used by a room profile.
---
--- * 'cpAddress' - The valid address for the room.
---
--- * 'cpDistanceUnit' - The distance unit to be used by devices in the profile.
---
--- * 'cpTemperatureUnit' - The temperature unit to be used by devices in the profile.
---
--- * 'cpWakeWord' - A wake word for Alexa, Echo, Amazon, or a computer.
-createProfile
-    :: Text -- ^ 'cpProfileName'
-    -> Text -- ^ 'cpTimezone'
-    -> Text -- ^ 'cpAddress'
-    -> DistanceUnit -- ^ 'cpDistanceUnit'
-    -> TemperatureUnit -- ^ 'cpTemperatureUnit'
-    -> WakeWord -- ^ 'cpWakeWord'
-    -> CreateProfile
-createProfile pProfileName_ pTimezone_ pAddress_ pDistanceUnit_ pTemperatureUnit_ pWakeWord_ =
-  CreateProfile'
-    { _cpSetupModeDisabled = Nothing
-    , _cpPSTNEnabled = Nothing
-    , _cpClientRequestToken = Nothing
-    , _cpMaxVolumeLimit = Nothing
-    , _cpProfileName = pProfileName_
-    , _cpTimezone = pTimezone_
-    , _cpAddress = pAddress_
-    , _cpDistanceUnit = pDistanceUnit_
-    , _cpTemperatureUnit = pTemperatureUnit_
-    , _cpWakeWord = pWakeWord_
-    }
-
+-- | The locale of the room profile. (This is currently only available to a
+-- limited preview audience.)
+createProfile_locale :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
+createProfile_locale = Lens.lens (\CreateProfile' {locale} -> locale) (\s@CreateProfile' {} a -> s {locale = a} :: CreateProfile)
 
 -- | Whether room profile setup is enabled.
-cpSetupModeDisabled :: Lens' CreateProfile (Maybe Bool)
-cpSetupModeDisabled = lens _cpSetupModeDisabled (\ s a -> s{_cpSetupModeDisabled = a})
+createProfile_setupModeDisabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
+createProfile_setupModeDisabled = Lens.lens (\CreateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@CreateProfile' {} a -> s {setupModeDisabled = a} :: CreateProfile)
 
 -- | Whether PSTN calling is enabled.
-cpPSTNEnabled :: Lens' CreateProfile (Maybe Bool)
-cpPSTNEnabled = lens _cpPSTNEnabled (\ s a -> s{_cpPSTNEnabled = a})
+createProfile_pSTNEnabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
+createProfile_pSTNEnabled = Lens.lens (\CreateProfile' {pSTNEnabled} -> pSTNEnabled) (\s@CreateProfile' {} a -> s {pSTNEnabled = a} :: CreateProfile)
 
--- | The user-specified token that is used during the creation of a profile.
-cpClientRequestToken :: Lens' CreateProfile (Maybe Text)
-cpClientRequestToken = lens _cpClientRequestToken (\ s a -> s{_cpClientRequestToken = a})
+-- | The tags for the profile.
+createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe [Tag])
+createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum volume limit for a room profile.
-cpMaxVolumeLimit :: Lens' CreateProfile (Maybe Int)
-cpMaxVolumeLimit = lens _cpMaxVolumeLimit (\ s a -> s{_cpMaxVolumeLimit = a})
+createProfile_maxVolumeLimit :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Int)
+createProfile_maxVolumeLimit = Lens.lens (\CreateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@CreateProfile' {} a -> s {maxVolumeLimit = a} :: CreateProfile)
+
+-- | The meeting room settings of a room profile.
+createProfile_meetingRoomConfiguration :: Lens.Lens' CreateProfile (Prelude.Maybe CreateMeetingRoomConfiguration)
+createProfile_meetingRoomConfiguration = Lens.lens (\CreateProfile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@CreateProfile' {} a -> s {meetingRoomConfiguration = a} :: CreateProfile)
+
+-- | The user-specified token that is used during the creation of a profile.
+createProfile_clientRequestToken :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
+createProfile_clientRequestToken = Lens.lens (\CreateProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateProfile' {} a -> s {clientRequestToken = a} :: CreateProfile)
 
 -- | The name of a room profile.
-cpProfileName :: Lens' CreateProfile Text
-cpProfileName = lens _cpProfileName (\ s a -> s{_cpProfileName = a})
+createProfile_profileName :: Lens.Lens' CreateProfile Prelude.Text
+createProfile_profileName = Lens.lens (\CreateProfile' {profileName} -> profileName) (\s@CreateProfile' {} a -> s {profileName = a} :: CreateProfile)
 
 -- | The time zone used by a room profile.
-cpTimezone :: Lens' CreateProfile Text
-cpTimezone = lens _cpTimezone (\ s a -> s{_cpTimezone = a})
+createProfile_timezone :: Lens.Lens' CreateProfile Prelude.Text
+createProfile_timezone = Lens.lens (\CreateProfile' {timezone} -> timezone) (\s@CreateProfile' {} a -> s {timezone = a} :: CreateProfile)
 
 -- | The valid address for the room.
-cpAddress :: Lens' CreateProfile Text
-cpAddress = lens _cpAddress (\ s a -> s{_cpAddress = a})
+createProfile_address :: Lens.Lens' CreateProfile Prelude.Text
+createProfile_address = Lens.lens (\CreateProfile' {address} -> address) (\s@CreateProfile' {} a -> s {address = a} :: CreateProfile)
 
 -- | The distance unit to be used by devices in the profile.
-cpDistanceUnit :: Lens' CreateProfile DistanceUnit
-cpDistanceUnit = lens _cpDistanceUnit (\ s a -> s{_cpDistanceUnit = a})
+createProfile_distanceUnit :: Lens.Lens' CreateProfile DistanceUnit
+createProfile_distanceUnit = Lens.lens (\CreateProfile' {distanceUnit} -> distanceUnit) (\s@CreateProfile' {} a -> s {distanceUnit = a} :: CreateProfile)
 
 -- | The temperature unit to be used by devices in the profile.
-cpTemperatureUnit :: Lens' CreateProfile TemperatureUnit
-cpTemperatureUnit = lens _cpTemperatureUnit (\ s a -> s{_cpTemperatureUnit = a})
+createProfile_temperatureUnit :: Lens.Lens' CreateProfile TemperatureUnit
+createProfile_temperatureUnit = Lens.lens (\CreateProfile' {temperatureUnit} -> temperatureUnit) (\s@CreateProfile' {} a -> s {temperatureUnit = a} :: CreateProfile)
 
 -- | A wake word for Alexa, Echo, Amazon, or a computer.
-cpWakeWord :: Lens' CreateProfile WakeWord
-cpWakeWord = lens _cpWakeWord (\ s a -> s{_cpWakeWord = a})
+createProfile_wakeWord :: Lens.Lens' CreateProfile WakeWord
+createProfile_wakeWord = Lens.lens (\CreateProfile' {wakeWord} -> wakeWord) (\s@CreateProfile' {} a -> s {wakeWord = a} :: CreateProfile)
 
-instance AWSRequest CreateProfile where
-        type Rs CreateProfile = CreateProfileResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateProfileResponse' <$>
-                   (x .?> "ProfileArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateProfile where
+  type
+    AWSResponse CreateProfile =
+      CreateProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateProfileResponse'
+            Prelude.<$> (x Core..?> "ProfileArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateProfile where
+instance Prelude.Hashable CreateProfile
 
-instance NFData CreateProfile where
+instance Prelude.NFData CreateProfile
 
-instance ToHeaders CreateProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.CreateProfile" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.CreateProfile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateProfile where
-        toJSON CreateProfile'{..}
-          = object
-              (catMaybes
-                 [("SetupModeDisabled" .=) <$> _cpSetupModeDisabled,
-                  ("PSTNEnabled" .=) <$> _cpPSTNEnabled,
-                  ("ClientRequestToken" .=) <$> _cpClientRequestToken,
-                  ("MaxVolumeLimit" .=) <$> _cpMaxVolumeLimit,
-                  Just ("ProfileName" .= _cpProfileName),
-                  Just ("Timezone" .= _cpTimezone),
-                  Just ("Address" .= _cpAddress),
-                  Just ("DistanceUnit" .= _cpDistanceUnit),
-                  Just ("TemperatureUnit" .= _cpTemperatureUnit),
-                  Just ("WakeWord" .= _cpWakeWord)])
+instance Core.ToJSON CreateProfile where
+  toJSON CreateProfile' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Locale" Core..=) Prelude.<$> locale,
+            ("SetupModeDisabled" Core..=)
+              Prelude.<$> setupModeDisabled,
+            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("MaxVolumeLimit" Core..=)
+              Prelude.<$> maxVolumeLimit,
+            ("MeetingRoomConfiguration" Core..=)
+              Prelude.<$> meetingRoomConfiguration,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("ProfileName" Core..= profileName),
+            Prelude.Just ("Timezone" Core..= timezone),
+            Prelude.Just ("Address" Core..= address),
+            Prelude.Just ("DistanceUnit" Core..= distanceUnit),
+            Prelude.Just
+              ("TemperatureUnit" Core..= temperatureUnit),
+            Prelude.Just ("WakeWord" Core..= wakeWord)
+          ]
+      )
 
-instance ToPath CreateProfile where
-        toPath = const "/"
+instance Core.ToPath CreateProfile where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateProfile where
-        toQuery = const mempty
+instance Core.ToQuery CreateProfile where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createProfileResponse' smart constructor.
+-- | /See:/ 'newCreateProfileResponse' smart constructor.
 data CreateProfileResponse = CreateProfileResponse'
-  { _cprsProfileARN     :: !(Maybe Text)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the newly created room profile in the response.
+    profileArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateProfileResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateProfileResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprsProfileARN' - The ARN of the newly created room profile in the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprsResponseStatus' - -- | The response status code.
-createProfileResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreateProfileResponse
-createProfileResponse pResponseStatus_ =
+-- 'profileArn', 'createProfileResponse_profileArn' - The ARN of the newly created room profile in the response.
+--
+-- 'httpStatus', 'createProfileResponse_httpStatus' - The response's http status code.
+newCreateProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateProfileResponse
+newCreateProfileResponse pHttpStatus_ =
   CreateProfileResponse'
-    {_cprsProfileARN = Nothing, _cprsResponseStatus = pResponseStatus_}
-
+    { profileArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the newly created room profile in the response.
-cprsProfileARN :: Lens' CreateProfileResponse (Maybe Text)
-cprsProfileARN = lens _cprsProfileARN (\ s a -> s{_cprsProfileARN = a})
+createProfileResponse_profileArn :: Lens.Lens' CreateProfileResponse (Prelude.Maybe Prelude.Text)
+createProfileResponse_profileArn = Lens.lens (\CreateProfileResponse' {profileArn} -> profileArn) (\s@CreateProfileResponse' {} a -> s {profileArn = a} :: CreateProfileResponse)
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProfileResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
+-- | The response's http status code.
+createProfileResponse_httpStatus :: Lens.Lens' CreateProfileResponse Prelude.Int
+createProfileResponse_httpStatus = Lens.lens (\CreateProfileResponse' {httpStatus} -> httpStatus) (\s@CreateProfileResponse' {} a -> s {httpStatus = a} :: CreateProfileResponse)
 
-instance NFData CreateProfileResponse where
+instance Prelude.NFData CreateProfileResponse

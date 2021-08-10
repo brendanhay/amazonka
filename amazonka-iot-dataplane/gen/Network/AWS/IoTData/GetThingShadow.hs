@@ -1,131 +1,163 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTData.GetThingShadow
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the thing shadow for the specified thing.
+-- Gets the shadow for the specified thing.
 --
---
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the /AWS IoT Developer Guide/ .
---
+-- For more information, see
+-- <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow>
+-- in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.GetThingShadow
-    (
-    -- * Creating a Request
-      getThingShadow
-    , GetThingShadow
+  ( -- * Creating a Request
+    GetThingShadow (..),
+    newGetThingShadow,
+
     -- * Request Lenses
-    , gtsThingName
+    getThingShadow_shadowName,
+    getThingShadow_thingName,
 
     -- * Destructuring the Response
-    , getThingShadowResponse
-    , GetThingShadowResponse
-    -- * Response Lenses
-    , gtsrsPayload
-    , gtsrsResponseStatus
-    ) where
+    GetThingShadowResponse (..),
+    newGetThingShadowResponse,
 
+    -- * Response Lenses
+    getThingShadowResponse_payload,
+    getThingShadowResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
-import Network.AWS.IoTData.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the GetThingShadow operation.
 --
---
---
--- /See:/ 'getThingShadow' smart constructor.
-newtype GetThingShadow = GetThingShadow'
-  { _gtsThingName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetThingShadow' smart constructor.
+data GetThingShadow = GetThingShadow'
+  { -- | The name of the shadow.
+    shadowName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing.
+    thingName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetThingShadow' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetThingShadow' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtsThingName' - The name of the thing.
-getThingShadow
-    :: Text -- ^ 'gtsThingName'
-    -> GetThingShadow
-getThingShadow pThingName_ = GetThingShadow' {_gtsThingName = pThingName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'shadowName', 'getThingShadow_shadowName' - The name of the shadow.
+--
+-- 'thingName', 'getThingShadow_thingName' - The name of the thing.
+newGetThingShadow ::
+  -- | 'thingName'
+  Prelude.Text ->
+  GetThingShadow
+newGetThingShadow pThingName_ =
+  GetThingShadow'
+    { shadowName = Prelude.Nothing,
+      thingName = pThingName_
+    }
 
+-- | The name of the shadow.
+getThingShadow_shadowName :: Lens.Lens' GetThingShadow (Prelude.Maybe Prelude.Text)
+getThingShadow_shadowName = Lens.lens (\GetThingShadow' {shadowName} -> shadowName) (\s@GetThingShadow' {} a -> s {shadowName = a} :: GetThingShadow)
 
 -- | The name of the thing.
-gtsThingName :: Lens' GetThingShadow Text
-gtsThingName = lens _gtsThingName (\ s a -> s{_gtsThingName = a})
+getThingShadow_thingName :: Lens.Lens' GetThingShadow Prelude.Text
+getThingShadow_thingName = Lens.lens (\GetThingShadow' {thingName} -> thingName) (\s@GetThingShadow' {} a -> s {thingName = a} :: GetThingShadow)
 
-instance AWSRequest GetThingShadow where
-        type Rs GetThingShadow = GetThingShadowResponse
-        request = get ioTData
-        response
-          = receiveBytes
-              (\ s h x ->
-                 GetThingShadowResponse' <$>
-                   (pure (Just x)) <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetThingShadow where
+  type
+    AWSResponse GetThingShadow =
+      GetThingShadowResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveBytes
+      ( \s h x ->
+          GetThingShadowResponse'
+            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetThingShadow where
+instance Prelude.Hashable GetThingShadow
 
-instance NFData GetThingShadow where
+instance Prelude.NFData GetThingShadow
 
-instance ToHeaders GetThingShadow where
-        toHeaders = const mempty
+instance Core.ToHeaders GetThingShadow where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetThingShadow where
-        toPath GetThingShadow'{..}
-          = mconcat ["/things/", toBS _gtsThingName, "/shadow"]
+instance Core.ToPath GetThingShadow where
+  toPath GetThingShadow' {..} =
+    Prelude.mconcat
+      ["/things/", Core.toBS thingName, "/shadow"]
 
-instance ToQuery GetThingShadow where
-        toQuery = const mempty
+instance Core.ToQuery GetThingShadow where
+  toQuery GetThingShadow' {..} =
+    Prelude.mconcat ["name" Core.=: shadowName]
 
 -- | The output from the GetThingShadow operation.
 --
---
---
--- /See:/ 'getThingShadowResponse' smart constructor.
+-- /See:/ 'newGetThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-  { _gtsrsPayload        :: !(Maybe ByteString)
-  , _gtsrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The state information, in JSON format.
+    payload :: Prelude.Maybe Prelude.ByteString,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetThingShadowResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetThingShadowResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtsrsPayload' - The state information, in JSON format.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtsrsResponseStatus' - -- | The response status code.
-getThingShadowResponse
-    :: Int -- ^ 'gtsrsResponseStatus'
-    -> GetThingShadowResponse
-getThingShadowResponse pResponseStatus_ =
+-- 'payload', 'getThingShadowResponse_payload' - The state information, in JSON format.
+--
+-- 'httpStatus', 'getThingShadowResponse_httpStatus' - The response's http status code.
+newGetThingShadowResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetThingShadowResponse
+newGetThingShadowResponse pHttpStatus_ =
   GetThingShadowResponse'
-    {_gtsrsPayload = Nothing, _gtsrsResponseStatus = pResponseStatus_}
-
+    { payload = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The state information, in JSON format.
-gtsrsPayload :: Lens' GetThingShadowResponse (Maybe ByteString)
-gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a})
+getThingShadowResponse_payload :: Lens.Lens' GetThingShadowResponse (Prelude.Maybe Prelude.ByteString)
+getThingShadowResponse_payload = Lens.lens (\GetThingShadowResponse' {payload} -> payload) (\s@GetThingShadowResponse' {} a -> s {payload = a} :: GetThingShadowResponse)
 
--- | -- | The response status code.
-gtsrsResponseStatus :: Lens' GetThingShadowResponse Int
-gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a})
+-- | The response's http status code.
+getThingShadowResponse_httpStatus :: Lens.Lens' GetThingShadowResponse Prelude.Int
+getThingShadowResponse_httpStatus = Lens.lens (\GetThingShadowResponse' {httpStatus} -> httpStatus) (\s@GetThingShadowResponse' {} a -> s {httpStatus = a} :: GetThingShadowResponse)
 
-instance NFData GetThingShadowResponse where
+instance Prelude.NFData GetThingShadowResponse

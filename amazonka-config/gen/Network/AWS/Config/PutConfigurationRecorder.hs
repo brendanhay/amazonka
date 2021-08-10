@@ -1,122 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new configuration recorder to record the selected resource configurations.
+-- Creates a new configuration recorder to record the selected resource
+-- configurations.
 --
+-- You can use this action to change the role @roleARN@ or the
+-- @recordingGroup@ of an existing recorder. To change the role, call the
+-- action on the existing configuration recorder and specify a role.
 --
--- You can use this action to change the role @roleARN@ or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
+-- Currently, you can specify only one configuration recorder per region in
+-- your account.
 --
+-- If @ConfigurationRecorder@ does not have the __recordingGroup__
+-- parameter specified, the default is to record all supported resource
+-- types.
 module Network.AWS.Config.PutConfigurationRecorder
-    (
-    -- * Creating a Request
-      putConfigurationRecorder
-    , PutConfigurationRecorder
+  ( -- * Creating a Request
+    PutConfigurationRecorder (..),
+    newPutConfigurationRecorder,
+
     -- * Request Lenses
-    , pcrConfigurationRecorder
+    putConfigurationRecorder_configurationRecorder,
 
     -- * Destructuring the Response
-    , putConfigurationRecorderResponse
-    , PutConfigurationRecorderResponse
-    ) where
+    PutConfigurationRecorderResponse (..),
+    newPutConfigurationRecorderResponse,
+  )
+where
 
 import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input for the 'PutConfigurationRecorder' action.
+-- | The input for the PutConfigurationRecorder action.
 --
---
---
--- /See:/ 'putConfigurationRecorder' smart constructor.
-newtype PutConfigurationRecorder = PutConfigurationRecorder'
-  { _pcrConfigurationRecorder :: ConfigurationRecorder
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newPutConfigurationRecorder' smart constructor.
+data PutConfigurationRecorder = PutConfigurationRecorder'
+  { -- | The configuration recorder object that records each configuration change
+    -- made to the resources.
+    configurationRecorder :: ConfigurationRecorder
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutConfigurationRecorder' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pcrConfigurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
-putConfigurationRecorder
-    :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
-    -> PutConfigurationRecorder
-putConfigurationRecorder pConfigurationRecorder_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'configurationRecorder', 'putConfigurationRecorder_configurationRecorder' - The configuration recorder object that records each configuration change
+-- made to the resources.
+newPutConfigurationRecorder ::
+  -- | 'configurationRecorder'
+  ConfigurationRecorder ->
+  PutConfigurationRecorder
+newPutConfigurationRecorder pConfigurationRecorder_ =
   PutConfigurationRecorder'
-    {_pcrConfigurationRecorder = pConfigurationRecorder_}
+    { configurationRecorder =
+        pConfigurationRecorder_
+    }
 
+-- | The configuration recorder object that records each configuration change
+-- made to the resources.
+putConfigurationRecorder_configurationRecorder :: Lens.Lens' PutConfigurationRecorder ConfigurationRecorder
+putConfigurationRecorder_configurationRecorder = Lens.lens (\PutConfigurationRecorder' {configurationRecorder} -> configurationRecorder) (\s@PutConfigurationRecorder' {} a -> s {configurationRecorder = a} :: PutConfigurationRecorder)
 
--- | The configuration recorder object that records each configuration change made to the resources.
-pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a})
+instance Core.AWSRequest PutConfigurationRecorder where
+  type
+    AWSResponse PutConfigurationRecorder =
+      PutConfigurationRecorderResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      PutConfigurationRecorderResponse'
 
-instance AWSRequest PutConfigurationRecorder where
-        type Rs PutConfigurationRecorder =
-             PutConfigurationRecorderResponse
-        request = postJSON config
-        response
-          = receiveNull PutConfigurationRecorderResponse'
+instance Prelude.Hashable PutConfigurationRecorder
 
-instance Hashable PutConfigurationRecorder where
+instance Prelude.NFData PutConfigurationRecorder
 
-instance NFData PutConfigurationRecorder where
+instance Core.ToHeaders PutConfigurationRecorder where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders PutConfigurationRecorder where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StarlingDoveService.PutConfigurationRecorder" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON PutConfigurationRecorder where
+  toJSON PutConfigurationRecorder' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "ConfigurationRecorder"
+                  Core..= configurationRecorder
+              )
+          ]
+      )
 
-instance ToJSON PutConfigurationRecorder where
-        toJSON PutConfigurationRecorder'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("ConfigurationRecorder" .=
-                       _pcrConfigurationRecorder)])
+instance Core.ToPath PutConfigurationRecorder where
+  toPath = Prelude.const "/"
 
-instance ToPath PutConfigurationRecorder where
-        toPath = const "/"
+instance Core.ToQuery PutConfigurationRecorder where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery PutConfigurationRecorder where
-        toQuery = const mempty
+-- | /See:/ 'newPutConfigurationRecorderResponse' smart constructor.
+data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
-data PutConfigurationRecorderResponse =
-  PutConfigurationRecorderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutConfigurationRecorderResponse' with all optional fields omitted.
 --
-putConfigurationRecorderResponse
-    :: PutConfigurationRecorderResponse
-putConfigurationRecorderResponse = PutConfigurationRecorderResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPutConfigurationRecorderResponse ::
+  PutConfigurationRecorderResponse
+newPutConfigurationRecorderResponse =
+  PutConfigurationRecorderResponse'
 
-
-instance NFData PutConfigurationRecorderResponse
-         where
+instance
+  Prelude.NFData
+    PutConfigurationRecorderResponse

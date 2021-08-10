@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListRecordHistory
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,169 +22,245 @@
 --
 -- Lists the specified requests or all performed requests.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListRecordHistory
-    (
-    -- * Creating a Request
-      listRecordHistory
-    , ListRecordHistory
+  ( -- * Creating a Request
+    ListRecordHistory (..),
+    newListRecordHistory,
+
     -- * Request Lenses
-    , lrhSearchFilter
-    , lrhAcceptLanguage
-    , lrhAccessLevelFilter
-    , lrhPageToken
-    , lrhPageSize
+    listRecordHistory_pageSize,
+    listRecordHistory_pageToken,
+    listRecordHistory_accessLevelFilter,
+    listRecordHistory_searchFilter,
+    listRecordHistory_acceptLanguage,
 
     -- * Destructuring the Response
-    , listRecordHistoryResponse
-    , ListRecordHistoryResponse
+    ListRecordHistoryResponse (..),
+    newListRecordHistoryResponse,
+
     -- * Response Lenses
-    , lrhrsNextPageToken
-    , lrhrsRecordDetails
-    , lrhrsResponseStatus
-    ) where
+    listRecordHistoryResponse_recordDetails,
+    listRecordHistoryResponse_nextPageToken,
+    listRecordHistoryResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'listRecordHistory' smart constructor.
+-- | /See:/ 'newListRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-  { _lrhSearchFilter      :: !(Maybe ListRecordHistorySearchFilter)
-  , _lrhAcceptLanguage    :: !(Maybe Text)
-  , _lrhAccessLevelFilter :: !(Maybe AccessLevelFilter)
-  , _lrhPageToken         :: !(Maybe Text)
-  , _lrhPageSize          :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The search filter to scope the results.
+    searchFilter :: Prelude.Maybe ListRecordHistorySearchFilter,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListRecordHistory' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListRecordHistory' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrhSearchFilter' - The search filter to scope the results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrhAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- 'pageSize', 'listRecordHistory_pageSize' - The maximum number of items to return with this call.
 --
--- * 'lrhAccessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+-- 'pageToken', 'listRecordHistory_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
 --
--- * 'lrhPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- 'accessLevelFilter', 'listRecordHistory_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
 --
--- * 'lrhPageSize' - The maximum number of items to return with this call.
-listRecordHistory
-    :: ListRecordHistory
-listRecordHistory =
+-- 'searchFilter', 'listRecordHistory_searchFilter' - The search filter to scope the results.
+--
+-- 'acceptLanguage', 'listRecordHistory_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+newListRecordHistory ::
+  ListRecordHistory
+newListRecordHistory =
   ListRecordHistory'
-    { _lrhSearchFilter = Nothing
-    , _lrhAcceptLanguage = Nothing
-    , _lrhAccessLevelFilter = Nothing
-    , _lrhPageToken = Nothing
-    , _lrhPageSize = Nothing
+    { pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      accessLevelFilter = Prelude.Nothing,
+      searchFilter = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
-
-
--- | The search filter to scope the results.
-lrhSearchFilter :: Lens' ListRecordHistory (Maybe ListRecordHistorySearchFilter)
-lrhSearchFilter = lens _lrhSearchFilter (\ s a -> s{_lrhSearchFilter = a})
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lrhAcceptLanguage :: Lens' ListRecordHistory (Maybe Text)
-lrhAcceptLanguage = lens _lrhAcceptLanguage (\ s a -> s{_lrhAcceptLanguage = a})
-
--- | The access level to use to obtain results. The default is @User@ .
-lrhAccessLevelFilter :: Lens' ListRecordHistory (Maybe AccessLevelFilter)
-lrhAccessLevelFilter = lens _lrhAccessLevelFilter (\ s a -> s{_lrhAccessLevelFilter = a})
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
-lrhPageToken :: Lens' ListRecordHistory (Maybe Text)
-lrhPageToken = lens _lrhPageToken (\ s a -> s{_lrhPageToken = a})
 
 -- | The maximum number of items to return with this call.
-lrhPageSize :: Lens' ListRecordHistory (Maybe Natural)
-lrhPageSize = lens _lrhPageSize (\ s a -> s{_lrhPageSize = a}) . mapping _Nat
+listRecordHistory_pageSize :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Natural)
+listRecordHistory_pageSize = Lens.lens (\ListRecordHistory' {pageSize} -> pageSize) (\s@ListRecordHistory' {} a -> s {pageSize = a} :: ListRecordHistory)
 
-instance AWSRequest ListRecordHistory where
-        type Rs ListRecordHistory = ListRecordHistoryResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListRecordHistoryResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "RecordDetails" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listRecordHistory_pageToken :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Text)
+listRecordHistory_pageToken = Lens.lens (\ListRecordHistory' {pageToken} -> pageToken) (\s@ListRecordHistory' {} a -> s {pageToken = a} :: ListRecordHistory)
 
-instance Hashable ListRecordHistory where
+-- | The access level to use to obtain results. The default is @User@.
+listRecordHistory_accessLevelFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe AccessLevelFilter)
+listRecordHistory_accessLevelFilter = Lens.lens (\ListRecordHistory' {accessLevelFilter} -> accessLevelFilter) (\s@ListRecordHistory' {} a -> s {accessLevelFilter = a} :: ListRecordHistory)
 
-instance NFData ListRecordHistory where
+-- | The search filter to scope the results.
+listRecordHistory_searchFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe ListRecordHistorySearchFilter)
+listRecordHistory_searchFilter = Lens.lens (\ListRecordHistory' {searchFilter} -> searchFilter) (\s@ListRecordHistory' {} a -> s {searchFilter = a} :: ListRecordHistory)
 
-instance ToHeaders ListRecordHistory where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.ListRecordHistory" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+listRecordHistory_acceptLanguage :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Text)
+listRecordHistory_acceptLanguage = Lens.lens (\ListRecordHistory' {acceptLanguage} -> acceptLanguage) (\s@ListRecordHistory' {} a -> s {acceptLanguage = a} :: ListRecordHistory)
 
-instance ToJSON ListRecordHistory where
-        toJSON ListRecordHistory'{..}
-          = object
-              (catMaybes
-                 [("SearchFilter" .=) <$> _lrhSearchFilter,
-                  ("AcceptLanguage" .=) <$> _lrhAcceptLanguage,
-                  ("AccessLevelFilter" .=) <$> _lrhAccessLevelFilter,
-                  ("PageToken" .=) <$> _lrhPageToken,
-                  ("PageSize" .=) <$> _lrhPageSize])
+instance Core.AWSPager ListRecordHistory where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRecordHistoryResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRecordHistoryResponse_recordDetails
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRecordHistory_pageToken
+          Lens..~ rs
+          Lens.^? listRecordHistoryResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance ToPath ListRecordHistory where
-        toPath = const "/"
+instance Core.AWSRequest ListRecordHistory where
+  type
+    AWSResponse ListRecordHistory =
+      ListRecordHistoryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListRecordHistoryResponse'
+            Prelude.<$> (x Core..?> "RecordDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToQuery ListRecordHistory where
-        toQuery = const mempty
+instance Prelude.Hashable ListRecordHistory
 
--- | /See:/ 'listRecordHistoryResponse' smart constructor.
+instance Prelude.NFData ListRecordHistory
+
+instance Core.ToHeaders ListRecordHistory where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.ListRecordHistory" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListRecordHistory where
+  toJSON ListRecordHistory' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AccessLevelFilter" Core..=)
+              Prelude.<$> accessLevelFilter,
+            ("SearchFilter" Core..=) Prelude.<$> searchFilter,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
+          ]
+      )
+
+instance Core.ToPath ListRecordHistory where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListRecordHistory where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListRecordHistoryResponse' smart constructor.
 data ListRecordHistoryResponse = ListRecordHistoryResponse'
-  { _lrhrsNextPageToken  :: !(Maybe Text)
-  , _lrhrsRecordDetails  :: !(Maybe [RecordDetail])
-  , _lrhrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The records, in reverse chronological order.
+    recordDetails :: Prelude.Maybe [RecordDetail],
+    -- | The page token to use to retrieve the next set of results. If there are
+    -- no additional results, this value is null.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListRecordHistoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListRecordHistoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrhrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrhrsRecordDetails' - The records, in reverse chronological order.
+-- 'recordDetails', 'listRecordHistoryResponse_recordDetails' - The records, in reverse chronological order.
 --
--- * 'lrhrsResponseStatus' - -- | The response status code.
-listRecordHistoryResponse
-    :: Int -- ^ 'lrhrsResponseStatus'
-    -> ListRecordHistoryResponse
-listRecordHistoryResponse pResponseStatus_ =
+-- 'nextPageToken', 'listRecordHistoryResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+--
+-- 'httpStatus', 'listRecordHistoryResponse_httpStatus' - The response's http status code.
+newListRecordHistoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListRecordHistoryResponse
+newListRecordHistoryResponse pHttpStatus_ =
   ListRecordHistoryResponse'
-    { _lrhrsNextPageToken = Nothing
-    , _lrhrsRecordDetails = Nothing
-    , _lrhrsResponseStatus = pResponseStatus_
+    { recordDetails =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lrhrsNextPageToken :: Lens' ListRecordHistoryResponse (Maybe Text)
-lrhrsNextPageToken = lens _lrhrsNextPageToken (\ s a -> s{_lrhrsNextPageToken = a})
-
 -- | The records, in reverse chronological order.
-lrhrsRecordDetails :: Lens' ListRecordHistoryResponse [RecordDetail]
-lrhrsRecordDetails = lens _lrhrsRecordDetails (\ s a -> s{_lrhrsRecordDetails = a}) . _Default . _Coerce
+listRecordHistoryResponse_recordDetails :: Lens.Lens' ListRecordHistoryResponse (Prelude.Maybe [RecordDetail])
+listRecordHistoryResponse_recordDetails = Lens.lens (\ListRecordHistoryResponse' {recordDetails} -> recordDetails) (\s@ListRecordHistoryResponse' {} a -> s {recordDetails = a} :: ListRecordHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lrhrsResponseStatus :: Lens' ListRecordHistoryResponse Int
-lrhrsResponseStatus = lens _lrhrsResponseStatus (\ s a -> s{_lrhrsResponseStatus = a})
+-- | The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+listRecordHistoryResponse_nextPageToken :: Lens.Lens' ListRecordHistoryResponse (Prelude.Maybe Prelude.Text)
+listRecordHistoryResponse_nextPageToken = Lens.lens (\ListRecordHistoryResponse' {nextPageToken} -> nextPageToken) (\s@ListRecordHistoryResponse' {} a -> s {nextPageToken = a} :: ListRecordHistoryResponse)
 
-instance NFData ListRecordHistoryResponse where
+-- | The response's http status code.
+listRecordHistoryResponse_httpStatus :: Lens.Lens' ListRecordHistoryResponse Prelude.Int
+listRecordHistoryResponse_httpStatus = Lens.lens (\ListRecordHistoryResponse' {httpStatus} -> httpStatus) (\s@ListRecordHistoryResponse' {} a -> s {httpStatus = a} :: ListRecordHistoryResponse)
+
+instance Prelude.NFData ListRecordHistoryResponse

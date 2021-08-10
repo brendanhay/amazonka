@@ -1,136 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateServiceSpecificCredential
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the status of a service-specific credential to @Active@ or @Inactive@ . Service-specific credentials that are inactive cannot be used for authentication to the service. This operation can be used to disable a user’s service-specific credential as part of a credential rotation work flow.
---
---
+-- Sets the status of a service-specific credential to @Active@ or
+-- @Inactive@. Service-specific credentials that are inactive cannot be
+-- used for authentication to the service. This operation can be used to
+-- disable a user\'s service-specific credential as part of a credential
+-- rotation work flow.
 module Network.AWS.IAM.UpdateServiceSpecificCredential
-    (
-    -- * Creating a Request
-      updateServiceSpecificCredential
-    , UpdateServiceSpecificCredential
+  ( -- * Creating a Request
+    UpdateServiceSpecificCredential (..),
+    newUpdateServiceSpecificCredential,
+
     -- * Request Lenses
-    , usscUserName
-    , usscServiceSpecificCredentialId
-    , usscStatus
+    updateServiceSpecificCredential_userName,
+    updateServiceSpecificCredential_serviceSpecificCredentialId,
+    updateServiceSpecificCredential_status,
 
     -- * Destructuring the Response
-    , updateServiceSpecificCredentialResponse
-    , UpdateServiceSpecificCredentialResponse
-    ) where
+    UpdateServiceSpecificCredentialResponse (..),
+    newUpdateServiceSpecificCredentialResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateServiceSpecificCredential' smart constructor.
+-- | /See:/ 'newUpdateServiceSpecificCredential' smart constructor.
 data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
-  { _usscUserName                    :: !(Maybe Text)
-  , _usscServiceSpecificCredentialId :: !Text
-  , _usscStatus                      :: !StatusType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the IAM user associated with the service-specific
+    -- credential. If you do not specify this value, then the operation assumes
+    -- the user whose credentials are used to call the operation.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the service-specific credential.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- that can consist of any upper or lowercased letter or digit.
+    serviceSpecificCredentialId :: Prelude.Text,
+    -- | The status to be assigned to the service-specific credential.
+    status :: StatusType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServiceSpecificCredential' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServiceSpecificCredential' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usscUserName' - The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usscServiceSpecificCredentialId' - The unique identifier of the service-specific credential. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- 'userName', 'updateServiceSpecificCredential_userName' - The name of the IAM user associated with the service-specific
+-- credential. If you do not specify this value, then the operation assumes
+-- the user whose credentials are used to call the operation.
 --
--- * 'usscStatus' - The status to be assigned to the service-specific credential.
-updateServiceSpecificCredential
-    :: Text -- ^ 'usscServiceSpecificCredentialId'
-    -> StatusType -- ^ 'usscStatus'
-    -> UpdateServiceSpecificCredential
-updateServiceSpecificCredential pServiceSpecificCredentialId_ pStatus_ =
-  UpdateServiceSpecificCredential'
-    { _usscUserName = Nothing
-    , _usscServiceSpecificCredentialId = pServiceSpecificCredentialId_
-    , _usscStatus = pStatus_
-    }
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'serviceSpecificCredentialId', 'updateServiceSpecificCredential_serviceSpecificCredentialId' - The unique identifier of the service-specific credential.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+--
+-- 'status', 'updateServiceSpecificCredential_status' - The status to be assigned to the service-specific credential.
+newUpdateServiceSpecificCredential ::
+  -- | 'serviceSpecificCredentialId'
+  Prelude.Text ->
+  -- | 'status'
+  StatusType ->
+  UpdateServiceSpecificCredential
+newUpdateServiceSpecificCredential
+  pServiceSpecificCredentialId_
+  pStatus_ =
+    UpdateServiceSpecificCredential'
+      { userName =
+          Prelude.Nothing,
+        serviceSpecificCredentialId =
+          pServiceSpecificCredentialId_,
+        status = pStatus_
+      }
 
+-- | The name of the IAM user associated with the service-specific
+-- credential. If you do not specify this value, then the operation assumes
+-- the user whose credentials are used to call the operation.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+updateServiceSpecificCredential_userName :: Lens.Lens' UpdateServiceSpecificCredential (Prelude.Maybe Prelude.Text)
+updateServiceSpecificCredential_userName = Lens.lens (\UpdateServiceSpecificCredential' {userName} -> userName) (\s@UpdateServiceSpecificCredential' {} a -> s {userName = a} :: UpdateServiceSpecificCredential)
 
--- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-usscUserName :: Lens' UpdateServiceSpecificCredential (Maybe Text)
-usscUserName = lens _usscUserName (\ s a -> s{_usscUserName = a})
-
--- | The unique identifier of the service-specific credential. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-usscServiceSpecificCredentialId :: Lens' UpdateServiceSpecificCredential Text
-usscServiceSpecificCredentialId = lens _usscServiceSpecificCredentialId (\ s a -> s{_usscServiceSpecificCredentialId = a})
+-- | The unique identifier of the service-specific credential.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+updateServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' UpdateServiceSpecificCredential Prelude.Text
+updateServiceSpecificCredential_serviceSpecificCredentialId = Lens.lens (\UpdateServiceSpecificCredential' {serviceSpecificCredentialId} -> serviceSpecificCredentialId) (\s@UpdateServiceSpecificCredential' {} a -> s {serviceSpecificCredentialId = a} :: UpdateServiceSpecificCredential)
 
 -- | The status to be assigned to the service-specific credential.
-usscStatus :: Lens' UpdateServiceSpecificCredential StatusType
-usscStatus = lens _usscStatus (\ s a -> s{_usscStatus = a})
+updateServiceSpecificCredential_status :: Lens.Lens' UpdateServiceSpecificCredential StatusType
+updateServiceSpecificCredential_status = Lens.lens (\UpdateServiceSpecificCredential' {status} -> status) (\s@UpdateServiceSpecificCredential' {} a -> s {status = a} :: UpdateServiceSpecificCredential)
 
-instance AWSRequest UpdateServiceSpecificCredential
-         where
-        type Rs UpdateServiceSpecificCredential =
-             UpdateServiceSpecificCredentialResponse
-        request = postQuery iam
-        response
-          = receiveNull
-              UpdateServiceSpecificCredentialResponse'
+instance
+  Core.AWSRequest
+    UpdateServiceSpecificCredential
+  where
+  type
+    AWSResponse UpdateServiceSpecificCredential =
+      UpdateServiceSpecificCredentialResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      UpdateServiceSpecificCredentialResponse'
 
-instance Hashable UpdateServiceSpecificCredential
-         where
+instance
+  Prelude.Hashable
+    UpdateServiceSpecificCredential
 
-instance NFData UpdateServiceSpecificCredential where
+instance
+  Prelude.NFData
+    UpdateServiceSpecificCredential
 
-instance ToHeaders UpdateServiceSpecificCredential
-         where
-        toHeaders = const mempty
+instance
+  Core.ToHeaders
+    UpdateServiceSpecificCredential
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateServiceSpecificCredential where
-        toPath = const "/"
+instance Core.ToPath UpdateServiceSpecificCredential where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateServiceSpecificCredential
-         where
-        toQuery UpdateServiceSpecificCredential'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateServiceSpecificCredential" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _usscUserName,
-               "ServiceSpecificCredentialId" =:
-                 _usscServiceSpecificCredentialId,
-               "Status" =: _usscStatus]
+instance Core.ToQuery UpdateServiceSpecificCredential where
+  toQuery UpdateServiceSpecificCredential' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "UpdateServiceSpecificCredential" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Core.=: userName,
+        "ServiceSpecificCredentialId"
+          Core.=: serviceSpecificCredentialId,
+        "Status" Core.=: status
+      ]
 
--- | /See:/ 'updateServiceSpecificCredentialResponse' smart constructor.
-data UpdateServiceSpecificCredentialResponse =
-  UpdateServiceSpecificCredentialResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateServiceSpecificCredentialResponse' smart constructor.
+data UpdateServiceSpecificCredentialResponse = UpdateServiceSpecificCredentialResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServiceSpecificCredentialResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServiceSpecificCredentialResponse' with all optional fields omitted.
 --
-updateServiceSpecificCredentialResponse
-    :: UpdateServiceSpecificCredentialResponse
-updateServiceSpecificCredentialResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateServiceSpecificCredentialResponse ::
+  UpdateServiceSpecificCredentialResponse
+newUpdateServiceSpecificCredentialResponse =
   UpdateServiceSpecificCredentialResponse'
 
-
-instance NFData
-           UpdateServiceSpecificCredentialResponse
-         where
+instance
+  Prelude.NFData
+    UpdateServiceSpecificCredentialResponse

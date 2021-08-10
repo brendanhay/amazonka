@@ -1,0 +1,28 @@
+{
+    "libraryName": "amazonka-route53",
+    "extraDependencies": [
+        "text >= 1.1"
+    ],
+    "typeModules": [
+        "Network.AWS.Route53.Internal"
+    ],
+    "typeOverrides": {
+        "ListHostedZonesResponse": {
+            "optionalFields": [
+                "Marker"
+            ]
+        },
+        "ResourceRecordSetRegion": {
+            "replacedBy": {
+                "name": "Core.Region",
+                "underive": []
+            }
+        },
+        "ResourceId": {
+            "replacedBy": {
+                "name": "ResourceId",
+                "underive": []
+            }
+        }
+    }
+}

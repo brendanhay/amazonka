@@ -1,143 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists iSCSI initiators that are connected to a volume. You can use this operation to determine whether a volume is being used or not. This operation is only supported in the cached volume and stored volume gateway types.
---
---
+-- Lists iSCSI initiators that are connected to a volume. You can use this
+-- operation to determine whether a volume is being used or not. This
+-- operation is only supported in the cached volume and stored volume
+-- gateway types.
 module Network.AWS.StorageGateway.ListVolumeInitiators
-    (
-    -- * Creating a Request
-      listVolumeInitiators
-    , ListVolumeInitiators
+  ( -- * Creating a Request
+    ListVolumeInitiators (..),
+    newListVolumeInitiators,
+
     -- * Request Lenses
-    , lviVolumeARN
+    listVolumeInitiators_volumeARN,
 
     -- * Destructuring the Response
-    , listVolumeInitiatorsResponse
-    , ListVolumeInitiatorsResponse
-    -- * Response Lenses
-    , lvirsInitiators
-    , lvirsResponseStatus
-    ) where
+    ListVolumeInitiatorsResponse (..),
+    newListVolumeInitiatorsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    listVolumeInitiatorsResponse_initiators,
+    listVolumeInitiatorsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | ListVolumeInitiatorsInput
 --
+-- /See:/ 'newListVolumeInitiators' smart constructor.
+data ListVolumeInitiators = ListVolumeInitiators'
+  { -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+    -- operation to return a list of gateway volumes for the gateway.
+    volumeARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListVolumeInitiators' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'listVolumeInitiators' smart constructor.
-newtype ListVolumeInitiators = ListVolumeInitiators'
-  { _lviVolumeARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListVolumeInitiators' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lviVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
-listVolumeInitiators
-    :: Text -- ^ 'lviVolumeARN'
-    -> ListVolumeInitiators
-listVolumeInitiators pVolumeARN_ =
-  ListVolumeInitiators' {_lviVolumeARN = pVolumeARN_}
+-- 'volumeARN', 'listVolumeInitiators_volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- operation to return a list of gateway volumes for the gateway.
+newListVolumeInitiators ::
+  -- | 'volumeARN'
+  Prelude.Text ->
+  ListVolumeInitiators
+newListVolumeInitiators pVolumeARN_ =
+  ListVolumeInitiators' {volumeARN = pVolumeARN_}
 
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- operation to return a list of gateway volumes for the gateway.
+listVolumeInitiators_volumeARN :: Lens.Lens' ListVolumeInitiators Prelude.Text
+listVolumeInitiators_volumeARN = Lens.lens (\ListVolumeInitiators' {volumeARN} -> volumeARN) (\s@ListVolumeInitiators' {} a -> s {volumeARN = a} :: ListVolumeInitiators)
 
--- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
-lviVolumeARN :: Lens' ListVolumeInitiators Text
-lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a})
+instance Core.AWSRequest ListVolumeInitiators where
+  type
+    AWSResponse ListVolumeInitiators =
+      ListVolumeInitiatorsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListVolumeInitiatorsResponse'
+            Prelude.<$> (x Core..?> "Initiators" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListVolumeInitiators where
-        type Rs ListVolumeInitiators =
-             ListVolumeInitiatorsResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListVolumeInitiatorsResponse' <$>
-                   (x .?> "Initiators" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable ListVolumeInitiators
 
-instance Hashable ListVolumeInitiators where
+instance Prelude.NFData ListVolumeInitiators
 
-instance NFData ListVolumeInitiators where
+instance Core.ToHeaders ListVolumeInitiators where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.ListVolumeInitiators" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListVolumeInitiators where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.ListVolumeInitiators" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListVolumeInitiators where
+  toJSON ListVolumeInitiators' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("VolumeARN" Core..= volumeARN)]
+      )
 
-instance ToJSON ListVolumeInitiators where
-        toJSON ListVolumeInitiators'{..}
-          = object
-              (catMaybes [Just ("VolumeARN" .= _lviVolumeARN)])
+instance Core.ToPath ListVolumeInitiators where
+  toPath = Prelude.const "/"
 
-instance ToPath ListVolumeInitiators where
-        toPath = const "/"
-
-instance ToQuery ListVolumeInitiators where
-        toQuery = const mempty
+instance Core.ToQuery ListVolumeInitiators where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | ListVolumeInitiatorsOutput
 --
---
---
--- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
+-- /See:/ 'newListVolumeInitiatorsResponse' smart constructor.
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
-  { _lvirsInitiators     :: !(Maybe [Text])
-  , _lvirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The host names and port numbers of all iSCSI initiators that are
+    -- connected to the gateway.
+    initiators :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListVolumeInitiatorsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListVolumeInitiatorsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lvirsInitiators' - The host names and port numbers of all iSCSI initiators that are connected to the gateway.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lvirsResponseStatus' - -- | The response status code.
-listVolumeInitiatorsResponse
-    :: Int -- ^ 'lvirsResponseStatus'
-    -> ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse pResponseStatus_ =
+-- 'initiators', 'listVolumeInitiatorsResponse_initiators' - The host names and port numbers of all iSCSI initiators that are
+-- connected to the gateway.
+--
+-- 'httpStatus', 'listVolumeInitiatorsResponse_httpStatus' - The response's http status code.
+newListVolumeInitiatorsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListVolumeInitiatorsResponse
+newListVolumeInitiatorsResponse pHttpStatus_ =
   ListVolumeInitiatorsResponse'
-    {_lvirsInitiators = Nothing, _lvirsResponseStatus = pResponseStatus_}
+    { initiators =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The host names and port numbers of all iSCSI initiators that are
+-- connected to the gateway.
+listVolumeInitiatorsResponse_initiators :: Lens.Lens' ListVolumeInitiatorsResponse (Prelude.Maybe [Prelude.Text])
+listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsResponse' {initiators} -> initiators) (\s@ListVolumeInitiatorsResponse' {} a -> s {initiators = a} :: ListVolumeInitiatorsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The host names and port numbers of all iSCSI initiators that are connected to the gateway.
-lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
-lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce
+-- | The response's http status code.
+listVolumeInitiatorsResponse_httpStatus :: Lens.Lens' ListVolumeInitiatorsResponse Prelude.Int
+listVolumeInitiatorsResponse_httpStatus = Lens.lens (\ListVolumeInitiatorsResponse' {httpStatus} -> httpStatus) (\s@ListVolumeInitiatorsResponse' {} a -> s {httpStatus = a} :: ListVolumeInitiatorsResponse)
 
--- | -- | The response status code.
-lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
-lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a})
-
-instance NFData ListVolumeInitiatorsResponse where
+instance Prelude.NFData ListVolumeInitiatorsResponse

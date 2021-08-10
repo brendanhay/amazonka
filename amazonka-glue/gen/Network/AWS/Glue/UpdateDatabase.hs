@@ -1,146 +1,181 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateDatabase
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing database definition in a Data Catalog.
---
---
 module Network.AWS.Glue.UpdateDatabase
-    (
-    -- * Creating a Request
-      updateDatabase
-    , UpdateDatabase
+  ( -- * Creating a Request
+    UpdateDatabase (..),
+    newUpdateDatabase,
+
     -- * Request Lenses
-    , udCatalogId
-    , udName
-    , udDatabaseInput
+    updateDatabase_catalogId,
+    updateDatabase_name,
+    updateDatabase_databaseInput,
 
     -- * Destructuring the Response
-    , updateDatabaseResponse
-    , UpdateDatabaseResponse
+    UpdateDatabaseResponse (..),
+    newUpdateDatabaseResponse,
+
     -- * Response Lenses
-    , udrsResponseStatus
-    ) where
+    updateDatabaseResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateDatabase' smart constructor.
+-- | /See:/ 'newUpdateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
-  { _udCatalogId     :: !(Maybe Text)
-  , _udName          :: !Text
-  , _udDatabaseInput :: !DatabaseInput
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog in which the metadata database resides. If
+    -- none is provided, the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database to update in the catalog. For Hive
+    -- compatibility, this is folded to lowercase.
+    name :: Prelude.Text,
+    -- | A @DatabaseInput@ object specifying the new definition of the metadata
+    -- database in the catalog.
+    databaseInput :: DatabaseInput
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDatabase' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDatabase' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udCatalogId' - The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udName' - The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
+-- 'catalogId', 'updateDatabase_catalogId' - The ID of the Data Catalog in which the metadata database resides. If
+-- none is provided, the AWS account ID is used by default.
 --
--- * 'udDatabaseInput' - A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
-updateDatabase
-    :: Text -- ^ 'udName'
-    -> DatabaseInput -- ^ 'udDatabaseInput'
-    -> UpdateDatabase
-updateDatabase pName_ pDatabaseInput_ =
+-- 'name', 'updateDatabase_name' - The name of the database to update in the catalog. For Hive
+-- compatibility, this is folded to lowercase.
+--
+-- 'databaseInput', 'updateDatabase_databaseInput' - A @DatabaseInput@ object specifying the new definition of the metadata
+-- database in the catalog.
+newUpdateDatabase ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'databaseInput'
+  DatabaseInput ->
+  UpdateDatabase
+newUpdateDatabase pName_ pDatabaseInput_ =
   UpdateDatabase'
-    { _udCatalogId = Nothing
-    , _udName = pName_
-    , _udDatabaseInput = pDatabaseInput_
+    { catalogId = Prelude.Nothing,
+      name = pName_,
+      databaseInput = pDatabaseInput_
     }
 
+-- | The ID of the Data Catalog in which the metadata database resides. If
+-- none is provided, the AWS account ID is used by default.
+updateDatabase_catalogId :: Lens.Lens' UpdateDatabase (Prelude.Maybe Prelude.Text)
+updateDatabase_catalogId = Lens.lens (\UpdateDatabase' {catalogId} -> catalogId) (\s@UpdateDatabase' {} a -> s {catalogId = a} :: UpdateDatabase)
 
--- | The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.
-udCatalogId :: Lens' UpdateDatabase (Maybe Text)
-udCatalogId = lens _udCatalogId (\ s a -> s{_udCatalogId = a})
+-- | The name of the database to update in the catalog. For Hive
+-- compatibility, this is folded to lowercase.
+updateDatabase_name :: Lens.Lens' UpdateDatabase Prelude.Text
+updateDatabase_name = Lens.lens (\UpdateDatabase' {name} -> name) (\s@UpdateDatabase' {} a -> s {name = a} :: UpdateDatabase)
 
--- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
-udName :: Lens' UpdateDatabase Text
-udName = lens _udName (\ s a -> s{_udName = a})
+-- | A @DatabaseInput@ object specifying the new definition of the metadata
+-- database in the catalog.
+updateDatabase_databaseInput :: Lens.Lens' UpdateDatabase DatabaseInput
+updateDatabase_databaseInput = Lens.lens (\UpdateDatabase' {databaseInput} -> databaseInput) (\s@UpdateDatabase' {} a -> s {databaseInput = a} :: UpdateDatabase)
 
--- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
-udDatabaseInput :: Lens' UpdateDatabase DatabaseInput
-udDatabaseInput = lens _udDatabaseInput (\ s a -> s{_udDatabaseInput = a})
+instance Core.AWSRequest UpdateDatabase where
+  type
+    AWSResponse UpdateDatabase =
+      UpdateDatabaseResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateDatabaseResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateDatabase where
-        type Rs UpdateDatabase = UpdateDatabaseResponse
-        request = postJSON glue
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateDatabaseResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable UpdateDatabase
 
-instance Hashable UpdateDatabase where
+instance Prelude.NFData UpdateDatabase
 
-instance NFData UpdateDatabase where
+instance Core.ToHeaders UpdateDatabase where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.UpdateDatabase" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateDatabase where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.UpdateDatabase" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateDatabase where
+  toJSON UpdateDatabase' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("DatabaseInput" Core..= databaseInput)
+          ]
+      )
 
-instance ToJSON UpdateDatabase where
-        toJSON UpdateDatabase'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _udCatalogId,
-                  Just ("Name" .= _udName),
-                  Just ("DatabaseInput" .= _udDatabaseInput)])
+instance Core.ToPath UpdateDatabase where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateDatabase where
-        toPath = const "/"
+instance Core.ToQuery UpdateDatabase where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateDatabase where
-        toQuery = const mempty
+-- | /See:/ 'newUpdateDatabaseResponse' smart constructor.
+data UpdateDatabaseResponse = UpdateDatabaseResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'updateDatabaseResponse' smart constructor.
-newtype UpdateDatabaseResponse = UpdateDatabaseResponse'
-  { _udrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateDatabaseResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDatabaseResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDatabaseResponse
-    :: Int -- ^ 'udrsResponseStatus'
-    -> UpdateDatabaseResponse
-updateDatabaseResponse pResponseStatus_ =
-  UpdateDatabaseResponse' {_udrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateDatabaseResponse_httpStatus' - The response's http status code.
+newUpdateDatabaseResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDatabaseResponse
+newUpdateDatabaseResponse pHttpStatus_ =
+  UpdateDatabaseResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateDatabaseResponse_httpStatus :: Lens.Lens' UpdateDatabaseResponse Prelude.Int
+updateDatabaseResponse_httpStatus = Lens.lens (\UpdateDatabaseResponse' {httpStatus} -> httpStatus) (\s@UpdateDatabaseResponse' {} a -> s {httpStatus = a} :: UpdateDatabaseResponse)
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDatabaseResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
-
-instance NFData UpdateDatabaseResponse where
+instance Prelude.NFData UpdateDatabaseResponse

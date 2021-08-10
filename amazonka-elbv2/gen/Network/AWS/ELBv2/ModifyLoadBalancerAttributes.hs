@@ -1,144 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified attributes of the specified Application Load Balancer or Network Load Balancer.
+-- Modifies the specified attributes of the specified Application Load
+-- Balancer, Network Load Balancer, or Gateway Load Balancer.
 --
---
--- If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
---
+-- If any of the specified attributes can\'t be modified as requested, the
+-- call fails. Any existing attributes that you do not modify retain their
+-- current values.
 module Network.AWS.ELBv2.ModifyLoadBalancerAttributes
-    (
-    -- * Creating a Request
-      modifyLoadBalancerAttributes
-    , ModifyLoadBalancerAttributes
+  ( -- * Creating a Request
+    ModifyLoadBalancerAttributes (..),
+    newModifyLoadBalancerAttributes,
+
     -- * Request Lenses
-    , mlbaLoadBalancerARN
-    , mlbaAttributes
+    modifyLoadBalancerAttributes_loadBalancerArn,
+    modifyLoadBalancerAttributes_attributes,
 
     -- * Destructuring the Response
-    , modifyLoadBalancerAttributesResponse
-    , ModifyLoadBalancerAttributesResponse
+    ModifyLoadBalancerAttributesResponse (..),
+    newModifyLoadBalancerAttributesResponse,
+
     -- * Response Lenses
-    , mlbarsAttributes
-    , mlbarsResponseStatus
-    ) where
+    modifyLoadBalancerAttributesResponse_attributes,
+    modifyLoadBalancerAttributesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
+-- | /See:/ 'newModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { _mlbaLoadBalancerARN :: !Text
-  , _mlbaAttributes      :: ![LoadBalancerAttribute]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Prelude.Text,
+    -- | The load balancer attributes.
+    attributes :: [LoadBalancerAttribute]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyLoadBalancerAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mlbaLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mlbaAttributes' - The load balancer attributes.
-modifyLoadBalancerAttributes
-    :: Text -- ^ 'mlbaLoadBalancerARN'
-    -> ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerARN_ =
+-- 'loadBalancerArn', 'modifyLoadBalancerAttributes_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
+--
+-- 'attributes', 'modifyLoadBalancerAttributes_attributes' - The load balancer attributes.
+newModifyLoadBalancerAttributes ::
+  -- | 'loadBalancerArn'
+  Prelude.Text ->
+  ModifyLoadBalancerAttributes
+newModifyLoadBalancerAttributes pLoadBalancerArn_ =
   ModifyLoadBalancerAttributes'
-    {_mlbaLoadBalancerARN = pLoadBalancerARN_, _mlbaAttributes = mempty}
-
+    { loadBalancerArn =
+        pLoadBalancerArn_,
+      attributes = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-mlbaLoadBalancerARN :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerARN = lens _mlbaLoadBalancerARN (\ s a -> s{_mlbaLoadBalancerARN = a})
+modifyLoadBalancerAttributes_loadBalancerArn :: Lens.Lens' ModifyLoadBalancerAttributes Prelude.Text
+modifyLoadBalancerAttributes_loadBalancerArn = Lens.lens (\ModifyLoadBalancerAttributes' {loadBalancerArn} -> loadBalancerArn) (\s@ModifyLoadBalancerAttributes' {} a -> s {loadBalancerArn = a} :: ModifyLoadBalancerAttributes)
 
 -- | The load balancer attributes.
-mlbaAttributes :: Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
-mlbaAttributes = lens _mlbaAttributes (\ s a -> s{_mlbaAttributes = a}) . _Coerce
+modifyLoadBalancerAttributes_attributes :: Lens.Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
+modifyLoadBalancerAttributes_attributes = Lens.lens (\ModifyLoadBalancerAttributes' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributes' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributes) Prelude.. Lens._Coerce
 
-instance AWSRequest ModifyLoadBalancerAttributes
-         where
-        type Rs ModifyLoadBalancerAttributes =
-             ModifyLoadBalancerAttributesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper
-              "ModifyLoadBalancerAttributesResult"
-              (\ s h x ->
-                 ModifyLoadBalancerAttributesResponse' <$>
-                   (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ModifyLoadBalancerAttributes where
+  type
+    AWSResponse ModifyLoadBalancerAttributes =
+      ModifyLoadBalancerAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyLoadBalancerAttributesResult"
+      ( \s h x ->
+          ModifyLoadBalancerAttributesResponse'
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyLoadBalancerAttributes where
+instance
+  Prelude.Hashable
+    ModifyLoadBalancerAttributes
 
-instance NFData ModifyLoadBalancerAttributes where
+instance Prelude.NFData ModifyLoadBalancerAttributes
 
-instance ToHeaders ModifyLoadBalancerAttributes where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyLoadBalancerAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyLoadBalancerAttributes where
-        toPath = const "/"
+instance Core.ToPath ModifyLoadBalancerAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyLoadBalancerAttributes where
-        toQuery ModifyLoadBalancerAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("ModifyLoadBalancerAttributes" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "LoadBalancerArn" =: _mlbaLoadBalancerARN,
-               "Attributes" =: toQueryList "member" _mlbaAttributes]
+instance Core.ToQuery ModifyLoadBalancerAttributes where
+  toQuery ModifyLoadBalancerAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "ModifyLoadBalancerAttributes" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "LoadBalancerArn" Core.=: loadBalancerArn,
+        "Attributes"
+          Core.=: Core.toQueryList "member" attributes
+      ]
 
--- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
+-- | /See:/ 'newModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { _mlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
-  , _mlbarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the load balancer attributes.
+    attributes :: Prelude.Maybe [LoadBalancerAttribute],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyLoadBalancerAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mlbarsAttributes' - Information about the load balancer attributes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mlbarsResponseStatus' - -- | The response status code.
-modifyLoadBalancerAttributesResponse
-    :: Int -- ^ 'mlbarsResponseStatus'
-    -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pResponseStatus_ =
+-- 'attributes', 'modifyLoadBalancerAttributesResponse_attributes' - Information about the load balancer attributes.
+--
+-- 'httpStatus', 'modifyLoadBalancerAttributesResponse_httpStatus' - The response's http status code.
+newModifyLoadBalancerAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyLoadBalancerAttributesResponse
+newModifyLoadBalancerAttributesResponse pHttpStatus_ =
   ModifyLoadBalancerAttributesResponse'
-    {_mlbarsAttributes = Nothing, _mlbarsResponseStatus = pResponseStatus_}
-
+    { attributes =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the load balancer attributes.
-mlbarsAttributes :: Lens' ModifyLoadBalancerAttributesResponse [LoadBalancerAttribute]
-mlbarsAttributes = lens _mlbarsAttributes (\ s a -> s{_mlbarsAttributes = a}) . _Default . _Coerce
+modifyLoadBalancerAttributesResponse_attributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe [LoadBalancerAttribute])
+modifyLoadBalancerAttributesResponse_attributes = Lens.lens (\ModifyLoadBalancerAttributesResponse' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a})
+-- | The response's http status code.
+modifyLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Prelude.Int
+modifyLoadBalancerAttributesResponse_httpStatus = Lens.lens (\ModifyLoadBalancerAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {httpStatus = a} :: ModifyLoadBalancerAttributesResponse)
 
-instance NFData ModifyLoadBalancerAttributesResponse
-         where
+instance
+  Prelude.NFData
+    ModifyLoadBalancerAttributesResponse

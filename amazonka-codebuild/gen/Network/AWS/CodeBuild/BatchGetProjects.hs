@@ -1,144 +1,180 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchGetProjects
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about build projects.
---
---
+-- Gets information about one or more build projects.
 module Network.AWS.CodeBuild.BatchGetProjects
-    (
-    -- * Creating a Request
-      batchGetProjects
-    , BatchGetProjects
+  ( -- * Creating a Request
+    BatchGetProjects (..),
+    newBatchGetProjects,
+
     -- * Request Lenses
-    , bgpNames
+    batchGetProjects_names,
 
     -- * Destructuring the Response
-    , batchGetProjectsResponse
-    , BatchGetProjectsResponse
+    BatchGetProjectsResponse (..),
+    newBatchGetProjectsResponse,
+
     -- * Response Lenses
-    , bgprsProjectsNotFound
-    , bgprsProjects
-    , bgprsResponseStatus
-    ) where
+    batchGetProjectsResponse_projects,
+    batchGetProjectsResponse_projectsNotFound,
+    batchGetProjectsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchGetProjects' smart constructor.
-newtype BatchGetProjects = BatchGetProjects'
-  { _bgpNames :: List1 Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newBatchGetProjects' smart constructor.
+data BatchGetProjects = BatchGetProjects'
+  { -- | The names or ARNs of the build projects. To get information about a
+    -- project shared with your AWS account, its ARN must be specified. You
+    -- cannot specify a shared project using its name.
+    names :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetProjects' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetProjects' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgpNames' - The names of the build projects.
-batchGetProjects
-    :: NonEmpty Text -- ^ 'bgpNames'
-    -> BatchGetProjects
-batchGetProjects pNames_ = BatchGetProjects' {_bgpNames = _List1 # pNames_}
-
-
--- | The names of the build projects.
-bgpNames :: Lens' BatchGetProjects (NonEmpty Text)
-bgpNames = lens _bgpNames (\ s a -> s{_bgpNames = a}) . _List1
-
-instance AWSRequest BatchGetProjects where
-        type Rs BatchGetProjects = BatchGetProjectsResponse
-        request = postJSON codeBuild
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchGetProjectsResponse' <$>
-                   (x .?> "projectsNotFound") <*>
-                     (x .?> "projects" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable BatchGetProjects where
-
-instance NFData BatchGetProjects where
-
-instance ToHeaders BatchGetProjects where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.BatchGetProjects" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON BatchGetProjects where
-        toJSON BatchGetProjects'{..}
-          = object (catMaybes [Just ("names" .= _bgpNames)])
-
-instance ToPath BatchGetProjects where
-        toPath = const "/"
-
-instance ToQuery BatchGetProjects where
-        toQuery = const mempty
-
--- | /See:/ 'batchGetProjectsResponse' smart constructor.
-data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { _bgprsProjectsNotFound :: !(Maybe (List1 Text))
-  , _bgprsProjects         :: !(Maybe [Project])
-  , _bgprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'BatchGetProjectsResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgprsProjectsNotFound' - The names of build projects for which information could not be found.
---
--- * 'bgprsProjects' - Information about the requested build projects.
---
--- * 'bgprsResponseStatus' - -- | The response status code.
-batchGetProjectsResponse
-    :: Int -- ^ 'bgprsResponseStatus'
-    -> BatchGetProjectsResponse
-batchGetProjectsResponse pResponseStatus_ =
-  BatchGetProjectsResponse'
-    { _bgprsProjectsNotFound = Nothing
-    , _bgprsProjects = Nothing
-    , _bgprsResponseStatus = pResponseStatus_
+-- 'names', 'batchGetProjects_names' - The names or ARNs of the build projects. To get information about a
+-- project shared with your AWS account, its ARN must be specified. You
+-- cannot specify a shared project using its name.
+newBatchGetProjects ::
+  -- | 'names'
+  Prelude.NonEmpty Prelude.Text ->
+  BatchGetProjects
+newBatchGetProjects pNames_ =
+  BatchGetProjects'
+    { names =
+        Lens._Coerce Lens.# pNames_
     }
 
+-- | The names or ARNs of the build projects. To get information about a
+-- project shared with your AWS account, its ARN must be specified. You
+-- cannot specify a shared project using its name.
+batchGetProjects_names :: Lens.Lens' BatchGetProjects (Prelude.NonEmpty Prelude.Text)
+batchGetProjects_names = Lens.lens (\BatchGetProjects' {names} -> names) (\s@BatchGetProjects' {} a -> s {names = a} :: BatchGetProjects) Prelude.. Lens._Coerce
 
--- | The names of build projects for which information could not be found.
-bgprsProjectsNotFound :: Lens' BatchGetProjectsResponse (Maybe (NonEmpty Text))
-bgprsProjectsNotFound = lens _bgprsProjectsNotFound (\ s a -> s{_bgprsProjectsNotFound = a}) . mapping _List1
+instance Core.AWSRequest BatchGetProjects where
+  type
+    AWSResponse BatchGetProjects =
+      BatchGetProjectsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchGetProjectsResponse'
+            Prelude.<$> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "projectsNotFound")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable BatchGetProjects
+
+instance Prelude.NFData BatchGetProjects
+
+instance Core.ToHeaders BatchGetProjects where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeBuild_20161006.BatchGetProjects" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON BatchGetProjects where
+  toJSON BatchGetProjects' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("names" Core..= names)]
+      )
+
+instance Core.ToPath BatchGetProjects where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery BatchGetProjects where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newBatchGetProjectsResponse' smart constructor.
+data BatchGetProjectsResponse = BatchGetProjectsResponse'
+  { -- | Information about the requested build projects.
+    projects :: Prelude.Maybe [Project],
+    -- | The names of build projects for which information could not be found.
+    projectsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchGetProjectsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.
+--
+-- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.
+--
+-- 'httpStatus', 'batchGetProjectsResponse_httpStatus' - The response's http status code.
+newBatchGetProjectsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchGetProjectsResponse
+newBatchGetProjectsResponse pHttpStatus_ =
+  BatchGetProjectsResponse'
+    { projects =
+        Prelude.Nothing,
+      projectsNotFound = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the requested build projects.
-bgprsProjects :: Lens' BatchGetProjectsResponse [Project]
-bgprsProjects = lens _bgprsProjects (\ s a -> s{_bgprsProjects = a}) . _Default . _Coerce
+batchGetProjectsResponse_projects :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe [Project])
+batchGetProjectsResponse_projects = Lens.lens (\BatchGetProjectsResponse' {projects} -> projects) (\s@BatchGetProjectsResponse' {} a -> s {projects = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-bgprsResponseStatus :: Lens' BatchGetProjectsResponse Int
-bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a})
+-- | The names of build projects for which information could not be found.
+batchGetProjectsResponse_projectsNotFound :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetProjectsResponse_projectsNotFound = Lens.lens (\BatchGetProjectsResponse' {projectsNotFound} -> projectsNotFound) (\s@BatchGetProjectsResponse' {} a -> s {projectsNotFound = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData BatchGetProjectsResponse where
+-- | The response's http status code.
+batchGetProjectsResponse_httpStatus :: Lens.Lens' BatchGetProjectsResponse Prelude.Int
+batchGetProjectsResponse_httpStatus = Lens.lens (\BatchGetProjectsResponse' {httpStatus} -> httpStatus) (\s@BatchGetProjectsResponse' {} a -> s {httpStatus = a} :: BatchGetProjectsResponse)
+
+instance Prelude.NFData BatchGetProjectsResponse

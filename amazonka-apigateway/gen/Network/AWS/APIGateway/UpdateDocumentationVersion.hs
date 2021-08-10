@@ -1,123 +1,153 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDocumentationVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- -- | Undocumented operation.
 module Network.AWS.APIGateway.UpdateDocumentationVersion
-    (
-    -- * Creating a Request
-      updateDocumentationVersion
-    , UpdateDocumentationVersion
+  ( -- * Creating a Request
+    UpdateDocumentationVersion (..),
+    newUpdateDocumentationVersion,
+
     -- * Request Lenses
-    , udvPatchOperations
-    , udvRestAPIId
-    , udvDocumentationVersion
+    updateDocumentationVersion_patchOperations,
+    updateDocumentationVersion_restApiId,
+    updateDocumentationVersion_documentationVersion,
 
     -- * Destructuring the Response
-    , documentationVersion
-    , DocumentationVersion
+    DocumentationVersion (..),
+    newDocumentationVersion,
+
     -- * Response Lenses
-    , dvCreatedDate
-    , dvVersion
-    , dvDescription
-    ) where
+    documentationVersion_createdDate,
+    documentationVersion_version,
+    documentationVersion_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Updates an existing documentation version of an API.
 --
---
---
--- /See:/ 'updateDocumentationVersion' smart constructor.
+-- /See:/ 'newUpdateDocumentationVersion' smart constructor.
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
-  { _udvPatchOperations      :: !(Maybe [PatchOperation])
-  , _udvRestAPIId            :: !Text
-  , _udvDocumentationVersion :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The string identifier of the associated RestApi..
+    restApiId :: Prelude.Text,
+    -- | [Required] The version identifier of the to-be-updated documentation
+    -- version.
+    documentationVersion :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDocumentationVersion' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDocumentationVersion' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udvPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udvRestAPIId' - [Required] The string identifier of the associated 'RestApi' ..
+-- 'patchOperations', 'updateDocumentationVersion_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
 --
--- * 'udvDocumentationVersion' - [Required] The version identifier of the to-be-updated documentation version.
-updateDocumentationVersion
-    :: Text -- ^ 'udvRestAPIId'
-    -> Text -- ^ 'udvDocumentationVersion'
-    -> UpdateDocumentationVersion
-updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-  UpdateDocumentationVersion'
-    { _udvPatchOperations = Nothing
-    , _udvRestAPIId = pRestAPIId_
-    , _udvDocumentationVersion = pDocumentationVersion_
-    }
+-- 'restApiId', 'updateDocumentationVersion_restApiId' - [Required] The string identifier of the associated RestApi..
+--
+-- 'documentationVersion', 'updateDocumentationVersion_documentationVersion' - [Required] The version identifier of the to-be-updated documentation
+-- version.
+newUpdateDocumentationVersion ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'documentationVersion'
+  Prelude.Text ->
+  UpdateDocumentationVersion
+newUpdateDocumentationVersion
+  pRestApiId_
+  pDocumentationVersion_ =
+    UpdateDocumentationVersion'
+      { patchOperations =
+          Prelude.Nothing,
+        restApiId = pRestApiId_,
+        documentationVersion = pDocumentationVersion_
+      }
 
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateDocumentationVersion_patchOperations :: Lens.Lens' UpdateDocumentationVersion (Prelude.Maybe [PatchOperation])
+updateDocumentationVersion_patchOperations = Lens.lens (\UpdateDocumentationVersion' {patchOperations} -> patchOperations) (\s@UpdateDocumentationVersion' {} a -> s {patchOperations = a} :: UpdateDocumentationVersion) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-udvPatchOperations :: Lens' UpdateDocumentationVersion [PatchOperation]
-udvPatchOperations = lens _udvPatchOperations (\ s a -> s{_udvPatchOperations = a}) . _Default . _Coerce
+-- | [Required] The string identifier of the associated RestApi..
+updateDocumentationVersion_restApiId :: Lens.Lens' UpdateDocumentationVersion Prelude.Text
+updateDocumentationVersion_restApiId = Lens.lens (\UpdateDocumentationVersion' {restApiId} -> restApiId) (\s@UpdateDocumentationVersion' {} a -> s {restApiId = a} :: UpdateDocumentationVersion)
 
--- | [Required] The string identifier of the associated 'RestApi' ..
-udvRestAPIId :: Lens' UpdateDocumentationVersion Text
-udvRestAPIId = lens _udvRestAPIId (\ s a -> s{_udvRestAPIId = a})
+-- | [Required] The version identifier of the to-be-updated documentation
+-- version.
+updateDocumentationVersion_documentationVersion :: Lens.Lens' UpdateDocumentationVersion Prelude.Text
+updateDocumentationVersion_documentationVersion = Lens.lens (\UpdateDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@UpdateDocumentationVersion' {} a -> s {documentationVersion = a} :: UpdateDocumentationVersion)
 
--- | [Required] The version identifier of the to-be-updated documentation version.
-udvDocumentationVersion :: Lens' UpdateDocumentationVersion Text
-udvDocumentationVersion = lens _udvDocumentationVersion (\ s a -> s{_udvDocumentationVersion = a})
+instance Core.AWSRequest UpdateDocumentationVersion where
+  type
+    AWSResponse UpdateDocumentationVersion =
+      DocumentationVersion
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest UpdateDocumentationVersion where
-        type Rs UpdateDocumentationVersion =
-             DocumentationVersion
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable UpdateDocumentationVersion
 
-instance Hashable UpdateDocumentationVersion where
+instance Prelude.NFData UpdateDocumentationVersion
 
-instance NFData UpdateDocumentationVersion where
+instance Core.ToHeaders UpdateDocumentationVersion where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders UpdateDocumentationVersion where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToJSON UpdateDocumentationVersion where
+  toJSON UpdateDocumentationVersion' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Core..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToJSON UpdateDocumentationVersion where
-        toJSON UpdateDocumentationVersion'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _udvPatchOperations])
+instance Core.ToPath UpdateDocumentationVersion where
+  toPath UpdateDocumentationVersion' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/documentation/versions/",
+        Core.toBS documentationVersion
+      ]
 
-instance ToPath UpdateDocumentationVersion where
-        toPath UpdateDocumentationVersion'{..}
-          = mconcat
-              ["/restapis/", toBS _udvRestAPIId,
-               "/documentation/versions/",
-               toBS _udvDocumentationVersion]
-
-instance ToQuery UpdateDocumentationVersion where
-        toQuery = const mempty
+instance Core.ToQuery UpdateDocumentationVersion where
+  toQuery = Prelude.const Prelude.mempty

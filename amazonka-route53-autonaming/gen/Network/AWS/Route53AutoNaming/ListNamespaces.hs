@@ -1,175 +1,293 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53AutoNaming.ListNamespaces
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists summary information about the namespaces that were created by the current AWS account.
---
---
+-- Lists summary information about the namespaces that were created by the
+-- current AWS account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53AutoNaming.ListNamespaces
-    (
-    -- * Creating a Request
-      listNamespaces
-    , ListNamespaces
+  ( -- * Creating a Request
+    ListNamespaces (..),
+    newListNamespaces,
+
     -- * Request Lenses
-    , lnFilters
-    , lnNextToken
-    , lnMaxResults
+    listNamespaces_nextToken,
+    listNamespaces_maxResults,
+    listNamespaces_filters,
 
     -- * Destructuring the Response
-    , listNamespacesResponse
-    , ListNamespacesResponse
+    ListNamespacesResponse (..),
+    newListNamespacesResponse,
+
     -- * Response Lenses
-    , lnrsNamespaces
-    , lnrsNextToken
-    , lnrsResponseStatus
-    ) where
+    listNamespacesResponse_nextToken,
+    listNamespacesResponse_namespaces,
+    listNamespacesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
-import Network.AWS.Route53AutoNaming.Types.Product
 
--- | /See:/ 'listNamespaces' smart constructor.
+-- | /See:/ 'newListNamespaces' smart constructor.
 data ListNamespaces = ListNamespaces'
-  { _lnFilters    :: !(Maybe [NamespaceFilter])
-  , _lnNextToken  :: !(Maybe Text)
-  , _lnMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | For the first @ListNamespaces@ request, omit this value.
+    --
+    -- If the response contains @NextToken@, submit another @ListNamespaces@
+    -- request to get the next group of results. Specify the value of
+    -- @NextToken@ from the previous response in the next request.
+    --
+    -- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+    -- on the specified criteria. It\'s possible that no namespaces in the
+    -- first @MaxResults@ namespaces matched the specified criteria but that
+    -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+    -- match the criteria.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of namespaces that you want AWS Cloud Map to return
+    -- in the response to a @ListNamespaces@ request. If you don\'t specify a
+    -- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A complex type that contains specifications for the namespaces that you
+    -- want to list.
+    --
+    -- If you specify more than one filter, a namespace must match all filters
+    -- to be returned by @ListNamespaces@.
+    filters :: Prelude.Maybe [NamespaceFilter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListNamespaces' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListNamespaces' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lnFilters' - A complex type that contains specifications for the namespaces that you want to list. If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lnNextToken' - For the first @ListNamespaces@ request, omit this value. If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- 'nextToken', 'listNamespaces_nextToken' - For the first @ListNamespaces@ request, omit this value.
 --
--- * 'lnMaxResults' - The maximum number of namespaces that you want Amazon Route 53 to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 namespaces.
-listNamespaces
-    :: ListNamespaces
-listNamespaces =
+-- If the response contains @NextToken@, submit another @ListNamespaces@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+-- on the specified criteria. It\'s possible that no namespaces in the
+-- first @MaxResults@ namespaces matched the specified criteria but that
+-- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+-- match the criteria.
+--
+-- 'maxResults', 'listNamespaces_maxResults' - The maximum number of namespaces that you want AWS Cloud Map to return
+-- in the response to a @ListNamespaces@ request. If you don\'t specify a
+-- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+--
+-- 'filters', 'listNamespaces_filters' - A complex type that contains specifications for the namespaces that you
+-- want to list.
+--
+-- If you specify more than one filter, a namespace must match all filters
+-- to be returned by @ListNamespaces@.
+newListNamespaces ::
+  ListNamespaces
+newListNamespaces =
   ListNamespaces'
-    {_lnFilters = Nothing, _lnNextToken = Nothing, _lnMaxResults = Nothing}
-
-
--- | A complex type that contains specifications for the namespaces that you want to list. If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
-lnFilters :: Lens' ListNamespaces [NamespaceFilter]
-lnFilters = lens _lnFilters (\ s a -> s{_lnFilters = a}) . _Default . _Coerce
-
--- | For the first @ListNamespaces@ request, omit this value. If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-lnNextToken :: Lens' ListNamespaces (Maybe Text)
-lnNextToken = lens _lnNextToken (\ s a -> s{_lnNextToken = a})
-
--- | The maximum number of namespaces that you want Amazon Route 53 to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 namespaces.
-lnMaxResults :: Lens' ListNamespaces (Maybe Natural)
-lnMaxResults = lens _lnMaxResults (\ s a -> s{_lnMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListNamespaces where
-        page rq rs
-          | stop (rs ^. lnrsNextToken) = Nothing
-          | stop (rs ^. lnrsNamespaces) = Nothing
-          | otherwise =
-            Just $ rq & lnNextToken .~ rs ^. lnrsNextToken
-
-instance AWSRequest ListNamespaces where
-        type Rs ListNamespaces = ListNamespacesResponse
-        request = postJSON route53AutoNaming
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListNamespacesResponse' <$>
-                   (x .?> "Namespaces" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListNamespaces where
-
-instance NFData ListNamespaces where
-
-instance ToHeaders ListNamespaces where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53AutoNaming_v20170314.ListNamespaces" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListNamespaces where
-        toJSON ListNamespaces'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _lnFilters,
-                  ("NextToken" .=) <$> _lnNextToken,
-                  ("MaxResults" .=) <$> _lnMaxResults])
-
-instance ToPath ListNamespaces where
-        toPath = const "/"
-
-instance ToQuery ListNamespaces where
-        toQuery = const mempty
-
--- | /See:/ 'listNamespacesResponse' smart constructor.
-data ListNamespacesResponse = ListNamespacesResponse'
-  { _lnrsNamespaces     :: !(Maybe [NamespaceSummary])
-  , _lnrsNextToken      :: !(Maybe Text)
-  , _lnrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListNamespacesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lnrsNamespaces' - An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
---
--- * 'lnrsNextToken' - If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- * 'lnrsResponseStatus' - -- | The response status code.
-listNamespacesResponse
-    :: Int -- ^ 'lnrsResponseStatus'
-    -> ListNamespacesResponse
-listNamespacesResponse pResponseStatus_ =
-  ListNamespacesResponse'
-    { _lnrsNamespaces = Nothing
-    , _lnrsNextToken = Nothing
-    , _lnrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | For the first @ListNamespaces@ request, omit this value.
+--
+-- If the response contains @NextToken@, submit another @ListNamespaces@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+-- on the specified criteria. It\'s possible that no namespaces in the
+-- first @MaxResults@ namespaces matched the specified criteria but that
+-- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+-- match the criteria.
+listNamespaces_nextToken :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Text)
+listNamespaces_nextToken = Lens.lens (\ListNamespaces' {nextToken} -> nextToken) (\s@ListNamespaces' {} a -> s {nextToken = a} :: ListNamespaces)
 
--- | An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
-lnrsNamespaces :: Lens' ListNamespacesResponse [NamespaceSummary]
-lnrsNamespaces = lens _lnrsNamespaces (\ s a -> s{_lnrsNamespaces = a}) . _Default . _Coerce
+-- | The maximum number of namespaces that you want AWS Cloud Map to return
+-- in the response to a @ListNamespaces@ request. If you don\'t specify a
+-- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Natural)
+listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResults) (\s@ListNamespaces' {} a -> s {maxResults = a} :: ListNamespaces)
 
--- | If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-lnrsNextToken :: Lens' ListNamespacesResponse (Maybe Text)
-lnrsNextToken = lens _lnrsNextToken (\ s a -> s{_lnrsNextToken = a})
+-- | A complex type that contains specifications for the namespaces that you
+-- want to list.
+--
+-- If you specify more than one filter, a namespace must match all filters
+-- to be returned by @ListNamespaces@.
+listNamespaces_filters :: Lens.Lens' ListNamespaces (Prelude.Maybe [NamespaceFilter])
+listNamespaces_filters = Lens.lens (\ListNamespaces' {filters} -> filters) (\s@ListNamespaces' {} a -> s {filters = a} :: ListNamespaces) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lnrsResponseStatus :: Lens' ListNamespacesResponse Int
-lnrsResponseStatus = lens _lnrsResponseStatus (\ s a -> s{_lnrsResponseStatus = a})
+instance Core.AWSPager ListNamespaces where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listNamespacesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listNamespacesResponse_namespaces
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listNamespaces_nextToken
+          Lens..~ rs
+          Lens.^? listNamespacesResponse_nextToken Prelude.. Lens._Just
 
-instance NFData ListNamespacesResponse where
+instance Core.AWSRequest ListNamespaces where
+  type
+    AWSResponse ListNamespaces =
+      ListNamespacesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListNamespacesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListNamespaces
+
+instance Prelude.NFData ListNamespaces
+
+instance Core.ToHeaders ListNamespaces where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53AutoNaming_v20170314.ListNamespaces" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListNamespaces where
+  toJSON ListNamespaces' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
+          ]
+      )
+
+instance Core.ToPath ListNamespaces where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListNamespaces where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListNamespacesResponse' smart constructor.
+data ListNamespacesResponse = ListNamespacesResponse'
+  { -- | If the response contains @NextToken@, submit another @ListNamespaces@
+    -- request to get the next group of results. Specify the value of
+    -- @NextToken@ from the previous response in the next request.
+    --
+    -- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+    -- on the specified criteria. It\'s possible that no namespaces in the
+    -- first @MaxResults@ namespaces matched the specified criteria but that
+    -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+    -- match the criteria.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array that contains one @NamespaceSummary@ object for each namespace
+    -- that matches the specified filter criteria.
+    namespaces :: Prelude.Maybe [NamespaceSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListNamespacesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listNamespacesResponse_nextToken' - If the response contains @NextToken@, submit another @ListNamespaces@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+-- on the specified criteria. It\'s possible that no namespaces in the
+-- first @MaxResults@ namespaces matched the specified criteria but that
+-- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+-- match the criteria.
+--
+-- 'namespaces', 'listNamespacesResponse_namespaces' - An array that contains one @NamespaceSummary@ object for each namespace
+-- that matches the specified filter criteria.
+--
+-- 'httpStatus', 'listNamespacesResponse_httpStatus' - The response's http status code.
+newListNamespacesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListNamespacesResponse
+newListNamespacesResponse pHttpStatus_ =
+  ListNamespacesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      namespaces = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the response contains @NextToken@, submit another @ListNamespaces@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
+-- on the specified criteria. It\'s possible that no namespaces in the
+-- first @MaxResults@ namespaces matched the specified criteria but that
+-- subsequent groups of @MaxResults@ namespaces do contain namespaces that
+-- match the criteria.
+listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
+listNamespacesResponse_nextToken = Lens.lens (\ListNamespacesResponse' {nextToken} -> nextToken) (\s@ListNamespacesResponse' {} a -> s {nextToken = a} :: ListNamespacesResponse)
+
+-- | An array that contains one @NamespaceSummary@ object for each namespace
+-- that matches the specified filter criteria.
+listNamespacesResponse_namespaces :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe [NamespaceSummary])
+listNamespacesResponse_namespaces = Lens.lens (\ListNamespacesResponse' {namespaces} -> namespaces) (\s@ListNamespacesResponse' {} a -> s {namespaces = a} :: ListNamespacesResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listNamespacesResponse_httpStatus :: Lens.Lens' ListNamespacesResponse Prelude.Int
+listNamespacesResponse_httpStatus = Lens.lens (\ListNamespacesResponse' {httpStatus} -> httpStatus) (\s@ListNamespacesResponse' {} a -> s {httpStatus = a} :: ListNamespacesResponse)
+
+instance Prelude.NFData ListNamespacesResponse

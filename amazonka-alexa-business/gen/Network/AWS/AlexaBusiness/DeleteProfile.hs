@@ -1,120 +1,144 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.DeleteProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a room profile by the profile ARN.
---
---
 module Network.AWS.AlexaBusiness.DeleteProfile
-    (
-    -- * Creating a Request
-      deleteProfile
-    , DeleteProfile
+  ( -- * Creating a Request
+    DeleteProfile (..),
+    newDeleteProfile,
+
     -- * Request Lenses
-    , dpProfileARN
+    deleteProfile_profileArn,
 
     -- * Destructuring the Response
-    , deleteProfileResponse
-    , DeleteProfileResponse
+    DeleteProfileResponse (..),
+    newDeleteProfileResponse,
+
     -- * Response Lenses
-    , dprsResponseStatus
-    ) where
+    deleteProfileResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteProfile' smart constructor.
-newtype DeleteProfile = DeleteProfile'
-  { _dpProfileARN :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteProfile' smart constructor.
+data DeleteProfile = DeleteProfile'
+  { -- | The ARN of the room profile to delete. Required.
+    profileArn :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpProfileARN' - The ARN of the room profile to delete. Required.
-deleteProfile
-    :: DeleteProfile
-deleteProfile = DeleteProfile' {_dpProfileARN = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'profileArn', 'deleteProfile_profileArn' - The ARN of the room profile to delete. Required.
+newDeleteProfile ::
+  DeleteProfile
+newDeleteProfile =
+  DeleteProfile' {profileArn = Prelude.Nothing}
 
 -- | The ARN of the room profile to delete. Required.
-dpProfileARN :: Lens' DeleteProfile (Maybe Text)
-dpProfileARN = lens _dpProfileARN (\ s a -> s{_dpProfileARN = a})
+deleteProfile_profileArn :: Lens.Lens' DeleteProfile (Prelude.Maybe Prelude.Text)
+deleteProfile_profileArn = Lens.lens (\DeleteProfile' {profileArn} -> profileArn) (\s@DeleteProfile' {} a -> s {profileArn = a} :: DeleteProfile)
 
-instance AWSRequest DeleteProfile where
-        type Rs DeleteProfile = DeleteProfileResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteProfileResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteProfile where
+  type
+    AWSResponse DeleteProfile =
+      DeleteProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteProfileResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteProfile where
+instance Prelude.Hashable DeleteProfile
 
-instance NFData DeleteProfile where
+instance Prelude.NFData DeleteProfile
 
-instance ToHeaders DeleteProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.DeleteProfile" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.DeleteProfile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteProfile where
-        toJSON DeleteProfile'{..}
-          = object
-              (catMaybes [("ProfileArn" .=) <$> _dpProfileARN])
+instance Core.ToJSON DeleteProfile where
+  toJSON DeleteProfile' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("ProfileArn" Core..=) Prelude.<$> profileArn]
+      )
 
-instance ToPath DeleteProfile where
-        toPath = const "/"
+instance Core.ToPath DeleteProfile where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteProfile where
-        toQuery = const mempty
+instance Core.ToQuery DeleteProfile where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteProfileResponse' smart constructor.
-newtype DeleteProfileResponse = DeleteProfileResponse'
-  { _dprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteProfileResponse' smart constructor.
+data DeleteProfileResponse = DeleteProfileResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteProfileResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteProfileResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dprsResponseStatus' - -- | The response status code.
-deleteProfileResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DeleteProfileResponse
-deleteProfileResponse pResponseStatus_ =
-  DeleteProfileResponse' {_dprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteProfileResponse_httpStatus' - The response's http status code.
+newDeleteProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteProfileResponse
+newDeleteProfileResponse pHttpStatus_ =
+  DeleteProfileResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteProfileResponse_httpStatus :: Lens.Lens' DeleteProfileResponse Prelude.Int
+deleteProfileResponse_httpStatus = Lens.lens (\DeleteProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteProfileResponse' {} a -> s {httpStatus = a} :: DeleteProfileResponse)
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DeleteProfileResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
-
-instance NFData DeleteProfileResponse where
+instance Prelude.NFData DeleteProfileResponse

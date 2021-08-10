@@ -1,121 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.GetJobDocument
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a job document.
---
---
 module Network.AWS.IoT.GetJobDocument
-    (
-    -- * Creating a Request
-      getJobDocument
-    , GetJobDocument
+  ( -- * Creating a Request
+    GetJobDocument (..),
+    newGetJobDocument,
+
     -- * Request Lenses
-    , gjdJobId
+    getJobDocument_jobId,
 
     -- * Destructuring the Response
-    , getJobDocumentResponse
-    , GetJobDocumentResponse
+    GetJobDocumentResponse (..),
+    newGetJobDocumentResponse,
+
     -- * Response Lenses
-    , gjdrsDocument
-    , gjdrsResponseStatus
-    ) where
+    getJobDocumentResponse_document,
+    getJobDocumentResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getJobDocument' smart constructor.
-newtype GetJobDocument = GetJobDocument'
-  { _gjdJobId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetJobDocument' smart constructor.
+data GetJobDocument = GetJobDocument'
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobDocument' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobDocument' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjdJobId' - The unique identifier you assigned to this job when it was created.
-getJobDocument
-    :: Text -- ^ 'gjdJobId'
-    -> GetJobDocument
-getJobDocument pJobId_ = GetJobDocument' {_gjdJobId = pJobId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'jobId', 'getJobDocument_jobId' - The unique identifier you assigned to this job when it was created.
+newGetJobDocument ::
+  -- | 'jobId'
+  Prelude.Text ->
+  GetJobDocument
+newGetJobDocument pJobId_ =
+  GetJobDocument' {jobId = pJobId_}
 
 -- | The unique identifier you assigned to this job when it was created.
-gjdJobId :: Lens' GetJobDocument Text
-gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a})
+getJobDocument_jobId :: Lens.Lens' GetJobDocument Prelude.Text
+getJobDocument_jobId = Lens.lens (\GetJobDocument' {jobId} -> jobId) (\s@GetJobDocument' {} a -> s {jobId = a} :: GetJobDocument)
 
-instance AWSRequest GetJobDocument where
-        type Rs GetJobDocument = GetJobDocumentResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetJobDocumentResponse' <$>
-                   (x .?> "document") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetJobDocument where
+  type
+    AWSResponse GetJobDocument =
+      GetJobDocumentResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetJobDocumentResponse'
+            Prelude.<$> (x Core..?> "document")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetJobDocument where
+instance Prelude.Hashable GetJobDocument
 
-instance NFData GetJobDocument where
+instance Prelude.NFData GetJobDocument
 
-instance ToHeaders GetJobDocument where
-        toHeaders = const mempty
+instance Core.ToHeaders GetJobDocument where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetJobDocument where
-        toPath GetJobDocument'{..}
-          = mconcat ["/jobs/", toBS _gjdJobId, "/job-document"]
+instance Core.ToPath GetJobDocument where
+  toPath GetJobDocument' {..} =
+    Prelude.mconcat
+      ["/jobs/", Core.toBS jobId, "/job-document"]
 
-instance ToQuery GetJobDocument where
-        toQuery = const mempty
+instance Core.ToQuery GetJobDocument where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getJobDocumentResponse' smart constructor.
+-- | /See:/ 'newGetJobDocumentResponse' smart constructor.
 data GetJobDocumentResponse = GetJobDocumentResponse'
-  { _gjdrsDocument       :: !(Maybe Text)
-  , _gjdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The job document content.
+    document :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobDocumentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobDocumentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjdrsDocument' - The job document content.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gjdrsResponseStatus' - -- | The response status code.
-getJobDocumentResponse
-    :: Int -- ^ 'gjdrsResponseStatus'
-    -> GetJobDocumentResponse
-getJobDocumentResponse pResponseStatus_ =
+-- 'document', 'getJobDocumentResponse_document' - The job document content.
+--
+-- 'httpStatus', 'getJobDocumentResponse_httpStatus' - The response's http status code.
+newGetJobDocumentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetJobDocumentResponse
+newGetJobDocumentResponse pHttpStatus_ =
   GetJobDocumentResponse'
-    {_gjdrsDocument = Nothing, _gjdrsResponseStatus = pResponseStatus_}
-
+    { document = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The job document content.
-gjdrsDocument :: Lens' GetJobDocumentResponse (Maybe Text)
-gjdrsDocument = lens _gjdrsDocument (\ s a -> s{_gjdrsDocument = a})
+getJobDocumentResponse_document :: Lens.Lens' GetJobDocumentResponse (Prelude.Maybe Prelude.Text)
+getJobDocumentResponse_document = Lens.lens (\GetJobDocumentResponse' {document} -> document) (\s@GetJobDocumentResponse' {} a -> s {document = a} :: GetJobDocumentResponse)
 
--- | -- | The response status code.
-gjdrsResponseStatus :: Lens' GetJobDocumentResponse Int
-gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a})
+-- | The response's http status code.
+getJobDocumentResponse_httpStatus :: Lens.Lens' GetJobDocumentResponse Prelude.Int
+getJobDocumentResponse_httpStatus = Lens.lens (\GetJobDocumentResponse' {httpStatus} -> httpStatus) (\s@GetJobDocumentResponse' {} a -> s {httpStatus = a} :: GetJobDocumentResponse)
 
-instance NFData GetJobDocumentResponse where
+instance Prelude.NFData GetJobDocumentResponse

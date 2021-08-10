@@ -1,185 +1,240 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the deployment groups for an application registered with the applicable IAM user or AWS account.
---
---
+-- Lists the deployment groups for an application registered with the IAM
+-- user or AWS account.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
-    (
-    -- * Creating a Request
-      listDeploymentGroups
-    , ListDeploymentGroups
+  ( -- * Creating a Request
+    ListDeploymentGroups (..),
+    newListDeploymentGroups,
+
     -- * Request Lenses
-    , ldgNextToken
-    , ldgApplicationName
+    listDeploymentGroups_nextToken,
+    listDeploymentGroups_applicationName,
 
     -- * Destructuring the Response
-    , listDeploymentGroupsResponse
-    , ListDeploymentGroupsResponse
+    ListDeploymentGroupsResponse (..),
+    newListDeploymentGroupsResponse,
+
     -- * Response Lenses
-    , ldgrsNextToken
-    , ldgrsApplicationName
-    , ldgrsDeploymentGroups
-    , ldgrsResponseStatus
-    ) where
+    listDeploymentGroupsResponse_nextToken,
+    listDeploymentGroupsResponse_deploymentGroups,
+    listDeploymentGroupsResponse_applicationName,
+    listDeploymentGroupsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a ListDeploymentGroups operation.
+-- | Represents the input of a @ListDeploymentGroups@ operation.
 --
---
---
--- /See:/ 'listDeploymentGroups' smart constructor.
+-- /See:/ 'newListDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-  { _ldgNextToken       :: !(Maybe Text)
-  , _ldgApplicationName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier returned from the previous list deployment groups call. It
+    -- can be used to return the next set of deployment groups in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of an AWS CodeDeploy application associated with the IAM user
+    -- or AWS account.
+    applicationName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListDeploymentGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDeploymentGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ldgNextToken' - An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ldgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-listDeploymentGroups
-    :: Text -- ^ 'ldgApplicationName'
-    -> ListDeploymentGroups
-listDeploymentGroups pApplicationName_ =
+-- 'nextToken', 'listDeploymentGroups_nextToken' - An identifier returned from the previous list deployment groups call. It
+-- can be used to return the next set of deployment groups in the list.
+--
+-- 'applicationName', 'listDeploymentGroups_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+newListDeploymentGroups ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  ListDeploymentGroups
+newListDeploymentGroups pApplicationName_ =
   ListDeploymentGroups'
-    {_ldgNextToken = Nothing, _ldgApplicationName = pApplicationName_}
-
-
--- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
-ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
-ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a})
-
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-ldgApplicationName :: Lens' ListDeploymentGroups Text
-ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a})
-
-instance AWSPager ListDeploymentGroups where
-        page rq rs
-          | stop (rs ^. ldgrsNextToken) = Nothing
-          | stop (rs ^. ldgrsDeploymentGroups) = Nothing
-          | otherwise =
-            Just $ rq & ldgNextToken .~ rs ^. ldgrsNextToken
-
-instance AWSRequest ListDeploymentGroups where
-        type Rs ListDeploymentGroups =
-             ListDeploymentGroupsResponse
-        request = postJSON codeDeploy
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDeploymentGroupsResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "applicationName") <*>
-                     (x .?> "deploymentGroups" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListDeploymentGroups where
-
-instance NFData ListDeploymentGroups where
-
-instance ToHeaders ListDeploymentGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.ListDeploymentGroups" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListDeploymentGroups where
-        toJSON ListDeploymentGroups'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _ldgNextToken,
-                  Just ("applicationName" .= _ldgApplicationName)])
-
-instance ToPath ListDeploymentGroups where
-        toPath = const "/"
-
-instance ToQuery ListDeploymentGroups where
-        toQuery = const mempty
-
--- | Represents the output of a ListDeploymentGroups operation.
---
---
---
--- /See:/ 'listDeploymentGroupsResponse' smart constructor.
-data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { _ldgrsNextToken        :: !(Maybe Text)
-  , _ldgrsApplicationName  :: !(Maybe Text)
-  , _ldgrsDeploymentGroups :: !(Maybe [Text])
-  , _ldgrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldgrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
---
--- * 'ldgrsApplicationName' - The application name.
---
--- * 'ldgrsDeploymentGroups' - A list of corresponding deployment group names.
---
--- * 'ldgrsResponseStatus' - -- | The response status code.
-listDeploymentGroupsResponse
-    :: Int -- ^ 'ldgrsResponseStatus'
-    -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pResponseStatus_ =
-  ListDeploymentGroupsResponse'
-    { _ldgrsNextToken = Nothing
-    , _ldgrsApplicationName = Nothing
-    , _ldgrsDeploymentGroups = Nothing
-    , _ldgrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      applicationName = pApplicationName_
     }
 
+-- | An identifier returned from the previous list deployment groups call. It
+-- can be used to return the next set of deployment groups in the list.
+listDeploymentGroups_nextToken :: Lens.Lens' ListDeploymentGroups (Prelude.Maybe Prelude.Text)
+listDeploymentGroups_nextToken = Lens.lens (\ListDeploymentGroups' {nextToken} -> nextToken) (\s@ListDeploymentGroups' {} a -> s {nextToken = a} :: ListDeploymentGroups)
 
--- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
-ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsNextToken = lens _ldgrsNextToken (\ s a -> s{_ldgrsNextToken = a})
+-- | The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+listDeploymentGroups_applicationName :: Lens.Lens' ListDeploymentGroups Prelude.Text
+listDeploymentGroups_applicationName = Lens.lens (\ListDeploymentGroups' {applicationName} -> applicationName) (\s@ListDeploymentGroups' {} a -> s {applicationName = a} :: ListDeploymentGroups)
+
+instance Core.AWSPager ListDeploymentGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listDeploymentGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listDeploymentGroupsResponse_deploymentGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listDeploymentGroups_nextToken
+          Lens..~ rs
+          Lens.^? listDeploymentGroupsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListDeploymentGroups where
+  type
+    AWSResponse ListDeploymentGroups =
+      ListDeploymentGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDeploymentGroupsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "deploymentGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "applicationName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListDeploymentGroups
+
+instance Prelude.NFData ListDeploymentGroups
+
+instance Core.ToHeaders ListDeploymentGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.ListDeploymentGroups" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListDeploymentGroups where
+  toJSON ListDeploymentGroups' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just
+              ("applicationName" Core..= applicationName)
+          ]
+      )
+
+instance Core.ToPath ListDeploymentGroups where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListDeploymentGroups where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @ListDeploymentGroups@ operation.
+--
+-- /See:/ 'newListDeploymentGroupsResponse' smart constructor.
+data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
+  { -- | If a large amount of information is returned, an identifier is also
+    -- returned. It can be used in a subsequent list deployment groups call to
+    -- return the next set of deployment groups in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of deployment group names.
+    deploymentGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The application name.
+    applicationName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListDeploymentGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listDeploymentGroupsResponse_nextToken' - If a large amount of information is returned, an identifier is also
+-- returned. It can be used in a subsequent list deployment groups call to
+-- return the next set of deployment groups in the list.
+--
+-- 'deploymentGroups', 'listDeploymentGroupsResponse_deploymentGroups' - A list of deployment group names.
+--
+-- 'applicationName', 'listDeploymentGroupsResponse_applicationName' - The application name.
+--
+-- 'httpStatus', 'listDeploymentGroupsResponse_httpStatus' - The response's http status code.
+newListDeploymentGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDeploymentGroupsResponse
+newListDeploymentGroupsResponse pHttpStatus_ =
+  ListDeploymentGroupsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      deploymentGroups = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If a large amount of information is returned, an identifier is also
+-- returned. It can be used in a subsequent list deployment groups call to
+-- return the next set of deployment groups in the list.
+listDeploymentGroupsResponse_nextToken :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
+listDeploymentGroupsResponse_nextToken = Lens.lens (\ListDeploymentGroupsResponse' {nextToken} -> nextToken) (\s@ListDeploymentGroupsResponse' {} a -> s {nextToken = a} :: ListDeploymentGroupsResponse)
+
+-- | A list of deployment group names.
+listDeploymentGroupsResponse_deploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe [Prelude.Text])
+listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroupsResponse' {deploymentGroups} -> deploymentGroups) (\s@ListDeploymentGroupsResponse' {} a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The application name.
-ldgrsApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationName = a})
+listDeploymentGroupsResponse_applicationName :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
+listDeploymentGroupsResponse_applicationName = Lens.lens (\ListDeploymentGroupsResponse' {applicationName} -> applicationName) (\s@ListDeploymentGroupsResponse' {} a -> s {applicationName = a} :: ListDeploymentGroupsResponse)
 
--- | A list of corresponding deployment group names.
-ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce
+-- | The response's http status code.
+listDeploymentGroupsResponse_httpStatus :: Lens.Lens' ListDeploymentGroupsResponse Prelude.Int
+listDeploymentGroupsResponse_httpStatus = Lens.lens (\ListDeploymentGroupsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentGroupsResponse' {} a -> s {httpStatus = a} :: ListDeploymentGroupsResponse)
 
--- | -- | The response status code.
-ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
-ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a})
-
-instance NFData ListDeploymentGroupsResponse where
+instance Prelude.NFData ListDeploymentGroupsResponse

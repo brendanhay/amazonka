@@ -1,181 +1,303 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ResourceGroups.CreateGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a group with a specified name, description, and resource query.
+-- Creates a resource group with the specified name and description. You
+-- can optionally include a resource query, or a service configuration. For
+-- more information about constructing a resource query, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+-- For more information about service configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
 --
+-- __Minimum permissions__
 --
+-- To run this command, you must have the following permissions:
+--
+-- -   @resource-groups:CreateGroup@
 module Network.AWS.ResourceGroups.CreateGroup
-    (
-    -- * Creating a Request
-      createGroup
-    , CreateGroup
+  ( -- * Creating a Request
+    CreateGroup (..),
+    newCreateGroup,
+
     -- * Request Lenses
-    , cgDescription
-    , cgTags
-    , cgName
-    , cgResourceQuery
+    createGroup_configuration,
+    createGroup_tags,
+    createGroup_description,
+    createGroup_resourceQuery,
+    createGroup_name,
 
     -- * Destructuring the Response
-    , createGroupResponse
-    , CreateGroupResponse
+    CreateGroupResponse (..),
+    newCreateGroupResponse,
+
     -- * Response Lenses
-    , cgrsGroup
-    , cgrsResourceQuery
-    , cgrsTags
-    , cgrsResponseStatus
-    ) where
+    createGroupResponse_groupConfiguration,
+    createGroupResponse_group,
+    createGroupResponse_tags,
+    createGroupResponse_resourceQuery,
+    createGroupResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.Types.Product
-import Network.AWS.Response
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createGroup' smart constructor.
+-- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { _cgDescription   :: !(Maybe Text)
-  , _cgTags          :: !(Maybe (Map Text Text))
-  , _cgName          :: !Text
-  , _cgResourceQuery :: !ResourceQuery
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A configuration associates the resource group with an AWS service and
+    -- specifies how the service can interact with the resources in the group.
+    -- A configuration is an array of GroupConfigurationItem elements. For
+    -- details about the syntax of service configurations, see
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+    --
+    -- A resource group can contain either a @Configuration@ or a
+    -- @ResourceQuery@, but not both.
+    configuration :: Prelude.Maybe [GroupConfigurationItem],
+    -- | The tags to add to the group. A tag is key-value pair string.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the resource group. Descriptions can consist of
+    -- letters, numbers, hyphens, underscores, periods, and spaces.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The resource query that determines which AWS resources are members of
+    -- this group. For more information about resource queries, see
+    -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+    --
+    -- A resource group can contain either a @ResourceQuery@ or a
+    -- @Configuration@, but not both.
+    resourceQuery :: Prelude.Maybe ResourceQuery,
+    -- | The name of the group, which is the identifier of the group in other
+    -- operations. You can\'t change the name of a resource group after you
+    -- create it. A resource group name can consist of letters, numbers,
+    -- hyphens, periods, and underscores. The name cannot start with @AWS@ or
+    -- @aws@; these are reserved. A resource group name must be unique within
+    -- each AWS Region in your AWS account.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cgDescription' - The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cgTags' - The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
+-- 'configuration', 'createGroup_configuration' - A configuration associates the resource group with an AWS service and
+-- specifies how the service can interact with the resources in the group.
+-- A configuration is an array of GroupConfigurationItem elements. For
+-- details about the syntax of service configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
 --
--- * 'cgName' - The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
+-- A resource group can contain either a @Configuration@ or a
+-- @ResourceQuery@, but not both.
 --
--- * 'cgResourceQuery' - The resource query that determines which AWS resources are members of this group.
-createGroup
-    :: Text -- ^ 'cgName'
-    -> ResourceQuery -- ^ 'cgResourceQuery'
-    -> CreateGroup
-createGroup pName_ pResourceQuery_ =
+-- 'tags', 'createGroup_tags' - The tags to add to the group. A tag is key-value pair string.
+--
+-- 'description', 'createGroup_description' - The description of the resource group. Descriptions can consist of
+-- letters, numbers, hyphens, underscores, periods, and spaces.
+--
+-- 'resourceQuery', 'createGroup_resourceQuery' - The resource query that determines which AWS resources are members of
+-- this group. For more information about resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+--
+-- A resource group can contain either a @ResourceQuery@ or a
+-- @Configuration@, but not both.
+--
+-- 'name', 'createGroup_name' - The name of the group, which is the identifier of the group in other
+-- operations. You can\'t change the name of a resource group after you
+-- create it. A resource group name can consist of letters, numbers,
+-- hyphens, periods, and underscores. The name cannot start with @AWS@ or
+-- @aws@; these are reserved. A resource group name must be unique within
+-- each AWS Region in your AWS account.
+newCreateGroup ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateGroup
+newCreateGroup pName_ =
   CreateGroup'
-    { _cgDescription = Nothing
-    , _cgTags = Nothing
-    , _cgName = pName_
-    , _cgResourceQuery = pResourceQuery_
+    { configuration = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      resourceQuery = Prelude.Nothing,
+      name = pName_
     }
 
+-- | A configuration associates the resource group with an AWS service and
+-- specifies how the service can interact with the resources in the group.
+-- A configuration is an array of GroupConfigurationItem elements. For
+-- details about the syntax of service configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+--
+-- A resource group can contain either a @Configuration@ or a
+-- @ResourceQuery@, but not both.
+createGroup_configuration :: Lens.Lens' CreateGroup (Prelude.Maybe [GroupConfigurationItem])
+createGroup_configuration = Lens.lens (\CreateGroup' {configuration} -> configuration) (\s@CreateGroup' {} a -> s {configuration = a} :: CreateGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces.
-cgDescription :: Lens' CreateGroup (Maybe Text)
-cgDescription = lens _cgDescription (\ s a -> s{_cgDescription = a})
+-- | The tags to add to the group. A tag is key-value pair string.
+createGroup_tags :: Lens.Lens' CreateGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} a -> s {tags = a} :: CreateGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
-cgTags :: Lens' CreateGroup (HashMap Text Text)
-cgTags = lens _cgTags (\ s a -> s{_cgTags = a}) . _Default . _Map
+-- | The description of the resource group. Descriptions can consist of
+-- letters, numbers, hyphens, underscores, periods, and spaces.
+createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
 
--- | The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
-cgName :: Lens' CreateGroup Text
-cgName = lens _cgName (\ s a -> s{_cgName = a})
+-- | The resource query that determines which AWS resources are members of
+-- this group. For more information about resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+--
+-- A resource group can contain either a @ResourceQuery@ or a
+-- @Configuration@, but not both.
+createGroup_resourceQuery :: Lens.Lens' CreateGroup (Prelude.Maybe ResourceQuery)
+createGroup_resourceQuery = Lens.lens (\CreateGroup' {resourceQuery} -> resourceQuery) (\s@CreateGroup' {} a -> s {resourceQuery = a} :: CreateGroup)
 
--- | The resource query that determines which AWS resources are members of this group.
-cgResourceQuery :: Lens' CreateGroup ResourceQuery
-cgResourceQuery = lens _cgResourceQuery (\ s a -> s{_cgResourceQuery = a})
+-- | The name of the group, which is the identifier of the group in other
+-- operations. You can\'t change the name of a resource group after you
+-- create it. A resource group name can consist of letters, numbers,
+-- hyphens, periods, and underscores. The name cannot start with @AWS@ or
+-- @aws@; these are reserved. A resource group name must be unique within
+-- each AWS Region in your AWS account.
+createGroup_name :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_name = Lens.lens (\CreateGroup' {name} -> name) (\s@CreateGroup' {} a -> s {name = a} :: CreateGroup)
 
-instance AWSRequest CreateGroup where
-        type Rs CreateGroup = CreateGroupResponse
-        request = postJSON resourceGroups
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateGroupResponse' <$>
-                   (x .?> "Group") <*> (x .?> "ResourceQuery") <*>
-                     (x .?> "Tags" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateGroup where
+  type AWSResponse CreateGroup = CreateGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateGroupResponse'
+            Prelude.<$> (x Core..?> "GroupConfiguration")
+            Prelude.<*> (x Core..?> "Group")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ResourceQuery")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateGroup where
+instance Prelude.Hashable CreateGroup
 
-instance NFData CreateGroup where
+instance Prelude.NFData CreateGroup
 
-instance ToHeaders CreateGroup where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON CreateGroup where
-        toJSON CreateGroup'{..}
-          = object
-              (catMaybes
-                 [("Description" .=) <$> _cgDescription,
-                  ("Tags" .=) <$> _cgTags, Just ("Name" .= _cgName),
-                  Just ("ResourceQuery" .= _cgResourceQuery)])
+instance Core.ToJSON CreateGroup where
+  toJSON CreateGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Configuration" Core..=) Prelude.<$> configuration,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("ResourceQuery" Core..=) Prelude.<$> resourceQuery,
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToPath CreateGroup where
-        toPath = const "/groups"
+instance Core.ToPath CreateGroup where
+  toPath = Prelude.const "/groups"
 
-instance ToQuery CreateGroup where
-        toQuery = const mempty
+instance Core.ToQuery CreateGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createGroupResponse' smart constructor.
+-- | /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { _cgrsGroup          :: !(Maybe Group)
-  , _cgrsResourceQuery  :: !(Maybe ResourceQuery)
-  , _cgrsTags           :: !(Maybe (Map Text Text))
-  , _cgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The service configuration associated with the resource group. For
+    -- details about the syntax of a service configuration, see
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+    groupConfiguration :: Prelude.Maybe GroupConfiguration,
+    -- | The description of the resource group.
+    group' :: Prelude.Maybe Group,
+    -- | The tags associated with the group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource query associated with the group. For more information about
+    -- resource queries, see
+    -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+    resourceQuery :: Prelude.Maybe ResourceQuery,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cgrsGroup' - A full description of the resource group after it is created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cgrsResourceQuery' - The resource query associated with the group.
+-- 'groupConfiguration', 'createGroupResponse_groupConfiguration' - The service configuration associated with the resource group. For
+-- details about the syntax of a service configuration, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
 --
--- * 'cgrsTags' - The tags associated with the group.
+-- 'group'', 'createGroupResponse_group' - The description of the resource group.
 --
--- * 'cgrsResponseStatus' - -- | The response status code.
-createGroupResponse
-    :: Int -- ^ 'cgrsResponseStatus'
-    -> CreateGroupResponse
-createGroupResponse pResponseStatus_ =
+-- 'tags', 'createGroupResponse_tags' - The tags associated with the group.
+--
+-- 'resourceQuery', 'createGroupResponse_resourceQuery' - The resource query associated with the group. For more information about
+-- resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+--
+-- 'httpStatus', 'createGroupResponse_httpStatus' - The response's http status code.
+newCreateGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateGroupResponse
+newCreateGroupResponse pHttpStatus_ =
   CreateGroupResponse'
-    { _cgrsGroup = Nothing
-    , _cgrsResourceQuery = Nothing
-    , _cgrsTags = Nothing
-    , _cgrsResponseStatus = pResponseStatus_
+    { groupConfiguration =
+        Prelude.Nothing,
+      group' = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      resourceQuery = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The service configuration associated with the resource group. For
+-- details about the syntax of a service configuration, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+createGroupResponse_groupConfiguration :: Lens.Lens' CreateGroupResponse (Prelude.Maybe GroupConfiguration)
+createGroupResponse_groupConfiguration = Lens.lens (\CreateGroupResponse' {groupConfiguration} -> groupConfiguration) (\s@CreateGroupResponse' {} a -> s {groupConfiguration = a} :: CreateGroupResponse)
 
--- | A full description of the resource group after it is created.
-cgrsGroup :: Lens' CreateGroupResponse (Maybe Group)
-cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a})
-
--- | The resource query associated with the group.
-cgrsResourceQuery :: Lens' CreateGroupResponse (Maybe ResourceQuery)
-cgrsResourceQuery = lens _cgrsResourceQuery (\ s a -> s{_cgrsResourceQuery = a})
+-- | The description of the resource group.
+createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Group)
+createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
 
 -- | The tags associated with the group.
-cgrsTags :: Lens' CreateGroupResponse (HashMap Text Text)
-cgrsTags = lens _cgrsTags (\ s a -> s{_cgrsTags = a}) . _Default . _Map
+createGroupResponse_tags :: Lens.Lens' CreateGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createGroupResponse_tags = Lens.lens (\CreateGroupResponse' {tags} -> tags) (\s@CreateGroupResponse' {} a -> s {tags = a} :: CreateGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-cgrsResponseStatus :: Lens' CreateGroupResponse Int
-cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a})
+-- | The resource query associated with the group. For more information about
+-- resource queries, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
+createGroupResponse_resourceQuery :: Lens.Lens' CreateGroupResponse (Prelude.Maybe ResourceQuery)
+createGroupResponse_resourceQuery = Lens.lens (\CreateGroupResponse' {resourceQuery} -> resourceQuery) (\s@CreateGroupResponse' {} a -> s {resourceQuery = a} :: CreateGroupResponse)
 
-instance NFData CreateGroupResponse where
+-- | The response's http status code.
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
+createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
+
+instance Prelude.NFData CreateGroupResponse

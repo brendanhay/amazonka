@@ -1,144 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more on-premises instances.
---
---
+-- Gets information about one or more on-premises instances. The maximum
+-- number of on-premises instances that can be returned is 25.
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-    (
-    -- * Creating a Request
-      batchGetOnPremisesInstances
-    , BatchGetOnPremisesInstances
+  ( -- * Creating a Request
+    BatchGetOnPremisesInstances (..),
+    newBatchGetOnPremisesInstances,
+
     -- * Request Lenses
-    , bgopiInstanceNames
+    batchGetOnPremisesInstances_instanceNames,
 
     -- * Destructuring the Response
-    , batchGetOnPremisesInstancesResponse
-    , BatchGetOnPremisesInstancesResponse
+    BatchGetOnPremisesInstancesResponse (..),
+    newBatchGetOnPremisesInstancesResponse,
+
     -- * Response Lenses
-    , bgopirsInstanceInfos
-    , bgopirsResponseStatus
-    ) where
+    batchGetOnPremisesInstancesResponse_instanceInfos,
+    batchGetOnPremisesInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a BatchGetOnPremisesInstances operation.
+-- | Represents the input of a @BatchGetOnPremisesInstances@ operation.
 --
---
---
--- /See:/ 'batchGetOnPremisesInstances' smart constructor.
-newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-  { _bgopiInstanceNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newBatchGetOnPremisesInstances' smart constructor.
+data BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
+  { -- | The names of the on-premises instances about which to get information.
+    -- The maximum number of instance names you can specify is 25.
+    instanceNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetOnPremisesInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetOnPremisesInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgopiInstanceNames' - The names of the on-premises instances about which to get information.
-batchGetOnPremisesInstances
-    :: BatchGetOnPremisesInstances
-batchGetOnPremisesInstances =
-  BatchGetOnPremisesInstances' {_bgopiInstanceNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceNames', 'batchGetOnPremisesInstances_instanceNames' - The names of the on-premises instances about which to get information.
+-- The maximum number of instance names you can specify is 25.
+newBatchGetOnPremisesInstances ::
+  BatchGetOnPremisesInstances
+newBatchGetOnPremisesInstances =
+  BatchGetOnPremisesInstances'
+    { instanceNames =
+        Prelude.mempty
+    }
 
 -- | The names of the on-premises instances about which to get information.
-bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Coerce
+-- The maximum number of instance names you can specify is 25.
+batchGetOnPremisesInstances_instanceNames :: Lens.Lens' BatchGetOnPremisesInstances [Prelude.Text]
+batchGetOnPremisesInstances_instanceNames = Lens.lens (\BatchGetOnPremisesInstances' {instanceNames} -> instanceNames) (\s@BatchGetOnPremisesInstances' {} a -> s {instanceNames = a} :: BatchGetOnPremisesInstances) Prelude.. Lens._Coerce
 
-instance AWSRequest BatchGetOnPremisesInstances where
-        type Rs BatchGetOnPremisesInstances =
-             BatchGetOnPremisesInstancesResponse
-        request = postJSON codeDeploy
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchGetOnPremisesInstancesResponse' <$>
-                   (x .?> "instanceInfos" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest BatchGetOnPremisesInstances where
+  type
+    AWSResponse BatchGetOnPremisesInstances =
+      BatchGetOnPremisesInstancesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchGetOnPremisesInstancesResponse'
+            Prelude.<$> (x Core..?> "instanceInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable BatchGetOnPremisesInstances where
+instance Prelude.Hashable BatchGetOnPremisesInstances
 
-instance NFData BatchGetOnPremisesInstances where
+instance Prelude.NFData BatchGetOnPremisesInstances
 
-instance ToHeaders BatchGetOnPremisesInstances where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.BatchGetOnPremisesInstances" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders BatchGetOnPremisesInstances where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.BatchGetOnPremisesInstances" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON BatchGetOnPremisesInstances where
-        toJSON BatchGetOnPremisesInstances'{..}
-          = object
-              (catMaybes
-                 [Just ("instanceNames" .= _bgopiInstanceNames)])
+instance Core.ToJSON BatchGetOnPremisesInstances where
+  toJSON BatchGetOnPremisesInstances' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("instanceNames" Core..= instanceNames)
+          ]
+      )
 
-instance ToPath BatchGetOnPremisesInstances where
-        toPath = const "/"
+instance Core.ToPath BatchGetOnPremisesInstances where
+  toPath = Prelude.const "/"
 
-instance ToQuery BatchGetOnPremisesInstances where
-        toQuery = const mempty
+instance Core.ToQuery BatchGetOnPremisesInstances where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output of a BatchGetOnPremisesInstances operation.
+-- | Represents the output of a @BatchGetOnPremisesInstances@ operation.
 --
---
---
--- /See:/ 'batchGetOnPremisesInstancesResponse' smart constructor.
+-- /See:/ 'newBatchGetOnPremisesInstancesResponse' smart constructor.
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-  { _bgopirsInstanceInfos  :: !(Maybe [InstanceInfo])
-  , _bgopirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the on-premises instances.
+    instanceInfos :: Prelude.Maybe [InstanceInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetOnPremisesInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetOnPremisesInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgopirsInstanceInfos' - Information about the on-premises instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bgopirsResponseStatus' - -- | The response status code.
-batchGetOnPremisesInstancesResponse
-    :: Int -- ^ 'bgopirsResponseStatus'
-    -> BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pResponseStatus_ =
+-- 'instanceInfos', 'batchGetOnPremisesInstancesResponse_instanceInfos' - Information about the on-premises instances.
+--
+-- 'httpStatus', 'batchGetOnPremisesInstancesResponse_httpStatus' - The response's http status code.
+newBatchGetOnPremisesInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchGetOnPremisesInstancesResponse
+newBatchGetOnPremisesInstancesResponse pHttpStatus_ =
   BatchGetOnPremisesInstancesResponse'
-    {_bgopirsInstanceInfos = Nothing, _bgopirsResponseStatus = pResponseStatus_}
-
+    { instanceInfos =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the on-premises instances.
-bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
-bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce
+batchGetOnPremisesInstancesResponse_instanceInfos :: Lens.Lens' BatchGetOnPremisesInstancesResponse (Prelude.Maybe [InstanceInfo])
+batchGetOnPremisesInstancesResponse_instanceInfos = Lens.lens (\BatchGetOnPremisesInstancesResponse' {instanceInfos} -> instanceInfos) (\s@BatchGetOnPremisesInstancesResponse' {} a -> s {instanceInfos = a} :: BatchGetOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a})
+-- | The response's http status code.
+batchGetOnPremisesInstancesResponse_httpStatus :: Lens.Lens' BatchGetOnPremisesInstancesResponse Prelude.Int
+batchGetOnPremisesInstancesResponse_httpStatus = Lens.lens (\BatchGetOnPremisesInstancesResponse' {httpStatus} -> httpStatus) (\s@BatchGetOnPremisesInstancesResponse' {} a -> s {httpStatus = a} :: BatchGetOnPremisesInstancesResponse)
 
-instance NFData BatchGetOnPremisesInstancesResponse
-         where
+instance
+  Prelude.NFData
+    BatchGetOnPremisesInstancesResponse

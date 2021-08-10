@@ -1,101 +1,110 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteTopicRule
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the rule.
---
---
 module Network.AWS.IoT.DeleteTopicRule
-    (
-    -- * Creating a Request
-      deleteTopicRule
-    , DeleteTopicRule
+  ( -- * Creating a Request
+    DeleteTopicRule (..),
+    newDeleteTopicRule,
+
     -- * Request Lenses
-    , dRuleName
+    deleteTopicRule_ruleName,
 
     -- * Destructuring the Response
-    , deleteTopicRuleResponse
-    , DeleteTopicRuleResponse
-    ) where
+    DeleteTopicRuleResponse (..),
+    newDeleteTopicRuleResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeleteTopicRule operation.
 --
---
---
--- /See:/ 'deleteTopicRule' smart constructor.
-newtype DeleteTopicRule = DeleteTopicRule'
-  { _dRuleName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteTopicRule' smart constructor.
+data DeleteTopicRule = DeleteTopicRule'
+  { -- | The name of the rule.
+    ruleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTopicRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTopicRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dRuleName' - The name of the rule.
-deleteTopicRule
-    :: Text -- ^ 'dRuleName'
-    -> DeleteTopicRule
-deleteTopicRule pRuleName_ = DeleteTopicRule' {_dRuleName = pRuleName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ruleName', 'deleteTopicRule_ruleName' - The name of the rule.
+newDeleteTopicRule ::
+  -- | 'ruleName'
+  Prelude.Text ->
+  DeleteTopicRule
+newDeleteTopicRule pRuleName_ =
+  DeleteTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule.
-dRuleName :: Lens' DeleteTopicRule Text
-dRuleName = lens _dRuleName (\ s a -> s{_dRuleName = a})
+deleteTopicRule_ruleName :: Lens.Lens' DeleteTopicRule Prelude.Text
+deleteTopicRule_ruleName = Lens.lens (\DeleteTopicRule' {ruleName} -> ruleName) (\s@DeleteTopicRule' {} a -> s {ruleName = a} :: DeleteTopicRule)
 
-instance AWSRequest DeleteTopicRule where
-        type Rs DeleteTopicRule = DeleteTopicRuleResponse
-        request = delete ioT
-        response = receiveNull DeleteTopicRuleResponse'
+instance Core.AWSRequest DeleteTopicRule where
+  type
+    AWSResponse DeleteTopicRule =
+      DeleteTopicRuleResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteTopicRuleResponse'
 
-instance Hashable DeleteTopicRule where
+instance Prelude.Hashable DeleteTopicRule
 
-instance NFData DeleteTopicRule where
+instance Prelude.NFData DeleteTopicRule
 
-instance ToHeaders DeleteTopicRule where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteTopicRule where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteTopicRule where
-        toPath DeleteTopicRule'{..}
-          = mconcat ["/rules/", toBS _dRuleName]
+instance Core.ToPath DeleteTopicRule where
+  toPath DeleteTopicRule' {..} =
+    Prelude.mconcat ["/rules/", Core.toBS ruleName]
 
-instance ToQuery DeleteTopicRule where
-        toQuery = const mempty
+instance Core.ToQuery DeleteTopicRule where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteTopicRuleResponse' smart constructor.
-data DeleteTopicRuleResponse =
-  DeleteTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteTopicRuleResponse' smart constructor.
+data DeleteTopicRuleResponse = DeleteTopicRuleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTopicRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTopicRuleResponse' with all optional fields omitted.
 --
-deleteTopicRuleResponse
-    :: DeleteTopicRuleResponse
-deleteTopicRuleResponse = DeleteTopicRuleResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteTopicRuleResponse ::
+  DeleteTopicRuleResponse
+newDeleteTopicRuleResponse = DeleteTopicRuleResponse'
 
-
-instance NFData DeleteTopicRuleResponse where
+instance Prelude.NFData DeleteTopicRuleResponse

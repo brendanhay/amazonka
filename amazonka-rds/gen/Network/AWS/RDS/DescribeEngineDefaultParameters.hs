@@ -1,191 +1,270 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultParameters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the default engine and system parameter information for the specified database engine.
---
---
+-- Returns the default engine and system parameter information for the
+-- specified database engine.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEngineDefaultParameters
-    (
-    -- * Creating a Request
-      describeEngineDefaultParameters
-    , DescribeEngineDefaultParameters
+  ( -- * Creating a Request
+    DescribeEngineDefaultParameters (..),
+    newDescribeEngineDefaultParameters,
+
     -- * Request Lenses
-    , dedpFilters
-    , dedpMarker
-    , dedpMaxRecords
-    , dedpDBParameterGroupFamily
+    describeEngineDefaultParameters_filters,
+    describeEngineDefaultParameters_marker,
+    describeEngineDefaultParameters_maxRecords,
+    describeEngineDefaultParameters_dbParameterGroupFamily,
 
     -- * Destructuring the Response
-    , describeEngineDefaultParametersResponse
-    , DescribeEngineDefaultParametersResponse
-    -- * Response Lenses
-    , dedprsResponseStatus
-    , dedprsEngineDefaults
-    ) where
+    DescribeEngineDefaultParametersResponse (..),
+    newDescribeEngineDefaultParametersResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeEngineDefaultParametersResponse_httpStatus,
+    describeEngineDefaultParametersResponse_engineDefaults,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeEngineDefaultParameters' smart constructor.
+-- /See:/ 'newDescribeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-  { _dedpFilters                :: !(Maybe [Filter])
-  , _dedpMarker                 :: !(Maybe Text)
-  , _dedpMaxRecords             :: !(Maybe Int)
-  , _dedpDBParameterGroupFamily :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- @DescribeEngineDefaultParameters@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so you can retrieve the
+    -- remaining results.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The name of the DB parameter group family.
+    dbParameterGroupFamily :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEngineDefaultParameters' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEngineDefaultParameters' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dedpFilters' - This parameter is not currently supported.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dedpMarker' - An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'filters', 'describeEngineDefaultParameters_filters' - This parameter isn\'t currently supported.
 --
--- * 'dedpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
+-- 'marker', 'describeEngineDefaultParameters_marker' - An optional pagination token provided by a previous
+-- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 --
--- * 'dedpDBParameterGroupFamily' - The name of the DB parameter group family.
-describeEngineDefaultParameters
-    :: Text -- ^ 'dedpDBParameterGroupFamily'
-    -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pDBParameterGroupFamily_ =
-  DescribeEngineDefaultParameters'
-    { _dedpFilters = Nothing
-    , _dedpMarker = Nothing
-    , _dedpMaxRecords = Nothing
-    , _dedpDBParameterGroupFamily = pDBParameterGroupFamily_
-    }
+-- 'maxRecords', 'describeEngineDefaultParameters_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+--
+-- 'dbParameterGroupFamily', 'describeEngineDefaultParameters_dbParameterGroupFamily' - The name of the DB parameter group family.
+newDescribeEngineDefaultParameters ::
+  -- | 'dbParameterGroupFamily'
+  Prelude.Text ->
+  DescribeEngineDefaultParameters
+newDescribeEngineDefaultParameters
+  pDBParameterGroupFamily_ =
+    DescribeEngineDefaultParameters'
+      { filters =
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
+        dbParameterGroupFamily =
+          pDBParameterGroupFamily_
+      }
 
+-- | This parameter isn\'t currently supported.
+describeEngineDefaultParameters_filters :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe [Filter])
+describeEngineDefaultParameters_filters = Lens.lens (\DescribeEngineDefaultParameters' {filters} -> filters) (\s@DescribeEngineDefaultParameters' {} a -> s {filters = a} :: DescribeEngineDefaultParameters) Prelude.. Lens.mapping Lens._Coerce
 
--- | This parameter is not currently supported.
-dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
-dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce
+-- | An optional pagination token provided by a previous
+-- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
+describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
--- | An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a})
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a})
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeEngineDefaultParameters_maxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Int)
+describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultParameters' {maxRecords} -> maxRecords) (\s@DescribeEngineDefaultParameters' {} a -> s {maxRecords = a} :: DescribeEngineDefaultParameters)
 
 -- | The name of the DB parameter group family.
-dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a})
+describeEngineDefaultParameters_dbParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Prelude.Text
+describeEngineDefaultParameters_dbParameterGroupFamily = Lens.lens (\DescribeEngineDefaultParameters' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@DescribeEngineDefaultParameters' {} a -> s {dbParameterGroupFamily = a} :: DescribeEngineDefaultParameters)
 
-instance AWSPager DescribeEngineDefaultParameters
-         where
-        page rq rs
-          | stop
-              (rs ^? dedprsEngineDefaults . edMarker . _Just)
-            = Nothing
-          | stop (rs ^. dedprsEngineDefaults . edParameters) =
-            Nothing
-          | otherwise =
-            Just $ rq &
-              dedpMarker .~
-                rs ^? dedprsEngineDefaults . edMarker . _Just
+instance
+  Core.AWSPager
+    DescribeEngineDefaultParameters
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEngineDefaultParametersResponse_engineDefaults
+              Prelude.. engineDefaults_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEngineDefaultParametersResponse_engineDefaults
+              Prelude.. engineDefaults_parameters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEngineDefaultParameters_marker
+          Lens..~ rs
+          Lens.^? describeEngineDefaultParametersResponse_engineDefaults
+            Prelude.. engineDefaults_marker
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeEngineDefaultParameters
-         where
-        type Rs DescribeEngineDefaultParameters =
-             DescribeEngineDefaultParametersResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper
-              "DescribeEngineDefaultParametersResult"
-              (\ s h x ->
-                 DescribeEngineDefaultParametersResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "EngineDefaults"))
+instance
+  Core.AWSRequest
+    DescribeEngineDefaultParameters
+  where
+  type
+    AWSResponse DescribeEngineDefaultParameters =
+      DescribeEngineDefaultParametersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeEngineDefaultParametersResult"
+      ( \s h x ->
+          DescribeEngineDefaultParametersResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "EngineDefaults")
+      )
 
-instance Hashable DescribeEngineDefaultParameters
-         where
+instance
+  Prelude.Hashable
+    DescribeEngineDefaultParameters
 
-instance NFData DescribeEngineDefaultParameters where
+instance
+  Prelude.NFData
+    DescribeEngineDefaultParameters
 
-instance ToHeaders DescribeEngineDefaultParameters
-         where
-        toHeaders = const mempty
+instance
+  Core.ToHeaders
+    DescribeEngineDefaultParameters
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeEngineDefaultParameters where
-        toPath = const "/"
+instance Core.ToPath DescribeEngineDefaultParameters where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeEngineDefaultParameters
-         where
-        toQuery DescribeEngineDefaultParameters'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeEngineDefaultParameters" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dedpFilters),
-               "Marker" =: _dedpMarker,
-               "MaxRecords" =: _dedpMaxRecords,
-               "DBParameterGroupFamily" =:
-                 _dedpDBParameterGroupFamily]
+instance Core.ToQuery DescribeEngineDefaultParameters where
+  toQuery DescribeEngineDefaultParameters' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeEngineDefaultParameters" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Filters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
+        "DBParameterGroupFamily"
+          Core.=: dbParameterGroupFamily
+      ]
 
--- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
+-- | /See:/ 'newDescribeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-  { _dedprsResponseStatus :: !Int
-  , _dedprsEngineDefaults :: !EngineDefaults
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    engineDefaults :: EngineDefaults
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEngineDefaultParametersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEngineDefaultParametersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dedprsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dedprsEngineDefaults' - Undocumented member.
-describeEngineDefaultParametersResponse
-    :: Int -- ^ 'dedprsResponseStatus'
-    -> EngineDefaults -- ^ 'dedprsEngineDefaults'
-    -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
-  DescribeEngineDefaultParametersResponse'
-    { _dedprsResponseStatus = pResponseStatus_
-    , _dedprsEngineDefaults = pEngineDefaults_
-    }
+-- 'httpStatus', 'describeEngineDefaultParametersResponse_httpStatus' - The response's http status code.
+--
+-- 'engineDefaults', 'describeEngineDefaultParametersResponse_engineDefaults' - Undocumented member.
+newDescribeEngineDefaultParametersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'engineDefaults'
+  EngineDefaults ->
+  DescribeEngineDefaultParametersResponse
+newDescribeEngineDefaultParametersResponse
+  pHttpStatus_
+  pEngineDefaults_ =
+    DescribeEngineDefaultParametersResponse'
+      { httpStatus =
+          pHttpStatus_,
+        engineDefaults = pEngineDefaults_
+      }
 
-
--- | -- | The response status code.
-dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a})
+-- | The response's http status code.
+describeEngineDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeEngineDefaultParametersResponse Prelude.Int
+describeEngineDefaultParametersResponse_httpStatus = Lens.lens (\DescribeEngineDefaultParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeEngineDefaultParametersResponse' {} a -> s {httpStatus = a} :: DescribeEngineDefaultParametersResponse)
 
 -- | Undocumented member.
-dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a})
+describeEngineDefaultParametersResponse_engineDefaults :: Lens.Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+describeEngineDefaultParametersResponse_engineDefaults = Lens.lens (\DescribeEngineDefaultParametersResponse' {engineDefaults} -> engineDefaults) (\s@DescribeEngineDefaultParametersResponse' {} a -> s {engineDefaults = a} :: DescribeEngineDefaultParametersResponse)
 
-instance NFData
-           DescribeEngineDefaultParametersResponse
-         where
+instance
+  Prelude.NFData
+    DescribeEngineDefaultParametersResponse

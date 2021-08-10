@@ -1,110 +1,129 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified user from a Simple AD or Microsoft AD directory.
---
---
 module Network.AWS.WorkDocs.DeleteUser
-    (
-    -- * Creating a Request
-      deleteUser
-    , DeleteUser
+  ( -- * Creating a Request
+    DeleteUser (..),
+    newDeleteUser,
+
     -- * Request Lenses
-    , duuAuthenticationToken
-    , duuUserId
+    deleteUser_authenticationToken,
+    deleteUser_userId,
 
     -- * Destructuring the Response
-    , deleteUserResponse
-    , DeleteUserResponse
-    ) where
+    DeleteUserResponse (..),
+    newDeleteUserResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'deleteUser' smart constructor.
+-- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { _duuAuthenticationToken :: !(Maybe (Sensitive Text))
-  , _duuUserId              :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Amazon WorkDocs authentication token. Do not set this field when using
+    -- administrative API actions, as in accessing the API using AWS
+    -- credentials.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the user.
+    userId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'duuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'duuUserId' - The ID of the user.
-deleteUser
-    :: Text -- ^ 'duuUserId'
-    -> DeleteUser
-deleteUser pUserId_ =
-  DeleteUser' {_duuAuthenticationToken = Nothing, _duuUserId = pUserId_}
+-- 'authenticationToken', 'deleteUser_authenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using
+-- administrative API actions, as in accessing the API using AWS
+-- credentials.
+--
+-- 'userId', 'deleteUser_userId' - The ID of the user.
+newDeleteUser ::
+  -- | 'userId'
+  Prelude.Text ->
+  DeleteUser
+newDeleteUser pUserId_ =
+  DeleteUser'
+    { authenticationToken = Prelude.Nothing,
+      userId = pUserId_
+    }
 
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-duuAuthenticationToken :: Lens' DeleteUser (Maybe Text)
-duuAuthenticationToken = lens _duuAuthenticationToken (\ s a -> s{_duuAuthenticationToken = a}) . mapping _Sensitive
+-- | Amazon WorkDocs authentication token. Do not set this field when using
+-- administrative API actions, as in accessing the API using AWS
+-- credentials.
+deleteUser_authenticationToken :: Lens.Lens' DeleteUser (Prelude.Maybe Prelude.Text)
+deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the user.
-duuUserId :: Lens' DeleteUser Text
-duuUserId = lens _duuUserId (\ s a -> s{_duuUserId = a})
+deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' {} a -> s {userId = a} :: DeleteUser)
 
-instance AWSRequest DeleteUser where
-        type Rs DeleteUser = DeleteUserResponse
-        request = delete workDocs
-        response = receiveNull DeleteUserResponse'
+instance Core.AWSRequest DeleteUser where
+  type AWSResponse DeleteUser = DeleteUserResponse
+  request = Request.delete defaultService
+  response = Response.receiveNull DeleteUserResponse'
 
-instance Hashable DeleteUser where
+instance Prelude.Hashable DeleteUser
 
-instance NFData DeleteUser where
+instance Prelude.NFData DeleteUser
 
-instance ToHeaders DeleteUser where
-        toHeaders DeleteUser'{..}
-          = mconcat
-              ["Authentication" =# _duuAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders DeleteUser where
+  toHeaders DeleteUser' {..} =
+    Prelude.mconcat
+      [ "Authentication" Core.=# authenticationToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToPath DeleteUser where
-        toPath DeleteUser'{..}
-          = mconcat ["/api/v1/users/", toBS _duuUserId]
+instance Core.ToPath DeleteUser where
+  toPath DeleteUser' {..} =
+    Prelude.mconcat
+      ["/api/v1/users/", Core.toBS userId]
 
-instance ToQuery DeleteUser where
-        toQuery = const mempty
+instance Core.ToQuery DeleteUser where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteUserResponse' smart constructor.
-data DeleteUserResponse =
-  DeleteUserResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteUserResponse' smart constructor.
+data DeleteUserResponse = DeleteUserResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteUserResponse' with all optional fields omitted.
 --
-deleteUserResponse
-    :: DeleteUserResponse
-deleteUserResponse = DeleteUserResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteUserResponse ::
+  DeleteUserResponse
+newDeleteUserResponse = DeleteUserResponse'
 
-
-instance NFData DeleteUserResponse where
+instance Prelude.NFData DeleteUserResponse

@@ -1,130 +1,158 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetClassifier
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a classifier by name.
---
---
 module Network.AWS.Glue.GetClassifier
-    (
-    -- * Creating a Request
-      getClassifier
-    , GetClassifier
+  ( -- * Creating a Request
+    GetClassifier (..),
+    newGetClassifier,
+
     -- * Request Lenses
-    , getName
+    getClassifier_name,
 
     -- * Destructuring the Response
-    , getClassifierResponse
-    , GetClassifierResponse
+    GetClassifierResponse (..),
+    newGetClassifierResponse,
+
     -- * Response Lenses
-    , gcrsClassifier
-    , gcrsResponseStatus
-    ) where
+    getClassifierResponse_classifier,
+    getClassifierResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getClassifier' smart constructor.
-newtype GetClassifier = GetClassifier'
-  { _getName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetClassifier' smart constructor.
+data GetClassifier = GetClassifier'
+  { -- | Name of the classifier to retrieve.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetClassifier' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetClassifier' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'getName' - Name of the classifier to retrieve.
-getClassifier
-    :: Text -- ^ 'getName'
-    -> GetClassifier
-getClassifier pName_ = GetClassifier' {_getName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getClassifier_name' - Name of the classifier to retrieve.
+newGetClassifier ::
+  -- | 'name'
+  Prelude.Text ->
+  GetClassifier
+newGetClassifier pName_ =
+  GetClassifier' {name = pName_}
 
 -- | Name of the classifier to retrieve.
-getName :: Lens' GetClassifier Text
-getName = lens _getName (\ s a -> s{_getName = a})
+getClassifier_name :: Lens.Lens' GetClassifier Prelude.Text
+getClassifier_name = Lens.lens (\GetClassifier' {name} -> name) (\s@GetClassifier' {} a -> s {name = a} :: GetClassifier)
 
-instance AWSRequest GetClassifier where
-        type Rs GetClassifier = GetClassifierResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetClassifierResponse' <$>
-                   (x .?> "Classifier") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetClassifier where
+  type
+    AWSResponse GetClassifier =
+      GetClassifierResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetClassifierResponse'
+            Prelude.<$> (x Core..?> "Classifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetClassifier where
+instance Prelude.Hashable GetClassifier
 
-instance NFData GetClassifier where
+instance Prelude.NFData GetClassifier
 
-instance ToHeaders GetClassifier where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetClassifier" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetClassifier where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetClassifier" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetClassifier where
-        toJSON GetClassifier'{..}
-          = object (catMaybes [Just ("Name" .= _getName)])
+instance Core.ToJSON GetClassifier where
+  toJSON GetClassifier' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
-instance ToPath GetClassifier where
-        toPath = const "/"
+instance Core.ToPath GetClassifier where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetClassifier where
-        toQuery = const mempty
+instance Core.ToQuery GetClassifier where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getClassifierResponse' smart constructor.
+-- | /See:/ 'newGetClassifierResponse' smart constructor.
 data GetClassifierResponse = GetClassifierResponse'
-  { _gcrsClassifier     :: !(Maybe Classifier)
-  , _gcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The requested classifier.
+    classifier :: Prelude.Maybe Classifier,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetClassifierResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetClassifierResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcrsClassifier' - The requested classifier.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcrsResponseStatus' - -- | The response status code.
-getClassifierResponse
-    :: Int -- ^ 'gcrsResponseStatus'
-    -> GetClassifierResponse
-getClassifierResponse pResponseStatus_ =
+-- 'classifier', 'getClassifierResponse_classifier' - The requested classifier.
+--
+-- 'httpStatus', 'getClassifierResponse_httpStatus' - The response's http status code.
+newGetClassifierResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetClassifierResponse
+newGetClassifierResponse pHttpStatus_ =
   GetClassifierResponse'
-    {_gcrsClassifier = Nothing, _gcrsResponseStatus = pResponseStatus_}
-
+    { classifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The requested classifier.
-gcrsClassifier :: Lens' GetClassifierResponse (Maybe Classifier)
-gcrsClassifier = lens _gcrsClassifier (\ s a -> s{_gcrsClassifier = a})
+getClassifierResponse_classifier :: Lens.Lens' GetClassifierResponse (Prelude.Maybe Classifier)
+getClassifierResponse_classifier = Lens.lens (\GetClassifierResponse' {classifier} -> classifier) (\s@GetClassifierResponse' {} a -> s {classifier = a} :: GetClassifierResponse)
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetClassifierResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
+-- | The response's http status code.
+getClassifierResponse_httpStatus :: Lens.Lens' GetClassifierResponse Prelude.Int
+getClassifierResponse_httpStatus = Lens.lens (\GetClassifierResponse' {httpStatus} -> httpStatus) (\s@GetClassifierResponse' {} a -> s {httpStatus = a} :: GetClassifierResponse)
 
-instance NFData GetClassifierResponse where
+instance Prelude.NFData GetClassifierResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaPackage.DescribeOriginEndpoint
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,228 +22,318 @@
 --
 -- Gets details about an existing OriginEndpoint.
 module Network.AWS.MediaPackage.DescribeOriginEndpoint
-    (
-    -- * Creating a Request
-      describeOriginEndpoint
-    , DescribeOriginEndpoint
+  ( -- * Creating a Request
+    DescribeOriginEndpoint (..),
+    newDescribeOriginEndpoint,
+
     -- * Request Lenses
-    , doeId
+    describeOriginEndpoint_id,
 
     -- * Destructuring the Response
-    , describeOriginEndpointResponse
-    , DescribeOriginEndpointResponse
+    DescribeOriginEndpointResponse (..),
+    newDescribeOriginEndpointResponse,
+
     -- * Response Lenses
-    , desrsWhitelist
-    , desrsHlsPackage
-    , desrsARN
-    , desrsManifestName
-    , desrsURL
-    , desrsChannelId
-    , desrsStartoverWindowSeconds
-    , desrsDashPackage
-    , desrsMssPackage
-    , desrsId
-    , desrsTimeDelaySeconds
-    , desrsCmafPackage
-    , desrsDescription
-    , desrsResponseStatus
-    ) where
+    describeOriginEndpointResponse_dashPackage,
+    describeOriginEndpointResponse_startoverWindowSeconds,
+    describeOriginEndpointResponse_origination,
+    describeOriginEndpointResponse_channelId,
+    describeOriginEndpointResponse_cmafPackage,
+    describeOriginEndpointResponse_manifestName,
+    describeOriginEndpointResponse_arn,
+    describeOriginEndpointResponse_id,
+    describeOriginEndpointResponse_whitelist,
+    describeOriginEndpointResponse_mssPackage,
+    describeOriginEndpointResponse_tags,
+    describeOriginEndpointResponse_description,
+    describeOriginEndpointResponse_timeDelaySeconds,
+    describeOriginEndpointResponse_authorization,
+    describeOriginEndpointResponse_url,
+    describeOriginEndpointResponse_hlsPackage,
+    describeOriginEndpointResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.MediaPackage.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeOriginEndpoint' smart constructor.
-newtype DescribeOriginEndpoint = DescribeOriginEndpoint'
-  { _doeId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeOriginEndpoint' smart constructor.
+data DescribeOriginEndpoint = DescribeOriginEndpoint'
+  { -- | The ID of the OriginEndpoint.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeOriginEndpoint' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeOriginEndpoint' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'doeId' - The ID of the OriginEndpoint.
-describeOriginEndpoint
-    :: Text -- ^ 'doeId'
-    -> DescribeOriginEndpoint
-describeOriginEndpoint pId_ = DescribeOriginEndpoint' {_doeId = pId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'id', 'describeOriginEndpoint_id' - The ID of the OriginEndpoint.
+newDescribeOriginEndpoint ::
+  -- | 'id'
+  Prelude.Text ->
+  DescribeOriginEndpoint
+newDescribeOriginEndpoint pId_ =
+  DescribeOriginEndpoint' {id = pId_}
 
 -- | The ID of the OriginEndpoint.
-doeId :: Lens' DescribeOriginEndpoint Text
-doeId = lens _doeId (\ s a -> s{_doeId = a})
+describeOriginEndpoint_id :: Lens.Lens' DescribeOriginEndpoint Prelude.Text
+describeOriginEndpoint_id = Lens.lens (\DescribeOriginEndpoint' {id} -> id) (\s@DescribeOriginEndpoint' {} a -> s {id = a} :: DescribeOriginEndpoint)
 
-instance AWSRequest DescribeOriginEndpoint where
-        type Rs DescribeOriginEndpoint =
-             DescribeOriginEndpointResponse
-        request = get mediaPackage
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeOriginEndpointResponse' <$>
-                   (x .?> "whitelist" .!@ mempty) <*>
-                     (x .?> "hlsPackage")
-                     <*> (x .?> "arn")
-                     <*> (x .?> "manifestName")
-                     <*> (x .?> "url")
-                     <*> (x .?> "channelId")
-                     <*> (x .?> "startoverWindowSeconds")
-                     <*> (x .?> "dashPackage")
-                     <*> (x .?> "mssPackage")
-                     <*> (x .?> "id")
-                     <*> (x .?> "timeDelaySeconds")
-                     <*> (x .?> "cmafPackage")
-                     <*> (x .?> "description")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeOriginEndpoint where
+  type
+    AWSResponse DescribeOriginEndpoint =
+      DescribeOriginEndpointResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeOriginEndpointResponse'
+            Prelude.<$> (x Core..?> "dashPackage")
+            Prelude.<*> (x Core..?> "startoverWindowSeconds")
+            Prelude.<*> (x Core..?> "origination")
+            Prelude.<*> (x Core..?> "channelId")
+            Prelude.<*> (x Core..?> "cmafPackage")
+            Prelude.<*> (x Core..?> "manifestName")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "whitelist" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "mssPackage")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "timeDelaySeconds")
+            Prelude.<*> (x Core..?> "authorization")
+            Prelude.<*> (x Core..?> "url")
+            Prelude.<*> (x Core..?> "hlsPackage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeOriginEndpoint where
+instance Prelude.Hashable DescribeOriginEndpoint
 
-instance NFData DescribeOriginEndpoint where
+instance Prelude.NFData DescribeOriginEndpoint
 
-instance ToHeaders DescribeOriginEndpoint where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeOriginEndpoint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DescribeOriginEndpoint where
-        toPath DescribeOriginEndpoint'{..}
-          = mconcat ["/origin_endpoints/", toBS _doeId]
+instance Core.ToPath DescribeOriginEndpoint where
+  toPath DescribeOriginEndpoint' {..} =
+    Prelude.mconcat
+      ["/origin_endpoints/", Core.toBS id]
 
-instance ToQuery DescribeOriginEndpoint where
-        toQuery = const mempty
+instance Core.ToQuery DescribeOriginEndpoint where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeOriginEndpointResponse' smart constructor.
+-- | /See:/ 'newDescribeOriginEndpointResponse' smart constructor.
 data DescribeOriginEndpointResponse = DescribeOriginEndpointResponse'
-  { _desrsWhitelist              :: !(Maybe [Text])
-  , _desrsHlsPackage             :: !(Maybe HlsPackage)
-  , _desrsARN                    :: !(Maybe Text)
-  , _desrsManifestName           :: !(Maybe Text)
-  , _desrsURL                    :: !(Maybe Text)
-  , _desrsChannelId              :: !(Maybe Text)
-  , _desrsStartoverWindowSeconds :: !(Maybe Int)
-  , _desrsDashPackage            :: !(Maybe DashPackage)
-  , _desrsMssPackage             :: !(Maybe MssPackage)
-  , _desrsId                     :: !(Maybe Text)
-  , _desrsTimeDelaySeconds       :: !(Maybe Int)
-  , _desrsCmafPackage            :: !(Maybe CmafPackage)
-  , _desrsDescription            :: !(Maybe Text)
-  , _desrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dashPackage :: Prelude.Maybe DashPackage,
+    -- | Maximum duration (seconds) of content to retain for startover playback.
+    -- If not specified, startover playback will be disabled for the
+    -- OriginEndpoint.
+    startoverWindowSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Control whether origination of video is allowed for this OriginEndpoint.
+    -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
+    -- other form of access control. If set to DENY, the OriginEndpoint may not
+    -- be requested. This can be helpful for Live to VOD harvesting, or for
+    -- temporarily disabling origination
+    origination :: Prelude.Maybe Origination,
+    -- | The ID of the Channel the OriginEndpoint is associated with.
+    channelId :: Prelude.Maybe Prelude.Text,
+    cmafPackage :: Prelude.Maybe CmafPackage,
+    -- | A short string appended to the end of the OriginEndpoint URL.
+    manifestName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the OriginEndpoint.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A list of source IP CIDR blocks that will be allowed to access the
+    -- OriginEndpoint.
+    whitelist :: Prelude.Maybe [Prelude.Text],
+    mssPackage :: Prelude.Maybe MssPackage,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A short text description of the OriginEndpoint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Amount of delay (seconds) to enforce on the playback of live content. If
+    -- not specified, there will be no time delay in effect for the
+    -- OriginEndpoint.
+    timeDelaySeconds :: Prelude.Maybe Prelude.Int,
+    authorization :: Prelude.Maybe Authorization,
+    -- | The URL of the packaged OriginEndpoint for consumption.
+    url :: Prelude.Maybe Prelude.Text,
+    hlsPackage :: Prelude.Maybe HlsPackage,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeOriginEndpointResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeOriginEndpointResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsWhitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsHlsPackage' - Undocumented member.
+-- 'dashPackage', 'describeOriginEndpointResponse_dashPackage' - Undocumented member.
 --
--- * 'desrsARN' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+-- 'startoverWindowSeconds', 'describeOriginEndpointResponse_startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
+-- If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
 --
--- * 'desrsManifestName' - A short string appended to the end of the OriginEndpoint URL.
+-- 'origination', 'describeOriginEndpointResponse_origination' - Control whether origination of video is allowed for this OriginEndpoint.
+-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
+-- other form of access control. If set to DENY, the OriginEndpoint may not
+-- be requested. This can be helpful for Live to VOD harvesting, or for
+-- temporarily disabling origination
 --
--- * 'desrsURL' - The URL of the packaged OriginEndpoint for consumption.
+-- 'channelId', 'describeOriginEndpointResponse_channelId' - The ID of the Channel the OriginEndpoint is associated with.
 --
--- * 'desrsChannelId' - The ID of the Channel the OriginEndpoint is associated with.
+-- 'cmafPackage', 'describeOriginEndpointResponse_cmafPackage' - Undocumented member.
 --
--- * 'desrsStartoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
+-- 'manifestName', 'describeOriginEndpointResponse_manifestName' - A short string appended to the end of the OriginEndpoint URL.
 --
--- * 'desrsDashPackage' - Undocumented member.
+-- 'arn', 'describeOriginEndpointResponse_arn' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
 --
--- * 'desrsMssPackage' - Undocumented member.
+-- 'id', 'describeOriginEndpointResponse_id' - The ID of the OriginEndpoint.
 --
--- * 'desrsId' - The ID of the OriginEndpoint.
+-- 'whitelist', 'describeOriginEndpointResponse_whitelist' - A list of source IP CIDR blocks that will be allowed to access the
+-- OriginEndpoint.
 --
--- * 'desrsTimeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
+-- 'mssPackage', 'describeOriginEndpointResponse_mssPackage' - Undocumented member.
 --
--- * 'desrsCmafPackage' - Undocumented member.
+-- 'tags', 'describeOriginEndpointResponse_tags' - Undocumented member.
 --
--- * 'desrsDescription' - A short text description of the OriginEndpoint.
+-- 'description', 'describeOriginEndpointResponse_description' - A short text description of the OriginEndpoint.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeOriginEndpointResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeOriginEndpointResponse
-describeOriginEndpointResponse pResponseStatus_ =
+-- 'timeDelaySeconds', 'describeOriginEndpointResponse_timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If
+-- not specified, there will be no time delay in effect for the
+-- OriginEndpoint.
+--
+-- 'authorization', 'describeOriginEndpointResponse_authorization' - Undocumented member.
+--
+-- 'url', 'describeOriginEndpointResponse_url' - The URL of the packaged OriginEndpoint for consumption.
+--
+-- 'hlsPackage', 'describeOriginEndpointResponse_hlsPackage' - Undocumented member.
+--
+-- 'httpStatus', 'describeOriginEndpointResponse_httpStatus' - The response's http status code.
+newDescribeOriginEndpointResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeOriginEndpointResponse
+newDescribeOriginEndpointResponse pHttpStatus_ =
   DescribeOriginEndpointResponse'
-    { _desrsWhitelist = Nothing
-    , _desrsHlsPackage = Nothing
-    , _desrsARN = Nothing
-    , _desrsManifestName = Nothing
-    , _desrsURL = Nothing
-    , _desrsChannelId = Nothing
-    , _desrsStartoverWindowSeconds = Nothing
-    , _desrsDashPackage = Nothing
-    , _desrsMssPackage = Nothing
-    , _desrsId = Nothing
-    , _desrsTimeDelaySeconds = Nothing
-    , _desrsCmafPackage = Nothing
-    , _desrsDescription = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { dashPackage =
+        Prelude.Nothing,
+      startoverWindowSeconds = Prelude.Nothing,
+      origination = Prelude.Nothing,
+      channelId = Prelude.Nothing,
+      cmafPackage = Prelude.Nothing,
+      manifestName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      whitelist = Prelude.Nothing,
+      mssPackage = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      timeDelaySeconds = Prelude.Nothing,
+      authorization = Prelude.Nothing,
+      url = Prelude.Nothing,
+      hlsPackage = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
-desrsWhitelist :: Lens' DescribeOriginEndpointResponse [Text]
-desrsWhitelist = lens _desrsWhitelist (\ s a -> s{_desrsWhitelist = a}) . _Default . _Coerce
-
 -- | Undocumented member.
-desrsHlsPackage :: Lens' DescribeOriginEndpointResponse (Maybe HlsPackage)
-desrsHlsPackage = lens _desrsHlsPackage (\ s a -> s{_desrsHlsPackage = a})
+describeOriginEndpointResponse_dashPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe DashPackage)
+describeOriginEndpointResponse_dashPackage = Lens.lens (\DescribeOriginEndpointResponse' {dashPackage} -> dashPackage) (\s@DescribeOriginEndpointResponse' {} a -> s {dashPackage = a} :: DescribeOriginEndpointResponse)
 
--- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-desrsARN :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsARN = lens _desrsARN (\ s a -> s{_desrsARN = a})
+-- | Maximum duration (seconds) of content to retain for startover playback.
+-- If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
+describeOriginEndpointResponse_startoverWindowSeconds :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Int)
+describeOriginEndpointResponse_startoverWindowSeconds = Lens.lens (\DescribeOriginEndpointResponse' {startoverWindowSeconds} -> startoverWindowSeconds) (\s@DescribeOriginEndpointResponse' {} a -> s {startoverWindowSeconds = a} :: DescribeOriginEndpointResponse)
 
--- | A short string appended to the end of the OriginEndpoint URL.
-desrsManifestName :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsManifestName = lens _desrsManifestName (\ s a -> s{_desrsManifestName = a})
-
--- | The URL of the packaged OriginEndpoint for consumption.
-desrsURL :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsURL = lens _desrsURL (\ s a -> s{_desrsURL = a})
+-- | Control whether origination of video is allowed for this OriginEndpoint.
+-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
+-- other form of access control. If set to DENY, the OriginEndpoint may not
+-- be requested. This can be helpful for Live to VOD harvesting, or for
+-- temporarily disabling origination
+describeOriginEndpointResponse_origination :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Origination)
+describeOriginEndpointResponse_origination = Lens.lens (\DescribeOriginEndpointResponse' {origination} -> origination) (\s@DescribeOriginEndpointResponse' {} a -> s {origination = a} :: DescribeOriginEndpointResponse)
 
 -- | The ID of the Channel the OriginEndpoint is associated with.
-desrsChannelId :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsChannelId = lens _desrsChannelId (\ s a -> s{_desrsChannelId = a})
-
--- | Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
-desrsStartoverWindowSeconds :: Lens' DescribeOriginEndpointResponse (Maybe Int)
-desrsStartoverWindowSeconds = lens _desrsStartoverWindowSeconds (\ s a -> s{_desrsStartoverWindowSeconds = a})
+describeOriginEndpointResponse_channelId :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_channelId = Lens.lens (\DescribeOriginEndpointResponse' {channelId} -> channelId) (\s@DescribeOriginEndpointResponse' {} a -> s {channelId = a} :: DescribeOriginEndpointResponse)
 
 -- | Undocumented member.
-desrsDashPackage :: Lens' DescribeOriginEndpointResponse (Maybe DashPackage)
-desrsDashPackage = lens _desrsDashPackage (\ s a -> s{_desrsDashPackage = a})
+describeOriginEndpointResponse_cmafPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe CmafPackage)
+describeOriginEndpointResponse_cmafPackage = Lens.lens (\DescribeOriginEndpointResponse' {cmafPackage} -> cmafPackage) (\s@DescribeOriginEndpointResponse' {} a -> s {cmafPackage = a} :: DescribeOriginEndpointResponse)
 
--- | Undocumented member.
-desrsMssPackage :: Lens' DescribeOriginEndpointResponse (Maybe MssPackage)
-desrsMssPackage = lens _desrsMssPackage (\ s a -> s{_desrsMssPackage = a})
+-- | A short string appended to the end of the OriginEndpoint URL.
+describeOriginEndpointResponse_manifestName :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_manifestName = Lens.lens (\DescribeOriginEndpointResponse' {manifestName} -> manifestName) (\s@DescribeOriginEndpointResponse' {} a -> s {manifestName = a} :: DescribeOriginEndpointResponse)
+
+-- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+describeOriginEndpointResponse_arn :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_arn = Lens.lens (\DescribeOriginEndpointResponse' {arn} -> arn) (\s@DescribeOriginEndpointResponse' {} a -> s {arn = a} :: DescribeOriginEndpointResponse)
 
 -- | The ID of the OriginEndpoint.
-desrsId :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsId = lens _desrsId (\ s a -> s{_desrsId = a})
+describeOriginEndpointResponse_id :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_id = Lens.lens (\DescribeOriginEndpointResponse' {id} -> id) (\s@DescribeOriginEndpointResponse' {} a -> s {id = a} :: DescribeOriginEndpointResponse)
 
--- | Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
-desrsTimeDelaySeconds :: Lens' DescribeOriginEndpointResponse (Maybe Int)
-desrsTimeDelaySeconds = lens _desrsTimeDelaySeconds (\ s a -> s{_desrsTimeDelaySeconds = a})
+-- | A list of source IP CIDR blocks that will be allowed to access the
+-- OriginEndpoint.
+describeOriginEndpointResponse_whitelist :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe [Prelude.Text])
+describeOriginEndpointResponse_whitelist = Lens.lens (\DescribeOriginEndpointResponse' {whitelist} -> whitelist) (\s@DescribeOriginEndpointResponse' {} a -> s {whitelist = a} :: DescribeOriginEndpointResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-desrsCmafPackage :: Lens' DescribeOriginEndpointResponse (Maybe CmafPackage)
-desrsCmafPackage = lens _desrsCmafPackage (\ s a -> s{_desrsCmafPackage = a})
+describeOriginEndpointResponse_mssPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe MssPackage)
+describeOriginEndpointResponse_mssPackage = Lens.lens (\DescribeOriginEndpointResponse' {mssPackage} -> mssPackage) (\s@DescribeOriginEndpointResponse' {} a -> s {mssPackage = a} :: DescribeOriginEndpointResponse)
+
+-- | Undocumented member.
+describeOriginEndpointResponse_tags :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeOriginEndpointResponse_tags = Lens.lens (\DescribeOriginEndpointResponse' {tags} -> tags) (\s@DescribeOriginEndpointResponse' {} a -> s {tags = a} :: DescribeOriginEndpointResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short text description of the OriginEndpoint.
-desrsDescription :: Lens' DescribeOriginEndpointResponse (Maybe Text)
-desrsDescription = lens _desrsDescription (\ s a -> s{_desrsDescription = a})
+describeOriginEndpointResponse_description :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_description = Lens.lens (\DescribeOriginEndpointResponse' {description} -> description) (\s@DescribeOriginEndpointResponse' {} a -> s {description = a} :: DescribeOriginEndpointResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeOriginEndpointResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | Amount of delay (seconds) to enforce on the playback of live content. If
+-- not specified, there will be no time delay in effect for the
+-- OriginEndpoint.
+describeOriginEndpointResponse_timeDelaySeconds :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Int)
+describeOriginEndpointResponse_timeDelaySeconds = Lens.lens (\DescribeOriginEndpointResponse' {timeDelaySeconds} -> timeDelaySeconds) (\s@DescribeOriginEndpointResponse' {} a -> s {timeDelaySeconds = a} :: DescribeOriginEndpointResponse)
 
-instance NFData DescribeOriginEndpointResponse where
+-- | Undocumented member.
+describeOriginEndpointResponse_authorization :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Authorization)
+describeOriginEndpointResponse_authorization = Lens.lens (\DescribeOriginEndpointResponse' {authorization} -> authorization) (\s@DescribeOriginEndpointResponse' {} a -> s {authorization = a} :: DescribeOriginEndpointResponse)
+
+-- | The URL of the packaged OriginEndpoint for consumption.
+describeOriginEndpointResponse_url :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_url = Lens.lens (\DescribeOriginEndpointResponse' {url} -> url) (\s@DescribeOriginEndpointResponse' {} a -> s {url = a} :: DescribeOriginEndpointResponse)
+
+-- | Undocumented member.
+describeOriginEndpointResponse_hlsPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe HlsPackage)
+describeOriginEndpointResponse_hlsPackage = Lens.lens (\DescribeOriginEndpointResponse' {hlsPackage} -> hlsPackage) (\s@DescribeOriginEndpointResponse' {} a -> s {hlsPackage = a} :: DescribeOriginEndpointResponse)
+
+-- | The response's http status code.
+describeOriginEndpointResponse_httpStatus :: Lens.Lens' DescribeOriginEndpointResponse Prelude.Int
+describeOriginEndpointResponse_httpStatus = Lens.lens (\DescribeOriginEndpointResponse' {httpStatus} -> httpStatus) (\s@DescribeOriginEndpointResponse' {} a -> s {httpStatus = a} :: DescribeOriginEndpointResponse)
+
+instance
+  Prelude.NFData
+    DescribeOriginEndpointResponse

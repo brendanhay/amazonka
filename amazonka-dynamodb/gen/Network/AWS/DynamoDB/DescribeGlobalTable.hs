@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeGlobalTable
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,119 +22,152 @@
 --
 -- Returns information about the specified global table.
 --
---
+-- This operation only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html Version 2017.11.29>
+-- of global tables. If you are using global tables
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- you can use
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html DescribeTable>
+-- instead.
 module Network.AWS.DynamoDB.DescribeGlobalTable
-    (
-    -- * Creating a Request
-      describeGlobalTable
-    , DescribeGlobalTable
+  ( -- * Creating a Request
+    DescribeGlobalTable (..),
+    newDescribeGlobalTable,
+
     -- * Request Lenses
-    , dgtGlobalTableName
+    describeGlobalTable_globalTableName,
 
     -- * Destructuring the Response
-    , describeGlobalTableResponse
-    , DescribeGlobalTableResponse
+    DescribeGlobalTableResponse (..),
+    newDescribeGlobalTableResponse,
+
     -- * Response Lenses
-    , dgtrsGlobalTableDescription
-    , dgtrsResponseStatus
-    ) where
+    describeGlobalTableResponse_globalTableDescription,
+    describeGlobalTableResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeGlobalTable' smart constructor.
-newtype DescribeGlobalTable = DescribeGlobalTable'
-  { _dgtGlobalTableName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeGlobalTable' smart constructor.
+data DescribeGlobalTable = DescribeGlobalTable'
+  { -- | The name of the global table.
+    globalTableName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeGlobalTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeGlobalTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dgtGlobalTableName' - The name of the global table.
-describeGlobalTable
-    :: Text -- ^ 'dgtGlobalTableName'
-    -> DescribeGlobalTable
-describeGlobalTable pGlobalTableName_ =
-  DescribeGlobalTable' {_dgtGlobalTableName = pGlobalTableName_}
-
-
--- | The name of the global table.
-dgtGlobalTableName :: Lens' DescribeGlobalTable Text
-dgtGlobalTableName = lens _dgtGlobalTableName (\ s a -> s{_dgtGlobalTableName = a})
-
-instance AWSRequest DescribeGlobalTable where
-        type Rs DescribeGlobalTable =
-             DescribeGlobalTableResponse
-        request = postJSON dynamoDB
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeGlobalTableResponse' <$>
-                   (x .?> "GlobalTableDescription") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable DescribeGlobalTable where
-
-instance NFData DescribeGlobalTable where
-
-instance ToHeaders DescribeGlobalTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDB_20120810.DescribeGlobalTable" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
-
-instance ToJSON DescribeGlobalTable where
-        toJSON DescribeGlobalTable'{..}
-          = object
-              (catMaybes
-                 [Just ("GlobalTableName" .= _dgtGlobalTableName)])
-
-instance ToPath DescribeGlobalTable where
-        toPath = const "/"
-
-instance ToQuery DescribeGlobalTable where
-        toQuery = const mempty
-
--- | /See:/ 'describeGlobalTableResponse' smart constructor.
-data DescribeGlobalTableResponse = DescribeGlobalTableResponse'
-  { _dgtrsGlobalTableDescription :: !(Maybe GlobalTableDescription)
-  , _dgtrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeGlobalTableResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgtrsGlobalTableDescription' - Contains the details of the global table.
---
--- * 'dgtrsResponseStatus' - -- | The response status code.
-describeGlobalTableResponse
-    :: Int -- ^ 'dgtrsResponseStatus'
-    -> DescribeGlobalTableResponse
-describeGlobalTableResponse pResponseStatus_ =
-  DescribeGlobalTableResponse'
-    { _dgtrsGlobalTableDescription = Nothing
-    , _dgtrsResponseStatus = pResponseStatus_
+-- 'globalTableName', 'describeGlobalTable_globalTableName' - The name of the global table.
+newDescribeGlobalTable ::
+  -- | 'globalTableName'
+  Prelude.Text ->
+  DescribeGlobalTable
+newDescribeGlobalTable pGlobalTableName_ =
+  DescribeGlobalTable'
+    { globalTableName =
+        pGlobalTableName_
     }
 
+-- | The name of the global table.
+describeGlobalTable_globalTableName :: Lens.Lens' DescribeGlobalTable Prelude.Text
+describeGlobalTable_globalTableName = Lens.lens (\DescribeGlobalTable' {globalTableName} -> globalTableName) (\s@DescribeGlobalTable' {} a -> s {globalTableName = a} :: DescribeGlobalTable)
+
+instance Core.AWSRequest DescribeGlobalTable where
+  type
+    AWSResponse DescribeGlobalTable =
+      DescribeGlobalTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeGlobalTableResponse'
+            Prelude.<$> (x Core..?> "GlobalTableDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeGlobalTable
+
+instance Prelude.NFData DescribeGlobalTable
+
+instance Core.ToHeaders DescribeGlobalTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DynamoDB_20120810.DescribeGlobalTable" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeGlobalTable where
+  toJSON DescribeGlobalTable' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GlobalTableName" Core..= globalTableName)
+          ]
+      )
+
+instance Core.ToPath DescribeGlobalTable where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeGlobalTable where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeGlobalTableResponse' smart constructor.
+data DescribeGlobalTableResponse = DescribeGlobalTableResponse'
+  { -- | Contains the details of the global table.
+    globalTableDescription :: Prelude.Maybe GlobalTableDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeGlobalTableResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'globalTableDescription', 'describeGlobalTableResponse_globalTableDescription' - Contains the details of the global table.
+--
+-- 'httpStatus', 'describeGlobalTableResponse_httpStatus' - The response's http status code.
+newDescribeGlobalTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeGlobalTableResponse
+newDescribeGlobalTableResponse pHttpStatus_ =
+  DescribeGlobalTableResponse'
+    { globalTableDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the details of the global table.
-dgtrsGlobalTableDescription :: Lens' DescribeGlobalTableResponse (Maybe GlobalTableDescription)
-dgtrsGlobalTableDescription = lens _dgtrsGlobalTableDescription (\ s a -> s{_dgtrsGlobalTableDescription = a})
+describeGlobalTableResponse_globalTableDescription :: Lens.Lens' DescribeGlobalTableResponse (Prelude.Maybe GlobalTableDescription)
+describeGlobalTableResponse_globalTableDescription = Lens.lens (\DescribeGlobalTableResponse' {globalTableDescription} -> globalTableDescription) (\s@DescribeGlobalTableResponse' {} a -> s {globalTableDescription = a} :: DescribeGlobalTableResponse)
 
--- | -- | The response status code.
-dgtrsResponseStatus :: Lens' DescribeGlobalTableResponse Int
-dgtrsResponseStatus = lens _dgtrsResponseStatus (\ s a -> s{_dgtrsResponseStatus = a})
+-- | The response's http status code.
+describeGlobalTableResponse_httpStatus :: Lens.Lens' DescribeGlobalTableResponse Prelude.Int
+describeGlobalTableResponse_httpStatus = Lens.lens (\DescribeGlobalTableResponse' {httpStatus} -> httpStatus) (\s@DescribeGlobalTableResponse' {} a -> s {httpStatus = a} :: DescribeGlobalTableResponse)
 
-instance NFData DescribeGlobalTableResponse where
+instance Prelude.NFData DescribeGlobalTableResponse

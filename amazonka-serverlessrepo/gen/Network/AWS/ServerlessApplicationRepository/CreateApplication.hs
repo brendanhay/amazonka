@@ -1,363 +1,692 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServerlessApplicationRepository.CreateApplication
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an application, optionally including an AWS SAM file to create the first application version in the same call.
---
---
+-- Creates an application, optionally including an AWS SAM file to create
+-- the first application version in the same call.
 module Network.AWS.ServerlessApplicationRepository.CreateApplication
-    (
-    -- * Creating a Request
-      createApplication
-    , CreateApplication
+  ( -- * Creating a Request
+    CreateApplication (..),
+    newCreateApplication,
+
     -- * Request Lenses
-    , caHomePageURL
-    , caReadmeBody
-    , caLicenseURL
-    , caSemanticVersion
-    , caSourceCodeURL
-    , caReadmeURL
-    , caName
-    , caAuthor
-    , caLabels
-    , caTemplateBody
-    , caTemplateURL
-    , caLicenseBody
-    , caDescription
-    , caSpdxLicenseId
+    createApplication_spdxLicenseId,
+    createApplication_templateUrl,
+    createApplication_licenseBody,
+    createApplication_licenseUrl,
+    createApplication_labels,
+    createApplication_readmeBody,
+    createApplication_homePageUrl,
+    createApplication_sourceCodeArchiveUrl,
+    createApplication_readmeUrl,
+    createApplication_sourceCodeUrl,
+    createApplication_semanticVersion,
+    createApplication_templateBody,
+    createApplication_description,
+    createApplication_name,
+    createApplication_author,
 
     -- * Destructuring the Response
-    , createApplicationResponse
-    , CreateApplicationResponse
+    CreateApplicationResponse (..),
+    newCreateApplicationResponse,
+
     -- * Response Lenses
-    , carsCreationTime
-    , carsHomePageURL
-    , carsLicenseURL
-    , carsReadmeURL
-    , carsApplicationId
-    , carsName
-    , carsVersion
-    , carsAuthor
-    , carsLabels
-    , carsDescription
-    , carsSpdxLicenseId
-    , carsResponseStatus
-    ) where
+    createApplicationResponse_applicationId,
+    createApplicationResponse_creationTime,
+    createApplicationResponse_spdxLicenseId,
+    createApplicationResponse_licenseUrl,
+    createApplicationResponse_verifiedAuthorUrl,
+    createApplicationResponse_labels,
+    createApplicationResponse_author,
+    createApplicationResponse_version,
+    createApplicationResponse_homePageUrl,
+    createApplicationResponse_name,
+    createApplicationResponse_isVerifiedAuthor,
+    createApplicationResponse_readmeUrl,
+    createApplicationResponse_description,
+    createApplicationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
-import Network.AWS.ServerlessApplicationRepository.Types.Product
 
--- | /See:/ 'createApplication' smart constructor.
+-- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caHomePageURL     :: !(Maybe Text)
-  , _caReadmeBody      :: !(Maybe Text)
-  , _caLicenseURL      :: !(Maybe Text)
-  , _caSemanticVersion :: !(Maybe Text)
-  , _caSourceCodeURL   :: !(Maybe Text)
-  , _caReadmeURL       :: !(Maybe Text)
-  , _caName            :: !(Maybe Text)
-  , _caAuthor          :: !(Maybe Text)
-  , _caLabels          :: !(Maybe [Text])
-  , _caTemplateBody    :: !(Maybe Text)
-  , _caTemplateURL     :: !(Maybe Text)
-  , _caLicenseBody     :: !(Maybe Text)
-  , _caDescription     :: !(Maybe Text)
-  , _caSpdxLicenseId   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A valid identifier from <https://spdx.org/licenses/>.
+    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object containing the packaged AWS SAM template of your
+    -- application.
+    --
+    -- You can specify only one of templateBody and templateUrl; otherwise an
+    -- error results.
+    templateUrl :: Prelude.Maybe Prelude.Text,
+    -- | A local text file that contains the license of the app that matches the
+    -- spdxLicenseID value of your application. The file has the format
+    -- file:\/\/\<path>\/\<filename>.
+    --
+    -- Maximum size 5 MB
+    --
+    -- You can specify only one of licenseBody and licenseUrl; otherwise, an
+    -- error results.
+    licenseBody :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the license of the app that
+    -- matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
+    --
+    -- You can specify only one of licenseBody and licenseUrl; otherwise, an
+    -- error results.
+    licenseUrl :: Prelude.Maybe Prelude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    --
+    -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
+    labels :: Prelude.Maybe [Prelude.Text],
+    -- | A local text readme file in Markdown language that contains a more
+    -- detailed description of the application and how it works. The file has
+    -- the format file:\/\/\<path>\/\<filename>.
+    --
+    -- Maximum size 5 MB
+    --
+    -- You can specify only one of readmeBody and readmeUrl; otherwise, an
+    -- error results.
+    readmeBody :: Prelude.Maybe Prelude.Text,
+    -- | A URL with more information about the application, for example the
+    -- location of your GitHub repository for the application.
+    homePageUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code
+    -- for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object in Markdown language that contains a more
+    -- detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    --
+    -- You can specify only one of readmeBody and readmeUrl; otherwise, an
+    -- error results.
+    readmeUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/>
+    semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | The local raw packaged AWS SAM template file of your application. The
+    -- file has the format file:\/\/\<path>\/\<filename>.
+    --
+    -- You can specify only one of templateBody and templateUrl; otherwise an
+    -- error results.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Prelude.Text,
+    -- | The name of the application that you want to publish.
+    --
+    -- Minimum length=1. Maximum length=140
+    --
+    -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+    name :: Prelude.Text,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    --
+    -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+    author :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApplication' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'caHomePageURL' - A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'caReadmeBody' - A raw text Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- 'spdxLicenseId', 'createApplication_spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/>.
 --
--- * 'caLicenseURL' - A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- 'templateUrl', 'createApplication_templateUrl' - A link to the S3 object containing the packaged AWS SAM template of your
+-- application.
 --
--- * 'caSemanticVersion' - The semantic version of the application: <https://semver.org/ https://semver.org/>
+-- You can specify only one of templateBody and templateUrl; otherwise an
+-- error results.
 --
--- * 'caSourceCodeURL' - A link to a public repository for the source code of your application.
+-- 'licenseBody', 'createApplication_licenseBody' - A local text file that contains the license of the app that matches the
+-- spdxLicenseID value of your application. The file has the format
+-- file:\/\/\<path>\/\<filename>.
 --
--- * 'caReadmeURL' - A link to the Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- Maximum size 5 MB
 --
--- * 'caName' - The name of the application you want to publish. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an
+-- error results.
 --
--- * 'caAuthor' - The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- 'licenseUrl', 'createApplication_licenseUrl' - A link to the S3 object that contains the license of the app that
+-- matches the spdxLicenseID value of your application.
 --
--- * 'caLabels' - Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- Maximum size 5 MB
 --
--- * 'caTemplateBody' - The raw packaged AWS SAM template of your application.
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an
+-- error results.
 --
--- * 'caTemplateURL' - A link to the packaged AWS SAM template of your application.
+-- 'labels', 'createApplication_labels' - Labels to improve discovery of apps in search results.
 --
--- * 'caLicenseBody' - A raw text file that contains the license of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
 --
--- * 'caDescription' - The description of the application. Min Length=1. Max Length=256
+-- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 --
--- * 'caSpdxLicenseId' - A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
-createApplication
-    :: CreateApplication
-createApplication =
+-- 'readmeBody', 'createApplication_readmeBody' - A local text readme file in Markdown language that contains a more
+-- detailed description of the application and how it works. The file has
+-- the format file:\/\/\<path>\/\<filename>.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of readmeBody and readmeUrl; otherwise, an
+-- error results.
+--
+-- 'homePageUrl', 'createApplication_homePageUrl' - A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+--
+-- 'sourceCodeArchiveUrl', 'createApplication_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+--
+-- 'readmeUrl', 'createApplication_readmeUrl' - A link to the S3 object in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of readmeBody and readmeUrl; otherwise, an
+-- error results.
+--
+-- 'sourceCodeUrl', 'createApplication_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+--
+-- 'semanticVersion', 'createApplication_semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/>
+--
+-- 'templateBody', 'createApplication_templateBody' - The local raw packaged AWS SAM template file of your application. The
+-- file has the format file:\/\/\<path>\/\<filename>.
+--
+-- You can specify only one of templateBody and templateUrl; otherwise an
+-- error results.
+--
+-- 'description', 'createApplication_description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+--
+-- 'name', 'createApplication_name' - The name of the application that you want to publish.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+--
+-- 'author', 'createApplication_author' - The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+--
+-- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+newCreateApplication ::
+  -- | 'description'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'author'
+  Prelude.Text ->
+  CreateApplication
+newCreateApplication pDescription_ pName_ pAuthor_ =
   CreateApplication'
-    { _caHomePageURL = Nothing
-    , _caReadmeBody = Nothing
-    , _caLicenseURL = Nothing
-    , _caSemanticVersion = Nothing
-    , _caSourceCodeURL = Nothing
-    , _caReadmeURL = Nothing
-    , _caName = Nothing
-    , _caAuthor = Nothing
-    , _caLabels = Nothing
-    , _caTemplateBody = Nothing
-    , _caTemplateURL = Nothing
-    , _caLicenseBody = Nothing
-    , _caDescription = Nothing
-    , _caSpdxLicenseId = Nothing
+    { spdxLicenseId = Prelude.Nothing,
+      templateUrl = Prelude.Nothing,
+      licenseBody = Prelude.Nothing,
+      licenseUrl = Prelude.Nothing,
+      labels = Prelude.Nothing,
+      readmeBody = Prelude.Nothing,
+      homePageUrl = Prelude.Nothing,
+      sourceCodeArchiveUrl = Prelude.Nothing,
+      readmeUrl = Prelude.Nothing,
+      sourceCodeUrl = Prelude.Nothing,
+      semanticVersion = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      description = pDescription_,
+      name = pName_,
+      author = pAuthor_
     }
 
+-- | A valid identifier from <https://spdx.org/licenses/>.
+createApplication_spdxLicenseId :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_spdxLicenseId = Lens.lens (\CreateApplication' {spdxLicenseId} -> spdxLicenseId) (\s@CreateApplication' {} a -> s {spdxLicenseId = a} :: CreateApplication)
 
--- | A URL with more information about the application, for example  the location of your GitHub repository for the application.
-caHomePageURL :: Lens' CreateApplication (Maybe Text)
-caHomePageURL = lens _caHomePageURL (\ s a -> s{_caHomePageURL = a})
+-- | A link to the S3 object containing the packaged AWS SAM template of your
+-- application.
+--
+-- You can specify only one of templateBody and templateUrl; otherwise an
+-- error results.
+createApplication_templateUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_templateUrl = Lens.lens (\CreateApplication' {templateUrl} -> templateUrl) (\s@CreateApplication' {} a -> s {templateUrl = a} :: CreateApplication)
 
--- | A raw text Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
-caReadmeBody :: Lens' CreateApplication (Maybe Text)
-caReadmeBody = lens _caReadmeBody (\ s a -> s{_caReadmeBody = a})
+-- | A local text file that contains the license of the app that matches the
+-- spdxLicenseID value of your application. The file has the format
+-- file:\/\/\<path>\/\<filename>.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an
+-- error results.
+createApplication_licenseBody :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_licenseBody = Lens.lens (\CreateApplication' {licenseBody} -> licenseBody) (\s@CreateApplication' {} a -> s {licenseBody = a} :: CreateApplication)
 
--- | A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
-caLicenseURL :: Lens' CreateApplication (Maybe Text)
-caLicenseURL = lens _caLicenseURL (\ s a -> s{_caLicenseURL = a})
+-- | A link to the S3 object that contains the license of the app that
+-- matches the spdxLicenseID value of your application.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an
+-- error results.
+createApplication_licenseUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_licenseUrl = Lens.lens (\CreateApplication' {licenseUrl} -> licenseUrl) (\s@CreateApplication' {} a -> s {licenseUrl = a} :: CreateApplication)
 
--- | The semantic version of the application: <https://semver.org/ https://semver.org/>
-caSemanticVersion :: Lens' CreateApplication (Maybe Text)
-caSemanticVersion = lens _caSemanticVersion (\ s a -> s{_caSemanticVersion = a})
+-- | Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+--
+-- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
+createApplication_labels :: Lens.Lens' CreateApplication (Prelude.Maybe [Prelude.Text])
+createApplication_labels = Lens.lens (\CreateApplication' {labels} -> labels) (\s@CreateApplication' {} a -> s {labels = a} :: CreateApplication) Prelude.. Lens.mapping Lens._Coerce
 
--- | A link to a public repository for the source code of your application.
-caSourceCodeURL :: Lens' CreateApplication (Maybe Text)
-caSourceCodeURL = lens _caSourceCodeURL (\ s a -> s{_caSourceCodeURL = a})
+-- | A local text readme file in Markdown language that contains a more
+-- detailed description of the application and how it works. The file has
+-- the format file:\/\/\<path>\/\<filename>.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of readmeBody and readmeUrl; otherwise, an
+-- error results.
+createApplication_readmeBody :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_readmeBody = Lens.lens (\CreateApplication' {readmeBody} -> readmeBody) (\s@CreateApplication' {} a -> s {readmeBody = a} :: CreateApplication)
 
--- | A link to the Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
-caReadmeURL :: Lens' CreateApplication (Maybe Text)
-caReadmeURL = lens _caReadmeURL (\ s a -> s{_caReadmeURL = a})
+-- | A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+createApplication_homePageUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_homePageUrl = Lens.lens (\CreateApplication' {homePageUrl} -> homePageUrl) (\s@CreateApplication' {} a -> s {homePageUrl = a} :: CreateApplication)
 
--- | The name of the application you want to publish. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
-caName :: Lens' CreateApplication (Maybe Text)
-caName = lens _caName (\ s a -> s{_caName = a})
+-- | A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+createApplication_sourceCodeArchiveUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_sourceCodeArchiveUrl = Lens.lens (\CreateApplication' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplication' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplication)
 
--- | The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-caAuthor :: Lens' CreateApplication (Maybe Text)
-caAuthor = lens _caAuthor (\ s a -> s{_caAuthor = a})
+-- | A link to the S3 object in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- You can specify only one of readmeBody and readmeUrl; otherwise, an
+-- error results.
+createApplication_readmeUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_readmeUrl = Lens.lens (\CreateApplication' {readmeUrl} -> readmeUrl) (\s@CreateApplication' {} a -> s {readmeUrl = a} :: CreateApplication)
 
--- | Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-caLabels :: Lens' CreateApplication [Text]
-caLabels = lens _caLabels (\ s a -> s{_caLabels = a}) . _Default . _Coerce
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+createApplication_sourceCodeUrl :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_sourceCodeUrl = Lens.lens (\CreateApplication' {sourceCodeUrl} -> sourceCodeUrl) (\s@CreateApplication' {} a -> s {sourceCodeUrl = a} :: CreateApplication)
 
--- | The raw packaged AWS SAM template of your application.
-caTemplateBody :: Lens' CreateApplication (Maybe Text)
-caTemplateBody = lens _caTemplateBody (\ s a -> s{_caTemplateBody = a})
+-- | The semantic version of the application:
+--
+-- <https://semver.org/>
+createApplication_semanticVersion :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_semanticVersion = Lens.lens (\CreateApplication' {semanticVersion} -> semanticVersion) (\s@CreateApplication' {} a -> s {semanticVersion = a} :: CreateApplication)
 
--- | A link to the packaged AWS SAM template of your application.
-caTemplateURL :: Lens' CreateApplication (Maybe Text)
-caTemplateURL = lens _caTemplateURL (\ s a -> s{_caTemplateURL = a})
+-- | The local raw packaged AWS SAM template file of your application. The
+-- file has the format file:\/\/\<path>\/\<filename>.
+--
+-- You can specify only one of templateBody and templateUrl; otherwise an
+-- error results.
+createApplication_templateBody :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_templateBody = Lens.lens (\CreateApplication' {templateBody} -> templateBody) (\s@CreateApplication' {} a -> s {templateBody = a} :: CreateApplication)
 
--- | A raw text file that contains the license of the app that matches the spdxLicenseID of your application. Max size 5 MB
-caLicenseBody :: Lens' CreateApplication (Maybe Text)
-caLicenseBody = lens _caLicenseBody (\ s a -> s{_caLicenseBody = a})
+-- | The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+createApplication_description :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
--- | The description of the application. Min Length=1. Max Length=256
-caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
+-- | The name of the application that you want to publish.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+createApplication_name :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@CreateApplication' {} a -> s {name = a} :: CreateApplication)
 
--- | A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
-caSpdxLicenseId :: Lens' CreateApplication (Maybe Text)
-caSpdxLicenseId = lens _caSpdxLicenseId (\ s a -> s{_caSpdxLicenseId = a})
+-- | The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+--
+-- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+createApplication_author :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_author = Lens.lens (\CreateApplication' {author} -> author) (\s@CreateApplication' {} a -> s {author = a} :: CreateApplication)
 
-instance AWSRequest CreateApplication where
-        type Rs CreateApplication = CreateApplicationResponse
-        request = postJSON serverlessApplicationRepository
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateApplicationResponse' <$>
-                   (x .?> "creationTime") <*> (x .?> "homePageUrl") <*>
-                     (x .?> "licenseUrl")
-                     <*> (x .?> "readmeUrl")
-                     <*> (x .?> "applicationId")
-                     <*> (x .?> "name")
-                     <*> (x .?> "version")
-                     <*> (x .?> "author")
-                     <*> (x .?> "labels" .!@ mempty)
-                     <*> (x .?> "description")
-                     <*> (x .?> "spdxLicenseId")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateApplication where
+  type
+    AWSResponse CreateApplication =
+      CreateApplicationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateApplicationResponse'
+            Prelude.<$> (x Core..?> "applicationId")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "spdxLicenseId")
+            Prelude.<*> (x Core..?> "licenseUrl")
+            Prelude.<*> (x Core..?> "verifiedAuthorUrl")
+            Prelude.<*> (x Core..?> "labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "author")
+            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "homePageUrl")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "isVerifiedAuthor")
+            Prelude.<*> (x Core..?> "readmeUrl")
+            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateApplication where
+instance Prelude.Hashable CreateApplication
 
-instance NFData CreateApplication where
+instance Prelude.NFData CreateApplication
 
-instance ToHeaders CreateApplication where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateApplication where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateApplication where
-        toJSON CreateApplication'{..}
-          = object
-              (catMaybes
-                 [("homePageUrl" .=) <$> _caHomePageURL,
-                  ("readmeBody" .=) <$> _caReadmeBody,
-                  ("licenseUrl" .=) <$> _caLicenseURL,
-                  ("semanticVersion" .=) <$> _caSemanticVersion,
-                  ("sourceCodeUrl" .=) <$> _caSourceCodeURL,
-                  ("readmeUrl" .=) <$> _caReadmeURL,
-                  ("name" .=) <$> _caName, ("author" .=) <$> _caAuthor,
-                  ("labels" .=) <$> _caLabels,
-                  ("templateBody" .=) <$> _caTemplateBody,
-                  ("templateUrl" .=) <$> _caTemplateURL,
-                  ("licenseBody" .=) <$> _caLicenseBody,
-                  ("description" .=) <$> _caDescription,
-                  ("spdxLicenseId" .=) <$> _caSpdxLicenseId])
+instance Core.ToJSON CreateApplication where
+  toJSON CreateApplication' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("spdxLicenseId" Core..=) Prelude.<$> spdxLicenseId,
+            ("templateUrl" Core..=) Prelude.<$> templateUrl,
+            ("licenseBody" Core..=) Prelude.<$> licenseBody,
+            ("licenseUrl" Core..=) Prelude.<$> licenseUrl,
+            ("labels" Core..=) Prelude.<$> labels,
+            ("readmeBody" Core..=) Prelude.<$> readmeBody,
+            ("homePageUrl" Core..=) Prelude.<$> homePageUrl,
+            ("sourceCodeArchiveUrl" Core..=)
+              Prelude.<$> sourceCodeArchiveUrl,
+            ("readmeUrl" Core..=) Prelude.<$> readmeUrl,
+            ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
+            ("semanticVersion" Core..=)
+              Prelude.<$> semanticVersion,
+            ("templateBody" Core..=) Prelude.<$> templateBody,
+            Prelude.Just ("description" Core..= description),
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("author" Core..= author)
+          ]
+      )
 
-instance ToPath CreateApplication where
-        toPath = const "/applications"
+instance Core.ToPath CreateApplication where
+  toPath = Prelude.const "/applications"
 
-instance ToQuery CreateApplication where
-        toQuery = const mempty
+instance Core.ToQuery CreateApplication where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createApplicationResponse' smart constructor.
+-- | /See:/ 'newCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { _carsCreationTime   :: !(Maybe Text)
-  , _carsHomePageURL    :: !(Maybe Text)
-  , _carsLicenseURL     :: !(Maybe Text)
-  , _carsReadmeURL      :: !(Maybe Text)
-  , _carsApplicationId  :: !(Maybe Text)
-  , _carsName           :: !(Maybe Text)
-  , _carsVersion        :: !(Maybe Version)
-  , _carsAuthor         :: !(Maybe Text)
-  , _carsLabels         :: !(Maybe [Text])
-  , _carsDescription    :: !(Maybe Text)
-  , _carsSpdxLicenseId  :: !(Maybe Text)
-  , _carsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The application Amazon Resource Name (ARN).
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
+    -- | A valid identifier from https:\/\/spdx.org\/licenses\/.
+    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | A link to a license file of the app that matches the spdxLicenseID value
+    -- of your application.
+    --
+    -- Maximum size 5 MB
+    licenseUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the public profile of a verified author. This URL is
+    -- submitted by the author.
+    verifiedAuthorUrl :: Prelude.Maybe Prelude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    --
+    -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
+    labels :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    --
+    -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+    author :: Prelude.Maybe Prelude.Text,
+    -- | Version information about the application.
+    version :: Prelude.Maybe Version,
+    -- | A URL with more information about the application, for example the
+    -- location of your GitHub repository for the application.
+    homePageUrl :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    --
+    -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Whether the author of this application has been verified. This means
+    -- means that AWS has made a good faith review, as a reasonable and prudent
+    -- service provider, of the information provided by the requester and has
+    -- confirmed that the requester\'s identity is as claimed.
+    isVerifiedAuthor :: Prelude.Maybe Prelude.Bool,
+    -- | A link to the readme file in Markdown language that contains a more
+    -- detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    readmeUrl :: Prelude.Maybe Prelude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApplicationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'carsCreationTime' - The date/time this resource was created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'carsHomePageURL' - A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- 'applicationId', 'createApplicationResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
--- * 'carsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- 'creationTime', 'createApplicationResponse_creationTime' - The date and time this resource was created.
 --
--- * 'carsReadmeURL' - A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
+-- 'spdxLicenseId', 'createApplicationResponse_spdxLicenseId' - A valid identifier from https:\/\/spdx.org\/licenses\/.
 --
--- * 'carsApplicationId' - The application Amazon Resource Name (ARN).
+-- 'licenseUrl', 'createApplicationResponse_licenseUrl' - A link to a license file of the app that matches the spdxLicenseID value
+-- of your application.
 --
--- * 'carsName' - The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- Maximum size 5 MB
 --
--- * 'carsVersion' - Version information about the application.
+-- 'verifiedAuthorUrl', 'createApplicationResponse_verifiedAuthorUrl' - The URL to the public profile of a verified author. This URL is
+-- submitted by the author.
 --
--- * 'carsAuthor' - The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- 'labels', 'createApplicationResponse_labels' - Labels to improve discovery of apps in search results.
 --
--- * 'carsLabels' - Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
 --
--- * 'carsDescription' - The description of the application. Min Length=1. Max Length=256
+-- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 --
--- * 'carsSpdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
+-- 'author', 'createApplicationResponse_author' - The name of the author publishing the app.
 --
--- * 'carsResponseStatus' - -- | The response status code.
-createApplicationResponse
-    :: Int -- ^ 'carsResponseStatus'
-    -> CreateApplicationResponse
-createApplicationResponse pResponseStatus_ =
+-- Minimum length=1. Maximum length=127.
+--
+-- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+--
+-- 'version', 'createApplicationResponse_version' - Version information about the application.
+--
+-- 'homePageUrl', 'createApplicationResponse_homePageUrl' - A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+--
+-- 'name', 'createApplicationResponse_name' - The name of the application.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+--
+-- 'isVerifiedAuthor', 'createApplicationResponse_isVerifiedAuthor' - Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
+--
+-- 'readmeUrl', 'createApplicationResponse_readmeUrl' - A link to the readme file in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- 'description', 'createApplicationResponse_description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+--
+-- 'httpStatus', 'createApplicationResponse_httpStatus' - The response's http status code.
+newCreateApplicationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateApplicationResponse
+newCreateApplicationResponse pHttpStatus_ =
   CreateApplicationResponse'
-    { _carsCreationTime = Nothing
-    , _carsHomePageURL = Nothing
-    , _carsLicenseURL = Nothing
-    , _carsReadmeURL = Nothing
-    , _carsApplicationId = Nothing
-    , _carsName = Nothing
-    , _carsVersion = Nothing
-    , _carsAuthor = Nothing
-    , _carsLabels = Nothing
-    , _carsDescription = Nothing
-    , _carsSpdxLicenseId = Nothing
-    , _carsResponseStatus = pResponseStatus_
+    { applicationId =
+        Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      spdxLicenseId = Prelude.Nothing,
+      licenseUrl = Prelude.Nothing,
+      verifiedAuthorUrl = Prelude.Nothing,
+      labels = Prelude.Nothing,
+      author = Prelude.Nothing,
+      version = Prelude.Nothing,
+      homePageUrl = Prelude.Nothing,
+      name = Prelude.Nothing,
+      isVerifiedAuthor = Prelude.Nothing,
+      readmeUrl = Prelude.Nothing,
+      description = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | The date/time this resource was created.
-carsCreationTime :: Lens' CreateApplicationResponse (Maybe Text)
-carsCreationTime = lens _carsCreationTime (\ s a -> s{_carsCreationTime = a})
-
--- | A URL with more information about the application, for example  the location of your GitHub repository for the application.
-carsHomePageURL :: Lens' CreateApplicationResponse (Maybe Text)
-carsHomePageURL = lens _carsHomePageURL (\ s a -> s{_carsHomePageURL = a})
-
--- | A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
-carsLicenseURL :: Lens' CreateApplicationResponse (Maybe Text)
-carsLicenseURL = lens _carsLicenseURL (\ s a -> s{_carsLicenseURL = a})
-
--- | A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
-carsReadmeURL :: Lens' CreateApplicationResponse (Maybe Text)
-carsReadmeURL = lens _carsReadmeURL (\ s a -> s{_carsReadmeURL = a})
 
 -- | The application Amazon Resource Name (ARN).
-carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
-carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a})
+createApplicationResponse_applicationId :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse' {applicationId} -> applicationId) (\s@CreateApplicationResponse' {} a -> s {applicationId = a} :: CreateApplicationResponse)
 
--- | The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
-carsName :: Lens' CreateApplicationResponse (Maybe Text)
-carsName = lens _carsName (\ s a -> s{_carsName = a})
+-- | The date and time this resource was created.
+createApplicationResponse_creationTime :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_creationTime = Lens.lens (\CreateApplicationResponse' {creationTime} -> creationTime) (\s@CreateApplicationResponse' {} a -> s {creationTime = a} :: CreateApplicationResponse)
+
+-- | A valid identifier from https:\/\/spdx.org\/licenses\/.
+createApplicationResponse_spdxLicenseId :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_spdxLicenseId = Lens.lens (\CreateApplicationResponse' {spdxLicenseId} -> spdxLicenseId) (\s@CreateApplicationResponse' {} a -> s {spdxLicenseId = a} :: CreateApplicationResponse)
+
+-- | A link to a license file of the app that matches the spdxLicenseID value
+-- of your application.
+--
+-- Maximum size 5 MB
+createApplicationResponse_licenseUrl :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_licenseUrl = Lens.lens (\CreateApplicationResponse' {licenseUrl} -> licenseUrl) (\s@CreateApplicationResponse' {} a -> s {licenseUrl = a} :: CreateApplicationResponse)
+
+-- | The URL to the public profile of a verified author. This URL is
+-- submitted by the author.
+createApplicationResponse_verifiedAuthorUrl :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_verifiedAuthorUrl = Lens.lens (\CreateApplicationResponse' {verifiedAuthorUrl} -> verifiedAuthorUrl) (\s@CreateApplicationResponse' {} a -> s {verifiedAuthorUrl = a} :: CreateApplicationResponse)
+
+-- | Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+--
+-- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
+createApplicationResponse_labels :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe [Prelude.Text])
+createApplicationResponse_labels = Lens.lens (\CreateApplicationResponse' {labels} -> labels) (\s@CreateApplicationResponse' {} a -> s {labels = a} :: CreateApplicationResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+--
+-- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
+createApplicationResponse_author :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_author = Lens.lens (\CreateApplicationResponse' {author} -> author) (\s@CreateApplicationResponse' {} a -> s {author = a} :: CreateApplicationResponse)
 
 -- | Version information about the application.
-carsVersion :: Lens' CreateApplicationResponse (Maybe Version)
-carsVersion = lens _carsVersion (\ s a -> s{_carsVersion = a})
+createApplicationResponse_version :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Version)
+createApplicationResponse_version = Lens.lens (\CreateApplicationResponse' {version} -> version) (\s@CreateApplicationResponse' {} a -> s {version = a} :: CreateApplicationResponse)
 
--- | The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-carsAuthor :: Lens' CreateApplicationResponse (Maybe Text)
-carsAuthor = lens _carsAuthor (\ s a -> s{_carsAuthor = a})
+-- | A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+createApplicationResponse_homePageUrl :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_homePageUrl = Lens.lens (\CreateApplicationResponse' {homePageUrl} -> homePageUrl) (\s@CreateApplicationResponse' {} a -> s {homePageUrl = a} :: CreateApplicationResponse)
 
--- | Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-carsLabels :: Lens' CreateApplicationResponse [Text]
-carsLabels = lens _carsLabels (\ s a -> s{_carsLabels = a}) . _Default . _Coerce
+-- | The name of the application.
+--
+-- Minimum length=1. Maximum length=140
+--
+-- Pattern: \"[a-zA-Z0-9\\\\-]+\";
+createApplicationResponse_name :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_name = Lens.lens (\CreateApplicationResponse' {name} -> name) (\s@CreateApplicationResponse' {} a -> s {name = a} :: CreateApplicationResponse)
 
--- | The description of the application. Min Length=1. Max Length=256
-carsDescription :: Lens' CreateApplicationResponse (Maybe Text)
-carsDescription = lens _carsDescription (\ s a -> s{_carsDescription = a})
+-- | Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
+createApplicationResponse_isVerifiedAuthor :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Bool)
+createApplicationResponse_isVerifiedAuthor = Lens.lens (\CreateApplicationResponse' {isVerifiedAuthor} -> isVerifiedAuthor) (\s@CreateApplicationResponse' {} a -> s {isVerifiedAuthor = a} :: CreateApplicationResponse)
 
--- | A valid identifier from https://spdx.org/licenses/.
-carsSpdxLicenseId :: Lens' CreateApplicationResponse (Maybe Text)
-carsSpdxLicenseId = lens _carsSpdxLicenseId (\ s a -> s{_carsSpdxLicenseId = a})
+-- | A link to the readme file in Markdown language that contains a more
+-- detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+createApplicationResponse_readmeUrl :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_readmeUrl = Lens.lens (\CreateApplicationResponse' {readmeUrl} -> readmeUrl) (\s@CreateApplicationResponse' {} a -> s {readmeUrl = a} :: CreateApplicationResponse)
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateApplicationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
+-- | The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+createApplicationResponse_description :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_description = Lens.lens (\CreateApplicationResponse' {description} -> description) (\s@CreateApplicationResponse' {} a -> s {description = a} :: CreateApplicationResponse)
 
-instance NFData CreateApplicationResponse where
+-- | The response's http status code.
+createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
+createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
+
+instance Prelude.NFData CreateApplicationResponse

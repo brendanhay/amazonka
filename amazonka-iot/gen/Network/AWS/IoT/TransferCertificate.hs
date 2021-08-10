@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.TransferCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,178 @@
 --
 -- Transfers the specified certificate to the specified AWS account.
 --
---
 -- You can cancel the transfer until it is acknowledged by the recipient.
 --
--- No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.
+-- No notification is sent to the transfer destination\'s account. It is up
+-- to the caller to notify the transfer target.
 --
--- The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.
+-- The certificate being transferred must not be in the ACTIVE state. You
+-- can use the UpdateCertificate API to deactivate it.
 --
--- The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.
---
+-- The certificate must not have any policies attached to it. You can use
+-- the DetachPrincipalPolicy API to detach them.
 module Network.AWS.IoT.TransferCertificate
-    (
-    -- * Creating a Request
-      transferCertificate
-    , TransferCertificate
+  ( -- * Creating a Request
+    TransferCertificate (..),
+    newTransferCertificate,
+
     -- * Request Lenses
-    , tcTransferMessage
-    , tcCertificateId
-    , tcTargetAWSAccount
+    transferCertificate_transferMessage,
+    transferCertificate_certificateId,
+    transferCertificate_targetAwsAccount,
 
     -- * Destructuring the Response
-    , transferCertificateResponse
-    , TransferCertificateResponse
-    -- * Response Lenses
-    , tcrsTransferredCertificateARN
-    , tcrsResponseStatus
-    ) where
+    TransferCertificateResponse (..),
+    newTransferCertificateResponse,
 
+    -- * Response Lenses
+    transferCertificateResponse_transferredCertificateArn,
+    transferCertificateResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the TransferCertificate operation.
 --
---
---
--- /See:/ 'transferCertificate' smart constructor.
+-- /See:/ 'newTransferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
-  { _tcTransferMessage  :: !(Maybe Text)
-  , _tcCertificateId    :: !Text
-  , _tcTargetAWSAccount :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The transfer message.
+    transferMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the certificate. (The last part of the certificate ARN
+    -- contains the certificate ID.)
+    certificateId :: Prelude.Text,
+    -- | The AWS account.
+    targetAwsAccount :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TransferCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TransferCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tcTransferMessage' - The transfer message.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tcCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+-- 'transferMessage', 'transferCertificate_transferMessage' - The transfer message.
 --
--- * 'tcTargetAWSAccount' - The AWS account.
-transferCertificate
-    :: Text -- ^ 'tcCertificateId'
-    -> Text -- ^ 'tcTargetAWSAccount'
-    -> TransferCertificate
-transferCertificate pCertificateId_ pTargetAWSAccount_ =
-  TransferCertificate'
-    { _tcTransferMessage = Nothing
-    , _tcCertificateId = pCertificateId_
-    , _tcTargetAWSAccount = pTargetAWSAccount_
-    }
-
+-- 'certificateId', 'transferCertificate_certificateId' - The ID of the certificate. (The last part of the certificate ARN
+-- contains the certificate ID.)
+--
+-- 'targetAwsAccount', 'transferCertificate_targetAwsAccount' - The AWS account.
+newTransferCertificate ::
+  -- | 'certificateId'
+  Prelude.Text ->
+  -- | 'targetAwsAccount'
+  Prelude.Text ->
+  TransferCertificate
+newTransferCertificate
+  pCertificateId_
+  pTargetAwsAccount_ =
+    TransferCertificate'
+      { transferMessage =
+          Prelude.Nothing,
+        certificateId = pCertificateId_,
+        targetAwsAccount = pTargetAwsAccount_
+      }
 
 -- | The transfer message.
-tcTransferMessage :: Lens' TransferCertificate (Maybe Text)
-tcTransferMessage = lens _tcTransferMessage (\ s a -> s{_tcTransferMessage = a})
+transferCertificate_transferMessage :: Lens.Lens' TransferCertificate (Prelude.Maybe Prelude.Text)
+transferCertificate_transferMessage = Lens.lens (\TransferCertificate' {transferMessage} -> transferMessage) (\s@TransferCertificate' {} a -> s {transferMessage = a} :: TransferCertificate)
 
--- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-tcCertificateId :: Lens' TransferCertificate Text
-tcCertificateId = lens _tcCertificateId (\ s a -> s{_tcCertificateId = a})
+-- | The ID of the certificate. (The last part of the certificate ARN
+-- contains the certificate ID.)
+transferCertificate_certificateId :: Lens.Lens' TransferCertificate Prelude.Text
+transferCertificate_certificateId = Lens.lens (\TransferCertificate' {certificateId} -> certificateId) (\s@TransferCertificate' {} a -> s {certificateId = a} :: TransferCertificate)
 
 -- | The AWS account.
-tcTargetAWSAccount :: Lens' TransferCertificate Text
-tcTargetAWSAccount = lens _tcTargetAWSAccount (\ s a -> s{_tcTargetAWSAccount = a})
+transferCertificate_targetAwsAccount :: Lens.Lens' TransferCertificate Prelude.Text
+transferCertificate_targetAwsAccount = Lens.lens (\TransferCertificate' {targetAwsAccount} -> targetAwsAccount) (\s@TransferCertificate' {} a -> s {targetAwsAccount = a} :: TransferCertificate)
 
-instance AWSRequest TransferCertificate where
-        type Rs TransferCertificate =
-             TransferCertificateResponse
-        request = patchJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 TransferCertificateResponse' <$>
-                   (x .?> "transferredCertificateArn") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest TransferCertificate where
+  type
+    AWSResponse TransferCertificate =
+      TransferCertificateResponse
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          TransferCertificateResponse'
+            Prelude.<$> (x Core..?> "transferredCertificateArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable TransferCertificate where
+instance Prelude.Hashable TransferCertificate
 
-instance NFData TransferCertificate where
+instance Prelude.NFData TransferCertificate
 
-instance ToHeaders TransferCertificate where
-        toHeaders = const mempty
+instance Core.ToHeaders TransferCertificate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON TransferCertificate where
-        toJSON TransferCertificate'{..}
-          = object
-              (catMaybes
-                 [("transferMessage" .=) <$> _tcTransferMessage])
+instance Core.ToJSON TransferCertificate where
+  toJSON TransferCertificate' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("transferMessage" Core..=)
+              Prelude.<$> transferMessage
+          ]
+      )
 
-instance ToPath TransferCertificate where
-        toPath TransferCertificate'{..}
-          = mconcat
-              ["/transfer-certificate/", toBS _tcCertificateId]
+instance Core.ToPath TransferCertificate where
+  toPath TransferCertificate' {..} =
+    Prelude.mconcat
+      ["/transfer-certificate/", Core.toBS certificateId]
 
-instance ToQuery TransferCertificate where
-        toQuery TransferCertificate'{..}
-          = mconcat ["targetAwsAccount" =: _tcTargetAWSAccount]
+instance Core.ToQuery TransferCertificate where
+  toQuery TransferCertificate' {..} =
+    Prelude.mconcat
+      ["targetAwsAccount" Core.=: targetAwsAccount]
 
 -- | The output from the TransferCertificate operation.
 --
---
---
--- /See:/ 'transferCertificateResponse' smart constructor.
+-- /See:/ 'newTransferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
-  { _tcrsTransferredCertificateARN :: !(Maybe Text)
-  , _tcrsResponseStatus            :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the certificate.
+    transferredCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TransferCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TransferCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tcrsTransferredCertificateARN' - The ARN of the certificate.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tcrsResponseStatus' - -- | The response status code.
-transferCertificateResponse
-    :: Int -- ^ 'tcrsResponseStatus'
-    -> TransferCertificateResponse
-transferCertificateResponse pResponseStatus_ =
+-- 'transferredCertificateArn', 'transferCertificateResponse_transferredCertificateArn' - The ARN of the certificate.
+--
+-- 'httpStatus', 'transferCertificateResponse_httpStatus' - The response's http status code.
+newTransferCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  TransferCertificateResponse
+newTransferCertificateResponse pHttpStatus_ =
   TransferCertificateResponse'
-    { _tcrsTransferredCertificateARN = Nothing
-    , _tcrsResponseStatus = pResponseStatus_
+    { transferredCertificateArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The ARN of the certificate.
-tcrsTransferredCertificateARN :: Lens' TransferCertificateResponse (Maybe Text)
-tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{_tcrsTransferredCertificateARN = a})
+transferCertificateResponse_transferredCertificateArn :: Lens.Lens' TransferCertificateResponse (Prelude.Maybe Prelude.Text)
+transferCertificateResponse_transferredCertificateArn = Lens.lens (\TransferCertificateResponse' {transferredCertificateArn} -> transferredCertificateArn) (\s@TransferCertificateResponse' {} a -> s {transferredCertificateArn = a} :: TransferCertificateResponse)
 
--- | -- | The response status code.
-tcrsResponseStatus :: Lens' TransferCertificateResponse Int
-tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a})
+-- | The response's http status code.
+transferCertificateResponse_httpStatus :: Lens.Lens' TransferCertificateResponse Prelude.Int
+transferCertificateResponse_httpStatus = Lens.lens (\TransferCertificateResponse' {httpStatus} -> httpStatus) (\s@TransferCertificateResponse' {} a -> s {httpStatus = a} :: TransferCertificateResponse)
 
-instance NFData TransferCertificateResponse where
+instance Prelude.NFData TransferCertificateResponse

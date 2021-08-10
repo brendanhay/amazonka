@@ -1,192 +1,341 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.ListOrganizationalUnitsForParent
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the organizational units (OUs) in a parent organizational unit or root.
+-- Lists the organizational units (OUs) in a parent organizational unit or
+-- root.
 --
+-- Always check the @NextToken@ response parameter for a @null@ value when
+-- calling a @List*@ operation. These operations can occasionally return an
+-- empty set of results even when there are more results available. The
+-- @NextToken@ response parameter value is @null@ /only/ when there are no
+-- more results to display.
 --
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account or by a member account that is a delegated administrator for an
+-- AWS service.
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListOrganizationalUnitsForParent
-    (
-    -- * Creating a Request
-      listOrganizationalUnitsForParent
-    , ListOrganizationalUnitsForParent
+  ( -- * Creating a Request
+    ListOrganizationalUnitsForParent (..),
+    newListOrganizationalUnitsForParent,
+
     -- * Request Lenses
-    , loufpNextToken
-    , loufpMaxResults
-    , loufpParentId
+    listOrganizationalUnitsForParent_nextToken,
+    listOrganizationalUnitsForParent_maxResults,
+    listOrganizationalUnitsForParent_parentId,
 
     -- * Destructuring the Response
-    , listOrganizationalUnitsForParentResponse
-    , ListOrganizationalUnitsForParentResponse
+    ListOrganizationalUnitsForParentResponse (..),
+    newListOrganizationalUnitsForParentResponse,
+
     -- * Response Lenses
-    , loufprsNextToken
-    , loufprsOrganizationalUnits
-    , loufprsResponseStatus
-    ) where
+    listOrganizationalUnitsForParentResponse_nextToken,
+    listOrganizationalUnitsForParentResponse_organizationalUnits,
+    listOrganizationalUnitsForParentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listOrganizationalUnitsForParent' smart constructor.
+-- | /See:/ 'newListOrganizationalUnitsForParent' smart constructor.
 data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
-  { _loufpNextToken  :: !(Maybe Text)
-  , _loufpMaxResults :: !(Maybe Nat)
-  , _loufpParentId   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of results that you want included on each page of the
+    -- response. If you do not include this parameter, it defaults to a value
+    -- that is specific to the operation. If additional items exist beyond the
+    -- maximum you specify, the @NextToken@ response element is present and has
+    -- a value (is not null). Include that value as the @NextToken@ request
+    -- parameter in the next call to the operation to get the next part of the
+    -- results. Note that Organizations might return fewer results than the
+    -- maximum even when there are more results available. You should check
+    -- @NextToken@ after every operation to ensure that you receive all of the
+    -- results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique identifier (ID) of the root or OU whose child OUs you want to
+    -- list.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID
+    -- string requires one of the following:
+    --
+    -- -   __Root__ - A string that begins with \"r-\" followed by from 4 to 32
+    --     lowercase letters or digits.
+    --
+    -- -   __Organizational unit (OU)__ - A string that begins with \"ou-\"
+    --     followed by from 4 to 32 lowercase letters or digits (the ID of the
+    --     root that the OU is in). This string is followed by a second \"-\"
+    --     dash and from 8 to 32 additional lowercase letters or digits.
+    parentId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListOrganizationalUnitsForParent' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListOrganizationalUnitsForParent' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'loufpNextToken' - Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'loufpMaxResults' - (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- 'nextToken', 'listOrganizationalUnitsForParent_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
 --
--- * 'loufpParentId' - The unique identifier (ID) of the root or OU whose child OUs you want to list. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
-listOrganizationalUnitsForParent
-    :: Text -- ^ 'loufpParentId'
-    -> ListOrganizationalUnitsForParent
-listOrganizationalUnitsForParent pParentId_ =
+-- 'maxResults', 'listOrganizationalUnitsForParent_maxResults' - The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+--
+-- 'parentId', 'listOrganizationalUnitsForParent_parentId' - The unique identifier (ID) of the root or OU whose child OUs you want to
+-- list.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID
+-- string requires one of the following:
+--
+-- -   __Root__ - A string that begins with \"r-\" followed by from 4 to 32
+--     lowercase letters or digits.
+--
+-- -   __Organizational unit (OU)__ - A string that begins with \"ou-\"
+--     followed by from 4 to 32 lowercase letters or digits (the ID of the
+--     root that the OU is in). This string is followed by a second \"-\"
+--     dash and from 8 to 32 additional lowercase letters or digits.
+newListOrganizationalUnitsForParent ::
+  -- | 'parentId'
+  Prelude.Text ->
+  ListOrganizationalUnitsForParent
+newListOrganizationalUnitsForParent pParentId_ =
   ListOrganizationalUnitsForParent'
-    { _loufpNextToken = Nothing
-    , _loufpMaxResults = Nothing
-    , _loufpParentId = pParentId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      parentId = pParentId_
     }
 
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listOrganizationalUnitsForParent_nextToken :: Lens.Lens' ListOrganizationalUnitsForParent (Prelude.Maybe Prelude.Text)
+listOrganizationalUnitsForParent_nextToken = Lens.lens (\ListOrganizationalUnitsForParent' {nextToken} -> nextToken) (\s@ListOrganizationalUnitsForParent' {} a -> s {nextToken = a} :: ListOrganizationalUnitsForParent)
 
--- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-loufpNextToken :: Lens' ListOrganizationalUnitsForParent (Maybe Text)
-loufpNextToken = lens _loufpNextToken (\ s a -> s{_loufpNextToken = a})
+-- | The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+listOrganizationalUnitsForParent_maxResults :: Lens.Lens' ListOrganizationalUnitsForParent (Prelude.Maybe Prelude.Natural)
+listOrganizationalUnitsForParent_maxResults = Lens.lens (\ListOrganizationalUnitsForParent' {maxResults} -> maxResults) (\s@ListOrganizationalUnitsForParent' {} a -> s {maxResults = a} :: ListOrganizationalUnitsForParent)
 
--- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-loufpMaxResults :: Lens' ListOrganizationalUnitsForParent (Maybe Natural)
-loufpMaxResults = lens _loufpMaxResults (\ s a -> s{_loufpMaxResults = a}) . mapping _Nat
+-- | The unique identifier (ID) of the root or OU whose child OUs you want to
+-- list.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID
+-- string requires one of the following:
+--
+-- -   __Root__ - A string that begins with \"r-\" followed by from 4 to 32
+--     lowercase letters or digits.
+--
+-- -   __Organizational unit (OU)__ - A string that begins with \"ou-\"
+--     followed by from 4 to 32 lowercase letters or digits (the ID of the
+--     root that the OU is in). This string is followed by a second \"-\"
+--     dash and from 8 to 32 additional lowercase letters or digits.
+listOrganizationalUnitsForParent_parentId :: Lens.Lens' ListOrganizationalUnitsForParent Prelude.Text
+listOrganizationalUnitsForParent_parentId = Lens.lens (\ListOrganizationalUnitsForParent' {parentId} -> parentId) (\s@ListOrganizationalUnitsForParent' {} a -> s {parentId = a} :: ListOrganizationalUnitsForParent)
 
--- | The unique identifier (ID) of the root or OU whose child OUs you want to list. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
-loufpParentId :: Lens' ListOrganizationalUnitsForParent Text
-loufpParentId = lens _loufpParentId (\ s a -> s{_loufpParentId = a})
+instance
+  Core.AWSPager
+    ListOrganizationalUnitsForParent
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listOrganizationalUnitsForParentResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listOrganizationalUnitsForParentResponse_organizationalUnits
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listOrganizationalUnitsForParent_nextToken
+          Lens..~ rs
+          Lens.^? listOrganizationalUnitsForParentResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager ListOrganizationalUnitsForParent
-         where
-        page rq rs
-          | stop (rs ^. loufprsNextToken) = Nothing
-          | stop (rs ^. loufprsOrganizationalUnits) = Nothing
-          | otherwise =
-            Just $ rq & loufpNextToken .~ rs ^. loufprsNextToken
+instance
+  Core.AWSRequest
+    ListOrganizationalUnitsForParent
+  where
+  type
+    AWSResponse ListOrganizationalUnitsForParent =
+      ListOrganizationalUnitsForParentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListOrganizationalUnitsForParentResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "OrganizationalUnits"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListOrganizationalUnitsForParent
-         where
-        type Rs ListOrganizationalUnitsForParent =
-             ListOrganizationalUnitsForParentResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListOrganizationalUnitsForParentResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "OrganizationalUnits" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    ListOrganizationalUnitsForParent
 
-instance Hashable ListOrganizationalUnitsForParent
-         where
+instance
+  Prelude.NFData
+    ListOrganizationalUnitsForParent
 
-instance NFData ListOrganizationalUnitsForParent
-         where
+instance
+  Core.ToHeaders
+    ListOrganizationalUnitsForParent
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListOrganizationalUnitsForParent
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.ListOrganizationalUnitsForParent"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListOrganizationalUnitsForParent where
+  toJSON ListOrganizationalUnitsForParent' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("ParentId" Core..= parentId)
+          ]
+      )
 
-instance ToJSON ListOrganizationalUnitsForParent
-         where
-        toJSON ListOrganizationalUnitsForParent'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _loufpNextToken,
-                  ("MaxResults" .=) <$> _loufpMaxResults,
-                  Just ("ParentId" .= _loufpParentId)])
+instance Core.ToPath ListOrganizationalUnitsForParent where
+  toPath = Prelude.const "/"
 
-instance ToPath ListOrganizationalUnitsForParent
-         where
-        toPath = const "/"
+instance
+  Core.ToQuery
+    ListOrganizationalUnitsForParent
+  where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListOrganizationalUnitsForParent
-         where
-        toQuery = const mempty
-
--- | /See:/ 'listOrganizationalUnitsForParentResponse' smart constructor.
+-- | /See:/ 'newListOrganizationalUnitsForParentResponse' smart constructor.
 data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParentResponse'
-  { _loufprsNextToken           :: !(Maybe Text)
-  , _loufprsOrganizationalUnits :: !(Maybe [OrganizationalUnit])
-  , _loufprsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If present, indicates that more output is available than is included in
+    -- the current response. Use this value in the @NextToken@ request
+    -- parameter in a subsequent call to the operation to get the next part of
+    -- the output. You should repeat this until the @NextToken@ response
+    -- element comes back as @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the OUs in the specified root or parent OU.
+    organizationalUnits :: Prelude.Maybe [OrganizationalUnit],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListOrganizationalUnitsForParentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listOrganizationalUnitsForParentResponse_nextToken' - If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+--
+-- 'organizationalUnits', 'listOrganizationalUnitsForParentResponse_organizationalUnits' - A list of the OUs in the specified root or parent OU.
+--
+-- 'httpStatus', 'listOrganizationalUnitsForParentResponse_httpStatus' - The response's http status code.
+newListOrganizationalUnitsForParentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListOrganizationalUnitsForParentResponse
+newListOrganizationalUnitsForParentResponse
+  pHttpStatus_ =
+    ListOrganizationalUnitsForParentResponse'
+      { nextToken =
+          Prelude.Nothing,
+        organizationalUnits =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
--- | Creates a value of 'ListOrganizationalUnitsForParentResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loufprsNextToken' - If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'loufprsOrganizationalUnits' - A list of the OUs in the specified root or parent OU.
---
--- * 'loufprsResponseStatus' - -- | The response status code.
-listOrganizationalUnitsForParentResponse
-    :: Int -- ^ 'loufprsResponseStatus'
-    -> ListOrganizationalUnitsForParentResponse
-listOrganizationalUnitsForParentResponse pResponseStatus_ =
-  ListOrganizationalUnitsForParentResponse'
-    { _loufprsNextToken = Nothing
-    , _loufprsOrganizationalUnits = Nothing
-    , _loufprsResponseStatus = pResponseStatus_
-    }
-
-
--- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-loufprsNextToken :: Lens' ListOrganizationalUnitsForParentResponse (Maybe Text)
-loufprsNextToken = lens _loufprsNextToken (\ s a -> s{_loufprsNextToken = a})
+-- | If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+listOrganizationalUnitsForParentResponse_nextToken :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Prelude.Maybe Prelude.Text)
+listOrganizationalUnitsForParentResponse_nextToken = Lens.lens (\ListOrganizationalUnitsForParentResponse' {nextToken} -> nextToken) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {nextToken = a} :: ListOrganizationalUnitsForParentResponse)
 
 -- | A list of the OUs in the specified root or parent OU.
-loufprsOrganizationalUnits :: Lens' ListOrganizationalUnitsForParentResponse [OrganizationalUnit]
-loufprsOrganizationalUnits = lens _loufprsOrganizationalUnits (\ s a -> s{_loufprsOrganizationalUnits = a}) . _Default . _Coerce
+listOrganizationalUnitsForParentResponse_organizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Prelude.Maybe [OrganizationalUnit])
+listOrganizationalUnitsForParentResponse_organizationalUnits = Lens.lens (\ListOrganizationalUnitsForParentResponse' {organizationalUnits} -> organizationalUnits) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-loufprsResponseStatus :: Lens' ListOrganizationalUnitsForParentResponse Int
-loufprsResponseStatus = lens _loufprsResponseStatus (\ s a -> s{_loufprsResponseStatus = a})
+-- | The response's http status code.
+listOrganizationalUnitsForParentResponse_httpStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Prelude.Int
+listOrganizationalUnitsForParentResponse_httpStatus = Lens.lens (\ListOrganizationalUnitsForParentResponse' {httpStatus} -> httpStatus) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {httpStatus = a} :: ListOrganizationalUnitsForParentResponse)
 
-instance NFData
-           ListOrganizationalUnitsForParentResponse
-         where
+instance
+  Prelude.NFData
+    ListOrganizationalUnitsForParentResponse

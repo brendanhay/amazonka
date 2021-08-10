@@ -1,111 +1,129 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteV2LoggingLevel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a logging level.
---
---
 module Network.AWS.IoT.DeleteV2LoggingLevel
-    (
-    -- * Creating a Request
-      deleteV2LoggingLevel
-    , DeleteV2LoggingLevel
+  ( -- * Creating a Request
+    DeleteV2LoggingLevel (..),
+    newDeleteV2LoggingLevel,
+
     -- * Request Lenses
-    , dvllTargetType
-    , dvllTargetName
+    deleteV2LoggingLevel_targetType,
+    deleteV2LoggingLevel_targetName,
 
     -- * Destructuring the Response
-    , deleteV2LoggingLevelResponse
-    , DeleteV2LoggingLevelResponse
-    ) where
+    DeleteV2LoggingLevelResponse (..),
+    newDeleteV2LoggingLevelResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteV2LoggingLevel' smart constructor.
+-- | /See:/ 'newDeleteV2LoggingLevel' smart constructor.
 data DeleteV2LoggingLevel = DeleteV2LoggingLevel'
-  { _dvllTargetType :: !LogTargetType
-  , _dvllTargetName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The type of resource for which you are configuring logging. Must be
+    -- @THING_Group@.
+    targetType :: LogTargetType,
+    -- | The name of the resource for which you are configuring logging.
+    targetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteV2LoggingLevel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteV2LoggingLevel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvllTargetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dvllTargetName' - The name of the resource for which you are configuring logging.
-deleteV2LoggingLevel
-    :: LogTargetType -- ^ 'dvllTargetType'
-    -> Text -- ^ 'dvllTargetName'
-    -> DeleteV2LoggingLevel
-deleteV2LoggingLevel pTargetType_ pTargetName_ =
+-- 'targetType', 'deleteV2LoggingLevel_targetType' - The type of resource for which you are configuring logging. Must be
+-- @THING_Group@.
+--
+-- 'targetName', 'deleteV2LoggingLevel_targetName' - The name of the resource for which you are configuring logging.
+newDeleteV2LoggingLevel ::
+  -- | 'targetType'
+  LogTargetType ->
+  -- | 'targetName'
+  Prelude.Text ->
+  DeleteV2LoggingLevel
+newDeleteV2LoggingLevel pTargetType_ pTargetName_ =
   DeleteV2LoggingLevel'
-    {_dvllTargetType = pTargetType_, _dvllTargetName = pTargetName_}
+    { targetType = pTargetType_,
+      targetName = pTargetName_
+    }
 
-
--- | The type of resource for which you are configuring logging. Must be @THING_Group@ .
-dvllTargetType :: Lens' DeleteV2LoggingLevel LogTargetType
-dvllTargetType = lens _dvllTargetType (\ s a -> s{_dvllTargetType = a})
+-- | The type of resource for which you are configuring logging. Must be
+-- @THING_Group@.
+deleteV2LoggingLevel_targetType :: Lens.Lens' DeleteV2LoggingLevel LogTargetType
+deleteV2LoggingLevel_targetType = Lens.lens (\DeleteV2LoggingLevel' {targetType} -> targetType) (\s@DeleteV2LoggingLevel' {} a -> s {targetType = a} :: DeleteV2LoggingLevel)
 
 -- | The name of the resource for which you are configuring logging.
-dvllTargetName :: Lens' DeleteV2LoggingLevel Text
-dvllTargetName = lens _dvllTargetName (\ s a -> s{_dvllTargetName = a})
+deleteV2LoggingLevel_targetName :: Lens.Lens' DeleteV2LoggingLevel Prelude.Text
+deleteV2LoggingLevel_targetName = Lens.lens (\DeleteV2LoggingLevel' {targetName} -> targetName) (\s@DeleteV2LoggingLevel' {} a -> s {targetName = a} :: DeleteV2LoggingLevel)
 
-instance AWSRequest DeleteV2LoggingLevel where
-        type Rs DeleteV2LoggingLevel =
-             DeleteV2LoggingLevelResponse
-        request = delete ioT
-        response = receiveNull DeleteV2LoggingLevelResponse'
+instance Core.AWSRequest DeleteV2LoggingLevel where
+  type
+    AWSResponse DeleteV2LoggingLevel =
+      DeleteV2LoggingLevelResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteV2LoggingLevelResponse'
 
-instance Hashable DeleteV2LoggingLevel where
+instance Prelude.Hashable DeleteV2LoggingLevel
 
-instance NFData DeleteV2LoggingLevel where
+instance Prelude.NFData DeleteV2LoggingLevel
 
-instance ToHeaders DeleteV2LoggingLevel where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteV2LoggingLevel where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteV2LoggingLevel where
-        toPath = const "/v2LoggingLevel"
+instance Core.ToPath DeleteV2LoggingLevel where
+  toPath = Prelude.const "/v2LoggingLevel"
 
-instance ToQuery DeleteV2LoggingLevel where
-        toQuery DeleteV2LoggingLevel'{..}
-          = mconcat
-              ["targetType" =: _dvllTargetType,
-               "targetName" =: _dvllTargetName]
+instance Core.ToQuery DeleteV2LoggingLevel where
+  toQuery DeleteV2LoggingLevel' {..} =
+    Prelude.mconcat
+      [ "targetType" Core.=: targetType,
+        "targetName" Core.=: targetName
+      ]
 
--- | /See:/ 'deleteV2LoggingLevelResponse' smart constructor.
-data DeleteV2LoggingLevelResponse =
-  DeleteV2LoggingLevelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteV2LoggingLevelResponse' smart constructor.
+data DeleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteV2LoggingLevelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteV2LoggingLevelResponse' with all optional fields omitted.
 --
-deleteV2LoggingLevelResponse
-    :: DeleteV2LoggingLevelResponse
-deleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteV2LoggingLevelResponse ::
+  DeleteV2LoggingLevelResponse
+newDeleteV2LoggingLevelResponse =
+  DeleteV2LoggingLevelResponse'
 
-
-instance NFData DeleteV2LoggingLevelResponse where
+instance Prelude.NFData DeleteV2LoggingLevelResponse

@@ -1,157 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.GetFindingsStatistics
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists Amazon GuardDuty findings' statistics for the specified detector ID.
+-- Lists Amazon GuardDuty findings statistics for the specified detector
+-- ID.
 module Network.AWS.GuardDuty.GetFindingsStatistics
-    (
-    -- * Creating a Request
-      getFindingsStatistics
-    , GetFindingsStatistics
+  ( -- * Creating a Request
+    GetFindingsStatistics (..),
+    newGetFindingsStatistics,
+
     -- * Request Lenses
-    , gfsFindingStatisticTypes
-    , gfsFindingCriteria
-    , gfsDetectorId
+    getFindingsStatistics_findingCriteria,
+    getFindingsStatistics_detectorId,
+    getFindingsStatistics_findingStatisticTypes,
 
     -- * Destructuring the Response
-    , getFindingsStatisticsResponse
-    , GetFindingsStatisticsResponse
+    GetFindingsStatisticsResponse (..),
+    newGetFindingsStatisticsResponse,
+
     -- * Response Lenses
-    , gfsrsFindingStatistics
-    , gfsrsResponseStatus
-    ) where
+    getFindingsStatisticsResponse_httpStatus,
+    getFindingsStatisticsResponse_findingStatistics,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | GetFindingsStatistics request body.
---
--- /See:/ 'getFindingsStatistics' smart constructor.
+-- | /See:/ 'newGetFindingsStatistics' smart constructor.
 data GetFindingsStatistics = GetFindingsStatistics'
-  { _gfsFindingStatisticTypes :: !(Maybe [FindingStatisticType])
-  , _gfsFindingCriteria       :: !(Maybe FindingCriteria)
-  , _gfsDetectorId            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Represents the criteria that is used for querying findings.
+    findingCriteria :: Prelude.Maybe FindingCriteria,
+    -- | The ID of the detector that specifies the GuardDuty service whose
+    -- findings\' statistics you want to retrieve.
+    detectorId :: Prelude.Text,
+    -- | The types of finding statistics to retrieve.
+    findingStatisticTypes :: [FindingStatisticType]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFindingsStatistics' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFindingsStatistics' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfsFindingStatisticTypes' - Types of finding statistics to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfsFindingCriteria' - Represents the criteria used for querying findings.
+-- 'findingCriteria', 'getFindingsStatistics_findingCriteria' - Represents the criteria that is used for querying findings.
 --
--- * 'gfsDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
-getFindingsStatistics
-    :: Text -- ^ 'gfsDetectorId'
-    -> GetFindingsStatistics
-getFindingsStatistics pDetectorId_ =
+-- 'detectorId', 'getFindingsStatistics_detectorId' - The ID of the detector that specifies the GuardDuty service whose
+-- findings\' statistics you want to retrieve.
+--
+-- 'findingStatisticTypes', 'getFindingsStatistics_findingStatisticTypes' - The types of finding statistics to retrieve.
+newGetFindingsStatistics ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  GetFindingsStatistics
+newGetFindingsStatistics pDetectorId_ =
   GetFindingsStatistics'
-    { _gfsFindingStatisticTypes = Nothing
-    , _gfsFindingCriteria = Nothing
-    , _gfsDetectorId = pDetectorId_
+    { findingCriteria =
+        Prelude.Nothing,
+      detectorId = pDetectorId_,
+      findingStatisticTypes = Prelude.mempty
     }
 
+-- | Represents the criteria that is used for querying findings.
+getFindingsStatistics_findingCriteria :: Lens.Lens' GetFindingsStatistics (Prelude.Maybe FindingCriteria)
+getFindingsStatistics_findingCriteria = Lens.lens (\GetFindingsStatistics' {findingCriteria} -> findingCriteria) (\s@GetFindingsStatistics' {} a -> s {findingCriteria = a} :: GetFindingsStatistics)
 
--- | Types of finding statistics to retrieve.
-gfsFindingStatisticTypes :: Lens' GetFindingsStatistics [FindingStatisticType]
-gfsFindingStatisticTypes = lens _gfsFindingStatisticTypes (\ s a -> s{_gfsFindingStatisticTypes = a}) . _Default . _Coerce
+-- | The ID of the detector that specifies the GuardDuty service whose
+-- findings\' statistics you want to retrieve.
+getFindingsStatistics_detectorId :: Lens.Lens' GetFindingsStatistics Prelude.Text
+getFindingsStatistics_detectorId = Lens.lens (\GetFindingsStatistics' {detectorId} -> detectorId) (\s@GetFindingsStatistics' {} a -> s {detectorId = a} :: GetFindingsStatistics)
 
--- | Represents the criteria used for querying findings.
-gfsFindingCriteria :: Lens' GetFindingsStatistics (Maybe FindingCriteria)
-gfsFindingCriteria = lens _gfsFindingCriteria (\ s a -> s{_gfsFindingCriteria = a})
+-- | The types of finding statistics to retrieve.
+getFindingsStatistics_findingStatisticTypes :: Lens.Lens' GetFindingsStatistics [FindingStatisticType]
+getFindingsStatistics_findingStatisticTypes = Lens.lens (\GetFindingsStatistics' {findingStatisticTypes} -> findingStatisticTypes) (\s@GetFindingsStatistics' {} a -> s {findingStatisticTypes = a} :: GetFindingsStatistics) Prelude.. Lens._Coerce
 
--- | The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
-gfsDetectorId :: Lens' GetFindingsStatistics Text
-gfsDetectorId = lens _gfsDetectorId (\ s a -> s{_gfsDetectorId = a})
+instance Core.AWSRequest GetFindingsStatistics where
+  type
+    AWSResponse GetFindingsStatistics =
+      GetFindingsStatisticsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetFindingsStatisticsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "findingStatistics")
+      )
 
-instance AWSRequest GetFindingsStatistics where
-        type Rs GetFindingsStatistics =
-             GetFindingsStatisticsResponse
-        request = postJSON guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetFindingsStatisticsResponse' <$>
-                   (x .?> "findingStatistics") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetFindingsStatistics
 
-instance Hashable GetFindingsStatistics where
+instance Prelude.NFData GetFindingsStatistics
 
-instance NFData GetFindingsStatistics where
+instance Core.ToHeaders GetFindingsStatistics where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetFindingsStatistics where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetFindingsStatistics where
+  toJSON GetFindingsStatistics' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("findingCriteria" Core..=)
+              Prelude.<$> findingCriteria,
+            Prelude.Just
+              ( "findingStatisticTypes"
+                  Core..= findingStatisticTypes
+              )
+          ]
+      )
 
-instance ToJSON GetFindingsStatistics where
-        toJSON GetFindingsStatistics'{..}
-          = object
-              (catMaybes
-                 [("findingStatisticTypes" .=) <$>
-                    _gfsFindingStatisticTypes,
-                  ("findingCriteria" .=) <$> _gfsFindingCriteria])
+instance Core.ToPath GetFindingsStatistics where
+  toPath GetFindingsStatistics' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Core.toBS detectorId,
+        "/findings/statistics"
+      ]
 
-instance ToPath GetFindingsStatistics where
-        toPath GetFindingsStatistics'{..}
-          = mconcat
-              ["/detector/", toBS _gfsDetectorId,
-               "/findings/statistics"]
+instance Core.ToQuery GetFindingsStatistics where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetFindingsStatistics where
-        toQuery = const mempty
-
--- | /See:/ 'getFindingsStatisticsResponse' smart constructor.
+-- | /See:/ 'newGetFindingsStatisticsResponse' smart constructor.
 data GetFindingsStatisticsResponse = GetFindingsStatisticsResponse'
-  { _gfsrsFindingStatistics :: !(Maybe FindingStatistics)
-  , _gfsrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The finding statistics object.
+    findingStatistics :: FindingStatistics
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFindingsStatisticsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFindingsStatisticsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfsrsFindingStatistics' - Finding statistics object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfsrsResponseStatus' - -- | The response status code.
-getFindingsStatisticsResponse
-    :: Int -- ^ 'gfsrsResponseStatus'
-    -> GetFindingsStatisticsResponse
-getFindingsStatisticsResponse pResponseStatus_ =
-  GetFindingsStatisticsResponse'
-    {_gfsrsFindingStatistics = Nothing, _gfsrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'getFindingsStatisticsResponse_httpStatus' - The response's http status code.
+--
+-- 'findingStatistics', 'getFindingsStatisticsResponse_findingStatistics' - The finding statistics object.
+newGetFindingsStatisticsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'findingStatistics'
+  FindingStatistics ->
+  GetFindingsStatisticsResponse
+newGetFindingsStatisticsResponse
+  pHttpStatus_
+  pFindingStatistics_ =
+    GetFindingsStatisticsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        findingStatistics = pFindingStatistics_
+      }
 
+-- | The response's http status code.
+getFindingsStatisticsResponse_httpStatus :: Lens.Lens' GetFindingsStatisticsResponse Prelude.Int
+getFindingsStatisticsResponse_httpStatus = Lens.lens (\GetFindingsStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetFindingsStatisticsResponse' {} a -> s {httpStatus = a} :: GetFindingsStatisticsResponse)
 
--- | Finding statistics object.
-gfsrsFindingStatistics :: Lens' GetFindingsStatisticsResponse (Maybe FindingStatistics)
-gfsrsFindingStatistics = lens _gfsrsFindingStatistics (\ s a -> s{_gfsrsFindingStatistics = a})
+-- | The finding statistics object.
+getFindingsStatisticsResponse_findingStatistics :: Lens.Lens' GetFindingsStatisticsResponse FindingStatistics
+getFindingsStatisticsResponse_findingStatistics = Lens.lens (\GetFindingsStatisticsResponse' {findingStatistics} -> findingStatistics) (\s@GetFindingsStatisticsResponse' {} a -> s {findingStatistics = a} :: GetFindingsStatisticsResponse)
 
--- | -- | The response status code.
-gfsrsResponseStatus :: Lens' GetFindingsStatisticsResponse Int
-gfsrsResponseStatus = lens _gfsrsResponseStatus (\ s a -> s{_gfsrsResponseStatus = a})
-
-instance NFData GetFindingsStatisticsResponse where
+instance Prelude.NFData GetFindingsStatisticsResponse

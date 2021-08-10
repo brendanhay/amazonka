@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.RequestSpotFleet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,142 +22,182 @@
 --
 -- Creates a Spot Fleet request.
 --
+-- The Spot Fleet request specifies the total target capacity and the
+-- On-Demand target capacity. Amazon EC2 calculates the difference between
+-- the total capacity and On-Demand capacity, and launches the difference
+-- as Spot capacity.
 --
--- The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.
+-- You can submit a single request that includes multiple launch
+-- specifications that vary by instance type, AMI, Availability Zone, or
+-- subnet.
 --
--- You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.
+-- By default, the Spot Fleet requests Spot Instances in the Spot Instance
+-- pool where the price per unit is the lowest. Each launch specification
+-- can include its own instance weighting that reflects the value of the
+-- instance type to your application workload.
 --
--- By default, the Spot Fleet requests Spot Instances in the Spot pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.
+-- Alternatively, you can specify that the Spot Fleet distribute the target
+-- capacity across the Spot pools included in its launch specifications. By
+-- ensuring that the Spot Instances in your Spot Fleet are in different
+-- Spot pools, you can improve the availability of your fleet.
 --
--- Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.
+-- You can specify tags for the Spot Fleet request and instances launched
+-- by the fleet. You cannot tag other resource types in a Spot Fleet
+-- request because only the @spot-fleet-request@ and @instance@ resource
+-- types are supported.
 --
--- You can specify tags for the Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the @instance@ resource type is supported.
---
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests> in the /Amazon EC2 User Guide for Linux Instances/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet requests>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 module Network.AWS.EC2.RequestSpotFleet
-    (
-    -- * Creating a Request
-      requestSpotFleet
-    , RequestSpotFleet
+  ( -- * Creating a Request
+    RequestSpotFleet (..),
+    newRequestSpotFleet,
+
     -- * Request Lenses
-    , rsfDryRun
-    , rsfSpotFleetRequestConfig
+    requestSpotFleet_dryRun,
+    requestSpotFleet_spotFleetRequestConfig,
 
     -- * Destructuring the Response
-    , requestSpotFleetResponse
-    , RequestSpotFleetResponse
-    -- * Response Lenses
-    , rsfrsResponseStatus
-    , rsfrsSpotFleetRequestId
-    ) where
+    RequestSpotFleetResponse (..),
+    newRequestSpotFleetResponse,
 
+    -- * Response Lenses
+    requestSpotFleetResponse_spotFleetRequestId,
+    requestSpotFleetResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for RequestSpotFleet.
 --
---
---
--- /See:/ 'requestSpotFleet' smart constructor.
+-- /See:/ 'newRequestSpotFleet' smart constructor.
 data RequestSpotFleet = RequestSpotFleet'
-  { _rsfDryRun                 :: !(Maybe Bool)
-  , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration for the Spot Fleet request.
+    spotFleetRequestConfig :: SpotFleetRequestConfigData
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RequestSpotFleet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RequestSpotFleet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rsfDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rsfSpotFleetRequestConfig' - The configuration for the Spot Fleet request.
-requestSpotFleet
-    :: SpotFleetRequestConfigData -- ^ 'rsfSpotFleetRequestConfig'
-    -> RequestSpotFleet
-requestSpotFleet pSpotFleetRequestConfig_ =
+-- 'dryRun', 'requestSpotFleet_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'spotFleetRequestConfig', 'requestSpotFleet_spotFleetRequestConfig' - The configuration for the Spot Fleet request.
+newRequestSpotFleet ::
+  -- | 'spotFleetRequestConfig'
+  SpotFleetRequestConfigData ->
+  RequestSpotFleet
+newRequestSpotFleet pSpotFleetRequestConfig_ =
   RequestSpotFleet'
-    { _rsfDryRun = Nothing
-    , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_
+    { dryRun = Prelude.Nothing,
+      spotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
-rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+requestSpotFleet_dryRun :: Lens.Lens' RequestSpotFleet (Prelude.Maybe Prelude.Bool)
+requestSpotFleet_dryRun = Lens.lens (\RequestSpotFleet' {dryRun} -> dryRun) (\s@RequestSpotFleet' {} a -> s {dryRun = a} :: RequestSpotFleet)
 
 -- | The configuration for the Spot Fleet request.
-rsfSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
-rsfSpotFleetRequestConfig = lens _rsfSpotFleetRequestConfig (\ s a -> s{_rsfSpotFleetRequestConfig = a})
+requestSpotFleet_spotFleetRequestConfig :: Lens.Lens' RequestSpotFleet SpotFleetRequestConfigData
+requestSpotFleet_spotFleetRequestConfig = Lens.lens (\RequestSpotFleet' {spotFleetRequestConfig} -> spotFleetRequestConfig) (\s@RequestSpotFleet' {} a -> s {spotFleetRequestConfig = a} :: RequestSpotFleet)
 
-instance AWSRequest RequestSpotFleet where
-        type Rs RequestSpotFleet = RequestSpotFleetResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 RequestSpotFleetResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "spotFleetRequestId"))
+instance Core.AWSRequest RequestSpotFleet where
+  type
+    AWSResponse RequestSpotFleet =
+      RequestSpotFleetResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          RequestSpotFleetResponse'
+            Prelude.<$> (x Core..@? "spotFleetRequestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RequestSpotFleet where
+instance Prelude.Hashable RequestSpotFleet
 
-instance NFData RequestSpotFleet where
+instance Prelude.NFData RequestSpotFleet
 
-instance ToHeaders RequestSpotFleet where
-        toHeaders = const mempty
+instance Core.ToHeaders RequestSpotFleet where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath RequestSpotFleet where
-        toPath = const "/"
+instance Core.ToPath RequestSpotFleet where
+  toPath = Prelude.const "/"
 
-instance ToQuery RequestSpotFleet where
-        toQuery RequestSpotFleet'{..}
-          = mconcat
-              ["Action" =: ("RequestSpotFleet" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _rsfDryRun,
-               "SpotFleetRequestConfig" =:
-                 _rsfSpotFleetRequestConfig]
+instance Core.ToQuery RequestSpotFleet where
+  toQuery RequestSpotFleet' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RequestSpotFleet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "SpotFleetRequestConfig"
+          Core.=: spotFleetRequestConfig
+      ]
 
 -- | Contains the output of RequestSpotFleet.
 --
---
---
--- /See:/ 'requestSpotFleetResponse' smart constructor.
+-- /See:/ 'newRequestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-  { _rsfrsResponseStatus     :: !Int
-  , _rsfrsSpotFleetRequestId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RequestSpotFleetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RequestSpotFleetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rsfrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rsfrsSpotFleetRequestId' - The ID of the Spot Fleet request.
-requestSpotFleetResponse
-    :: Int -- ^ 'rsfrsResponseStatus'
-    -> Text -- ^ 'rsfrsSpotFleetRequestId'
-    -> RequestSpotFleetResponse
-requestSpotFleetResponse pResponseStatus_ pSpotFleetRequestId_ =
+-- 'spotFleetRequestId', 'requestSpotFleetResponse_spotFleetRequestId' - The ID of the Spot Fleet request.
+--
+-- 'httpStatus', 'requestSpotFleetResponse_httpStatus' - The response's http status code.
+newRequestSpotFleetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RequestSpotFleetResponse
+newRequestSpotFleetResponse pHttpStatus_ =
   RequestSpotFleetResponse'
-    { _rsfrsResponseStatus = pResponseStatus_
-    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
+    { spotFleetRequestId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | -- | The response status code.
-rsfrsResponseStatus :: Lens' RequestSpotFleetResponse Int
-rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus = a})
-
 -- | The ID of the Spot Fleet request.
-rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
-rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a})
+requestSpotFleetResponse_spotFleetRequestId :: Lens.Lens' RequestSpotFleetResponse (Prelude.Maybe Prelude.Text)
+requestSpotFleetResponse_spotFleetRequestId = Lens.lens (\RequestSpotFleetResponse' {spotFleetRequestId} -> spotFleetRequestId) (\s@RequestSpotFleetResponse' {} a -> s {spotFleetRequestId = a} :: RequestSpotFleetResponse)
 
-instance NFData RequestSpotFleetResponse where
+-- | The response's http status code.
+requestSpotFleetResponse_httpStatus :: Lens.Lens' RequestSpotFleetResponse Prelude.Int
+requestSpotFleetResponse_httpStatus = Lens.lens (\RequestSpotFleetResponse' {httpStatus} -> httpStatus) (\s@RequestSpotFleetResponse' {} a -> s {httpStatus = a} :: RequestSpotFleetResponse)
+
+instance Prelude.NFData RequestSpotFleetResponse

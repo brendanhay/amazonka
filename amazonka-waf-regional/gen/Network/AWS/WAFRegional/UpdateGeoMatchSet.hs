@@ -1,180 +1,273 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateGeoMatchSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes 'GeoMatchConstraint' objects in an @GeoMatchSet@ . For each @GeoMatchConstraint@ object, you specify the following values:
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
---     * Whether to insert or delete the object from the array. If you want to change an @GeoMatchConstraint@ object, you delete the existing object and add a new one.
+-- Inserts or deletes GeoMatchConstraint objects in an @GeoMatchSet@. For
+-- each @GeoMatchConstraint@ object, you specify the following values:
 --
---     * The @Type@ . The only valid value for @Type@ is @Country@ .
+-- -   Whether to insert or delete the object from the array. If you want
+--     to change an @GeoMatchConstraint@ object, you delete the existing
+--     object and add a new one.
 --
---     * The @Value@ , which is a two character code for the country to add to the @GeoMatchConstraint@ object. Valid codes are listed in 'GeoMatchConstraint$Value' .
+-- -   The @Type@. The only valid value for @Type@ is @Country@.
 --
+-- -   The @Value@, which is a two character code for the country to add to
+--     the @GeoMatchConstraint@ object. Valid codes are listed in
+--     GeoMatchConstraint$Value.
 --
+-- To create and configure an @GeoMatchSet@, perform the following steps:
 --
--- To create and configure an @GeoMatchSet@ , perform the following steps:
+-- 1.  Submit a CreateGeoMatchSet request.
 --
---     * Submit a 'CreateGeoMatchSet' request.
+-- 2.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of an UpdateGeoMatchSet request.
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateGeoMatchSet' request.
+-- 3.  Submit an @UpdateGeoMatchSet@ request to specify the country that
+--     you want AWS WAF to watch for.
 --
---     * Submit an @UpdateGeoMatchSet@ request to specify the country that you want AWS WAF to watch for.
+-- When you update an @GeoMatchSet@, you specify the country that you want
+-- to add and\/or the country that you want to delete. If you want to
+-- change a country, you delete the existing country and add the new one.
 --
---
---
--- When you update an @GeoMatchSet@ , you specify the country that you want to add and/or the country that you want to delete. If you want to change a country, you delete the existing country and add the new one.
---
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
---
+-- For more information about how to use the AWS WAF API to allow or block
+-- HTTP requests, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAFRegional.UpdateGeoMatchSet
-    (
-    -- * Creating a Request
-      updateGeoMatchSet
-    , UpdateGeoMatchSet
+  ( -- * Creating a Request
+    UpdateGeoMatchSet (..),
+    newUpdateGeoMatchSet,
+
     -- * Request Lenses
-    , ugmsGeoMatchSetId
-    , ugmsChangeToken
-    , ugmsUpdates
+    updateGeoMatchSet_geoMatchSetId,
+    updateGeoMatchSet_changeToken,
+    updateGeoMatchSet_updates,
 
     -- * Destructuring the Response
-    , updateGeoMatchSetResponse
-    , UpdateGeoMatchSetResponse
+    UpdateGeoMatchSetResponse (..),
+    newUpdateGeoMatchSetResponse,
+
     -- * Response Lenses
-    , ugmsrsChangeToken
-    , ugmsrsResponseStatus
-    ) where
+    updateGeoMatchSetResponse_changeToken,
+    updateGeoMatchSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'updateGeoMatchSet' smart constructor.
+-- | /See:/ 'newUpdateGeoMatchSet' smart constructor.
 data UpdateGeoMatchSet = UpdateGeoMatchSet'
-  { _ugmsGeoMatchSetId :: !Text
-  , _ugmsChangeToken   :: !Text
-  , _ugmsUpdates       :: !(List1 GeoMatchSetUpdate)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
+    -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+    -- ListGeoMatchSets.
+    geoMatchSetId :: Prelude.Text,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text,
+    -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or
+    -- delete from an GeoMatchSet. For more information, see the applicable
+    -- data types:
+    --
+    -- -   GeoMatchSetUpdate: Contains @Action@ and @GeoMatchConstraint@
+    --
+    -- -   GeoMatchConstraint: Contains @Type@ and @Value@
+    --
+    --     You can have only one @Type@ and @Value@ per @GeoMatchConstraint@.
+    --     To add multiple countries, include multiple @GeoMatchSetUpdate@
+    --     objects in your request.
+    updates :: Prelude.NonEmpty GeoMatchSetUpdate
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateGeoMatchSet' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'geoMatchSetId', 'updateGeoMatchSet_geoMatchSetId' - The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
+-- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+-- ListGeoMatchSets.
+--
+-- 'changeToken', 'updateGeoMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
+--
+-- 'updates', 'updateGeoMatchSet_updates' - An array of @GeoMatchSetUpdate@ objects that you want to insert into or
+-- delete from an GeoMatchSet. For more information, see the applicable
+-- data types:
+--
+-- -   GeoMatchSetUpdate: Contains @Action@ and @GeoMatchConstraint@
+--
+-- -   GeoMatchConstraint: Contains @Type@ and @Value@
+--
+--     You can have only one @Type@ and @Value@ per @GeoMatchConstraint@.
+--     To add multiple countries, include multiple @GeoMatchSetUpdate@
+--     objects in your request.
+newUpdateGeoMatchSet ::
+  -- | 'geoMatchSetId'
+  Prelude.Text ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  -- | 'updates'
+  Prelude.NonEmpty GeoMatchSetUpdate ->
+  UpdateGeoMatchSet
+newUpdateGeoMatchSet
+  pGeoMatchSetId_
+  pChangeToken_
+  pUpdates_ =
+    UpdateGeoMatchSet'
+      { geoMatchSetId = pGeoMatchSetId_,
+        changeToken = pChangeToken_,
+        updates = Lens._Coerce Lens.# pUpdates_
+      }
 
--- | Creates a value of 'UpdateGeoMatchSet' with the minimum fields required to make a request.
+-- | The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
+-- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+-- ListGeoMatchSets.
+updateGeoMatchSet_geoMatchSetId :: Lens.Lens' UpdateGeoMatchSet Prelude.Text
+updateGeoMatchSet_geoMatchSetId = Lens.lens (\UpdateGeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@UpdateGeoMatchSet' {} a -> s {geoMatchSetId = a} :: UpdateGeoMatchSet)
+
+-- | The value returned by the most recent call to GetChangeToken.
+updateGeoMatchSet_changeToken :: Lens.Lens' UpdateGeoMatchSet Prelude.Text
+updateGeoMatchSet_changeToken = Lens.lens (\UpdateGeoMatchSet' {changeToken} -> changeToken) (\s@UpdateGeoMatchSet' {} a -> s {changeToken = a} :: UpdateGeoMatchSet)
+
+-- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or
+-- delete from an GeoMatchSet. For more information, see the applicable
+-- data types:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   GeoMatchSetUpdate: Contains @Action@ and @GeoMatchConstraint@
 --
--- * 'ugmsGeoMatchSetId' - The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
+-- -   GeoMatchConstraint: Contains @Type@ and @Value@
 --
--- * 'ugmsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
+--     You can have only one @Type@ and @Value@ per @GeoMatchConstraint@.
+--     To add multiple countries, include multiple @GeoMatchSetUpdate@
+--     objects in your request.
+updateGeoMatchSet_updates :: Lens.Lens' UpdateGeoMatchSet (Prelude.NonEmpty GeoMatchSetUpdate)
+updateGeoMatchSet_updates = Lens.lens (\UpdateGeoMatchSet' {updates} -> updates) (\s@UpdateGeoMatchSet' {} a -> s {updates = a} :: UpdateGeoMatchSet) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest UpdateGeoMatchSet where
+  type
+    AWSResponse UpdateGeoMatchSet =
+      UpdateGeoMatchSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateGeoMatchSetResponse'
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateGeoMatchSet
+
+instance Prelude.NFData UpdateGeoMatchSet
+
+instance Core.ToHeaders UpdateGeoMatchSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_Regional_20161128.UpdateGeoMatchSet" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateGeoMatchSet where
+  toJSON UpdateGeoMatchSet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GeoMatchSetId" Core..= geoMatchSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken),
+            Prelude.Just ("Updates" Core..= updates)
+          ]
+      )
+
+instance Core.ToPath UpdateGeoMatchSet where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateGeoMatchSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateGeoMatchSetResponse' smart constructor.
+data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
+  { -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@
+    -- request. You can also use this value to query the status of the request.
+    -- For more information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateGeoMatchSetResponse' with all optional fields omitted.
 --
--- * 'ugmsUpdates' - An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:     * 'GeoMatchSetUpdate' : Contains @Action@ and @GeoMatchConstraint@      * 'GeoMatchConstraint' : Contains @Type@ and @Value@  You can have only one @Type@ and @Value@ per @GeoMatchConstraint@ . To add multiple countries, include multiple @GeoMatchSetUpdate@ objects in your request.
-updateGeoMatchSet
-    :: Text -- ^ 'ugmsGeoMatchSetId'
-    -> Text -- ^ 'ugmsChangeToken'
-    -> NonEmpty GeoMatchSetUpdate -- ^ 'ugmsUpdates'
-    -> UpdateGeoMatchSet
-updateGeoMatchSet pGeoMatchSetId_ pChangeToken_ pUpdates_ =
-  UpdateGeoMatchSet'
-    { _ugmsGeoMatchSetId = pGeoMatchSetId_
-    , _ugmsChangeToken = pChangeToken_
-    , _ugmsUpdates = _List1 # pUpdates_
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'changeToken', 'updateGeoMatchSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@
+-- request. You can also use this value to query the status of the request.
+-- For more information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'updateGeoMatchSetResponse_httpStatus' - The response's http status code.
+newUpdateGeoMatchSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateGeoMatchSetResponse
+newUpdateGeoMatchSetResponse pHttpStatus_ =
+  UpdateGeoMatchSetResponse'
+    { changeToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@
+-- request. You can also use this value to query the status of the request.
+-- For more information, see GetChangeTokenStatus.
+updateGeoMatchSetResponse_changeToken :: Lens.Lens' UpdateGeoMatchSetResponse (Prelude.Maybe Prelude.Text)
+updateGeoMatchSetResponse_changeToken = Lens.lens (\UpdateGeoMatchSetResponse' {changeToken} -> changeToken) (\s@UpdateGeoMatchSetResponse' {} a -> s {changeToken = a} :: UpdateGeoMatchSetResponse)
 
--- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-ugmsGeoMatchSetId :: Lens' UpdateGeoMatchSet Text
-ugmsGeoMatchSetId = lens _ugmsGeoMatchSetId (\ s a -> s{_ugmsGeoMatchSetId = a})
+-- | The response's http status code.
+updateGeoMatchSetResponse_httpStatus :: Lens.Lens' UpdateGeoMatchSetResponse Prelude.Int
+updateGeoMatchSetResponse_httpStatus = Lens.lens (\UpdateGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateGeoMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateGeoMatchSetResponse)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-ugmsChangeToken :: Lens' UpdateGeoMatchSet Text
-ugmsChangeToken = lens _ugmsChangeToken (\ s a -> s{_ugmsChangeToken = a})
-
--- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:     * 'GeoMatchSetUpdate' : Contains @Action@ and @GeoMatchConstraint@      * 'GeoMatchConstraint' : Contains @Type@ and @Value@  You can have only one @Type@ and @Value@ per @GeoMatchConstraint@ . To add multiple countries, include multiple @GeoMatchSetUpdate@ objects in your request.
-ugmsUpdates :: Lens' UpdateGeoMatchSet (NonEmpty GeoMatchSetUpdate)
-ugmsUpdates = lens _ugmsUpdates (\ s a -> s{_ugmsUpdates = a}) . _List1
-
-instance AWSRequest UpdateGeoMatchSet where
-        type Rs UpdateGeoMatchSet = UpdateGeoMatchSetResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateGeoMatchSetResponse' <$>
-                   (x .?> "ChangeToken") <*> (pure (fromEnum s)))
-
-instance Hashable UpdateGeoMatchSet where
-
-instance NFData UpdateGeoMatchSet where
-
-instance ToHeaders UpdateGeoMatchSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.UpdateGeoMatchSet" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateGeoMatchSet where
-        toJSON UpdateGeoMatchSet'{..}
-          = object
-              (catMaybes
-                 [Just ("GeoMatchSetId" .= _ugmsGeoMatchSetId),
-                  Just ("ChangeToken" .= _ugmsChangeToken),
-                  Just ("Updates" .= _ugmsUpdates)])
-
-instance ToPath UpdateGeoMatchSet where
-        toPath = const "/"
-
-instance ToQuery UpdateGeoMatchSet where
-        toQuery = const mempty
-
--- | /See:/ 'updateGeoMatchSetResponse' smart constructor.
-data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
-  { _ugmsrsChangeToken    :: !(Maybe Text)
-  , _ugmsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateGeoMatchSetResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugmsrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'ugmsrsResponseStatus' - -- | The response status code.
-updateGeoMatchSetResponse
-    :: Int -- ^ 'ugmsrsResponseStatus'
-    -> UpdateGeoMatchSetResponse
-updateGeoMatchSetResponse pResponseStatus_ =
-  UpdateGeoMatchSetResponse'
-    {_ugmsrsChangeToken = Nothing, _ugmsrsResponseStatus = pResponseStatus_}
-
-
--- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-ugmsrsChangeToken :: Lens' UpdateGeoMatchSetResponse (Maybe Text)
-ugmsrsChangeToken = lens _ugmsrsChangeToken (\ s a -> s{_ugmsrsChangeToken = a})
-
--- | -- | The response status code.
-ugmsrsResponseStatus :: Lens' UpdateGeoMatchSetResponse Int
-ugmsrsResponseStatus = lens _ugmsrsResponseStatus (\ s a -> s{_ugmsrsResponseStatus = a})
-
-instance NFData UpdateGeoMatchSetResponse where
+instance Prelude.NFData UpdateGeoMatchSetResponse

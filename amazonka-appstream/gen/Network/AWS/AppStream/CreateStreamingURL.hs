@@ -1,201 +1,264 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateStreamingURL
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a URL to start a streaming session for the specified user.
---
---
+-- Creates a temporary URL to start an AppStream 2.0 streaming session for
+-- the specified user. A streaming URL enables application streaming to be
+-- tested without user setup.
 module Network.AWS.AppStream.CreateStreamingURL
-    (
-    -- * Creating a Request
-      createStreamingURL
-    , CreateStreamingURL
+  ( -- * Creating a Request
+    CreateStreamingURL (..),
+    newCreateStreamingURL,
+
     -- * Request Lenses
-    , csuSessionContext
-    , csuApplicationId
-    , csuValidity
-    , csuStackName
-    , csuFleetName
-    , csuUserId
+    createStreamingURL_applicationId,
+    createStreamingURL_sessionContext,
+    createStreamingURL_validity,
+    createStreamingURL_stackName,
+    createStreamingURL_fleetName,
+    createStreamingURL_userId,
 
     -- * Destructuring the Response
-    , createStreamingURLResponse
-    , CreateStreamingURLResponse
+    CreateStreamingURLResponse (..),
+    newCreateStreamingURLResponse,
+
     -- * Response Lenses
-    , csursStreamingURL
-    , csursExpires
-    , csursResponseStatus
-    ) where
+    createStreamingURLResponse_streamingURL,
+    createStreamingURLResponse_expires,
+    createStreamingURLResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createStreamingURL' smart constructor.
+-- | /See:/ 'newCreateStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-  { _csuSessionContext :: !(Maybe Text)
-  , _csuApplicationId  :: !(Maybe Text)
-  , _csuValidity       :: !(Maybe Integer)
-  , _csuStackName      :: !Text
-  , _csuFleetName      :: !Text
-  , _csuUserId         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the application to launch after the session starts. This is
+    -- the name that you specified as __Name__ in the Image Assistant. If your
+    -- fleet is enabled for the __Desktop__ stream view, you can also choose to
+    -- launch directly to the operating system desktop. To do so, specify
+    -- __Desktop__.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The session context. For more information, see
+    -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+    -- in the /Amazon AppStream 2.0 Administration Guide/.
+    sessionContext :: Prelude.Maybe Prelude.Text,
+    -- | The time that the streaming URL will be valid, in seconds. Specify a
+    -- value between 1 and 604800 seconds. The default is 60 seconds.
+    validity :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the stack.
+    stackName :: Prelude.Text,
+    -- | The name of the fleet.
+    fleetName :: Prelude.Text,
+    -- | The identifier of the user.
+    userId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateStreamingURL' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationId', 'createStreamingURL_applicationId' - The name of the application to launch after the session starts. This is
+-- the name that you specified as __Name__ in the Image Assistant. If your
+-- fleet is enabled for the __Desktop__ stream view, you can also choose to
+-- launch directly to the operating system desktop. To do so, specify
+-- __Desktop__.
+--
+-- 'sessionContext', 'createStreamingURL_sessionContext' - The session context. For more information, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+--
+-- 'validity', 'createStreamingURL_validity' - The time that the streaming URL will be valid, in seconds. Specify a
+-- value between 1 and 604800 seconds. The default is 60 seconds.
+--
+-- 'stackName', 'createStreamingURL_stackName' - The name of the stack.
+--
+-- 'fleetName', 'createStreamingURL_fleetName' - The name of the fleet.
+--
+-- 'userId', 'createStreamingURL_userId' - The identifier of the user.
+newCreateStreamingURL ::
+  -- | 'stackName'
+  Prelude.Text ->
+  -- | 'fleetName'
+  Prelude.Text ->
+  -- | 'userId'
+  Prelude.Text ->
+  CreateStreamingURL
+newCreateStreamingURL
+  pStackName_
+  pFleetName_
+  pUserId_ =
+    CreateStreamingURL'
+      { applicationId =
+          Prelude.Nothing,
+        sessionContext = Prelude.Nothing,
+        validity = Prelude.Nothing,
+        stackName = pStackName_,
+        fleetName = pFleetName_,
+        userId = pUserId_
+      }
 
--- | Creates a value of 'CreateStreamingURL' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csuSessionContext' - The session context. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
---
--- * 'csuApplicationId' - The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
---
--- * 'csuValidity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
---
--- * 'csuStackName' - The name of the stack.
---
--- * 'csuFleetName' - The name of the fleet.
---
--- * 'csuUserId' - The ID of the user.
-createStreamingURL
-    :: Text -- ^ 'csuStackName'
-    -> Text -- ^ 'csuFleetName'
-    -> Text -- ^ 'csuUserId'
-    -> CreateStreamingURL
-createStreamingURL pStackName_ pFleetName_ pUserId_ =
-  CreateStreamingURL'
-    { _csuSessionContext = Nothing
-    , _csuApplicationId = Nothing
-    , _csuValidity = Nothing
-    , _csuStackName = pStackName_
-    , _csuFleetName = pFleetName_
-    , _csuUserId = pUserId_
-    }
+-- | The name of the application to launch after the session starts. This is
+-- the name that you specified as __Name__ in the Image Assistant. If your
+-- fleet is enabled for the __Desktop__ stream view, you can also choose to
+-- launch directly to the operating system desktop. To do so, specify
+-- __Desktop__.
+createStreamingURL_applicationId :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Text)
+createStreamingURL_applicationId = Lens.lens (\CreateStreamingURL' {applicationId} -> applicationId) (\s@CreateStreamingURL' {} a -> s {applicationId = a} :: CreateStreamingURL)
 
+-- | The session context. For more information, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+createStreamingURL_sessionContext :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Text)
+createStreamingURL_sessionContext = Lens.lens (\CreateStreamingURL' {sessionContext} -> sessionContext) (\s@CreateStreamingURL' {} a -> s {sessionContext = a} :: CreateStreamingURL)
 
--- | The session context. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
-csuSessionContext :: Lens' CreateStreamingURL (Maybe Text)
-csuSessionContext = lens _csuSessionContext (\ s a -> s{_csuSessionContext = a})
-
--- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
-csuApplicationId :: Lens' CreateStreamingURL (Maybe Text)
-csuApplicationId = lens _csuApplicationId (\ s a -> s{_csuApplicationId = a})
-
--- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
-csuValidity :: Lens' CreateStreamingURL (Maybe Integer)
-csuValidity = lens _csuValidity (\ s a -> s{_csuValidity = a})
+-- | The time that the streaming URL will be valid, in seconds. Specify a
+-- value between 1 and 604800 seconds. The default is 60 seconds.
+createStreamingURL_validity :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Integer)
+createStreamingURL_validity = Lens.lens (\CreateStreamingURL' {validity} -> validity) (\s@CreateStreamingURL' {} a -> s {validity = a} :: CreateStreamingURL)
 
 -- | The name of the stack.
-csuStackName :: Lens' CreateStreamingURL Text
-csuStackName = lens _csuStackName (\ s a -> s{_csuStackName = a})
+createStreamingURL_stackName :: Lens.Lens' CreateStreamingURL Prelude.Text
+createStreamingURL_stackName = Lens.lens (\CreateStreamingURL' {stackName} -> stackName) (\s@CreateStreamingURL' {} a -> s {stackName = a} :: CreateStreamingURL)
 
 -- | The name of the fleet.
-csuFleetName :: Lens' CreateStreamingURL Text
-csuFleetName = lens _csuFleetName (\ s a -> s{_csuFleetName = a})
+createStreamingURL_fleetName :: Lens.Lens' CreateStreamingURL Prelude.Text
+createStreamingURL_fleetName = Lens.lens (\CreateStreamingURL' {fleetName} -> fleetName) (\s@CreateStreamingURL' {} a -> s {fleetName = a} :: CreateStreamingURL)
 
--- | The ID of the user.
-csuUserId :: Lens' CreateStreamingURL Text
-csuUserId = lens _csuUserId (\ s a -> s{_csuUserId = a})
+-- | The identifier of the user.
+createStreamingURL_userId :: Lens.Lens' CreateStreamingURL Prelude.Text
+createStreamingURL_userId = Lens.lens (\CreateStreamingURL' {userId} -> userId) (\s@CreateStreamingURL' {} a -> s {userId = a} :: CreateStreamingURL)
 
-instance AWSRequest CreateStreamingURL where
-        type Rs CreateStreamingURL =
-             CreateStreamingURLResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateStreamingURLResponse' <$>
-                   (x .?> "StreamingURL") <*> (x .?> "Expires") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest CreateStreamingURL where
+  type
+    AWSResponse CreateStreamingURL =
+      CreateStreamingURLResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateStreamingURLResponse'
+            Prelude.<$> (x Core..?> "StreamingURL")
+            Prelude.<*> (x Core..?> "Expires")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateStreamingURL where
+instance Prelude.Hashable CreateStreamingURL
 
-instance NFData CreateStreamingURL where
+instance Prelude.NFData CreateStreamingURL
 
-instance ToHeaders CreateStreamingURL where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.CreateStreamingURL" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateStreamingURL where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "PhotonAdminProxyService.CreateStreamingURL" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateStreamingURL where
-        toJSON CreateStreamingURL'{..}
-          = object
-              (catMaybes
-                 [("SessionContext" .=) <$> _csuSessionContext,
-                  ("ApplicationId" .=) <$> _csuApplicationId,
-                  ("Validity" .=) <$> _csuValidity,
-                  Just ("StackName" .= _csuStackName),
-                  Just ("FleetName" .= _csuFleetName),
-                  Just ("UserId" .= _csuUserId)])
+instance Core.ToJSON CreateStreamingURL where
+  toJSON CreateStreamingURL' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ApplicationId" Core..=) Prelude.<$> applicationId,
+            ("SessionContext" Core..=)
+              Prelude.<$> sessionContext,
+            ("Validity" Core..=) Prelude.<$> validity,
+            Prelude.Just ("StackName" Core..= stackName),
+            Prelude.Just ("FleetName" Core..= fleetName),
+            Prelude.Just ("UserId" Core..= userId)
+          ]
+      )
 
-instance ToPath CreateStreamingURL where
-        toPath = const "/"
+instance Core.ToPath CreateStreamingURL where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateStreamingURL where
-        toQuery = const mempty
+instance Core.ToQuery CreateStreamingURL where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createStreamingURLResponse' smart constructor.
+-- | /See:/ 'newCreateStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-  { _csursStreamingURL   :: !(Maybe Text)
-  , _csursExpires        :: !(Maybe POSIX)
-  , _csursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The URL to start the AppStream 2.0 streaming session.
+    streamingURL :: Prelude.Maybe Prelude.Text,
+    -- | The elapsed time, in seconds after the Unix epoch, when this URL
+    -- expires.
+    expires :: Prelude.Maybe Core.POSIX,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateStreamingURLResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateStreamingURLResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csursExpires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
+-- 'streamingURL', 'createStreamingURLResponse_streamingURL' - The URL to start the AppStream 2.0 streaming session.
 --
--- * 'csursResponseStatus' - -- | The response status code.
-createStreamingURLResponse
-    :: Int -- ^ 'csursResponseStatus'
-    -> CreateStreamingURLResponse
-createStreamingURLResponse pResponseStatus_ =
+-- 'expires', 'createStreamingURLResponse_expires' - The elapsed time, in seconds after the Unix epoch, when this URL
+-- expires.
+--
+-- 'httpStatus', 'createStreamingURLResponse_httpStatus' - The response's http status code.
+newCreateStreamingURLResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateStreamingURLResponse
+newCreateStreamingURLResponse pHttpStatus_ =
   CreateStreamingURLResponse'
-    { _csursStreamingURL = Nothing
-    , _csursExpires = Nothing
-    , _csursResponseStatus = pResponseStatus_
+    { streamingURL =
+        Prelude.Nothing,
+      expires = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The URL to start the AppStream 2.0 streaming session.
-csursStreamingURL :: Lens' CreateStreamingURLResponse (Maybe Text)
-csursStreamingURL = lens _csursStreamingURL (\ s a -> s{_csursStreamingURL = a})
+createStreamingURLResponse_streamingURL :: Lens.Lens' CreateStreamingURLResponse (Prelude.Maybe Prelude.Text)
+createStreamingURLResponse_streamingURL = Lens.lens (\CreateStreamingURLResponse' {streamingURL} -> streamingURL) (\s@CreateStreamingURLResponse' {} a -> s {streamingURL = a} :: CreateStreamingURLResponse)
 
--- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
-csursExpires :: Lens' CreateStreamingURLResponse (Maybe UTCTime)
-csursExpires = lens _csursExpires (\ s a -> s{_csursExpires = a}) . mapping _Time
+-- | The elapsed time, in seconds after the Unix epoch, when this URL
+-- expires.
+createStreamingURLResponse_expires :: Lens.Lens' CreateStreamingURLResponse (Prelude.Maybe Prelude.UTCTime)
+createStreamingURLResponse_expires = Lens.lens (\CreateStreamingURLResponse' {expires} -> expires) (\s@CreateStreamingURLResponse' {} a -> s {expires = a} :: CreateStreamingURLResponse) Prelude.. Lens.mapping Core._Time
 
--- | -- | The response status code.
-csursResponseStatus :: Lens' CreateStreamingURLResponse Int
-csursResponseStatus = lens _csursResponseStatus (\ s a -> s{_csursResponseStatus = a})
+-- | The response's http status code.
+createStreamingURLResponse_httpStatus :: Lens.Lens' CreateStreamingURLResponse Prelude.Int
+createStreamingURLResponse_httpStatus = Lens.lens (\CreateStreamingURLResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingURLResponse' {} a -> s {httpStatus = a} :: CreateStreamingURLResponse)
 
-instance NFData CreateStreamingURLResponse where
+instance Prelude.NFData CreateStreamingURLResponse

@@ -1,156 +1,222 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the estimated monthly cost of a template. The return value is an AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
---
---
+-- Returns the estimated monthly cost of a template. The return value is an
+-- AWS Simple Monthly Calculator URL with a query string that describes the
+-- resources required to run the template.
 module Network.AWS.CloudFormation.EstimateTemplateCost
-    (
-    -- * Creating a Request
-      estimateTemplateCost
-    , EstimateTemplateCost
+  ( -- * Creating a Request
+    EstimateTemplateCost (..),
+    newEstimateTemplateCost,
+
     -- * Request Lenses
-    , etcParameters
-    , etcTemplateBody
-    , etcTemplateURL
+    estimateTemplateCost_templateURL,
+    estimateTemplateCost_templateBody,
+    estimateTemplateCost_parameters,
 
     -- * Destructuring the Response
-    , estimateTemplateCostResponse
-    , EstimateTemplateCostResponse
+    EstimateTemplateCostResponse (..),
+    newEstimateTemplateCostResponse,
+
     -- * Response Lenses
-    , etcrsURL
-    , etcrsResponseStatus
-    ) where
+    estimateTemplateCostResponse_url,
+    estimateTemplateCostResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input for an 'EstimateTemplateCost' action.
+-- | The input for an EstimateTemplateCost action.
 --
---
---
--- /See:/ 'estimateTemplateCost' smart constructor.
+-- /See:/ 'newEstimateTemplateCost' smart constructor.
 data EstimateTemplateCost = EstimateTemplateCost'
-  { _etcParameters   :: !(Maybe [Parameter])
-  , _etcTemplateBody :: !(Maybe Text)
-  , _etcTemplateURL  :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Location of file containing the template body. The URL must point to a
+    -- template that is located in an Amazon S3 bucket or a Systems Manager
+    -- document. For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+    -- passed, only @TemplateBody@ is used.
+    templateURL :: Prelude.Maybe Prelude.Text,
+    -- | Structure containing the template body with a minimum length of 1 byte
+    -- and a maximum length of 51,200 bytes. (For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the AWS CloudFormation User Guide.)
+    --
+    -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
+    -- passed, only @TemplateBody@ is used.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | A list of @Parameter@ structures that specify input parameters.
+    parameters :: Prelude.Maybe [Parameter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EstimateTemplateCost' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EstimateTemplateCost' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'etcParameters' - A list of @Parameter@ structures that specify input parameters.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'etcTemplateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
+-- 'templateURL', 'estimateTemplateCost_templateURL' - Location of file containing the template body. The URL must point to a
+-- template that is located in an Amazon S3 bucket or a Systems Manager
+-- document. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
 --
--- * 'etcTemplateURL' - Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-estimateTemplateCost
-    :: EstimateTemplateCost
-estimateTemplateCost =
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+-- passed, only @TemplateBody@ is used.
+--
+-- 'templateBody', 'estimateTemplateCost_templateBody' - Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.)
+--
+-- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
+-- passed, only @TemplateBody@ is used.
+--
+-- 'parameters', 'estimateTemplateCost_parameters' - A list of @Parameter@ structures that specify input parameters.
+newEstimateTemplateCost ::
+  EstimateTemplateCost
+newEstimateTemplateCost =
   EstimateTemplateCost'
-    { _etcParameters = Nothing
-    , _etcTemplateBody = Nothing
-    , _etcTemplateURL = Nothing
+    { templateURL =
+        Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
+-- | Location of file containing the template body. The URL must point to a
+-- template that is located in an Amazon S3 bucket or a Systems Manager
+-- document. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
+--
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+-- passed, only @TemplateBody@ is used.
+estimateTemplateCost_templateURL :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe Prelude.Text)
+estimateTemplateCost_templateURL = Lens.lens (\EstimateTemplateCost' {templateURL} -> templateURL) (\s@EstimateTemplateCost' {} a -> s {templateURL = a} :: EstimateTemplateCost)
+
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.)
+--
+-- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
+-- passed, only @TemplateBody@ is used.
+estimateTemplateCost_templateBody :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe Prelude.Text)
+estimateTemplateCost_templateBody = Lens.lens (\EstimateTemplateCost' {templateBody} -> templateBody) (\s@EstimateTemplateCost' {} a -> s {templateBody = a} :: EstimateTemplateCost)
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcParameters :: Lens' EstimateTemplateCost [Parameter]
-etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default . _Coerce
+estimateTemplateCost_parameters :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe [Parameter])
+estimateTemplateCost_parameters = Lens.lens (\EstimateTemplateCost' {parameters} -> parameters) (\s@EstimateTemplateCost' {} a -> s {parameters = a} :: EstimateTemplateCost) Prelude.. Lens.mapping Lens._Coerce
 
--- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
-etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a})
+instance Core.AWSRequest EstimateTemplateCost where
+  type
+    AWSResponse EstimateTemplateCost =
+      EstimateTemplateCostResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "EstimateTemplateCostResult"
+      ( \s h x ->
+          EstimateTemplateCostResponse'
+            Prelude.<$> (x Core..@? "Url")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a})
+instance Prelude.Hashable EstimateTemplateCost
 
-instance AWSRequest EstimateTemplateCost where
-        type Rs EstimateTemplateCost =
-             EstimateTemplateCostResponse
-        request = postQuery cloudFormation
-        response
-          = receiveXMLWrapper "EstimateTemplateCostResult"
-              (\ s h x ->
-                 EstimateTemplateCostResponse' <$>
-                   (x .@? "Url") <*> (pure (fromEnum s)))
+instance Prelude.NFData EstimateTemplateCost
 
-instance Hashable EstimateTemplateCost where
+instance Core.ToHeaders EstimateTemplateCost where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance NFData EstimateTemplateCost where
+instance Core.ToPath EstimateTemplateCost where
+  toPath = Prelude.const "/"
 
-instance ToHeaders EstimateTemplateCost where
-        toHeaders = const mempty
+instance Core.ToQuery EstimateTemplateCost where
+  toQuery EstimateTemplateCost' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("EstimateTemplateCost" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "TemplateURL" Core.=: templateURL,
+        "TemplateBody" Core.=: templateBody,
+        "Parameters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> parameters)
+      ]
 
-instance ToPath EstimateTemplateCost where
-        toPath = const "/"
-
-instance ToQuery EstimateTemplateCost where
-        toQuery EstimateTemplateCost'{..}
-          = mconcat
-              ["Action" =: ("EstimateTemplateCost" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "Parameters" =:
-                 toQuery (toQueryList "member" <$> _etcParameters),
-               "TemplateBody" =: _etcTemplateBody,
-               "TemplateURL" =: _etcTemplateURL]
-
--- | The output for a 'EstimateTemplateCost' action.
+-- | The output for a EstimateTemplateCost action.
 --
---
---
--- /See:/ 'estimateTemplateCostResponse' smart constructor.
+-- /See:/ 'newEstimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-  { _etcrsURL            :: !(Maybe Text)
-  , _etcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An AWS Simple Monthly Calculator URL with a query string that describes
+    -- the resources required to run the template.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EstimateTemplateCostResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'etcrsURL' - An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'etcrsResponseStatus' - -- | The response status code.
-estimateTemplateCostResponse
-    :: Int -- ^ 'etcrsResponseStatus'
-    -> EstimateTemplateCostResponse
-estimateTemplateCostResponse pResponseStatus_ =
+-- 'url', 'estimateTemplateCostResponse_url' - An AWS Simple Monthly Calculator URL with a query string that describes
+-- the resources required to run the template.
+--
+-- 'httpStatus', 'estimateTemplateCostResponse_httpStatus' - The response's http status code.
+newEstimateTemplateCostResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  EstimateTemplateCostResponse
+newEstimateTemplateCostResponse pHttpStatus_ =
   EstimateTemplateCostResponse'
-    {_etcrsURL = Nothing, _etcrsResponseStatus = pResponseStatus_}
+    { url =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An AWS Simple Monthly Calculator URL with a query string that describes
+-- the resources required to run the template.
+estimateTemplateCostResponse_url :: Lens.Lens' EstimateTemplateCostResponse (Prelude.Maybe Prelude.Text)
+estimateTemplateCostResponse_url = Lens.lens (\EstimateTemplateCostResponse' {url} -> url) (\s@EstimateTemplateCostResponse' {} a -> s {url = a} :: EstimateTemplateCostResponse)
 
--- | An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
-etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a})
+-- | The response's http status code.
+estimateTemplateCostResponse_httpStatus :: Lens.Lens' EstimateTemplateCostResponse Prelude.Int
+estimateTemplateCostResponse_httpStatus = Lens.lens (\EstimateTemplateCostResponse' {httpStatus} -> httpStatus) (\s@EstimateTemplateCostResponse' {} a -> s {httpStatus = a} :: EstimateTemplateCostResponse)
 
--- | -- | The response status code.
-etcrsResponseStatus :: Lens' EstimateTemplateCostResponse Int
-etcrsResponseStatus = lens _etcrsResponseStatus (\ s a -> s{_etcrsResponseStatus = a})
-
-instance NFData EstimateTemplateCostResponse where
+instance Prelude.NFData EstimateTemplateCostResponse

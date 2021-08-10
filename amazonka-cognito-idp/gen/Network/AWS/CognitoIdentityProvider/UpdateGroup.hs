@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,160 +22,199 @@
 --
 -- Updates the specified group with the specified attributes.
 --
+-- Calling this action requires developer credentials.
 --
--- Requires developer credentials.
---
+-- If you don\'t provide a value for an attribute, it will be set to the
+-- default value.
 module Network.AWS.CognitoIdentityProvider.UpdateGroup
-    (
-    -- * Creating a Request
-      updateGroup
-    , UpdateGroup
+  ( -- * Creating a Request
+    UpdateGroup (..),
+    newUpdateGroup,
+
     -- * Request Lenses
-    , ugPrecedence
-    , ugDescription
-    , ugRoleARN
-    , ugGroupName
-    , ugUserPoolId
+    updateGroup_roleArn,
+    updateGroup_description,
+    updateGroup_precedence,
+    updateGroup_groupName,
+    updateGroup_userPoolId,
 
     -- * Destructuring the Response
-    , updateGroupResponse
-    , UpdateGroupResponse
+    UpdateGroupResponse (..),
+    newUpdateGroupResponse,
+
     -- * Response Lenses
-    , ugrsGroup
-    , ugrsResponseStatus
-    ) where
+    updateGroupResponse_group,
+    updateGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateGroup' smart constructor.
+-- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugPrecedence  :: !(Maybe Nat)
-  , _ugDescription :: !(Maybe Text)
-  , _ugRoleARN     :: !(Maybe Text)
-  , _ugGroupName   :: !Text
-  , _ugUserPoolId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The new role ARN for the group. This is used for setting the
+    -- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A string containing the new description of the group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The new precedence value for the group. For more information about this
+    -- parameter, see
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
+    precedence :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the group.
+    groupName :: Prelude.Text,
+    -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ugPrecedence' - The new precedence value for the group. For more information about this parameter, see .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ugDescription' - A string containing the new description of the group.
+-- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the
+-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
 --
--- * 'ugRoleARN' - The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+-- 'description', 'updateGroup_description' - A string containing the new description of the group.
 --
--- * 'ugGroupName' - The name of the group.
+-- 'precedence', 'updateGroup_precedence' - The new precedence value for the group. For more information about this
+-- parameter, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
 --
--- * 'ugUserPoolId' - The user pool ID for the user pool.
-updateGroup
-    :: Text -- ^ 'ugGroupName'
-    -> Text -- ^ 'ugUserPoolId'
-    -> UpdateGroup
-updateGroup pGroupName_ pUserPoolId_ =
+-- 'groupName', 'updateGroup_groupName' - The name of the group.
+--
+-- 'userPoolId', 'updateGroup_userPoolId' - The user pool ID for the user pool.
+newUpdateGroup ::
+  -- | 'groupName'
+  Prelude.Text ->
+  -- | 'userPoolId'
+  Prelude.Text ->
+  UpdateGroup
+newUpdateGroup pGroupName_ pUserPoolId_ =
   UpdateGroup'
-    { _ugPrecedence = Nothing
-    , _ugDescription = Nothing
-    , _ugRoleARN = Nothing
-    , _ugGroupName = pGroupName_
-    , _ugUserPoolId = pUserPoolId_
+    { roleArn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      precedence = Prelude.Nothing,
+      groupName = pGroupName_,
+      userPoolId = pUserPoolId_
     }
 
-
--- | The new precedence value for the group. For more information about this parameter, see .
-ugPrecedence :: Lens' UpdateGroup (Maybe Natural)
-ugPrecedence = lens _ugPrecedence (\ s a -> s{_ugPrecedence = a}) . mapping _Nat
+-- | The new role ARN for the group. This is used for setting the
+-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+updateGroup_roleArn :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_roleArn = Lens.lens (\UpdateGroup' {roleArn} -> roleArn) (\s@UpdateGroup' {} a -> s {roleArn = a} :: UpdateGroup)
 
 -- | A string containing the new description of the group.
-ugDescription :: Lens' UpdateGroup (Maybe Text)
-ugDescription = lens _ugDescription (\ s a -> s{_ugDescription = a})
+updateGroup_description :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description) (\s@UpdateGroup' {} a -> s {description = a} :: UpdateGroup)
 
--- | The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
-ugRoleARN :: Lens' UpdateGroup (Maybe Text)
-ugRoleARN = lens _ugRoleARN (\ s a -> s{_ugRoleARN = a})
+-- | The new precedence value for the group. For more information about this
+-- parameter, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
+updateGroup_precedence :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Natural)
+updateGroup_precedence = Lens.lens (\UpdateGroup' {precedence} -> precedence) (\s@UpdateGroup' {} a -> s {precedence = a} :: UpdateGroup)
 
 -- | The name of the group.
-ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a})
+updateGroup_groupName :: Lens.Lens' UpdateGroup Prelude.Text
+updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The user pool ID for the user pool.
-ugUserPoolId :: Lens' UpdateGroup Text
-ugUserPoolId = lens _ugUserPoolId (\ s a -> s{_ugUserPoolId = a})
+updateGroup_userPoolId :: Lens.Lens' UpdateGroup Prelude.Text
+updateGroup_userPoolId = Lens.lens (\UpdateGroup' {userPoolId} -> userPoolId) (\s@UpdateGroup' {} a -> s {userPoolId = a} :: UpdateGroup)
 
-instance AWSRequest UpdateGroup where
-        type Rs UpdateGroup = UpdateGroupResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateGroupResponse' <$>
-                   (x .?> "Group") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateGroup where
+  type AWSResponse UpdateGroup = UpdateGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateGroupResponse'
+            Prelude.<$> (x Core..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateGroup where
+instance Prelude.Hashable UpdateGroup
 
-instance NFData UpdateGroup where
+instance Prelude.NFData UpdateGroup
 
-instance ToHeaders UpdateGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.UpdateGroup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.UpdateGroup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateGroup where
-        toJSON UpdateGroup'{..}
-          = object
-              (catMaybes
-                 [("Precedence" .=) <$> _ugPrecedence,
-                  ("Description" .=) <$> _ugDescription,
-                  ("RoleArn" .=) <$> _ugRoleARN,
-                  Just ("GroupName" .= _ugGroupName),
-                  Just ("UserPoolId" .= _ugUserPoolId)])
+instance Core.ToJSON UpdateGroup where
+  toJSON UpdateGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Precedence" Core..=) Prelude.<$> precedence,
+            Prelude.Just ("GroupName" Core..= groupName),
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          ]
+      )
 
-instance ToPath UpdateGroup where
-        toPath = const "/"
+instance Core.ToPath UpdateGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateGroup where
-        toQuery = const mempty
+instance Core.ToQuery UpdateGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateGroupResponse' smart constructor.
+-- | /See:/ 'newUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsGroup          :: !(Maybe GroupType)
-  , _ugrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The group object for the group.
+    group' :: Prelude.Maybe GroupType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ugrsGroup' - The group object for the group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ugrsResponseStatus' - -- | The response status code.
-updateGroupResponse
-    :: Int -- ^ 'ugrsResponseStatus'
-    -> UpdateGroupResponse
-updateGroupResponse pResponseStatus_ =
+-- 'group'', 'updateGroupResponse_group' - The group object for the group.
+--
+-- 'httpStatus', 'updateGroupResponse_httpStatus' - The response's http status code.
+newUpdateGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateGroupResponse
+newUpdateGroupResponse pHttpStatus_ =
   UpdateGroupResponse'
-    {_ugrsGroup = Nothing, _ugrsResponseStatus = pResponseStatus_}
-
+    { group' = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The group object for the group.
-ugrsGroup :: Lens' UpdateGroupResponse (Maybe GroupType)
-ugrsGroup = lens _ugrsGroup (\ s a -> s{_ugrsGroup = a})
+updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe GroupType)
+updateGroupResponse_group = Lens.lens (\UpdateGroupResponse' {group'} -> group') (\s@UpdateGroupResponse' {} a -> s {group' = a} :: UpdateGroupResponse)
 
--- | -- | The response status code.
-ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a})
+-- | The response's http status code.
+updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Prelude.Int
+updateGroupResponse_httpStatus = Lens.lens (\UpdateGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupResponse' {} a -> s {httpStatus = a} :: UpdateGroupResponse)
 
-instance NFData UpdateGroupResponse where
+instance Prelude.NFData UpdateGroupResponse

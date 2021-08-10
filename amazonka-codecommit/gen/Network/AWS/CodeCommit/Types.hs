@@ -1,1259 +1,2326 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CodeCommit.Types
-    (
-    -- * Service Configuration
-      codeCommit
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidRepositoryTriggerRegionException
-    , _InvalidContinuationTokenException
-    , _ManualMergeRequiredException
-    , _TargetsRequiredException
-    , _EncryptionKeyNotFoundException
-    , _TipsDivergenceExceededException
-    , _InvalidRepositoryTriggerBranchNameException
-    , _PullRequestAlreadyClosedException
-    , _InvalidRepositoryTriggerCustomDataException
-    , _DirectoryNameConflictsWithFileNameException
-    , _ReferenceDoesNotExistException
-    , _ActorDoesNotExistException
-    , _PullRequestIdRequiredException
-    , _InvalidEmailException
-    , _CommitMessageLengthExceededException
-    , _BlobIdDoesNotExistException
-    , _MaximumRepositoryNamesExceededException
-    , _InvalidRepositoryDescriptionException
-    , _RepositoryNameExistsException
-    , _ReferenceNameRequiredException
-    , _MaximumRepositoryTriggersExceededException
-    , _InvalidBranchNameException
-    , _BranchNameRequiredException
-    , _MergeOptionRequiredException
-    , _InvalidFileLocationException
-    , _BeforeCommitIdAndAfterCommitIdAreSameException
-    , _RepositoryTriggersListRequiredException
-    , _IdempotencyParameterMismatchException
-    , _EncryptionKeyUnavailableException
-    , _InvalidRelativeFileVersionEnumException
-    , _InvalidRepositoryTriggerDestinationARNException
-    , _BlobIdRequiredException
-    , _RepositoryNamesRequiredException
-    , _InvalidActorARNException
-    , _InvalidCommentIdException
-    , _InvalidDescriptionException
-    , _InvalidBlobIdException
-    , _PullRequestDoesNotExistException
-    , _InvalidOrderException
-    , _BranchDoesNotExistException
-    , _DefaultBranchCannotBeDeletedException
-    , _InvalidPathException
-    , _PathRequiredException
-    , _RepositoryTriggerNameRequiredException
-    , _InvalidFileModeException
-    , _InvalidPullRequestStatusException
-    , _ParentCommitIdRequiredException
-    , _InvalidSourceCommitSpecifierException
-    , _RepositoryDoesNotExistException
-    , _MaximumBranchesExceededException
-    , _InvalidTitleException
-    , _CommentContentSizeLimitExceededException
-    , _InvalidParentCommitIdException
-    , _InvalidPullRequestEventTypeException
-    , _FileContentRequiredException
-    , _SourceAndDestinationAreSameException
-    , _PathDoesNotExistException
-    , _EncryptionIntegrityChecksFailedException
-    , _ParentCommitIdOutdatedException
-    , _RepositoryTriggerEventsListRequiredException
-    , _CommentContentRequiredException
-    , _InvalidTargetsException
-    , _EncryptionKeyAccessDeniedException
-    , _BranchNameExistsException
-    , _InvalidCommitException
-    , _TargetRequiredException
-    , _InvalidDestinationCommitSpecifierException
-    , _CommentDoesNotExistException
-    , _ReferenceTypeNotSupportedException
-    , _FileNameConflictsWithDirectoryNameException
-    , _NameLengthExceededException
-    , _InvalidSortByException
-    , _EncryptionKeyDisabledException
-    , _CommitRequiredException
-    , _MaximumOpenPullRequestsExceededException
-    , _InvalidTargetException
-    , _InvalidPullRequestIdException
-    , _CommentNotCreatedByCallerException
-    , _InvalidPullRequestStatusUpdateException
-    , _InvalidReferenceNameException
-    , _SameFileContentException
-    , _CommitIdRequiredException
-    , _InvalidCommitIdException
-    , _TipOfSourceReferenceIsDifferentException
-    , _RepositoryTriggerDestinationARNRequiredException
-    , _InvalidClientRequestTokenException
-    , _CommitDoesNotExistException
-    , _RepositoryTriggerBranchNameListRequiredException
-    , _ClientRequestTokenRequiredException
-    , _InvalidMergeOptionException
-    , _CommentIdRequiredException
-    , _InvalidMaxResultsException
-    , _FileTooLargeException
-    , _CommitIdDoesNotExistException
-    , _MultipleRepositoriesInPullRequestException
-    , _FileContentSizeLimitExceededException
-    , _InvalidRepositoryTriggerNameException
-    , _RepositoryNameRequiredException
-    , _RepositoryLimitExceededException
-    , _InvalidRepositoryTriggerEventsException
-    , _BranchNameIsTagNameException
-    , _InvalidRepositoryNameException
-    , _InvalidAuthorARNException
-    , _PullRequestStatusRequiredException
-    , _RepositoryNotAssociatedWithPullRequestException
-    , _TitleRequiredException
-    , _InvalidFilePositionException
-    , _CommentDeletedException
-    , _ParentCommitDoesNotExistException
-    , _AuthorDoesNotExistException
+    _ActorDoesNotExistException,
+    _InvalidPullRequestStatusUpdateException,
+    _NameLengthExceededException,
+    _ApprovalRuleNameAlreadyExistsException,
+    _PullRequestIdRequiredException,
+    _InvalidConflictDetailLevelException,
+    _InvalidPullRequestIdException,
+    _TargetRequiredException,
+    _CommitRequiredException,
+    _FileNameConflictsWithDirectoryNameException,
+    _ReferenceDoesNotExistException,
+    _EncryptionKeyNotFoundException,
+    _TargetsRequiredException,
+    _CommentContentRequiredException,
+    _InvalidSystemTagUsageException,
+    _FileEntryRequiredException,
+    _InvalidTargetsException,
+    _ManualMergeRequiredException,
+    _BranchNameExistsException,
+    _ParentCommitDoesNotExistException,
+    _SamePathRequestException,
+    _AuthorDoesNotExistException,
+    _TooManyTagsException,
+    _SourceAndDestinationAreSameException,
+    _EncryptionIntegrityChecksFailedException,
+    _InvalidApprovalRuleTemplateDescriptionException,
+    _CommentDeletedException,
+    _InvalidReplacementContentException,
+    _RepositoryTriggerEventsListRequiredException,
+    _FileContentRequiredException,
+    _SourceFileOrContentRequiredException,
+    _InvalidTitleException,
+    _InvalidApprovalRuleContentException,
+    _InvalidSourceCommitSpecifierException,
+    _InvalidConflictResolutionException,
+    _InvalidOverrideStatusException,
+    _PullRequestStatusRequiredException,
+    _MaximumItemsToCompareExceededException,
+    _InvalidPullRequestStatusException,
+    _ParentCommitIdRequiredException,
+    _RepositoryDoesNotExistException,
+    _PullRequestApprovalRulesNotSatisfiedException,
+    _ApprovalRuleContentRequiredException,
+    _TitleRequiredException,
+    _FileContentSizeLimitExceededException,
+    _InvalidRepositoryTriggerNameException,
+    _RepositoryTriggerNameRequiredException,
+    _NumberOfRuleTemplatesExceededException,
+    _RepositoryNameRequiredException,
+    _InvalidFileModeException,
+    _InvalidRepositoryTriggerEventsException,
+    _InvalidPathException,
+    _InvalidTargetBranchException,
+    _InvalidActorArnException,
+    _RevisionIdRequiredException,
+    _InvalidBlobIdException,
+    _MaximumFileEntriesExceededException,
+    _ApprovalRuleTemplateNameRequiredException,
+    _RepositoryNamesRequiredException,
+    _PullRequestDoesNotExistException,
+    _ReplacementTypeRequiredException,
+    _InvalidReplacementTypeException,
+    _FileTooLargeException,
+    _CannotDeleteApprovalRuleFromTemplateException,
+    _ReactionLimitExceededException,
+    _RevisionNotCurrentException,
+    _InvalidApprovalRuleNameException,
+    _CommitIdDoesNotExistException,
+    _RepositoryTriggersListRequiredException,
+    _InvalidRelativeFileVersionEnumException,
+    _TagPolicyException,
+    _ApprovalRuleDoesNotExistException,
+    _RepositoryTriggerBranchNameListRequiredException,
+    _InvalidClientRequestTokenException,
+    _IdempotencyParameterMismatchException,
+    _InvalidRepositoryTriggerDestinationArnException,
+    _BranchNameRequiredException,
+    _RepositoryTriggerDestinationArnRequiredException,
+    _EncryptionKeyUnavailableException,
+    _InvalidConflictResolutionStrategyException,
+    _MultipleConflictResolutionEntriesException,
+    _FileDoesNotExistException,
+    _TagKeysListRequiredException,
+    _InvalidReferenceNameException,
+    _CommitIdRequiredException,
+    _ReferenceNameRequiredException,
+    _MaximumRuleTemplatesAssociatedWithRepositoryException,
+    _CommitMessageLengthExceededException,
+    _MaximumNumberOfApprovalsExceededException,
+    _InvalidTagKeysListException,
+    _EncryptionKeyDisabledException,
+    _DirectoryNameConflictsWithFileNameException,
+    _InvalidSortByException,
+    _InvalidDestinationCommitSpecifierException,
+    _CommentDoesNotExistException,
+    _ApprovalRuleTemplateNameAlreadyExistsException,
+    _InvalidRepositoryTriggerBranchNameException,
+    _MaximumOpenPullRequestsExceededException,
+    _PullRequestAlreadyClosedException,
+    _InvalidCommitException,
+    _ReferenceTypeNotSupportedException,
+    _CommentNotCreatedByCallerException,
+    _InvalidTargetException,
+    _InvalidRepositoryTriggerCustomDataException,
+    _OverrideAlreadySetException,
+    _InvalidContinuationTokenException,
+    _InvalidRepositoryTriggerRegionException,
+    _InvalidReactionValueException,
+    _TipsDivergenceExceededException,
+    _EncryptionKeyAccessDeniedException,
+    _ReactionValueRequiredException,
+    _ResourceArnRequiredException,
+    _PathDoesNotExistException,
+    _ReplacementContentRequiredException,
+    _InvalidResourceArnException,
+    _ParentCommitIdOutdatedException,
+    _InvalidMaxMergeHunksException,
+    _RestrictedSourceFileException,
+    _InvalidFilePositionException,
+    _CannotModifyApprovalRuleFromTemplateException,
+    _InvalidMaxConflictFilesException,
+    _CommentContentSizeLimitExceededException,
+    _InvalidApprovalStateException,
+    _MaximumBranchesExceededException,
+    _OverrideStatusRequiredException,
+    _InvalidPullRequestEventTypeException,
+    _InvalidApprovalRuleTemplateContentException,
+    _CommitIdsLimitExceededException,
+    _ApprovalStateRequiredException,
+    _InvalidAuthorArnException,
+    _MaximumConflictResolutionEntriesExceededException,
+    _InvalidParentCommitIdException,
+    _RepositoryNotAssociatedWithPullRequestException,
+    _ApprovalRuleTemplateContentRequiredException,
+    _ConcurrentReferenceUpdateException,
+    _MaximumFileContentToLoadExceededException,
+    _TagsMapRequiredException,
+    _InvalidRepositoryNameException,
+    _FolderContentSizeLimitExceededException,
+    _CommitIdsListRequiredException,
+    _FileModeRequiredException,
+    _InvalidTagsMapException,
+    _RepositoryLimitExceededException,
+    _NumberOfRulesExceededException,
+    _InvalidDeletionParameterException,
+    _InvalidReactionUserArnException,
+    _DefaultBranchCannotBeDeletedException,
+    _BranchNameIsTagNameException,
+    _PathRequiredException,
+    _FilePathConflictsWithSubmodulePathException,
+    _BranchDoesNotExistException,
+    _InvalidCommentIdException,
+    _InvalidMaxResultsException,
+    _InvalidRevisionIdException,
+    _PullRequestCannotBeApprovedByAuthorException,
+    _ApprovalRuleNameRequiredException,
+    _BlobIdRequiredException,
+    _InvalidApprovalRuleTemplateNameException,
+    _InvalidDescriptionException,
+    _NoChangeException,
+    _CommentIdRequiredException,
+    _MultipleRepositoriesInPullRequestException,
+    _InvalidOrderException,
+    _ClientRequestTokenRequiredException,
+    _InvalidMergeOptionException,
+    _MergeOptionRequiredException,
+    _InvalidBranchNameException,
+    _InvalidFileLocationException,
+    _ApprovalRuleTemplateDoesNotExistException,
+    _MaximumRepositoryTriggersExceededException,
+    _CommitDoesNotExistException,
+    _BeforeCommitIdAndAfterCommitIdAreSameException,
+    _RepositoryNameExistsException,
+    _InvalidCommitIdException,
+    _InvalidRepositoryDescriptionException,
+    _MaximumRepositoryNamesExceededException,
+    _SameFileContentException,
+    _ApprovalRuleTemplateInUseException,
+    _InvalidEmailException,
+    _TipOfSourceReferenceIsDifferentException,
+    _FolderDoesNotExistException,
+    _InvalidRuleContentSha256Exception,
+    _BlobIdDoesNotExistException,
+    _PutFileEntryConflictException,
+    _FileContentAndSourceFileSpecifiedException,
+
+    -- * ApprovalState
+    ApprovalState (..),
 
     -- * ChangeTypeEnum
-    , ChangeTypeEnum (..)
+    ChangeTypeEnum (..),
+
+    -- * ConflictDetailLevelTypeEnum
+    ConflictDetailLevelTypeEnum (..),
+
+    -- * ConflictResolutionStrategyTypeEnum
+    ConflictResolutionStrategyTypeEnum (..),
 
     -- * FileModeTypeEnum
-    , FileModeTypeEnum (..)
+    FileModeTypeEnum (..),
 
     -- * MergeOptionTypeEnum
-    , MergeOptionTypeEnum (..)
+    MergeOptionTypeEnum (..),
+
+    -- * ObjectTypeEnum
+    ObjectTypeEnum (..),
 
     -- * OrderEnum
-    , OrderEnum (..)
+    OrderEnum (..),
+
+    -- * OverrideStatus
+    OverrideStatus (..),
 
     -- * PullRequestEventType
-    , PullRequestEventType (..)
+    PullRequestEventType (..),
 
     -- * PullRequestStatusEnum
-    , PullRequestStatusEnum (..)
+    PullRequestStatusEnum (..),
 
     -- * RelativeFileVersionEnum
-    , RelativeFileVersionEnum (..)
+    RelativeFileVersionEnum (..),
+
+    -- * ReplacementTypeEnum
+    ReplacementTypeEnum (..),
 
     -- * RepositoryTriggerEventEnum
-    , RepositoryTriggerEventEnum (..)
+    RepositoryTriggerEventEnum (..),
 
     -- * SortByEnum
-    , SortByEnum (..)
+    SortByEnum (..),
+
+    -- * Approval
+    Approval (..),
+    newApproval,
+    approval_userArn,
+    approval_approvalState,
+
+    -- * ApprovalRule
+    ApprovalRule (..),
+    newApprovalRule,
+    approvalRule_lastModifiedDate,
+    approvalRule_approvalRuleContent,
+    approvalRule_originApprovalRuleTemplate,
+    approvalRule_creationDate,
+    approvalRule_ruleContentSha256,
+    approvalRule_approvalRuleId,
+    approvalRule_approvalRuleName,
+    approvalRule_lastModifiedUser,
+
+    -- * ApprovalRuleEventMetadata
+    ApprovalRuleEventMetadata (..),
+    newApprovalRuleEventMetadata,
+    approvalRuleEventMetadata_approvalRuleContent,
+    approvalRuleEventMetadata_approvalRuleId,
+    approvalRuleEventMetadata_approvalRuleName,
+
+    -- * ApprovalRuleOverriddenEventMetadata
+    ApprovalRuleOverriddenEventMetadata (..),
+    newApprovalRuleOverriddenEventMetadata,
+    approvalRuleOverriddenEventMetadata_revisionId,
+    approvalRuleOverriddenEventMetadata_overrideStatus,
+
+    -- * ApprovalRuleTemplate
+    ApprovalRuleTemplate (..),
+    newApprovalRuleTemplate,
+    approvalRuleTemplate_lastModifiedDate,
+    approvalRuleTemplate_approvalRuleTemplateId,
+    approvalRuleTemplate_approvalRuleTemplateName,
+    approvalRuleTemplate_creationDate,
+    approvalRuleTemplate_approvalRuleTemplateDescription,
+    approvalRuleTemplate_ruleContentSha256,
+    approvalRuleTemplate_approvalRuleTemplateContent,
+    approvalRuleTemplate_lastModifiedUser,
+
+    -- * ApprovalStateChangedEventMetadata
+    ApprovalStateChangedEventMetadata (..),
+    newApprovalStateChangedEventMetadata,
+    approvalStateChangedEventMetadata_revisionId,
+    approvalStateChangedEventMetadata_approvalStatus,
+
+    -- * BatchAssociateApprovalRuleTemplateWithRepositoriesError
+    BatchAssociateApprovalRuleTemplateWithRepositoriesError (..),
+    newBatchAssociateApprovalRuleTemplateWithRepositoriesError,
+    batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName,
+    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage,
+    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode,
+
+    -- * BatchDescribeMergeConflictsError
+    BatchDescribeMergeConflictsError (..),
+    newBatchDescribeMergeConflictsError,
+    batchDescribeMergeConflictsError_filePath,
+    batchDescribeMergeConflictsError_exceptionName,
+    batchDescribeMergeConflictsError_message,
+
+    -- * BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError (..),
+    newBatchDisassociateApprovalRuleTemplateFromRepositoriesError,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesError_repositoryName,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorMessage,
+    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode,
+
+    -- * BatchGetCommitsError
+    BatchGetCommitsError (..),
+    newBatchGetCommitsError,
+    batchGetCommitsError_commitId,
+    batchGetCommitsError_errorMessage,
+    batchGetCommitsError_errorCode,
 
     -- * BlobMetadata
-    , BlobMetadata
-    , blobMetadata
-    , bmPath
-    , bmMode
-    , bmBlobId
+    BlobMetadata (..),
+    newBlobMetadata,
+    blobMetadata_mode,
+    blobMetadata_blobId,
+    blobMetadata_path,
 
     -- * BranchInfo
-    , BranchInfo
-    , branchInfo
-    , biCommitId
-    , biBranchName
+    BranchInfo (..),
+    newBranchInfo,
+    branchInfo_commitId,
+    branchInfo_branchName,
 
     -- * Comment
-    , Comment
-    , comment
-    , cLastModifiedDate
-    , cAuthorARN
-    , cContent
-    , cCreationDate
-    , cDeleted
-    , cClientRequestToken
-    , cCommentId
-    , cInReplyTo
+    Comment (..),
+    newComment,
+    comment_callerReactions,
+    comment_lastModifiedDate,
+    comment_creationDate,
+    comment_reactionCounts,
+    comment_content,
+    comment_commentId,
+    comment_inReplyTo,
+    comment_clientRequestToken,
+    comment_authorArn,
+    comment_deleted,
 
     -- * CommentsForComparedCommit
-    , CommentsForComparedCommit
-    , commentsForComparedCommit
-    , cfccBeforeBlobId
-    , cfccLocation
-    , cfccAfterCommitId
-    , cfccAfterBlobId
-    , cfccBeforeCommitId
-    , cfccRepositoryName
-    , cfccComments
+    CommentsForComparedCommit (..),
+    newCommentsForComparedCommit,
+    commentsForComparedCommit_beforeBlobId,
+    commentsForComparedCommit_repositoryName,
+    commentsForComparedCommit_beforeCommitId,
+    commentsForComparedCommit_afterBlobId,
+    commentsForComparedCommit_comments,
+    commentsForComparedCommit_afterCommitId,
+    commentsForComparedCommit_location,
 
     -- * CommentsForPullRequest
-    , CommentsForPullRequest
-    , commentsForPullRequest
-    , cfprBeforeBlobId
-    , cfprLocation
-    , cfprAfterCommitId
-    , cfprPullRequestId
-    , cfprAfterBlobId
-    , cfprBeforeCommitId
-    , cfprRepositoryName
-    , cfprComments
+    CommentsForPullRequest (..),
+    newCommentsForPullRequest,
+    commentsForPullRequest_beforeBlobId,
+    commentsForPullRequest_repositoryName,
+    commentsForPullRequest_beforeCommitId,
+    commentsForPullRequest_afterBlobId,
+    commentsForPullRequest_pullRequestId,
+    commentsForPullRequest_comments,
+    commentsForPullRequest_afterCommitId,
+    commentsForPullRequest_location,
 
     -- * Commit
-    , Commit
-    , commit
-    , cCommitId
-    , cCommitter
-    , cTreeId
-    , cAdditionalData
-    , cParents
-    , cAuthor
-    , cMessage
+    Commit (..),
+    newCommit,
+    commit_parents,
+    commit_commitId,
+    commit_additionalData,
+    commit_message,
+    commit_treeId,
+    commit_author,
+    commit_committer,
+
+    -- * Conflict
+    Conflict (..),
+    newConflict,
+    conflict_mergeHunks,
+    conflict_conflictMetadata,
+
+    -- * ConflictMetadata
+    ConflictMetadata (..),
+    newConflictMetadata,
+    conflictMetadata_mergeOperations,
+    conflictMetadata_fileModeConflict,
+    conflictMetadata_filePath,
+    conflictMetadata_isBinaryFile,
+    conflictMetadata_objectTypeConflict,
+    conflictMetadata_numberOfConflicts,
+    conflictMetadata_contentConflict,
+    conflictMetadata_objectTypes,
+    conflictMetadata_fileModes,
+    conflictMetadata_fileSizes,
+
+    -- * ConflictResolution
+    ConflictResolution (..),
+    newConflictResolution,
+    conflictResolution_deleteFiles,
+    conflictResolution_setFileModes,
+    conflictResolution_replaceContents,
+
+    -- * DeleteFileEntry
+    DeleteFileEntry (..),
+    newDeleteFileEntry,
+    deleteFileEntry_filePath,
 
     -- * Difference
-    , Difference
-    , difference
-    , dAfterBlob
-    , dBeforeBlob
-    , dChangeType
+    Difference (..),
+    newDifference,
+    difference_changeType,
+    difference_afterBlob,
+    difference_beforeBlob,
+
+    -- * Evaluation
+    Evaluation (..),
+    newEvaluation,
+    evaluation_overridden,
+    evaluation_approvalRulesSatisfied,
+    evaluation_approved,
+    evaluation_approvalRulesNotSatisfied,
+
+    -- * File
+    File (..),
+    newFile,
+    file_absolutePath,
+    file_relativePath,
+    file_blobId,
+    file_fileMode,
+
+    -- * FileMetadata
+    FileMetadata (..),
+    newFileMetadata,
+    fileMetadata_absolutePath,
+    fileMetadata_blobId,
+    fileMetadata_fileMode,
+
+    -- * FileModes
+    FileModes (..),
+    newFileModes,
+    fileModes_source,
+    fileModes_destination,
+    fileModes_base,
+
+    -- * FileSizes
+    FileSizes (..),
+    newFileSizes,
+    fileSizes_source,
+    fileSizes_destination,
+    fileSizes_base,
+
+    -- * Folder
+    Folder (..),
+    newFolder,
+    folder_treeId,
+    folder_absolutePath,
+    folder_relativePath,
+
+    -- * IsBinaryFile
+    IsBinaryFile (..),
+    newIsBinaryFile,
+    isBinaryFile_source,
+    isBinaryFile_destination,
+    isBinaryFile_base,
 
     -- * Location
-    , Location
-    , location
-    , lRelativeFileVersion
-    , lFilePath
-    , lFilePosition
+    Location (..),
+    newLocation,
+    location_filePath,
+    location_filePosition,
+    location_relativeFileVersion,
+
+    -- * MergeHunk
+    MergeHunk (..),
+    newMergeHunk,
+    mergeHunk_source,
+    mergeHunk_isConflict,
+    mergeHunk_destination,
+    mergeHunk_base,
+
+    -- * MergeHunkDetail
+    MergeHunkDetail (..),
+    newMergeHunkDetail,
+    mergeHunkDetail_hunkContent,
+    mergeHunkDetail_startLine,
+    mergeHunkDetail_endLine,
 
     -- * MergeMetadata
-    , MergeMetadata
-    , mergeMetadata
-    , mmMergedBy
-    , mmIsMerged
+    MergeMetadata (..),
+    newMergeMetadata,
+    mergeMetadata_mergedBy,
+    mergeMetadata_mergeCommitId,
+    mergeMetadata_isMerged,
+    mergeMetadata_mergeOption,
+
+    -- * MergeOperations
+    MergeOperations (..),
+    newMergeOperations,
+    mergeOperations_source,
+    mergeOperations_destination,
+
+    -- * ObjectTypes
+    ObjectTypes (..),
+    newObjectTypes,
+    objectTypes_source,
+    objectTypes_destination,
+    objectTypes_base,
+
+    -- * OriginApprovalRuleTemplate
+    OriginApprovalRuleTemplate (..),
+    newOriginApprovalRuleTemplate,
+    originApprovalRuleTemplate_approvalRuleTemplateId,
+    originApprovalRuleTemplate_approvalRuleTemplateName,
 
     -- * PullRequest
-    , PullRequest
-    , pullRequest
-    , prAuthorARN
-    , prPullRequestId
-    , prCreationDate
-    , prPullRequestStatus
-    , prTitle
-    , prClientRequestToken
-    , prLastActivityDate
-    , prPullRequestTargets
-    , prDescription
+    PullRequest (..),
+    newPullRequest,
+    pullRequest_revisionId,
+    pullRequest_pullRequestTargets,
+    pullRequest_title,
+    pullRequest_pullRequestStatus,
+    pullRequest_creationDate,
+    pullRequest_pullRequestId,
+    pullRequest_description,
+    pullRequest_clientRequestToken,
+    pullRequest_lastActivityDate,
+    pullRequest_authorArn,
+    pullRequest_approvalRules,
+
+    -- * PullRequestCreatedEventMetadata
+    PullRequestCreatedEventMetadata (..),
+    newPullRequestCreatedEventMetadata,
+    pullRequestCreatedEventMetadata_repositoryName,
+    pullRequestCreatedEventMetadata_sourceCommitId,
+    pullRequestCreatedEventMetadata_destinationCommitId,
+    pullRequestCreatedEventMetadata_mergeBase,
 
     -- * PullRequestEvent
-    , PullRequestEvent
-    , pullRequestEvent
-    , prePullRequestMergedStateChangedEventMetadata
-    , prePullRequestEventType
-    , prePullRequestStatusChangedEventMetadata
-    , preActorARN
-    , prePullRequestId
-    , preEventDate
-    , prePullRequestSourceReferenceUpdatedEventMetadata
+    PullRequestEvent (..),
+    newPullRequestEvent,
+    pullRequestEvent_pullRequestMergedStateChangedEventMetadata,
+    pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata,
+    pullRequestEvent_approvalStateChangedEventMetadata,
+    pullRequestEvent_pullRequestEventType,
+    pullRequestEvent_eventDate,
+    pullRequestEvent_pullRequestCreatedEventMetadata,
+    pullRequestEvent_pullRequestId,
+    pullRequestEvent_approvalRuleOverriddenEventMetadata,
+    pullRequestEvent_actorArn,
+    pullRequestEvent_pullRequestStatusChangedEventMetadata,
+    pullRequestEvent_approvalRuleEventMetadata,
 
     -- * PullRequestMergedStateChangedEventMetadata
-    , PullRequestMergedStateChangedEventMetadata
-    , pullRequestMergedStateChangedEventMetadata
-    , prmscemDestinationReference
-    , prmscemMergeMetadata
-    , prmscemRepositoryName
+    PullRequestMergedStateChangedEventMetadata (..),
+    newPullRequestMergedStateChangedEventMetadata,
+    pullRequestMergedStateChangedEventMetadata_destinationReference,
+    pullRequestMergedStateChangedEventMetadata_mergeMetadata,
+    pullRequestMergedStateChangedEventMetadata_repositoryName,
 
     -- * PullRequestSourceReferenceUpdatedEventMetadata
-    , PullRequestSourceReferenceUpdatedEventMetadata
-    , pullRequestSourceReferenceUpdatedEventMetadata
-    , prsruemAfterCommitId
-    , prsruemBeforeCommitId
-    , prsruemRepositoryName
+    PullRequestSourceReferenceUpdatedEventMetadata (..),
+    newPullRequestSourceReferenceUpdatedEventMetadata,
+    pullRequestSourceReferenceUpdatedEventMetadata_repositoryName,
+    pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId,
+    pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId,
+    pullRequestSourceReferenceUpdatedEventMetadata_mergeBase,
 
     -- * PullRequestStatusChangedEventMetadata
-    , PullRequestStatusChangedEventMetadata
-    , pullRequestStatusChangedEventMetadata
-    , prscemPullRequestStatus
+    PullRequestStatusChangedEventMetadata (..),
+    newPullRequestStatusChangedEventMetadata,
+    pullRequestStatusChangedEventMetadata_pullRequestStatus,
 
     -- * PullRequestTarget
-    , PullRequestTarget
-    , pullRequestTarget
-    , prtSourceCommit
-    , prtDestinationReference
-    , prtMergeMetadata
-    , prtDestinationCommit
-    , prtRepositoryName
-    , prtSourceReference
+    PullRequestTarget (..),
+    newPullRequestTarget,
+    pullRequestTarget_destinationReference,
+    pullRequestTarget_sourceCommit,
+    pullRequestTarget_mergeMetadata,
+    pullRequestTarget_repositoryName,
+    pullRequestTarget_sourceReference,
+    pullRequestTarget_destinationCommit,
+    pullRequestTarget_mergeBase,
+
+    -- * PutFileEntry
+    PutFileEntry (..),
+    newPutFileEntry,
+    putFileEntry_fileContent,
+    putFileEntry_sourceFile,
+    putFileEntry_fileMode,
+    putFileEntry_filePath,
+
+    -- * ReactionForComment
+    ReactionForComment (..),
+    newReactionForComment,
+    reactionForComment_reaction,
+    reactionForComment_reactionUsers,
+    reactionForComment_reactionsFromDeletedUsersCount,
+
+    -- * ReactionValueFormats
+    ReactionValueFormats (..),
+    newReactionValueFormats,
+    reactionValueFormats_unicode,
+    reactionValueFormats_shortCode,
+    reactionValueFormats_emoji,
+
+    -- * ReplaceContentEntry
+    ReplaceContentEntry (..),
+    newReplaceContentEntry,
+    replaceContentEntry_content,
+    replaceContentEntry_fileMode,
+    replaceContentEntry_filePath,
+    replaceContentEntry_replacementType,
 
     -- * RepositoryMetadata
-    , RepositoryMetadata
-    , repositoryMetadata
-    , rmRepositoryDescription
-    , rmLastModifiedDate
-    , rmARN
-    , rmCloneURLHTTP
-    , rmAccountId
-    , rmDefaultBranch
-    , rmRepositoryId
-    , rmRepositoryName
-    , rmCreationDate
-    , rmCloneURLSSH
+    RepositoryMetadata (..),
+    newRepositoryMetadata,
+    repositoryMetadata_lastModifiedDate,
+    repositoryMetadata_defaultBranch,
+    repositoryMetadata_accountId,
+    repositoryMetadata_cloneUrlSsh,
+    repositoryMetadata_cloneUrlHttp,
+    repositoryMetadata_arn,
+    repositoryMetadata_creationDate,
+    repositoryMetadata_repositoryName,
+    repositoryMetadata_repositoryId,
+    repositoryMetadata_repositoryDescription,
 
     -- * RepositoryNameIdPair
-    , RepositoryNameIdPair
-    , repositoryNameIdPair
-    , rnipRepositoryId
-    , rnipRepositoryName
+    RepositoryNameIdPair (..),
+    newRepositoryNameIdPair,
+    repositoryNameIdPair_repositoryName,
+    repositoryNameIdPair_repositoryId,
 
     -- * RepositoryTrigger
-    , RepositoryTrigger
-    , repositoryTrigger
-    , rtBranches
-    , rtCustomData
-    , rtName
-    , rtDestinationARN
-    , rtEvents
+    RepositoryTrigger (..),
+    newRepositoryTrigger,
+    repositoryTrigger_customData,
+    repositoryTrigger_branches,
+    repositoryTrigger_name,
+    repositoryTrigger_destinationArn,
+    repositoryTrigger_events,
 
     -- * RepositoryTriggerExecutionFailure
-    , RepositoryTriggerExecutionFailure
-    , repositoryTriggerExecutionFailure
-    , rtefFailureMessage
-    , rtefTrigger
+    RepositoryTriggerExecutionFailure (..),
+    newRepositoryTriggerExecutionFailure,
+    repositoryTriggerExecutionFailure_failureMessage,
+    repositoryTriggerExecutionFailure_trigger,
+
+    -- * SetFileModeEntry
+    SetFileModeEntry (..),
+    newSetFileModeEntry,
+    setFileModeEntry_filePath,
+    setFileModeEntry_fileMode,
+
+    -- * SourceFileSpecifier
+    SourceFileSpecifier (..),
+    newSourceFileSpecifier,
+    sourceFileSpecifier_isMove,
+    sourceFileSpecifier_filePath,
+
+    -- * SubModule
+    SubModule (..),
+    newSubModule,
+    subModule_commitId,
+    subModule_absolutePath,
+    subModule_relativePath,
+
+    -- * SymbolicLink
+    SymbolicLink (..),
+    newSymbolicLink,
+    symbolicLink_absolutePath,
+    symbolicLink_relativePath,
+    symbolicLink_blobId,
+    symbolicLink_fileMode,
 
     -- * Target
-    , Target
-    , target
-    , tDestinationReference
-    , tRepositoryName
-    , tSourceReference
+    Target (..),
+    newTarget,
+    target_destinationReference,
+    target_repositoryName,
+    target_sourceReference,
 
     -- * UserInfo
-    , UserInfo
-    , userInfo
-    , uiEmail
-    , uiDate
-    , uiName
-    ) where
+    UserInfo (..),
+    newUserInfo,
+    userInfo_name,
+    userInfo_date,
+    userInfo_email,
+  )
+where
 
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.CodeCommit.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.CodeCommit.Types.Approval
+import Network.AWS.CodeCommit.Types.ApprovalRule
+import Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
+import Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
+import Network.AWS.CodeCommit.Types.ApprovalRuleTemplate
+import Network.AWS.CodeCommit.Types.ApprovalState
+import Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
+import Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
+import Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError
+import Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+import Network.AWS.CodeCommit.Types.BatchGetCommitsError
+import Network.AWS.CodeCommit.Types.BlobMetadata
+import Network.AWS.CodeCommit.Types.BranchInfo
+import Network.AWS.CodeCommit.Types.ChangeTypeEnum
+import Network.AWS.CodeCommit.Types.Comment
+import Network.AWS.CodeCommit.Types.CommentsForComparedCommit
+import Network.AWS.CodeCommit.Types.CommentsForPullRequest
+import Network.AWS.CodeCommit.Types.Commit
+import Network.AWS.CodeCommit.Types.Conflict
+import Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum
+import Network.AWS.CodeCommit.Types.ConflictMetadata
+import Network.AWS.CodeCommit.Types.ConflictResolution
+import Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
+import Network.AWS.CodeCommit.Types.DeleteFileEntry
+import Network.AWS.CodeCommit.Types.Difference
+import Network.AWS.CodeCommit.Types.Evaluation
+import Network.AWS.CodeCommit.Types.File
+import Network.AWS.CodeCommit.Types.FileMetadata
+import Network.AWS.CodeCommit.Types.FileModeTypeEnum
+import Network.AWS.CodeCommit.Types.FileModes
+import Network.AWS.CodeCommit.Types.FileSizes
+import Network.AWS.CodeCommit.Types.Folder
+import Network.AWS.CodeCommit.Types.IsBinaryFile
+import Network.AWS.CodeCommit.Types.Location
+import Network.AWS.CodeCommit.Types.MergeHunk
+import Network.AWS.CodeCommit.Types.MergeHunkDetail
+import Network.AWS.CodeCommit.Types.MergeMetadata
+import Network.AWS.CodeCommit.Types.MergeOperations
+import Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
+import Network.AWS.CodeCommit.Types.ObjectTypeEnum
+import Network.AWS.CodeCommit.Types.ObjectTypes
+import Network.AWS.CodeCommit.Types.OrderEnum
+import Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
+import Network.AWS.CodeCommit.Types.OverrideStatus
+import Network.AWS.CodeCommit.Types.PullRequest
+import Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
+import Network.AWS.CodeCommit.Types.PullRequestEvent
+import Network.AWS.CodeCommit.Types.PullRequestEventType
+import Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
+import Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
+import Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
+import Network.AWS.CodeCommit.Types.PullRequestStatusEnum
+import Network.AWS.CodeCommit.Types.PullRequestTarget
+import Network.AWS.CodeCommit.Types.PutFileEntry
+import Network.AWS.CodeCommit.Types.ReactionForComment
+import Network.AWS.CodeCommit.Types.ReactionValueFormats
+import Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
+import Network.AWS.CodeCommit.Types.ReplaceContentEntry
+import Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+import Network.AWS.CodeCommit.Types.RepositoryMetadata
+import Network.AWS.CodeCommit.Types.RepositoryNameIdPair
+import Network.AWS.CodeCommit.Types.RepositoryTrigger
+import Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
+import Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure
+import Network.AWS.CodeCommit.Types.SetFileModeEntry
+import Network.AWS.CodeCommit.Types.SortByEnum
+import Network.AWS.CodeCommit.Types.SourceFileSpecifier
+import Network.AWS.CodeCommit.Types.SubModule
+import Network.AWS.CodeCommit.Types.SymbolicLink
+import Network.AWS.CodeCommit.Types.Target
+import Network.AWS.CodeCommit.Types.UserInfo
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-04-13@ of the Amazon CodeCommit SDK configuration.
-codeCommit :: Service
-codeCommit =
-  Service
-    { _svcAbbrev = "CodeCommit"
-    , _svcSigner = v4
-    , _svcPrefix = "codecommit"
-    , _svcVersion = "2015-04-13"
-    , _svcEndpoint = defaultEndpoint codeCommit
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "CodeCommit"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "CodeCommit",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "codecommit",
+      Core._serviceSigningName = "codecommit",
+      Core._serviceVersion = "2015-04-13",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "CodeCommit",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | The region for the trigger target does not match the region for the repository. Triggers must be created in the same region as the target for the trigger.
---
---
-_InvalidRepositoryTriggerRegionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerRegionException =
-  _MatchServiceError codeCommit "InvalidRepositoryTriggerRegionException"
-
-
--- | The specified continuation token is not valid.
---
---
-_InvalidContinuationTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidContinuationTokenException =
-  _MatchServiceError codeCommit "InvalidContinuationTokenException"
-
-
--- | The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.
---
---
-_ManualMergeRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_ManualMergeRequiredException =
-  _MatchServiceError codeCommit "ManualMergeRequiredException"
-
-
--- | An array of target objects is required. It cannot be empty or null.
---
---
-_TargetsRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_TargetsRequiredException =
-  _MatchServiceError codeCommit "TargetsRequiredException"
-
-
--- | No encryption key was found.
---
---
-_EncryptionKeyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_EncryptionKeyNotFoundException =
-  _MatchServiceError codeCommit "EncryptionKeyNotFoundException"
-
-
--- | The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using @git diff@ or a diff tool.
---
---
-_TipsDivergenceExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_TipsDivergenceExceededException =
-  _MatchServiceError codeCommit "TipsDivergenceExceededException"
-
-
--- | One or more branch names specified for the trigger is not valid.
---
---
-_InvalidRepositoryTriggerBranchNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerBranchNameException =
-  _MatchServiceError codeCommit "InvalidRepositoryTriggerBranchNameException"
-
-
--- | The pull request status cannot be updated because it is already closed.
---
---
-_PullRequestAlreadyClosedException :: AsError a => Getting (First ServiceError) a ServiceError
-_PullRequestAlreadyClosedException =
-  _MatchServiceError codeCommit "PullRequestAlreadyClosedException"
-
-
--- | The custom data provided for the trigger is not valid.
---
---
-_InvalidRepositoryTriggerCustomDataException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerCustomDataException =
-  _MatchServiceError codeCommit "InvalidRepositoryTriggerCustomDataException"
-
-
--- | A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.
---
---
-_DirectoryNameConflictsWithFileNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryNameConflictsWithFileNameException =
-  _MatchServiceError codeCommit "DirectoryNameConflictsWithFileNameException"
-
-
--- | The specified reference does not exist. You must provide a full commit ID.
---
---
-_ReferenceDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_ReferenceDoesNotExistException =
-  _MatchServiceError codeCommit "ReferenceDoesNotExistException"
-
-
--- | The specified Amazon Resource Name (ARN) does not exist in the AWS account.
---
---
-_ActorDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified Amazon Resource Name (ARN) does not exist in the AWS
+-- account.
+_ActorDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ActorDoesNotExistException =
-  _MatchServiceError codeCommit "ActorDoesNotExistException"
+  Core._MatchServiceError
+    defaultService
+    "ActorDoesNotExistException"
 
+-- | The pull request status update is not valid. The only valid update is
+-- from @OPEN@ to @CLOSED@.
+_InvalidPullRequestStatusUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPullRequestStatusUpdateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPullRequestStatusUpdateException"
+
+-- | The user name is not valid because it has exceeded the character limit
+-- for author names.
+_NameLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NameLengthExceededException =
+  Core._MatchServiceError
+    defaultService
+    "NameLengthExceededException"
+
+-- | An approval rule with that name already exists. Approval rule names must
+-- be unique within the scope of a pull request.
+_ApprovalRuleNameAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleNameAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleNameAlreadyExistsException"
 
 -- | A pull request ID is required, but none was provided.
---
---
-_PullRequestIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_PullRequestIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PullRequestIdRequiredException =
-  _MatchServiceError codeCommit "PullRequestIdRequiredException"
-
-
--- | The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.
---
---
-_InvalidEmailException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidEmailException = _MatchServiceError codeCommit "InvalidEmailException"
-
-
--- | The commit message is too long. Provide a shorter string.
---
---
-_CommitMessageLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommitMessageLengthExceededException =
-  _MatchServiceError codeCommit "CommitMessageLengthExceededException"
-
-
--- | The specified blob does not exist.
---
---
-_BlobIdDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_BlobIdDoesNotExistException =
-  _MatchServiceError codeCommit "BlobIdDoesNotExistException"
-
-
--- | The maximum number of allowed repository names was exceeded. Currently, this number is 25.
---
---
-_MaximumRepositoryNamesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_MaximumRepositoryNamesExceededException =
-  _MatchServiceError codeCommit "MaximumRepositoryNamesExceededException"
-
-
--- | The specified repository description is not valid.
---
---
-_InvalidRepositoryDescriptionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryDescriptionException =
-  _MatchServiceError codeCommit "InvalidRepositoryDescriptionException"
-
-
--- | The specified repository name already exists.
---
---
-_RepositoryNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNameExistsException =
-  _MatchServiceError codeCommit "RepositoryNameExistsException"
-
-
--- | A reference name is required, but none was provided.
---
---
-_ReferenceNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_ReferenceNameRequiredException =
-  _MatchServiceError codeCommit "ReferenceNameRequiredException"
-
-
--- | The number of triggers allowed for the repository was exceeded.
---
---
-_MaximumRepositoryTriggersExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_MaximumRepositoryTriggersExceededException =
-  _MatchServiceError codeCommit "MaximumRepositoryTriggersExceededException"
-
-
--- | The specified reference name is not valid.
---
---
-_InvalidBranchNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidBranchNameException =
-  _MatchServiceError codeCommit "InvalidBranchNameException"
-
-
--- | A branch name is required but was not specified.
---
---
-_BranchNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_BranchNameRequiredException =
-  _MatchServiceError codeCommit "BranchNameRequiredException"
-
-
--- | A merge option or stategy is required, and none was provided.
---
---
-_MergeOptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_MergeOptionRequiredException =
-  _MatchServiceError codeCommit "MergeOptionRequiredException"
-
-
--- | The location of the file is not valid. Make sure that you include the extension of the file as well as the file name.
---
---
-_InvalidFileLocationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFileLocationException =
-  _MatchServiceError codeCommit "InvalidFileLocationException"
-
-
--- | The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.
---
---
-_BeforeCommitIdAndAfterCommitIdAreSameException :: AsError a => Getting (First ServiceError) a ServiceError
-_BeforeCommitIdAndAfterCommitIdAreSameException =
-  _MatchServiceError codeCommit "BeforeCommitIdAndAfterCommitIdAreSameException"
-
-
--- | The list of triggers for the repository is required but was not specified.
---
---
-_RepositoryTriggersListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryTriggersListRequiredException =
-  _MatchServiceError codeCommit "RepositoryTriggersListRequiredException"
-
-
--- | The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be re-used.
---
---
-_IdempotencyParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-_IdempotencyParameterMismatchException =
-  _MatchServiceError codeCommit "IdempotencyParameterMismatchException"
-
-
--- | The encryption key is not available.
---
---
-_EncryptionKeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_EncryptionKeyUnavailableException =
-  _MatchServiceError codeCommit "EncryptionKeyUnavailableException"
-
-
--- | Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.
---
---
-_InvalidRelativeFileVersionEnumException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRelativeFileVersionEnumException =
-  _MatchServiceError codeCommit "InvalidRelativeFileVersionEnumException"
-
-
--- | The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.
---
---
-_InvalidRepositoryTriggerDestinationARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerDestinationARNException =
-  _MatchServiceError
-    codeCommit
-    "InvalidRepositoryTriggerDestinationArnException"
-
-
--- | A blob ID is required but was not specified.
---
---
-_BlobIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_BlobIdRequiredException =
-  _MatchServiceError codeCommit "BlobIdRequiredException"
-
-
--- | A repository names object is required but was not specified.
---
---
-_RepositoryNamesRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNamesRequiredException =
-  _MatchServiceError codeCommit "RepositoryNamesRequiredException"
-
-
--- | The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request, and then try again.
---
---
-_InvalidActorARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidActorARNException =
-  _MatchServiceError codeCommit "InvalidActorArnException"
-
-
--- | The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
---
---
-_InvalidCommentIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommentIdException =
-  _MatchServiceError codeCommit "InvalidCommentIdException"
-
-
--- | The pull request description is not valid. Descriptions are limited to 1,000 characters in length.
---
---
-_InvalidDescriptionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDescriptionException =
-  _MatchServiceError codeCommit "InvalidDescriptionException"
-
-
--- | The specified blob is not valid.
---
---
-_InvalidBlobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidBlobIdException = _MatchServiceError codeCommit "InvalidBlobIdException"
-
-
--- | The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
---
---
-_PullRequestDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_PullRequestDoesNotExistException =
-  _MatchServiceError codeCommit "PullRequestDoesNotExistException"
-
-
--- | The specified sort order is not valid.
---
---
-_InvalidOrderException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOrderException = _MatchServiceError codeCommit "InvalidOrderException"
-
-
--- | The specified branch does not exist.
---
---
-_BranchDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_BranchDoesNotExistException =
-  _MatchServiceError codeCommit "BranchDoesNotExistException"
-
-
--- | The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.
---
---
-_DefaultBranchCannotBeDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
-_DefaultBranchCannotBeDeletedException =
-  _MatchServiceError codeCommit "DefaultBranchCannotBeDeletedException"
-
-
--- | The specified path is not valid.
---
---
-_InvalidPathException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPathException = _MatchServiceError codeCommit "InvalidPathException"
-
-
--- | The filePath for a location cannot be empty or null.
---
---
-_PathRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_PathRequiredException = _MatchServiceError codeCommit "PathRequiredException"
-
-
--- | A name for the trigger is required but was not specified.
---
---
-_RepositoryTriggerNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryTriggerNameRequiredException =
-  _MatchServiceError codeCommit "RepositoryTriggerNameRequiredException"
-
-
--- | The specified file mode permission is not valid. For a list of valid file mode permissions, see 'PutFile' .
---
---
-_InvalidFileModeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFileModeException =
-  _MatchServiceError codeCommit "InvalidFileModeException"
-
-
--- | The pull request status is not valid. The only valid values are @OPEN@ and @CLOSED@ .
---
---
-_InvalidPullRequestStatusException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPullRequestStatusException =
-  _MatchServiceError codeCommit "InvalidPullRequestStatusException"
-
-
--- | A parent commit ID is required. To view the full commit ID of a branch in a repository, use 'GetBranch' or a Git command (for example, git pull or git log).
---
---
-_ParentCommitIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_ParentCommitIdRequiredException =
-  _MatchServiceError codeCommit "ParentCommitIdRequiredException"
-
-
--- | The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.
---
---
-_InvalidSourceCommitSpecifierException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSourceCommitSpecifierException =
-  _MatchServiceError codeCommit "InvalidSourceCommitSpecifierException"
-
-
--- | The specified repository does not exist.
---
---
-_RepositoryDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryDoesNotExistException =
-  _MatchServiceError codeCommit "RepositoryDoesNotExistException"
-
-
--- | The number of branches for the trigger was exceeded.
---
---
-_MaximumBranchesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_MaximumBranchesExceededException =
-  _MatchServiceError codeCommit "MaximumBranchesExceededException"
-
-
--- | The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.
---
---
-_InvalidTitleException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTitleException = _MatchServiceError codeCommit "InvalidTitleException"
-
-
--- | The comment is too large. Comments are limited to 1,000 characters.
---
---
-_CommentContentSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentContentSizeLimitExceededException =
-  _MatchServiceError codeCommit "CommentContentSizeLimitExceededException"
-
-
--- | The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.
---
---
-_InvalidParentCommitIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParentCommitIdException =
-  _MatchServiceError codeCommit "InvalidParentCommitIdException"
-
-
--- | The pull request event type is not valid.
---
---
-_InvalidPullRequestEventTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPullRequestEventTypeException =
-  _MatchServiceError codeCommit "InvalidPullRequestEventTypeException"
-
-
--- | The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.
---
---
-_FileContentRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_FileContentRequiredException =
-  _MatchServiceError codeCommit "FileContentRequiredException"
-
-
--- | The source branch and the destination branch for the pull request are the same. You must specify different branches for the source and destination.
---
---
-_SourceAndDestinationAreSameException :: AsError a => Getting (First ServiceError) a ServiceError
-_SourceAndDestinationAreSameException =
-  _MatchServiceError codeCommit "SourceAndDestinationAreSameException"
-
-
--- | The specified path does not exist.
---
---
-_PathDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_PathDoesNotExistException =
-  _MatchServiceError codeCommit "PathDoesNotExistException"
-
-
--- | An encryption integrity check failed.
---
---
-_EncryptionIntegrityChecksFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_EncryptionIntegrityChecksFailedException =
-  _MatchServiceError codeCommit "EncryptionIntegrityChecksFailedException"
-
-
--- | The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use 'GetBranch' .
---
---
-_ParentCommitIdOutdatedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ParentCommitIdOutdatedException =
-  _MatchServiceError codeCommit "ParentCommitIdOutdatedException"
-
-
--- | At least one event for the trigger is required but was not specified.
---
---
-_RepositoryTriggerEventsListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryTriggerEventsListRequiredException =
-  _MatchServiceError codeCommit "RepositoryTriggerEventsListRequiredException"
-
-
--- | The comment is empty. You must provide some content for a comment. The content cannot be null.
---
---
-_CommentContentRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentContentRequiredException =
-  _MatchServiceError codeCommit "CommentContentRequiredException"
-
-
--- | The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for the repository name, source branch, and destination branch for a pull request.
---
---
-_InvalidTargetsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTargetsException =
-  _MatchServiceError codeCommit "InvalidTargetsException"
-
-
--- | An encryption key could not be accessed.
---
---
-_EncryptionKeyAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_EncryptionKeyAccessDeniedException =
-  _MatchServiceError codeCommit "EncryptionKeyAccessDeniedException"
-
-
--- | The specified branch name already exists.
---
---
-_BranchNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_BranchNameExistsException =
-  _MatchServiceError codeCommit "BranchNameExistsException"
-
-
--- | The specified commit is not valid.
---
---
-_InvalidCommitException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommitException = _MatchServiceError codeCommit "InvalidCommitException"
-
-
--- | A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.
---
---
-_TargetRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+  Core._MatchServiceError
+    defaultService
+    "PullRequestIdRequiredException"
+
+-- | The specified conflict detail level is not valid.
+_InvalidConflictDetailLevelException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConflictDetailLevelException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConflictDetailLevelException"
+
+-- | The pull request ID is not valid. Make sure that you have provided the
+-- full ID and that the pull request is in the specified repository, and
+-- then try again.
+_InvalidPullRequestIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPullRequestIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPullRequestIdException"
+
+-- | A pull request target is required. It cannot be empty or null. A pull
+-- request target must contain the full values for the repository name,
+-- source branch, and destination branch for the pull request.
+_TargetRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TargetRequiredException =
-  _MatchServiceError codeCommit "TargetRequiredException"
-
-
--- | The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.
---
---
-_InvalidDestinationCommitSpecifierException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDestinationCommitSpecifierException =
-  _MatchServiceError codeCommit "InvalidDestinationCommitSpecifierException"
-
-
--- | No comment exists with the provided ID. Verify that you have provided the correct ID, and then try again.
---
---
-_CommentDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentDoesNotExistException =
-  _MatchServiceError codeCommit "CommentDoesNotExistException"
-
-
--- | The specified reference is not a supported type.
---
---
-_ReferenceTypeNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ReferenceTypeNotSupportedException =
-  _MatchServiceError codeCommit "ReferenceTypeNotSupportedException"
-
-
--- | A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.
---
---
-_FileNameConflictsWithDirectoryNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_FileNameConflictsWithDirectoryNameException =
-  _MatchServiceError codeCommit "FileNameConflictsWithDirectoryNameException"
-
-
--- | The file name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit.
---
---
-_NameLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_NameLengthExceededException =
-  _MatchServiceError codeCommit "NameLengthExceededException"
-
-
--- | The specified sort by value is not valid.
---
---
-_InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSortByException = _MatchServiceError codeCommit "InvalidSortByException"
-
-
--- | The encryption key is disabled.
---
---
-_EncryptionKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_EncryptionKeyDisabledException =
-  _MatchServiceError codeCommit "EncryptionKeyDisabledException"
-
+  Core._MatchServiceError
+    defaultService
+    "TargetRequiredException"
 
 -- | A commit was not specified.
---
---
-_CommitRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_CommitRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CommitRequiredException =
-  _MatchServiceError codeCommit "CommitRequiredException"
+  Core._MatchServiceError
+    defaultService
+    "CommitRequiredException"
 
+-- | A file cannot be added to the repository because the specified file name
+-- has the same name as a directory in this repository. Either provide
+-- another name for the file, or add the file in a directory that does not
+-- match the file name.
+_FileNameConflictsWithDirectoryNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileNameConflictsWithDirectoryNameException =
+  Core._MatchServiceError
+    defaultService
+    "FileNameConflictsWithDirectoryNameException"
 
--- | You cannot create the pull request because the repository has too many open pull requests. The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.
---
---
-_MaximumOpenPullRequestsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_MaximumOpenPullRequestsExceededException =
-  _MatchServiceError codeCommit "MaximumOpenPullRequestsExceededException"
+-- | The specified reference does not exist. You must provide a full commit
+-- ID.
+_ReferenceDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReferenceDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "ReferenceDoesNotExistException"
 
+-- | No encryption key was found.
+_EncryptionKeyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionKeyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionKeyNotFoundException"
 
--- | The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.
---
---
-_InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTargetException = _MatchServiceError codeCommit "InvalidTargetException"
+-- | An array of target objects is required. It cannot be empty or null.
+_TargetsRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetsRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "TargetsRequiredException"
 
+-- | The comment is empty. You must provide some content for a comment. The
+-- content cannot be null.
+_CommentContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "CommentContentRequiredException"
 
--- | The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
---
---
-_InvalidPullRequestIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPullRequestIdException =
-  _MatchServiceError codeCommit "InvalidPullRequestIdException"
+-- | The specified tag is not valid. Key names cannot be prefixed with aws:.
+_InvalidSystemTagUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSystemTagUsageException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSystemTagUsageException"
 
+-- | The commit cannot be created because no files have been specified as
+-- added, updated, or changed (PutFile or DeleteFile) for the commit.
+_FileEntryRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileEntryRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "FileEntryRequiredException"
 
--- | You cannot modify or delete this comment. Only comment authors can modify or delete their comments.
---
---
-_CommentNotCreatedByCallerException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentNotCreatedByCallerException =
-  _MatchServiceError codeCommit "CommentNotCreatedByCallerException"
+-- | The targets for the pull request is not valid or not in a valid format.
+-- Targets are a list of target objects. Each target object must contain
+-- the full values for the repository name, source branch, and destination
+-- branch for a pull request.
+_InvalidTargetsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTargetsException"
 
+-- | The pull request cannot be merged automatically into the destination
+-- branch. You must manually merge the branches and resolve any conflicts.
+_ManualMergeRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ManualMergeRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ManualMergeRequiredException"
 
--- | The pull request status update is not valid. The only valid update is from @OPEN@ to @CLOSED@ .
---
---
-_InvalidPullRequestStatusUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPullRequestStatusUpdateException =
-  _MatchServiceError codeCommit "InvalidPullRequestStatusUpdateException"
+-- | Cannot create the branch with the specified name because the commit
+-- conflicts with an existing branch with the same name. Branch names must
+-- be unique.
+_BranchNameExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BranchNameExistsException =
+  Core._MatchServiceError
+    defaultService
+    "BranchNameExistsException"
 
+-- | The parent commit ID is not valid because it does not exist. The
+-- specified parent commit ID does not exist in the specified branch of the
+-- repository.
+_ParentCommitDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParentCommitDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "ParentCommitDoesNotExistException"
 
--- | The specified reference name format is not valid. Reference names must conform to the Git references format, for example refs/heads/master. For more information, see <https://git-scm.com/book/en/v2/Git-Internals-Git-References Git Internals - Git References> or consult your Git documentation.
---
---
-_InvalidReferenceNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidReferenceNameException =
-  _MatchServiceError codeCommit "InvalidReferenceNameException"
+-- | The commit cannot be created because one or more changes in this commit
+-- duplicate actions in the same file path. For example, you cannot make
+-- the same delete request to the same file in the same file path twice, or
+-- make a delete request and a move request to the same file as part of the
+-- same commit.
+_SamePathRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SamePathRequestException =
+  Core._MatchServiceError
+    defaultService
+    "SamePathRequestException"
 
+-- | The specified Amazon Resource Name (ARN) does not exist in the AWS
+-- account.
+_AuthorDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "AuthorDoesNotExistException"
 
--- | The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch that you specified.
---
---
-_SameFileContentException :: AsError a => Getting (First ServiceError) a ServiceError
-_SameFileContentException =
-  _MatchServiceError codeCommit "SameFileContentException"
+-- | The maximum number of tags for an AWS CodeCommit resource has been
+-- exceeded.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
+-- | The source branch and destination branch for the pull request are the
+-- same. You must specify different branches for the source and
+-- destination.
+_SourceAndDestinationAreSameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SourceAndDestinationAreSameException =
+  Core._MatchServiceError
+    defaultService
+    "SourceAndDestinationAreSameException"
 
--- | A commit ID was not specified.
---
---
-_CommitIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommitIdRequiredException =
-  _MatchServiceError codeCommit "CommitIdRequiredException"
+-- | An encryption integrity check failed.
+_EncryptionIntegrityChecksFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionIntegrityChecksFailedException =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionIntegrityChecksFailedException"
 
+-- | The description for the approval rule template is not valid because it
+-- exceeds the maximum characters allowed for a description. For more
+-- information about limits in AWS CodeCommit, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html AWS CodeCommit User Guide>.
+_InvalidApprovalRuleTemplateDescriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalRuleTemplateDescriptionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalRuleTemplateDescriptionException"
 
--- | The specified commit ID is not valid.
---
---
-_InvalidCommitIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommitIdException =
-  _MatchServiceError codeCommit "InvalidCommitIdException"
+-- | This comment has already been deleted. You cannot edit or delete a
+-- deleted comment.
+_CommentDeletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentDeletedException =
+  Core._MatchServiceError
+    defaultService
+    "CommentDeletedException"
 
+-- | Automerge was specified for resolving the conflict, but the replacement
+-- type is not valid or content is missing.
+_InvalidReplacementContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReplacementContentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReplacementContentException"
 
--- | The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.
---
---
-_TipOfSourceReferenceIsDifferentException :: AsError a => Getting (First ServiceError) a ServiceError
-_TipOfSourceReferenceIsDifferentException =
-  _MatchServiceError codeCommit "TipOfSourceReferenceIsDifferentException"
+-- | At least one event for the trigger is required, but was not specified.
+_RepositoryTriggerEventsListRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryTriggerEventsListRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryTriggerEventsListRequiredException"
 
+-- | The file cannot be added because it is empty. Empty files cannot be
+-- added to the repository with this API.
+_FileContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "FileContentRequiredException"
 
--- | A destination ARN for the target service for the trigger is required but was not specified.
---
---
-_RepositoryTriggerDestinationARNRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryTriggerDestinationARNRequiredException =
-  _MatchServiceError
-    codeCommit
-    "RepositoryTriggerDestinationArnRequiredException"
+-- | The commit cannot be created because no source files or file content
+-- have been specified for the commit.
+_SourceFileOrContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SourceFileOrContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "SourceFileOrContentRequiredException"
 
+-- | The title of the pull request is not valid. Pull request titles cannot
+-- exceed 100 characters in length.
+_InvalidTitleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTitleException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTitleException"
 
--- | The client request token is not valid.
---
---
-_InvalidClientRequestTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidClientRequestTokenException =
-  _MatchServiceError codeCommit "InvalidClientRequestTokenException"
+-- | The content for the approval rule is not valid.
+_InvalidApprovalRuleContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalRuleContentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalRuleContentException"
 
+-- | The source commit specifier is not valid. You must provide a valid
+-- branch name, tag, or full commit ID.
+_InvalidSourceCommitSpecifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSourceCommitSpecifierException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSourceCommitSpecifierException"
 
--- | The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
---
---
-_CommitDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommitDoesNotExistException =
-  _MatchServiceError codeCommit "CommitDoesNotExistException"
+-- | The specified conflict resolution list is not valid.
+_InvalidConflictResolutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConflictResolutionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConflictResolutionException"
 
-
--- | At least one branch name is required but was not specified in the trigger configuration.
---
---
-_RepositoryTriggerBranchNameListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryTriggerBranchNameListRequiredException =
-  _MatchServiceError
-    codeCommit
-    "RepositoryTriggerBranchNameListRequiredException"
-
-
--- | A client request token is required. A client request token is an unique, client-generated idempotency token that when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request will return information about the initial request that used that token.
---
---
-_ClientRequestTokenRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClientRequestTokenRequiredException =
-  _MatchServiceError codeCommit "ClientRequestTokenRequiredException"
-
-
--- | The specified merge option is not valid. The only valid value is FAST_FORWARD_MERGE.
---
---
-_InvalidMergeOptionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidMergeOptionException =
-  _MatchServiceError codeCommit "InvalidMergeOptionException"
-
-
--- | The comment ID is missing or null. A comment ID is required.
---
---
-_CommentIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentIdRequiredException =
-  _MatchServiceError codeCommit "CommentIdRequiredException"
-
-
--- | The specified number of maximum results is not valid.
---
---
-_InvalidMaxResultsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidMaxResultsException =
-  _MatchServiceError codeCommit "InvalidMaxResultsException"
-
-
--- | The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html AWS CodeCommit User Guide> .
---
---
-_FileTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_FileTooLargeException = _MatchServiceError codeCommit "FileTooLargeException"
-
-
--- | The specified commit ID does not exist.
---
---
-_CommitIdDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommitIdDoesNotExistException =
-  _MatchServiceError codeCommit "CommitIdDoesNotExistException"
-
-
--- | You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.
---
---
-_MultipleRepositoriesInPullRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_MultipleRepositoriesInPullRequestException =
-  _MatchServiceError codeCommit "MultipleRepositoriesInPullRequestException"
-
-
--- | The file cannot be added because it is too large. The maximum file size that can be added using PutFile is 6 MB. For files larger than 6 MB but smaller than 2 GB, add them using a Git client.
---
---
-_FileContentSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_FileContentSizeLimitExceededException =
-  _MatchServiceError codeCommit "FileContentSizeLimitExceededException"
-
-
--- | The name of the trigger is not valid.
---
---
-_InvalidRepositoryTriggerNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerNameException =
-  _MatchServiceError codeCommit "InvalidRepositoryTriggerNameException"
-
-
--- | A repository name is required but was not specified.
---
---
-_RepositoryNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNameRequiredException =
-  _MatchServiceError codeCommit "RepositoryNameRequiredException"
-
-
--- | A repository resource limit was exceeded.
---
---
-_RepositoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryLimitExceededException =
-  _MatchServiceError codeCommit "RepositoryLimitExceededException"
-
-
--- | One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.
---
---
-_InvalidRepositoryTriggerEventsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryTriggerEventsException =
-  _MatchServiceError codeCommit "InvalidRepositoryTriggerEventsException"
-
-
--- | The specified branch name is not valid because it is a tag name. Type the name of a current branch in the repository. For a list of valid branch names, use 'ListBranches' .
---
---
-_BranchNameIsTagNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_BranchNameIsTagNameException =
-  _MatchServiceError codeCommit "BranchNameIsTagNameException"
-
-
--- | At least one specified repository name is not valid.
---
---
-_InvalidRepositoryNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRepositoryNameException =
-  _MatchServiceError codeCommit "InvalidRepositoryNameException"
-
-
--- | The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.
---
---
-_InvalidAuthorARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAuthorARNException =
-  _MatchServiceError codeCommit "InvalidAuthorArnException"
-
+-- | The override status is not valid. Valid statuses are OVERRIDE and
+-- REVOKE.
+_InvalidOverrideStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOverrideStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOverrideStatusException"
 
 -- | A pull request status is required, but none was provided.
---
---
-_PullRequestStatusRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_PullRequestStatusRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PullRequestStatusRequiredException =
-  _MatchServiceError codeCommit "PullRequestStatusRequiredException"
+  Core._MatchServiceError
+    defaultService
+    "PullRequestStatusRequiredException"
 
+-- | The number of items to compare between the source or destination
+-- branches and the merge base has exceeded the maximum allowed.
+_MaximumItemsToCompareExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumItemsToCompareExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumItemsToCompareExceededException"
 
--- | The repository does not contain any pull requests with that pull request ID. Check to make sure you have provided the correct repository name for the pull request.
---
---
-_RepositoryNotAssociatedWithPullRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNotAssociatedWithPullRequestException =
-  _MatchServiceError
-    codeCommit
-    "RepositoryNotAssociatedWithPullRequestException"
+-- | The pull request status is not valid. The only valid values are @OPEN@
+-- and @CLOSED@.
+_InvalidPullRequestStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPullRequestStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPullRequestStatusException"
 
+-- | A parent commit ID is required. To view the full commit ID of a branch
+-- in a repository, use GetBranch or a Git command (for example, git pull
+-- or git log).
+_ParentCommitIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParentCommitIdRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ParentCommitIdRequiredException"
+
+-- | The specified repository does not exist.
+_RepositoryDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryDoesNotExistException"
+
+-- | The pull request cannot be merged because one or more approval rules
+-- applied to the pull request have conditions that have not been met.
+_PullRequestApprovalRulesNotSatisfiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullRequestApprovalRulesNotSatisfiedException =
+  Core._MatchServiceError
+    defaultService
+    "PullRequestApprovalRulesNotSatisfiedException"
+
+-- | The content for the approval rule is empty. You must provide some
+-- content for an approval rule. The content cannot be null.
+_ApprovalRuleContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleContentRequiredException"
 
 -- | A pull request title is required. It cannot be empty or null.
---
---
-_TitleRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_TitleRequiredException = _MatchServiceError codeCommit "TitleRequiredException"
+_TitleRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TitleRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "TitleRequiredException"
 
+-- | The file cannot be added because it is too large. The maximum file size
+-- is 6 MB, and the combined file content change size is 7 MB. Consider
+-- making these changes using a Git client.
+_FileContentSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileContentSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FileContentSizeLimitExceededException"
 
--- | The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.
---
---
-_InvalidFilePositionException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The name of the trigger is not valid.
+_InvalidRepositoryTriggerNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerNameException"
+
+-- | A name for the trigger is required, but was not specified.
+_RepositoryTriggerNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryTriggerNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryTriggerNameRequiredException"
+
+-- | The maximum number of approval rule templates has been exceeded for this
+-- AWS Region.
+_NumberOfRuleTemplatesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NumberOfRuleTemplatesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "NumberOfRuleTemplatesExceededException"
+
+-- | A repository name is required, but was not specified.
+_RepositoryNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryNameRequiredException"
+
+-- | The specified file mode permission is not valid. For a list of valid
+-- file mode permissions, see PutFile.
+_InvalidFileModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFileModeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFileModeException"
+
+-- | One or more events specified for the trigger is not valid. Check to make
+-- sure that all events specified match the requirements for allowed
+-- events.
+_InvalidRepositoryTriggerEventsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerEventsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerEventsException"
+
+-- | The specified path is not valid.
+_InvalidPathException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPathException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPathException"
+
+-- | The specified target branch is not valid.
+_InvalidTargetBranchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetBranchException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTargetBranchException"
+
+-- | The Amazon Resource Name (ARN) is not valid. Make sure that you have
+-- provided the full ARN for the user who initiated the change for the pull
+-- request, and then try again.
+_InvalidActorArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActorArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidActorArnException"
+
+-- | A revision ID is required, but was not provided.
+_RevisionIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RevisionIdRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RevisionIdRequiredException"
+
+-- | The specified blob is not valid.
+_InvalidBlobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBlobIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidBlobIdException"
+
+-- | The number of specified files to change as part of this commit exceeds
+-- the maximum number of files that can be changed in a single commit.
+-- Consider using a Git client for these changes.
+_MaximumFileEntriesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumFileEntriesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumFileEntriesExceededException"
+
+-- | An approval rule template name is required, but was not specified.
+_ApprovalRuleTemplateNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleTemplateNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleTemplateNameRequiredException"
+
+-- | At least one repository name object is required, but was not specified.
+_RepositoryNamesRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryNamesRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryNamesRequiredException"
+
+-- | The pull request ID could not be found. Make sure that you have
+-- specified the correct repository name and pull request ID, and then try
+-- again.
+_PullRequestDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullRequestDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "PullRequestDoesNotExistException"
+
+-- | A replacement type is required.
+_ReplacementTypeRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplacementTypeRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ReplacementTypeRequiredException"
+
+-- | Automerge was specified for resolving the conflict, but the specified
+-- replacement type is not valid.
+_InvalidReplacementTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReplacementTypeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReplacementTypeException"
+
+-- | The specified file exceeds the file size limit for AWS CodeCommit. For
+-- more information about limits in AWS CodeCommit, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html AWS CodeCommit User Guide>.
+_FileTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "FileTooLargeException"
+
+-- | The approval rule cannot be deleted from the pull request because it was
+-- created by an approval rule template and applied to the pull request
+-- automatically.
+_CannotDeleteApprovalRuleFromTemplateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotDeleteApprovalRuleFromTemplateException =
+  Core._MatchServiceError
+    defaultService
+    "CannotDeleteApprovalRuleFromTemplateException"
+
+-- | The number of reactions has been exceeded. Reactions are limited to one
+-- reaction per user for each individual comment ID.
+_ReactionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReactionLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ReactionLimitExceededException"
+
+-- | The revision ID provided in the request does not match the current
+-- revision ID. Use GetPullRequest to retrieve the current revision ID.
+_RevisionNotCurrentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RevisionNotCurrentException =
+  Core._MatchServiceError
+    defaultService
+    "RevisionNotCurrentException"
+
+-- | The name for the approval rule is not valid.
+_InvalidApprovalRuleNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalRuleNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalRuleNameException"
+
+-- | The specified commit ID does not exist.
+_CommitIdDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitIdDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "CommitIdDoesNotExistException"
+
+-- | The list of triggers for the repository is required, but was not
+-- specified.
+_RepositoryTriggersListRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryTriggersListRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryTriggersListRequiredException"
+
+-- | Either the enum is not in a valid format, or the specified file version
+-- enum is not valid in respect to the current file version.
+_InvalidRelativeFileVersionEnumException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRelativeFileVersionEnumException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRelativeFileVersionEnumException"
+
+-- | The tag policy is not valid.
+_TagPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "TagPolicyException"
+
+-- | The specified approval rule does not exist.
+_ApprovalRuleDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleDoesNotExistException"
+
+-- | At least one branch name is required, but was not specified in the
+-- trigger configuration.
+_RepositoryTriggerBranchNameListRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryTriggerBranchNameListRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryTriggerBranchNameListRequiredException"
+
+-- | The client request token is not valid.
+_InvalidClientRequestTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientRequestTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClientRequestTokenException"
+
+-- | The client request token is not valid. Either the token is not in a
+-- valid format, or the token has been used in a previous request and
+-- cannot be reused.
+_IdempotencyParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotencyParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotencyParameterMismatchException"
+
+-- | The Amazon Resource Name (ARN) for the trigger is not valid for the
+-- specified destination. The most common reason for this error is that the
+-- ARN does not meet the requirements for the service type.
+_InvalidRepositoryTriggerDestinationArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerDestinationArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerDestinationArnException"
+
+-- | A branch name is required, but was not specified.
+_BranchNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BranchNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "BranchNameRequiredException"
+
+-- | A destination ARN for the target service for the trigger is required,
+-- but was not specified.
+_RepositoryTriggerDestinationArnRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryTriggerDestinationArnRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryTriggerDestinationArnRequiredException"
+
+-- | The encryption key is not available.
+_EncryptionKeyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionKeyUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionKeyUnavailableException"
+
+-- | The specified conflict resolution strategy is not valid.
+_InvalidConflictResolutionStrategyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConflictResolutionStrategyException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConflictResolutionStrategyException"
+
+-- | More than one conflict resolution entries exists for the conflict. A
+-- conflict can have only one conflict resolution entry.
+_MultipleConflictResolutionEntriesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MultipleConflictResolutionEntriesException =
+  Core._MatchServiceError
+    defaultService
+    "MultipleConflictResolutionEntriesException"
+
+-- | The specified file does not exist. Verify that you have used the correct
+-- file name, full path, and extension.
+_FileDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "FileDoesNotExistException"
+
+-- | A list of tag keys is required. The list cannot be empty or null.
+_TagKeysListRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagKeysListRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "TagKeysListRequiredException"
+
+-- | The specified reference name format is not valid. Reference names must
+-- conform to the Git references format (for example, refs\/heads\/master).
+-- For more information, see
+-- <https://git-scm.com/book/en/v2/Git-Internals-Git-References Git Internals - Git References>
+-- or consult your Git documentation.
+_InvalidReferenceNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReferenceNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReferenceNameException"
+
+-- | A commit ID was not specified.
+_CommitIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitIdRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "CommitIdRequiredException"
+
+-- | A reference name is required, but none was provided.
+_ReferenceNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReferenceNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ReferenceNameRequiredException"
+
+-- | The maximum number of approval rule templates for a repository has been
+-- exceeded. You cannot associate more than 25 approval rule templates with
+-- a repository.
+_MaximumRuleTemplatesAssociatedWithRepositoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumRuleTemplatesAssociatedWithRepositoryException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumRuleTemplatesAssociatedWithRepositoryException"
+
+-- | The commit message is too long. Provide a shorter string.
+_CommitMessageLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitMessageLengthExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CommitMessageLengthExceededException"
+
+-- | The number of approvals required for the approval rule exceeds the
+-- maximum number allowed.
+_MaximumNumberOfApprovalsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumNumberOfApprovalsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumNumberOfApprovalsExceededException"
+
+-- | The list of tags is not valid.
+_InvalidTagKeysListException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagKeysListException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTagKeysListException"
+
+-- | The encryption key is disabled.
+_EncryptionKeyDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionKeyDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionKeyDisabledException"
+
+-- | A file cannot be added to the repository because the specified path name
+-- has the same name as a file that already exists in this repository.
+-- Either provide a different name for the file, or specify a different
+-- path for the file.
+_DirectoryNameConflictsWithFileNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryNameConflictsWithFileNameException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryNameConflictsWithFileNameException"
+
+-- | The specified sort by value is not valid.
+_InvalidSortByException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSortByException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSortByException"
+
+-- | The destination commit specifier is not valid. You must provide a valid
+-- branch name, tag, or full commit ID.
+_InvalidDestinationCommitSpecifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDestinationCommitSpecifierException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDestinationCommitSpecifierException"
+
+-- | No comment exists with the provided ID. Verify that you have used the
+-- correct ID, and then try again.
+_CommentDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "CommentDoesNotExistException"
+
+-- | You cannot create an approval rule template with that name because a
+-- template with that name already exists in this AWS Region for your AWS
+-- account. Approval rule template names must be unique.
+_ApprovalRuleTemplateNameAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleTemplateNameAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleTemplateNameAlreadyExistsException"
+
+-- | One or more branch names specified for the trigger is not valid.
+_InvalidRepositoryTriggerBranchNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerBranchNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerBranchNameException"
+
+-- | You cannot create the pull request because the repository has too many
+-- open pull requests. The maximum number of open pull requests for a
+-- repository is 1,000. Close one or more open pull requests, and then try
+-- again.
+_MaximumOpenPullRequestsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumOpenPullRequestsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumOpenPullRequestsExceededException"
+
+-- | The pull request status cannot be updated because it is already closed.
+_PullRequestAlreadyClosedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullRequestAlreadyClosedException =
+  Core._MatchServiceError
+    defaultService
+    "PullRequestAlreadyClosedException"
+
+-- | The specified commit is not valid.
+_InvalidCommitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommitException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommitException"
+
+-- | The specified reference is not a supported type.
+_ReferenceTypeNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReferenceTypeNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "ReferenceTypeNotSupportedException"
+
+-- | You cannot modify or delete this comment. Only comment authors can
+-- modify or delete their comments.
+_CommentNotCreatedByCallerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentNotCreatedByCallerException =
+  Core._MatchServiceError
+    defaultService
+    "CommentNotCreatedByCallerException"
+
+-- | The target for the pull request is not valid. A target must contain the
+-- full values for the repository name, source branch, and destination
+-- branch for the pull request.
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTargetException"
+
+-- | The custom data provided for the trigger is not valid.
+_InvalidRepositoryTriggerCustomDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerCustomDataException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerCustomDataException"
+
+-- | The pull request has already had its approval rules set to override.
+_OverrideAlreadySetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OverrideAlreadySetException =
+  Core._MatchServiceError
+    defaultService
+    "OverrideAlreadySetException"
+
+-- | The specified continuation token is not valid.
+_InvalidContinuationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContinuationTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidContinuationTokenException"
+
+-- | The AWS Region for the trigger target does not match the AWS Region for
+-- the repository. Triggers must be created in the same Region as the
+-- target for the trigger.
+_InvalidRepositoryTriggerRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryTriggerRegionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryTriggerRegionException"
+
+-- | The value of the reaction is not valid. For more information, see the
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide>.
+_InvalidReactionValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReactionValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReactionValueException"
+
+-- | The divergence between the tips of the provided commit specifiers is too
+-- great to determine whether there might be any merge conflicts. Locally
+-- compare the specifiers using @git diff@ or a diff tool.
+_TipsDivergenceExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TipsDivergenceExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TipsDivergenceExceededException"
+
+-- | An encryption key could not be accessed.
+_EncryptionKeyAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionKeyAccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionKeyAccessDeniedException"
+
+-- | A reaction value is required.
+_ReactionValueRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReactionValueRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ReactionValueRequiredException"
+
+-- | A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is
+-- required. For a list of valid resources in AWS CodeCommit, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats CodeCommit Resources and Operations>
+-- in the AWS CodeCommit User Guide.
+_ResourceArnRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceArnRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceArnRequiredException"
+
+-- | The specified path does not exist.
+_PathDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PathDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "PathDoesNotExistException"
+
+-- | USE_NEW_CONTENT was specified, but no replacement content has been
+-- provided.
+_ReplacementContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplacementContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ReplacementContentRequiredException"
+
+-- | The value for the resource ARN is not valid. For more information about
+-- resources in AWS CodeCommit, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats CodeCommit Resources and Operations>
+-- in the AWS CodeCommit User Guide.
+_InvalidResourceArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourceArnException"
+
+-- | The file could not be added because the provided parent commit ID is not
+-- the current tip of the specified branch. To view the full commit ID of
+-- the current head of the branch, use GetBranch.
+_ParentCommitIdOutdatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParentCommitIdOutdatedException =
+  Core._MatchServiceError
+    defaultService
+    "ParentCommitIdOutdatedException"
+
+-- | The specified value for the number of merge hunks to return is not
+-- valid.
+_InvalidMaxMergeHunksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMaxMergeHunksException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMaxMergeHunksException"
+
+-- | The commit cannot be created because one of the changes specifies
+-- copying or moving a .gitkeep file.
+_RestrictedSourceFileException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RestrictedSourceFileException =
+  Core._MatchServiceError
+    defaultService
+    "RestrictedSourceFileException"
+
+-- | The position is not valid. Make sure that the line number exists in the
+-- version of the file you want to comment on.
+_InvalidFilePositionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidFilePositionException =
-  _MatchServiceError codeCommit "InvalidFilePositionException"
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilePositionException"
 
+-- | The approval rule cannot be modified for the pull request because it was
+-- created by an approval rule template and applied to the pull request
+-- automatically.
+_CannotModifyApprovalRuleFromTemplateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotModifyApprovalRuleFromTemplateException =
+  Core._MatchServiceError
+    defaultService
+    "CannotModifyApprovalRuleFromTemplateException"
 
--- | This comment has already been deleted. You cannot edit or delete a deleted comment.
+-- | The specified value for the number of conflict files to return is not
+-- valid.
+_InvalidMaxConflictFilesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMaxConflictFilesException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMaxConflictFilesException"
+
+-- | The comment is too large. Comments are limited to 1,000 characters.
+_CommentContentSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentContentSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CommentContentSizeLimitExceededException"
+
+-- | The state for the approval is not valid. Valid values include APPROVE
+-- and REVOKE.
+_InvalidApprovalStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalStateException"
+
+-- | The number of branches for the trigger was exceeded.
+_MaximumBranchesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumBranchesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumBranchesExceededException"
+
+-- | An override status is required, but no value was provided. Valid values
+-- include OVERRIDE and REVOKE.
+_OverrideStatusRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OverrideStatusRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "OverrideStatusRequiredException"
+
+-- | The pull request event type is not valid.
+_InvalidPullRequestEventTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPullRequestEventTypeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPullRequestEventTypeException"
+
+-- | The content of the approval rule template is not valid.
+_InvalidApprovalRuleTemplateContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalRuleTemplateContentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalRuleTemplateContentException"
+
+-- | The maximum number of allowed commit IDs in a batch request is 100.
+-- Verify that your batch requests contains no more than 100 commit IDs,
+-- and then try again.
+_CommitIdsLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitIdsLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CommitIdsLimitExceededException"
+
+-- | An approval state is required, but was not specified.
+_ApprovalStateRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalStateRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalStateRequiredException"
+
+-- | The Amazon Resource Name (ARN) is not valid. Make sure that you have
+-- provided the full ARN for the author of the pull request, and then try
+-- again.
+_InvalidAuthorArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthorArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAuthorArnException"
+
+-- | The number of allowed conflict resolution entries was exceeded.
+_MaximumConflictResolutionEntriesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumConflictResolutionEntriesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumConflictResolutionEntriesExceededException"
+
+-- | The parent commit ID is not valid. The commit ID cannot be empty, and
+-- must match the head commit ID for the branch of the repository where you
+-- want to add or update a file.
+_InvalidParentCommitIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParentCommitIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParentCommitIdException"
+
+-- | The repository does not contain any pull requests with that pull request
+-- ID. Use GetPullRequest to verify the correct repository name for the
+-- pull request ID.
+_RepositoryNotAssociatedWithPullRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryNotAssociatedWithPullRequestException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryNotAssociatedWithPullRequestException"
+
+-- | The content for the approval rule template is empty. You must provide
+-- some content for an approval rule template. The content cannot be null.
+_ApprovalRuleTemplateContentRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleTemplateContentRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleTemplateContentRequiredException"
+
+-- | The merge cannot be completed because the target branch has been
+-- modified. Another user might have modified the target branch while the
+-- merge was in progress. Wait a few minutes, and then try again.
+_ConcurrentReferenceUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentReferenceUpdateException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentReferenceUpdateException"
+
+-- | The number of files to load exceeds the allowed limit.
+_MaximumFileContentToLoadExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumFileContentToLoadExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumFileContentToLoadExceededException"
+
+-- | A map of tags is required.
+_TagsMapRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagsMapRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "TagsMapRequiredException"
+
+-- | A specified repository name is not valid.
 --
---
-_CommentDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
-_CommentDeletedException =
-  _MatchServiceError codeCommit "CommentDeletedException"
+-- This exception occurs only when a specified repository name is not
+-- valid. Other exceptions occur when a required repository parameter is
+-- missing, or when a specified repository does not exist.
+_InvalidRepositoryNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryNameException"
 
+-- | The commit cannot be created because at least one of the overall changes
+-- in the commit results in a folder whose contents exceed the limit of 6
+-- MB. Either reduce the number and size of your changes, or split the
+-- changes across multiple folders.
+_FolderContentSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FolderContentSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FolderContentSizeLimitExceededException"
 
--- | The parent commit ID is not valid. The specified parent commit ID does not exist in the specified branch of the repository.
---
---
-_ParentCommitDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_ParentCommitDoesNotExistException =
-  _MatchServiceError codeCommit "ParentCommitDoesNotExistException"
+-- | A list of commit IDs is required, but was either not specified or the
+-- list was empty.
+_CommitIdsListRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitIdsListRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "CommitIdsListRequiredException"
 
+-- | The commit cannot be created because no file mode has been specified. A
+-- file mode is required to update mode permissions for a file.
+_FileModeRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileModeRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "FileModeRequiredException"
 
--- | The specified Amazon Resource Name (ARN) does not exist in the AWS account.
---
---
-_AuthorDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthorDoesNotExistException =
-  _MatchServiceError codeCommit "AuthorDoesNotExistException"
+-- | The map of tags is not valid.
+_InvalidTagsMapException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagsMapException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTagsMapException"
 
+-- | A repository resource limit was exceeded.
+_RepositoryLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryLimitExceededException"
+
+-- | The approval rule cannot be added. The pull request has the maximum
+-- number of approval rules associated with it.
+_NumberOfRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NumberOfRulesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "NumberOfRulesExceededException"
+
+-- | The specified deletion parameter is not valid.
+_InvalidDeletionParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeletionParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeletionParameterException"
+
+-- | The Amazon Resource Name (ARN) of the user or identity is not valid.
+_InvalidReactionUserArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReactionUserArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReactionUserArnException"
+
+-- | The specified branch is the default branch for the repository, and
+-- cannot be deleted. To delete this branch, you must first set another
+-- branch as the default branch.
+_DefaultBranchCannotBeDeletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DefaultBranchCannotBeDeletedException =
+  Core._MatchServiceError
+    defaultService
+    "DefaultBranchCannotBeDeletedException"
+
+-- | The specified branch name is not valid because it is a tag name. Enter
+-- the name of a branch in the repository. For a list of valid branch
+-- names, use ListBranches.
+_BranchNameIsTagNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BranchNameIsTagNameException =
+  Core._MatchServiceError
+    defaultService
+    "BranchNameIsTagNameException"
+
+-- | The folderPath for a location cannot be null.
+_PathRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PathRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "PathRequiredException"
+
+-- | The commit cannot be created because a specified file path points to a
+-- submodule. Verify that the destination files have valid file paths that
+-- do not point to a submodule.
+_FilePathConflictsWithSubmodulePathException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FilePathConflictsWithSubmodulePathException =
+  Core._MatchServiceError
+    defaultService
+    "FilePathConflictsWithSubmodulePathException"
+
+-- | The specified branch does not exist.
+_BranchDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BranchDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "BranchDoesNotExistException"
+
+-- | The comment ID is not in a valid format. Make sure that you have
+-- provided the full comment ID.
+_InvalidCommentIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommentIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommentIdException"
+
+-- | The specified number of maximum results is not valid.
+_InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMaxResultsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMaxResultsException"
+
+-- | The revision ID is not valid. Use GetPullRequest to determine the value.
+_InvalidRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRevisionIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRevisionIdException"
+
+-- | The approval cannot be applied because the user approving the pull
+-- request matches the user who created the pull request. You cannot
+-- approve a pull request that you created.
+_PullRequestCannotBeApprovedByAuthorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullRequestCannotBeApprovedByAuthorException =
+  Core._MatchServiceError
+    defaultService
+    "PullRequestCannotBeApprovedByAuthorException"
+
+-- | An approval rule name is required, but was not specified.
+_ApprovalRuleNameRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleNameRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleNameRequiredException"
+
+-- | A blob ID is required, but was not specified.
+_BlobIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BlobIdRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "BlobIdRequiredException"
+
+-- | The name of the approval rule template is not valid. Template names must
+-- be between 1 and 100 valid characters in length. For more information
+-- about limits in AWS CodeCommit, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html AWS CodeCommit User Guide>.
+_InvalidApprovalRuleTemplateNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalRuleTemplateNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalRuleTemplateNameException"
+
+-- | The pull request description is not valid. Descriptions cannot be more
+-- than 1,000 characters.
+_InvalidDescriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDescriptionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDescriptionException"
+
+-- | The commit cannot be created because no changes will be made to the
+-- repository as a result of this commit. A commit must contain at least
+-- one change.
+_NoChangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoChangeException =
+  Core._MatchServiceError
+    defaultService
+    "NoChangeException"
+
+-- | The comment ID is missing or null. A comment ID is required.
+_CommentIdRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommentIdRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "CommentIdRequiredException"
+
+-- | You cannot include more than one repository in a pull request. Make sure
+-- you have specified only one repository name in your request, and then
+-- try again.
+_MultipleRepositoriesInPullRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MultipleRepositoriesInPullRequestException =
+  Core._MatchServiceError
+    defaultService
+    "MultipleRepositoriesInPullRequestException"
+
+-- | The specified sort order is not valid.
+_InvalidOrderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOrderException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOrderException"
+
+-- | A client request token is required. A client request token is an unique,
+-- client-generated idempotency token that, when provided in a request,
+-- ensures the request cannot be repeated with a changed parameter. If a
+-- request is received with the same parameters and a token is included,
+-- the request returns information about the initial request that used that
+-- token.
+_ClientRequestTokenRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientRequestTokenRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "ClientRequestTokenRequiredException"
+
+-- | The specified merge option is not valid for this operation. Not all
+-- merge strategies are supported for all operations.
+_InvalidMergeOptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMergeOptionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMergeOptionException"
+
+-- | A merge option or stategy is required, and none was provided.
+_MergeOptionRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MergeOptionRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "MergeOptionRequiredException"
+
+-- | The specified reference name is not valid.
+_InvalidBranchNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBranchNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidBranchNameException"
+
+-- | The location of the file is not valid. Make sure that you include the
+-- file name and extension.
+_InvalidFileLocationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFileLocationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFileLocationException"
+
+-- | The specified approval rule template does not exist. Verify that the
+-- name is correct and that you are signed in to the AWS Region where the
+-- template was created, and then try again.
+_ApprovalRuleTemplateDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleTemplateDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleTemplateDoesNotExistException"
+
+-- | The number of triggers allowed for the repository was exceeded.
+_MaximumRepositoryTriggersExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumRepositoryTriggersExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumRepositoryTriggersExceededException"
+
+-- | The specified commit does not exist or no commit was specified, and the
+-- specified repository has no default branch.
+_CommitDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CommitDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "CommitDoesNotExistException"
+
+-- | The before commit ID and the after commit ID are the same, which is not
+-- valid. The before commit ID and the after commit ID must be different
+-- commit IDs.
+_BeforeCommitIdAndAfterCommitIdAreSameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BeforeCommitIdAndAfterCommitIdAreSameException =
+  Core._MatchServiceError
+    defaultService
+    "BeforeCommitIdAndAfterCommitIdAreSameException"
+
+-- | The specified repository name already exists.
+_RepositoryNameExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RepositoryNameExistsException =
+  Core._MatchServiceError
+    defaultService
+    "RepositoryNameExistsException"
+
+-- | The specified commit ID is not valid.
+_InvalidCommitIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommitIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommitIdException"
+
+-- | The specified repository description is not valid.
+_InvalidRepositoryDescriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRepositoryDescriptionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRepositoryDescriptionException"
+
+-- | The maximum number of allowed repository names was exceeded. Currently,
+-- this number is 100.
+_MaximumRepositoryNamesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumRepositoryNamesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumRepositoryNamesExceededException"
+
+-- | The file was not added or updated because the content of the file is
+-- exactly the same as the content of that file in the repository and
+-- branch that you specified.
+_SameFileContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SameFileContentException =
+  Core._MatchServiceError
+    defaultService
+    "SameFileContentException"
+
+-- | The approval rule template is associated with one or more repositories.
+-- You cannot delete a template that is associated with a repository.
+-- Remove all associations, and then try again.
+_ApprovalRuleTemplateInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalRuleTemplateInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ApprovalRuleTemplateInUseException"
+
+-- | The specified email address either contains one or more characters that
+-- are not allowed, or it exceeds the maximum number of characters allowed
+-- for an email address.
+_InvalidEmailException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEmailException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidEmailException"
+
+-- | The tip of the source branch in the destination repository does not
+-- match the tip of the source branch specified in your request. The pull
+-- request might have been updated. Make sure that you have the latest
+-- changes.
+_TipOfSourceReferenceIsDifferentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TipOfSourceReferenceIsDifferentException =
+  Core._MatchServiceError
+    defaultService
+    "TipOfSourceReferenceIsDifferentException"
+
+-- | The specified folder does not exist. Either the folder name is not
+-- correct, or you did not enter the full path to the folder.
+_FolderDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FolderDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "FolderDoesNotExistException"
+
+-- | The SHA-256 hash signature for the rule content is not valid.
+_InvalidRuleContentSha256Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRuleContentSha256Exception =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRuleContentSha256Exception"
+
+-- | The specified blob does not exist.
+_BlobIdDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BlobIdDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "BlobIdDoesNotExistException"
+
+-- | The commit cannot be created because one or more files specified in the
+-- commit reference both a file and a folder.
+_PutFileEntryConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PutFileEntryConflictException =
+  Core._MatchServiceError
+    defaultService
+    "PutFileEntryConflictException"
+
+-- | The commit cannot be created because both a source file and file content
+-- have been specified for the same file. You cannot provide both. Either
+-- specify a source file or provide the file content directly.
+_FileContentAndSourceFileSpecifiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileContentAndSourceFileSpecifiedException =
+  Core._MatchServiceError
+    defaultService
+    "FileContentAndSourceFileSpecifiedException"

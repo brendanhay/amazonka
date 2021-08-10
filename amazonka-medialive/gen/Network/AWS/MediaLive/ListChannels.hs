@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.ListChannels
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,137 +24,169 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaLive.ListChannels
-    (
-    -- * Creating a Request
-      listChannels
-    , ListChannels
+  ( -- * Creating a Request
+    ListChannels (..),
+    newListChannels,
+
     -- * Request Lenses
-    , lcNextToken
-    , lcMaxResults
+    listChannels_nextToken,
+    listChannels_maxResults,
 
     -- * Destructuring the Response
-    , listChannelsResponse
-    , ListChannelsResponse
-    -- * Response Lenses
-    , lcrsChannels
-    , lcrsNextToken
-    , lcrsResponseStatus
-    ) where
+    ListChannelsResponse (..),
+    newListChannelsResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    listChannelsResponse_nextToken,
+    listChannelsResponse_channels,
+    listChannelsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for ListChannelsRequest
 --
--- /See:/ 'listChannels' smart constructor.
+-- /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { _lcNextToken  :: !(Maybe Text)
-  , _lcMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListChannels' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListChannels' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcMaxResults' - Undocumented member.
-listChannels
-    :: ListChannels
-listChannels = ListChannels' {_lcNextToken = Nothing, _lcMaxResults = Nothing}
-
+-- 'nextToken', 'listChannels_nextToken' - Undocumented member.
+--
+-- 'maxResults', 'listChannels_maxResults' - Undocumented member.
+newListChannels ::
+  ListChannels
+newListChannels =
+  ListChannels'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | Undocumented member.
-lcNextToken :: Lens' ListChannels (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
+listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
+listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 -- | Undocumented member.
-lcMaxResults :: Lens' ListChannels (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
+listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
+listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
-instance AWSPager ListChannels where
-        page rq rs
-          | stop (rs ^. lcrsNextToken) = Nothing
-          | stop (rs ^. lcrsChannels) = Nothing
-          | otherwise =
-            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+instance Core.AWSPager ListChannels where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listChannelsResponse_channels Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listChannels_nextToken
+          Lens..~ rs
+          Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListChannels where
-        type Rs ListChannels = ListChannelsResponse
-        request = get mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListChannelsResponse' <$>
-                   (x .?> "channels" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListChannels where
+  type AWSResponse ListChannels = ListChannelsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListChannelsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "channels" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListChannels where
+instance Prelude.Hashable ListChannels
 
-instance NFData ListChannels where
+instance Prelude.NFData ListChannels
 
-instance ToHeaders ListChannels where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListChannels where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListChannels where
-        toPath = const "/prod/channels"
+instance Core.ToPath ListChannels where
+  toPath = Prelude.const "/prod/channels"
 
-instance ToQuery ListChannels where
-        toQuery ListChannels'{..}
-          = mconcat
-              ["nextToken" =: _lcNextToken,
-               "maxResults" =: _lcMaxResults]
+instance Core.ToQuery ListChannels where
+  toQuery ListChannels' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
 
 -- | Placeholder documentation for ListChannelsResponse
 --
--- /See:/ 'listChannelsResponse' smart constructor.
+-- /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { _lcrsChannels       :: !(Maybe [ChannelSummary])
-  , _lcrsNextToken      :: !(Maybe Text)
-  , _lcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    channels :: Prelude.Maybe [ChannelSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListChannelsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListChannelsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcrsChannels' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcrsNextToken' - Undocumented member.
+-- 'nextToken', 'listChannelsResponse_nextToken' - Undocumented member.
 --
--- * 'lcrsResponseStatus' - -- | The response status code.
-listChannelsResponse
-    :: Int -- ^ 'lcrsResponseStatus'
-    -> ListChannelsResponse
-listChannelsResponse pResponseStatus_ =
+-- 'channels', 'listChannelsResponse_channels' - Undocumented member.
+--
+-- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
+newListChannelsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListChannelsResponse
+newListChannelsResponse pHttpStatus_ =
   ListChannelsResponse'
-    { _lcrsChannels = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      channels = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Undocumented member.
+listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
+listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse)
 
 -- | Undocumented member.
-lcrsChannels :: Lens' ListChannelsResponse [ChannelSummary]
-lcrsChannels = lens _lcrsChannels (\ s a -> s{_lcrsChannels = a}) . _Default . _Coerce
+listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [ChannelSummary])
+listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
-lcrsNextToken :: Lens' ListChannelsResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a})
+-- | The response's http status code.
+listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Prelude.Int
+listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus} -> httpStatus) (\s@ListChannelsResponse' {} a -> s {httpStatus = a} :: ListChannelsResponse)
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListChannelsResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
-
-instance NFData ListChannelsResponse where
+instance Prelude.NFData ListChannelsResponse

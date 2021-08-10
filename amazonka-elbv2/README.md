@@ -7,9 +7,8 @@
 
 
 ## Version
-
-`1.6.1`
-
+ 
+`1.6.1` - Derived from API version @2015-12-01@ of the AWS service descriptions, licensed under Apache 2.0.
 
 ## Description
 

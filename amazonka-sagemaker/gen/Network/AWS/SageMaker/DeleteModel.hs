@@ -1,107 +1,124 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.DeleteModel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a model. The @DeleteModel@ API deletes only the model entry that was created in Amazon SageMaker when you called the <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html CreateModel> API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model.
---
---
+-- Deletes a model. The @DeleteModel@ API deletes only the model entry that
+-- was created in Amazon SageMaker when you called the CreateModel API. It
+-- does not delete model artifacts, inference code, or the IAM role that
+-- you specified when creating the model.
 module Network.AWS.SageMaker.DeleteModel
-    (
-    -- * Creating a Request
-      deleteModel
-    , DeleteModel
+  ( -- * Creating a Request
+    DeleteModel (..),
+    newDeleteModel,
+
     -- * Request Lenses
-    , dmModelName
+    deleteModel_modelName,
 
     -- * Destructuring the Response
-    , deleteModelResponse
-    , DeleteModelResponse
-    ) where
+    DeleteModelResponse (..),
+    newDeleteModelResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'deleteModel' smart constructor.
-newtype DeleteModel = DeleteModel'
-  { _dmModelName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteModel' smart constructor.
+data DeleteModel = DeleteModel'
+  { -- | The name of the model to delete.
+    modelName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteModel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmModelName' - The name of the model to delete.
-deleteModel
-    :: Text -- ^ 'dmModelName'
-    -> DeleteModel
-deleteModel pModelName_ = DeleteModel' {_dmModelName = pModelName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'modelName', 'deleteModel_modelName' - The name of the model to delete.
+newDeleteModel ::
+  -- | 'modelName'
+  Prelude.Text ->
+  DeleteModel
+newDeleteModel pModelName_ =
+  DeleteModel' {modelName = pModelName_}
 
 -- | The name of the model to delete.
-dmModelName :: Lens' DeleteModel Text
-dmModelName = lens _dmModelName (\ s a -> s{_dmModelName = a})
+deleteModel_modelName :: Lens.Lens' DeleteModel Prelude.Text
+deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@DeleteModel' {} a -> s {modelName = a} :: DeleteModel)
 
-instance AWSRequest DeleteModel where
-        type Rs DeleteModel = DeleteModelResponse
-        request = postJSON sageMaker
-        response = receiveNull DeleteModelResponse'
+instance Core.AWSRequest DeleteModel where
+  type AWSResponse DeleteModel = DeleteModelResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull DeleteModelResponse'
 
-instance Hashable DeleteModel where
+instance Prelude.Hashable DeleteModel
 
-instance NFData DeleteModel where
+instance Prelude.NFData DeleteModel
 
-instance ToHeaders DeleteModel where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.DeleteModel" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteModel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("SageMaker.DeleteModel" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteModel where
-        toJSON DeleteModel'{..}
-          = object
-              (catMaybes [Just ("ModelName" .= _dmModelName)])
+instance Core.ToJSON DeleteModel where
+  toJSON DeleteModel' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ModelName" Core..= modelName)]
+      )
 
-instance ToPath DeleteModel where
-        toPath = const "/"
+instance Core.ToPath DeleteModel where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteModel where
-        toQuery = const mempty
+instance Core.ToQuery DeleteModel where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteModelResponse' smart constructor.
-data DeleteModelResponse =
-  DeleteModelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteModelResponse' smart constructor.
+data DeleteModelResponse = DeleteModelResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteModelResponse' with all optional fields omitted.
 --
-deleteModelResponse
-    :: DeleteModelResponse
-deleteModelResponse = DeleteModelResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteModelResponse ::
+  DeleteModelResponse
+newDeleteModelResponse = DeleteModelResponse'
 
-
-instance NFData DeleteModelResponse where
+instance Prelude.NFData DeleteModelResponse

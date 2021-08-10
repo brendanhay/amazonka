@@ -1,243 +1,310 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @ListReviewPolicyResultsForHIT@ operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.
---
---
+-- The @ListReviewPolicyResultsForHIT@ operation retrieves the computed
+-- results and the actions taken in the course of executing your Review
+-- Policies for a given HIT. For information about how to specify Review
+-- Policies when you call CreateHIT, see Review Policies. The
+-- ListReviewPolicyResultsForHIT operation can return results for both
+-- Assignment-level and HIT-level review results.
 module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-    (
-    -- * Creating a Request
-      listReviewPolicyResultsForHIT
-    , ListReviewPolicyResultsForHIT
+  ( -- * Creating a Request
+    ListReviewPolicyResultsForHIT (..),
+    newListReviewPolicyResultsForHIT,
+
     -- * Request Lenses
-    , lrprfhitRetrieveResults
-    , lrprfhitPolicyLevels
-    , lrprfhitRetrieveActions
-    , lrprfhitNextToken
-    , lrprfhitMaxResults
-    , lrprfhitHITId
+    listReviewPolicyResultsForHIT_nextToken,
+    listReviewPolicyResultsForHIT_maxResults,
+    listReviewPolicyResultsForHIT_retrieveResults,
+    listReviewPolicyResultsForHIT_retrieveActions,
+    listReviewPolicyResultsForHIT_policyLevels,
+    listReviewPolicyResultsForHIT_hITId,
 
     -- * Destructuring the Response
-    , listReviewPolicyResultsForHITResponse
-    , ListReviewPolicyResultsForHITResponse
+    ListReviewPolicyResultsForHITResponse (..),
+    newListReviewPolicyResultsForHITResponse,
+
     -- * Response Lenses
-    , lrprfhitrsHITReviewPolicy
-    , lrprfhitrsHITReviewReport
-    , lrprfhitrsNextToken
-    , lrprfhitrsAssignmentReviewReport
-    , lrprfhitrsHITId
-    , lrprfhitrsAssignmentReviewPolicy
-    , lrprfhitrsResponseStatus
-    ) where
+    listReviewPolicyResultsForHITResponse_nextToken,
+    listReviewPolicyResultsForHITResponse_hITId,
+    listReviewPolicyResultsForHITResponse_hITReviewPolicy,
+    listReviewPolicyResultsForHITResponse_assignmentReviewReport,
+    listReviewPolicyResultsForHITResponse_hITReviewReport,
+    listReviewPolicyResultsForHITResponse_assignmentReviewPolicy,
+    listReviewPolicyResultsForHITResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listReviewPolicyResultsForHIT' smart constructor.
+-- | /See:/ 'newListReviewPolicyResultsForHIT' smart constructor.
 data ListReviewPolicyResultsForHIT = ListReviewPolicyResultsForHIT'
-  { _lrprfhitRetrieveResults :: !(Maybe Bool)
-  , _lrprfhitPolicyLevels    :: !(Maybe [ReviewPolicyLevel])
-  , _lrprfhitRetrieveActions :: !(Maybe Bool)
-  , _lrprfhitNextToken       :: !(Maybe Text)
-  , _lrprfhitMaxResults      :: !(Maybe Nat)
-  , _lrprfhitHITId           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Limit the number of results returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify if the operation should retrieve a list of the results computed
+    -- by the Review Policies.
+    retrieveResults :: Prelude.Maybe Prelude.Bool,
+    -- | Specify if the operation should retrieve a list of the actions taken
+    -- executing the Review Policies and their outcomes.
+    retrieveActions :: Prelude.Maybe Prelude.Bool,
+    -- | The Policy Level(s) to retrieve review results for - HIT or Assignment.
+    -- If omitted, the default behavior is to retrieve all data for both policy
+    -- levels. For a list of all the described policies, see Review Policies.
+    policyLevels :: Prelude.Maybe [ReviewPolicyLevel],
+    -- | The unique identifier of the HIT to retrieve review results for.
+    hITId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListReviewPolicyResultsForHIT' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListReviewPolicyResultsForHIT' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrprfhitRetrieveResults' - Specify if the operation should retrieve a list of the results computed by the Review Policies.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrprfhitPolicyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
+-- 'nextToken', 'listReviewPolicyResultsForHIT_nextToken' - Pagination token
 --
--- * 'lrprfhitRetrieveActions' - Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
+-- 'maxResults', 'listReviewPolicyResultsForHIT_maxResults' - Limit the number of results returned.
 --
--- * 'lrprfhitNextToken' - Pagination token
+-- 'retrieveResults', 'listReviewPolicyResultsForHIT_retrieveResults' - Specify if the operation should retrieve a list of the results computed
+-- by the Review Policies.
 --
--- * 'lrprfhitMaxResults' - Limit the number of results returned.
+-- 'retrieveActions', 'listReviewPolicyResultsForHIT_retrieveActions' - Specify if the operation should retrieve a list of the actions taken
+-- executing the Review Policies and their outcomes.
 --
--- * 'lrprfhitHITId' - The unique identifier of the HIT to retrieve review results for.
-listReviewPolicyResultsForHIT
-    :: Text -- ^ 'lrprfhitHITId'
-    -> ListReviewPolicyResultsForHIT
-listReviewPolicyResultsForHIT pHITId_ =
+-- 'policyLevels', 'listReviewPolicyResultsForHIT_policyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment.
+-- If omitted, the default behavior is to retrieve all data for both policy
+-- levels. For a list of all the described policies, see Review Policies.
+--
+-- 'hITId', 'listReviewPolicyResultsForHIT_hITId' - The unique identifier of the HIT to retrieve review results for.
+newListReviewPolicyResultsForHIT ::
+  -- | 'hITId'
+  Prelude.Text ->
+  ListReviewPolicyResultsForHIT
+newListReviewPolicyResultsForHIT pHITId_ =
   ListReviewPolicyResultsForHIT'
-    { _lrprfhitRetrieveResults = Nothing
-    , _lrprfhitPolicyLevels = Nothing
-    , _lrprfhitRetrieveActions = Nothing
-    , _lrprfhitNextToken = Nothing
-    , _lrprfhitMaxResults = Nothing
-    , _lrprfhitHITId = pHITId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      retrieveResults = Prelude.Nothing,
+      retrieveActions = Prelude.Nothing,
+      policyLevels = Prelude.Nothing,
+      hITId = pHITId_
     }
-
-
--- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
-lrprfhitRetrieveResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveResults = lens _lrprfhitRetrieveResults (\ s a -> s{_lrprfhitRetrieveResults = a})
-
--- | The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
-lrprfhitPolicyLevels :: Lens' ListReviewPolicyResultsForHIT [ReviewPolicyLevel]
-lrprfhitPolicyLevels = lens _lrprfhitPolicyLevels (\ s a -> s{_lrprfhitPolicyLevels = a}) . _Default . _Coerce
-
--- | Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
-lrprfhitRetrieveActions :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveActions = lens _lrprfhitRetrieveActions (\ s a -> s{_lrprfhitRetrieveActions = a})
 
 -- | Pagination token
-lrprfhitNextToken :: Lens' ListReviewPolicyResultsForHIT (Maybe Text)
-lrprfhitNextToken = lens _lrprfhitNextToken (\ s a -> s{_lrprfhitNextToken = a})
+listReviewPolicyResultsForHIT_nextToken :: Lens.Lens' ListReviewPolicyResultsForHIT (Prelude.Maybe Prelude.Text)
+listReviewPolicyResultsForHIT_nextToken = Lens.lens (\ListReviewPolicyResultsForHIT' {nextToken} -> nextToken) (\s@ListReviewPolicyResultsForHIT' {} a -> s {nextToken = a} :: ListReviewPolicyResultsForHIT)
 
 -- | Limit the number of results returned.
-lrprfhitMaxResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Natural)
-lrprfhitMaxResults = lens _lrprfhitMaxResults (\ s a -> s{_lrprfhitMaxResults = a}) . mapping _Nat
+listReviewPolicyResultsForHIT_maxResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Prelude.Maybe Prelude.Natural)
+listReviewPolicyResultsForHIT_maxResults = Lens.lens (\ListReviewPolicyResultsForHIT' {maxResults} -> maxResults) (\s@ListReviewPolicyResultsForHIT' {} a -> s {maxResults = a} :: ListReviewPolicyResultsForHIT)
+
+-- | Specify if the operation should retrieve a list of the results computed
+-- by the Review Policies.
+listReviewPolicyResultsForHIT_retrieveResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Prelude.Maybe Prelude.Bool)
+listReviewPolicyResultsForHIT_retrieveResults = Lens.lens (\ListReviewPolicyResultsForHIT' {retrieveResults} -> retrieveResults) (\s@ListReviewPolicyResultsForHIT' {} a -> s {retrieveResults = a} :: ListReviewPolicyResultsForHIT)
+
+-- | Specify if the operation should retrieve a list of the actions taken
+-- executing the Review Policies and their outcomes.
+listReviewPolicyResultsForHIT_retrieveActions :: Lens.Lens' ListReviewPolicyResultsForHIT (Prelude.Maybe Prelude.Bool)
+listReviewPolicyResultsForHIT_retrieveActions = Lens.lens (\ListReviewPolicyResultsForHIT' {retrieveActions} -> retrieveActions) (\s@ListReviewPolicyResultsForHIT' {} a -> s {retrieveActions = a} :: ListReviewPolicyResultsForHIT)
+
+-- | The Policy Level(s) to retrieve review results for - HIT or Assignment.
+-- If omitted, the default behavior is to retrieve all data for both policy
+-- levels. For a list of all the described policies, see Review Policies.
+listReviewPolicyResultsForHIT_policyLevels :: Lens.Lens' ListReviewPolicyResultsForHIT (Prelude.Maybe [ReviewPolicyLevel])
+listReviewPolicyResultsForHIT_policyLevels = Lens.lens (\ListReviewPolicyResultsForHIT' {policyLevels} -> policyLevels) (\s@ListReviewPolicyResultsForHIT' {} a -> s {policyLevels = a} :: ListReviewPolicyResultsForHIT) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier of the HIT to retrieve review results for.
-lrprfhitHITId :: Lens' ListReviewPolicyResultsForHIT Text
-lrprfhitHITId = lens _lrprfhitHITId (\ s a -> s{_lrprfhitHITId = a})
+listReviewPolicyResultsForHIT_hITId :: Lens.Lens' ListReviewPolicyResultsForHIT Prelude.Text
+listReviewPolicyResultsForHIT_hITId = Lens.lens (\ListReviewPolicyResultsForHIT' {hITId} -> hITId) (\s@ListReviewPolicyResultsForHIT' {} a -> s {hITId = a} :: ListReviewPolicyResultsForHIT)
 
-instance AWSRequest ListReviewPolicyResultsForHIT
-         where
-        type Rs ListReviewPolicyResultsForHIT =
-             ListReviewPolicyResultsForHITResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListReviewPolicyResultsForHITResponse' <$>
-                   (x .?> "HITReviewPolicy") <*>
-                     (x .?> "HITReviewReport")
-                     <*> (x .?> "NextToken")
-                     <*> (x .?> "AssignmentReviewReport")
-                     <*> (x .?> "HITId")
-                     <*> (x .?> "AssignmentReviewPolicy")
-                     <*> (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    ListReviewPolicyResultsForHIT
+  where
+  type
+    AWSResponse ListReviewPolicyResultsForHIT =
+      ListReviewPolicyResultsForHITResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListReviewPolicyResultsForHITResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "HITId")
+            Prelude.<*> (x Core..?> "HITReviewPolicy")
+            Prelude.<*> (x Core..?> "AssignmentReviewReport")
+            Prelude.<*> (x Core..?> "HITReviewReport")
+            Prelude.<*> (x Core..?> "AssignmentReviewPolicy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListReviewPolicyResultsForHIT where
+instance
+  Prelude.Hashable
+    ListReviewPolicyResultsForHIT
 
-instance NFData ListReviewPolicyResultsForHIT where
+instance Prelude.NFData ListReviewPolicyResultsForHIT
 
-instance ToHeaders ListReviewPolicyResultsForHIT
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListReviewPolicyResultsForHIT where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListReviewPolicyResultsForHIT where
-        toJSON ListReviewPolicyResultsForHIT'{..}
-          = object
-              (catMaybes
-                 [("RetrieveResults" .=) <$> _lrprfhitRetrieveResults,
-                  ("PolicyLevels" .=) <$> _lrprfhitPolicyLevels,
-                  ("RetrieveActions" .=) <$> _lrprfhitRetrieveActions,
-                  ("NextToken" .=) <$> _lrprfhitNextToken,
-                  ("MaxResults" .=) <$> _lrprfhitMaxResults,
-                  Just ("HITId" .= _lrprfhitHITId)])
+instance Core.ToJSON ListReviewPolicyResultsForHIT where
+  toJSON ListReviewPolicyResultsForHIT' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("RetrieveResults" Core..=)
+              Prelude.<$> retrieveResults,
+            ("RetrieveActions" Core..=)
+              Prelude.<$> retrieveActions,
+            ("PolicyLevels" Core..=) Prelude.<$> policyLevels,
+            Prelude.Just ("HITId" Core..= hITId)
+          ]
+      )
 
-instance ToPath ListReviewPolicyResultsForHIT where
-        toPath = const "/"
+instance Core.ToPath ListReviewPolicyResultsForHIT where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListReviewPolicyResultsForHIT where
-        toQuery = const mempty
+instance Core.ToQuery ListReviewPolicyResultsForHIT where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listReviewPolicyResultsForHITResponse' smart constructor.
+-- | /See:/ 'newListReviewPolicyResultsForHITResponse' smart constructor.
 data ListReviewPolicyResultsForHITResponse = ListReviewPolicyResultsForHITResponse'
-  { _lrprfhitrsHITReviewPolicy        :: !(Maybe ReviewPolicy)
-  , _lrprfhitrsHITReviewReport        :: !(Maybe ReviewReport)
-  , _lrprfhitrsNextToken              :: !(Maybe Text)
-  , _lrprfhitrsAssignmentReviewReport :: !(Maybe ReviewReport)
-  , _lrprfhitrsHITId                  :: !(Maybe Text)
-  , _lrprfhitrsAssignmentReviewPolicy :: !(Maybe ReviewPolicy)
-  , _lrprfhitrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The HITId of the HIT for which results have been returned.
+    hITId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the HIT-level Review Policy. This contains only the
+    -- PolicyName element.
+    hITReviewPolicy :: Prelude.Maybe ReviewPolicy,
+    -- | Contains both ReviewResult and ReviewAction elements for an Assignment.
+    assignmentReviewReport :: Prelude.Maybe ReviewReport,
+    -- | Contains both ReviewResult and ReviewAction elements for a particular
+    -- HIT.
+    hITReviewReport :: Prelude.Maybe ReviewReport,
+    -- | The name of the Assignment-level Review Policy. This contains only the
+    -- PolicyName element.
+    assignmentReviewPolicy :: Prelude.Maybe ReviewPolicy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListReviewPolicyResultsForHITResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListReviewPolicyResultsForHITResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrprfhitrsHITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the PolicyName element.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrprfhitrsHITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular HIT.
+-- 'nextToken', 'listReviewPolicyResultsForHITResponse_nextToken' - Undocumented member.
 --
--- * 'lrprfhitrsNextToken' - Undocumented member.
+-- 'hITId', 'listReviewPolicyResultsForHITResponse_hITId' - The HITId of the HIT for which results have been returned.
 --
--- * 'lrprfhitrsAssignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
+-- 'hITReviewPolicy', 'listReviewPolicyResultsForHITResponse_hITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the
+-- PolicyName element.
 --
--- * 'lrprfhitrsHITId' - The HITId of the HIT for which results have been returned.
+-- 'assignmentReviewReport', 'listReviewPolicyResultsForHITResponse_assignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
 --
--- * 'lrprfhitrsAssignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the PolicyName element.
+-- 'hITReviewReport', 'listReviewPolicyResultsForHITResponse_hITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular
+-- HIT.
 --
--- * 'lrprfhitrsResponseStatus' - -- | The response status code.
-listReviewPolicyResultsForHITResponse
-    :: Int -- ^ 'lrprfhitrsResponseStatus'
-    -> ListReviewPolicyResultsForHITResponse
-listReviewPolicyResultsForHITResponse pResponseStatus_ =
+-- 'assignmentReviewPolicy', 'listReviewPolicyResultsForHITResponse_assignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the
+-- PolicyName element.
+--
+-- 'httpStatus', 'listReviewPolicyResultsForHITResponse_httpStatus' - The response's http status code.
+newListReviewPolicyResultsForHITResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListReviewPolicyResultsForHITResponse
+newListReviewPolicyResultsForHITResponse pHttpStatus_ =
   ListReviewPolicyResultsForHITResponse'
-    { _lrprfhitrsHITReviewPolicy = Nothing
-    , _lrprfhitrsHITReviewReport = Nothing
-    , _lrprfhitrsNextToken = Nothing
-    , _lrprfhitrsAssignmentReviewReport = Nothing
-    , _lrprfhitrsHITId = Nothing
-    , _lrprfhitrsAssignmentReviewPolicy = Nothing
-    , _lrprfhitrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      hITId = Prelude.Nothing,
+      hITReviewPolicy = Prelude.Nothing,
+      assignmentReviewReport =
+        Prelude.Nothing,
+      hITReviewReport = Prelude.Nothing,
+      assignmentReviewPolicy =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The name of the HIT-level Review Policy. This contains only the PolicyName element.
-lrprfhitrsHITReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsHITReviewPolicy = lens _lrprfhitrsHITReviewPolicy (\ s a -> s{_lrprfhitrsHITReviewPolicy = a})
-
--- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
-lrprfhitrsHITReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsHITReviewReport = lens _lrprfhitrsHITReviewReport (\ s a -> s{_lrprfhitrsHITReviewReport = a})
-
 -- | Undocumented member.
-lrprfhitrsNextToken :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsNextToken = lens _lrprfhitrsNextToken (\ s a -> s{_lrprfhitrsNextToken = a})
-
--- | Contains both ReviewResult and ReviewAction elements for an Assignment.
-lrprfhitrsAssignmentReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsAssignmentReviewReport = lens _lrprfhitrsAssignmentReviewReport (\ s a -> s{_lrprfhitrsAssignmentReviewReport = a})
+listReviewPolicyResultsForHITResponse_nextToken :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe Prelude.Text)
+listReviewPolicyResultsForHITResponse_nextToken = Lens.lens (\ListReviewPolicyResultsForHITResponse' {nextToken} -> nextToken) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {nextToken = a} :: ListReviewPolicyResultsForHITResponse)
 
 -- | The HITId of the HIT for which results have been returned.
-lrprfhitrsHITId :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsHITId = lens _lrprfhitrsHITId (\ s a -> s{_lrprfhitrsHITId = a})
+listReviewPolicyResultsForHITResponse_hITId :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe Prelude.Text)
+listReviewPolicyResultsForHITResponse_hITId = Lens.lens (\ListReviewPolicyResultsForHITResponse' {hITId} -> hITId) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {hITId = a} :: ListReviewPolicyResultsForHITResponse)
 
--- | The name of the Assignment-level Review Policy. This contains only the PolicyName element.
-lrprfhitrsAssignmentReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsAssignmentReviewPolicy = lens _lrprfhitrsAssignmentReviewPolicy (\ s a -> s{_lrprfhitrsAssignmentReviewPolicy = a})
+-- | The name of the HIT-level Review Policy. This contains only the
+-- PolicyName element.
+listReviewPolicyResultsForHITResponse_hITReviewPolicy :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe ReviewPolicy)
+listReviewPolicyResultsForHITResponse_hITReviewPolicy = Lens.lens (\ListReviewPolicyResultsForHITResponse' {hITReviewPolicy} -> hITReviewPolicy) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {hITReviewPolicy = a} :: ListReviewPolicyResultsForHITResponse)
 
--- | -- | The response status code.
-lrprfhitrsResponseStatus :: Lens' ListReviewPolicyResultsForHITResponse Int
-lrprfhitrsResponseStatus = lens _lrprfhitrsResponseStatus (\ s a -> s{_lrprfhitrsResponseStatus = a})
+-- | Contains both ReviewResult and ReviewAction elements for an Assignment.
+listReviewPolicyResultsForHITResponse_assignmentReviewReport :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe ReviewReport)
+listReviewPolicyResultsForHITResponse_assignmentReviewReport = Lens.lens (\ListReviewPolicyResultsForHITResponse' {assignmentReviewReport} -> assignmentReviewReport) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {assignmentReviewReport = a} :: ListReviewPolicyResultsForHITResponse)
 
-instance NFData ListReviewPolicyResultsForHITResponse
-         where
+-- | Contains both ReviewResult and ReviewAction elements for a particular
+-- HIT.
+listReviewPolicyResultsForHITResponse_hITReviewReport :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe ReviewReport)
+listReviewPolicyResultsForHITResponse_hITReviewReport = Lens.lens (\ListReviewPolicyResultsForHITResponse' {hITReviewReport} -> hITReviewReport) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {hITReviewReport = a} :: ListReviewPolicyResultsForHITResponse)
+
+-- | The name of the Assignment-level Review Policy. This contains only the
+-- PolicyName element.
+listReviewPolicyResultsForHITResponse_assignmentReviewPolicy :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Prelude.Maybe ReviewPolicy)
+listReviewPolicyResultsForHITResponse_assignmentReviewPolicy = Lens.lens (\ListReviewPolicyResultsForHITResponse' {assignmentReviewPolicy} -> assignmentReviewPolicy) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {assignmentReviewPolicy = a} :: ListReviewPolicyResultsForHITResponse)
+
+-- | The response's http status code.
+listReviewPolicyResultsForHITResponse_httpStatus :: Lens.Lens' ListReviewPolicyResultsForHITResponse Prelude.Int
+listReviewPolicyResultsForHITResponse_httpStatus = Lens.lens (\ListReviewPolicyResultsForHITResponse' {httpStatus} -> httpStatus) (\s@ListReviewPolicyResultsForHITResponse' {} a -> s {httpStatus = a} :: ListReviewPolicyResultsForHITResponse)
+
+instance
+  Prelude.NFData
+    ListReviewPolicyResultsForHITResponse

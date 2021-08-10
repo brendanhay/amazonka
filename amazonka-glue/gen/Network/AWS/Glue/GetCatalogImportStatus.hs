@@ -1,131 +1,166 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetCatalogImportStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the status of a migration operation.
---
---
 module Network.AWS.Glue.GetCatalogImportStatus
-    (
-    -- * Creating a Request
-      getCatalogImportStatus
-    , GetCatalogImportStatus
+  ( -- * Creating a Request
+    GetCatalogImportStatus (..),
+    newGetCatalogImportStatus,
+
     -- * Request Lenses
-    , gcisCatalogId
+    getCatalogImportStatus_catalogId,
 
     -- * Destructuring the Response
-    , getCatalogImportStatusResponse
-    , GetCatalogImportStatusResponse
+    GetCatalogImportStatusResponse (..),
+    newGetCatalogImportStatusResponse,
+
     -- * Response Lenses
-    , gcisrsImportStatus
-    , gcisrsResponseStatus
-    ) where
+    getCatalogImportStatusResponse_importStatus,
+    getCatalogImportStatusResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getCatalogImportStatus' smart constructor.
-newtype GetCatalogImportStatus = GetCatalogImportStatus'
-  { _gcisCatalogId :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetCatalogImportStatus' smart constructor.
+data GetCatalogImportStatus = GetCatalogImportStatus'
+  { -- | The ID of the catalog to migrate. Currently, this should be the AWS
+    -- account ID.
+    catalogId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCatalogImportStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCatalogImportStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcisCatalogId' - The ID of the catalog to migrate. Currently, this should be the AWS account ID.
-getCatalogImportStatus
-    :: GetCatalogImportStatus
-getCatalogImportStatus = GetCatalogImportStatus' {_gcisCatalogId = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'catalogId', 'getCatalogImportStatus_catalogId' - The ID of the catalog to migrate. Currently, this should be the AWS
+-- account ID.
+newGetCatalogImportStatus ::
+  GetCatalogImportStatus
+newGetCatalogImportStatus =
+  GetCatalogImportStatus'
+    { catalogId =
+        Prelude.Nothing
+    }
 
+-- | The ID of the catalog to migrate. Currently, this should be the AWS
+-- account ID.
+getCatalogImportStatus_catalogId :: Lens.Lens' GetCatalogImportStatus (Prelude.Maybe Prelude.Text)
+getCatalogImportStatus_catalogId = Lens.lens (\GetCatalogImportStatus' {catalogId} -> catalogId) (\s@GetCatalogImportStatus' {} a -> s {catalogId = a} :: GetCatalogImportStatus)
 
--- | The ID of the catalog to migrate. Currently, this should be the AWS account ID.
-gcisCatalogId :: Lens' GetCatalogImportStatus (Maybe Text)
-gcisCatalogId = lens _gcisCatalogId (\ s a -> s{_gcisCatalogId = a})
+instance Core.AWSRequest GetCatalogImportStatus where
+  type
+    AWSResponse GetCatalogImportStatus =
+      GetCatalogImportStatusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCatalogImportStatusResponse'
+            Prelude.<$> (x Core..?> "ImportStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetCatalogImportStatus where
-        type Rs GetCatalogImportStatus =
-             GetCatalogImportStatusResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCatalogImportStatusResponse' <$>
-                   (x .?> "ImportStatus") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetCatalogImportStatus
 
-instance Hashable GetCatalogImportStatus where
+instance Prelude.NFData GetCatalogImportStatus
 
-instance NFData GetCatalogImportStatus where
+instance Core.ToHeaders GetCatalogImportStatus where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSGlue.GetCatalogImportStatus" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetCatalogImportStatus where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetCatalogImportStatus" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetCatalogImportStatus where
+  toJSON GetCatalogImportStatus' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("CatalogId" Core..=) Prelude.<$> catalogId]
+      )
 
-instance ToJSON GetCatalogImportStatus where
-        toJSON GetCatalogImportStatus'{..}
-          = object
-              (catMaybes [("CatalogId" .=) <$> _gcisCatalogId])
+instance Core.ToPath GetCatalogImportStatus where
+  toPath = Prelude.const "/"
 
-instance ToPath GetCatalogImportStatus where
-        toPath = const "/"
+instance Core.ToQuery GetCatalogImportStatus where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetCatalogImportStatus where
-        toQuery = const mempty
-
--- | /See:/ 'getCatalogImportStatusResponse' smart constructor.
+-- | /See:/ 'newGetCatalogImportStatusResponse' smart constructor.
 data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
-  { _gcisrsImportStatus   :: !(Maybe CatalogImportStatus)
-  , _gcisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status of the specified catalog migration.
+    importStatus :: Prelude.Maybe CatalogImportStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetCatalogImportStatusResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCatalogImportStatusResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcisrsImportStatus' - The status of the specified catalog migration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcisrsResponseStatus' - -- | The response status code.
-getCatalogImportStatusResponse
-    :: Int -- ^ 'gcisrsResponseStatus'
-    -> GetCatalogImportStatusResponse
-getCatalogImportStatusResponse pResponseStatus_ =
+-- 'importStatus', 'getCatalogImportStatusResponse_importStatus' - The status of the specified catalog migration.
+--
+-- 'httpStatus', 'getCatalogImportStatusResponse_httpStatus' - The response's http status code.
+newGetCatalogImportStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCatalogImportStatusResponse
+newGetCatalogImportStatusResponse pHttpStatus_ =
   GetCatalogImportStatusResponse'
-    {_gcisrsImportStatus = Nothing, _gcisrsResponseStatus = pResponseStatus_}
-
+    { importStatus =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The status of the specified catalog migration.
-gcisrsImportStatus :: Lens' GetCatalogImportStatusResponse (Maybe CatalogImportStatus)
-gcisrsImportStatus = lens _gcisrsImportStatus (\ s a -> s{_gcisrsImportStatus = a})
+getCatalogImportStatusResponse_importStatus :: Lens.Lens' GetCatalogImportStatusResponse (Prelude.Maybe CatalogImportStatus)
+getCatalogImportStatusResponse_importStatus = Lens.lens (\GetCatalogImportStatusResponse' {importStatus} -> importStatus) (\s@GetCatalogImportStatusResponse' {} a -> s {importStatus = a} :: GetCatalogImportStatusResponse)
 
--- | -- | The response status code.
-gcisrsResponseStatus :: Lens' GetCatalogImportStatusResponse Int
-gcisrsResponseStatus = lens _gcisrsResponseStatus (\ s a -> s{_gcisrsResponseStatus = a})
+-- | The response's http status code.
+getCatalogImportStatusResponse_httpStatus :: Lens.Lens' GetCatalogImportStatusResponse Prelude.Int
+getCatalogImportStatusResponse_httpStatus = Lens.lens (\GetCatalogImportStatusResponse' {httpStatus} -> httpStatus) (\s@GetCatalogImportStatusResponse' {} a -> s {httpStatus = a} :: GetCatalogImportStatusResponse)
 
-instance NFData GetCatalogImportStatusResponse where
+instance
+  Prelude.NFData
+    GetCatalogImportStatusResponse

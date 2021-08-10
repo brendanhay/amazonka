@@ -1,223 +1,408 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ActivateGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Activates the gateway you previously deployed on your host. In the activation process, you specify information such as the region you want to use for storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an activation key, and a name for your gateway. The activation process also associates your gateway with your account; for more information, see 'UpdateGatewayInformation' .
+-- Activates the gateway you previously deployed on your host. In the
+-- activation process, you specify information such as the AWS Region that
+-- you want to use for storing snapshots or tapes, the time zone for
+-- scheduled snapshots the gateway snapshot schedule window, an activation
+-- key, and a name for your gateway. The activation process also associates
+-- your gateway with your account. For more information, see
+-- UpdateGatewayInformation.
 --
---
+-- You must turn on the gateway VM before you can activate your gateway.
 module Network.AWS.StorageGateway.ActivateGateway
-    (
-    -- * Creating a Request
-      activateGateway
-    , ActivateGateway
+  ( -- * Creating a Request
+    ActivateGateway (..),
+    newActivateGateway,
+
     -- * Request Lenses
-    , agMediumChangerType
-    , agTapeDriveType
-    , agGatewayType
-    , agActivationKey
-    , agGatewayName
-    , agGatewayTimezone
-    , agGatewayRegion
+    activateGateway_tapeDriveType,
+    activateGateway_gatewayType,
+    activateGateway_mediumChangerType,
+    activateGateway_tags,
+    activateGateway_activationKey,
+    activateGateway_gatewayName,
+    activateGateway_gatewayTimezone,
+    activateGateway_gatewayRegion,
 
     -- * Destructuring the Response
-    , activateGatewayResponse
-    , ActivateGatewayResponse
-    -- * Response Lenses
-    , agrsGatewayARN
-    , agrsResponseStatus
-    ) where
+    ActivateGatewayResponse (..),
+    newActivateGatewayResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    activateGatewayResponse_gatewayARN,
+    activateGatewayResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
+-- -   ActivateGatewayInput$ActivationKey
 --
---     * 'ActivateGatewayInput$ActivationKey'
+-- -   ActivateGatewayInput$GatewayName
 --
---     * 'ActivateGatewayInput$GatewayName'
+-- -   ActivateGatewayInput$GatewayRegion
 --
---     * 'ActivateGatewayInput$GatewayRegion'
+-- -   ActivateGatewayInput$GatewayTimezone
 --
---     * 'ActivateGatewayInput$GatewayTimezone'
+-- -   ActivateGatewayInput$GatewayType
 --
---     * 'ActivateGatewayInput$GatewayType'
+-- -   ActivateGatewayInput$MediumChangerType
 --
---     * 'ActivateGatewayInput$TapeDriveType'
+-- -   ActivateGatewayInput$TapeDriveType
 --
---     * 'ActivateGatewayInput$MediumChangerType'
---
---
---
---
--- /See:/ 'activateGateway' smart constructor.
+-- /See:/ 'newActivateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
-  { _agMediumChangerType :: !(Maybe Text)
-  , _agTapeDriveType     :: !(Maybe Text)
-  , _agGatewayType       :: !(Maybe Text)
-  , _agActivationKey     :: !Text
-  , _agGatewayName       :: !Text
-  , _agGatewayTimezone   :: !Text
-  , _agGatewayRegion     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The value that indicates the type of tape drive to use for tape gateway.
+    -- This field is optional.
+    --
+    -- Valid Values: @IBM-ULT3580-TD5@
+    tapeDriveType :: Prelude.Maybe Prelude.Text,
+    -- | A value that defines the type of gateway to activate. The type specified
+    -- is critical to all later functions of the gateway and cannot be changed
+    -- after activation. The default value is @CACHED@.
+    --
+    -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
+    gatewayType :: Prelude.Maybe Prelude.Text,
+    -- | The value that indicates the type of medium changer to use for tape
+    -- gateway. This field is optional.
+    --
+    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+    mediumChangerType :: Prelude.Maybe Prelude.Text,
+    -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
+    -- a key-value pair.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers that
+    -- can be represented in UTF-8 format, and the following special
+    -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+    -- characters, and the maximum length for a tag\'s value is 256 characters.
+    tags :: Prelude.Maybe [Tag],
+    -- | Your gateway activation key. You can obtain the activation key by
+    -- sending an HTTP GET request with redirects enabled to the gateway IP
+    -- address (port 80). The redirect URL returned in the response provides
+    -- you the activation key for your gateway in the query string parameter
+    -- @activationKey@. It may also include other activation-related
+    -- parameters, however, these are merely defaults -- the arguments you pass
+    -- to the @ActivateGateway@ API call determine the actual configuration of
+    -- your gateway.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
+    -- in the /AWS Storage Gateway User Guide/.
+    activationKey :: Prelude.Text,
+    -- | The name you configured for your gateway.
+    gatewayName :: Prelude.Text,
+    -- | A value that indicates the time zone you want to set for the gateway.
+    -- The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For
+    -- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
+    -- indicates the time is 2 hours ahead of GMT. The time zone is used, for
+    -- example, for scheduling snapshots and your gateway\'s maintenance
+    -- schedule.
+    gatewayTimezone :: Prelude.Text,
+    -- | A value that indicates the AWS Region where you want to store your data.
+    -- The gateway AWS Region specified must be the same AWS Region as the AWS
+    -- Region in your @Host@ header in the request. For more information about
+    -- available AWS Regions and endpoints for AWS Storage Gateway, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+    -- in the /AWS General Reference/.
+    --
+    -- Valid Values: See
+    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+    -- in the /AWS General Reference/.
+    gatewayRegion :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ActivateGateway' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tapeDriveType', 'activateGateway_tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway.
+-- This field is optional.
+--
+-- Valid Values: @IBM-ULT3580-TD5@
+--
+-- 'gatewayType', 'activateGateway_gatewayType' - A value that defines the type of gateway to activate. The type specified
+-- is critical to all later functions of the gateway and cannot be changed
+-- after activation. The default value is @CACHED@.
+--
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
+--
+-- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+--
+-- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is
+-- a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers that
+-- can be represented in UTF-8 format, and the following special
+-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+-- characters, and the maximum length for a tag\'s value is 256 characters.
+--
+-- 'activationKey', 'activateGateway_activationKey' - Your gateway activation key. You can obtain the activation key by
+-- sending an HTTP GET request with redirects enabled to the gateway IP
+-- address (port 80). The redirect URL returned in the response provides
+-- you the activation key for your gateway in the query string parameter
+-- @activationKey@. It may also include other activation-related
+-- parameters, however, these are merely defaults -- the arguments you pass
+-- to the @ActivateGateway@ API call determine the actual configuration of
+-- your gateway.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
+-- in the /AWS Storage Gateway User Guide/.
+--
+-- 'gatewayName', 'activateGateway_gatewayName' - The name you configured for your gateway.
+--
+-- 'gatewayTimezone', 'activateGateway_gatewayTimezone' - A value that indicates the time zone you want to set for the gateway.
+-- The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For
+-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
+-- indicates the time is 2 hours ahead of GMT. The time zone is used, for
+-- example, for scheduling snapshots and your gateway\'s maintenance
+-- schedule.
+--
+-- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the AWS Region where you want to store your data.
+-- The gateway AWS Region specified must be the same AWS Region as the AWS
+-- Region in your @Host@ header in the request. For more information about
+-- available AWS Regions and endpoints for AWS Storage Gateway, see
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+-- in the /AWS General Reference/.
+--
+-- Valid Values: See
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+-- in the /AWS General Reference/.
+newActivateGateway ::
+  -- | 'activationKey'
+  Prelude.Text ->
+  -- | 'gatewayName'
+  Prelude.Text ->
+  -- | 'gatewayTimezone'
+  Prelude.Text ->
+  -- | 'gatewayRegion'
+  Prelude.Text ->
+  ActivateGateway
+newActivateGateway
+  pActivationKey_
+  pGatewayName_
+  pGatewayTimezone_
+  pGatewayRegion_ =
+    ActivateGateway'
+      { tapeDriveType = Prelude.Nothing,
+        gatewayType = Prelude.Nothing,
+        mediumChangerType = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        activationKey = pActivationKey_,
+        gatewayName = pGatewayName_,
+        gatewayTimezone = pGatewayTimezone_,
+        gatewayRegion = pGatewayRegion_
+      }
 
--- | Creates a value of 'ActivateGateway' with the minimum fields required to make a request.
+-- | The value that indicates the type of tape drive to use for tape gateway.
+-- This field is optional.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'agMediumChangerType' - The value that indicates the type of medium changer to use for tape gateway. This field is optional. Valid Values: "STK-L700", "AWS-Gateway-VTL"
---
--- * 'agTapeDriveType' - The value that indicates the type of tape drive to use for tape gateway. This field is optional. Valid Values: "IBM-ULT3580-TD5"
---
--- * 'agGatewayType' - A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @STORED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
---
--- * 'agActivationKey' - Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.  For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html in the Storage Gateway User Guide.
---
--- * 'agGatewayName' - The name you configured for your gateway.
---
--- * 'agGatewayTimezone' - A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
---
--- * 'agGatewayRegion' - A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"
-activateGateway
-    :: Text -- ^ 'agActivationKey'
-    -> Text -- ^ 'agGatewayName'
-    -> Text -- ^ 'agGatewayTimezone'
-    -> Text -- ^ 'agGatewayRegion'
-    -> ActivateGateway
-activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ =
-  ActivateGateway'
-    { _agMediumChangerType = Nothing
-    , _agTapeDriveType = Nothing
-    , _agGatewayType = Nothing
-    , _agActivationKey = pActivationKey_
-    , _agGatewayName = pGatewayName_
-    , _agGatewayTimezone = pGatewayTimezone_
-    , _agGatewayRegion = pGatewayRegion_
-    }
+-- Valid Values: @IBM-ULT3580-TD5@
+activateGateway_tapeDriveType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_tapeDriveType = Lens.lens (\ActivateGateway' {tapeDriveType} -> tapeDriveType) (\s@ActivateGateway' {} a -> s {tapeDriveType = a} :: ActivateGateway)
 
+-- | A value that defines the type of gateway to activate. The type specified
+-- is critical to all later functions of the gateway and cannot be changed
+-- after activation. The default value is @CACHED@.
+--
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
+activateGateway_gatewayType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gatewayType) (\s@ActivateGateway' {} a -> s {gatewayType = a} :: ActivateGateway)
 
--- | The value that indicates the type of medium changer to use for tape gateway. This field is optional. Valid Values: "STK-L700", "AWS-Gateway-VTL"
-agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
-agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType = a})
+-- | The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
--- | The value that indicates the type of tape drive to use for tape gateway. This field is optional. Valid Values: "IBM-ULT3580-TD5"
-agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
-agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a})
+-- | A list of up to 50 tags that you can assign to the gateway. Each tag is
+-- a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers that
+-- can be represented in UTF-8 format, and the following special
+-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+-- characters, and the maximum length for a tag\'s value is 256 characters.
+activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
+activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens._Coerce
 
--- | A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @STORED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
-agGatewayType :: Lens' ActivateGateway (Maybe Text)
-agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a})
-
--- | Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.  For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html in the Storage Gateway User Guide.
-agActivationKey :: Lens' ActivateGateway Text
-agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a})
+-- | Your gateway activation key. You can obtain the activation key by
+-- sending an HTTP GET request with redirects enabled to the gateway IP
+-- address (port 80). The redirect URL returned in the response provides
+-- you the activation key for your gateway in the query string parameter
+-- @activationKey@. It may also include other activation-related
+-- parameters, however, these are merely defaults -- the arguments you pass
+-- to the @ActivateGateway@ API call determine the actual configuration of
+-- your gateway.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
+-- in the /AWS Storage Gateway User Guide/.
+activateGateway_activationKey :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_activationKey = Lens.lens (\ActivateGateway' {activationKey} -> activationKey) (\s@ActivateGateway' {} a -> s {activationKey = a} :: ActivateGateway)
 
 -- | The name you configured for your gateway.
-agGatewayName :: Lens' ActivateGateway Text
-agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a})
+activateGateway_gatewayName :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayName = Lens.lens (\ActivateGateway' {gatewayName} -> gatewayName) (\s@ActivateGateway' {} a -> s {gatewayName = a} :: ActivateGateway)
 
--- | A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-agGatewayTimezone :: Lens' ActivateGateway Text
-agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
+-- | A value that indicates the time zone you want to set for the gateway.
+-- The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For
+-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
+-- indicates the time is 2 hours ahead of GMT. The time zone is used, for
+-- example, for scheduling snapshots and your gateway\'s maintenance
+-- schedule.
+activateGateway_gatewayTimezone :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayTimezone = Lens.lens (\ActivateGateway' {gatewayTimezone} -> gatewayTimezone) (\s@ActivateGateway' {} a -> s {gatewayTimezone = a} :: ActivateGateway)
 
--- | A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"
-agGatewayRegion :: Lens' ActivateGateway Text
-agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a})
-
-instance AWSRequest ActivateGateway where
-        type Rs ActivateGateway = ActivateGatewayResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ActivateGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
-
-instance Hashable ActivateGateway where
-
-instance NFData ActivateGateway where
-
-instance ToHeaders ActivateGateway where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.ActivateGateway" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ActivateGateway where
-        toJSON ActivateGateway'{..}
-          = object
-              (catMaybes
-                 [("MediumChangerType" .=) <$> _agMediumChangerType,
-                  ("TapeDriveType" .=) <$> _agTapeDriveType,
-                  ("GatewayType" .=) <$> _agGatewayType,
-                  Just ("ActivationKey" .= _agActivationKey),
-                  Just ("GatewayName" .= _agGatewayName),
-                  Just ("GatewayTimezone" .= _agGatewayTimezone),
-                  Just ("GatewayRegion" .= _agGatewayRegion)])
-
-instance ToPath ActivateGateway where
-        toPath = const "/"
-
-instance ToQuery ActivateGateway where
-        toQuery = const mempty
-
--- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.
+-- | A value that indicates the AWS Region where you want to store your data.
+-- The gateway AWS Region specified must be the same AWS Region as the AWS
+-- Region in your @Host@ header in the request. For more information about
+-- available AWS Regions and endpoints for AWS Storage Gateway, see
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+-- in the /AWS General Reference/.
 --
+-- Valid Values: See
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
+-- in the /AWS General Reference/.
+activateGateway_gatewayRegion :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayRegion = Lens.lens (\ActivateGateway' {gatewayRegion} -> gatewayRegion) (\s@ActivateGateway' {} a -> s {gatewayRegion = a} :: ActivateGateway)
+
+instance Core.AWSRequest ActivateGateway where
+  type
+    AWSResponse ActivateGateway =
+      ActivateGatewayResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ActivateGatewayResponse'
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ActivateGateway
+
+instance Prelude.NFData ActivateGateway
+
+instance Core.ToHeaders ActivateGateway where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.ActivateGateway" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ActivateGateway where
+  toJSON ActivateGateway' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("TapeDriveType" Core..=) Prelude.<$> tapeDriveType,
+            ("GatewayType" Core..=) Prelude.<$> gatewayType,
+            ("MediumChangerType" Core..=)
+              Prelude.<$> mediumChangerType,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("ActivationKey" Core..= activationKey),
+            Prelude.Just ("GatewayName" Core..= gatewayName),
+            Prelude.Just
+              ("GatewayTimezone" Core..= gatewayTimezone),
+            Prelude.Just
+              ("GatewayRegion" Core..= gatewayRegion)
+          ]
+      )
+
+instance Core.ToPath ActivateGateway where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ActivateGateway where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the
+-- activated gateway. It is a string made of information such as your
+-- account, gateway name, and AWS Region. This ARN is used to reference the
+-- gateway in other API operations as well as resource-based authorization.
 --
+-- For gateways activated prior to September 02, 2015, the gateway ARN
+-- contains the gateway name rather than the gateway ID. Changing the name
+-- of the gateway has no effect on the gateway ARN.
 --
--- /See:/ 'activateGatewayResponse' smart constructor.
+-- /See:/ 'newActivateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-  { _agrsGatewayARN     :: !(Maybe Text)
-  , _agrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ActivateGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ActivateGatewayResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'agrsGatewayARN' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'agrsResponseStatus' - -- | The response status code.
-activateGatewayResponse
-    :: Int -- ^ 'agrsResponseStatus'
-    -> ActivateGatewayResponse
-activateGatewayResponse pResponseStatus_ =
+-- 'gatewayARN', 'activateGatewayResponse_gatewayARN' - Undocumented member.
+--
+-- 'httpStatus', 'activateGatewayResponse_httpStatus' - The response's http status code.
+newActivateGatewayResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ActivateGatewayResponse
+newActivateGatewayResponse pHttpStatus_ =
   ActivateGatewayResponse'
-    {_agrsGatewayARN = Nothing, _agrsResponseStatus = pResponseStatus_}
-
+    { gatewayARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
-agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a})
+activateGatewayResponse_gatewayARN :: Lens.Lens' ActivateGatewayResponse (Prelude.Maybe Prelude.Text)
+activateGatewayResponse_gatewayARN = Lens.lens (\ActivateGatewayResponse' {gatewayARN} -> gatewayARN) (\s@ActivateGatewayResponse' {} a -> s {gatewayARN = a} :: ActivateGatewayResponse)
 
--- | -- | The response status code.
-agrsResponseStatus :: Lens' ActivateGatewayResponse Int
-agrsResponseStatus = lens _agrsResponseStatus (\ s a -> s{_agrsResponseStatus = a})
+-- | The response's http status code.
+activateGatewayResponse_httpStatus :: Lens.Lens' ActivateGatewayResponse Prelude.Int
+activateGatewayResponse_httpStatus = Lens.lens (\ActivateGatewayResponse' {httpStatus} -> httpStatus) (\s@ActivateGatewayResponse' {} a -> s {httpStatus = a} :: ActivateGatewayResponse)
 
-instance NFData ActivateGatewayResponse where
+instance Prelude.NFData ActivateGatewayResponse

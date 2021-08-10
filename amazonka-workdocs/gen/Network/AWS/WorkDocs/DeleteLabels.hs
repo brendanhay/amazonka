@@ -1,150 +1,176 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteLabels
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified list of labels from a resource.
---
---
 module Network.AWS.WorkDocs.DeleteLabels
-    (
-    -- * Creating a Request
-      deleteLabels
-    , DeleteLabels
+  ( -- * Creating a Request
+    DeleteLabels (..),
+    newDeleteLabels,
+
     -- * Request Lenses
-    , dlDeleteAll
-    , dlAuthenticationToken
-    , dlLabels
-    , dlResourceId
+    deleteLabels_labels,
+    deleteLabels_authenticationToken,
+    deleteLabels_deleteAll,
+    deleteLabels_resourceId,
 
     -- * Destructuring the Response
-    , deleteLabelsResponse
-    , DeleteLabelsResponse
+    DeleteLabelsResponse (..),
+    newDeleteLabelsResponse,
+
     -- * Response Lenses
-    , dlrsResponseStatus
-    ) where
+    deleteLabelsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'deleteLabels' smart constructor.
+-- | /See:/ 'newDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-  { _dlDeleteAll           :: !(Maybe Bool)
-  , _dlAuthenticationToken :: !(Maybe (Sensitive Text))
-  , _dlLabels              :: !(Maybe [Text])
-  , _dlResourceId          :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | List of labels to delete from the resource.
+    labels :: Prelude.Maybe [Prelude.Text],
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Flag to request removal of all labels from the specified resource.
+    deleteAll :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the resource.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteLabels' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteLabels' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlDeleteAll' - Flag to request removal of all labels from the specified resource.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dlAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- 'labels', 'deleteLabels_labels' - List of labels to delete from the resource.
 --
--- * 'dlLabels' - List of labels to delete from the resource.
+-- 'authenticationToken', 'deleteLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
--- * 'dlResourceId' - The ID of the resource.
-deleteLabels
-    :: Text -- ^ 'dlResourceId'
-    -> DeleteLabels
-deleteLabels pResourceId_ =
+-- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
+--
+-- 'resourceId', 'deleteLabels_resourceId' - The ID of the resource.
+newDeleteLabels ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  DeleteLabels
+newDeleteLabels pResourceId_ =
   DeleteLabels'
-    { _dlDeleteAll = Nothing
-    , _dlAuthenticationToken = Nothing
-    , _dlLabels = Nothing
-    , _dlResourceId = pResourceId_
+    { labels = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      deleteAll = Prelude.Nothing,
+      resourceId = pResourceId_
     }
 
+-- | List of labels to delete from the resource.
+deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
+deleteLabels_labels = Lens.lens (\DeleteLabels' {labels} -> labels) (\s@DeleteLabels' {} a -> s {labels = a} :: DeleteLabels) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
+deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Flag to request removal of all labels from the specified resource.
-dlDeleteAll :: Lens' DeleteLabels (Maybe Bool)
-dlDeleteAll = lens _dlDeleteAll (\ s a -> s{_dlDeleteAll = a})
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-dlAuthenticationToken :: Lens' DeleteLabels (Maybe Text)
-dlAuthenticationToken = lens _dlAuthenticationToken (\ s a -> s{_dlAuthenticationToken = a}) . mapping _Sensitive
-
--- | List of labels to delete from the resource.
-dlLabels :: Lens' DeleteLabels [Text]
-dlLabels = lens _dlLabels (\ s a -> s{_dlLabels = a}) . _Default . _Coerce
+deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
+deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
 
 -- | The ID of the resource.
-dlResourceId :: Lens' DeleteLabels Text
-dlResourceId = lens _dlResourceId (\ s a -> s{_dlResourceId = a})
+deleteLabels_resourceId :: Lens.Lens' DeleteLabels Prelude.Text
+deleteLabels_resourceId = Lens.lens (\DeleteLabels' {resourceId} -> resourceId) (\s@DeleteLabels' {} a -> s {resourceId = a} :: DeleteLabels)
 
-instance AWSRequest DeleteLabels where
-        type Rs DeleteLabels = DeleteLabelsResponse
-        request = delete workDocs
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteLabelsResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteLabels where
+  type AWSResponse DeleteLabels = DeleteLabelsResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteLabelsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteLabels where
+instance Prelude.Hashable DeleteLabels
 
-instance NFData DeleteLabels where
+instance Prelude.NFData DeleteLabels
 
-instance ToHeaders DeleteLabels where
-        toHeaders DeleteLabels'{..}
-          = mconcat
-              ["Authentication" =# _dlAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders DeleteLabels where
+  toHeaders DeleteLabels' {..} =
+    Prelude.mconcat
+      [ "Authentication" Core.=# authenticationToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToPath DeleteLabels where
-        toPath DeleteLabels'{..}
-          = mconcat
-              ["/api/v1/resources/", toBS _dlResourceId, "/labels"]
+instance Core.ToPath DeleteLabels where
+  toPath DeleteLabels' {..} =
+    Prelude.mconcat
+      [ "/api/v1/resources/",
+        Core.toBS resourceId,
+        "/labels"
+      ]
 
-instance ToQuery DeleteLabels where
-        toQuery DeleteLabels'{..}
-          = mconcat
-              ["deleteAll" =: _dlDeleteAll,
-               "labels" =:
-                 toQuery (toQueryList "member" <$> _dlLabels)]
+instance Core.ToQuery DeleteLabels where
+  toQuery DeleteLabels' {..} =
+    Prelude.mconcat
+      [ "labels"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> labels),
+        "deleteAll" Core.=: deleteAll
+      ]
 
--- | /See:/ 'deleteLabelsResponse' smart constructor.
-newtype DeleteLabelsResponse = DeleteLabelsResponse'
-  { _dlrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteLabelsResponse' smart constructor.
+data DeleteLabelsResponse = DeleteLabelsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteLabelsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteLabelsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlrsResponseStatus' - -- | The response status code.
-deleteLabelsResponse
-    :: Int -- ^ 'dlrsResponseStatus'
-    -> DeleteLabelsResponse
-deleteLabelsResponse pResponseStatus_ =
-  DeleteLabelsResponse' {_dlrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteLabelsResponse_httpStatus' - The response's http status code.
+newDeleteLabelsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteLabelsResponse
+newDeleteLabelsResponse pHttpStatus_ =
+  DeleteLabelsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteLabelsResponse_httpStatus :: Lens.Lens' DeleteLabelsResponse Prelude.Int
+deleteLabelsResponse_httpStatus = Lens.lens (\DeleteLabelsResponse' {httpStatus} -> httpStatus) (\s@DeleteLabelsResponse' {} a -> s {httpStatus = a} :: DeleteLabelsResponse)
 
--- | -- | The response status code.
-dlrsResponseStatus :: Lens' DeleteLabelsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
-
-instance NFData DeleteLabelsResponse where
+instance Prelude.NFData DeleteLabelsResponse

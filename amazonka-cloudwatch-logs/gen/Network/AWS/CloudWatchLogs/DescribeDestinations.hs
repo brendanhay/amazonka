@@ -1,179 +1,228 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeDestinations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all your destinations. The results are ASCII-sorted by destination name.
---
---
+-- Lists all your destinations. The results are ASCII-sorted by destination
+-- name.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
-    (
-    -- * Creating a Request
-      describeDestinations
-    , DescribeDestinations
+  ( -- * Creating a Request
+    DescribeDestinations (..),
+    newDescribeDestinations,
+
     -- * Request Lenses
-    , ddNextToken
-    , ddLimit
-    , ddDestinationNamePrefix
+    describeDestinations_nextToken,
+    describeDestinations_destinationNamePrefix,
+    describeDestinations_limit,
 
     -- * Destructuring the Response
-    , describeDestinationsResponse
-    , DescribeDestinationsResponse
+    DescribeDestinationsResponse (..),
+    newDescribeDestinationsResponse,
+
     -- * Response Lenses
-    , ddrsNextToken
-    , ddrsDestinations
-    , ddrsResponseStatus
-    ) where
+    describeDestinationsResponse_nextToken,
+    describeDestinationsResponse_destinations,
+    describeDestinationsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeDestinations' smart constructor.
+-- | /See:/ 'newDescribeDestinations' smart constructor.
 data DescribeDestinations = DescribeDestinations'
-  { _ddNextToken             :: !(Maybe Text)
-  , _ddLimit                 :: !(Maybe Nat)
-  , _ddDestinationNamePrefix :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The prefix to match. If you don\'t specify a value, no prefix filter is
+    -- applied.
+    destinationNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items returned. If you don\'t specify a value, the
+    -- default is up to 50 items.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDestinations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDestinations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- 'nextToken', 'describeDestinations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'ddDestinationNamePrefix' - The prefix to match. If you don't specify a value, no prefix filter is applied.
-describeDestinations
-    :: DescribeDestinations
-describeDestinations =
+-- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
+--
+-- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
+newDescribeDestinations ::
+  DescribeDestinations
+newDescribeDestinations =
   DescribeDestinations'
-    { _ddNextToken = Nothing
-    , _ddLimit = Nothing
-    , _ddDestinationNamePrefix = Nothing
+    { nextToken = Prelude.Nothing,
+      destinationNamePrefix = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
+describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-ddNextToken :: Lens' DescribeDestinations (Maybe Text)
-ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a})
+-- | The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
+describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
+describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
 
--- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-ddLimit :: Lens' DescribeDestinations (Maybe Natural)
-ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat
+-- | The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
+describeDestinations_limit :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Natural)
+describeDestinations_limit = Lens.lens (\DescribeDestinations' {limit} -> limit) (\s@DescribeDestinations' {} a -> s {limit = a} :: DescribeDestinations)
 
--- | The prefix to match. If you don't specify a value, no prefix filter is applied.
-ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
-ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a})
+instance Core.AWSPager DescribeDestinations where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDestinationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDestinationsResponse_destinations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDestinations_nextToken
+          Lens..~ rs
+          Lens.^? describeDestinationsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeDestinations where
-        page rq rs
-          | stop (rs ^. ddrsNextToken) = Nothing
-          | stop (rs ^. ddrsDestinations) = Nothing
-          | otherwise =
-            Just $ rq & ddNextToken .~ rs ^. ddrsNextToken
+instance Core.AWSRequest DescribeDestinations where
+  type
+    AWSResponse DescribeDestinations =
+      DescribeDestinationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDestinationsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeDestinations where
-        type Rs DescribeDestinations =
-             DescribeDestinationsResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDestinationsResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "destinations" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeDestinations
 
-instance Hashable DescribeDestinations where
+instance Prelude.NFData DescribeDestinations
 
-instance NFData DescribeDestinations where
+instance Core.ToHeaders DescribeDestinations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.DescribeDestinations" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeDestinations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.DescribeDestinations" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeDestinations where
+  toJSON DescribeDestinations' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("DestinationNamePrefix" Core..=)
+              Prelude.<$> destinationNamePrefix,
+            ("limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToJSON DescribeDestinations where
-        toJSON DescribeDestinations'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _ddNextToken,
-                  ("limit" .=) <$> _ddLimit,
-                  ("DestinationNamePrefix" .=) <$>
-                    _ddDestinationNamePrefix])
+instance Core.ToPath DescribeDestinations where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeDestinations where
-        toPath = const "/"
+instance Core.ToQuery DescribeDestinations where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeDestinations where
-        toQuery = const mempty
-
--- | /See:/ 'describeDestinationsResponse' smart constructor.
+-- | /See:/ 'newDescribeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-  { _ddrsNextToken      :: !(Maybe Text)
-  , _ddrsDestinations   :: !(Maybe [Destination])
-  , _ddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The destinations.
+    destinations :: Prelude.Maybe [Destination],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDestinationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddrsDestinations' - The destinations.
+-- 'nextToken', 'describeDestinationsResponse_nextToken' - Undocumented member.
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDestinationsResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DescribeDestinationsResponse
-describeDestinationsResponse pResponseStatus_ =
+-- 'destinations', 'describeDestinationsResponse_destinations' - The destinations.
+--
+-- 'httpStatus', 'describeDestinationsResponse_httpStatus' - The response's http status code.
+newDescribeDestinationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDestinationsResponse
+newDescribeDestinationsResponse pHttpStatus_ =
   DescribeDestinationsResponse'
-    { _ddrsNextToken = Nothing
-    , _ddrsDestinations = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
 
 -- | Undocumented member.
-ddrsNextToken :: Lens' DescribeDestinationsResponse (Maybe Text)
-ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a})
+describeDestinationsResponse_nextToken :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe Prelude.Text)
+describeDestinationsResponse_nextToken = Lens.lens (\DescribeDestinationsResponse' {nextToken} -> nextToken) (\s@DescribeDestinationsResponse' {} a -> s {nextToken = a} :: DescribeDestinationsResponse)
 
 -- | The destinations.
-ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
-ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce
+describeDestinationsResponse_destinations :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe [Destination])
+describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
+-- | The response's http status code.
+describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Prelude.Int
+describeDestinationsResponse_httpStatus = Lens.lens (\DescribeDestinationsResponse' {httpStatus} -> httpStatus) (\s@DescribeDestinationsResponse' {} a -> s {httpStatus = a} :: DescribeDestinationsResponse)
 
-instance NFData DescribeDestinationsResponse where
+instance Prelude.NFData DescribeDestinationsResponse

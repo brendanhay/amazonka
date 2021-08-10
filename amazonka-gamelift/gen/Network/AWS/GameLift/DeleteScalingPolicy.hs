@@ -1,154 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteScalingPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.
+-- Deletes a fleet scaling policy. Once deleted, the policy is no longer in
+-- force and GameLift removes all record of it. To delete a scaling policy,
+-- specify both the scaling policy name and the fleet ID it is associated
+-- with.
 --
+-- To temporarily suspend scaling policies, call StopFleetActions. This
+-- operation suspends all policies for the fleet.
 --
--- To temporarily suspend scaling policies, call 'StopFleetActions' . This operation suspends all policies for the fleet.
+-- -   DescribeFleetCapacity
 --
--- Operations related to fleet capacity scaling include:
+-- -   UpdateFleetCapacity
 --
---     * 'DescribeFleetCapacity'
+-- -   DescribeEC2InstanceLimits
 --
---     * 'UpdateFleetCapacity'
+-- -   Manage scaling policies:
 --
---     * 'DescribeEC2InstanceLimits'
+--     -   PutScalingPolicy (auto-scaling)
 --
---     * Manage scaling policies:
+--     -   DescribeScalingPolicies (auto-scaling)
 --
---     * 'PutScalingPolicy' (auto-scaling)
+--     -   DeleteScalingPolicy (auto-scaling)
 --
---     * 'DescribeScalingPolicies' (auto-scaling)
+-- -   Manage fleet actions:
 --
---     * 'DeleteScalingPolicy' (auto-scaling)
+--     -   StartFleetActions
 --
---
---
---     * Manage fleet actions:
---
---     * 'StartFleetActions'
---
---     * 'StopFleetActions'
---
---
---
---
---
+--     -   StopFleetActions
 module Network.AWS.GameLift.DeleteScalingPolicy
-    (
-    -- * Creating a Request
-      deleteScalingPolicy
-    , DeleteScalingPolicy
+  ( -- * Creating a Request
+    DeleteScalingPolicy (..),
+    newDeleteScalingPolicy,
+
     -- * Request Lenses
-    , dspName
-    , dspFleetId
+    deleteScalingPolicy_name,
+    deleteScalingPolicy_fleetId,
 
     -- * Destructuring the Response
-    , deleteScalingPolicyResponse
-    , DeleteScalingPolicyResponse
-    ) where
+    DeleteScalingPolicyResponse (..),
+    newDeleteScalingPolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'deleteScalingPolicy' smart constructor.
+-- /See:/ 'newDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-  { _dspName    :: !Text
-  , _dspFleetId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A descriptive label that is associated with a scaling policy. Policy
+    -- names do not need to be unique.
+    name :: Prelude.Text,
+    -- | A unique identifier for a fleet to be deleted. You can use either the
+    -- fleet ID or ARN value.
+    fleetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteScalingPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dspName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dspFleetId' - Unique identifier for a fleet to be deleted.
-deleteScalingPolicy
-    :: Text -- ^ 'dspName'
-    -> Text -- ^ 'dspFleetId'
-    -> DeleteScalingPolicy
-deleteScalingPolicy pName_ pFleetId_ =
-  DeleteScalingPolicy' {_dspName = pName_, _dspFleetId = pFleetId_}
+-- 'name', 'deleteScalingPolicy_name' - A descriptive label that is associated with a scaling policy. Policy
+-- names do not need to be unique.
+--
+-- 'fleetId', 'deleteScalingPolicy_fleetId' - A unique identifier for a fleet to be deleted. You can use either the
+-- fleet ID or ARN value.
+newDeleteScalingPolicy ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'fleetId'
+  Prelude.Text ->
+  DeleteScalingPolicy
+newDeleteScalingPolicy pName_ pFleetId_ =
+  DeleteScalingPolicy'
+    { name = pName_,
+      fleetId = pFleetId_
+    }
 
+-- | A descriptive label that is associated with a scaling policy. Policy
+-- names do not need to be unique.
+deleteScalingPolicy_name :: Lens.Lens' DeleteScalingPolicy Prelude.Text
+deleteScalingPolicy_name = Lens.lens (\DeleteScalingPolicy' {name} -> name) (\s@DeleteScalingPolicy' {} a -> s {name = a} :: DeleteScalingPolicy)
 
--- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
-dspName :: Lens' DeleteScalingPolicy Text
-dspName = lens _dspName (\ s a -> s{_dspName = a})
+-- | A unique identifier for a fleet to be deleted. You can use either the
+-- fleet ID or ARN value.
+deleteScalingPolicy_fleetId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
+deleteScalingPolicy_fleetId = Lens.lens (\DeleteScalingPolicy' {fleetId} -> fleetId) (\s@DeleteScalingPolicy' {} a -> s {fleetId = a} :: DeleteScalingPolicy)
 
--- | Unique identifier for a fleet to be deleted.
-dspFleetId :: Lens' DeleteScalingPolicy Text
-dspFleetId = lens _dspFleetId (\ s a -> s{_dspFleetId = a})
+instance Core.AWSRequest DeleteScalingPolicy where
+  type
+    AWSResponse DeleteScalingPolicy =
+      DeleteScalingPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeleteScalingPolicyResponse'
 
-instance AWSRequest DeleteScalingPolicy where
-        type Rs DeleteScalingPolicy =
-             DeleteScalingPolicyResponse
-        request = postJSON gameLift
-        response = receiveNull DeleteScalingPolicyResponse'
+instance Prelude.Hashable DeleteScalingPolicy
 
-instance Hashable DeleteScalingPolicy where
+instance Prelude.NFData DeleteScalingPolicy
 
-instance NFData DeleteScalingPolicy where
+instance Core.ToHeaders DeleteScalingPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "GameLift.DeleteScalingPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteScalingPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.DeleteScalingPolicy" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteScalingPolicy where
+  toJSON DeleteScalingPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("FleetId" Core..= fleetId)
+          ]
+      )
 
-instance ToJSON DeleteScalingPolicy where
-        toJSON DeleteScalingPolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _dspName),
-                  Just ("FleetId" .= _dspFleetId)])
+instance Core.ToPath DeleteScalingPolicy where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteScalingPolicy where
-        toPath = const "/"
+instance Core.ToQuery DeleteScalingPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteScalingPolicy where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteScalingPolicyResponse' smart constructor.
+data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteScalingPolicyResponse' smart constructor.
-data DeleteScalingPolicyResponse =
+-- |
+-- Create a value of 'DeleteScalingPolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteScalingPolicyResponse ::
+  DeleteScalingPolicyResponse
+newDeleteScalingPolicyResponse =
   DeleteScalingPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.
---
-deleteScalingPolicyResponse
-    :: DeleteScalingPolicyResponse
-deleteScalingPolicyResponse = DeleteScalingPolicyResponse'
-
-
-instance NFData DeleteScalingPolicyResponse where
+instance Prelude.NFData DeleteScalingPolicyResponse

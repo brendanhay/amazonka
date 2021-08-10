@@ -1,137 +1,204 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.XRay.PutEncryptionConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the encryption configuration for X-Ray data.
---
---
 module Network.AWS.XRay.PutEncryptionConfig
-    (
-    -- * Creating a Request
-      putEncryptionConfig
-    , PutEncryptionConfig
+  ( -- * Creating a Request
+    PutEncryptionConfig (..),
+    newPutEncryptionConfig,
+
     -- * Request Lenses
-    , pecKeyId
-    , pecType
+    putEncryptionConfig_keyId,
+    putEncryptionConfig_type,
 
     -- * Destructuring the Response
-    , putEncryptionConfigResponse
-    , PutEncryptionConfigResponse
+    PutEncryptionConfigResponse (..),
+    newPutEncryptionConfigResponse,
+
     -- * Response Lenses
-    , pecrsEncryptionConfig
-    , pecrsResponseStatus
-    ) where
+    putEncryptionConfigResponse_encryptionConfig,
+    putEncryptionConfigResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
-import Network.AWS.XRay.Types.Product
 
--- | /See:/ 'putEncryptionConfig' smart constructor.
+-- | /See:/ 'newPutEncryptionConfig' smart constructor.
 data PutEncryptionConfig = PutEncryptionConfig'
-  { _pecKeyId :: !(Maybe Text)
-  , _pecType  :: !EncryptionType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An AWS KMS customer master key (CMK) in one of the following formats:
+    --
+    -- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
+    --
+    -- -   __Key ID__ - The KMS key ID of the key. For example,
+    --     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
+    --     asymmetric CMKs.
+    --
+    -- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
+    --     example,
+    --     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.
+    --     Use this format to specify a key in a different account.
+    --
+    -- Omit this key if you set @Type@ to @NONE@.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The type of encryption. Set to @KMS@ to use your own key for encryption.
+    -- Set to @NONE@ for default encryption.
+    type' :: EncryptionType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutEncryptionConfig' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutEncryptionConfig' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pecKeyId' - An AWS KMS customer master key (CMK) in one of the following formats:     * __Alias__ - The name of the key. For example, @alias/MyKey@ .     * __Key ID__ - The KMS key ID of the key. For example, @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ .     * __ARN__ - The full Amazon Resource Name of the key ID or alias. For example, @arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . Use this format to specify a key in a different account. Omit this key if you set @Type@ to @NONE@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pecType' - The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
-putEncryptionConfig
-    :: EncryptionType -- ^ 'pecType'
-    -> PutEncryptionConfig
-putEncryptionConfig pType_ =
-  PutEncryptionConfig' {_pecKeyId = Nothing, _pecType = pType_}
+-- 'keyId', 'putEncryptionConfig_keyId' - An AWS KMS customer master key (CMK) in one of the following formats:
+--
+-- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
+--
+-- -   __Key ID__ - The KMS key ID of the key. For example,
+--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
+--     asymmetric CMKs.
+--
+-- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
+--     example,
+--     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.
+--     Use this format to specify a key in a different account.
+--
+-- Omit this key if you set @Type@ to @NONE@.
+--
+-- 'type'', 'putEncryptionConfig_type' - The type of encryption. Set to @KMS@ to use your own key for encryption.
+-- Set to @NONE@ for default encryption.
+newPutEncryptionConfig ::
+  -- | 'type''
+  EncryptionType ->
+  PutEncryptionConfig
+newPutEncryptionConfig pType_ =
+  PutEncryptionConfig'
+    { keyId = Prelude.Nothing,
+      type' = pType_
+    }
 
+-- | An AWS KMS customer master key (CMK) in one of the following formats:
+--
+-- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
+--
+-- -   __Key ID__ - The KMS key ID of the key. For example,
+--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
+--     asymmetric CMKs.
+--
+-- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
+--     example,
+--     @arn:aws:kms:us-east-2:123456789012:key\/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@.
+--     Use this format to specify a key in a different account.
+--
+-- Omit this key if you set @Type@ to @NONE@.
+putEncryptionConfig_keyId :: Lens.Lens' PutEncryptionConfig (Prelude.Maybe Prelude.Text)
+putEncryptionConfig_keyId = Lens.lens (\PutEncryptionConfig' {keyId} -> keyId) (\s@PutEncryptionConfig' {} a -> s {keyId = a} :: PutEncryptionConfig)
 
--- | An AWS KMS customer master key (CMK) in one of the following formats:     * __Alias__ - The name of the key. For example, @alias/MyKey@ .     * __Key ID__ - The KMS key ID of the key. For example, @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ .     * __ARN__ - The full Amazon Resource Name of the key ID or alias. For example, @arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . Use this format to specify a key in a different account. Omit this key if you set @Type@ to @NONE@ .
-pecKeyId :: Lens' PutEncryptionConfig (Maybe Text)
-pecKeyId = lens _pecKeyId (\ s a -> s{_pecKeyId = a})
+-- | The type of encryption. Set to @KMS@ to use your own key for encryption.
+-- Set to @NONE@ for default encryption.
+putEncryptionConfig_type :: Lens.Lens' PutEncryptionConfig EncryptionType
+putEncryptionConfig_type = Lens.lens (\PutEncryptionConfig' {type'} -> type') (\s@PutEncryptionConfig' {} a -> s {type' = a} :: PutEncryptionConfig)
 
--- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
-pecType :: Lens' PutEncryptionConfig EncryptionType
-pecType = lens _pecType (\ s a -> s{_pecType = a})
+instance Core.AWSRequest PutEncryptionConfig where
+  type
+    AWSResponse PutEncryptionConfig =
+      PutEncryptionConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutEncryptionConfigResponse'
+            Prelude.<$> (x Core..?> "EncryptionConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest PutEncryptionConfig where
-        type Rs PutEncryptionConfig =
-             PutEncryptionConfigResponse
-        request = postJSON xRay
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutEncryptionConfigResponse' <$>
-                   (x .?> "EncryptionConfig") <*> (pure (fromEnum s)))
+instance Prelude.Hashable PutEncryptionConfig
 
-instance Hashable PutEncryptionConfig where
+instance Prelude.NFData PutEncryptionConfig
 
-instance NFData PutEncryptionConfig where
+instance Core.ToHeaders PutEncryptionConfig where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders PutEncryptionConfig where
-        toHeaders = const mempty
+instance Core.ToJSON PutEncryptionConfig where
+  toJSON PutEncryptionConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("KeyId" Core..=) Prelude.<$> keyId,
+            Prelude.Just ("Type" Core..= type')
+          ]
+      )
 
-instance ToJSON PutEncryptionConfig where
-        toJSON PutEncryptionConfig'{..}
-          = object
-              (catMaybes
-                 [("KeyId" .=) <$> _pecKeyId,
-                  Just ("Type" .= _pecType)])
+instance Core.ToPath PutEncryptionConfig where
+  toPath = Prelude.const "/PutEncryptionConfig"
 
-instance ToPath PutEncryptionConfig where
-        toPath = const "/PutEncryptionConfig"
+instance Core.ToQuery PutEncryptionConfig where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery PutEncryptionConfig where
-        toQuery = const mempty
-
--- | /See:/ 'putEncryptionConfigResponse' smart constructor.
+-- | /See:/ 'newPutEncryptionConfigResponse' smart constructor.
 data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
-  { _pecrsEncryptionConfig :: !(Maybe EncryptionConfig)
-  , _pecrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The new encryption configuration.
+    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutEncryptionConfigResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutEncryptionConfigResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pecrsEncryptionConfig' - The new encryption configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pecrsResponseStatus' - -- | The response status code.
-putEncryptionConfigResponse
-    :: Int -- ^ 'pecrsResponseStatus'
-    -> PutEncryptionConfigResponse
-putEncryptionConfigResponse pResponseStatus_ =
+-- 'encryptionConfig', 'putEncryptionConfigResponse_encryptionConfig' - The new encryption configuration.
+--
+-- 'httpStatus', 'putEncryptionConfigResponse_httpStatus' - The response's http status code.
+newPutEncryptionConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutEncryptionConfigResponse
+newPutEncryptionConfigResponse pHttpStatus_ =
   PutEncryptionConfigResponse'
-    {_pecrsEncryptionConfig = Nothing, _pecrsResponseStatus = pResponseStatus_}
-
+    { encryptionConfig =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The new encryption configuration.
-pecrsEncryptionConfig :: Lens' PutEncryptionConfigResponse (Maybe EncryptionConfig)
-pecrsEncryptionConfig = lens _pecrsEncryptionConfig (\ s a -> s{_pecrsEncryptionConfig = a})
+putEncryptionConfigResponse_encryptionConfig :: Lens.Lens' PutEncryptionConfigResponse (Prelude.Maybe EncryptionConfig)
+putEncryptionConfigResponse_encryptionConfig = Lens.lens (\PutEncryptionConfigResponse' {encryptionConfig} -> encryptionConfig) (\s@PutEncryptionConfigResponse' {} a -> s {encryptionConfig = a} :: PutEncryptionConfigResponse)
 
--- | -- | The response status code.
-pecrsResponseStatus :: Lens' PutEncryptionConfigResponse Int
-pecrsResponseStatus = lens _pecrsResponseStatus (\ s a -> s{_pecrsResponseStatus = a})
+-- | The response's http status code.
+putEncryptionConfigResponse_httpStatus :: Lens.Lens' PutEncryptionConfigResponse Prelude.Int
+putEncryptionConfigResponse_httpStatus = Lens.lens (\PutEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@PutEncryptionConfigResponse' {} a -> s {httpStatus = a} :: PutEncryptionConfigResponse)
 
-instance NFData PutEncryptionConfigResponse where
+instance Prelude.NFData PutEncryptionConfigResponse

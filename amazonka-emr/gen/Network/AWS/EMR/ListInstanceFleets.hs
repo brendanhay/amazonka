@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstanceFleets
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,148 +22,191 @@
 --
 -- Lists all available details about the instance fleets in a cluster.
 --
---
+-- The instance fleet configuration is available only in Amazon EMR
+-- versions 4.8.0 and later, excluding 5.0.x versions.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstanceFleets
-    (
-    -- * Creating a Request
-      listInstanceFleets
-    , ListInstanceFleets
+  ( -- * Creating a Request
+    ListInstanceFleets (..),
+    newListInstanceFleets,
+
     -- * Request Lenses
-    , lifMarker
-    , lifClusterId
+    listInstanceFleets_marker,
+    listInstanceFleets_clusterId,
 
     -- * Destructuring the Response
-    , listInstanceFleetsResponse
-    , ListInstanceFleetsResponse
+    ListInstanceFleetsResponse (..),
+    newListInstanceFleetsResponse,
+
     -- * Response Lenses
-    , lifrsInstanceFleets
-    , lifrsMarker
-    , lifrsResponseStatus
-    ) where
+    listInstanceFleetsResponse_instanceFleets,
+    listInstanceFleetsResponse_marker,
+    listInstanceFleetsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listInstanceFleets' smart constructor.
+-- | /See:/ 'newListInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
-  { _lifMarker    :: !(Maybe Text)
-  , _lifClusterId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the cluster.
+    clusterId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListInstanceFleets' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListInstanceFleets' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lifMarker' - The pagination token that indicates the next set of results to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lifClusterId' - The unique identifier of the cluster.
-listInstanceFleets
-    :: Text -- ^ 'lifClusterId'
-    -> ListInstanceFleets
-listInstanceFleets pClusterId_ =
-  ListInstanceFleets' {_lifMarker = Nothing, _lifClusterId = pClusterId_}
-
-
--- | The pagination token that indicates the next set of results to retrieve.
-lifMarker :: Lens' ListInstanceFleets (Maybe Text)
-lifMarker = lens _lifMarker (\ s a -> s{_lifMarker = a})
-
--- | The unique identifier of the cluster.
-lifClusterId :: Lens' ListInstanceFleets Text
-lifClusterId = lens _lifClusterId (\ s a -> s{_lifClusterId = a})
-
-instance AWSPager ListInstanceFleets where
-        page rq rs
-          | stop (rs ^. lifrsMarker) = Nothing
-          | stop (rs ^. lifrsInstanceFleets) = Nothing
-          | otherwise =
-            Just $ rq & lifMarker .~ rs ^. lifrsMarker
-
-instance AWSRequest ListInstanceFleets where
-        type Rs ListInstanceFleets =
-             ListInstanceFleetsResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListInstanceFleetsResponse' <$>
-                   (x .?> "InstanceFleets" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListInstanceFleets where
-
-instance NFData ListInstanceFleets where
-
-instance ToHeaders ListInstanceFleets where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.ListInstanceFleets" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListInstanceFleets where
-        toJSON ListInstanceFleets'{..}
-          = object
-              (catMaybes
-                 [("Marker" .=) <$> _lifMarker,
-                  Just ("ClusterId" .= _lifClusterId)])
-
-instance ToPath ListInstanceFleets where
-        toPath = const "/"
-
-instance ToQuery ListInstanceFleets where
-        toQuery = const mempty
-
--- | /See:/ 'listInstanceFleetsResponse' smart constructor.
-data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-  { _lifrsInstanceFleets :: !(Maybe [InstanceFleet])
-  , _lifrsMarker         :: !(Maybe Text)
-  , _lifrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListInstanceFleetsResponse' with the minimum fields required to make a request.
+-- 'marker', 'listInstanceFleets_marker' - The pagination token that indicates the next set of results to retrieve.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lifrsInstanceFleets' - The list of instance fleets for the cluster and given filters.
---
--- * 'lifrsMarker' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'lifrsResponseStatus' - -- | The response status code.
-listInstanceFleetsResponse
-    :: Int -- ^ 'lifrsResponseStatus'
-    -> ListInstanceFleetsResponse
-listInstanceFleetsResponse pResponseStatus_ =
-  ListInstanceFleetsResponse'
-    { _lifrsInstanceFleets = Nothing
-    , _lifrsMarker = Nothing
-    , _lifrsResponseStatus = pResponseStatus_
+-- 'clusterId', 'listInstanceFleets_clusterId' - The unique identifier of the cluster.
+newListInstanceFleets ::
+  -- | 'clusterId'
+  Prelude.Text ->
+  ListInstanceFleets
+newListInstanceFleets pClusterId_ =
+  ListInstanceFleets'
+    { marker = Prelude.Nothing,
+      clusterId = pClusterId_
     }
 
+-- | The pagination token that indicates the next set of results to retrieve.
+listInstanceFleets_marker :: Lens.Lens' ListInstanceFleets (Prelude.Maybe Prelude.Text)
+listInstanceFleets_marker = Lens.lens (\ListInstanceFleets' {marker} -> marker) (\s@ListInstanceFleets' {} a -> s {marker = a} :: ListInstanceFleets)
+
+-- | The unique identifier of the cluster.
+listInstanceFleets_clusterId :: Lens.Lens' ListInstanceFleets Prelude.Text
+listInstanceFleets_clusterId = Lens.lens (\ListInstanceFleets' {clusterId} -> clusterId) (\s@ListInstanceFleets' {} a -> s {clusterId = a} :: ListInstanceFleets)
+
+instance Core.AWSPager ListInstanceFleets where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listInstanceFleetsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listInstanceFleetsResponse_instanceFleets
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listInstanceFleets_marker
+          Lens..~ rs
+          Lens.^? listInstanceFleetsResponse_marker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListInstanceFleets where
+  type
+    AWSResponse ListInstanceFleets =
+      ListInstanceFleetsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListInstanceFleetsResponse'
+            Prelude.<$> (x Core..?> "InstanceFleets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListInstanceFleets
+
+instance Prelude.NFData ListInstanceFleets
+
+instance Core.ToHeaders ListInstanceFleets where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.ListInstanceFleets" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListInstanceFleets where
+  toJSON ListInstanceFleets' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just ("ClusterId" Core..= clusterId)
+          ]
+      )
+
+instance Core.ToPath ListInstanceFleets where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListInstanceFleets where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListInstanceFleetsResponse' smart constructor.
+data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
+  { -- | The list of instance fleets for the cluster and given filters.
+    instanceFleets :: Prelude.Maybe [InstanceFleet],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListInstanceFleetsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceFleets', 'listInstanceFleetsResponse_instanceFleets' - The list of instance fleets for the cluster and given filters.
+--
+-- 'marker', 'listInstanceFleetsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'httpStatus', 'listInstanceFleetsResponse_httpStatus' - The response's http status code.
+newListInstanceFleetsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListInstanceFleetsResponse
+newListInstanceFleetsResponse pHttpStatus_ =
+  ListInstanceFleetsResponse'
+    { instanceFleets =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The list of instance fleets for the cluster and given filters.
-lifrsInstanceFleets :: Lens' ListInstanceFleetsResponse [InstanceFleet]
-lifrsInstanceFleets = lens _lifrsInstanceFleets (\ s a -> s{_lifrsInstanceFleets = a}) . _Default . _Coerce
+listInstanceFleetsResponse_instanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe [InstanceFleet])
+listInstanceFleetsResponse_instanceFleets = Lens.lens (\ListInstanceFleetsResponse' {instanceFleets} -> instanceFleets) (\s@ListInstanceFleetsResponse' {} a -> s {instanceFleets = a} :: ListInstanceFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lifrsMarker :: Lens' ListInstanceFleetsResponse (Maybe Text)
-lifrsMarker = lens _lifrsMarker (\ s a -> s{_lifrsMarker = a})
+listInstanceFleetsResponse_marker :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe Prelude.Text)
+listInstanceFleetsResponse_marker = Lens.lens (\ListInstanceFleetsResponse' {marker} -> marker) (\s@ListInstanceFleetsResponse' {} a -> s {marker = a} :: ListInstanceFleetsResponse)
 
--- | -- | The response status code.
-lifrsResponseStatus :: Lens' ListInstanceFleetsResponse Int
-lifrsResponseStatus = lens _lifrsResponseStatus (\ s a -> s{_lifrsResponseStatus = a})
+-- | The response's http status code.
+listInstanceFleetsResponse_httpStatus :: Lens.Lens' ListInstanceFleetsResponse Prelude.Int
+listInstanceFleetsResponse_httpStatus = Lens.lens (\ListInstanceFleetsResponse' {httpStatus} -> httpStatus) (\s@ListInstanceFleetsResponse' {} a -> s {httpStatus = a} :: ListInstanceFleetsResponse)
 
-instance NFData ListInstanceFleetsResponse where
+instance Prelude.NFData ListInstanceFleetsResponse

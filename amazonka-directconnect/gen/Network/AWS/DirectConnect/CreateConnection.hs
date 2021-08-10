@@ -1,151 +1,211 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateConnection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new connection between the customer network and a specific AWS Direct Connect location.
+-- Creates a connection between a customer network and a specific AWS
+-- Direct Connect location.
 --
+-- A connection links your internal network to an AWS Direct Connect
+-- location over a standard Ethernet fiber-optic cable. One end of the
+-- cable is connected to your router, the other to an AWS Direct Connect
+-- router.
 --
--- A connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.
+-- To find the locations for your Region, use DescribeLocations.
 --
--- To find the locations for your region, use 'DescribeLocations' .
---
--- You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection will be created.
---
+-- You can automatically add the new connection to a link aggregation group
+-- (LAG) by specifying a LAG ID in the request. This ensures that the new
+-- connection is allocated on the same AWS Direct Connect endpoint that
+-- hosts the specified LAG. If there are no available ports on the
+-- endpoint, the request fails and no connection is created.
 module Network.AWS.DirectConnect.CreateConnection
-    (
-    -- * Creating a Request
-      createConnection
-    , CreateConnection
+  ( -- * Creating a Request
+    CreateConnection (..),
+    newCreateConnection,
+
     -- * Request Lenses
-    , ccLagId
-    , ccLocation
-    , ccBandwidth
-    , ccConnectionName
+    createConnection_providerName,
+    createConnection_lagId,
+    createConnection_tags,
+    createConnection_location,
+    createConnection_bandwidth,
+    createConnection_connectionName,
 
     -- * Destructuring the Response
-    , connection
-    , Connection
+    Connection (..),
+    newConnection,
+
     -- * Response Lenses
-    , cLagId
-    , cVlan
-    , cLocation
-    , cAwsDevice
-    , cConnectionId
-    , cLoaIssueTime
-    , cPartnerName
-    , cConnectionName
-    , cBandwidth
-    , cOwnerAccount
-    , cRegion
-    , cConnectionState
-    ) where
+    connection_bandwidth,
+    connection_connectionState,
+    connection_awsDeviceV2,
+    connection_connectionName,
+    connection_providerName,
+    connection_connectionId,
+    connection_hasLogicalRedundancy,
+    connection_awsDevice,
+    connection_jumboFrameCapable,
+    connection_lagId,
+    connection_partnerName,
+    connection_tags,
+    connection_loaIssueTime,
+    connection_ownerAccount,
+    connection_region,
+    connection_location,
+    connection_vlan,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the CreateConnection operation.
---
---
---
--- /See:/ 'createConnection' smart constructor.
+-- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { _ccLagId          :: !(Maybe Text)
-  , _ccLocation       :: !Text
-  , _ccBandwidth      :: !Text
-  , _ccConnectionName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the service provider associated with the requested
+    -- connection.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the LAG.
+    lagId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the lag.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The location of the connection.
+    location :: Prelude.Text,
+    -- | The bandwidth of the connection.
+    bandwidth :: Prelude.Text,
+    -- | The name of the connection.
+    connectionName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConnection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccLagId' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccLocation' - Undocumented member.
+-- 'providerName', 'createConnection_providerName' - The name of the service provider associated with the requested
+-- connection.
 --
--- * 'ccBandwidth' - Undocumented member.
+-- 'lagId', 'createConnection_lagId' - The ID of the LAG.
 --
--- * 'ccConnectionName' - Undocumented member.
-createConnection
-    :: Text -- ^ 'ccLocation'
-    -> Text -- ^ 'ccBandwidth'
-    -> Text -- ^ 'ccConnectionName'
-    -> CreateConnection
-createConnection pLocation_ pBandwidth_ pConnectionName_ =
-  CreateConnection'
-    { _ccLagId = Nothing
-    , _ccLocation = pLocation_
-    , _ccBandwidth = pBandwidth_
-    , _ccConnectionName = pConnectionName_
-    }
+-- 'tags', 'createConnection_tags' - The tags to associate with the lag.
+--
+-- 'location', 'createConnection_location' - The location of the connection.
+--
+-- 'bandwidth', 'createConnection_bandwidth' - The bandwidth of the connection.
+--
+-- 'connectionName', 'createConnection_connectionName' - The name of the connection.
+newCreateConnection ::
+  -- | 'location'
+  Prelude.Text ->
+  -- | 'bandwidth'
+  Prelude.Text ->
+  -- | 'connectionName'
+  Prelude.Text ->
+  CreateConnection
+newCreateConnection
+  pLocation_
+  pBandwidth_
+  pConnectionName_ =
+    CreateConnection'
+      { providerName = Prelude.Nothing,
+        lagId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        location = pLocation_,
+        bandwidth = pBandwidth_,
+        connectionName = pConnectionName_
+      }
 
+-- | The name of the service provider associated with the requested
+-- connection.
+createConnection_providerName :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
+createConnection_providerName = Lens.lens (\CreateConnection' {providerName} -> providerName) (\s@CreateConnection' {} a -> s {providerName = a} :: CreateConnection)
 
--- | Undocumented member.
-ccLagId :: Lens' CreateConnection (Maybe Text)
-ccLagId = lens _ccLagId (\ s a -> s{_ccLagId = a})
+-- | The ID of the LAG.
+createConnection_lagId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
+createConnection_lagId = Lens.lens (\CreateConnection' {lagId} -> lagId) (\s@CreateConnection' {} a -> s {lagId = a} :: CreateConnection)
 
--- | Undocumented member.
-ccLocation :: Lens' CreateConnection Text
-ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a})
+-- | The tags to associate with the lag.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
-ccBandwidth :: Lens' CreateConnection Text
-ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a})
+-- | The location of the connection.
+createConnection_location :: Lens.Lens' CreateConnection Prelude.Text
+createConnection_location = Lens.lens (\CreateConnection' {location} -> location) (\s@CreateConnection' {} a -> s {location = a} :: CreateConnection)
 
--- | Undocumented member.
-ccConnectionName :: Lens' CreateConnection Text
-ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a})
+-- | The bandwidth of the connection.
+createConnection_bandwidth :: Lens.Lens' CreateConnection Prelude.Text
+createConnection_bandwidth = Lens.lens (\CreateConnection' {bandwidth} -> bandwidth) (\s@CreateConnection' {} a -> s {bandwidth = a} :: CreateConnection)
 
-instance AWSRequest CreateConnection where
-        type Rs CreateConnection = Connection
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+-- | The name of the connection.
+createConnection_connectionName :: Lens.Lens' CreateConnection Prelude.Text
+createConnection_connectionName = Lens.lens (\CreateConnection' {connectionName} -> connectionName) (\s@CreateConnection' {} a -> s {connectionName = a} :: CreateConnection)
 
-instance Hashable CreateConnection where
+instance Core.AWSRequest CreateConnection where
+  type AWSResponse CreateConnection = Connection
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance NFData CreateConnection where
+instance Prelude.Hashable CreateConnection
 
-instance ToHeaders CreateConnection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.CreateConnection" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData CreateConnection
 
-instance ToJSON CreateConnection where
-        toJSON CreateConnection'{..}
-          = object
-              (catMaybes
-                 [("lagId" .=) <$> _ccLagId,
-                  Just ("location" .= _ccLocation),
-                  Just ("bandwidth" .= _ccBandwidth),
-                  Just ("connectionName" .= _ccConnectionName)])
+instance Core.ToHeaders CreateConnection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.CreateConnection" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath CreateConnection where
-        toPath = const "/"
+instance Core.ToJSON CreateConnection where
+  toJSON CreateConnection' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("providerName" Core..=) Prelude.<$> providerName,
+            ("lagId" Core..=) Prelude.<$> lagId,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("location" Core..= location),
+            Prelude.Just ("bandwidth" Core..= bandwidth),
+            Prelude.Just
+              ("connectionName" Core..= connectionName)
+          ]
+      )
 
-instance ToQuery CreateConnection where
-        toQuery = const mempty
+instance Core.ToPath CreateConnection where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateConnection where
+  toQuery = Prelude.const Prelude.mempty

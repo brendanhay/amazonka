@@ -1,136 +1,168 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstancePortStates
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the port states for a specific virtual private server, or /instance/ .
---
---
+-- Returns the firewall port states for a specific Amazon Lightsail
+-- instance, the IP addresses allowed to connect to the instance through
+-- the ports, and the protocol.
 module Network.AWS.Lightsail.GetInstancePortStates
-    (
-    -- * Creating a Request
-      getInstancePortStates
-    , GetInstancePortStates
+  ( -- * Creating a Request
+    GetInstancePortStates (..),
+    newGetInstancePortStates,
+
     -- * Request Lenses
-    , gipsInstanceName
+    getInstancePortStates_instanceName,
 
     -- * Destructuring the Response
-    , getInstancePortStatesResponse
-    , GetInstancePortStatesResponse
+    GetInstancePortStatesResponse (..),
+    newGetInstancePortStatesResponse,
+
     -- * Response Lenses
-    , gipsrsPortStates
-    , gipsrsResponseStatus
-    ) where
+    getInstancePortStatesResponse_portStates,
+    getInstancePortStatesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getInstancePortStates' smart constructor.
-newtype GetInstancePortStates = GetInstancePortStates'
-  { _gipsInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetInstancePortStates' smart constructor.
+data GetInstancePortStates = GetInstancePortStates'
+  { -- | The name of the instance for which to return firewall port states.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstancePortStates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstancePortStates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gipsInstanceName' - The name of the instance.
-getInstancePortStates
-    :: Text -- ^ 'gipsInstanceName'
-    -> GetInstancePortStates
-getInstancePortStates pInstanceName_ =
-  GetInstancePortStates' {_gipsInstanceName = pInstanceName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceName', 'getInstancePortStates_instanceName' - The name of the instance for which to return firewall port states.
+newGetInstancePortStates ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  GetInstancePortStates
+newGetInstancePortStates pInstanceName_ =
+  GetInstancePortStates'
+    { instanceName =
+        pInstanceName_
+    }
 
+-- | The name of the instance for which to return firewall port states.
+getInstancePortStates_instanceName :: Lens.Lens' GetInstancePortStates Prelude.Text
+getInstancePortStates_instanceName = Lens.lens (\GetInstancePortStates' {instanceName} -> instanceName) (\s@GetInstancePortStates' {} a -> s {instanceName = a} :: GetInstancePortStates)
 
--- | The name of the instance.
-gipsInstanceName :: Lens' GetInstancePortStates Text
-gipsInstanceName = lens _gipsInstanceName (\ s a -> s{_gipsInstanceName = a})
+instance Core.AWSRequest GetInstancePortStates where
+  type
+    AWSResponse GetInstancePortStates =
+      GetInstancePortStatesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInstancePortStatesResponse'
+            Prelude.<$> (x Core..?> "portStates" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetInstancePortStates where
-        type Rs GetInstancePortStates =
-             GetInstancePortStatesResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetInstancePortStatesResponse' <$>
-                   (x .?> "portStates" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable GetInstancePortStates
 
-instance Hashable GetInstancePortStates where
+instance Prelude.NFData GetInstancePortStates
 
-instance NFData GetInstancePortStates where
+instance Core.ToHeaders GetInstancePortStates where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetInstancePortStates" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetInstancePortStates where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetInstancePortStates" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetInstancePortStates where
+  toJSON GetInstancePortStates' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("instanceName" Core..= instanceName)]
+      )
 
-instance ToJSON GetInstancePortStates where
-        toJSON GetInstancePortStates'{..}
-          = object
-              (catMaybes
-                 [Just ("instanceName" .= _gipsInstanceName)])
+instance Core.ToPath GetInstancePortStates where
+  toPath = Prelude.const "/"
 
-instance ToPath GetInstancePortStates where
-        toPath = const "/"
+instance Core.ToQuery GetInstancePortStates where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetInstancePortStates where
-        toQuery = const mempty
-
--- | /See:/ 'getInstancePortStatesResponse' smart constructor.
+-- | /See:/ 'newGetInstancePortStatesResponse' smart constructor.
 data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
-  { _gipsrsPortStates     :: !(Maybe [InstancePortState])
-  , _gipsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the firewall port states for the
+    -- specified instance.
+    portStates :: Prelude.Maybe [InstancePortState],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstancePortStatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstancePortStatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gipsrsPortStates' - Information about the port states resulting from your request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gipsrsResponseStatus' - -- | The response status code.
-getInstancePortStatesResponse
-    :: Int -- ^ 'gipsrsResponseStatus'
-    -> GetInstancePortStatesResponse
-getInstancePortStatesResponse pResponseStatus_ =
+-- 'portStates', 'getInstancePortStatesResponse_portStates' - An array of objects that describe the firewall port states for the
+-- specified instance.
+--
+-- 'httpStatus', 'getInstancePortStatesResponse_httpStatus' - The response's http status code.
+newGetInstancePortStatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetInstancePortStatesResponse
+newGetInstancePortStatesResponse pHttpStatus_ =
   GetInstancePortStatesResponse'
-    {_gipsrsPortStates = Nothing, _gipsrsResponseStatus = pResponseStatus_}
+    { portStates =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the firewall port states for the
+-- specified instance.
+getInstancePortStatesResponse_portStates :: Lens.Lens' GetInstancePortStatesResponse (Prelude.Maybe [InstancePortState])
+getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResponse' {portStates} -> portStates) (\s@GetInstancePortStatesResponse' {} a -> s {portStates = a} :: GetInstancePortStatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about the port states resulting from your request.
-gipsrsPortStates :: Lens' GetInstancePortStatesResponse [InstancePortState]
-gipsrsPortStates = lens _gipsrsPortStates (\ s a -> s{_gipsrsPortStates = a}) . _Default . _Coerce
+-- | The response's http status code.
+getInstancePortStatesResponse_httpStatus :: Lens.Lens' GetInstancePortStatesResponse Prelude.Int
+getInstancePortStatesResponse_httpStatus = Lens.lens (\GetInstancePortStatesResponse' {httpStatus} -> httpStatus) (\s@GetInstancePortStatesResponse' {} a -> s {httpStatus = a} :: GetInstancePortStatesResponse)
 
--- | -- | The response status code.
-gipsrsResponseStatus :: Lens' GetInstancePortStatesResponse Int
-gipsrsResponseStatus = lens _gipsrsResponseStatus (\ s a -> s{_gipsrsResponseStatus = a})
-
-instance NFData GetInstancePortStatesResponse where
+instance Prelude.NFData GetInstancePortStatesResponse

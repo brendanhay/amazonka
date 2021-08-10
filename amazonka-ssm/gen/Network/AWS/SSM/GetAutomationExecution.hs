@@ -1,139 +1,175 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.GetAutomationExecution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get detailed information about a particular Automation execution.
---
---
 module Network.AWS.SSM.GetAutomationExecution
-    (
-    -- * Creating a Request
-      getAutomationExecution
-    , GetAutomationExecution
+  ( -- * Creating a Request
+    GetAutomationExecution (..),
+    newGetAutomationExecution,
+
     -- * Request Lenses
-    , gaeAutomationExecutionId
+    getAutomationExecution_automationExecutionId,
 
     -- * Destructuring the Response
-    , getAutomationExecutionResponse
-    , GetAutomationExecutionResponse
+    GetAutomationExecutionResponse (..),
+    newGetAutomationExecutionResponse,
+
     -- * Response Lenses
-    , gaersAutomationExecution
-    , gaersResponseStatus
-    ) where
+    getAutomationExecutionResponse_automationExecution,
+    getAutomationExecutionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'getAutomationExecution' smart constructor.
-newtype GetAutomationExecution = GetAutomationExecution'
-  { _gaeAutomationExecutionId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetAutomationExecution' smart constructor.
+data GetAutomationExecution = GetAutomationExecution'
+  { -- | The unique identifier for an existing automation execution to examine.
+    -- The execution ID is returned by StartAutomationExecution when the
+    -- execution of an Automation document is initiated.
+    automationExecutionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAutomationExecution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAutomationExecution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gaeAutomationExecutionId' - The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
-getAutomationExecution
-    :: Text -- ^ 'gaeAutomationExecutionId'
-    -> GetAutomationExecution
-getAutomationExecution pAutomationExecutionId_ =
-  GetAutomationExecution' {_gaeAutomationExecutionId = pAutomationExecutionId_}
-
-
--- | The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
-gaeAutomationExecutionId :: Lens' GetAutomationExecution Text
-gaeAutomationExecutionId = lens _gaeAutomationExecutionId (\ s a -> s{_gaeAutomationExecutionId = a})
-
-instance AWSRequest GetAutomationExecution where
-        type Rs GetAutomationExecution =
-             GetAutomationExecutionResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetAutomationExecutionResponse' <$>
-                   (x .?> "AutomationExecution") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable GetAutomationExecution where
-
-instance NFData GetAutomationExecution where
-
-instance ToHeaders GetAutomationExecution where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.GetAutomationExecution" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetAutomationExecution where
-        toJSON GetAutomationExecution'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("AutomationExecutionId" .=
-                       _gaeAutomationExecutionId)])
-
-instance ToPath GetAutomationExecution where
-        toPath = const "/"
-
-instance ToQuery GetAutomationExecution where
-        toQuery = const mempty
-
--- | /See:/ 'getAutomationExecutionResponse' smart constructor.
-data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
-  { _gaersAutomationExecution :: !(Maybe AutomationExecution)
-  , _gaersResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetAutomationExecutionResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaersAutomationExecution' - Detailed information about the current state of an automation execution.
---
--- * 'gaersResponseStatus' - -- | The response status code.
-getAutomationExecutionResponse
-    :: Int -- ^ 'gaersResponseStatus'
-    -> GetAutomationExecutionResponse
-getAutomationExecutionResponse pResponseStatus_ =
-  GetAutomationExecutionResponse'
-    { _gaersAutomationExecution = Nothing
-    , _gaersResponseStatus = pResponseStatus_
+-- 'automationExecutionId', 'getAutomationExecution_automationExecutionId' - The unique identifier for an existing automation execution to examine.
+-- The execution ID is returned by StartAutomationExecution when the
+-- execution of an Automation document is initiated.
+newGetAutomationExecution ::
+  -- | 'automationExecutionId'
+  Prelude.Text ->
+  GetAutomationExecution
+newGetAutomationExecution pAutomationExecutionId_ =
+  GetAutomationExecution'
+    { automationExecutionId =
+        pAutomationExecutionId_
     }
 
+-- | The unique identifier for an existing automation execution to examine.
+-- The execution ID is returned by StartAutomationExecution when the
+-- execution of an Automation document is initiated.
+getAutomationExecution_automationExecutionId :: Lens.Lens' GetAutomationExecution Prelude.Text
+getAutomationExecution_automationExecutionId = Lens.lens (\GetAutomationExecution' {automationExecutionId} -> automationExecutionId) (\s@GetAutomationExecution' {} a -> s {automationExecutionId = a} :: GetAutomationExecution)
+
+instance Core.AWSRequest GetAutomationExecution where
+  type
+    AWSResponse GetAutomationExecution =
+      GetAutomationExecutionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetAutomationExecutionResponse'
+            Prelude.<$> (x Core..?> "AutomationExecution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetAutomationExecution
+
+instance Prelude.NFData GetAutomationExecution
+
+instance Core.ToHeaders GetAutomationExecution where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.GetAutomationExecution" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON GetAutomationExecution where
+  toJSON GetAutomationExecution' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "AutomationExecutionId"
+                  Core..= automationExecutionId
+              )
+          ]
+      )
+
+instance Core.ToPath GetAutomationExecution where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetAutomationExecution where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetAutomationExecutionResponse' smart constructor.
+data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
+  { -- | Detailed information about the current state of an automation execution.
+    automationExecution :: Prelude.Maybe AutomationExecution,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetAutomationExecutionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'automationExecution', 'getAutomationExecutionResponse_automationExecution' - Detailed information about the current state of an automation execution.
+--
+-- 'httpStatus', 'getAutomationExecutionResponse_httpStatus' - The response's http status code.
+newGetAutomationExecutionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetAutomationExecutionResponse
+newGetAutomationExecutionResponse pHttpStatus_ =
+  GetAutomationExecutionResponse'
+    { automationExecution =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Detailed information about the current state of an automation execution.
-gaersAutomationExecution :: Lens' GetAutomationExecutionResponse (Maybe AutomationExecution)
-gaersAutomationExecution = lens _gaersAutomationExecution (\ s a -> s{_gaersAutomationExecution = a})
+getAutomationExecutionResponse_automationExecution :: Lens.Lens' GetAutomationExecutionResponse (Prelude.Maybe AutomationExecution)
+getAutomationExecutionResponse_automationExecution = Lens.lens (\GetAutomationExecutionResponse' {automationExecution} -> automationExecution) (\s@GetAutomationExecutionResponse' {} a -> s {automationExecution = a} :: GetAutomationExecutionResponse)
 
--- | -- | The response status code.
-gaersResponseStatus :: Lens' GetAutomationExecutionResponse Int
-gaersResponseStatus = lens _gaersResponseStatus (\ s a -> s{_gaersResponseStatus = a})
+-- | The response's http status code.
+getAutomationExecutionResponse_httpStatus :: Lens.Lens' GetAutomationExecutionResponse Prelude.Int
+getAutomationExecutionResponse_httpStatus = Lens.lens (\GetAutomationExecutionResponse' {httpStatus} -> httpStatus) (\s@GetAutomationExecutionResponse' {} a -> s {httpStatus = a} :: GetAutomationExecutionResponse)
 
-instance NFData GetAutomationExecutionResponse where
+instance
+  Prelude.NFData
+    GetAutomationExecutionResponse

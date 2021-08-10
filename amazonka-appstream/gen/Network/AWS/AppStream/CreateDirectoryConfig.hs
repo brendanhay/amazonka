@@ -1,162 +1,202 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateDirectoryConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a directory configuration.
---
---
+-- Creates a Directory Config object in AppStream 2.0. This object includes
+-- the configuration information required to join fleets and image builders
+-- to Microsoft Active Directory domains.
 module Network.AWS.AppStream.CreateDirectoryConfig
-    (
-    -- * Creating a Request
-      createDirectoryConfig
-    , CreateDirectoryConfig
+  ( -- * Creating a Request
+    CreateDirectoryConfig (..),
+    newCreateDirectoryConfig,
+
     -- * Request Lenses
-    , cdcDirectoryName
-    , cdcOrganizationalUnitDistinguishedNames
-    , cdcServiceAccountCredentials
+    createDirectoryConfig_serviceAccountCredentials,
+    createDirectoryConfig_directoryName,
+    createDirectoryConfig_organizationalUnitDistinguishedNames,
 
     -- * Destructuring the Response
-    , createDirectoryConfigResponse
-    , CreateDirectoryConfigResponse
+    CreateDirectoryConfigResponse (..),
+    newCreateDirectoryConfigResponse,
+
     -- * Response Lenses
-    , cdcrsDirectoryConfig
-    , cdcrsResponseStatus
-    ) where
+    createDirectoryConfigResponse_directoryConfig,
+    createDirectoryConfigResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDirectoryConfig' smart constructor.
+-- | /See:/ 'newCreateDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { _cdcDirectoryName                        :: !Text
-  , _cdcOrganizationalUnitDistinguishedNames :: ![Text]
-  , _cdcServiceAccountCredentials            :: !ServiceAccountCredentials
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The credentials for the service account used by the fleet or image
+    -- builder to connect to the directory.
+    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
+    -- | The fully qualified name of the directory (for example,
+    -- corp.example.com).
+    directoryName :: Prelude.Text,
+    -- | The distinguished names of the organizational units for computer
+    -- accounts.
+    organizationalUnitDistinguishedNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDirectoryConfig' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDirectoryConfig' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdcDirectoryName' - The fully qualified name of the directory (for example, corp.example.com).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
+-- 'serviceAccountCredentials', 'createDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
 --
--- * 'cdcServiceAccountCredentials' - The credentials for the service account used by the streaming instance to connect to the directory.
-createDirectoryConfig
-    :: Text -- ^ 'cdcDirectoryName'
-    -> ServiceAccountCredentials -- ^ 'cdcServiceAccountCredentials'
-    -> CreateDirectoryConfig
-createDirectoryConfig pDirectoryName_ pServiceAccountCredentials_ =
+-- 'directoryName', 'createDirectoryConfig_directoryName' - The fully qualified name of the directory (for example,
+-- corp.example.com).
+--
+-- 'organizationalUnitDistinguishedNames', 'createDirectoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
+-- accounts.
+newCreateDirectoryConfig ::
+  -- | 'directoryName'
+  Prelude.Text ->
+  CreateDirectoryConfig
+newCreateDirectoryConfig pDirectoryName_ =
   CreateDirectoryConfig'
-    { _cdcDirectoryName = pDirectoryName_
-    , _cdcOrganizationalUnitDistinguishedNames = mempty
-    , _cdcServiceAccountCredentials = pServiceAccountCredentials_
+    { serviceAccountCredentials =
+        Prelude.Nothing,
+      directoryName = pDirectoryName_,
+      organizationalUnitDistinguishedNames =
+        Prelude.mempty
     }
 
+-- | The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
+createDirectoryConfig_serviceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+createDirectoryConfig_serviceAccountCredentials = Lens.lens (\CreateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@CreateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
 
--- | The fully qualified name of the directory (for example, corp.example.com).
-cdcDirectoryName :: Lens' CreateDirectoryConfig Text
-cdcDirectoryName = lens _cdcDirectoryName (\ s a -> s{_cdcDirectoryName = a})
+-- | The fully qualified name of the directory (for example,
+-- corp.example.com).
+createDirectoryConfig_directoryName :: Lens.Lens' CreateDirectoryConfig Prelude.Text
+createDirectoryConfig_directoryName = Lens.lens (\CreateDirectoryConfig' {directoryName} -> directoryName) (\s@CreateDirectoryConfig' {} a -> s {directoryName = a} :: CreateDirectoryConfig)
 
--- | The distinguished names of the organizational units for computer accounts.
-cdcOrganizationalUnitDistinguishedNames :: Lens' CreateDirectoryConfig [Text]
-cdcOrganizationalUnitDistinguishedNames = lens _cdcOrganizationalUnitDistinguishedNames (\ s a -> s{_cdcOrganizationalUnitDistinguishedNames = a}) . _Coerce
+-- | The distinguished names of the organizational units for computer
+-- accounts.
+createDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Prelude.Text]
+createDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\CreateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@CreateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig) Prelude.. Lens._Coerce
 
--- | The credentials for the service account used by the streaming instance to connect to the directory.
-cdcServiceAccountCredentials :: Lens' CreateDirectoryConfig ServiceAccountCredentials
-cdcServiceAccountCredentials = lens _cdcServiceAccountCredentials (\ s a -> s{_cdcServiceAccountCredentials = a})
+instance Core.AWSRequest CreateDirectoryConfig where
+  type
+    AWSResponse CreateDirectoryConfig =
+      CreateDirectoryConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDirectoryConfigResponse'
+            Prelude.<$> (x Core..?> "DirectoryConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateDirectoryConfig where
-        type Rs CreateDirectoryConfig =
-             CreateDirectoryConfigResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDirectoryConfigResponse' <$>
-                   (x .?> "DirectoryConfig") <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateDirectoryConfig
 
-instance Hashable CreateDirectoryConfig where
+instance Prelude.NFData CreateDirectoryConfig
 
-instance NFData CreateDirectoryConfig where
+instance Core.ToHeaders CreateDirectoryConfig where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders CreateDirectoryConfig where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.CreateDirectoryConfig" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON CreateDirectoryConfig where
+  toJSON CreateDirectoryConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ServiceAccountCredentials" Core..=)
+              Prelude.<$> serviceAccountCredentials,
+            Prelude.Just ("DirectoryName" Core..= directoryName),
+            Prelude.Just
+              ( "OrganizationalUnitDistinguishedNames"
+                  Core..= organizationalUnitDistinguishedNames
+              )
+          ]
+      )
 
-instance ToJSON CreateDirectoryConfig where
-        toJSON CreateDirectoryConfig'{..}
-          = object
-              (catMaybes
-                 [Just ("DirectoryName" .= _cdcDirectoryName),
-                  Just
-                    ("OrganizationalUnitDistinguishedNames" .=
-                       _cdcOrganizationalUnitDistinguishedNames),
-                  Just
-                    ("ServiceAccountCredentials" .=
-                       _cdcServiceAccountCredentials)])
+instance Core.ToPath CreateDirectoryConfig where
+  toPath = Prelude.const "/"
 
-instance ToPath CreateDirectoryConfig where
-        toPath = const "/"
+instance Core.ToQuery CreateDirectoryConfig where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery CreateDirectoryConfig where
-        toQuery = const mempty
-
--- | /See:/ 'createDirectoryConfigResponse' smart constructor.
+-- | /See:/ 'newCreateDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
-  { _cdcrsDirectoryConfig :: !(Maybe DirectoryConfig)
-  , _cdcrsResponseStatus  :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Information about the directory configuration.
+    directoryConfig :: Prelude.Maybe DirectoryConfig,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDirectoryConfigResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDirectoryConfigResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdcrsDirectoryConfig' - Information about the directory configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDirectoryConfigResponse
-    :: Int -- ^ 'cdcrsResponseStatus'
-    -> CreateDirectoryConfigResponse
-createDirectoryConfigResponse pResponseStatus_ =
+-- 'directoryConfig', 'createDirectoryConfigResponse_directoryConfig' - Information about the directory configuration.
+--
+-- 'httpStatus', 'createDirectoryConfigResponse_httpStatus' - The response's http status code.
+newCreateDirectoryConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDirectoryConfigResponse
+newCreateDirectoryConfigResponse pHttpStatus_ =
   CreateDirectoryConfigResponse'
-    {_cdcrsDirectoryConfig = Nothing, _cdcrsResponseStatus = pResponseStatus_}
-
+    { directoryConfig =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the directory configuration.
-cdcrsDirectoryConfig :: Lens' CreateDirectoryConfigResponse (Maybe DirectoryConfig)
-cdcrsDirectoryConfig = lens _cdcrsDirectoryConfig (\ s a -> s{_cdcrsDirectoryConfig = a})
+createDirectoryConfigResponse_directoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Prelude.Maybe DirectoryConfig)
+createDirectoryConfigResponse_directoryConfig = Lens.lens (\CreateDirectoryConfigResponse' {directoryConfig} -> directoryConfig) (\s@CreateDirectoryConfigResponse' {} a -> s {directoryConfig = a} :: CreateDirectoryConfigResponse)
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDirectoryConfigResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a})
+-- | The response's http status code.
+createDirectoryConfigResponse_httpStatus :: Lens.Lens' CreateDirectoryConfigResponse Prelude.Int
+createDirectoryConfigResponse_httpStatus = Lens.lens (\CreateDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryConfigResponse' {} a -> s {httpStatus = a} :: CreateDirectoryConfigResponse)
 
-instance NFData CreateDirectoryConfigResponse where
+instance Prelude.NFData CreateDirectoryConfigResponse

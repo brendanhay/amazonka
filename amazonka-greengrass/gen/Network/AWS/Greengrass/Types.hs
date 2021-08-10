@@ -1,317 +1,519 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Greengrass.Types
-    (
-    -- * Service Configuration
-      greengrass
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InternalServerErrorException
-    , _BadRequestException
+    _BadRequestException,
+    _InternalServerErrorException,
+
+    -- * BulkDeploymentStatus
+    BulkDeploymentStatus (..),
+
+    -- * ConfigurationSyncStatus
+    ConfigurationSyncStatus (..),
 
     -- * DeploymentType
-    , DeploymentType (..)
+    DeploymentType (..),
 
     -- * EncodingType
-    , EncodingType (..)
+    EncodingType (..),
+
+    -- * FunctionIsolationMode
+    FunctionIsolationMode (..),
 
     -- * LoggerComponent
-    , LoggerComponent (..)
+    LoggerComponent (..),
 
     -- * LoggerLevel
-    , LoggerLevel (..)
+    LoggerLevel (..),
 
     -- * LoggerType
-    , LoggerType (..)
+    LoggerType (..),
 
     -- * Permission
-    , Permission (..)
+    Permission (..),
 
     -- * SoftwareToUpdate
-    , SoftwareToUpdate (..)
+    SoftwareToUpdate (..),
+
+    -- * Telemetry
+    Telemetry (..),
 
     -- * UpdateAgentLogLevel
-    , UpdateAgentLogLevel (..)
+    UpdateAgentLogLevel (..),
 
     -- * UpdateTargetsArchitecture
-    , UpdateTargetsArchitecture (..)
+    UpdateTargetsArchitecture (..),
 
     -- * UpdateTargetsOperatingSystem
-    , UpdateTargetsOperatingSystem (..)
+    UpdateTargetsOperatingSystem (..),
+
+    -- * BulkDeployment
+    BulkDeployment (..),
+    newBulkDeployment,
+    bulkDeployment_bulkDeploymentId,
+    bulkDeployment_createdAt,
+    bulkDeployment_bulkDeploymentArn,
+
+    -- * BulkDeploymentMetrics
+    BulkDeploymentMetrics (..),
+    newBulkDeploymentMetrics,
+    bulkDeploymentMetrics_recordsProcessed,
+    bulkDeploymentMetrics_retryAttempts,
+    bulkDeploymentMetrics_invalidInputRecords,
+
+    -- * BulkDeploymentResult
+    BulkDeploymentResult (..),
+    newBulkDeploymentResult,
+    bulkDeploymentResult_deploymentId,
+    bulkDeploymentResult_deploymentType,
+    bulkDeploymentResult_deploymentStatus,
+    bulkDeploymentResult_createdAt,
+    bulkDeploymentResult_deploymentArn,
+    bulkDeploymentResult_errorMessage,
+    bulkDeploymentResult_groupArn,
+    bulkDeploymentResult_errorDetails,
 
     -- * ConnectivityInfo
-    , ConnectivityInfo
-    , connectivityInfo
-    , ciPortNumber
-    , ciId
-    , ciMetadata
-    , ciHostAddress
+    ConnectivityInfo (..),
+    newConnectivityInfo,
+    connectivityInfo_id,
+    connectivityInfo_metadata,
+    connectivityInfo_portNumber,
+    connectivityInfo_hostAddress,
+
+    -- * Connector
+    Connector (..),
+    newConnector,
+    connector_parameters,
+    connector_connectorArn,
+    connector_id,
+
+    -- * ConnectorDefinitionVersion
+    ConnectorDefinitionVersion (..),
+    newConnectorDefinitionVersion,
+    connectorDefinitionVersion_connectors,
 
     -- * Core
-    , Core
-    , core
-    , cCertificateARN
-    , cThingARN
-    , cSyncShadow
-    , cId
+    Core (..),
+    newCore,
+    core_syncShadow,
+    core_thingArn,
+    core_id,
+    core_certificateArn,
 
     -- * CoreDefinitionVersion
-    , CoreDefinitionVersion
-    , coreDefinitionVersion
-    , cdvCores
+    CoreDefinitionVersion (..),
+    newCoreDefinitionVersion,
+    coreDefinitionVersion_cores,
 
     -- * DefinitionInformation
-    , DefinitionInformation
-    , definitionInformation
-    , diLatestVersionARN
-    , diARN
-    , diName
-    , diCreationTimestamp
-    , diId
-    , diLatestVersion
-    , diLastUpdatedTimestamp
+    DefinitionInformation (..),
+    newDefinitionInformation,
+    definitionInformation_creationTimestamp,
+    definitionInformation_latestVersionArn,
+    definitionInformation_latestVersion,
+    definitionInformation_arn,
+    definitionInformation_id,
+    definitionInformation_name,
+    definitionInformation_tags,
+    definitionInformation_lastUpdatedTimestamp,
 
     -- * Deployment
-    , Deployment
-    , deployment
-    , dDeploymentId
-    , dDeploymentARN
-    , dCreatedAt
-    , dDeploymentType
-    , dGroupARN
+    Deployment (..),
+    newDeployment,
+    deployment_deploymentId,
+    deployment_deploymentType,
+    deployment_createdAt,
+    deployment_deploymentArn,
+    deployment_groupArn,
 
     -- * Device
-    , Device
-    , device
-    , dCertificateARN
-    , dThingARN
-    , dSyncShadow
-    , dId
+    Device (..),
+    newDevice,
+    device_syncShadow,
+    device_thingArn,
+    device_id,
+    device_certificateArn,
 
     -- * DeviceDefinitionVersion
-    , DeviceDefinitionVersion
-    , deviceDefinitionVersion
-    , ddvDevices
+    DeviceDefinitionVersion (..),
+    newDeviceDefinitionVersion,
+    deviceDefinitionVersion_devices,
 
     -- * ErrorDetail
-    , ErrorDetail
-    , errorDetail
-    , edDetailedErrorCode
-    , edDetailedErrorMessage
+    ErrorDetail (..),
+    newErrorDetail,
+    errorDetail_detailedErrorMessage,
+    errorDetail_detailedErrorCode,
 
     -- * Function
-    , Function
-    , function
-    , fFunctionARN
-    , fFunctionConfiguration
-    , fId
+    Function (..),
+    newFunction,
+    function_functionConfiguration,
+    function_functionArn,
+    function_id,
 
     -- * FunctionConfiguration
-    , FunctionConfiguration
-    , functionConfiguration
-    , fcMemorySize
-    , fcExecArgs
-    , fcEnvironment
-    , fcExecutable
-    , fcPinned
-    , fcEncodingType
-    , fcTimeout
+    FunctionConfiguration (..),
+    newFunctionConfiguration,
+    functionConfiguration_execArgs,
+    functionConfiguration_memorySize,
+    functionConfiguration_timeout,
+    functionConfiguration_encodingType,
+    functionConfiguration_pinned,
+    functionConfiguration_executable,
+    functionConfiguration_environment,
 
     -- * FunctionConfigurationEnvironment
-    , FunctionConfigurationEnvironment
-    , functionConfigurationEnvironment
-    , fceVariables
-    , fceResourceAccessPolicies
-    , fceAccessSysfs
+    FunctionConfigurationEnvironment (..),
+    newFunctionConfigurationEnvironment,
+    functionConfigurationEnvironment_accessSysfs,
+    functionConfigurationEnvironment_variables,
+    functionConfigurationEnvironment_execution,
+    functionConfigurationEnvironment_resourceAccessPolicies,
+
+    -- * FunctionDefaultConfig
+    FunctionDefaultConfig (..),
+    newFunctionDefaultConfig,
+    functionDefaultConfig_execution,
+
+    -- * FunctionDefaultExecutionConfig
+    FunctionDefaultExecutionConfig (..),
+    newFunctionDefaultExecutionConfig,
+    functionDefaultExecutionConfig_isolationMode,
+    functionDefaultExecutionConfig_runAs,
 
     -- * FunctionDefinitionVersion
-    , FunctionDefinitionVersion
-    , functionDefinitionVersion
-    , fdvFunctions
+    FunctionDefinitionVersion (..),
+    newFunctionDefinitionVersion,
+    functionDefinitionVersion_functions,
+    functionDefinitionVersion_defaultConfig,
+
+    -- * FunctionExecutionConfig
+    FunctionExecutionConfig (..),
+    newFunctionExecutionConfig,
+    functionExecutionConfig_isolationMode,
+    functionExecutionConfig_runAs,
+
+    -- * FunctionRunAsConfig
+    FunctionRunAsConfig (..),
+    newFunctionRunAsConfig,
+    functionRunAsConfig_gid,
+    functionRunAsConfig_uid,
 
     -- * GreengrassLogger
-    , GreengrassLogger
-    , greengrassLogger
-    , glSpace
-    , glComponent
-    , glId
-    , glType
-    , glLevel
+    GreengrassLogger (..),
+    newGreengrassLogger,
+    greengrassLogger_space,
+    greengrassLogger_type,
+    greengrassLogger_level,
+    greengrassLogger_id,
+    greengrassLogger_component,
 
     -- * GroupCertificateAuthorityProperties
-    , GroupCertificateAuthorityProperties
-    , groupCertificateAuthorityProperties
-    , gcapGroupCertificateAuthorityARN
-    , gcapGroupCertificateAuthorityId
+    GroupCertificateAuthorityProperties (..),
+    newGroupCertificateAuthorityProperties,
+    groupCertificateAuthorityProperties_groupCertificateAuthorityArn,
+    groupCertificateAuthorityProperties_groupCertificateAuthorityId,
 
     -- * GroupInformation
-    , GroupInformation
-    , groupInformation
-    , giLatestVersionARN
-    , giARN
-    , giName
-    , giCreationTimestamp
-    , giId
-    , giLatestVersion
-    , giLastUpdatedTimestamp
+    GroupInformation (..),
+    newGroupInformation,
+    groupInformation_creationTimestamp,
+    groupInformation_latestVersionArn,
+    groupInformation_latestVersion,
+    groupInformation_arn,
+    groupInformation_id,
+    groupInformation_name,
+    groupInformation_lastUpdatedTimestamp,
 
     -- * GroupOwnerSetting
-    , GroupOwnerSetting
-    , groupOwnerSetting
-    , gosAutoAddGroupOwner
-    , gosGroupOwner
+    GroupOwnerSetting (..),
+    newGroupOwnerSetting,
+    groupOwnerSetting_groupOwner,
+    groupOwnerSetting_autoAddGroupOwner,
 
     -- * GroupVersion
-    , GroupVersion
-    , groupVersion
-    , gvResourceDefinitionVersionARN
-    , gvSubscriptionDefinitionVersionARN
-    , gvCoreDefinitionVersionARN
-    , gvDeviceDefinitionVersionARN
-    , gvFunctionDefinitionVersionARN
-    , gvLoggerDefinitionVersionARN
+    GroupVersion (..),
+    newGroupVersion,
+    groupVersion_coreDefinitionVersionArn,
+    groupVersion_connectorDefinitionVersionArn,
+    groupVersion_subscriptionDefinitionVersionArn,
+    groupVersion_loggerDefinitionVersionArn,
+    groupVersion_resourceDefinitionVersionArn,
+    groupVersion_functionDefinitionVersionArn,
+    groupVersion_deviceDefinitionVersionArn,
 
     -- * LocalDeviceResourceData
-    , LocalDeviceResourceData
-    , localDeviceResourceData
-    , ldrdGroupOwnerSetting
-    , ldrdSourcePath
+    LocalDeviceResourceData (..),
+    newLocalDeviceResourceData,
+    localDeviceResourceData_sourcePath,
+    localDeviceResourceData_groupOwnerSetting,
 
     -- * LocalVolumeResourceData
-    , LocalVolumeResourceData
-    , localVolumeResourceData
-    , lvrdGroupOwnerSetting
-    , lvrdDestinationPath
-    , lvrdSourcePath
+    LocalVolumeResourceData (..),
+    newLocalVolumeResourceData,
+    localVolumeResourceData_destinationPath,
+    localVolumeResourceData_sourcePath,
+    localVolumeResourceData_groupOwnerSetting,
 
     -- * LoggerDefinitionVersion
-    , LoggerDefinitionVersion
-    , loggerDefinitionVersion
-    , ldvLoggers
+    LoggerDefinitionVersion (..),
+    newLoggerDefinitionVersion,
+    loggerDefinitionVersion_loggers,
 
     -- * Resource
-    , Resource
-    , resource
-    , rResourceDataContainer
-    , rName
-    , rId
+    Resource (..),
+    newResource,
+    resource_resourceDataContainer,
+    resource_id,
+    resource_name,
 
     -- * ResourceAccessPolicy
-    , ResourceAccessPolicy
-    , resourceAccessPolicy
-    , rapResourceId
-    , rapPermission
+    ResourceAccessPolicy (..),
+    newResourceAccessPolicy,
+    resourceAccessPolicy_permission,
+    resourceAccessPolicy_resourceId,
 
     -- * ResourceDataContainer
-    , ResourceDataContainer
-    , resourceDataContainer
-    , rdcS3MachineLearningModelResourceData
-    , rdcSageMakerMachineLearningModelResourceData
-    , rdcLocalVolumeResourceData
-    , rdcLocalDeviceResourceData
+    ResourceDataContainer (..),
+    newResourceDataContainer,
+    resourceDataContainer_localVolumeResourceData,
+    resourceDataContainer_localDeviceResourceData,
+    resourceDataContainer_sageMakerMachineLearningModelResourceData,
+    resourceDataContainer_s3MachineLearningModelResourceData,
+    resourceDataContainer_secretsManagerSecretResourceData,
 
     -- * ResourceDefinitionVersion
-    , ResourceDefinitionVersion
-    , resourceDefinitionVersion
-    , rdvResources
+    ResourceDefinitionVersion (..),
+    newResourceDefinitionVersion,
+    resourceDefinitionVersion_resources,
+
+    -- * ResourceDownloadOwnerSetting
+    ResourceDownloadOwnerSetting (..),
+    newResourceDownloadOwnerSetting,
+    resourceDownloadOwnerSetting_groupOwner,
+    resourceDownloadOwnerSetting_groupPermission,
+
+    -- * RuntimeConfiguration
+    RuntimeConfiguration (..),
+    newRuntimeConfiguration,
+    runtimeConfiguration_telemetryConfiguration,
 
     -- * S3MachineLearningModelResourceData
-    , S3MachineLearningModelResourceData
-    , s3MachineLearningModelResourceData
-    , smlmrdDestinationPath
-    , smlmrdS3URI
+    S3MachineLearningModelResourceData (..),
+    newS3MachineLearningModelResourceData,
+    s3MachineLearningModelResourceData_ownerSetting,
+    s3MachineLearningModelResourceData_destinationPath,
+    s3MachineLearningModelResourceData_s3Uri,
 
     -- * SageMakerMachineLearningModelResourceData
-    , SageMakerMachineLearningModelResourceData
-    , sageMakerMachineLearningModelResourceData
-    , smmlmrdSageMakerJobARN
-    , smmlmrdDestinationPath
+    SageMakerMachineLearningModelResourceData (..),
+    newSageMakerMachineLearningModelResourceData,
+    sageMakerMachineLearningModelResourceData_ownerSetting,
+    sageMakerMachineLearningModelResourceData_destinationPath,
+    sageMakerMachineLearningModelResourceData_sageMakerJobArn,
+
+    -- * SecretsManagerSecretResourceData
+    SecretsManagerSecretResourceData (..),
+    newSecretsManagerSecretResourceData,
+    secretsManagerSecretResourceData_arn,
+    secretsManagerSecretResourceData_additionalStagingLabelsToDownload,
 
     -- * Subscription
-    , Subscription
-    , subscription
-    , sSubject
-    , sSource
-    , sId
-    , sTarget
+    Subscription (..),
+    newSubscription,
+    subscription_target,
+    subscription_id,
+    subscription_subject,
+    subscription_source,
 
     -- * SubscriptionDefinitionVersion
-    , SubscriptionDefinitionVersion
-    , subscriptionDefinitionVersion
-    , sdvSubscriptions
+    SubscriptionDefinitionVersion (..),
+    newSubscriptionDefinitionVersion,
+    subscriptionDefinitionVersion_subscriptions,
+
+    -- * TelemetryConfiguration
+    TelemetryConfiguration (..),
+    newTelemetryConfiguration,
+    telemetryConfiguration_configurationSyncStatus,
+    telemetryConfiguration_telemetry,
+
+    -- * TelemetryConfigurationUpdate
+    TelemetryConfigurationUpdate (..),
+    newTelemetryConfigurationUpdate,
+    telemetryConfigurationUpdate_telemetry,
 
     -- * VersionInformation
-    , VersionInformation
-    , versionInformation
-    , viARN
-    , viCreationTimestamp
-    , viVersion
-    , viId
-    ) where
+    VersionInformation (..),
+    newVersionInformation,
+    versionInformation_creationTimestamp,
+    versionInformation_arn,
+    versionInformation_id,
+    versionInformation_version,
+  )
+where
 
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Greengrass.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import Network.AWS.Greengrass.Types.BulkDeployment
+import Network.AWS.Greengrass.Types.BulkDeploymentMetrics
+import Network.AWS.Greengrass.Types.BulkDeploymentResult
+import Network.AWS.Greengrass.Types.BulkDeploymentStatus
+import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
+import Network.AWS.Greengrass.Types.ConnectivityInfo
+import Network.AWS.Greengrass.Types.Connector
+import Network.AWS.Greengrass.Types.ConnectorDefinitionVersion
+import Network.AWS.Greengrass.Types.Core
+import Network.AWS.Greengrass.Types.CoreDefinitionVersion
+import Network.AWS.Greengrass.Types.DefinitionInformation
+import Network.AWS.Greengrass.Types.Deployment
+import Network.AWS.Greengrass.Types.DeploymentType
+import Network.AWS.Greengrass.Types.Device
+import Network.AWS.Greengrass.Types.DeviceDefinitionVersion
+import Network.AWS.Greengrass.Types.EncodingType
+import Network.AWS.Greengrass.Types.ErrorDetail
+import Network.AWS.Greengrass.Types.Function
+import Network.AWS.Greengrass.Types.FunctionConfiguration
+import Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment
+import Network.AWS.Greengrass.Types.FunctionDefaultConfig
+import Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig
+import Network.AWS.Greengrass.Types.FunctionDefinitionVersion
+import Network.AWS.Greengrass.Types.FunctionExecutionConfig
+import Network.AWS.Greengrass.Types.FunctionIsolationMode
+import Network.AWS.Greengrass.Types.FunctionRunAsConfig
+import Network.AWS.Greengrass.Types.GreengrassLogger
+import Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties
+import Network.AWS.Greengrass.Types.GroupInformation
+import Network.AWS.Greengrass.Types.GroupOwnerSetting
+import Network.AWS.Greengrass.Types.GroupVersion
+import Network.AWS.Greengrass.Types.LocalDeviceResourceData
+import Network.AWS.Greengrass.Types.LocalVolumeResourceData
+import Network.AWS.Greengrass.Types.LoggerComponent
+import Network.AWS.Greengrass.Types.LoggerDefinitionVersion
+import Network.AWS.Greengrass.Types.LoggerLevel
+import Network.AWS.Greengrass.Types.LoggerType
+import Network.AWS.Greengrass.Types.Permission
+import Network.AWS.Greengrass.Types.Resource
+import Network.AWS.Greengrass.Types.ResourceAccessPolicy
+import Network.AWS.Greengrass.Types.ResourceDataContainer
+import Network.AWS.Greengrass.Types.ResourceDefinitionVersion
+import Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
+import Network.AWS.Greengrass.Types.RuntimeConfiguration
+import Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData
+import Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
+import Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
+import Network.AWS.Greengrass.Types.SoftwareToUpdate
+import Network.AWS.Greengrass.Types.Subscription
+import Network.AWS.Greengrass.Types.SubscriptionDefinitionVersion
+import Network.AWS.Greengrass.Types.Telemetry
+import Network.AWS.Greengrass.Types.TelemetryConfiguration
+import Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate
+import Network.AWS.Greengrass.Types.UpdateAgentLogLevel
+import Network.AWS.Greengrass.Types.UpdateTargetsArchitecture
+import Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem
+import Network.AWS.Greengrass.Types.VersionInformation
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-06-07@ of the Amazon Greengrass SDK configuration.
-greengrass :: Service
-greengrass =
-  Service
-    { _svcAbbrev = "Greengrass"
-    , _svcSigner = v4
-    , _svcPrefix = "greengrass"
-    , _svcVersion = "2017-06-07"
-    , _svcEndpoint = defaultEndpoint greengrass
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Greengrass"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "Greengrass",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "greengrass",
+      Core._serviceSigningName = "greengrass",
+      Core._serviceVersion = "2017-06-07",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Greengrass",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | General error information.
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerErrorException =
-  _MatchServiceError greengrass "InternalServerErrorException" . hasStatus 500
-
-
--- | General error information.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
-  _MatchServiceError greengrass "BadRequestException" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
+-- | General error information.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500

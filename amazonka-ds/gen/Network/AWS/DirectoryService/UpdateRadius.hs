@@ -1,143 +1,172 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector directory.
---
---
+-- Updates the Remote Authentication Dial In User Service (RADIUS) server
+-- information for an AD Connector or Microsoft AD directory.
 module Network.AWS.DirectoryService.UpdateRadius
-    (
-    -- * Creating a Request
-      updateRadius
-    , UpdateRadius
+  ( -- * Creating a Request
+    UpdateRadius (..),
+    newUpdateRadius,
+
     -- * Request Lenses
-    , urDirectoryId
-    , urRadiusSettings
+    updateRadius_directoryId,
+    updateRadius_radiusSettings,
 
     -- * Destructuring the Response
-    , updateRadiusResponse
-    , UpdateRadiusResponse
+    UpdateRadiusResponse (..),
+    newUpdateRadiusResponse,
+
     -- * Response Lenses
-    , urrsResponseStatus
-    ) where
+    updateRadiusResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'UpdateRadius' operation.
+-- | Contains the inputs for the UpdateRadius operation.
 --
---
---
--- /See:/ 'updateRadius' smart constructor.
+-- /See:/ 'newUpdateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
-  { _urDirectoryId    :: !Text
-  , _urRadiusSettings :: !RadiusSettings
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The identifier of the directory for which to update the RADIUS server
+    -- information.
+    directoryId :: Prelude.Text,
+    -- | A RadiusSettings object that contains information about the RADIUS
+    -- server.
+    radiusSettings :: RadiusSettings
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateRadius' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urDirectoryId' - The identifier of the directory for which to update the RADIUS server information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
-updateRadius
-    :: Text -- ^ 'urDirectoryId'
-    -> RadiusSettings -- ^ 'urRadiusSettings'
-    -> UpdateRadius
-updateRadius pDirectoryId_ pRadiusSettings_ =
+-- 'directoryId', 'updateRadius_directoryId' - The identifier of the directory for which to update the RADIUS server
+-- information.
+--
+-- 'radiusSettings', 'updateRadius_radiusSettings' - A RadiusSettings object that contains information about the RADIUS
+-- server.
+newUpdateRadius ::
+  -- | 'directoryId'
+  Prelude.Text ->
+  -- | 'radiusSettings'
+  RadiusSettings ->
+  UpdateRadius
+newUpdateRadius pDirectoryId_ pRadiusSettings_ =
   UpdateRadius'
-    {_urDirectoryId = pDirectoryId_, _urRadiusSettings = pRadiusSettings_}
+    { directoryId = pDirectoryId_,
+      radiusSettings = pRadiusSettings_
+    }
 
+-- | The identifier of the directory for which to update the RADIUS server
+-- information.
+updateRadius_directoryId :: Lens.Lens' UpdateRadius Prelude.Text
+updateRadius_directoryId = Lens.lens (\UpdateRadius' {directoryId} -> directoryId) (\s@UpdateRadius' {} a -> s {directoryId = a} :: UpdateRadius)
 
--- | The identifier of the directory for which to update the RADIUS server information.
-urDirectoryId :: Lens' UpdateRadius Text
-urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a})
+-- | A RadiusSettings object that contains information about the RADIUS
+-- server.
+updateRadius_radiusSettings :: Lens.Lens' UpdateRadius RadiusSettings
+updateRadius_radiusSettings = Lens.lens (\UpdateRadius' {radiusSettings} -> radiusSettings) (\s@UpdateRadius' {} a -> s {radiusSettings = a} :: UpdateRadius)
 
--- | A 'RadiusSettings' object that contains information about the RADIUS server.
-urRadiusSettings :: Lens' UpdateRadius RadiusSettings
-urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a})
+instance Core.AWSRequest UpdateRadius where
+  type AWSResponse UpdateRadius = UpdateRadiusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateRadiusResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateRadius where
-        type Rs UpdateRadius = UpdateRadiusResponse
-        request = postJSON directoryService
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateRadiusResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable UpdateRadius
 
-instance Hashable UpdateRadius where
+instance Prelude.NFData UpdateRadius
 
-instance NFData UpdateRadius where
+instance Core.ToHeaders UpdateRadius where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.UpdateRadius" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateRadius where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.UpdateRadius" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateRadius where
+  toJSON UpdateRadius' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
+              ("RadiusSettings" Core..= radiusSettings)
+          ]
+      )
 
-instance ToJSON UpdateRadius where
-        toJSON UpdateRadius'{..}
-          = object
-              (catMaybes
-                 [Just ("DirectoryId" .= _urDirectoryId),
-                  Just ("RadiusSettings" .= _urRadiusSettings)])
+instance Core.ToPath UpdateRadius where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateRadius where
-        toPath = const "/"
+instance Core.ToQuery UpdateRadius where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateRadius where
-        toQuery = const mempty
-
--- | Contains the results of the 'UpdateRadius' operation.
+-- | Contains the results of the UpdateRadius operation.
 --
+-- /See:/ 'newUpdateRadiusResponse' smart constructor.
+data UpdateRadiusResponse = UpdateRadiusResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateRadiusResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'updateRadiusResponse' smart constructor.
-newtype UpdateRadiusResponse = UpdateRadiusResponse'
-  { _urrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRadiusResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UpdateRadiusResponse
-updateRadiusResponse pResponseStatus_ =
-  UpdateRadiusResponse' {_urrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'updateRadiusResponse_httpStatus' - The response's http status code.
+newUpdateRadiusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateRadiusResponse
+newUpdateRadiusResponse pHttpStatus_ =
+  UpdateRadiusResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateRadiusResponse_httpStatus :: Lens.Lens' UpdateRadiusResponse Prelude.Int
+updateRadiusResponse_httpStatus = Lens.lens (\UpdateRadiusResponse' {httpStatus} -> httpStatus) (\s@UpdateRadiusResponse' {} a -> s {httpStatus = a} :: UpdateRadiusResponse)
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRadiusResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
-
-instance NFData UpdateRadiusResponse where
+instance Prelude.NFData UpdateRadiusResponse

@@ -1,145 +1,266 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new instance profile. For information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
+-- Creates a new instance profile. For information about instance profiles,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities About instance profiles>.
 --
---
--- For information about the number of instance profiles you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
---
+-- For information about the number of instance profiles you can create,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html IAM object quotas>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.CreateInstanceProfile
-    (
-    -- * Creating a Request
-      createInstanceProfile
-    , CreateInstanceProfile
+  ( -- * Creating a Request
+    CreateInstanceProfile (..),
+    newCreateInstanceProfile,
+
     -- * Request Lenses
-    , cipPath
-    , cipInstanceProfileName
+    createInstanceProfile_tags,
+    createInstanceProfile_path,
+    createInstanceProfile_instanceProfileName,
 
     -- * Destructuring the Response
-    , createInstanceProfileResponse
-    , CreateInstanceProfileResponse
+    CreateInstanceProfileResponse (..),
+    newCreateInstanceProfileResponse,
+
     -- * Response Lenses
-    , ciprsResponseStatus
-    , ciprsInstanceProfile
-    ) where
+    createInstanceProfileResponse_httpStatus,
+    createInstanceProfileResponse_instanceProfile,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createInstanceProfile' smart constructor.
+-- | /See:/ 'newCreateInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { _cipPath                :: !(Maybe Text)
-  , _cipInstanceProfileName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of tags that you want to attach to the newly created IAM instance
+    -- profile. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The path to the instance profile. For more information about paths, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+    -- in the /IAM User Guide/.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/).
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The name of the instance profile to create.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    instanceProfileName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateInstanceProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cipPath' - The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cipInstanceProfileName' - The name of the instance profile to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-createInstanceProfile
-    :: Text -- ^ 'cipInstanceProfileName'
-    -> CreateInstanceProfile
-createInstanceProfile pInstanceProfileName_ =
+-- 'tags', 'createInstanceProfile_tags' - A list of tags that you want to attach to the newly created IAM instance
+-- profile. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+--
+-- 'path', 'createInstanceProfile_path' - The path to the instance profile. For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+--
+-- 'instanceProfileName', 'createInstanceProfile_instanceProfileName' - The name of the instance profile to create.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+newCreateInstanceProfile ::
+  -- | 'instanceProfileName'
+  Prelude.Text ->
+  CreateInstanceProfile
+newCreateInstanceProfile pInstanceProfileName_ =
   CreateInstanceProfile'
-    {_cipPath = Nothing, _cipInstanceProfileName = pInstanceProfileName_}
-
-
--- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
-cipPath :: Lens' CreateInstanceProfile (Maybe Text)
-cipPath = lens _cipPath (\ s a -> s{_cipPath = a})
-
--- | The name of the instance profile to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-cipInstanceProfileName :: Lens' CreateInstanceProfile Text
-cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a})
-
-instance AWSRequest CreateInstanceProfile where
-        type Rs CreateInstanceProfile =
-             CreateInstanceProfileResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "CreateInstanceProfileResult"
-              (\ s h x ->
-                 CreateInstanceProfileResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
-
-instance Hashable CreateInstanceProfile where
-
-instance NFData CreateInstanceProfile where
-
-instance ToHeaders CreateInstanceProfile where
-        toHeaders = const mempty
-
-instance ToPath CreateInstanceProfile where
-        toPath = const "/"
-
-instance ToQuery CreateInstanceProfile where
-        toQuery CreateInstanceProfile'{..}
-          = mconcat
-              ["Action" =: ("CreateInstanceProfile" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cipPath,
-               "InstanceProfileName" =: _cipInstanceProfileName]
-
--- | Contains the response to a successful 'CreateInstanceProfile' request.
---
---
---
--- /See:/ 'createInstanceProfileResponse' smart constructor.
-data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-  { _ciprsResponseStatus  :: !Int
-  , _ciprsInstanceProfile :: !InstanceProfile
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciprsResponseStatus' - -- | The response status code.
---
--- * 'ciprsInstanceProfile' - A structure containing details about the new instance profile.
-createInstanceProfileResponse
-    :: Int -- ^ 'ciprsResponseStatus'
-    -> InstanceProfile -- ^ 'ciprsInstanceProfile'
-    -> CreateInstanceProfileResponse
-createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
-  CreateInstanceProfileResponse'
-    { _ciprsResponseStatus = pResponseStatus_
-    , _ciprsInstanceProfile = pInstanceProfile_
+    { tags = Prelude.Nothing,
+      path = Prelude.Nothing,
+      instanceProfileName = pInstanceProfileName_
     }
 
+-- | A list of tags that you want to attach to the newly created IAM instance
+-- profile. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createInstanceProfile_tags :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Tag])
+createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) (\s@CreateInstanceProfile' {} a -> s {tags = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
-ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a})
+-- | The path to the instance profile. For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+createInstanceProfile_path :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Text)
+createInstanceProfile_path = Lens.lens (\CreateInstanceProfile' {path} -> path) (\s@CreateInstanceProfile' {} a -> s {path = a} :: CreateInstanceProfile)
+
+-- | The name of the instance profile to create.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+createInstanceProfile_instanceProfileName :: Lens.Lens' CreateInstanceProfile Prelude.Text
+createInstanceProfile_instanceProfileName = Lens.lens (\CreateInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@CreateInstanceProfile' {} a -> s {instanceProfileName = a} :: CreateInstanceProfile)
+
+instance Core.AWSRequest CreateInstanceProfile where
+  type
+    AWSResponse CreateInstanceProfile =
+      CreateInstanceProfileResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateInstanceProfileResult"
+      ( \s h x ->
+          CreateInstanceProfileResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "InstanceProfile")
+      )
+
+instance Prelude.Hashable CreateInstanceProfile
+
+instance Prelude.NFData CreateInstanceProfile
+
+instance Core.ToHeaders CreateInstanceProfile where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath CreateInstanceProfile where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateInstanceProfile where
+  toQuery CreateInstanceProfile' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateInstanceProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "Path" Core.=: path,
+        "InstanceProfileName" Core.=: instanceProfileName
+      ]
+
+-- | Contains the response to a successful CreateInstanceProfile request.
+--
+-- /See:/ 'newCreateInstanceProfileResponse' smart constructor.
+data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A structure containing details about the new instance profile.
+    instanceProfile :: InstanceProfile
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateInstanceProfileResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createInstanceProfileResponse_httpStatus' - The response's http status code.
+--
+-- 'instanceProfile', 'createInstanceProfileResponse_instanceProfile' - A structure containing details about the new instance profile.
+newCreateInstanceProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'instanceProfile'
+  InstanceProfile ->
+  CreateInstanceProfileResponse
+newCreateInstanceProfileResponse
+  pHttpStatus_
+  pInstanceProfile_ =
+    CreateInstanceProfileResponse'
+      { httpStatus =
+          pHttpStatus_,
+        instanceProfile = pInstanceProfile_
+      }
+
+-- | The response's http status code.
+createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Prelude.Int
+createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceProfileResponse' {} a -> s {httpStatus = a} :: CreateInstanceProfileResponse)
 
 -- | A structure containing details about the new instance profile.
-ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
-ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a})
+createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse InstanceProfile
+createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@CreateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
 
-instance NFData CreateInstanceProfileResponse where
+instance Prelude.NFData CreateInstanceProfileResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,120 +22,145 @@
 --
 -- Modifies the set of security groups in effect for a mount target.
 --
---
--- When you create a mount target, Amazon EFS also creates a new network interface. For more information, see 'CreateMountTarget' . This operation replaces the security groups in effect for the network interface associated with a mount target, with the @SecurityGroups@ provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not @deleted@ .
+-- When you create a mount target, Amazon EFS also creates a new network
+-- interface. For more information, see CreateMountTarget. This operation
+-- replaces the security groups in effect for the network interface
+-- associated with a mount target, with the @SecurityGroups@ provided in
+-- the request. This operation requires that the network interface of the
+-- mount target has been created and the lifecycle state of the mount
+-- target is not @deleted@.
 --
 -- The operation requires permissions for the following actions:
 --
---     * @elasticfilesystem:ModifyMountTargetSecurityGroups@ action on the mount target's file system.
+-- -   @elasticfilesystem:ModifyMountTargetSecurityGroups@ action on the
+--     mount target\'s file system.
 --
---     * @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target's network interface.
---
---
---
+-- -   @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target\'s
+--     network interface.
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
-    (
-    -- * Creating a Request
-      modifyMountTargetSecurityGroups
-    , ModifyMountTargetSecurityGroups
+  ( -- * Creating a Request
+    ModifyMountTargetSecurityGroups (..),
+    newModifyMountTargetSecurityGroups,
+
     -- * Request Lenses
-    , mmtsgSecurityGroups
-    , mmtsgMountTargetId
+    modifyMountTargetSecurityGroups_securityGroups,
+    modifyMountTargetSecurityGroups_mountTargetId,
 
     -- * Destructuring the Response
-    , modifyMountTargetSecurityGroupsResponse
-    , ModifyMountTargetSecurityGroupsResponse
-    ) where
+    ModifyMountTargetSecurityGroupsResponse (..),
+    newModifyMountTargetSecurityGroupsResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
+-- /See:/ 'newModifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-  { _mmtsgSecurityGroups :: !(Maybe [Text])
-  , _mmtsgMountTargetId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of up to five VPC security group IDs.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the mount target whose security groups you want to modify.
+    mountTargetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyMountTargetSecurityGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mmtsgSecurityGroups' - Array of up to five VPC security group IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mmtsgMountTargetId' - ID of the mount target whose security groups you want to modify.
-modifyMountTargetSecurityGroups
-    :: Text -- ^ 'mmtsgMountTargetId'
-    -> ModifyMountTargetSecurityGroups
-modifyMountTargetSecurityGroups pMountTargetId_ =
+-- 'securityGroups', 'modifyMountTargetSecurityGroups_securityGroups' - An array of up to five VPC security group IDs.
+--
+-- 'mountTargetId', 'modifyMountTargetSecurityGroups_mountTargetId' - The ID of the mount target whose security groups you want to modify.
+newModifyMountTargetSecurityGroups ::
+  -- | 'mountTargetId'
+  Prelude.Text ->
+  ModifyMountTargetSecurityGroups
+newModifyMountTargetSecurityGroups pMountTargetId_ =
   ModifyMountTargetSecurityGroups'
-    {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
+    { securityGroups =
+        Prelude.Nothing,
+      mountTargetId = pMountTargetId_
+    }
 
+-- | An array of up to five VPC security group IDs.
+modifyMountTargetSecurityGroups_securityGroups :: Lens.Lens' ModifyMountTargetSecurityGroups (Prelude.Maybe [Prelude.Text])
+modifyMountTargetSecurityGroups_securityGroups = Lens.lens (\ModifyMountTargetSecurityGroups' {securityGroups} -> securityGroups) (\s@ModifyMountTargetSecurityGroups' {} a -> s {securityGroups = a} :: ModifyMountTargetSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | Array of up to five VPC security group IDs.
-mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
-mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default . _Coerce
+-- | The ID of the mount target whose security groups you want to modify.
+modifyMountTargetSecurityGroups_mountTargetId :: Lens.Lens' ModifyMountTargetSecurityGroups Prelude.Text
+modifyMountTargetSecurityGroups_mountTargetId = Lens.lens (\ModifyMountTargetSecurityGroups' {mountTargetId} -> mountTargetId) (\s@ModifyMountTargetSecurityGroups' {} a -> s {mountTargetId = a} :: ModifyMountTargetSecurityGroups)
 
--- | ID of the mount target whose security groups you want to modify.
-mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
-mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a})
+instance
+  Core.AWSRequest
+    ModifyMountTargetSecurityGroups
+  where
+  type
+    AWSResponse ModifyMountTargetSecurityGroups =
+      ModifyMountTargetSecurityGroupsResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveNull
+      ModifyMountTargetSecurityGroupsResponse'
 
-instance AWSRequest ModifyMountTargetSecurityGroups
-         where
-        type Rs ModifyMountTargetSecurityGroups =
-             ModifyMountTargetSecurityGroupsResponse
-        request = putJSON efs
-        response
-          = receiveNull
-              ModifyMountTargetSecurityGroupsResponse'
+instance
+  Prelude.Hashable
+    ModifyMountTargetSecurityGroups
 
-instance Hashable ModifyMountTargetSecurityGroups
-         where
+instance
+  Prelude.NFData
+    ModifyMountTargetSecurityGroups
 
-instance NFData ModifyMountTargetSecurityGroups where
+instance
+  Core.ToHeaders
+    ModifyMountTargetSecurityGroups
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ModifyMountTargetSecurityGroups
-         where
-        toHeaders = const mempty
+instance Core.ToJSON ModifyMountTargetSecurityGroups where
+  toJSON ModifyMountTargetSecurityGroups' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("SecurityGroups" Core..=)
+              Prelude.<$> securityGroups
+          ]
+      )
 
-instance ToJSON ModifyMountTargetSecurityGroups where
-        toJSON ModifyMountTargetSecurityGroups'{..}
-          = object
-              (catMaybes
-                 [("SecurityGroups" .=) <$> _mmtsgSecurityGroups])
+instance Core.ToPath ModifyMountTargetSecurityGroups where
+  toPath ModifyMountTargetSecurityGroups' {..} =
+    Prelude.mconcat
+      [ "/2015-02-01/mount-targets/",
+        Core.toBS mountTargetId,
+        "/security-groups"
+      ]
 
-instance ToPath ModifyMountTargetSecurityGroups where
-        toPath ModifyMountTargetSecurityGroups'{..}
-          = mconcat
-              ["/2015-02-01/mount-targets/",
-               toBS _mmtsgMountTargetId, "/security-groups"]
+instance Core.ToQuery ModifyMountTargetSecurityGroups where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ModifyMountTargetSecurityGroups
-         where
-        toQuery = const mempty
+-- | /See:/ 'newModifyMountTargetSecurityGroupsResponse' smart constructor.
+data ModifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
-data ModifyMountTargetSecurityGroupsResponse =
-  ModifyMountTargetSecurityGroupsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyMountTargetSecurityGroupsResponse' with all optional fields omitted.
 --
-modifyMountTargetSecurityGroupsResponse
-    :: ModifyMountTargetSecurityGroupsResponse
-modifyMountTargetSecurityGroupsResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newModifyMountTargetSecurityGroupsResponse ::
+  ModifyMountTargetSecurityGroupsResponse
+newModifyMountTargetSecurityGroupsResponse =
   ModifyMountTargetSecurityGroupsResponse'
 
-
-instance NFData
-           ModifyMountTargetSecurityGroupsResponse
-         where
+instance
+  Prelude.NFData
+    ModifyMountTargetSecurityGroupsResponse

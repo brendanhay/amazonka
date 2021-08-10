@@ -1,154 +1,224 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.UntagResources
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you attempt to remove tags from a resource that were already removed. Note the following:
+-- Removes the specified tags from the specified resources. When you
+-- specify a tag key, the action removes both that key and its associated
+-- value. The operation succeeds even if you attempt to remove tags from a
+-- resource that were already removed. Note the following:
 --
+-- -   To remove tags from a resource, you need the necessary permissions
+--     for the service that the resource belongs to as well as permissions
+--     for removing tags. For more information, see the documentation for
+--     the service whose resource you want to untag.
 --
---     * To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information, see <http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html Obtaining Permissions for Tagging> in the /AWS Resource Groups and Tag Editor User Guide/ .
---
---     * You can only tag resources that are located in the specified region for the AWS account.
---
---
---
+-- -   You can only tag resources that are located in the specified AWS
+--     Region for the calling AWS account.
 module Network.AWS.ResourceGroupsTagging.UntagResources
-    (
-    -- * Creating a Request
-      untagResources
-    , UntagResources
+  ( -- * Creating a Request
+    UntagResources (..),
+    newUntagResources,
+
     -- * Request Lenses
-    , urResourceARNList
-    , urTagKeys
+    untagResources_resourceARNList,
+    untagResources_tagKeys,
 
     -- * Destructuring the Response
-    , untagResourcesResponse
-    , UntagResourcesResponse
+    UntagResourcesResponse (..),
+    newUntagResourcesResponse,
+
     -- * Response Lenses
-    , urrsFailedResourcesMap
-    , urrsResponseStatus
-    ) where
+    untagResourcesResponse_failedResourcesMap,
+    untagResourcesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.ResourceGroupsTagging.Types.Product
-import Network.AWS.Response
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagResources' smart constructor.
+-- | /See:/ 'newUntagResources' smart constructor.
 data UntagResources = UntagResources'
-  { _urResourceARNList :: !(List1 Text)
-  , _urTagKeys         :: !(List1 Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies a list of ARNs of the resources that you want to remove tags
+    -- from.
+    --
+    -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+    -- information, see
+    -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
+    resourceARNList :: Prelude.NonEmpty Prelude.Text,
+    -- | Specifies a list of tag keys that you want to remove from the specified
+    -- resources.
+    tagKeys :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResources' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResources' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urResourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to untag. An ARN can be set to a maximum of 1600 characters. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urTagKeys' - A list of the tag keys that you want to remove from the specified resources.
-untagResources
-    :: NonEmpty Text -- ^ 'urResourceARNList'
-    -> NonEmpty Text -- ^ 'urTagKeys'
-    -> UntagResources
-untagResources pResourceARNList_ pTagKeys_ =
+-- 'resourceARNList', 'untagResources_resourceARNList' - Specifies a list of ARNs of the resources that you want to remove tags
+-- from.
+--
+-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+-- information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
+--
+-- 'tagKeys', 'untagResources_tagKeys' - Specifies a list of tag keys that you want to remove from the specified
+-- resources.
+newUntagResources ::
+  -- | 'resourceARNList'
+  Prelude.NonEmpty Prelude.Text ->
+  -- | 'tagKeys'
+  Prelude.NonEmpty Prelude.Text ->
+  UntagResources
+newUntagResources pResourceARNList_ pTagKeys_ =
   UntagResources'
-    { _urResourceARNList = _List1 # pResourceARNList_
-    , _urTagKeys = _List1 # pTagKeys_
+    { resourceARNList =
+        Lens._Coerce Lens.# pResourceARNList_,
+      tagKeys = Lens._Coerce Lens.# pTagKeys_
     }
 
+-- | Specifies a list of ARNs of the resources that you want to remove tags
+-- from.
+--
+-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+-- information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
+untagResources_resourceARNList :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
+untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Prelude.. Lens._Coerce
 
--- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to untag. An ARN can be set to a maximum of 1600 characters. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-urResourceARNList :: Lens' UntagResources (NonEmpty Text)
-urResourceARNList = lens _urResourceARNList (\ s a -> s{_urResourceARNList = a}) . _List1
+-- | Specifies a list of tag keys that you want to remove from the specified
+-- resources.
+untagResources_tagKeys :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
+untagResources_tagKeys = Lens.lens (\UntagResources' {tagKeys} -> tagKeys) (\s@UntagResources' {} a -> s {tagKeys = a} :: UntagResources) Prelude.. Lens._Coerce
 
--- | A list of the tag keys that you want to remove from the specified resources.
-urTagKeys :: Lens' UntagResources (NonEmpty Text)
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _List1
+instance Core.AWSRequest UntagResources where
+  type
+    AWSResponse UntagResources =
+      UntagResourcesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UntagResourcesResponse'
+            Prelude.<$> ( x Core..?> "FailedResourcesMap"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UntagResources where
-        type Rs UntagResources = UntagResourcesResponse
-        request = postJSON resourceGroupsTagging
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UntagResourcesResponse' <$>
-                   (x .?> "FailedResourcesMap" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable UntagResources
 
-instance Hashable UntagResources where
+instance Prelude.NFData UntagResources
 
-instance NFData UntagResources where
+instance Core.ToHeaders UntagResources where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ResourceGroupsTaggingAPI_20170126.UntagResources" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UntagResources where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ResourceGroupsTaggingAPI_20170126.UntagResources"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UntagResources where
+  toJSON UntagResources' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ResourceARNList" Core..= resourceARNList),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance ToJSON UntagResources where
-        toJSON UntagResources'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceARNList" .= _urResourceARNList),
-                  Just ("TagKeys" .= _urTagKeys)])
+instance Core.ToPath UntagResources where
+  toPath = Prelude.const "/"
 
-instance ToPath UntagResources where
-        toPath = const "/"
+instance Core.ToQuery UntagResources where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UntagResources where
-        toQuery = const mempty
-
--- | /See:/ 'untagResourcesResponse' smart constructor.
+-- | /See:/ 'newUntagResourcesResponse' smart constructor.
 data UntagResourcesResponse = UntagResourcesResponse'
-  { _urrsFailedResourcesMap :: !(Maybe (Map Text FailureInfo))
-  , _urrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A map containing a key-value pair for each failed item that couldn\'t be
+    -- untagged. The key is the ARN of the failed resource. The value is a
+    -- @FailureInfo@ object that contains an error code, a status code, and an
+    -- error message. If there are no errors, the @FailedResourcesMap@ is
+    -- empty.
+    failedResourcesMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResourcesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResourcesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsFailedResourcesMap' - Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-untagResourcesResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UntagResourcesResponse
-untagResourcesResponse pResponseStatus_ =
+-- 'failedResourcesMap', 'untagResourcesResponse_failedResourcesMap' - A map containing a key-value pair for each failed item that couldn\'t be
+-- untagged. The key is the ARN of the failed resource. The value is a
+-- @FailureInfo@ object that contains an error code, a status code, and an
+-- error message. If there are no errors, the @FailedResourcesMap@ is
+-- empty.
+--
+-- 'httpStatus', 'untagResourcesResponse_httpStatus' - The response's http status code.
+newUntagResourcesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UntagResourcesResponse
+newUntagResourcesResponse pHttpStatus_ =
   UntagResourcesResponse'
-    {_urrsFailedResourcesMap = Nothing, _urrsResponseStatus = pResponseStatus_}
+    { failedResourcesMap =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A map containing a key-value pair for each failed item that couldn\'t be
+-- untagged. The key is the ARN of the failed resource. The value is a
+-- @FailureInfo@ object that contains an error code, a status code, and an
+-- error message. If there are no errors, the @FailedResourcesMap@ is
+-- empty.
+untagResourcesResponse_failedResourcesMap :: Lens.Lens' UntagResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo))
+untagResourcesResponse_failedResourcesMap = Lens.lens (\UntagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@UntagResourcesResponse' {} a -> s {failedResourcesMap = a} :: UntagResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
-urrsFailedResourcesMap :: Lens' UntagResourcesResponse (HashMap Text FailureInfo)
-urrsFailedResourcesMap = lens _urrsFailedResourcesMap (\ s a -> s{_urrsFailedResourcesMap = a}) . _Default . _Map
+-- | The response's http status code.
+untagResourcesResponse_httpStatus :: Lens.Lens' UntagResourcesResponse Prelude.Int
+untagResourcesResponse_httpStatus = Lens.lens (\UntagResourcesResponse' {httpStatus} -> httpStatus) (\s@UntagResourcesResponse' {} a -> s {httpStatus = a} :: UntagResourcesResponse)
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UntagResourcesResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
-
-instance NFData UntagResourcesResponse where
+instance Prelude.NFData UntagResourcesResponse

@@ -1,117 +1,137 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a 'Stage' resource.
---
---
+-- Gets information about a Stage resource.
 module Network.AWS.APIGateway.GetStage
-    (
-    -- * Creating a Request
-      getStage
-    , GetStage
+  ( -- * Creating a Request
+    GetStage (..),
+    newGetStage,
+
     -- * Request Lenses
-    , gssRestAPIId
-    , gssStageName
+    getStage_restApiId,
+    getStage_stageName,
 
     -- * Destructuring the Response
-    , stage
-    , Stage
+    Stage (..),
+    newStage,
+
     -- * Response Lenses
-    , sDeploymentId
-    , sVariables
-    , sAccessLogSettings
-    , sDocumentationVersion
-    , sClientCertificateId
-    , sCreatedDate
-    , sCacheClusterStatus
-    , sMethodSettings
-    , sLastUpdatedDate
-    , sCacheClusterSize
-    , sCanarySettings
-    , sCacheClusterEnabled
-    , sStageName
-    , sDescription
-    , sTags
-    ) where
+    stage_deploymentId,
+    stage_createdDate,
+    stage_tracingEnabled,
+    stage_webAclArn,
+    stage_lastUpdatedDate,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_documentationVersion,
+    stage_variables,
+    stage_accessLogSettings,
+    stage_tags,
+    stage_clientCertificateId,
+    stage_description,
+    stage_canarySettings,
+    stage_cacheClusterSize,
+    stage_methodSettings,
+    stage_cacheClusterStatus,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests API Gateway to get information about a 'Stage' resource.
+-- | Requests API Gateway to get information about a Stage resource.
 --
---
---
--- /See:/ 'getStage' smart constructor.
+-- /See:/ 'newGetStage' smart constructor.
 data GetStage = GetStage'
-  { _gssRestAPIId :: !Text
-  , _gssStageName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name of the Stage resource to get information about.
+    stageName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetStage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetStage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gssRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gssStageName' - [Required] The name of the 'Stage' resource to get information about.
-getStage
-    :: Text -- ^ 'gssRestAPIId'
-    -> Text -- ^ 'gssStageName'
-    -> GetStage
-getStage pRestAPIId_ pStageName_ =
-  GetStage' {_gssRestAPIId = pRestAPIId_, _gssStageName = pStageName_}
+-- 'restApiId', 'getStage_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'stageName', 'getStage_stageName' - [Required] The name of the Stage resource to get information about.
+newGetStage ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'stageName'
+  Prelude.Text ->
+  GetStage
+newGetStage pRestApiId_ pStageName_ =
+  GetStage'
+    { restApiId = pRestApiId_,
+      stageName = pStageName_
+    }
 
+-- | [Required] The string identifier of the associated RestApi.
+getStage_restApiId :: Lens.Lens' GetStage Prelude.Text
+getStage_restApiId = Lens.lens (\GetStage' {restApiId} -> restApiId) (\s@GetStage' {} a -> s {restApiId = a} :: GetStage)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-gssRestAPIId :: Lens' GetStage Text
-gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a})
+-- | [Required] The name of the Stage resource to get information about.
+getStage_stageName :: Lens.Lens' GetStage Prelude.Text
+getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStage' {} a -> s {stageName = a} :: GetStage)
 
--- | [Required] The name of the 'Stage' resource to get information about.
-gssStageName :: Lens' GetStage Text
-gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a})
+instance Core.AWSRequest GetStage where
+  type AWSResponse GetStage = Stage
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetStage where
-        type Rs GetStage = Stage
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetStage
 
-instance Hashable GetStage where
+instance Prelude.NFData GetStage
 
-instance NFData GetStage where
+instance Core.ToHeaders GetStage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetStage where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetStage where
+  toPath GetStage' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/stages/",
+        Core.toBS stageName
+      ]
 
-instance ToPath GetStage where
-        toPath GetStage'{..}
-          = mconcat
-              ["/restapis/", toBS _gssRestAPIId, "/stages/",
-               toBS _gssStageName]
-
-instance ToQuery GetStage where
-        toQuery = const mempty
+instance Core.ToQuery GetStage where
+  toQuery = Prelude.const Prelude.mempty

@@ -1,101 +1,162 @@
-name:                  amazonka-batch
-version:               1.6.1
-synopsis:              Amazon Batch SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-batch
+version:            1.6.1
+synopsis:           Amazon Batch SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Batch" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2016-08-10@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Batch.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Batch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-batch
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-batch
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Batch
+    Network.AWS.Batch.CancelJob
+    Network.AWS.Batch.CreateComputeEnvironment
+    Network.AWS.Batch.CreateJobQueue
+    Network.AWS.Batch.DeleteComputeEnvironment
+    Network.AWS.Batch.DeleteJobQueue
+    Network.AWS.Batch.DeregisterJobDefinition
+    Network.AWS.Batch.DescribeComputeEnvironments
+    Network.AWS.Batch.DescribeJobDefinitions
+    Network.AWS.Batch.DescribeJobQueues
+    Network.AWS.Batch.DescribeJobs
+    Network.AWS.Batch.Lens
+    Network.AWS.Batch.ListJobs
+    Network.AWS.Batch.ListTagsForResource
+    Network.AWS.Batch.RegisterJobDefinition
+    Network.AWS.Batch.SubmitJob
+    Network.AWS.Batch.TagResource
+    Network.AWS.Batch.TerminateJob
+    Network.AWS.Batch.Types
+    Network.AWS.Batch.Types.ArrayJobDependency
+    Network.AWS.Batch.Types.ArrayProperties
+    Network.AWS.Batch.Types.ArrayPropertiesDetail
+    Network.AWS.Batch.Types.ArrayPropertiesSummary
+    Network.AWS.Batch.Types.AssignPublicIp
+    Network.AWS.Batch.Types.AttemptContainerDetail
+    Network.AWS.Batch.Types.AttemptDetail
+    Network.AWS.Batch.Types.CEState
+    Network.AWS.Batch.Types.CEStatus
+    Network.AWS.Batch.Types.CEType
+    Network.AWS.Batch.Types.ComputeEnvironmentDetail
+    Network.AWS.Batch.Types.ComputeEnvironmentOrder
+    Network.AWS.Batch.Types.ComputeResource
+    Network.AWS.Batch.Types.ComputeResourceUpdate
+    Network.AWS.Batch.Types.ContainerDetail
+    Network.AWS.Batch.Types.ContainerOverrides
+    Network.AWS.Batch.Types.ContainerProperties
+    Network.AWS.Batch.Types.ContainerSummary
+    Network.AWS.Batch.Types.CRAllocationStrategy
+    Network.AWS.Batch.Types.CRType
+    Network.AWS.Batch.Types.Device
+    Network.AWS.Batch.Types.DeviceCgroupPermission
+    Network.AWS.Batch.Types.Ec2Configuration
+    Network.AWS.Batch.Types.EvaluateOnExit
+    Network.AWS.Batch.Types.FargatePlatformConfiguration
+    Network.AWS.Batch.Types.Host
+    Network.AWS.Batch.Types.JobDefinition
+    Network.AWS.Batch.Types.JobDefinitionType
+    Network.AWS.Batch.Types.JobDependency
+    Network.AWS.Batch.Types.JobDetail
+    Network.AWS.Batch.Types.JobQueueDetail
+    Network.AWS.Batch.Types.JobStatus
+    Network.AWS.Batch.Types.JobSummary
+    Network.AWS.Batch.Types.JobTimeout
+    Network.AWS.Batch.Types.JQState
+    Network.AWS.Batch.Types.JQStatus
+    Network.AWS.Batch.Types.KeyValuePair
+    Network.AWS.Batch.Types.LaunchTemplateSpecification
+    Network.AWS.Batch.Types.LinuxParameters
+    Network.AWS.Batch.Types.LogConfiguration
+    Network.AWS.Batch.Types.LogDriver
+    Network.AWS.Batch.Types.MountPoint
+    Network.AWS.Batch.Types.NetworkConfiguration
+    Network.AWS.Batch.Types.NetworkInterface
+    Network.AWS.Batch.Types.NodeDetails
+    Network.AWS.Batch.Types.NodeOverrides
+    Network.AWS.Batch.Types.NodeProperties
+    Network.AWS.Batch.Types.NodePropertiesSummary
+    Network.AWS.Batch.Types.NodePropertyOverride
+    Network.AWS.Batch.Types.NodeRangeProperty
+    Network.AWS.Batch.Types.PlatformCapability
+    Network.AWS.Batch.Types.ResourceRequirement
+    Network.AWS.Batch.Types.ResourceType
+    Network.AWS.Batch.Types.RetryAction
+    Network.AWS.Batch.Types.RetryStrategy
+    Network.AWS.Batch.Types.Secret
+    Network.AWS.Batch.Types.Tmpfs
+    Network.AWS.Batch.Types.Ulimit
+    Network.AWS.Batch.Types.Volume
+    Network.AWS.Batch.UntagResource
+    Network.AWS.Batch.UpdateComputeEnvironment
+    Network.AWS.Batch.UpdateJobQueue
+    Network.AWS.Batch.Waiters
 
-    exposed-modules:
-          Network.AWS.Batch
-        , Network.AWS.Batch.CancelJob
-        , Network.AWS.Batch.CreateComputeEnvironment
-        , Network.AWS.Batch.CreateJobQueue
-        , Network.AWS.Batch.DeleteComputeEnvironment
-        , Network.AWS.Batch.DeleteJobQueue
-        , Network.AWS.Batch.DeregisterJobDefinition
-        , Network.AWS.Batch.DescribeComputeEnvironments
-        , Network.AWS.Batch.DescribeJobDefinitions
-        , Network.AWS.Batch.DescribeJobQueues
-        , Network.AWS.Batch.DescribeJobs
-        , Network.AWS.Batch.ListJobs
-        , Network.AWS.Batch.RegisterJobDefinition
-        , Network.AWS.Batch.SubmitJob
-        , Network.AWS.Batch.TerminateJob
-        , Network.AWS.Batch.Types
-        , Network.AWS.Batch.UpdateComputeEnvironment
-        , Network.AWS.Batch.UpdateJobQueue
-        , Network.AWS.Batch.Waiters
-
-    other-modules:
-          Network.AWS.Batch.Types.Product
-        , Network.AWS.Batch.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-batch-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Batch
+    Test.AWS.Batch.Internal
+    Test.AWS.Gen.Batch
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Batch
-        , Test.AWS.Gen.Batch
-        , Test.AWS.Batch.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-batch
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-batch
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

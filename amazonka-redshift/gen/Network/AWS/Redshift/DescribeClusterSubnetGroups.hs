@@ -1,209 +1,345 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups. By default, this operation returns information about all cluster subnet groups that are defined in you AWS account.
+-- Returns one or more cluster subnet group objects, which contain metadata
+-- about your cluster subnet groups. By default, this operation returns
+-- information about all cluster subnet groups that are defined in you AWS
+-- account.
 --
+-- If you specify both tag keys and tag values in the same request, Amazon
+-- Redshift returns all subnet groups that match any combination of the
+-- specified keys and values. For example, if you have @owner@ and
+-- @environment@ for tag keys, and @admin@ and @test@ for tag values, all
+-- subnet groups that have any combination of those values are returned.
 --
--- If you specify both tag keys and tag values in the same request, Amazon Redshift returns all subnet groups that match any combination of the specified keys and values. For example, if you have @owner@ and @environment@ for tag keys, and @admin@ and @test@ for tag values, all subnet groups that have any combination of those values are returned.
---
--- If both tag keys and values are omitted from the request, subnet groups are returned regardless of whether they have tag keys or values associated with them.
---
+-- If both tag keys and values are omitted from the request, subnet groups
+-- are returned regardless of whether they have tag keys or values
+-- associated with them.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
-    (
-    -- * Creating a Request
-      describeClusterSubnetGroups
-    , DescribeClusterSubnetGroups
+  ( -- * Creating a Request
+    DescribeClusterSubnetGroups (..),
+    newDescribeClusterSubnetGroups,
+
     -- * Request Lenses
-    , dcsgsTagValues
-    , dcsgsTagKeys
-    , dcsgsClusterSubnetGroupName
-    , dcsgsMarker
-    , dcsgsMaxRecords
+    describeClusterSubnetGroups_clusterSubnetGroupName,
+    describeClusterSubnetGroups_tagKeys,
+    describeClusterSubnetGroups_tagValues,
+    describeClusterSubnetGroups_marker,
+    describeClusterSubnetGroups_maxRecords,
 
     -- * Destructuring the Response
-    , describeClusterSubnetGroupsResponse
-    , DescribeClusterSubnetGroupsResponse
-    -- * Response Lenses
-    , dcsgrsClusterSubnetGroups
-    , dcsgrsMarker
-    , dcsgrsResponseStatus
-    ) where
+    DescribeClusterSubnetGroupsResponse (..),
+    newDescribeClusterSubnetGroupsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeClusterSubnetGroupsResponse_clusterSubnetGroups,
+    describeClusterSubnetGroupsResponse_marker,
+    describeClusterSubnetGroupsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeClusterSubnetGroups' smart constructor.
+-- /See:/ 'newDescribeClusterSubnetGroups' smart constructor.
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
-  { _dcsgsTagValues              :: !(Maybe [Text])
-  , _dcsgsTagKeys                :: !(Maybe [Text])
-  , _dcsgsClusterSubnetGroupName :: !(Maybe Text)
-  , _dcsgsMarker                 :: !(Maybe Text)
-  , _dcsgsMaxRecords             :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the cluster subnet group for which information is requested.
+    clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A tag key or keys for which you want to return all matching cluster
+    -- subnet groups that are associated with the specified key or keys. For
+    -- example, suppose that you have subnet groups that are tagged with keys
+    -- called @owner@ and @environment@. If you specify both of these tag keys
+    -- in the request, Amazon Redshift returns a response with the subnet
+    -- groups that have either or both of these tag keys associated with them.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
+    -- | A tag value or values for which you want to return all matching cluster
+    -- subnet groups that are associated with the specified tag value or
+    -- values. For example, suppose that you have subnet groups that are tagged
+    -- with values called @admin@ and @test@. If you specify both of these tag
+    -- values in the request, Amazon Redshift returns a response with the
+    -- subnet groups that have either or both of these tag values associated
+    -- with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterSubnetGroups
+    -- request exceed the value specified in @MaxRecords@, AWS returns a value
+    -- in the @Marker@ field of the response. You can retrieve the next set of
+    -- response records by providing the returned marker value in the @Marker@
+    -- parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned marker value.
+    --
+    -- Default: @100@
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClusterSubnetGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClusterSubnetGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsgsTagValues' - A tag value or values for which you want to return all matching cluster subnet groups that are associated with the specified tag value or values. For example, suppose that you have subnet groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag values associated with them.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcsgsTagKeys' - A tag key or keys for which you want to return all matching cluster subnet groups that are associated with the specified key or keys. For example, suppose that you have subnet groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag keys associated with them.
+-- 'clusterSubnetGroupName', 'describeClusterSubnetGroups_clusterSubnetGroupName' - The name of the cluster subnet group for which information is requested.
 --
--- * 'dcsgsClusterSubnetGroupName' - The name of the cluster subnet group for which information is requested.
+-- 'tagKeys', 'describeClusterSubnetGroups_tagKeys' - A tag key or keys for which you want to return all matching cluster
+-- subnet groups that are associated with the specified key or keys. For
+-- example, suppose that you have subnet groups that are tagged with keys
+-- called @owner@ and @environment@. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the subnet
+-- groups that have either or both of these tag keys associated with them.
 --
--- * 'dcsgsMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSubnetGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+-- 'tagValues', 'describeClusterSubnetGroups_tagValues' - A tag value or values for which you want to return all matching cluster
+-- subnet groups that are associated with the specified tag value or
+-- values. For example, suppose that you have subnet groups that are tagged
+-- with values called @admin@ and @test@. If you specify both of these tag
+-- values in the request, Amazon Redshift returns a response with the
+-- subnet groups that have either or both of these tag values associated
+-- with them.
 --
--- * 'dcsgsMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
-describeClusterSubnetGroups
-    :: DescribeClusterSubnetGroups
-describeClusterSubnetGroups =
+-- 'marker', 'describeClusterSubnetGroups_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in @MaxRecords@, AWS returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
+--
+-- 'maxRecords', 'describeClusterSubnetGroups_maxRecords' - The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+newDescribeClusterSubnetGroups ::
+  DescribeClusterSubnetGroups
+newDescribeClusterSubnetGroups =
   DescribeClusterSubnetGroups'
-    { _dcsgsTagValues = Nothing
-    , _dcsgsTagKeys = Nothing
-    , _dcsgsClusterSubnetGroupName = Nothing
-    , _dcsgsMarker = Nothing
-    , _dcsgsMaxRecords = Nothing
+    { clusterSubnetGroupName =
+        Prelude.Nothing,
+      tagKeys = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
-
-
--- | A tag value or values for which you want to return all matching cluster subnet groups that are associated with the specified tag value or values. For example, suppose that you have subnet groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag values associated with them.
-dcsgsTagValues :: Lens' DescribeClusterSubnetGroups [Text]
-dcsgsTagValues = lens _dcsgsTagValues (\ s a -> s{_dcsgsTagValues = a}) . _Default . _Coerce
-
--- | A tag key or keys for which you want to return all matching cluster subnet groups that are associated with the specified key or keys. For example, suppose that you have subnet groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag keys associated with them.
-dcsgsTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
-dcsgsTagKeys = lens _dcsgsTagKeys (\ s a -> s{_dcsgsTagKeys = a}) . _Default . _Coerce
 
 -- | The name of the cluster subnet group for which information is requested.
-dcsgsClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsgsClusterSubnetGroupName = lens _dcsgsClusterSubnetGroupName (\ s a -> s{_dcsgsClusterSubnetGroupName = a})
+describeClusterSubnetGroups_clusterSubnetGroupName :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Text)
+describeClusterSubnetGroups_clusterSubnetGroupName = Lens.lens (\DescribeClusterSubnetGroups' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@DescribeClusterSubnetGroups' {} a -> s {clusterSubnetGroupName = a} :: DescribeClusterSubnetGroups)
 
--- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSubnetGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-dcsgsMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a})
+-- | A tag key or keys for which you want to return all matching cluster
+-- subnet groups that are associated with the specified key or keys. For
+-- example, suppose that you have subnet groups that are tagged with keys
+-- called @owner@ and @environment@. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the subnet
+-- groups that have either or both of these tag keys associated with them.
+describeClusterSubnetGroups_tagKeys :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe [Prelude.Text])
+describeClusterSubnetGroups_tagKeys = Lens.lens (\DescribeClusterSubnetGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterSubnetGroups' {} a -> s {tagKeys = a} :: DescribeClusterSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
-dcsgsMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
-dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a})
+-- | A tag value or values for which you want to return all matching cluster
+-- subnet groups that are associated with the specified tag value or
+-- values. For example, suppose that you have subnet groups that are tagged
+-- with values called @admin@ and @test@. If you specify both of these tag
+-- values in the request, Amazon Redshift returns a response with the
+-- subnet groups that have either or both of these tag values associated
+-- with them.
+describeClusterSubnetGroups_tagValues :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe [Prelude.Text])
+describeClusterSubnetGroups_tagValues = Lens.lens (\DescribeClusterSubnetGroups' {tagValues} -> tagValues) (\s@DescribeClusterSubnetGroups' {} a -> s {tagValues = a} :: DescribeClusterSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSPager DescribeClusterSubnetGroups where
-        page rq rs
-          | stop (rs ^. dcsgrsMarker) = Nothing
-          | stop (rs ^. dcsgrsClusterSubnetGroups) = Nothing
-          | otherwise =
-            Just $ rq & dcsgsMarker .~ rs ^. dcsgrsMarker
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in @MaxRecords@, AWS returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
+describeClusterSubnetGroups_marker :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Text)
+describeClusterSubnetGroups_marker = Lens.lens (\DescribeClusterSubnetGroups' {marker} -> marker) (\s@DescribeClusterSubnetGroups' {} a -> s {marker = a} :: DescribeClusterSubnetGroups)
 
-instance AWSRequest DescribeClusterSubnetGroups where
-        type Rs DescribeClusterSubnetGroups =
-             DescribeClusterSubnetGroupsResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper
-              "DescribeClusterSubnetGroupsResult"
-              (\ s h x ->
-                 DescribeClusterSubnetGroupsResponse' <$>
-                   (x .@? "ClusterSubnetGroups" .!@ mempty >>=
-                      may (parseXMLList "ClusterSubnetGroup"))
-                     <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeClusterSubnetGroups where
-
-instance NFData DescribeClusterSubnetGroups where
-
-instance ToHeaders DescribeClusterSubnetGroups where
-        toHeaders = const mempty
-
-instance ToPath DescribeClusterSubnetGroups where
-        toPath = const "/"
-
-instance ToQuery DescribeClusterSubnetGroups where
-        toQuery DescribeClusterSubnetGroups'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeClusterSubnetGroups" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dcsgsTagValues),
-               "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcsgsTagKeys),
-               "ClusterSubnetGroupName" =:
-                 _dcsgsClusterSubnetGroupName,
-               "Marker" =: _dcsgsMarker,
-               "MaxRecords" =: _dcsgsMaxRecords]
-
--- | Contains the output from the 'DescribeClusterSubnetGroups' action.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
 --
+-- Default: @100@
 --
+-- Constraints: minimum 20, maximum 100.
+describeClusterSubnetGroups_maxRecords :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Int)
+describeClusterSubnetGroups_maxRecords = Lens.lens (\DescribeClusterSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSubnetGroups' {} a -> s {maxRecords = a} :: DescribeClusterSubnetGroups)
+
+instance Core.AWSPager DescribeClusterSubnetGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeClusterSubnetGroupsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeClusterSubnetGroupsResponse_clusterSubnetGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeClusterSubnetGroups_marker
+          Lens..~ rs
+          Lens.^? describeClusterSubnetGroupsResponse_marker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeClusterSubnetGroups where
+  type
+    AWSResponse DescribeClusterSubnetGroups =
+      DescribeClusterSubnetGroupsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeClusterSubnetGroupsResult"
+      ( \s h x ->
+          DescribeClusterSubnetGroupsResponse'
+            Prelude.<$> ( x Core..@? "ClusterSubnetGroups"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "ClusterSubnetGroup")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeClusterSubnetGroups
+
+instance Prelude.NFData DescribeClusterSubnetGroups
+
+instance Core.ToHeaders DescribeClusterSubnetGroups where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeClusterSubnetGroups where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeClusterSubnetGroups where
+  toQuery DescribeClusterSubnetGroups' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeClusterSubnetGroups" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterSubnetGroupName"
+          Core.=: clusterSubnetGroupName,
+        "TagKeys"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
+      ]
+
+-- | Contains the output from the DescribeClusterSubnetGroups action.
 --
--- /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
+-- /See:/ 'newDescribeClusterSubnetGroupsResponse' smart constructor.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-  { _dcsgrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
-  , _dcsgrsMarker              :: !(Maybe Text)
-  , _dcsgrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of ClusterSubnetGroup instances.
+    clusterSubnetGroups :: Prelude.Maybe [ClusterSubnetGroup],
+    -- | A value that indicates the starting point for the next set of response
+    -- records in a subsequent request. If a value is returned in a response,
+    -- you can retrieve the next set of records by providing this returned
+    -- marker value in the @Marker@ parameter and retrying the command. If the
+    -- @Marker@ field is empty, all response records have been retrieved for
+    -- the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClusterSubnetGroupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClusterSubnetGroupsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsgrsClusterSubnetGroups' - A list of 'ClusterSubnetGroup' instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcsgrsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+-- 'clusterSubnetGroups', 'describeClusterSubnetGroupsResponse_clusterSubnetGroups' - A list of ClusterSubnetGroup instances.
 --
--- * 'dcsgrsResponseStatus' - -- | The response status code.
-describeClusterSubnetGroupsResponse
-    :: Int -- ^ 'dcsgrsResponseStatus'
-    -> DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse pResponseStatus_ =
+-- 'marker', 'describeClusterSubnetGroupsResponse_marker' - A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+--
+-- 'httpStatus', 'describeClusterSubnetGroupsResponse_httpStatus' - The response's http status code.
+newDescribeClusterSubnetGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeClusterSubnetGroupsResponse
+newDescribeClusterSubnetGroupsResponse pHttpStatus_ =
   DescribeClusterSubnetGroupsResponse'
-    { _dcsgrsClusterSubnetGroups = Nothing
-    , _dcsgrsMarker = Nothing
-    , _dcsgrsResponseStatus = pResponseStatus_
+    { clusterSubnetGroups =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of ClusterSubnetGroup instances.
+describeClusterSubnetGroupsResponse_clusterSubnetGroups :: Lens.Lens' DescribeClusterSubnetGroupsResponse (Prelude.Maybe [ClusterSubnetGroup])
+describeClusterSubnetGroupsResponse_clusterSubnetGroups = Lens.lens (\DescribeClusterSubnetGroupsResponse' {clusterSubnetGroups} -> clusterSubnetGroups) (\s@DescribeClusterSubnetGroupsResponse' {} a -> s {clusterSubnetGroups = a} :: DescribeClusterSubnetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of 'ClusterSubnetGroup' instances.
-dcsgrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsClusterSubnetGroups = a}) . _Default . _Coerce
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+describeClusterSubnetGroupsResponse_marker :: Lens.Lens' DescribeClusterSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
+describeClusterSubnetGroupsResponse_marker = Lens.lens (\DescribeClusterSubnetGroupsResponse' {marker} -> marker) (\s@DescribeClusterSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeClusterSubnetGroupsResponse)
 
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-dcsgrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a})
+-- | The response's http status code.
+describeClusterSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeClusterSubnetGroupsResponse Prelude.Int
+describeClusterSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeClusterSubnetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterSubnetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeClusterSubnetGroupsResponse)
 
--- | -- | The response status code.
-dcsgrsResponseStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
-dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a})
-
-instance NFData DescribeClusterSubnetGroupsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeClusterSubnetGroupsResponse

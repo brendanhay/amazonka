@@ -1,99 +1,133 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GenerateClientCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a 'ClientCertificate' resource.
---
---
+-- Generates a ClientCertificate resource.
 module Network.AWS.APIGateway.GenerateClientCertificate
-    (
-    -- * Creating a Request
-      generateClientCertificate
-    , GenerateClientCertificate
+  ( -- * Creating a Request
+    GenerateClientCertificate (..),
+    newGenerateClientCertificate,
+
     -- * Request Lenses
-    , gccDescription
+    generateClientCertificate_tags,
+    generateClientCertificate_description,
 
     -- * Destructuring the Response
-    , clientCertificate
-    , ClientCertificate
+    ClientCertificate (..),
+    newClientCertificate,
+
     -- * Response Lenses
-    , ccPemEncodedCertificate
-    , ccClientCertificateId
-    , ccCreatedDate
-    , ccExpirationDate
-    , ccDescription
-    ) where
+    clientCertificate_createdDate,
+    clientCertificate_expirationDate,
+    clientCertificate_pemEncodedCertificate,
+    clientCertificate_tags,
+    clientCertificate_clientCertificateId,
+    clientCertificate_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | A request to generate a 'ClientCertificate' resource.
+-- | A request to generate a ClientCertificate resource.
 --
+-- /See:/ 'newGenerateClientCertificate' smart constructor.
+data GenerateClientCertificate = GenerateClientCertificate'
+  { -- | The key-value map of strings. The valid character set is
+    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+    -- start with @aws:@. The tag value can be up to 256 characters.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the ClientCertificate.
+    description :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GenerateClientCertificate' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'generateClientCertificate' smart constructor.
-newtype GenerateClientCertificate = GenerateClientCertificate'
-  { _gccDescription :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GenerateClientCertificate' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'tags', 'generateClientCertificate_tags' - The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
 --
--- * 'gccDescription' - The description of the 'ClientCertificate' .
-generateClientCertificate
-    :: GenerateClientCertificate
-generateClientCertificate =
-  GenerateClientCertificate' {_gccDescription = Nothing}
+-- 'description', 'generateClientCertificate_description' - The description of the ClientCertificate.
+newGenerateClientCertificate ::
+  GenerateClientCertificate
+newGenerateClientCertificate =
+  GenerateClientCertificate'
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing
+    }
 
+-- | The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+generateClientCertificate_tags :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+generateClientCertificate_tags = Lens.lens (\GenerateClientCertificate' {tags} -> tags) (\s@GenerateClientCertificate' {} a -> s {tags = a} :: GenerateClientCertificate) Prelude.. Lens.mapping Lens._Coerce
 
--- | The description of the 'ClientCertificate' .
-gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
-gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a})
+-- | The description of the ClientCertificate.
+generateClientCertificate_description :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe Prelude.Text)
+generateClientCertificate_description = Lens.lens (\GenerateClientCertificate' {description} -> description) (\s@GenerateClientCertificate' {} a -> s {description = a} :: GenerateClientCertificate)
 
-instance AWSRequest GenerateClientCertificate where
-        type Rs GenerateClientCertificate = ClientCertificate
-        request = postJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest GenerateClientCertificate where
+  type
+    AWSResponse GenerateClientCertificate =
+      ClientCertificate
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable GenerateClientCertificate where
+instance Prelude.Hashable GenerateClientCertificate
 
-instance NFData GenerateClientCertificate where
+instance Prelude.NFData GenerateClientCertificate
 
-instance ToHeaders GenerateClientCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders GenerateClientCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToJSON GenerateClientCertificate where
-        toJSON GenerateClientCertificate'{..}
-          = object
-              (catMaybes [("description" .=) <$> _gccDescription])
+instance Core.ToJSON GenerateClientCertificate where
+  toJSON GenerateClientCertificate' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description
+          ]
+      )
 
-instance ToPath GenerateClientCertificate where
-        toPath = const "/clientcertificates"
+instance Core.ToPath GenerateClientCertificate where
+  toPath = Prelude.const "/clientcertificates"
 
-instance ToQuery GenerateClientCertificate where
-        toQuery = const mempty
+instance Core.ToQuery GenerateClientCertificate where
+  toQuery = Prelude.const Prelude.mempty

@@ -1,246 +1,386 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotPriceHistory
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Spot price history. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- Describes the Spot price history. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance pricing history>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
---
--- When you specify a start and end time, this operation returns the prices of the instance types within the time range that you specified and the time when the price changed. The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.
---
+-- When you specify a start and end time, this operation returns the prices
+-- of the instance types within the time range that you specified and the
+-- time when the price changed. The price is valid within the time period
+-- that you specified; the response merely indicates the last time that the
+-- price changed.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotPriceHistory
-    (
-    -- * Creating a Request
-      describeSpotPriceHistory
-    , DescribeSpotPriceHistory
+  ( -- * Creating a Request
+    DescribeSpotPriceHistory (..),
+    newDescribeSpotPriceHistory,
+
     -- * Request Lenses
-    , dsphInstanceTypes
-    , dsphStartTime
-    , dsphFilters
-    , dsphNextToken
-    , dsphAvailabilityZone
-    , dsphEndTime
-    , dsphProductDescriptions
-    , dsphDryRun
-    , dsphMaxResults
+    describeSpotPriceHistory_nextToken,
+    describeSpotPriceHistory_dryRun,
+    describeSpotPriceHistory_maxResults,
+    describeSpotPriceHistory_startTime,
+    describeSpotPriceHistory_endTime,
+    describeSpotPriceHistory_availabilityZone,
+    describeSpotPriceHistory_productDescriptions,
+    describeSpotPriceHistory_filters,
+    describeSpotPriceHistory_instanceTypes,
 
     -- * Destructuring the Response
-    , describeSpotPriceHistoryResponse
-    , DescribeSpotPriceHistoryResponse
-    -- * Response Lenses
-    , dsphrsNextToken
-    , dsphrsSpotPriceHistory
-    , dsphrsResponseStatus
-    ) where
+    DescribeSpotPriceHistoryResponse (..),
+    newDescribeSpotPriceHistoryResponse,
 
+    -- * Response Lenses
+    describeSpotPriceHistoryResponse_nextToken,
+    describeSpotPriceHistoryResponse_spotPriceHistory,
+    describeSpotPriceHistoryResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
---
---
--- /See:/ 'describeSpotPriceHistory' smart constructor.
+-- /See:/ 'newDescribeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-  { _dsphInstanceTypes       :: !(Maybe [InstanceType])
-  , _dsphStartTime           :: !(Maybe ISO8601)
-  , _dsphFilters             :: !(Maybe [Filter])
-  , _dsphNextToken           :: !(Maybe Text)
-  , _dsphAvailabilityZone    :: !(Maybe Text)
-  , _dsphEndTime             :: !(Maybe ISO8601)
-  , _dsphProductDescriptions :: !(Maybe [Text])
-  , _dsphDryRun              :: !(Maybe Bool)
-  , _dsphMaxResults          :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 1 and 1000. The default value is 1000. To retrieve the
+    -- remaining results, make another call with the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The date and time, up to the past 90 days, from which to start
+    -- retrieving the price history data, in UTC format (for example,
+    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+    startTime :: Prelude.Maybe Core.ISO8601,
+    -- | The date and time, up to the current date, from which to stop retrieving
+    -- the price history data, in UTC format (for example,
+    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+    endTime :: Prelude.Maybe Core.ISO8601,
+    -- | Filters the results by the specified Availability Zone.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by the specified basic product descriptions.
+    productDescriptions :: Prelude.Maybe [Prelude.Text],
+    -- | One or more filters.
+    --
+    -- -   @availability-zone@ - The Availability Zone for which prices should
+    --     be returned.
+    --
+    -- -   @instance-type@ - The type of instance (for example, @m3.medium@).
+    --
+    -- -   @product-description@ - The product description for the Spot price
+    --     (@Linux\/UNIX@ | @Red Hat Enterprise Linux@ | @SUSE Linux@ |
+    --     @Windows@ | @Linux\/UNIX (Amazon VPC)@ |
+    --     @Red Hat Enterprise Linux (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@
+    --     | @Windows (Amazon VPC)@).
+    --
+    -- -   @spot-price@ - The Spot price. The value must match exactly (or use
+    --     wildcards; greater than or less than comparison is not supported).
+    --
+    -- -   @timestamp@ - The time stamp of the Spot price history, in UTC
+    --     format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
+    --     wildcards (* and ?). Greater than or less than comparison is not
+    --     supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | Filters the results by the specified instance types.
+    instanceTypes :: Prelude.Maybe [InstanceType]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSpotPriceHistory' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSpotPriceHistory' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsphInstanceTypes' - Filters the results by the specified instance types.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsphStartTime' - The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token for the next set of results.
 --
--- * 'dsphFilters' - One or more filters.     * @availability-zone@ - The Availability Zone for which prices should be returned.     * @instance-type@ - The type of instance (for example, @m3.medium@ ).     * @product-description@ - The product description for the Spot price (@Linux/UNIX@ | @SUSE Linux@ | @Windows@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ | @Windows (Amazon VPC)@ ).     * @spot-price@ - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
+-- 'dryRun', 'describeSpotPriceHistory_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dsphNextToken' - The token for the next set of results.
+-- 'maxResults', 'describeSpotPriceHistory_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
 --
--- * 'dsphAvailabilityZone' - Filters the results by the specified Availability Zone.
+-- 'startTime', 'describeSpotPriceHistory_startTime' - The date and time, up to the past 90 days, from which to start
+-- retrieving the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
--- * 'dsphEndTime' - The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- 'endTime', 'describeSpotPriceHistory_endTime' - The date and time, up to the current date, from which to stop retrieving
+-- the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
--- * 'dsphProductDescriptions' - Filters the results by the specified basic product descriptions.
+-- 'availabilityZone', 'describeSpotPriceHistory_availabilityZone' - Filters the results by the specified Availability Zone.
 --
--- * 'dsphDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'productDescriptions', 'describeSpotPriceHistory_productDescriptions' - Filters the results by the specified basic product descriptions.
 --
--- * 'dsphMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-describeSpotPriceHistory
-    :: DescribeSpotPriceHistory
-describeSpotPriceHistory =
+-- 'filters', 'describeSpotPriceHistory_filters' - One or more filters.
+--
+-- -   @availability-zone@ - The Availability Zone for which prices should
+--     be returned.
+--
+-- -   @instance-type@ - The type of instance (for example, @m3.medium@).
+--
+-- -   @product-description@ - The product description for the Spot price
+--     (@Linux\/UNIX@ | @Red Hat Enterprise Linux@ | @SUSE Linux@ |
+--     @Windows@ | @Linux\/UNIX (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@
+--     | @Windows (Amazon VPC)@).
+--
+-- -   @spot-price@ - The Spot price. The value must match exactly (or use
+--     wildcards; greater than or less than comparison is not supported).
+--
+-- -   @timestamp@ - The time stamp of the Spot price history, in UTC
+--     format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
+--     wildcards (* and ?). Greater than or less than comparison is not
+--     supported.
+--
+-- 'instanceTypes', 'describeSpotPriceHistory_instanceTypes' - Filters the results by the specified instance types.
+newDescribeSpotPriceHistory ::
+  DescribeSpotPriceHistory
+newDescribeSpotPriceHistory =
   DescribeSpotPriceHistory'
-    { _dsphInstanceTypes = Nothing
-    , _dsphStartTime = Nothing
-    , _dsphFilters = Nothing
-    , _dsphNextToken = Nothing
-    , _dsphAvailabilityZone = Nothing
-    , _dsphEndTime = Nothing
-    , _dsphProductDescriptions = Nothing
-    , _dsphDryRun = Nothing
-    , _dsphMaxResults = Nothing
+    { nextToken =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      productDescriptions = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      instanceTypes = Prelude.Nothing
     }
 
-
--- | Filters the results by the specified instance types.
-dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
-dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default . _Coerce
-
--- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _Time
-
--- | One or more filters.     * @availability-zone@ - The Availability Zone for which prices should be returned.     * @instance-type@ - The type of instance (for example, @m3.medium@ ).     * @product-description@ - The product description for the Spot price (@Linux/UNIX@ | @SUSE Linux@ | @Windows@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ | @Windows (Amazon VPC)@ ).     * @spot-price@ - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
-dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
-dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a}) . _Default . _Coerce
-
 -- | The token for the next set of results.
-dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphNextToken = lens _dsphNextToken (\ s a -> s{_dsphNextToken = a})
+describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
+describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
+
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Int)
+describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {maxResults} -> maxResults) (\s@DescribeSpotPriceHistory' {} a -> s {maxResults = a} :: DescribeSpotPriceHistory)
+
+-- | The date and time, up to the past 90 days, from which to start
+-- retrieving the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+describeSpotPriceHistory_startTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
+describeSpotPriceHistory_startTime = Lens.lens (\DescribeSpotPriceHistory' {startTime} -> startTime) (\s@DescribeSpotPriceHistory' {} a -> s {startTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time, up to the current date, from which to stop retrieving
+-- the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
+describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the results by the specified Availability Zone.
-dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphAvailabilityZone = lens _dsphAvailabilityZone (\ s a -> s{_dsphAvailabilityZone = a})
-
--- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphEndTime = lens _dsphEndTime (\ s a -> s{_dsphEndTime = a}) . mapping _Time
+describeSpotPriceHistory_availabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_availabilityZone = Lens.lens (\DescribeSpotPriceHistory' {availabilityZone} -> availabilityZone) (\s@DescribeSpotPriceHistory' {} a -> s {availabilityZone = a} :: DescribeSpotPriceHistory)
 
 -- | Filters the results by the specified basic product descriptions.
-dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
-dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a}) . _Default . _Coerce
+describeSpotPriceHistory_productDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Prelude.Text])
+describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHistory' {productDescriptions} -> productDescriptions) (\s@DescribeSpotPriceHistory' {} a -> s {productDescriptions = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens._Coerce
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
-dsphDryRun = lens _dsphDryRun (\ s a -> s{_dsphDryRun = a})
+-- | One or more filters.
+--
+-- -   @availability-zone@ - The Availability Zone for which prices should
+--     be returned.
+--
+-- -   @instance-type@ - The type of instance (for example, @m3.medium@).
+--
+-- -   @product-description@ - The product description for the Spot price
+--     (@Linux\/UNIX@ | @Red Hat Enterprise Linux@ | @SUSE Linux@ |
+--     @Windows@ | @Linux\/UNIX (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@
+--     | @Windows (Amazon VPC)@).
+--
+-- -   @spot-price@ - The Spot price. The value must match exactly (or use
+--     wildcards; greater than or less than comparison is not supported).
+--
+-- -   @timestamp@ - The time stamp of the Spot price history, in UTC
+--     format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
+--     wildcards (* and ?). Greater than or less than comparison is not
+--     supported.
+describeSpotPriceHistory_filters :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Filter])
+describeSpotPriceHistory_filters = Lens.lens (\DescribeSpotPriceHistory' {filters} -> filters) (\s@DescribeSpotPriceHistory' {} a -> s {filters = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
-dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a})
+-- | Filters the results by the specified instance types.
+describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [InstanceType])
+describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSPager DescribeSpotPriceHistory where
-        page rq rs
-          | stop (rs ^. dsphrsNextToken) = Nothing
-          | stop (rs ^. dsphrsSpotPriceHistory) = Nothing
-          | otherwise =
-            Just $ rq & dsphNextToken .~ rs ^. dsphrsNextToken
+instance Core.AWSPager DescribeSpotPriceHistory where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeSpotPriceHistoryResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeSpotPriceHistoryResponse_spotPriceHistory
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeSpotPriceHistory_nextToken
+          Lens..~ rs
+          Lens.^? describeSpotPriceHistoryResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeSpotPriceHistory where
-        type Rs DescribeSpotPriceHistory =
-             DescribeSpotPriceHistoryResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeSpotPriceHistoryResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (x .@? "spotPriceHistorySet" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeSpotPriceHistory where
+  type
+    AWSResponse DescribeSpotPriceHistory =
+      DescribeSpotPriceHistoryResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeSpotPriceHistoryResponse'
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "spotPriceHistorySet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeSpotPriceHistory where
+instance Prelude.Hashable DescribeSpotPriceHistory
 
-instance NFData DescribeSpotPriceHistory where
+instance Prelude.NFData DescribeSpotPriceHistory
 
-instance ToHeaders DescribeSpotPriceHistory where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeSpotPriceHistory where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeSpotPriceHistory where
-        toPath = const "/"
+instance Core.ToPath DescribeSpotPriceHistory where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeSpotPriceHistory where
-        toQuery DescribeSpotPriceHistory'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeSpotPriceHistory" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery
-                 (toQueryList "InstanceType" <$> _dsphInstanceTypes),
-               "StartTime" =: _dsphStartTime,
-               toQuery (toQueryList "Filter" <$> _dsphFilters),
-               "NextToken" =: _dsphNextToken,
-               "AvailabilityZone" =: _dsphAvailabilityZone,
-               "EndTime" =: _dsphEndTime,
-               toQuery
-                 (toQueryList "ProductDescription" <$>
-                    _dsphProductDescriptions),
-               "DryRun" =: _dsphDryRun,
-               "MaxResults" =: _dsphMaxResults]
+instance Core.ToQuery DescribeSpotPriceHistory where
+  toQuery DescribeSpotPriceHistory' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeSpotPriceHistory" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "AvailabilityZone" Core.=: availabilityZone,
+        Core.toQuery
+          ( Core.toQueryList "ProductDescription"
+              Prelude.<$> productDescriptions
+          ),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
+          ( Core.toQueryList "InstanceType"
+              Prelude.<$> instanceTypes
+          )
+      ]
 
 -- | Contains the output of DescribeSpotPriceHistory.
 --
---
---
--- /See:/ 'describeSpotPriceHistoryResponse' smart constructor.
+-- /See:/ 'newDescribeSpotPriceHistoryResponse' smart constructor.
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-  { _dsphrsNextToken        :: !(Maybe Text)
-  , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
-  , _dsphrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token required to retrieve the next set of results. This value is
+    -- null or an empty string when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The historical Spot prices.
+    spotPriceHistory :: Prelude.Maybe [SpotPrice],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSpotPriceHistoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsphrsNextToken' - The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsphrsSpotPriceHistory' - The historical Spot prices.
+-- 'nextToken', 'describeSpotPriceHistoryResponse_nextToken' - The token required to retrieve the next set of results. This value is
+-- null or an empty string when there are no more results to return.
 --
--- * 'dsphrsResponseStatus' - -- | The response status code.
-describeSpotPriceHistoryResponse
-    :: Int -- ^ 'dsphrsResponseStatus'
-    -> DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse pResponseStatus_ =
+-- 'spotPriceHistory', 'describeSpotPriceHistoryResponse_spotPriceHistory' - The historical Spot prices.
+--
+-- 'httpStatus', 'describeSpotPriceHistoryResponse_httpStatus' - The response's http status code.
+newDescribeSpotPriceHistoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSpotPriceHistoryResponse
+newDescribeSpotPriceHistoryResponse pHttpStatus_ =
   DescribeSpotPriceHistoryResponse'
-    { _dsphrsNextToken = Nothing
-    , _dsphrsSpotPriceHistory = Nothing
-    , _dsphrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      spotPriceHistory = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
-dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
-dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a})
+-- | The token required to retrieve the next set of results. This value is
+-- null or an empty string when there are no more results to return.
+describeSpotPriceHistoryResponse_nextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistoryResponse_nextToken = Lens.lens (\DescribeSpotPriceHistoryResponse' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {nextToken = a} :: DescribeSpotPriceHistoryResponse)
 
 -- | The historical Spot prices.
-dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
-dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce
+describeSpotPriceHistoryResponse_spotPriceHistory :: Lens.Lens' DescribeSpotPriceHistoryResponse (Prelude.Maybe [SpotPrice])
+describeSpotPriceHistoryResponse_spotPriceHistory = Lens.lens (\DescribeSpotPriceHistoryResponse' {spotPriceHistory} -> spotPriceHistory) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {spotPriceHistory = a} :: DescribeSpotPriceHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dsphrsResponseStatus :: Lens' DescribeSpotPriceHistoryResponse Int
-dsphrsResponseStatus = lens _dsphrsResponseStatus (\ s a -> s{_dsphrsResponseStatus = a})
+-- | The response's http status code.
+describeSpotPriceHistoryResponse_httpStatus :: Lens.Lens' DescribeSpotPriceHistoryResponse Prelude.Int
+describeSpotPriceHistoryResponse_httpStatus = Lens.lens (\DescribeSpotPriceHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {httpStatus = a} :: DescribeSpotPriceHistoryResponse)
 
-instance NFData DescribeSpotPriceHistoryResponse
-         where
+instance
+  Prelude.NFData
+    DescribeSpotPriceHistoryResponse

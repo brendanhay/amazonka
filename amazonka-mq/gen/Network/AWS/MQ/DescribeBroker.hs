@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MQ.DescribeBroker
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,256 +22,512 @@
 --
 -- Returns information about the specified broker.
 module Network.AWS.MQ.DescribeBroker
-    (
-    -- * Creating a Request
-      describeBroker
-    , DescribeBroker
+  ( -- * Creating a Request
+    DescribeBroker (..),
+    newDescribeBroker,
+
     -- * Request Lenses
-    , desBrokerId
+    describeBroker_brokerId,
 
     -- * Destructuring the Response
-    , describeBrokerResponse
-    , DescribeBrokerResponse
+    DescribeBrokerResponse (..),
+    newDescribeBrokerResponse,
+
     -- * Response Lenses
-    , dbrsBrokerName
-    , dbrsEngineVersion
-    , dbrsBrokerState
-    , dbrsPubliclyAccessible
-    , dbrsAutoMinorVersionUpgrade
-    , dbrsSecurityGroups
-    , dbrsUsers
-    , dbrsSubnetIds
-    , dbrsConfigurations
-    , dbrsMaintenanceWindowStartTime
-    , dbrsDeploymentMode
-    , dbrsBrokerId
-    , dbrsEngineType
-    , dbrsBrokerARN
-    , dbrsBrokerInstances
-    , dbrsHostInstanceType
-    , dbrsResponseStatus
-    ) where
+    describeBrokerResponse_encryptionOptions,
+    describeBrokerResponse_brokerName,
+    describeBrokerResponse_brokerInstances,
+    describeBrokerResponse_storageType,
+    describeBrokerResponse_ldapServerMetadata,
+    describeBrokerResponse_brokerId,
+    describeBrokerResponse_pendingHostInstanceType,
+    describeBrokerResponse_engineType,
+    describeBrokerResponse_configurations,
+    describeBrokerResponse_authenticationStrategy,
+    describeBrokerResponse_subnetIds,
+    describeBrokerResponse_pendingSecurityGroups,
+    describeBrokerResponse_publiclyAccessible,
+    describeBrokerResponse_securityGroups,
+    describeBrokerResponse_logs,
+    describeBrokerResponse_pendingAuthenticationStrategy,
+    describeBrokerResponse_maintenanceWindowStartTime,
+    describeBrokerResponse_engineVersion,
+    describeBrokerResponse_brokerState,
+    describeBrokerResponse_tags,
+    describeBrokerResponse_hostInstanceType,
+    describeBrokerResponse_pendingLdapServerMetadata,
+    describeBrokerResponse_brokerArn,
+    describeBrokerResponse_pendingEngineVersion,
+    describeBrokerResponse_created,
+    describeBrokerResponse_autoMinorVersionUpgrade,
+    describeBrokerResponse_users,
+    describeBrokerResponse_deploymentMode,
+    describeBrokerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.MQ.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeBroker' smart constructor.
-newtype DescribeBroker = DescribeBroker'
-  { _desBrokerId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeBroker' smart constructor.
+data DescribeBroker = DescribeBroker'
+  { -- | The name of the broker. This value must be unique in your AWS account,
+    -- 1-50 characters long, must contain only letters, numbers, dashes, and
+    -- underscores, and must not contain whitespaces, brackets, wildcard
+    -- characters, or special characters.
+    brokerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBroker' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBroker' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desBrokerId' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-describeBroker
-    :: Text -- ^ 'desBrokerId'
-    -> DescribeBroker
-describeBroker pBrokerId_ = DescribeBroker' {_desBrokerId = pBrokerId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'brokerId', 'describeBroker_brokerId' - The name of the broker. This value must be unique in your AWS account,
+-- 1-50 characters long, must contain only letters, numbers, dashes, and
+-- underscores, and must not contain whitespaces, brackets, wildcard
+-- characters, or special characters.
+newDescribeBroker ::
+  -- | 'brokerId'
+  Prelude.Text ->
+  DescribeBroker
+newDescribeBroker pBrokerId_ =
+  DescribeBroker' {brokerId = pBrokerId_}
 
+-- | The name of the broker. This value must be unique in your AWS account,
+-- 1-50 characters long, must contain only letters, numbers, dashes, and
+-- underscores, and must not contain whitespaces, brackets, wildcard
+-- characters, or special characters.
+describeBroker_brokerId :: Lens.Lens' DescribeBroker Prelude.Text
+describeBroker_brokerId = Lens.lens (\DescribeBroker' {brokerId} -> brokerId) (\s@DescribeBroker' {} a -> s {brokerId = a} :: DescribeBroker)
 
--- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-desBrokerId :: Lens' DescribeBroker Text
-desBrokerId = lens _desBrokerId (\ s a -> s{_desBrokerId = a})
+instance Core.AWSRequest DescribeBroker where
+  type
+    AWSResponse DescribeBroker =
+      DescribeBrokerResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeBrokerResponse'
+            Prelude.<$> (x Core..?> "encryptionOptions")
+            Prelude.<*> (x Core..?> "brokerName")
+            Prelude.<*> ( x Core..?> "brokerInstances"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "storageType")
+            Prelude.<*> (x Core..?> "ldapServerMetadata")
+            Prelude.<*> (x Core..?> "brokerId")
+            Prelude.<*> (x Core..?> "pendingHostInstanceType")
+            Prelude.<*> (x Core..?> "engineType")
+            Prelude.<*> (x Core..?> "configurations")
+            Prelude.<*> (x Core..?> "authenticationStrategy")
+            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "pendingSecurityGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "publiclyAccessible")
+            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "logs")
+            Prelude.<*> (x Core..?> "pendingAuthenticationStrategy")
+            Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
+            Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<*> (x Core..?> "brokerState")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "hostInstanceType")
+            Prelude.<*> (x Core..?> "pendingLdapServerMetadata")
+            Prelude.<*> (x Core..?> "brokerArn")
+            Prelude.<*> (x Core..?> "pendingEngineVersion")
+            Prelude.<*> (x Core..?> "created")
+            Prelude.<*> (x Core..?> "autoMinorVersionUpgrade")
+            Prelude.<*> (x Core..?> "users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "deploymentMode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeBroker where
-        type Rs DescribeBroker = DescribeBrokerResponse
-        request = get mq
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeBrokerResponse' <$>
-                   (x .?> "brokerName") <*> (x .?> "engineVersion") <*>
-                     (x .?> "brokerState")
-                     <*> (x .?> "publiclyAccessible")
-                     <*> (x .?> "autoMinorVersionUpgrade")
-                     <*> (x .?> "securityGroups" .!@ mempty)
-                     <*> (x .?> "users" .!@ mempty)
-                     <*> (x .?> "subnetIds" .!@ mempty)
-                     <*> (x .?> "configurations")
-                     <*> (x .?> "maintenanceWindowStartTime")
-                     <*> (x .?> "deploymentMode")
-                     <*> (x .?> "brokerId")
-                     <*> (x .?> "engineType")
-                     <*> (x .?> "brokerArn")
-                     <*> (x .?> "brokerInstances" .!@ mempty)
-                     <*> (x .?> "hostInstanceType")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeBroker
 
-instance Hashable DescribeBroker where
+instance Prelude.NFData DescribeBroker
 
-instance NFData DescribeBroker where
+instance Core.ToHeaders DescribeBroker where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeBroker where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToPath DescribeBroker where
+  toPath DescribeBroker' {..} =
+    Prelude.mconcat
+      ["/v1/brokers/", Core.toBS brokerId]
 
-instance ToPath DescribeBroker where
-        toPath DescribeBroker'{..}
-          = mconcat ["/v1/brokers/", toBS _desBrokerId]
+instance Core.ToQuery DescribeBroker where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeBroker where
-        toQuery = const mempty
-
--- | /See:/ 'describeBrokerResponse' smart constructor.
+-- | /See:/ 'newDescribeBrokerResponse' smart constructor.
 data DescribeBrokerResponse = DescribeBrokerResponse'
-  { _dbrsBrokerName                 :: !(Maybe Text)
-  , _dbrsEngineVersion              :: !(Maybe Text)
-  , _dbrsBrokerState                :: !(Maybe BrokerState)
-  , _dbrsPubliclyAccessible         :: !(Maybe Bool)
-  , _dbrsAutoMinorVersionUpgrade    :: !(Maybe Bool)
-  , _dbrsSecurityGroups             :: !(Maybe [Text])
-  , _dbrsUsers                      :: !(Maybe [UserSummary])
-  , _dbrsSubnetIds                  :: !(Maybe [Text])
-  , _dbrsConfigurations             :: !(Maybe Configurations)
-  , _dbrsMaintenanceWindowStartTime :: !(Maybe WeeklyStartTime)
-  , _dbrsDeploymentMode             :: !(Maybe DeploymentMode)
-  , _dbrsBrokerId                   :: !(Maybe Text)
-  , _dbrsEngineType                 :: !(Maybe EngineType)
-  , _dbrsBrokerARN                  :: !(Maybe Text)
-  , _dbrsBrokerInstances            :: !(Maybe [BrokerInstance])
-  , _dbrsHostInstanceType           :: !(Maybe Text)
-  , _dbrsResponseStatus             :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Encryption options for the broker.
+    encryptionOptions :: Prelude.Maybe EncryptionOptions,
+    -- | The name of the broker. This value must be unique in your AWS account,
+    -- 1-50 characters long, must contain only letters, numbers, dashes, and
+    -- underscores, and must not contain whitespaces, brackets, wildcard
+    -- characters, or special characters.
+    brokerName :: Prelude.Maybe Prelude.Text,
+    -- | A list of information about allocated brokers.
+    brokerInstances :: Prelude.Maybe [BrokerInstance],
+    -- | The broker\'s storage type.
+    storageType :: Prelude.Maybe BrokerStorageType,
+    -- | The metadata of the LDAP server used to authenticate and authorize
+    -- connections to the broker.
+    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
+    -- | The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Prelude.Maybe Prelude.Text,
+    -- | The host instance type of the broker to upgrade to. For a list of
+    -- supported instance types, see
+    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+    pendingHostInstanceType :: Prelude.Maybe Prelude.Text,
+    -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
+    -- ACTIVEMQ and RABBITMQ.
+    engineType :: Prelude.Maybe EngineType,
+    -- | The list of all revisions for the specified configuration.
+    configurations :: Prelude.Maybe Configurations,
+    -- | The authentication strategy used to secure the broker.
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+    -- | The list of groups that define which subnets and IP ranges the broker
+    -- can use from different Availability Zones. A SINGLE_INSTANCE deployment
+    -- requires one subnet (for example, the default subnet). An
+    -- ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A
+    -- CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when
+    -- deployed with public accessibility, deployment without public
+    -- accessibility requires at least one subnet.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The list of pending security groups to authorize connections to brokers.
+    pendingSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | Required. Enables connections from applications outside of the VPC that
+    -- hosts the broker\'s subnets.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | The list of security groups (1 minimum, 5 maximum) that authorizes
+    -- connections to brokers.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The list of information about logs currently enabled and pending to be
+    -- deployed for the specified broker.
+    logs :: Prelude.Maybe LogsSummary,
+    -- | The authentication strategy that will be applied when the broker is
+    -- rebooted.
+    pendingAuthenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+    -- | The parameters that determine the WeeklyStartTime.
+    maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
+    -- | The version of the broker engine. For a list of supported engine
+    -- versions, see
+    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The status of the broker.
+    brokerState :: Prelude.Maybe BrokerState,
+    -- | The list of all tags associated with this broker.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The broker\'s instance type.
+    hostInstanceType :: Prelude.Maybe Prelude.Text,
+    -- | The metadata of the LDAP server that will be used to authenticate and
+    -- authorize connections to the broker once it is rebooted.
+    pendingLdapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
+    -- | The Amazon Resource Name (ARN) of the broker.
+    brokerArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the broker engine to upgrade to. For a list of supported
+    -- engine versions, see
+    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+    pendingEngineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The time when the broker was created.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | Required. Enables automatic upgrades to new minor versions for brokers,
+    -- as Apache releases the versions. The automatic upgrades occur during the
+    -- maintenance window of the broker or after a manual broker reboot.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The list of all broker usernames for the specified broker.
+    users :: Prelude.Maybe [UserSummary],
+    -- | Required. The deployment mode of the broker.
+    deploymentMode :: Prelude.Maybe DeploymentMode,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBrokerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBrokerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dbrsBrokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dbrsEngineVersion' - The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
+-- 'encryptionOptions', 'describeBrokerResponse_encryptionOptions' - Encryption options for the broker.
 --
--- * 'dbrsBrokerState' - The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS
+-- 'brokerName', 'describeBrokerResponse_brokerName' - The name of the broker. This value must be unique in your AWS account,
+-- 1-50 characters long, must contain only letters, numbers, dashes, and
+-- underscores, and must not contain whitespaces, brackets, wildcard
+-- characters, or special characters.
 --
--- * 'dbrsPubliclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+-- 'brokerInstances', 'describeBrokerResponse_brokerInstances' - A list of information about allocated brokers.
 --
--- * 'dbrsAutoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+-- 'storageType', 'describeBrokerResponse_storageType' - The broker\'s storage type.
 --
--- * 'dbrsSecurityGroups' - Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+-- 'ldapServerMetadata', 'describeBrokerResponse_ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize
+-- connections to the broker.
 --
--- * 'dbrsUsers' - The list of all ActiveMQ usernames for the specified broker.
+-- 'brokerId', 'describeBrokerResponse_brokerId' - The unique ID that Amazon MQ generates for the broker.
 --
--- * 'dbrsSubnetIds' - The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+-- 'pendingHostInstanceType', 'describeBrokerResponse_pendingHostInstanceType' - The host instance type of the broker to upgrade to. For a list of
+-- supported instance types, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
 --
--- * 'dbrsConfigurations' - The list of all revisions for the specified configuration.
+-- 'engineType', 'describeBrokerResponse_engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports
+-- ACTIVEMQ and RABBITMQ.
 --
--- * 'dbrsMaintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+-- 'configurations', 'describeBrokerResponse_configurations' - The list of all revisions for the specified configuration.
 --
--- * 'dbrsDeploymentMode' - Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.
+-- 'authenticationStrategy', 'describeBrokerResponse_authenticationStrategy' - The authentication strategy used to secure the broker.
 --
--- * 'dbrsBrokerId' - The unique ID that Amazon MQ generates for the broker.
+-- 'subnetIds', 'describeBrokerResponse_subnetIds' - The list of groups that define which subnets and IP ranges the broker
+-- can use from different Availability Zones. A SINGLE_INSTANCE deployment
+-- requires one subnet (for example, the default subnet). An
+-- ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A
+-- CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when
+-- deployed with public accessibility, deployment without public
+-- accessibility requires at least one subnet.
 --
--- * 'dbrsEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.
+-- 'pendingSecurityGroups', 'describeBrokerResponse_pendingSecurityGroups' - The list of pending security groups to authorize connections to brokers.
 --
--- * 'dbrsBrokerARN' - The Amazon Resource Name (ARN) of the broker.
+-- 'publiclyAccessible', 'describeBrokerResponse_publiclyAccessible' - Required. Enables connections from applications outside of the VPC that
+-- hosts the broker\'s subnets.
 --
--- * 'dbrsBrokerInstances' - A list of information about allocated brokers.
+-- 'securityGroups', 'describeBrokerResponse_securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes
+-- connections to brokers.
 --
--- * 'dbrsHostInstanceType' - The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
+-- 'logs', 'describeBrokerResponse_logs' - The list of information about logs currently enabled and pending to be
+-- deployed for the specified broker.
 --
--- * 'dbrsResponseStatus' - -- | The response status code.
-describeBrokerResponse
-    :: Int -- ^ 'dbrsResponseStatus'
-    -> DescribeBrokerResponse
-describeBrokerResponse pResponseStatus_ =
+-- 'pendingAuthenticationStrategy', 'describeBrokerResponse_pendingAuthenticationStrategy' - The authentication strategy that will be applied when the broker is
+-- rebooted.
+--
+-- 'maintenanceWindowStartTime', 'describeBrokerResponse_maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+--
+-- 'engineVersion', 'describeBrokerResponse_engineVersion' - The version of the broker engine. For a list of supported engine
+-- versions, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+--
+-- 'brokerState', 'describeBrokerResponse_brokerState' - The status of the broker.
+--
+-- 'tags', 'describeBrokerResponse_tags' - The list of all tags associated with this broker.
+--
+-- 'hostInstanceType', 'describeBrokerResponse_hostInstanceType' - The broker\'s instance type.
+--
+-- 'pendingLdapServerMetadata', 'describeBrokerResponse_pendingLdapServerMetadata' - The metadata of the LDAP server that will be used to authenticate and
+-- authorize connections to the broker once it is rebooted.
+--
+-- 'brokerArn', 'describeBrokerResponse_brokerArn' - The Amazon Resource Name (ARN) of the broker.
+--
+-- 'pendingEngineVersion', 'describeBrokerResponse_pendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported
+-- engine versions, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+--
+-- 'created', 'describeBrokerResponse_created' - The time when the broker was created.
+--
+-- 'autoMinorVersionUpgrade', 'describeBrokerResponse_autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers,
+-- as Apache releases the versions. The automatic upgrades occur during the
+-- maintenance window of the broker or after a manual broker reboot.
+--
+-- 'users', 'describeBrokerResponse_users' - The list of all broker usernames for the specified broker.
+--
+-- 'deploymentMode', 'describeBrokerResponse_deploymentMode' - Required. The deployment mode of the broker.
+--
+-- 'httpStatus', 'describeBrokerResponse_httpStatus' - The response's http status code.
+newDescribeBrokerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeBrokerResponse
+newDescribeBrokerResponse pHttpStatus_ =
   DescribeBrokerResponse'
-    { _dbrsBrokerName = Nothing
-    , _dbrsEngineVersion = Nothing
-    , _dbrsBrokerState = Nothing
-    , _dbrsPubliclyAccessible = Nothing
-    , _dbrsAutoMinorVersionUpgrade = Nothing
-    , _dbrsSecurityGroups = Nothing
-    , _dbrsUsers = Nothing
-    , _dbrsSubnetIds = Nothing
-    , _dbrsConfigurations = Nothing
-    , _dbrsMaintenanceWindowStartTime = Nothing
-    , _dbrsDeploymentMode = Nothing
-    , _dbrsBrokerId = Nothing
-    , _dbrsEngineType = Nothing
-    , _dbrsBrokerARN = Nothing
-    , _dbrsBrokerInstances = Nothing
-    , _dbrsHostInstanceType = Nothing
-    , _dbrsResponseStatus = pResponseStatus_
+    { encryptionOptions =
+        Prelude.Nothing,
+      brokerName = Prelude.Nothing,
+      brokerInstances = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      ldapServerMetadata = Prelude.Nothing,
+      brokerId = Prelude.Nothing,
+      pendingHostInstanceType = Prelude.Nothing,
+      engineType = Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      authenticationStrategy = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      pendingSecurityGroups = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      logs = Prelude.Nothing,
+      pendingAuthenticationStrategy = Prelude.Nothing,
+      maintenanceWindowStartTime = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      brokerState = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      hostInstanceType = Prelude.Nothing,
+      pendingLdapServerMetadata = Prelude.Nothing,
+      brokerArn = Prelude.Nothing,
+      pendingEngineVersion = Prelude.Nothing,
+      created = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      users = Prelude.Nothing,
+      deploymentMode = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Encryption options for the broker.
+describeBrokerResponse_encryptionOptions :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe EncryptionOptions)
+describeBrokerResponse_encryptionOptions = Lens.lens (\DescribeBrokerResponse' {encryptionOptions} -> encryptionOptions) (\s@DescribeBrokerResponse' {} a -> s {encryptionOptions = a} :: DescribeBrokerResponse)
 
--- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-dbrsBrokerName :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerName = lens _dbrsBrokerName (\ s a -> s{_dbrsBrokerName = a})
-
--- | The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
-dbrsEngineVersion :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsEngineVersion = lens _dbrsEngineVersion (\ s a -> s{_dbrsEngineVersion = a})
-
--- | The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS
-dbrsBrokerState :: Lens' DescribeBrokerResponse (Maybe BrokerState)
-dbrsBrokerState = lens _dbrsBrokerState (\ s a -> s{_dbrsBrokerState = a})
-
--- | Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
-dbrsPubliclyAccessible :: Lens' DescribeBrokerResponse (Maybe Bool)
-dbrsPubliclyAccessible = lens _dbrsPubliclyAccessible (\ s a -> s{_dbrsPubliclyAccessible = a})
-
--- | Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
-dbrsAutoMinorVersionUpgrade :: Lens' DescribeBrokerResponse (Maybe Bool)
-dbrsAutoMinorVersionUpgrade = lens _dbrsAutoMinorVersionUpgrade (\ s a -> s{_dbrsAutoMinorVersionUpgrade = a})
-
--- | Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
-dbrsSecurityGroups :: Lens' DescribeBrokerResponse [Text]
-dbrsSecurityGroups = lens _dbrsSecurityGroups (\ s a -> s{_dbrsSecurityGroups = a}) . _Default . _Coerce
-
--- | The list of all ActiveMQ usernames for the specified broker.
-dbrsUsers :: Lens' DescribeBrokerResponse [UserSummary]
-dbrsUsers = lens _dbrsUsers (\ s a -> s{_dbrsUsers = a}) . _Default . _Coerce
-
--- | The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
-dbrsSubnetIds :: Lens' DescribeBrokerResponse [Text]
-dbrsSubnetIds = lens _dbrsSubnetIds (\ s a -> s{_dbrsSubnetIds = a}) . _Default . _Coerce
-
--- | The list of all revisions for the specified configuration.
-dbrsConfigurations :: Lens' DescribeBrokerResponse (Maybe Configurations)
-dbrsConfigurations = lens _dbrsConfigurations (\ s a -> s{_dbrsConfigurations = a})
-
--- | The parameters that determine the WeeklyStartTime.
-dbrsMaintenanceWindowStartTime :: Lens' DescribeBrokerResponse (Maybe WeeklyStartTime)
-dbrsMaintenanceWindowStartTime = lens _dbrsMaintenanceWindowStartTime (\ s a -> s{_dbrsMaintenanceWindowStartTime = a})
-
--- | Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.
-dbrsDeploymentMode :: Lens' DescribeBrokerResponse (Maybe DeploymentMode)
-dbrsDeploymentMode = lens _dbrsDeploymentMode (\ s a -> s{_dbrsDeploymentMode = a})
-
--- | The unique ID that Amazon MQ generates for the broker.
-dbrsBrokerId :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerId = lens _dbrsBrokerId (\ s a -> s{_dbrsBrokerId = a})
-
--- | Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.
-dbrsEngineType :: Lens' DescribeBrokerResponse (Maybe EngineType)
-dbrsEngineType = lens _dbrsEngineType (\ s a -> s{_dbrsEngineType = a})
-
--- | The Amazon Resource Name (ARN) of the broker.
-dbrsBrokerARN :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerARN = lens _dbrsBrokerARN (\ s a -> s{_dbrsBrokerARN = a})
+-- | The name of the broker. This value must be unique in your AWS account,
+-- 1-50 characters long, must contain only letters, numbers, dashes, and
+-- underscores, and must not contain whitespaces, brackets, wildcard
+-- characters, or special characters.
+describeBrokerResponse_brokerName :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_brokerName = Lens.lens (\DescribeBrokerResponse' {brokerName} -> brokerName) (\s@DescribeBrokerResponse' {} a -> s {brokerName = a} :: DescribeBrokerResponse)
 
 -- | A list of information about allocated brokers.
-dbrsBrokerInstances :: Lens' DescribeBrokerResponse [BrokerInstance]
-dbrsBrokerInstances = lens _dbrsBrokerInstances (\ s a -> s{_dbrsBrokerInstances = a}) . _Default . _Coerce
+describeBrokerResponse_brokerInstances :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [BrokerInstance])
+describeBrokerResponse_brokerInstances = Lens.lens (\DescribeBrokerResponse' {brokerInstances} -> brokerInstances) (\s@DescribeBrokerResponse' {} a -> s {brokerInstances = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
-dbrsHostInstanceType :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsHostInstanceType = lens _dbrsHostInstanceType (\ s a -> s{_dbrsHostInstanceType = a})
+-- | The broker\'s storage type.
+describeBrokerResponse_storageType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe BrokerStorageType)
+describeBrokerResponse_storageType = Lens.lens (\DescribeBrokerResponse' {storageType} -> storageType) (\s@DescribeBrokerResponse' {} a -> s {storageType = a} :: DescribeBrokerResponse)
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DescribeBrokerResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
+-- | The metadata of the LDAP server used to authenticate and authorize
+-- connections to the broker.
+describeBrokerResponse_ldapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
+describeBrokerResponse_ldapServerMetadata = Lens.lens (\DescribeBrokerResponse' {ldapServerMetadata} -> ldapServerMetadata) (\s@DescribeBrokerResponse' {} a -> s {ldapServerMetadata = a} :: DescribeBrokerResponse)
 
-instance NFData DescribeBrokerResponse where
+-- | The unique ID that Amazon MQ generates for the broker.
+describeBrokerResponse_brokerId :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_brokerId = Lens.lens (\DescribeBrokerResponse' {brokerId} -> brokerId) (\s@DescribeBrokerResponse' {} a -> s {brokerId = a} :: DescribeBrokerResponse)
+
+-- | The host instance type of the broker to upgrade to. For a list of
+-- supported instance types, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+describeBrokerResponse_pendingHostInstanceType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_pendingHostInstanceType = Lens.lens (\DescribeBrokerResponse' {pendingHostInstanceType} -> pendingHostInstanceType) (\s@DescribeBrokerResponse' {} a -> s {pendingHostInstanceType = a} :: DescribeBrokerResponse)
+
+-- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
+-- ACTIVEMQ and RABBITMQ.
+describeBrokerResponse_engineType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe EngineType)
+describeBrokerResponse_engineType = Lens.lens (\DescribeBrokerResponse' {engineType} -> engineType) (\s@DescribeBrokerResponse' {} a -> s {engineType = a} :: DescribeBrokerResponse)
+
+-- | The list of all revisions for the specified configuration.
+describeBrokerResponse_configurations :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Configurations)
+describeBrokerResponse_configurations = Lens.lens (\DescribeBrokerResponse' {configurations} -> configurations) (\s@DescribeBrokerResponse' {} a -> s {configurations = a} :: DescribeBrokerResponse)
+
+-- | The authentication strategy used to secure the broker.
+describeBrokerResponse_authenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe AuthenticationStrategy)
+describeBrokerResponse_authenticationStrategy = Lens.lens (\DescribeBrokerResponse' {authenticationStrategy} -> authenticationStrategy) (\s@DescribeBrokerResponse' {} a -> s {authenticationStrategy = a} :: DescribeBrokerResponse)
+
+-- | The list of groups that define which subnets and IP ranges the broker
+-- can use from different Availability Zones. A SINGLE_INSTANCE deployment
+-- requires one subnet (for example, the default subnet). An
+-- ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A
+-- CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when
+-- deployed with public accessibility, deployment without public
+-- accessibility requires at least one subnet.
+describeBrokerResponse_subnetIds :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_subnetIds = Lens.lens (\DescribeBrokerResponse' {subnetIds} -> subnetIds) (\s@DescribeBrokerResponse' {} a -> s {subnetIds = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The list of pending security groups to authorize connections to brokers.
+describeBrokerResponse_pendingSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_pendingSecurityGroups = Lens.lens (\DescribeBrokerResponse' {pendingSecurityGroups} -> pendingSecurityGroups) (\s@DescribeBrokerResponse' {} a -> s {pendingSecurityGroups = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Required. Enables connections from applications outside of the VPC that
+-- hosts the broker\'s subnets.
+describeBrokerResponse_publiclyAccessible :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Bool)
+describeBrokerResponse_publiclyAccessible = Lens.lens (\DescribeBrokerResponse' {publiclyAccessible} -> publiclyAccessible) (\s@DescribeBrokerResponse' {} a -> s {publiclyAccessible = a} :: DescribeBrokerResponse)
+
+-- | The list of security groups (1 minimum, 5 maximum) that authorizes
+-- connections to brokers.
+describeBrokerResponse_securityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_securityGroups = Lens.lens (\DescribeBrokerResponse' {securityGroups} -> securityGroups) (\s@DescribeBrokerResponse' {} a -> s {securityGroups = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The list of information about logs currently enabled and pending to be
+-- deployed for the specified broker.
+describeBrokerResponse_logs :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LogsSummary)
+describeBrokerResponse_logs = Lens.lens (\DescribeBrokerResponse' {logs} -> logs) (\s@DescribeBrokerResponse' {} a -> s {logs = a} :: DescribeBrokerResponse)
+
+-- | The authentication strategy that will be applied when the broker is
+-- rebooted.
+describeBrokerResponse_pendingAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe AuthenticationStrategy)
+describeBrokerResponse_pendingAuthenticationStrategy = Lens.lens (\DescribeBrokerResponse' {pendingAuthenticationStrategy} -> pendingAuthenticationStrategy) (\s@DescribeBrokerResponse' {} a -> s {pendingAuthenticationStrategy = a} :: DescribeBrokerResponse)
+
+-- | The parameters that determine the WeeklyStartTime.
+describeBrokerResponse_maintenanceWindowStartTime :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe WeeklyStartTime)
+describeBrokerResponse_maintenanceWindowStartTime = Lens.lens (\DescribeBrokerResponse' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@DescribeBrokerResponse' {} a -> s {maintenanceWindowStartTime = a} :: DescribeBrokerResponse)
+
+-- | The version of the broker engine. For a list of supported engine
+-- versions, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+describeBrokerResponse_engineVersion :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_engineVersion = Lens.lens (\DescribeBrokerResponse' {engineVersion} -> engineVersion) (\s@DescribeBrokerResponse' {} a -> s {engineVersion = a} :: DescribeBrokerResponse)
+
+-- | The status of the broker.
+describeBrokerResponse_brokerState :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe BrokerState)
+describeBrokerResponse_brokerState = Lens.lens (\DescribeBrokerResponse' {brokerState} -> brokerState) (\s@DescribeBrokerResponse' {} a -> s {brokerState = a} :: DescribeBrokerResponse)
+
+-- | The list of all tags associated with this broker.
+describeBrokerResponse_tags :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeBrokerResponse_tags = Lens.lens (\DescribeBrokerResponse' {tags} -> tags) (\s@DescribeBrokerResponse' {} a -> s {tags = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The broker\'s instance type.
+describeBrokerResponse_hostInstanceType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_hostInstanceType = Lens.lens (\DescribeBrokerResponse' {hostInstanceType} -> hostInstanceType) (\s@DescribeBrokerResponse' {} a -> s {hostInstanceType = a} :: DescribeBrokerResponse)
+
+-- | The metadata of the LDAP server that will be used to authenticate and
+-- authorize connections to the broker once it is rebooted.
+describeBrokerResponse_pendingLdapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
+describeBrokerResponse_pendingLdapServerMetadata = Lens.lens (\DescribeBrokerResponse' {pendingLdapServerMetadata} -> pendingLdapServerMetadata) (\s@DescribeBrokerResponse' {} a -> s {pendingLdapServerMetadata = a} :: DescribeBrokerResponse)
+
+-- | The Amazon Resource Name (ARN) of the broker.
+describeBrokerResponse_brokerArn :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_brokerArn = Lens.lens (\DescribeBrokerResponse' {brokerArn} -> brokerArn) (\s@DescribeBrokerResponse' {} a -> s {brokerArn = a} :: DescribeBrokerResponse)
+
+-- | The version of the broker engine to upgrade to. For a list of supported
+-- engine versions, see
+-- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+describeBrokerResponse_pendingEngineVersion :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
+describeBrokerResponse_pendingEngineVersion = Lens.lens (\DescribeBrokerResponse' {pendingEngineVersion} -> pendingEngineVersion) (\s@DescribeBrokerResponse' {} a -> s {pendingEngineVersion = a} :: DescribeBrokerResponse)
+
+-- | The time when the broker was created.
+describeBrokerResponse_created :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.UTCTime)
+describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Required. Enables automatic upgrades to new minor versions for brokers,
+-- as Apache releases the versions. The automatic upgrades occur during the
+-- maintenance window of the broker or after a manual broker reboot.
+describeBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Bool)
+describeBrokerResponse_autoMinorVersionUpgrade = Lens.lens (\DescribeBrokerResponse' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@DescribeBrokerResponse' {} a -> s {autoMinorVersionUpgrade = a} :: DescribeBrokerResponse)
+
+-- | The list of all broker usernames for the specified broker.
+describeBrokerResponse_users :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [UserSummary])
+describeBrokerResponse_users = Lens.lens (\DescribeBrokerResponse' {users} -> users) (\s@DescribeBrokerResponse' {} a -> s {users = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Required. The deployment mode of the broker.
+describeBrokerResponse_deploymentMode :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DeploymentMode)
+describeBrokerResponse_deploymentMode = Lens.lens (\DescribeBrokerResponse' {deploymentMode} -> deploymentMode) (\s@DescribeBrokerResponse' {} a -> s {deploymentMode = a} :: DescribeBrokerResponse)
+
+-- | The response's http status code.
+describeBrokerResponse_httpStatus :: Lens.Lens' DescribeBrokerResponse Prelude.Int
+describeBrokerResponse_httpStatus = Lens.lens (\DescribeBrokerResponse' {httpStatus} -> httpStatus) (\s@DescribeBrokerResponse' {} a -> s {httpStatus = a} :: DescribeBrokerResponse)
+
+instance Prelude.NFData DescribeBrokerResponse

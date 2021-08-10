@@ -1,51 +1,63 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.Lightsail
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lightsail includes everything you need to launch your project quickly - a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP - for a low, predictable price. You manage those Lightsail servers through the Lightsail console or by using the API or command-line interface (CLI).
+-- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
+-- Amazon Lightsail is the easiest way to get started with Amazon Web
+-- Services (AWS) for developers who need to build websites or web
+-- applications. It includes everything you need to launch your project
+-- quickly - instances (virtual private servers), container services,
+-- managed databases, SSD-based block storage, static IP addresses, load
+-- balancers, content delivery network (CDN) distributions, DNS management
+-- of registered domains, and resource snapshots (backups) - for a low,
+-- predictable monthly price.
 --
--- For more information about Lightsail concepts and tasks, see the <https://lightsail.aws.amazon.com/ls/docs/all Lightsail Dev Guide> .
+-- You can manage your Lightsail resources using the Lightsail console,
+-- Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more
+-- information about Lightsail concepts and tasks, see the
+-- <http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli Lightsail Dev Guide>.
 --
--- To use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the <http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli Lightsail Dev Guide> .
---
+-- This API Reference provides detailed information about the actions, data
+-- types, parameters, and errors of the Lightsail service. For more
+-- information about the supported AWS Regions, endpoints, and service
+-- quotas of the Lightsail service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/lightsail.html Amazon Lightsail Endpoints and Quotas>
+-- in the /AWS General Reference/.
 module Network.AWS.Lightsail
-    (
-    -- * Service Configuration
-      lightsail
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    , _AccessDeniedException
-
-    -- ** AccountSetupInProgressException
-    , _AccountSetupInProgressException
-
     -- ** NotFoundException
-    , _NotFoundException
-
-    -- ** OperationFailureException
-    , _OperationFailureException
-
-    -- ** ServiceException
-    , _ServiceException
-
-    -- ** UnauthenticatedException
-    , _UnauthenticatedException
+    _NotFoundException,
 
     -- ** InvalidInputException
-    , _InvalidInputException
+    _InvalidInputException,
+
+    -- ** UnauthenticatedException
+    _UnauthenticatedException,
+
+    -- ** OperationFailureException
+    _OperationFailureException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** AccountSetupInProgressException
+    _AccountSetupInProgressException,
+
+    -- ** ServiceException
+    _ServiceException,
 
     -- * Waiters
     -- $waiters
@@ -53,760 +65,1554 @@ module Network.AWS.Lightsail
     -- * Operations
     -- $operations
 
-    -- ** CloseInstancePublicPorts
-    , module Network.AWS.Lightsail.CloseInstancePublicPorts
+    -- ** GetContainerServices
+    GetContainerServices (GetContainerServices'),
+    newGetContainerServices,
+    GetContainerServicesResponse (GetContainerServicesResponse'),
+    newGetContainerServicesResponse,
 
-    -- ** AllocateStaticIP
-    , module Network.AWS.Lightsail.AllocateStaticIP
+    -- ** GetStaticIp
+    GetStaticIp (GetStaticIp'),
+    newGetStaticIp,
+    GetStaticIpResponse (GetStaticIpResponse'),
+    newGetStaticIpResponse,
 
-    -- ** DeleteKeyPair
-    , module Network.AWS.Lightsail.DeleteKeyPair
+    -- ** GetRelationalDatabaseSnapshots (Paginated)
+    GetRelationalDatabaseSnapshots (GetRelationalDatabaseSnapshots'),
+    newGetRelationalDatabaseSnapshots,
+    GetRelationalDatabaseSnapshotsResponse (GetRelationalDatabaseSnapshotsResponse'),
+    newGetRelationalDatabaseSnapshotsResponse,
 
-    -- ** DeleteInstanceSnapshot
-    , module Network.AWS.Lightsail.DeleteInstanceSnapshot
-
-    -- ** GetInstances (Paginated)
-    , module Network.AWS.Lightsail.GetInstances
-
-    -- ** GetLoadBalancer
-    , module Network.AWS.Lightsail.GetLoadBalancer
-
-    -- ** GetInstance
-    , module Network.AWS.Lightsail.GetInstance
-
-    -- ** AttachStaticIP
-    , module Network.AWS.Lightsail.AttachStaticIP
-
-    -- ** DetachDisk
-    , module Network.AWS.Lightsail.DetachDisk
-
-    -- ** DownloadDefaultKeyPair
-    , module Network.AWS.Lightsail.DownloadDefaultKeyPair
-
-    -- ** DeleteLoadBalancerTLSCertificate
-    , module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
-
-    -- ** GetDomains (Paginated)
-    , module Network.AWS.Lightsail.GetDomains
-
-    -- ** CreateLoadBalancerTLSCertificate
-    , module Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
-
-    -- ** CreateDomainEntry
-    , module Network.AWS.Lightsail.CreateDomainEntry
-
-    -- ** ImportKeyPair
-    , module Network.AWS.Lightsail.ImportKeyPair
-
-    -- ** GetInstanceSnapshots (Paginated)
-    , module Network.AWS.Lightsail.GetInstanceSnapshots
-
-    -- ** ReleaseStaticIP
-    , module Network.AWS.Lightsail.ReleaseStaticIP
-
-    -- ** DeleteInstance
-    , module Network.AWS.Lightsail.DeleteInstance
-
-    -- ** RebootInstance
-    , module Network.AWS.Lightsail.RebootInstance
-
-    -- ** DeleteLoadBalancer
-    , module Network.AWS.Lightsail.DeleteLoadBalancer
-
-    -- ** CreateDiskFromSnapshot
-    , module Network.AWS.Lightsail.CreateDiskFromSnapshot
-
-    -- ** GetInstanceSnapshot
-    , module Network.AWS.Lightsail.GetInstanceSnapshot
-
-    -- ** GetDomain
-    , module Network.AWS.Lightsail.GetDomain
-
-    -- ** GetActiveNames (Paginated)
-    , module Network.AWS.Lightsail.GetActiveNames
-
-    -- ** GetInstanceAccessDetails
-    , module Network.AWS.Lightsail.GetInstanceAccessDetails
-
-    -- ** StopInstance
-    , module Network.AWS.Lightsail.StopInstance
-
-    -- ** DetachInstancesFromLoadBalancer
-    , module Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
-
-    -- ** CreateInstanceSnapshot
-    , module Network.AWS.Lightsail.CreateInstanceSnapshot
-
-    -- ** IsVPCPeered
-    , module Network.AWS.Lightsail.IsVPCPeered
-
-    -- ** GetStaticIPs (Paginated)
-    , module Network.AWS.Lightsail.GetStaticIPs
-
-    -- ** UnpeerVPC
-    , module Network.AWS.Lightsail.UnpeerVPC
-
-    -- ** DeleteDisk
-    , module Network.AWS.Lightsail.DeleteDisk
-
-    -- ** CreateInstancesFromSnapshot
-    , module Network.AWS.Lightsail.CreateInstancesFromSnapshot
-
-    -- ** CreateDomain
-    , module Network.AWS.Lightsail.CreateDomain
-
-    -- ** GetDiskSnapshots
-    , module Network.AWS.Lightsail.GetDiskSnapshots
-
-    -- ** PeerVPC
-    , module Network.AWS.Lightsail.PeerVPC
-
-    -- ** GetLoadBalancers
-    , module Network.AWS.Lightsail.GetLoadBalancers
-
-    -- ** AttachLoadBalancerTLSCertificate
-    , module Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
-
-    -- ** UpdateLoadBalancerAttribute
-    , module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
+    -- ** GetDistributions
+    GetDistributions (GetDistributions'),
+    newGetDistributions,
+    GetDistributionsResponse (GetDistributionsResponse'),
+    newGetDistributionsResponse,
 
     -- ** GetDiskSnapshot
-    , module Network.AWS.Lightsail.GetDiskSnapshot
+    GetDiskSnapshot (GetDiskSnapshot'),
+    newGetDiskSnapshot,
+    GetDiskSnapshotResponse (GetDiskSnapshotResponse'),
+    newGetDiskSnapshotResponse,
 
-    -- ** GetStaticIP
-    , module Network.AWS.Lightsail.GetStaticIP
+    -- ** CreateContainerServiceDeployment
+    CreateContainerServiceDeployment (CreateContainerServiceDeployment'),
+    newCreateContainerServiceDeployment,
+    CreateContainerServiceDeploymentResponse (CreateContainerServiceDeploymentResponse'),
+    newCreateContainerServiceDeploymentResponse,
 
-    -- ** GetBlueprints (Paginated)
-    , module Network.AWS.Lightsail.GetBlueprints
+    -- ** PeerVpc
+    PeerVpc (PeerVpc'),
+    newPeerVpc,
+    PeerVpcResponse (PeerVpcResponse'),
+    newPeerVpcResponse,
 
-    -- ** GetInstancePortStates
-    , module Network.AWS.Lightsail.GetInstancePortStates
+    -- ** UpdateLoadBalancerAttribute
+    UpdateLoadBalancerAttribute (UpdateLoadBalancerAttribute'),
+    newUpdateLoadBalancerAttribute,
+    UpdateLoadBalancerAttributeResponse (UpdateLoadBalancerAttributeResponse'),
+    newUpdateLoadBalancerAttributeResponse,
 
-    -- ** CreateDiskSnapshot
-    , module Network.AWS.Lightsail.CreateDiskSnapshot
+    -- ** UpdateDistributionBundle
+    UpdateDistributionBundle (UpdateDistributionBundle'),
+    newUpdateDistributionBundle,
+    UpdateDistributionBundleResponse (UpdateDistributionBundleResponse'),
+    newUpdateDistributionBundleResponse,
 
-    -- ** DeleteDomainEntry
-    , module Network.AWS.Lightsail.DeleteDomainEntry
+    -- ** AllocateStaticIp
+    AllocateStaticIp (AllocateStaticIp'),
+    newAllocateStaticIp,
+    AllocateStaticIpResponse (AllocateStaticIpResponse'),
+    newAllocateStaticIpResponse,
 
-    -- ** UpdateDomainEntry
-    , module Network.AWS.Lightsail.UpdateDomainEntry
+    -- ** CloseInstancePublicPorts
+    CloseInstancePublicPorts (CloseInstancePublicPorts'),
+    newCloseInstancePublicPorts,
+    CloseInstancePublicPortsResponse (CloseInstancePublicPortsResponse'),
+    newCloseInstancePublicPortsResponse,
 
-    -- ** GetRegions
-    , module Network.AWS.Lightsail.GetRegions
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
 
-    -- ** DeleteDiskSnapshot
-    , module Network.AWS.Lightsail.DeleteDiskSnapshot
+    -- ** DisableAddOn
+    DisableAddOn (DisableAddOn'),
+    newDisableAddOn,
+    DisableAddOnResponse (DisableAddOnResponse'),
+    newDisableAddOnResponse,
 
-    -- ** GetLoadBalancerMetricData
-    , module Network.AWS.Lightsail.GetLoadBalancerMetricData
+    -- ** GetCloudFormationStackRecords (Paginated)
+    GetCloudFormationStackRecords (GetCloudFormationStackRecords'),
+    newGetCloudFormationStackRecords,
+    GetCloudFormationStackRecordsResponse (GetCloudFormationStackRecordsResponse'),
+    newGetCloudFormationStackRecordsResponse,
 
-    -- ** GetInstanceState
-    , module Network.AWS.Lightsail.GetInstanceState
+    -- ** IsVpcPeered
+    IsVpcPeered (IsVpcPeered'),
+    newIsVpcPeered,
+    IsVpcPeeredResponse (IsVpcPeeredResponse'),
+    newIsVpcPeeredResponse,
 
-    -- ** GetKeyPairs (Paginated)
-    , module Network.AWS.Lightsail.GetKeyPairs
+    -- ** GetRelationalDatabaseSnapshot
+    GetRelationalDatabaseSnapshot (GetRelationalDatabaseSnapshot'),
+    newGetRelationalDatabaseSnapshot,
+    GetRelationalDatabaseSnapshotResponse (GetRelationalDatabaseSnapshotResponse'),
+    newGetRelationalDatabaseSnapshotResponse,
 
-    -- ** GetOperations (Paginated)
-    , module Network.AWS.Lightsail.GetOperations
+    -- ** GetRelationalDatabaseBlueprints (Paginated)
+    GetRelationalDatabaseBlueprints (GetRelationalDatabaseBlueprints'),
+    newGetRelationalDatabaseBlueprints,
+    GetRelationalDatabaseBlueprintsResponse (GetRelationalDatabaseBlueprintsResponse'),
+    newGetRelationalDatabaseBlueprintsResponse,
 
-    -- ** GetDisks
-    , module Network.AWS.Lightsail.GetDisks
+    -- ** DeleteInstanceSnapshot
+    DeleteInstanceSnapshot (DeleteInstanceSnapshot'),
+    newDeleteInstanceSnapshot,
+    DeleteInstanceSnapshotResponse (DeleteInstanceSnapshotResponse'),
+    newDeleteInstanceSnapshotResponse,
 
-    -- ** AttachInstancesToLoadBalancer
-    , module Network.AWS.Lightsail.AttachInstancesToLoadBalancer
+    -- ** UnpeerVpc
+    UnpeerVpc (UnpeerVpc'),
+    newUnpeerVpc,
+    UnpeerVpcResponse (UnpeerVpcResponse'),
+    newUnpeerVpcResponse,
 
-    -- ** GetOperation
-    , module Network.AWS.Lightsail.GetOperation
+    -- ** GetContainerAPIMetadata
+    GetContainerAPIMetadata (GetContainerAPIMetadata'),
+    newGetContainerAPIMetadata,
+    GetContainerAPIMetadataResponse (GetContainerAPIMetadataResponse'),
+    newGetContainerAPIMetadataResponse,
 
-    -- ** GetInstanceMetricData
-    , module Network.AWS.Lightsail.GetInstanceMetricData
+    -- ** GetInstances (Paginated)
+    GetInstances (GetInstances'),
+    newGetInstances,
+    GetInstancesResponse (GetInstancesResponse'),
+    newGetInstancesResponse,
 
-    -- ** GetKeyPair
-    , module Network.AWS.Lightsail.GetKeyPair
-
-    -- ** PutInstancePublicPorts
-    , module Network.AWS.Lightsail.PutInstancePublicPorts
-
-    -- ** GetDisk
-    , module Network.AWS.Lightsail.GetDisk
-
-    -- ** CreateLoadBalancer
-    , module Network.AWS.Lightsail.CreateLoadBalancer
-
-    -- ** AttachDisk
-    , module Network.AWS.Lightsail.AttachDisk
-
-    -- ** DetachStaticIP
-    , module Network.AWS.Lightsail.DetachStaticIP
-
-    -- ** CreateInstances
-    , module Network.AWS.Lightsail.CreateInstances
-
-    -- ** OpenInstancePublicPorts
-    , module Network.AWS.Lightsail.OpenInstancePublicPorts
-
-    -- ** GetBundles (Paginated)
-    , module Network.AWS.Lightsail.GetBundles
-
-    -- ** DeleteDomain
-    , module Network.AWS.Lightsail.DeleteDomain
-
-    -- ** GetLoadBalancerTLSCertificates
-    , module Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
-
-    -- ** CreateDisk
-    , module Network.AWS.Lightsail.CreateDisk
-
-    -- ** GetOperationsForResource
-    , module Network.AWS.Lightsail.GetOperationsForResource
-
-    -- ** CreateKeyPair
-    , module Network.AWS.Lightsail.CreateKeyPair
+    -- ** CreateInstancesFromSnapshot
+    CreateInstancesFromSnapshot (CreateInstancesFromSnapshot'),
+    newCreateInstancesFromSnapshot,
+    CreateInstancesFromSnapshotResponse (CreateInstancesFromSnapshotResponse'),
+    newCreateInstancesFromSnapshotResponse,
 
     -- ** StartInstance
-    , module Network.AWS.Lightsail.StartInstance
+    StartInstance (StartInstance'),
+    newStartInstance,
+    StartInstanceResponse (StartInstanceResponse'),
+    newStartInstanceResponse,
+
+    -- ** CreateKeyPair
+    CreateKeyPair (CreateKeyPair'),
+    newCreateKeyPair,
+    CreateKeyPairResponse (CreateKeyPairResponse'),
+    newCreateKeyPairResponse,
+
+    -- ** GetInstanceAccessDetails
+    GetInstanceAccessDetails (GetInstanceAccessDetails'),
+    newGetInstanceAccessDetails,
+    GetInstanceAccessDetailsResponse (GetInstanceAccessDetailsResponse'),
+    newGetInstanceAccessDetailsResponse,
+
+    -- ** CopySnapshot
+    CopySnapshot (CopySnapshot'),
+    newCopySnapshot,
+    CopySnapshotResponse (CopySnapshotResponse'),
+    newCopySnapshotResponse,
+
+    -- ** CreateInstanceSnapshot
+    CreateInstanceSnapshot (CreateInstanceSnapshot'),
+    newCreateInstanceSnapshot,
+    CreateInstanceSnapshotResponse (CreateInstanceSnapshotResponse'),
+    newCreateInstanceSnapshotResponse,
+
+    -- ** StopInstance
+    StopInstance (StopInstance'),
+    newStopInstance,
+    StopInstanceResponse (StopInstanceResponse'),
+    newStopInstanceResponse,
+
+    -- ** RegisterContainerImage
+    RegisterContainerImage (RegisterContainerImage'),
+    newRegisterContainerImage,
+    RegisterContainerImageResponse (RegisterContainerImageResponse'),
+    newRegisterContainerImageResponse,
+
+    -- ** DetachCertificateFromDistribution
+    DetachCertificateFromDistribution (DetachCertificateFromDistribution'),
+    newDetachCertificateFromDistribution,
+    DetachCertificateFromDistributionResponse (DetachCertificateFromDistributionResponse'),
+    newDetachCertificateFromDistributionResponse,
+
+    -- ** CreateLoadBalancer
+    CreateLoadBalancer (CreateLoadBalancer'),
+    newCreateLoadBalancer,
+    CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
+    newCreateLoadBalancerResponse,
+
+    -- ** GetContainerServiceDeployments
+    GetContainerServiceDeployments (GetContainerServiceDeployments'),
+    newGetContainerServiceDeployments,
+    GetContainerServiceDeploymentsResponse (GetContainerServiceDeploymentsResponse'),
+    newGetContainerServiceDeploymentsResponse,
+
+    -- ** DeleteContactMethod
+    DeleteContactMethod (DeleteContactMethod'),
+    newDeleteContactMethod,
+    DeleteContactMethodResponse (DeleteContactMethodResponse'),
+    newDeleteContactMethodResponse,
+
+    -- ** GetDomain
+    GetDomain (GetDomain'),
+    newGetDomain,
+    GetDomainResponse (GetDomainResponse'),
+    newGetDomainResponse,
+
+    -- ** DetachStaticIp
+    DetachStaticIp (DetachStaticIp'),
+    newDetachStaticIp,
+    DetachStaticIpResponse (DetachStaticIpResponse'),
+    newDetachStaticIpResponse,
+
+    -- ** AttachDisk
+    AttachDisk (AttachDisk'),
+    newAttachDisk,
+    AttachDiskResponse (AttachDiskResponse'),
+    newAttachDiskResponse,
+
+    -- ** GetDisk
+    GetDisk (GetDisk'),
+    newGetDisk,
+    GetDiskResponse (GetDiskResponse'),
+    newGetDiskResponse,
+
+    -- ** GetRelationalDatabaseLogEvents
+    GetRelationalDatabaseLogEvents (GetRelationalDatabaseLogEvents'),
+    newGetRelationalDatabaseLogEvents,
+    GetRelationalDatabaseLogEventsResponse (GetRelationalDatabaseLogEventsResponse'),
+    newGetRelationalDatabaseLogEventsResponse,
+
+    -- ** GetRelationalDatabases (Paginated)
+    GetRelationalDatabases (GetRelationalDatabases'),
+    newGetRelationalDatabases,
+    GetRelationalDatabasesResponse (GetRelationalDatabasesResponse'),
+    newGetRelationalDatabasesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateDiskFromSnapshot
+    CreateDiskFromSnapshot (CreateDiskFromSnapshot'),
+    newCreateDiskFromSnapshot,
+    CreateDiskFromSnapshotResponse (CreateDiskFromSnapshotResponse'),
+    newCreateDiskFromSnapshotResponse,
+
+    -- ** GetInstanceMetricData
+    GetInstanceMetricData (GetInstanceMetricData'),
+    newGetInstanceMetricData,
+    GetInstanceMetricDataResponse (GetInstanceMetricDataResponse'),
+    newGetInstanceMetricDataResponse,
+
+    -- ** DeleteLoadBalancer
+    DeleteLoadBalancer (DeleteLoadBalancer'),
+    newDeleteLoadBalancer,
+    DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
+    newDeleteLoadBalancerResponse,
+
+    -- ** ExportSnapshot
+    ExportSnapshot (ExportSnapshot'),
+    newExportSnapshot,
+    ExportSnapshotResponse (ExportSnapshotResponse'),
+    newExportSnapshotResponse,
+
+    -- ** CreateRelationalDatabaseFromSnapshot
+    CreateRelationalDatabaseFromSnapshot (CreateRelationalDatabaseFromSnapshot'),
+    newCreateRelationalDatabaseFromSnapshot,
+    CreateRelationalDatabaseFromSnapshotResponse (CreateRelationalDatabaseFromSnapshotResponse'),
+    newCreateRelationalDatabaseFromSnapshotResponse,
+
+    -- ** GetOperations (Paginated)
+    GetOperations (GetOperations'),
+    newGetOperations,
+    GetOperationsResponse (GetOperationsResponse'),
+    newGetOperationsResponse,
+
+    -- ** GetExportSnapshotRecords (Paginated)
+    GetExportSnapshotRecords (GetExportSnapshotRecords'),
+    newGetExportSnapshotRecords,
+    GetExportSnapshotRecordsResponse (GetExportSnapshotRecordsResponse'),
+    newGetExportSnapshotRecordsResponse,
+
+    -- ** GetLoadBalancerMetricData
+    GetLoadBalancerMetricData (GetLoadBalancerMetricData'),
+    newGetLoadBalancerMetricData,
+    GetLoadBalancerMetricDataResponse (GetLoadBalancerMetricDataResponse'),
+    newGetLoadBalancerMetricDataResponse,
+
+    -- ** GetInstanceSnapshots (Paginated)
+    GetInstanceSnapshots (GetInstanceSnapshots'),
+    newGetInstanceSnapshots,
+    GetInstanceSnapshotsResponse (GetInstanceSnapshotsResponse'),
+    newGetInstanceSnapshotsResponse,
+
+    -- ** DeleteInstance
+    DeleteInstance (DeleteInstance'),
+    newDeleteInstance,
+    DeleteInstanceResponse (DeleteInstanceResponse'),
+    newDeleteInstanceResponse,
+
+    -- ** CreateLoadBalancerTlsCertificate
+    CreateLoadBalancerTlsCertificate (CreateLoadBalancerTlsCertificate'),
+    newCreateLoadBalancerTlsCertificate,
+    CreateLoadBalancerTlsCertificateResponse (CreateLoadBalancerTlsCertificateResponse'),
+    newCreateLoadBalancerTlsCertificateResponse,
+
+    -- ** RebootInstance
+    RebootInstance (RebootInstance'),
+    newRebootInstance,
+    RebootInstanceResponse (RebootInstanceResponse'),
+    newRebootInstanceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetRelationalDatabase
+    GetRelationalDatabase (GetRelationalDatabase'),
+    newGetRelationalDatabase,
+    GetRelationalDatabaseResponse (GetRelationalDatabaseResponse'),
+    newGetRelationalDatabaseResponse,
+
+    -- ** GetKeyPairs (Paginated)
+    GetKeyPairs (GetKeyPairs'),
+    newGetKeyPairs,
+    GetKeyPairsResponse (GetKeyPairsResponse'),
+    newGetKeyPairsResponse,
+
+    -- ** AttachInstancesToLoadBalancer
+    AttachInstancesToLoadBalancer (AttachInstancesToLoadBalancer'),
+    newAttachInstancesToLoadBalancer,
+    AttachInstancesToLoadBalancerResponse (AttachInstancesToLoadBalancerResponse'),
+    newAttachInstancesToLoadBalancerResponse,
+
+    -- ** GetRegions
+    GetRegions (GetRegions'),
+    newGetRegions,
+    GetRegionsResponse (GetRegionsResponse'),
+    newGetRegionsResponse,
+
+    -- ** TestAlarm
+    TestAlarm (TestAlarm'),
+    newTestAlarm,
+    TestAlarmResponse (TestAlarmResponse'),
+    newTestAlarmResponse,
+
+    -- ** CreateDiskSnapshot
+    CreateDiskSnapshot (CreateDiskSnapshot'),
+    newCreateDiskSnapshot,
+    CreateDiskSnapshotResponse (CreateDiskSnapshotResponse'),
+    newCreateDiskSnapshotResponse,
+
+    -- ** SetIpAddressType
+    SetIpAddressType (SetIpAddressType'),
+    newSetIpAddressType,
+    SetIpAddressTypeResponse (SetIpAddressTypeResponse'),
+    newSetIpAddressTypeResponse,
+
+    -- ** DeleteAlarm
+    DeleteAlarm (DeleteAlarm'),
+    newDeleteAlarm,
+    DeleteAlarmResponse (DeleteAlarmResponse'),
+    newDeleteAlarmResponse,
+
+    -- ** SendContactMethodVerification
+    SendContactMethodVerification (SendContactMethodVerification'),
+    newSendContactMethodVerification,
+    SendContactMethodVerificationResponse (SendContactMethodVerificationResponse'),
+    newSendContactMethodVerificationResponse,
+
+    -- ** GetRelationalDatabaseMasterUserPassword
+    GetRelationalDatabaseMasterUserPassword (GetRelationalDatabaseMasterUserPassword'),
+    newGetRelationalDatabaseMasterUserPassword,
+    GetRelationalDatabaseMasterUserPasswordResponse (GetRelationalDatabaseMasterUserPasswordResponse'),
+    newGetRelationalDatabaseMasterUserPasswordResponse,
+
+    -- ** GetBlueprints (Paginated)
+    GetBlueprints (GetBlueprints'),
+    newGetBlueprints,
+    GetBlueprintsResponse (GetBlueprintsResponse'),
+    newGetBlueprintsResponse,
+
+    -- ** DetachDisk
+    DetachDisk (DetachDisk'),
+    newDetachDisk,
+    DetachDiskResponse (DetachDiskResponse'),
+    newDetachDiskResponse,
+
+    -- ** GetInstancePortStates
+    GetInstancePortStates (GetInstancePortStates'),
+    newGetInstancePortStates,
+    GetInstancePortStatesResponse (GetInstancePortStatesResponse'),
+    newGetInstancePortStatesResponse,
+
+    -- ** AttachStaticIp
+    AttachStaticIp (AttachStaticIp'),
+    newAttachStaticIp,
+    AttachStaticIpResponse (AttachStaticIpResponse'),
+    newAttachStaticIpResponse,
+
+    -- ** DownloadDefaultKeyPair
+    DownloadDefaultKeyPair (DownloadDefaultKeyPair'),
+    newDownloadDefaultKeyPair,
+    DownloadDefaultKeyPairResponse (DownloadDefaultKeyPairResponse'),
+    newDownloadDefaultKeyPairResponse,
+
+    -- ** GetLoadBalancers (Paginated)
+    GetLoadBalancers (GetLoadBalancers'),
+    newGetLoadBalancers,
+    GetLoadBalancersResponse (GetLoadBalancersResponse'),
+    newGetLoadBalancersResponse,
+
+    -- ** UpdateRelationalDatabase
+    UpdateRelationalDatabase (UpdateRelationalDatabase'),
+    newUpdateRelationalDatabase,
+    UpdateRelationalDatabaseResponse (UpdateRelationalDatabaseResponse'),
+    newUpdateRelationalDatabaseResponse,
+
+    -- ** GetRelationalDatabaseBundles (Paginated)
+    GetRelationalDatabaseBundles (GetRelationalDatabaseBundles'),
+    newGetRelationalDatabaseBundles,
+    GetRelationalDatabaseBundlesResponse (GetRelationalDatabaseBundlesResponse'),
+    newGetRelationalDatabaseBundlesResponse,
+
+    -- ** AttachLoadBalancerTlsCertificate
+    AttachLoadBalancerTlsCertificate (AttachLoadBalancerTlsCertificate'),
+    newAttachLoadBalancerTlsCertificate,
+    AttachLoadBalancerTlsCertificateResponse (AttachLoadBalancerTlsCertificateResponse'),
+    newAttachLoadBalancerTlsCertificateResponse,
+
+    -- ** AttachCertificateToDistribution
+    AttachCertificateToDistribution (AttachCertificateToDistribution'),
+    newAttachCertificateToDistribution,
+    AttachCertificateToDistributionResponse (AttachCertificateToDistributionResponse'),
+    newAttachCertificateToDistributionResponse,
+
+    -- ** DeleteRelationalDatabase
+    DeleteRelationalDatabase (DeleteRelationalDatabase'),
+    newDeleteRelationalDatabase,
+    DeleteRelationalDatabaseResponse (DeleteRelationalDatabaseResponse'),
+    newDeleteRelationalDatabaseResponse,
+
+    -- ** GetInstance
+    GetInstance (GetInstance'),
+    newGetInstance,
+    GetInstanceResponse (GetInstanceResponse'),
+    newGetInstanceResponse,
+
+    -- ** RebootRelationalDatabase
+    RebootRelationalDatabase (RebootRelationalDatabase'),
+    newRebootRelationalDatabase,
+    RebootRelationalDatabaseResponse (RebootRelationalDatabaseResponse'),
+    newRebootRelationalDatabaseResponse,
+
+    -- ** GetRelationalDatabaseEvents (Paginated)
+    GetRelationalDatabaseEvents (GetRelationalDatabaseEvents'),
+    newGetRelationalDatabaseEvents,
+    GetRelationalDatabaseEventsResponse (GetRelationalDatabaseEventsResponse'),
+    newGetRelationalDatabaseEventsResponse,
+
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
+
+    -- ** GetStaticIps (Paginated)
+    GetStaticIps (GetStaticIps'),
+    newGetStaticIps,
+    GetStaticIpsResponse (GetStaticIpsResponse'),
+    newGetStaticIpsResponse,
+
+    -- ** DeleteDisk
+    DeleteDisk (DeleteDisk'),
+    newDeleteDisk,
+    DeleteDiskResponse (DeleteDiskResponse'),
+    newDeleteDiskResponse,
+
+    -- ** GetRelationalDatabaseMetricData
+    GetRelationalDatabaseMetricData (GetRelationalDatabaseMetricData'),
+    newGetRelationalDatabaseMetricData,
+    GetRelationalDatabaseMetricDataResponse (GetRelationalDatabaseMetricDataResponse'),
+    newGetRelationalDatabaseMetricDataResponse,
+
+    -- ** GetDiskSnapshots (Paginated)
+    GetDiskSnapshots (GetDiskSnapshots'),
+    newGetDiskSnapshots,
+    GetDiskSnapshotsResponse (GetDiskSnapshotsResponse'),
+    newGetDiskSnapshotsResponse,
+
+    -- ** DeleteKeyPair
+    DeleteKeyPair (DeleteKeyPair'),
+    newDeleteKeyPair,
+    DeleteKeyPairResponse (DeleteKeyPairResponse'),
+    newDeleteKeyPairResponse,
+
+    -- ** GetLoadBalancer
+    GetLoadBalancer (GetLoadBalancer'),
+    newGetLoadBalancer,
+    GetLoadBalancerResponse (GetLoadBalancerResponse'),
+    newGetLoadBalancerResponse,
+
+    -- ** GetBundles (Paginated)
+    GetBundles (GetBundles'),
+    newGetBundles,
+    GetBundlesResponse (GetBundlesResponse'),
+    newGetBundlesResponse,
+
+    -- ** CreateCertificate
+    CreateCertificate (CreateCertificate'),
+    newCreateCertificate,
+    CreateCertificateResponse (CreateCertificateResponse'),
+    newCreateCertificateResponse,
+
+    -- ** DetachInstancesFromLoadBalancer
+    DetachInstancesFromLoadBalancer (DetachInstancesFromLoadBalancer'),
+    newDetachInstancesFromLoadBalancer,
+    DetachInstancesFromLoadBalancerResponse (DetachInstancesFromLoadBalancerResponse'),
+    newDetachInstancesFromLoadBalancerResponse,
+
+    -- ** GetLoadBalancerTlsCertificates
+    GetLoadBalancerTlsCertificates (GetLoadBalancerTlsCertificates'),
+    newGetLoadBalancerTlsCertificates,
+    GetLoadBalancerTlsCertificatesResponse (GetLoadBalancerTlsCertificatesResponse'),
+    newGetLoadBalancerTlsCertificatesResponse,
+
+    -- ** DeleteContainerImage
+    DeleteContainerImage (DeleteContainerImage'),
+    newDeleteContainerImage,
+    DeleteContainerImageResponse (DeleteContainerImageResponse'),
+    newDeleteContainerImageResponse,
+
+    -- ** GetOperationsForResource
+    GetOperationsForResource (GetOperationsForResource'),
+    newGetOperationsForResource,
+    GetOperationsForResourceResponse (GetOperationsForResourceResponse'),
+    newGetOperationsForResourceResponse,
+
+    -- ** CreateDisk
+    CreateDisk (CreateDisk'),
+    newCreateDisk,
+    CreateDiskResponse (CreateDiskResponse'),
+    newCreateDiskResponse,
+
+    -- ** EnableAddOn
+    EnableAddOn (EnableAddOn'),
+    newEnableAddOn,
+    EnableAddOnResponse (EnableAddOnResponse'),
+    newEnableAddOnResponse,
+
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
+
+    -- ** StartRelationalDatabase
+    StartRelationalDatabase (StartRelationalDatabase'),
+    newStartRelationalDatabase,
+    StartRelationalDatabaseResponse (StartRelationalDatabaseResponse'),
+    newStartRelationalDatabaseResponse,
+
+    -- ** CreateRelationalDatabaseSnapshot
+    CreateRelationalDatabaseSnapshot (CreateRelationalDatabaseSnapshot'),
+    newCreateRelationalDatabaseSnapshot,
+    CreateRelationalDatabaseSnapshotResponse (CreateRelationalDatabaseSnapshotResponse'),
+    newCreateRelationalDatabaseSnapshotResponse,
+
+    -- ** GetAlarms
+    GetAlarms (GetAlarms'),
+    newGetAlarms,
+    GetAlarmsResponse (GetAlarmsResponse'),
+    newGetAlarmsResponse,
+
+    -- ** CreateDistribution
+    CreateDistribution (CreateDistribution'),
+    newCreateDistribution,
+    CreateDistributionResponse (CreateDistributionResponse'),
+    newCreateDistributionResponse,
+
+    -- ** CreateInstances
+    CreateInstances (CreateInstances'),
+    newCreateInstances,
+    CreateInstancesResponse (CreateInstancesResponse'),
+    newCreateInstancesResponse,
+
+    -- ** CreateContainerService
+    CreateContainerService (CreateContainerService'),
+    newCreateContainerService,
+    CreateContainerServiceResponse (CreateContainerServiceResponse'),
+    newCreateContainerServiceResponse,
+
+    -- ** GetDistributionLatestCacheReset
+    GetDistributionLatestCacheReset (GetDistributionLatestCacheReset'),
+    newGetDistributionLatestCacheReset,
+    GetDistributionLatestCacheResetResponse (GetDistributionLatestCacheResetResponse'),
+    newGetDistributionLatestCacheResetResponse,
+
+    -- ** StopRelationalDatabase
+    StopRelationalDatabase (StopRelationalDatabase'),
+    newStopRelationalDatabase,
+    StopRelationalDatabaseResponse (StopRelationalDatabaseResponse'),
+    newStopRelationalDatabaseResponse,
+
+    -- ** DeleteKnownHostKeys
+    DeleteKnownHostKeys (DeleteKnownHostKeys'),
+    newDeleteKnownHostKeys,
+    DeleteKnownHostKeysResponse (DeleteKnownHostKeysResponse'),
+    newDeleteKnownHostKeysResponse,
+
+    -- ** OpenInstancePublicPorts
+    OpenInstancePublicPorts (OpenInstancePublicPorts'),
+    newOpenInstancePublicPorts,
+    OpenInstancePublicPortsResponse (OpenInstancePublicPortsResponse'),
+    newOpenInstancePublicPortsResponse,
+
+    -- ** GetActiveNames (Paginated)
+    GetActiveNames (GetActiveNames'),
+    newGetActiveNames,
+    GetActiveNamesResponse (GetActiveNamesResponse'),
+    newGetActiveNamesResponse,
+
+    -- ** GetAutoSnapshots
+    GetAutoSnapshots (GetAutoSnapshots'),
+    newGetAutoSnapshots,
+    GetAutoSnapshotsResponse (GetAutoSnapshotsResponse'),
+    newGetAutoSnapshotsResponse,
+
+    -- ** GetRelationalDatabaseLogStreams
+    GetRelationalDatabaseLogStreams (GetRelationalDatabaseLogStreams'),
+    newGetRelationalDatabaseLogStreams,
+    GetRelationalDatabaseLogStreamsResponse (GetRelationalDatabaseLogStreamsResponse'),
+    newGetRelationalDatabaseLogStreamsResponse,
+
+    -- ** GetDistributionBundles
+    GetDistributionBundles (GetDistributionBundles'),
+    newGetDistributionBundles,
+    GetDistributionBundlesResponse (GetDistributionBundlesResponse'),
+    newGetDistributionBundlesResponse,
+
+    -- ** GetOperation
+    GetOperation (GetOperation'),
+    newGetOperation,
+    GetOperationResponse (GetOperationResponse'),
+    newGetOperationResponse,
+
+    -- ** DeleteRelationalDatabaseSnapshot
+    DeleteRelationalDatabaseSnapshot (DeleteRelationalDatabaseSnapshot'),
+    newDeleteRelationalDatabaseSnapshot,
+    DeleteRelationalDatabaseSnapshotResponse (DeleteRelationalDatabaseSnapshotResponse'),
+    newDeleteRelationalDatabaseSnapshotResponse,
+
+    -- ** GetInstanceSnapshot
+    GetInstanceSnapshot (GetInstanceSnapshot'),
+    newGetInstanceSnapshot,
+    GetInstanceSnapshotResponse (GetInstanceSnapshotResponse'),
+    newGetInstanceSnapshotResponse,
+
+    -- ** DeleteContainerService
+    DeleteContainerService (DeleteContainerService'),
+    newDeleteContainerService,
+    DeleteContainerServiceResponse (DeleteContainerServiceResponse'),
+    newDeleteContainerServiceResponse,
+
+    -- ** UpdateDistribution
+    UpdateDistribution (UpdateDistribution'),
+    newUpdateDistribution,
+    UpdateDistributionResponse (UpdateDistributionResponse'),
+    newUpdateDistributionResponse,
+
+    -- ** PutInstancePublicPorts
+    PutInstancePublicPorts (PutInstancePublicPorts'),
+    newPutInstancePublicPorts,
+    PutInstancePublicPortsResponse (PutInstancePublicPortsResponse'),
+    newPutInstancePublicPortsResponse,
+
+    -- ** ResetDistributionCache
+    ResetDistributionCache (ResetDistributionCache'),
+    newResetDistributionCache,
+    ResetDistributionCacheResponse (ResetDistributionCacheResponse'),
+    newResetDistributionCacheResponse,
+
+    -- ** CreateContactMethod
+    CreateContactMethod (CreateContactMethod'),
+    newCreateContactMethod,
+    CreateContactMethodResponse (CreateContactMethodResponse'),
+    newCreateContactMethodResponse,
+
+    -- ** DeleteDistribution
+    DeleteDistribution (DeleteDistribution'),
+    newDeleteDistribution,
+    DeleteDistributionResponse (DeleteDistributionResponse'),
+    newDeleteDistributionResponse,
+
+    -- ** UpdateContainerService
+    UpdateContainerService (UpdateContainerService'),
+    newUpdateContainerService,
+    UpdateContainerServiceResponse (UpdateContainerServiceResponse'),
+    newUpdateContainerServiceResponse,
+
+    -- ** GetKeyPair
+    GetKeyPair (GetKeyPair'),
+    newGetKeyPair,
+    GetKeyPairResponse (GetKeyPairResponse'),
+    newGetKeyPairResponse,
+
+    -- ** CreateCloudFormationStack
+    CreateCloudFormationStack (CreateCloudFormationStack'),
+    newCreateCloudFormationStack,
+    CreateCloudFormationStackResponse (CreateCloudFormationStackResponse'),
+    newCreateCloudFormationStackResponse,
+
+    -- ** CreateDomainEntry
+    CreateDomainEntry (CreateDomainEntry'),
+    newCreateDomainEntry,
+    CreateDomainEntryResponse (CreateDomainEntryResponse'),
+    newCreateDomainEntryResponse,
+
+    -- ** GetInstanceState
+    GetInstanceState (GetInstanceState'),
+    newGetInstanceState,
+    GetInstanceStateResponse (GetInstanceStateResponse'),
+    newGetInstanceStateResponse,
+
+    -- ** GetDistributionMetricData
+    GetDistributionMetricData (GetDistributionMetricData'),
+    newGetDistributionMetricData,
+    GetDistributionMetricDataResponse (GetDistributionMetricDataResponse'),
+    newGetDistributionMetricDataResponse,
+
+    -- ** GetDisks (Paginated)
+    GetDisks (GetDisks'),
+    newGetDisks,
+    GetDisksResponse (GetDisksResponse'),
+    newGetDisksResponse,
+
+    -- ** GetContainerServiceMetricData
+    GetContainerServiceMetricData (GetContainerServiceMetricData'),
+    newGetContainerServiceMetricData,
+    GetContainerServiceMetricDataResponse (GetContainerServiceMetricDataResponse'),
+    newGetContainerServiceMetricDataResponse,
+
+    -- ** CreateContainerServiceRegistryLogin
+    CreateContainerServiceRegistryLogin (CreateContainerServiceRegistryLogin'),
+    newCreateContainerServiceRegistryLogin,
+    CreateContainerServiceRegistryLoginResponse (CreateContainerServiceRegistryLoginResponse'),
+    newCreateContainerServiceRegistryLoginResponse,
+
+    -- ** ImportKeyPair
+    ImportKeyPair (ImportKeyPair'),
+    newImportKeyPair,
+    ImportKeyPairResponse (ImportKeyPairResponse'),
+    newImportKeyPairResponse,
+
+    -- ** GetContainerServicePowers
+    GetContainerServicePowers (GetContainerServicePowers'),
+    newGetContainerServicePowers,
+    GetContainerServicePowersResponse (GetContainerServicePowersResponse'),
+    newGetContainerServicePowersResponse,
+
+    -- ** DeleteDiskSnapshot
+    DeleteDiskSnapshot (DeleteDiskSnapshot'),
+    newDeleteDiskSnapshot,
+    DeleteDiskSnapshotResponse (DeleteDiskSnapshotResponse'),
+    newDeleteDiskSnapshotResponse,
+
+    -- ** GetCertificates
+    GetCertificates (GetCertificates'),
+    newGetCertificates,
+    GetCertificatesResponse (GetCertificatesResponse'),
+    newGetCertificatesResponse,
+
+    -- ** ReleaseStaticIp
+    ReleaseStaticIp (ReleaseStaticIp'),
+    newReleaseStaticIp,
+    ReleaseStaticIpResponse (ReleaseStaticIpResponse'),
+    newReleaseStaticIpResponse,
+
+    -- ** UpdateRelationalDatabaseParameters
+    UpdateRelationalDatabaseParameters (UpdateRelationalDatabaseParameters'),
+    newUpdateRelationalDatabaseParameters,
+    UpdateRelationalDatabaseParametersResponse (UpdateRelationalDatabaseParametersResponse'),
+    newUpdateRelationalDatabaseParametersResponse,
+
+    -- ** DeleteLoadBalancerTlsCertificate
+    DeleteLoadBalancerTlsCertificate (DeleteLoadBalancerTlsCertificate'),
+    newDeleteLoadBalancerTlsCertificate,
+    DeleteLoadBalancerTlsCertificateResponse (DeleteLoadBalancerTlsCertificateResponse'),
+    newDeleteLoadBalancerTlsCertificateResponse,
+
+    -- ** UpdateDomainEntry
+    UpdateDomainEntry (UpdateDomainEntry'),
+    newUpdateDomainEntry,
+    UpdateDomainEntryResponse (UpdateDomainEntryResponse'),
+    newUpdateDomainEntryResponse,
+
+    -- ** GetContainerLog
+    GetContainerLog (GetContainerLog'),
+    newGetContainerLog,
+    GetContainerLogResponse (GetContainerLogResponse'),
+    newGetContainerLogResponse,
+
+    -- ** DeleteDomainEntry
+    DeleteDomainEntry (DeleteDomainEntry'),
+    newDeleteDomainEntry,
+    DeleteDomainEntryResponse (DeleteDomainEntryResponse'),
+    newDeleteDomainEntryResponse,
+
+    -- ** GetContainerImages
+    GetContainerImages (GetContainerImages'),
+    newGetContainerImages,
+    GetContainerImagesResponse (GetContainerImagesResponse'),
+    newGetContainerImagesResponse,
+
+    -- ** GetDomains (Paginated)
+    GetDomains (GetDomains'),
+    newGetDomains,
+    GetDomainsResponse (GetDomainsResponse'),
+    newGetDomainsResponse,
+
+    -- ** PutAlarm
+    PutAlarm (PutAlarm'),
+    newPutAlarm,
+    PutAlarmResponse (PutAlarmResponse'),
+    newPutAlarmResponse,
+
+    -- ** DeleteAutoSnapshot
+    DeleteAutoSnapshot (DeleteAutoSnapshot'),
+    newDeleteAutoSnapshot,
+    DeleteAutoSnapshotResponse (DeleteAutoSnapshotResponse'),
+    newDeleteAutoSnapshotResponse,
+
+    -- ** GetContactMethods
+    GetContactMethods (GetContactMethods'),
+    newGetContactMethods,
+    GetContactMethodsResponse (GetContactMethodsResponse'),
+    newGetContactMethodsResponse,
+
+    -- ** GetRelationalDatabaseParameters (Paginated)
+    GetRelationalDatabaseParameters (GetRelationalDatabaseParameters'),
+    newGetRelationalDatabaseParameters,
+    GetRelationalDatabaseParametersResponse (GetRelationalDatabaseParametersResponse'),
+    newGetRelationalDatabaseParametersResponse,
+
+    -- ** CreateRelationalDatabase
+    CreateRelationalDatabase (CreateRelationalDatabase'),
+    newCreateRelationalDatabase,
+    CreateRelationalDatabaseResponse (CreateRelationalDatabaseResponse'),
+    newCreateRelationalDatabaseResponse,
 
     -- * Types
 
     -- ** AccessDirection
-    , AccessDirection (..)
+    AccessDirection (..),
+
+    -- ** AddOnType
+    AddOnType (..),
+
+    -- ** AlarmState
+    AlarmState (..),
+
+    -- ** AutoSnapshotStatus
+    AutoSnapshotStatus (..),
+
+    -- ** BehaviorEnum
+    BehaviorEnum (..),
 
     -- ** BlueprintType
-    , BlueprintType (..)
+    BlueprintType (..),
+
+    -- ** CertificateStatus
+    CertificateStatus (..),
+
+    -- ** CloudFormationStackRecordSourceType
+    CloudFormationStackRecordSourceType (..),
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** ContactMethodStatus
+    ContactMethodStatus (..),
+
+    -- ** ContactMethodVerificationProtocol
+    ContactMethodVerificationProtocol (..),
+
+    -- ** ContactProtocol
+    ContactProtocol (..),
+
+    -- ** ContainerServiceDeploymentState
+    ContainerServiceDeploymentState (..),
+
+    -- ** ContainerServiceMetricName
+    ContainerServiceMetricName (..),
+
+    -- ** ContainerServicePowerName
+    ContainerServicePowerName (..),
+
+    -- ** ContainerServiceProtocol
+    ContainerServiceProtocol (..),
+
+    -- ** ContainerServiceState
+    ContainerServiceState (..),
 
     -- ** DiskSnapshotState
-    , DiskSnapshotState (..)
+    DiskSnapshotState (..),
 
     -- ** DiskState
-    , DiskState (..)
+    DiskState (..),
+
+    -- ** DistributionMetricName
+    DistributionMetricName (..),
+
+    -- ** ExportSnapshotRecordSourceType
+    ExportSnapshotRecordSourceType (..),
+
+    -- ** ForwardValues
+    ForwardValues (..),
+
+    -- ** HeaderEnum
+    HeaderEnum (..),
 
     -- ** InstanceAccessProtocol
-    , InstanceAccessProtocol (..)
+    InstanceAccessProtocol (..),
 
     -- ** InstanceHealthReason
-    , InstanceHealthReason (..)
+    InstanceHealthReason (..),
 
     -- ** InstanceHealthState
-    , InstanceHealthState (..)
+    InstanceHealthState (..),
 
     -- ** InstanceMetricName
-    , InstanceMetricName (..)
+    InstanceMetricName (..),
 
     -- ** InstancePlatform
-    , InstancePlatform (..)
+    InstancePlatform (..),
 
     -- ** InstanceSnapshotState
-    , InstanceSnapshotState (..)
+    InstanceSnapshotState (..),
+
+    -- ** IpAddressType
+    IpAddressType (..),
 
     -- ** LoadBalancerAttributeName
-    , LoadBalancerAttributeName (..)
+    LoadBalancerAttributeName (..),
 
     -- ** LoadBalancerMetricName
-    , LoadBalancerMetricName (..)
+    LoadBalancerMetricName (..),
 
     -- ** LoadBalancerProtocol
-    , LoadBalancerProtocol (..)
+    LoadBalancerProtocol (..),
 
     -- ** LoadBalancerState
-    , LoadBalancerState (..)
+    LoadBalancerState (..),
 
-    -- ** LoadBalancerTLSCertificateDomainStatus
-    , LoadBalancerTLSCertificateDomainStatus (..)
+    -- ** LoadBalancerTlsCertificateDomainStatus
+    LoadBalancerTlsCertificateDomainStatus (..),
 
-    -- ** LoadBalancerTLSCertificateFailureReason
-    , LoadBalancerTLSCertificateFailureReason (..)
+    -- ** LoadBalancerTlsCertificateFailureReason
+    LoadBalancerTlsCertificateFailureReason (..),
 
-    -- ** LoadBalancerTLSCertificateRenewalStatus
-    , LoadBalancerTLSCertificateRenewalStatus (..)
+    -- ** LoadBalancerTlsCertificateRenewalStatus
+    LoadBalancerTlsCertificateRenewalStatus (..),
 
-    -- ** LoadBalancerTLSCertificateRevocationReason
-    , LoadBalancerTLSCertificateRevocationReason (..)
+    -- ** LoadBalancerTlsCertificateRevocationReason
+    LoadBalancerTlsCertificateRevocationReason (..),
 
-    -- ** LoadBalancerTLSCertificateStatus
-    , LoadBalancerTLSCertificateStatus (..)
+    -- ** LoadBalancerTlsCertificateStatus
+    LoadBalancerTlsCertificateStatus (..),
+
+    -- ** MetricName
+    MetricName (..),
 
     -- ** MetricStatistic
-    , MetricStatistic (..)
+    MetricStatistic (..),
 
     -- ** MetricUnit
-    , MetricUnit (..)
+    MetricUnit (..),
 
     -- ** NetworkProtocol
-    , NetworkProtocol (..)
+    NetworkProtocol (..),
 
     -- ** OperationStatus
-    , OperationStatus (..)
+    OperationStatus (..),
 
     -- ** OperationType
-    , OperationType (..)
+    OperationType (..),
+
+    -- ** OriginProtocolPolicyEnum
+    OriginProtocolPolicyEnum (..),
 
     -- ** PortAccessType
-    , PortAccessType (..)
+    PortAccessType (..),
+
+    -- ** PortInfoSourceType
+    PortInfoSourceType (..),
 
     -- ** PortState
-    , PortState (..)
+    PortState (..),
+
+    -- ** RecordState
+    RecordState (..),
 
     -- ** RegionName
-    , RegionName (..)
+    RegionName (..),
+
+    -- ** RelationalDatabaseEngine
+    RelationalDatabaseEngine (..),
+
+    -- ** RelationalDatabaseMetricName
+    RelationalDatabaseMetricName (..),
+
+    -- ** RelationalDatabasePasswordVersion
+    RelationalDatabasePasswordVersion (..),
+
+    -- ** RenewalStatus
+    RenewalStatus (..),
 
     -- ** ResourceType
-    , ResourceType (..)
+    ResourceType (..),
+
+    -- ** TreatMissingData
+    TreatMissingData (..),
+
+    -- ** AddOn
+    AddOn (AddOn'),
+    newAddOn,
+
+    -- ** AddOnRequest
+    AddOnRequest (AddOnRequest'),
+    newAddOnRequest,
+
+    -- ** Alarm
+    Alarm (Alarm'),
+    newAlarm,
+
+    -- ** AttachedDisk
+    AttachedDisk (AttachedDisk'),
+    newAttachedDisk,
+
+    -- ** AutoSnapshotAddOnRequest
+    AutoSnapshotAddOnRequest (AutoSnapshotAddOnRequest'),
+    newAutoSnapshotAddOnRequest,
+
+    -- ** AutoSnapshotDetails
+    AutoSnapshotDetails (AutoSnapshotDetails'),
+    newAutoSnapshotDetails,
 
     -- ** AvailabilityZone
-    , AvailabilityZone
-    , availabilityZone
-    , azState
-    , azZoneName
+    AvailabilityZone (AvailabilityZone'),
+    newAvailabilityZone,
 
     -- ** Blueprint
-    , Blueprint
-    , blueprint
-    , bVersionCode
-    , bPlatform
-    , bGroup
-    , bMinPower
-    , bProductURL
-    , bLicenseURL
-    , bName
-    , bVersion
-    , bBlueprintId
-    , bType
-    , bIsActive
-    , bDescription
+    Blueprint (Blueprint'),
+    newBlueprint,
 
     -- ** Bundle
-    , Bundle
-    , bundle
-    , bunCpuCount
-    , bunTransferPerMonthInGb
-    , bunBundleId
-    , bunInstanceType
-    , bunName
-    , bunPower
-    , bunDiskSizeInGb
-    , bunSupportedPlatforms
-    , bunPrice
-    , bunIsActive
-    , bunRamSizeInGb
+    Bundle (Bundle'),
+    newBundle,
+
+    -- ** CacheBehavior
+    CacheBehavior (CacheBehavior'),
+    newCacheBehavior,
+
+    -- ** CacheBehaviorPerPath
+    CacheBehaviorPerPath (CacheBehaviorPerPath'),
+    newCacheBehaviorPerPath,
+
+    -- ** CacheSettings
+    CacheSettings (CacheSettings'),
+    newCacheSettings,
+
+    -- ** Certificate
+    Certificate (Certificate'),
+    newCertificate,
+
+    -- ** CertificateSummary
+    CertificateSummary (CertificateSummary'),
+    newCertificateSummary,
+
+    -- ** CloudFormationStackRecord
+    CloudFormationStackRecord (CloudFormationStackRecord'),
+    newCloudFormationStackRecord,
+
+    -- ** CloudFormationStackRecordSourceInfo
+    CloudFormationStackRecordSourceInfo (CloudFormationStackRecordSourceInfo'),
+    newCloudFormationStackRecordSourceInfo,
+
+    -- ** ContactMethod
+    ContactMethod (ContactMethod'),
+    newContactMethod,
+
+    -- ** Container
+    Container (Container'),
+    newContainer,
+
+    -- ** ContainerImage
+    ContainerImage (ContainerImage'),
+    newContainerImage,
+
+    -- ** ContainerService
+    ContainerService (ContainerService'),
+    newContainerService,
+
+    -- ** ContainerServiceDeployment
+    ContainerServiceDeployment (ContainerServiceDeployment'),
+    newContainerServiceDeployment,
+
+    -- ** ContainerServiceDeploymentRequest
+    ContainerServiceDeploymentRequest (ContainerServiceDeploymentRequest'),
+    newContainerServiceDeploymentRequest,
+
+    -- ** ContainerServiceEndpoint
+    ContainerServiceEndpoint (ContainerServiceEndpoint'),
+    newContainerServiceEndpoint,
+
+    -- ** ContainerServiceHealthCheckConfig
+    ContainerServiceHealthCheckConfig (ContainerServiceHealthCheckConfig'),
+    newContainerServiceHealthCheckConfig,
+
+    -- ** ContainerServiceLogEvent
+    ContainerServiceLogEvent (ContainerServiceLogEvent'),
+    newContainerServiceLogEvent,
+
+    -- ** ContainerServicePower
+    ContainerServicePower (ContainerServicePower'),
+    newContainerServicePower,
+
+    -- ** ContainerServiceRegistryLogin
+    ContainerServiceRegistryLogin (ContainerServiceRegistryLogin'),
+    newContainerServiceRegistryLogin,
+
+    -- ** CookieObject
+    CookieObject (CookieObject'),
+    newCookieObject,
+
+    -- ** DestinationInfo
+    DestinationInfo (DestinationInfo'),
+    newDestinationInfo,
 
     -- ** Disk
-    , Disk
-    , disk
-    , dState
-    , dResourceType
-    , dArn
-    , dPath
-    , dCreatedAt
-    , dLocation
-    , dIops
-    , dIsAttached
-    , dAttachmentState
-    , dName
-    , dSizeInGb
-    , dSupportCode
-    , dIsSystemDisk
-    , dAttachedTo
-    , dGbInUse
+    Disk (Disk'),
+    newDisk,
+
+    -- ** DiskInfo
+    DiskInfo (DiskInfo'),
+    newDiskInfo,
 
     -- ** DiskMap
-    , DiskMap
-    , diskMap
-    , dmNewDiskName
-    , dmOriginalDiskPath
+    DiskMap (DiskMap'),
+    newDiskMap,
 
     -- ** DiskSnapshot
-    , DiskSnapshot
-    , diskSnapshot
-    , dsFromDiskName
-    , dsState
-    , dsResourceType
-    , dsArn
-    , dsCreatedAt
-    , dsLocation
-    , dsProgress
-    , dsName
-    , dsSizeInGb
-    , dsSupportCode
-    , dsFromDiskARN
+    DiskSnapshot (DiskSnapshot'),
+    newDiskSnapshot,
+
+    -- ** DiskSnapshotInfo
+    DiskSnapshotInfo (DiskSnapshotInfo'),
+    newDiskSnapshotInfo,
+
+    -- ** DistributionBundle
+    DistributionBundle (DistributionBundle'),
+    newDistributionBundle,
 
     -- ** Domain
-    , Domain
-    , domain
-    , domResourceType
-    , domDomainEntries
-    , domArn
-    , domCreatedAt
-    , domLocation
-    , domName
-    , domSupportCode
+    Domain (Domain'),
+    newDomain,
 
     -- ** DomainEntry
-    , DomainEntry
-    , domainEntry
-    , deIsAlias
-    , deName
-    , deId
-    , deOptions
-    , deType
-    , deTarget
+    DomainEntry (DomainEntry'),
+    newDomainEntry,
+
+    -- ** DomainValidationRecord
+    DomainValidationRecord (DomainValidationRecord'),
+    newDomainValidationRecord,
+
+    -- ** EndpointRequest
+    EndpointRequest (EndpointRequest'),
+    newEndpointRequest,
+
+    -- ** ExportSnapshotRecord
+    ExportSnapshotRecord (ExportSnapshotRecord'),
+    newExportSnapshotRecord,
+
+    -- ** ExportSnapshotRecordSourceInfo
+    ExportSnapshotRecordSourceInfo (ExportSnapshotRecordSourceInfo'),
+    newExportSnapshotRecordSourceInfo,
+
+    -- ** HeaderObject
+    HeaderObject (HeaderObject'),
+    newHeaderObject,
+
+    -- ** HostKeyAttributes
+    HostKeyAttributes (HostKeyAttributes'),
+    newHostKeyAttributes,
+
+    -- ** InputOrigin
+    InputOrigin (InputOrigin'),
+    newInputOrigin,
 
     -- ** Instance
-    , Instance
-    , instance'
-    , iState
-    , iIpv6Address
-    , iResourceType
-    , iArn
-    , iCreatedAt
-    , iLocation
-    , iSshKeyName
-    , iUsername
-    , iNetworking
-    , iBundleId
-    , iName
-    , iSupportCode
-    , iBlueprintId
-    , iPrivateIPAddress
-    , iBlueprintName
-    , iIsStaticIP
-    , iPublicIPAddress
-    , iHardware
+    Instance (Instance'),
+    newInstance,
 
     -- ** InstanceAccessDetails
-    , InstanceAccessDetails
-    , instanceAccessDetails
-    , iadCertKey
-    , iadIpAddress
-    , iadPrivateKey
-    , iadExpiresAt
-    , iadUsername
-    , iadProtocol
-    , iadPasswordData
-    , iadPassword
-    , iadInstanceName
+    InstanceAccessDetails (InstanceAccessDetails'),
+    newInstanceAccessDetails,
+
+    -- ** InstanceEntry
+    InstanceEntry (InstanceEntry'),
+    newInstanceEntry,
 
     -- ** InstanceHardware
-    , InstanceHardware
-    , instanceHardware
-    , ihCpuCount
-    , ihDisks
-    , ihRamSizeInGb
+    InstanceHardware (InstanceHardware'),
+    newInstanceHardware,
 
     -- ** InstanceHealthSummary
-    , InstanceHealthSummary
-    , instanceHealthSummary
-    , ihsInstanceHealth
-    , ihsInstanceName
-    , ihsInstanceHealthReason
+    InstanceHealthSummary (InstanceHealthSummary'),
+    newInstanceHealthSummary,
 
     -- ** InstanceNetworking
-    , InstanceNetworking
-    , instanceNetworking
-    , inMonthlyTransfer
-    , inPorts
+    InstanceNetworking (InstanceNetworking'),
+    newInstanceNetworking,
 
     -- ** InstancePortInfo
-    , InstancePortInfo
-    , instancePortInfo
-    , ipiFromPort
-    , ipiCommonName
-    , ipiProtocol
-    , ipiAccessDirection
-    , ipiAccessType
-    , ipiToPort
-    , ipiAccessFrom
+    InstancePortInfo (InstancePortInfo'),
+    newInstancePortInfo,
 
     -- ** InstancePortState
-    , InstancePortState
-    , instancePortState
-    , ipsFromPort
-    , ipsState
-    , ipsProtocol
-    , ipsToPort
+    InstancePortState (InstancePortState'),
+    newInstancePortState,
 
     -- ** InstanceSnapshot
-    , InstanceSnapshot
-    , instanceSnapshot
-    , insFromBlueprintId
-    , insState
-    , insResourceType
-    , insFromAttachedDisks
-    , insArn
-    , insCreatedAt
-    , insLocation
-    , insProgress
-    , insName
-    , insFromBundleId
-    , insSizeInGb
-    , insSupportCode
-    , insFromInstanceARN
-    , insFromInstanceName
+    InstanceSnapshot (InstanceSnapshot'),
+    newInstanceSnapshot,
+
+    -- ** InstanceSnapshotInfo
+    InstanceSnapshotInfo (InstanceSnapshotInfo'),
+    newInstanceSnapshotInfo,
 
     -- ** InstanceState
-    , InstanceState
-    , instanceState
-    , isName
-    , isCode
+    InstanceState (InstanceState'),
+    newInstanceState,
 
     -- ** KeyPair
-    , KeyPair
-    , keyPair
-    , kpResourceType
-    , kpArn
-    , kpCreatedAt
-    , kpLocation
-    , kpFingerprint
-    , kpName
-    , kpSupportCode
+    KeyPair (KeyPair'),
+    newKeyPair,
+
+    -- ** LightsailDistribution
+    LightsailDistribution (LightsailDistribution'),
+    newLightsailDistribution,
 
     -- ** LoadBalancer
-    , LoadBalancer
-    , loadBalancer
-    , lbHealthCheckPath
-    , lbState
-    , lbResourceType
-    , lbArn
-    , lbCreatedAt
-    , lbLocation
-    , lbInstancePort
-    , lbConfigurationOptions
-    , lbProtocol
-    , lbTlsCertificateSummaries
-    , lbName
-    , lbSupportCode
-    , lbPublicPorts
-    , lbDnsName
-    , lbInstanceHealthSummary
+    LoadBalancer (LoadBalancer'),
+    newLoadBalancer,
 
-    -- ** LoadBalancerTLSCertificate
-    , LoadBalancerTLSCertificate
-    , loadBalancerTLSCertificate
-    , lbtcFailureReason
-    , lbtcSubject
-    , lbtcStatus
-    , lbtcSubjectAlternativeNames
-    , lbtcResourceType
-    , lbtcArn
-    , lbtcCreatedAt
-    , lbtcLocation
-    , lbtcLoadBalancerName
-    , lbtcSerial
-    , lbtcIsAttached
-    , lbtcRevokedAt
-    , lbtcNotBefore
-    , lbtcRevocationReason
-    , lbtcDomainName
-    , lbtcName
-    , lbtcRenewalSummary
-    , lbtcSupportCode
-    , lbtcDomainValidationRecords
-    , lbtcIssuedAt
-    , lbtcKeyAlgorithm
-    , lbtcSignatureAlgorithm
-    , lbtcIssuer
-    , lbtcNotAfter
+    -- ** LoadBalancerTlsCertificate
+    LoadBalancerTlsCertificate (LoadBalancerTlsCertificate'),
+    newLoadBalancerTlsCertificate,
 
-    -- ** LoadBalancerTLSCertificateDomainValidationOption
-    , LoadBalancerTLSCertificateDomainValidationOption
-    , loadBalancerTLSCertificateDomainValidationOption
-    , lbtcdvoDomainName
-    , lbtcdvoValidationStatus
+    -- ** LoadBalancerTlsCertificateDomainValidationOption
+    LoadBalancerTlsCertificateDomainValidationOption (LoadBalancerTlsCertificateDomainValidationOption'),
+    newLoadBalancerTlsCertificateDomainValidationOption,
 
-    -- ** LoadBalancerTLSCertificateDomainValidationRecord
-    , LoadBalancerTLSCertificateDomainValidationRecord
-    , loadBalancerTLSCertificateDomainValidationRecord
-    , lbtcdvrValue
-    , lbtcdvrDomainName
-    , lbtcdvrName
-    , lbtcdvrValidationStatus
-    , lbtcdvrType
+    -- ** LoadBalancerTlsCertificateDomainValidationRecord
+    LoadBalancerTlsCertificateDomainValidationRecord (LoadBalancerTlsCertificateDomainValidationRecord'),
+    newLoadBalancerTlsCertificateDomainValidationRecord,
 
-    -- ** LoadBalancerTLSCertificateRenewalSummary
-    , LoadBalancerTLSCertificateRenewalSummary
-    , loadBalancerTLSCertificateRenewalSummary
-    , lbtcrsRenewalStatus
-    , lbtcrsDomainValidationOptions
+    -- ** LoadBalancerTlsCertificateRenewalSummary
+    LoadBalancerTlsCertificateRenewalSummary (LoadBalancerTlsCertificateRenewalSummary'),
+    newLoadBalancerTlsCertificateRenewalSummary,
 
-    -- ** LoadBalancerTLSCertificateSummary
-    , LoadBalancerTLSCertificateSummary
-    , loadBalancerTLSCertificateSummary
-    , lbtcsIsAttached
-    , lbtcsName
+    -- ** LoadBalancerTlsCertificateSummary
+    LoadBalancerTlsCertificateSummary (LoadBalancerTlsCertificateSummary'),
+    newLoadBalancerTlsCertificateSummary,
+
+    -- ** LogEvent
+    LogEvent (LogEvent'),
+    newLogEvent,
 
     -- ** MetricDatapoint
-    , MetricDatapoint
-    , metricDatapoint
-    , mdSampleCount
-    , mdMaximum
-    , mdAverage
-    , mdMinimum
-    , mdSum
-    , mdTimestamp
-    , mdUnit
+    MetricDatapoint (MetricDatapoint'),
+    newMetricDatapoint,
+
+    -- ** MonitoredResourceInfo
+    MonitoredResourceInfo (MonitoredResourceInfo'),
+    newMonitoredResourceInfo,
 
     -- ** MonthlyTransfer
-    , MonthlyTransfer
-    , monthlyTransfer
-    , mtGbPerMonthAllocated
+    MonthlyTransfer (MonthlyTransfer'),
+    newMonthlyTransfer,
 
     -- ** Operation
-    , Operation
-    , operation
-    , oStatus
-    , oOperationDetails
-    , oResourceType
-    , oCreatedAt
-    , oResourceName
-    , oLocation
-    , oStatusChangedAt
-    , oErrorDetails
-    , oErrorCode
-    , oId
-    , oOperationType
-    , oIsTerminal
+    Operation (Operation'),
+    newOperation,
+
+    -- ** Origin
+    Origin (Origin'),
+    newOrigin,
 
     -- ** PasswordData
-    , PasswordData
-    , passwordData
-    , pdKeyPairName
-    , pdCiphertext
+    PasswordData (PasswordData'),
+    newPasswordData,
+
+    -- ** PendingMaintenanceAction
+    PendingMaintenanceAction (PendingMaintenanceAction'),
+    newPendingMaintenanceAction,
+
+    -- ** PendingModifiedRelationalDatabaseValues
+    PendingModifiedRelationalDatabaseValues (PendingModifiedRelationalDatabaseValues'),
+    newPendingModifiedRelationalDatabaseValues,
 
     -- ** PortInfo
-    , PortInfo
-    , portInfo
-    , piFromPort
-    , piProtocol
-    , piToPort
+    PortInfo (PortInfo'),
+    newPortInfo,
+
+    -- ** QueryStringObject
+    QueryStringObject (QueryStringObject'),
+    newQueryStringObject,
 
     -- ** RegionInfo
-    , RegionInfo
-    , regionInfo
-    , riAvailabilityZones
-    , riName
-    , riDisplayName
-    , riContinentCode
-    , riDescription
+    RegionInfo (RegionInfo'),
+    newRegionInfo,
+
+    -- ** RelationalDatabase
+    RelationalDatabase (RelationalDatabase'),
+    newRelationalDatabase,
+
+    -- ** RelationalDatabaseBlueprint
+    RelationalDatabaseBlueprint (RelationalDatabaseBlueprint'),
+    newRelationalDatabaseBlueprint,
+
+    -- ** RelationalDatabaseBundle
+    RelationalDatabaseBundle (RelationalDatabaseBundle'),
+    newRelationalDatabaseBundle,
+
+    -- ** RelationalDatabaseEndpoint
+    RelationalDatabaseEndpoint (RelationalDatabaseEndpoint'),
+    newRelationalDatabaseEndpoint,
+
+    -- ** RelationalDatabaseEvent
+    RelationalDatabaseEvent (RelationalDatabaseEvent'),
+    newRelationalDatabaseEvent,
+
+    -- ** RelationalDatabaseHardware
+    RelationalDatabaseHardware (RelationalDatabaseHardware'),
+    newRelationalDatabaseHardware,
+
+    -- ** RelationalDatabaseParameter
+    RelationalDatabaseParameter (RelationalDatabaseParameter'),
+    newRelationalDatabaseParameter,
+
+    -- ** RelationalDatabaseSnapshot
+    RelationalDatabaseSnapshot (RelationalDatabaseSnapshot'),
+    newRelationalDatabaseSnapshot,
+
+    -- ** RenewalSummary
+    RenewalSummary (RenewalSummary'),
+    newRenewalSummary,
 
     -- ** ResourceLocation
-    , ResourceLocation
-    , resourceLocation
-    , rlRegionName
-    , rlAvailabilityZone
+    ResourceLocation (ResourceLocation'),
+    newResourceLocation,
 
-    -- ** StaticIP
-    , StaticIP
-    , staticIP
-    , siIpAddress
-    , siResourceType
-    , siArn
-    , siCreatedAt
-    , siLocation
-    , siIsAttached
-    , siName
-    , siSupportCode
-    , siAttachedTo
-    ) where
+    -- ** ResourceRecord
+    ResourceRecord (ResourceRecord'),
+    newResourceRecord,
 
-import Network.AWS.Lightsail.AllocateStaticIP
+    -- ** StaticIp
+    StaticIp (StaticIp'),
+    newStaticIp,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+  )
+where
+
+import Network.AWS.Lightsail.AllocateStaticIp
+import Network.AWS.Lightsail.AttachCertificateToDistribution
 import Network.AWS.Lightsail.AttachDisk
 import Network.AWS.Lightsail.AttachInstancesToLoadBalancer
-import Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
-import Network.AWS.Lightsail.AttachStaticIP
+import Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate
+import Network.AWS.Lightsail.AttachStaticIp
 import Network.AWS.Lightsail.CloseInstancePublicPorts
+import Network.AWS.Lightsail.CopySnapshot
+import Network.AWS.Lightsail.CreateCertificate
+import Network.AWS.Lightsail.CreateCloudFormationStack
+import Network.AWS.Lightsail.CreateContactMethod
+import Network.AWS.Lightsail.CreateContainerService
+import Network.AWS.Lightsail.CreateContainerServiceDeployment
+import Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
 import Network.AWS.Lightsail.CreateDisk
 import Network.AWS.Lightsail.CreateDiskFromSnapshot
 import Network.AWS.Lightsail.CreateDiskSnapshot
+import Network.AWS.Lightsail.CreateDistribution
 import Network.AWS.Lightsail.CreateDomain
 import Network.AWS.Lightsail.CreateDomainEntry
+import Network.AWS.Lightsail.CreateInstanceSnapshot
 import Network.AWS.Lightsail.CreateInstances
 import Network.AWS.Lightsail.CreateInstancesFromSnapshot
-import Network.AWS.Lightsail.CreateInstanceSnapshot
 import Network.AWS.Lightsail.CreateKeyPair
 import Network.AWS.Lightsail.CreateLoadBalancer
-import Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.CreateLoadBalancerTlsCertificate
+import Network.AWS.Lightsail.CreateRelationalDatabase
+import Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
+import Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
+import Network.AWS.Lightsail.DeleteAlarm
+import Network.AWS.Lightsail.DeleteAutoSnapshot
+import Network.AWS.Lightsail.DeleteCertificate
+import Network.AWS.Lightsail.DeleteContactMethod
+import Network.AWS.Lightsail.DeleteContainerImage
+import Network.AWS.Lightsail.DeleteContainerService
 import Network.AWS.Lightsail.DeleteDisk
 import Network.AWS.Lightsail.DeleteDiskSnapshot
+import Network.AWS.Lightsail.DeleteDistribution
 import Network.AWS.Lightsail.DeleteDomain
 import Network.AWS.Lightsail.DeleteDomainEntry
 import Network.AWS.Lightsail.DeleteInstance
 import Network.AWS.Lightsail.DeleteInstanceSnapshot
 import Network.AWS.Lightsail.DeleteKeyPair
+import Network.AWS.Lightsail.DeleteKnownHostKeys
 import Network.AWS.Lightsail.DeleteLoadBalancer
-import Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.DeleteLoadBalancerTlsCertificate
+import Network.AWS.Lightsail.DeleteRelationalDatabase
+import Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
+import Network.AWS.Lightsail.DetachCertificateFromDistribution
 import Network.AWS.Lightsail.DetachDisk
 import Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
-import Network.AWS.Lightsail.DetachStaticIP
+import Network.AWS.Lightsail.DetachStaticIp
+import Network.AWS.Lightsail.DisableAddOn
 import Network.AWS.Lightsail.DownloadDefaultKeyPair
+import Network.AWS.Lightsail.EnableAddOn
+import Network.AWS.Lightsail.ExportSnapshot
 import Network.AWS.Lightsail.GetActiveNames
+import Network.AWS.Lightsail.GetAlarms
+import Network.AWS.Lightsail.GetAutoSnapshots
 import Network.AWS.Lightsail.GetBlueprints
 import Network.AWS.Lightsail.GetBundles
+import Network.AWS.Lightsail.GetCertificates
+import Network.AWS.Lightsail.GetCloudFormationStackRecords
+import Network.AWS.Lightsail.GetContactMethods
+import Network.AWS.Lightsail.GetContainerAPIMetadata
+import Network.AWS.Lightsail.GetContainerImages
+import Network.AWS.Lightsail.GetContainerLog
+import Network.AWS.Lightsail.GetContainerServiceDeployments
+import Network.AWS.Lightsail.GetContainerServiceMetricData
+import Network.AWS.Lightsail.GetContainerServicePowers
+import Network.AWS.Lightsail.GetContainerServices
 import Network.AWS.Lightsail.GetDisk
-import Network.AWS.Lightsail.GetDisks
 import Network.AWS.Lightsail.GetDiskSnapshot
 import Network.AWS.Lightsail.GetDiskSnapshots
+import Network.AWS.Lightsail.GetDisks
+import Network.AWS.Lightsail.GetDistributionBundles
+import Network.AWS.Lightsail.GetDistributionLatestCacheReset
+import Network.AWS.Lightsail.GetDistributionMetricData
+import Network.AWS.Lightsail.GetDistributions
 import Network.AWS.Lightsail.GetDomain
 import Network.AWS.Lightsail.GetDomains
+import Network.AWS.Lightsail.GetExportSnapshotRecords
 import Network.AWS.Lightsail.GetInstance
 import Network.AWS.Lightsail.GetInstanceAccessDetails
 import Network.AWS.Lightsail.GetInstanceMetricData
 import Network.AWS.Lightsail.GetInstancePortStates
-import Network.AWS.Lightsail.GetInstances
 import Network.AWS.Lightsail.GetInstanceSnapshot
 import Network.AWS.Lightsail.GetInstanceSnapshots
 import Network.AWS.Lightsail.GetInstanceState
+import Network.AWS.Lightsail.GetInstances
 import Network.AWS.Lightsail.GetKeyPair
 import Network.AWS.Lightsail.GetKeyPairs
 import Network.AWS.Lightsail.GetLoadBalancer
 import Network.AWS.Lightsail.GetLoadBalancerMetricData
+import Network.AWS.Lightsail.GetLoadBalancerTlsCertificates
 import Network.AWS.Lightsail.GetLoadBalancers
-import Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
 import Network.AWS.Lightsail.GetOperation
 import Network.AWS.Lightsail.GetOperations
 import Network.AWS.Lightsail.GetOperationsForResource
 import Network.AWS.Lightsail.GetRegions
-import Network.AWS.Lightsail.GetStaticIP
-import Network.AWS.Lightsail.GetStaticIPs
+import Network.AWS.Lightsail.GetRelationalDatabase
+import Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
+import Network.AWS.Lightsail.GetRelationalDatabaseBundles
+import Network.AWS.Lightsail.GetRelationalDatabaseEvents
+import Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
+import Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
+import Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword
+import Network.AWS.Lightsail.GetRelationalDatabaseMetricData
+import Network.AWS.Lightsail.GetRelationalDatabaseParameters
+import Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
+import Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
+import Network.AWS.Lightsail.GetRelationalDatabases
+import Network.AWS.Lightsail.GetStaticIp
+import Network.AWS.Lightsail.GetStaticIps
 import Network.AWS.Lightsail.ImportKeyPair
-import Network.AWS.Lightsail.IsVPCPeered
+import Network.AWS.Lightsail.IsVpcPeered
+import Network.AWS.Lightsail.Lens
 import Network.AWS.Lightsail.OpenInstancePublicPorts
-import Network.AWS.Lightsail.PeerVPC
+import Network.AWS.Lightsail.PeerVpc
+import Network.AWS.Lightsail.PutAlarm
 import Network.AWS.Lightsail.PutInstancePublicPorts
 import Network.AWS.Lightsail.RebootInstance
-import Network.AWS.Lightsail.ReleaseStaticIP
+import Network.AWS.Lightsail.RebootRelationalDatabase
+import Network.AWS.Lightsail.RegisterContainerImage
+import Network.AWS.Lightsail.ReleaseStaticIp
+import Network.AWS.Lightsail.ResetDistributionCache
+import Network.AWS.Lightsail.SendContactMethodVerification
+import Network.AWS.Lightsail.SetIpAddressType
 import Network.AWS.Lightsail.StartInstance
+import Network.AWS.Lightsail.StartRelationalDatabase
 import Network.AWS.Lightsail.StopInstance
+import Network.AWS.Lightsail.StopRelationalDatabase
+import Network.AWS.Lightsail.TagResource
+import Network.AWS.Lightsail.TestAlarm
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.UnpeerVPC
+import Network.AWS.Lightsail.UnpeerVpc
+import Network.AWS.Lightsail.UntagResource
+import Network.AWS.Lightsail.UpdateContainerService
+import Network.AWS.Lightsail.UpdateDistribution
+import Network.AWS.Lightsail.UpdateDistributionBundle
 import Network.AWS.Lightsail.UpdateDomainEntry
 import Network.AWS.Lightsail.UpdateLoadBalancerAttribute
+import Network.AWS.Lightsail.UpdateRelationalDatabase
+import Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
 import Network.AWS.Lightsail.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Lightsail'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Lightsail'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

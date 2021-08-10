@@ -1,158 +1,191 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeRulesPackages
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the rules packages that are specified by the ARNs of the rules packages.
---
---
+-- Describes the rules packages that are specified by the ARNs of the rules
+-- packages.
 module Network.AWS.Inspector.DescribeRulesPackages
-    (
-    -- * Creating a Request
-      describeRulesPackages
-    , DescribeRulesPackages
+  ( -- * Creating a Request
+    DescribeRulesPackages (..),
+    newDescribeRulesPackages,
+
     -- * Request Lenses
-    , drpLocale
-    , drpRulesPackageARNs
+    describeRulesPackages_locale,
+    describeRulesPackages_rulesPackageArns,
 
     -- * Destructuring the Response
-    , describeRulesPackagesResponse
-    , DescribeRulesPackagesResponse
+    DescribeRulesPackagesResponse (..),
+    newDescribeRulesPackagesResponse,
+
     -- * Response Lenses
-    , drprsResponseStatus
-    , drprsRulesPackages
-    , drprsFailedItems
-    ) where
+    describeRulesPackagesResponse_httpStatus,
+    describeRulesPackagesResponse_rulesPackages,
+    describeRulesPackagesResponse_failedItems,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeRulesPackages' smart constructor.
+-- | /See:/ 'newDescribeRulesPackages' smart constructor.
 data DescribeRulesPackages = DescribeRulesPackages'
-  { _drpLocale           :: !(Maybe Locale)
-  , _drpRulesPackageARNs :: !(List1 Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The locale that you want to translate a rules package description into.
+    locale :: Prelude.Maybe Locale,
+    -- | The ARN that specifies the rules package that you want to describe.
+    rulesPackageArns :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeRulesPackages' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeRulesPackages' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drpLocale' - The locale that you want to translate a rules package description into.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drpRulesPackageARNs' - The ARN that specifies the rules package that you want to describe.
-describeRulesPackages
-    :: NonEmpty Text -- ^ 'drpRulesPackageARNs'
-    -> DescribeRulesPackages
-describeRulesPackages pRulesPackageARNs_ =
+-- 'locale', 'describeRulesPackages_locale' - The locale that you want to translate a rules package description into.
+--
+-- 'rulesPackageArns', 'describeRulesPackages_rulesPackageArns' - The ARN that specifies the rules package that you want to describe.
+newDescribeRulesPackages ::
+  -- | 'rulesPackageArns'
+  Prelude.NonEmpty Prelude.Text ->
+  DescribeRulesPackages
+newDescribeRulesPackages pRulesPackageArns_ =
   DescribeRulesPackages'
-    {_drpLocale = Nothing, _drpRulesPackageARNs = _List1 # pRulesPackageARNs_}
-
-
--- | The locale that you want to translate a rules package description into.
-drpLocale :: Lens' DescribeRulesPackages (Maybe Locale)
-drpLocale = lens _drpLocale (\ s a -> s{_drpLocale = a})
-
--- | The ARN that specifies the rules package that you want to describe.
-drpRulesPackageARNs :: Lens' DescribeRulesPackages (NonEmpty Text)
-drpRulesPackageARNs = lens _drpRulesPackageARNs (\ s a -> s{_drpRulesPackageARNs = a}) . _List1
-
-instance AWSRequest DescribeRulesPackages where
-        type Rs DescribeRulesPackages =
-             DescribeRulesPackagesResponse
-        request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeRulesPackagesResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "rulesPackages" .!@ mempty)
-                     <*> (x .?> "failedItems" .!@ mempty))
-
-instance Hashable DescribeRulesPackages where
-
-instance NFData DescribeRulesPackages where
-
-instance ToHeaders DescribeRulesPackages where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.DescribeRulesPackages" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeRulesPackages where
-        toJSON DescribeRulesPackages'{..}
-          = object
-              (catMaybes
-                 [("locale" .=) <$> _drpLocale,
-                  Just ("rulesPackageArns" .= _drpRulesPackageARNs)])
-
-instance ToPath DescribeRulesPackages where
-        toPath = const "/"
-
-instance ToQuery DescribeRulesPackages where
-        toQuery = const mempty
-
--- | /See:/ 'describeRulesPackagesResponse' smart constructor.
-data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
-  { _drprsResponseStatus :: !Int
-  , _drprsRulesPackages  :: ![RulesPackage]
-  , _drprsFailedItems    :: !(Map Text FailedItemDetails)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeRulesPackagesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drprsResponseStatus' - -- | The response status code.
---
--- * 'drprsRulesPackages' - Information about the rules package.
---
--- * 'drprsFailedItems' - Rules package details that cannot be described. An error code is provided for each failed item.
-describeRulesPackagesResponse
-    :: Int -- ^ 'drprsResponseStatus'
-    -> DescribeRulesPackagesResponse
-describeRulesPackagesResponse pResponseStatus_ =
-  DescribeRulesPackagesResponse'
-    { _drprsResponseStatus = pResponseStatus_
-    , _drprsRulesPackages = mempty
-    , _drprsFailedItems = mempty
+    { locale = Prelude.Nothing,
+      rulesPackageArns =
+        Lens._Coerce Lens.# pRulesPackageArns_
     }
 
+-- | The locale that you want to translate a rules package description into.
+describeRulesPackages_locale :: Lens.Lens' DescribeRulesPackages (Prelude.Maybe Locale)
+describeRulesPackages_locale = Lens.lens (\DescribeRulesPackages' {locale} -> locale) (\s@DescribeRulesPackages' {} a -> s {locale = a} :: DescribeRulesPackages)
 
--- | -- | The response status code.
-drprsResponseStatus :: Lens' DescribeRulesPackagesResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a})
+-- | The ARN that specifies the rules package that you want to describe.
+describeRulesPackages_rulesPackageArns :: Lens.Lens' DescribeRulesPackages (Prelude.NonEmpty Prelude.Text)
+describeRulesPackages_rulesPackageArns = Lens.lens (\DescribeRulesPackages' {rulesPackageArns} -> rulesPackageArns) (\s@DescribeRulesPackages' {} a -> s {rulesPackageArns = a} :: DescribeRulesPackages) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest DescribeRulesPackages where
+  type
+    AWSResponse DescribeRulesPackages =
+      DescribeRulesPackagesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeRulesPackagesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "rulesPackages" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+      )
+
+instance Prelude.Hashable DescribeRulesPackages
+
+instance Prelude.NFData DescribeRulesPackages
+
+instance Core.ToHeaders DescribeRulesPackages where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "InspectorService.DescribeRulesPackages" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeRulesPackages where
+  toJSON DescribeRulesPackages' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("locale" Core..=) Prelude.<$> locale,
+            Prelude.Just
+              ("rulesPackageArns" Core..= rulesPackageArns)
+          ]
+      )
+
+instance Core.ToPath DescribeRulesPackages where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeRulesPackages where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeRulesPackagesResponse' smart constructor.
+data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about the rules package.
+    rulesPackages :: [RulesPackage],
+    -- | Rules package details that cannot be described. An error code is
+    -- provided for each failed item.
+    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeRulesPackagesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'describeRulesPackagesResponse_httpStatus' - The response's http status code.
+--
+-- 'rulesPackages', 'describeRulesPackagesResponse_rulesPackages' - Information about the rules package.
+--
+-- 'failedItems', 'describeRulesPackagesResponse_failedItems' - Rules package details that cannot be described. An error code is
+-- provided for each failed item.
+newDescribeRulesPackagesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeRulesPackagesResponse
+newDescribeRulesPackagesResponse pHttpStatus_ =
+  DescribeRulesPackagesResponse'
+    { httpStatus =
+        pHttpStatus_,
+      rulesPackages = Prelude.mempty,
+      failedItems = Prelude.mempty
+    }
+
+-- | The response's http status code.
+describeRulesPackagesResponse_httpStatus :: Lens.Lens' DescribeRulesPackagesResponse Prelude.Int
+describeRulesPackagesResponse_httpStatus = Lens.lens (\DescribeRulesPackagesResponse' {httpStatus} -> httpStatus) (\s@DescribeRulesPackagesResponse' {} a -> s {httpStatus = a} :: DescribeRulesPackagesResponse)
 
 -- | Information about the rules package.
-drprsRulesPackages :: Lens' DescribeRulesPackagesResponse [RulesPackage]
-drprsRulesPackages = lens _drprsRulesPackages (\ s a -> s{_drprsRulesPackages = a}) . _Coerce
+describeRulesPackagesResponse_rulesPackages :: Lens.Lens' DescribeRulesPackagesResponse [RulesPackage]
+describeRulesPackagesResponse_rulesPackages = Lens.lens (\DescribeRulesPackagesResponse' {rulesPackages} -> rulesPackages) (\s@DescribeRulesPackagesResponse' {} a -> s {rulesPackages = a} :: DescribeRulesPackagesResponse) Prelude.. Lens._Coerce
 
--- | Rules package details that cannot be described. An error code is provided for each failed item.
-drprsFailedItems :: Lens' DescribeRulesPackagesResponse (HashMap Text FailedItemDetails)
-drprsFailedItems = lens _drprsFailedItems (\ s a -> s{_drprsFailedItems = a}) . _Map
+-- | Rules package details that cannot be described. An error code is
+-- provided for each failed item.
+describeRulesPackagesResponse_failedItems :: Lens.Lens' DescribeRulesPackagesResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
+describeRulesPackagesResponse_failedItems = Lens.lens (\DescribeRulesPackagesResponse' {failedItems} -> failedItems) (\s@DescribeRulesPackagesResponse' {} a -> s {failedItems = a} :: DescribeRulesPackagesResponse) Prelude.. Lens._Coerce
 
-instance NFData DescribeRulesPackagesResponse where
+instance Prelude.NFData DescribeRulesPackagesResponse

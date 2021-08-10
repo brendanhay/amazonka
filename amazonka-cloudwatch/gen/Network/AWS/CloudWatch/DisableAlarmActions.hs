@@ -1,100 +1,116 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.
---
---
+-- Disables the actions for the specified alarms. When an alarm\'s actions
+-- are disabled, the alarm actions do not execute when the alarm state
+-- changes.
 module Network.AWS.CloudWatch.DisableAlarmActions
-    (
-    -- * Creating a Request
-      disableAlarmActions
-    , DisableAlarmActions
+  ( -- * Creating a Request
+    DisableAlarmActions (..),
+    newDisableAlarmActions,
+
     -- * Request Lenses
-    , daaAlarmNames
+    disableAlarmActions_alarmNames,
 
     -- * Destructuring the Response
-    , disableAlarmActionsResponse
-    , DisableAlarmActionsResponse
-    ) where
+    DisableAlarmActionsResponse (..),
+    newDisableAlarmActionsResponse,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'disableAlarmActions' smart constructor.
-newtype DisableAlarmActions = DisableAlarmActions'
-  { _daaAlarmNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDisableAlarmActions' smart constructor.
+data DisableAlarmActions = DisableAlarmActions'
+  { -- | The names of the alarms.
+    alarmNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableAlarmActions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableAlarmActions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daaAlarmNames' - The names of the alarms.
-disableAlarmActions
-    :: DisableAlarmActions
-disableAlarmActions = DisableAlarmActions' {_daaAlarmNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'alarmNames', 'disableAlarmActions_alarmNames' - The names of the alarms.
+newDisableAlarmActions ::
+  DisableAlarmActions
+newDisableAlarmActions =
+  DisableAlarmActions' {alarmNames = Prelude.mempty}
 
 -- | The names of the alarms.
-daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce
+disableAlarmActions_alarmNames :: Lens.Lens' DisableAlarmActions [Prelude.Text]
+disableAlarmActions_alarmNames = Lens.lens (\DisableAlarmActions' {alarmNames} -> alarmNames) (\s@DisableAlarmActions' {} a -> s {alarmNames = a} :: DisableAlarmActions) Prelude.. Lens._Coerce
 
-instance AWSRequest DisableAlarmActions where
-        type Rs DisableAlarmActions =
-             DisableAlarmActionsResponse
-        request = postQuery cloudWatch
-        response = receiveNull DisableAlarmActionsResponse'
+instance Core.AWSRequest DisableAlarmActions where
+  type
+    AWSResponse DisableAlarmActions =
+      DisableAlarmActionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DisableAlarmActionsResponse'
 
-instance Hashable DisableAlarmActions where
+instance Prelude.Hashable DisableAlarmActions
 
-instance NFData DisableAlarmActions where
+instance Prelude.NFData DisableAlarmActions
 
-instance ToHeaders DisableAlarmActions where
-        toHeaders = const mempty
+instance Core.ToHeaders DisableAlarmActions where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DisableAlarmActions where
-        toPath = const "/"
+instance Core.ToPath DisableAlarmActions where
+  toPath = Prelude.const "/"
 
-instance ToQuery DisableAlarmActions where
-        toQuery DisableAlarmActions'{..}
-          = mconcat
-              ["Action" =: ("DisableAlarmActions" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _daaAlarmNames]
+instance Core.ToQuery DisableAlarmActions where
+  toQuery DisableAlarmActions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DisableAlarmActions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "AlarmNames"
+          Core.=: Core.toQueryList "member" alarmNames
+      ]
 
--- | /See:/ 'disableAlarmActionsResponse' smart constructor.
-data DisableAlarmActionsResponse =
-  DisableAlarmActionsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDisableAlarmActionsResponse' smart constructor.
+data DisableAlarmActionsResponse = DisableAlarmActionsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisableAlarmActionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisableAlarmActionsResponse' with all optional fields omitted.
 --
-disableAlarmActionsResponse
-    :: DisableAlarmActionsResponse
-disableAlarmActionsResponse = DisableAlarmActionsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDisableAlarmActionsResponse ::
+  DisableAlarmActionsResponse
+newDisableAlarmActionsResponse =
+  DisableAlarmActionsResponse'
 
-
-instance NFData DisableAlarmActionsResponse where
+instance Prelude.NFData DisableAlarmActionsResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteKeyPair
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +22,149 @@
 --
 -- Deletes a specific SSH key pair.
 --
---
+-- The @delete key pair@ operation supports tag-based access control via
+-- resource tags applied to the resource identified by @key pair name@. For
+-- more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
 module Network.AWS.Lightsail.DeleteKeyPair
-    (
-    -- * Creating a Request
-      deleteKeyPair
-    , DeleteKeyPair
+  ( -- * Creating a Request
+    DeleteKeyPair (..),
+    newDeleteKeyPair,
+
     -- * Request Lenses
-    , dkpKeyPairName
+    deleteKeyPair_keyPairName,
 
     -- * Destructuring the Response
-    , deleteKeyPairResponse
-    , DeleteKeyPairResponse
+    DeleteKeyPairResponse (..),
+    newDeleteKeyPairResponse,
+
     -- * Response Lenses
-    , dkprsOperation
-    , dkprsResponseStatus
-    ) where
+    deleteKeyPairResponse_operation,
+    deleteKeyPairResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteKeyPair' smart constructor.
-newtype DeleteKeyPair = DeleteKeyPair'
-  { _dkpKeyPairName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteKeyPair' smart constructor.
+data DeleteKeyPair = DeleteKeyPair'
+  { -- | The name of the key pair to delete.
+    keyPairName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteKeyPair' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dkpKeyPairName' - The name of the key pair to delete.
-deleteKeyPair
-    :: Text -- ^ 'dkpKeyPairName'
-    -> DeleteKeyPair
-deleteKeyPair pKeyPairName_ = DeleteKeyPair' {_dkpKeyPairName = pKeyPairName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'keyPairName', 'deleteKeyPair_keyPairName' - The name of the key pair to delete.
+newDeleteKeyPair ::
+  -- | 'keyPairName'
+  Prelude.Text ->
+  DeleteKeyPair
+newDeleteKeyPair pKeyPairName_ =
+  DeleteKeyPair' {keyPairName = pKeyPairName_}
 
 -- | The name of the key pair to delete.
-dkpKeyPairName :: Lens' DeleteKeyPair Text
-dkpKeyPairName = lens _dkpKeyPairName (\ s a -> s{_dkpKeyPairName = a})
+deleteKeyPair_keyPairName :: Lens.Lens' DeleteKeyPair Prelude.Text
+deleteKeyPair_keyPairName = Lens.lens (\DeleteKeyPair' {keyPairName} -> keyPairName) (\s@DeleteKeyPair' {} a -> s {keyPairName = a} :: DeleteKeyPair)
 
-instance AWSRequest DeleteKeyPair where
-        type Rs DeleteKeyPair = DeleteKeyPairResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteKeyPairResponse' <$>
-                   (x .?> "operation") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteKeyPair where
+  type
+    AWSResponse DeleteKeyPair =
+      DeleteKeyPairResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteKeyPairResponse'
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteKeyPair where
+instance Prelude.Hashable DeleteKeyPair
 
-instance NFData DeleteKeyPair where
+instance Prelude.NFData DeleteKeyPair
 
-instance ToHeaders DeleteKeyPair where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.DeleteKeyPair" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteKeyPair where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.DeleteKeyPair" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteKeyPair where
-        toJSON DeleteKeyPair'{..}
-          = object
-              (catMaybes [Just ("keyPairName" .= _dkpKeyPairName)])
+instance Core.ToJSON DeleteKeyPair where
+  toJSON DeleteKeyPair' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("keyPairName" Core..= keyPairName)]
+      )
 
-instance ToPath DeleteKeyPair where
-        toPath = const "/"
+instance Core.ToPath DeleteKeyPair where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteKeyPair where
-        toQuery = const mempty
+instance Core.ToQuery DeleteKeyPair where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteKeyPairResponse' smart constructor.
+-- | /See:/ 'newDeleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
-  { _dkprsOperation      :: !(Maybe Operation)
-  , _dkprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteKeyPairResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dkprsOperation' - An array of key-value pairs containing information about the results of your delete key pair request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dkprsResponseStatus' - -- | The response status code.
-deleteKeyPairResponse
-    :: Int -- ^ 'dkprsResponseStatus'
-    -> DeleteKeyPairResponse
-deleteKeyPairResponse pResponseStatus_ =
+-- 'operation', 'deleteKeyPairResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'deleteKeyPairResponse_httpStatus' - The response's http status code.
+newDeleteKeyPairResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteKeyPairResponse
+newDeleteKeyPairResponse pHttpStatus_ =
   DeleteKeyPairResponse'
-    {_dkprsOperation = Nothing, _dkprsResponseStatus = pResponseStatus_}
+    { operation = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+deleteKeyPairResponse_operation :: Lens.Lens' DeleteKeyPairResponse (Prelude.Maybe Operation)
+deleteKeyPairResponse_operation = Lens.lens (\DeleteKeyPairResponse' {operation} -> operation) (\s@DeleteKeyPairResponse' {} a -> s {operation = a} :: DeleteKeyPairResponse)
 
--- | An array of key-value pairs containing information about the results of your delete key pair request.
-dkprsOperation :: Lens' DeleteKeyPairResponse (Maybe Operation)
-dkprsOperation = lens _dkprsOperation (\ s a -> s{_dkprsOperation = a})
+-- | The response's http status code.
+deleteKeyPairResponse_httpStatus :: Lens.Lens' DeleteKeyPairResponse Prelude.Int
+deleteKeyPairResponse_httpStatus = Lens.lens (\DeleteKeyPairResponse' {httpStatus} -> httpStatus) (\s@DeleteKeyPairResponse' {} a -> s {httpStatus = a} :: DeleteKeyPairResponse)
 
--- | -- | The response status code.
-dkprsResponseStatus :: Lens' DeleteKeyPairResponse Int
-dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a})
-
-instance NFData DeleteKeyPairResponse where
+instance Prelude.NFData DeleteKeyPairResponse

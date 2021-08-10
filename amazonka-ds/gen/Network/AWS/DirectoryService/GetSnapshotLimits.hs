@@ -1,141 +1,167 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains the manual snapshot limits for a directory.
---
---
 module Network.AWS.DirectoryService.GetSnapshotLimits
-    (
-    -- * Creating a Request
-      getSnapshotLimits
-    , GetSnapshotLimits
+  ( -- * Creating a Request
+    GetSnapshotLimits (..),
+    newGetSnapshotLimits,
+
     -- * Request Lenses
-    , gslDirectoryId
+    getSnapshotLimits_directoryId,
 
     -- * Destructuring the Response
-    , getSnapshotLimitsResponse
-    , GetSnapshotLimitsResponse
+    GetSnapshotLimitsResponse (..),
+    newGetSnapshotLimitsResponse,
+
     -- * Response Lenses
-    , gslrsSnapshotLimits
-    , gslrsResponseStatus
-    ) where
+    getSnapshotLimitsResponse_snapshotLimits,
+    getSnapshotLimitsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'GetSnapshotLimits' operation.
+-- | Contains the inputs for the GetSnapshotLimits operation.
 --
---
---
--- /See:/ 'getSnapshotLimits' smart constructor.
-newtype GetSnapshotLimits = GetSnapshotLimits'
-  { _gslDirectoryId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetSnapshotLimits' smart constructor.
+data GetSnapshotLimits = GetSnapshotLimits'
+  { -- | Contains the identifier of the directory to obtain the limits for.
+    directoryId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSnapshotLimits' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSnapshotLimits' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gslDirectoryId' - Contains the identifier of the directory to obtain the limits for.
-getSnapshotLimits
-    :: Text -- ^ 'gslDirectoryId'
-    -> GetSnapshotLimits
-getSnapshotLimits pDirectoryId_ =
-  GetSnapshotLimits' {_gslDirectoryId = pDirectoryId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryId', 'getSnapshotLimits_directoryId' - Contains the identifier of the directory to obtain the limits for.
+newGetSnapshotLimits ::
+  -- | 'directoryId'
+  Prelude.Text ->
+  GetSnapshotLimits
+newGetSnapshotLimits pDirectoryId_ =
+  GetSnapshotLimits' {directoryId = pDirectoryId_}
 
 -- | Contains the identifier of the directory to obtain the limits for.
-gslDirectoryId :: Lens' GetSnapshotLimits Text
-gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a})
+getSnapshotLimits_directoryId :: Lens.Lens' GetSnapshotLimits Prelude.Text
+getSnapshotLimits_directoryId = Lens.lens (\GetSnapshotLimits' {directoryId} -> directoryId) (\s@GetSnapshotLimits' {} a -> s {directoryId = a} :: GetSnapshotLimits)
 
-instance AWSRequest GetSnapshotLimits where
-        type Rs GetSnapshotLimits = GetSnapshotLimitsResponse
-        request = postJSON directoryService
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetSnapshotLimitsResponse' <$>
-                   (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetSnapshotLimits where
+  type
+    AWSResponse GetSnapshotLimits =
+      GetSnapshotLimitsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSnapshotLimitsResponse'
+            Prelude.<$> (x Core..?> "SnapshotLimits")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetSnapshotLimits where
+instance Prelude.Hashable GetSnapshotLimits
 
-instance NFData GetSnapshotLimits where
+instance Prelude.NFData GetSnapshotLimits
 
-instance ToHeaders GetSnapshotLimits where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.GetSnapshotLimits" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetSnapshotLimits where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.GetSnapshotLimits" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetSnapshotLimits where
-        toJSON GetSnapshotLimits'{..}
-          = object
-              (catMaybes [Just ("DirectoryId" .= _gslDirectoryId)])
+instance Core.ToJSON GetSnapshotLimits where
+  toJSON GetSnapshotLimits' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("DirectoryId" Core..= directoryId)]
+      )
 
-instance ToPath GetSnapshotLimits where
-        toPath = const "/"
+instance Core.ToPath GetSnapshotLimits where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetSnapshotLimits where
-        toQuery = const mempty
+instance Core.ToQuery GetSnapshotLimits where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results of the 'GetSnapshotLimits' operation.
+-- | Contains the results of the GetSnapshotLimits operation.
 --
---
---
--- /See:/ 'getSnapshotLimitsResponse' smart constructor.
+-- /See:/ 'newGetSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
-  { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
-  , _gslrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A SnapshotLimits object that contains the manual snapshot limits for the
+    -- specified directory.
+    snapshotLimits :: Prelude.Maybe SnapshotLimits,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSnapshotLimitsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSnapshotLimitsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gslrsSnapshotLimits' - A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gslrsResponseStatus' - -- | The response status code.
-getSnapshotLimitsResponse
-    :: Int -- ^ 'gslrsResponseStatus'
-    -> GetSnapshotLimitsResponse
-getSnapshotLimitsResponse pResponseStatus_ =
+-- 'snapshotLimits', 'getSnapshotLimitsResponse_snapshotLimits' - A SnapshotLimits object that contains the manual snapshot limits for the
+-- specified directory.
+--
+-- 'httpStatus', 'getSnapshotLimitsResponse_httpStatus' - The response's http status code.
+newGetSnapshotLimitsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetSnapshotLimitsResponse
+newGetSnapshotLimitsResponse pHttpStatus_ =
   GetSnapshotLimitsResponse'
-    {_gslrsSnapshotLimits = Nothing, _gslrsResponseStatus = pResponseStatus_}
+    { snapshotLimits =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A SnapshotLimits object that contains the manual snapshot limits for the
+-- specified directory.
+getSnapshotLimitsResponse_snapshotLimits :: Lens.Lens' GetSnapshotLimitsResponse (Prelude.Maybe SnapshotLimits)
+getSnapshotLimitsResponse_snapshotLimits = Lens.lens (\GetSnapshotLimitsResponse' {snapshotLimits} -> snapshotLimits) (\s@GetSnapshotLimitsResponse' {} a -> s {snapshotLimits = a} :: GetSnapshotLimitsResponse)
 
--- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
-gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
-gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a})
+-- | The response's http status code.
+getSnapshotLimitsResponse_httpStatus :: Lens.Lens' GetSnapshotLimitsResponse Prelude.Int
+getSnapshotLimitsResponse_httpStatus = Lens.lens (\GetSnapshotLimitsResponse' {httpStatus} -> httpStatus) (\s@GetSnapshotLimitsResponse' {} a -> s {httpStatus = a} :: GetSnapshotLimitsResponse)
 
--- | -- | The response status code.
-gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
-gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a})
-
-instance NFData GetSnapshotLimitsResponse where
+instance Prelude.NFData GetSnapshotLimitsResponse

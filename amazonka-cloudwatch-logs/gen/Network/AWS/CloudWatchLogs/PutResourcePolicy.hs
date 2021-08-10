@@ -1,141 +1,202 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutResourcePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 50 resource policies per region.
---
---
+-- Creates or updates a resource policy allowing other AWS services to put
+-- log events to this account, such as Amazon Route 53. An account can have
+-- up to 10 resource policies per AWS Region.
 module Network.AWS.CloudWatchLogs.PutResourcePolicy
-    (
-    -- * Creating a Request
-      putResourcePolicy
-    , PutResourcePolicy
+  ( -- * Creating a Request
+    PutResourcePolicy (..),
+    newPutResourcePolicy,
+
     -- * Request Lenses
-    , prpPolicyName
-    , prpPolicyDocument
+    putResourcePolicy_policyName,
+    putResourcePolicy_policyDocument,
 
     -- * Destructuring the Response
-    , putResourcePolicyResponse
-    , PutResourcePolicyResponse
+    PutResourcePolicyResponse (..),
+    newPutResourcePolicyResponse,
+
     -- * Response Lenses
-    , prprsResourcePolicy
-    , prprsResponseStatus
-    ) where
+    putResourcePolicyResponse_resourcePolicy,
+    putResourcePolicyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putResourcePolicy' smart constructor.
+-- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { _prpPolicyName     :: !(Maybe Text)
-  , _prpPolicyDocument :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Name of the new policy. This parameter is required.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | Details of the new policy, including the identity of the principal that
+    -- is enabled to put logs to this account. This is formatted as a JSON
+    -- string. This parameter is required.
+    --
+    -- The following example creates a resource policy enabling the Route 53
+    -- service to put DNS query logs in to the specified log group. Replace
+    -- @\"logArn\"@ with the ARN of your CloudWatch Logs resource, such as a
+    -- log group or log stream.
+    --
+    -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] } @
+    policyDocument :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutResourcePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'prpPolicyName' - Name of the new policy. This parameter is required.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'prpPolicyDocument' - Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] }
-putResourcePolicy
-    :: PutResourcePolicy
-putResourcePolicy =
-  PutResourcePolicy' {_prpPolicyName = Nothing, _prpPolicyDocument = Nothing}
-
+-- 'policyName', 'putResourcePolicy_policyName' - Name of the new policy. This parameter is required.
+--
+-- 'policyDocument', 'putResourcePolicy_policyDocument' - Details of the new policy, including the identity of the principal that
+-- is enabled to put logs to this account. This is formatted as a JSON
+-- string. This parameter is required.
+--
+-- The following example creates a resource policy enabling the Route 53
+-- service to put DNS query logs in to the specified log group. Replace
+-- @\"logArn\"@ with the ARN of your CloudWatch Logs resource, such as a
+-- log group or log stream.
+--
+-- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] } @
+newPutResourcePolicy ::
+  PutResourcePolicy
+newPutResourcePolicy =
+  PutResourcePolicy'
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing
+    }
 
 -- | Name of the new policy. This parameter is required.
-prpPolicyName :: Lens' PutResourcePolicy (Maybe Text)
-prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a})
+putResourcePolicy_policyName :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> policyName) (\s@PutResourcePolicy' {} a -> s {policyName = a} :: PutResourcePolicy)
 
--- | Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] }
-prpPolicyDocument :: Lens' PutResourcePolicy (Maybe Text)
-prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a})
+-- | Details of the new policy, including the identity of the principal that
+-- is enabled to put logs to this account. This is formatted as a JSON
+-- string. This parameter is required.
+--
+-- The following example creates a resource policy enabling the Route 53
+-- service to put DNS query logs in to the specified log group. Replace
+-- @\"logArn\"@ with the ARN of your CloudWatch Logs resource, such as a
+-- log group or log stream.
+--
+-- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] } @
+putResourcePolicy_policyDocument :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyDocument = Lens.lens (\PutResourcePolicy' {policyDocument} -> policyDocument) (\s@PutResourcePolicy' {} a -> s {policyDocument = a} :: PutResourcePolicy)
 
-instance AWSRequest PutResourcePolicy where
-        type Rs PutResourcePolicy = PutResourcePolicyResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutResourcePolicyResponse' <$>
-                   (x .?> "resourcePolicy") <*> (pure (fromEnum s)))
+instance Core.AWSRequest PutResourcePolicy where
+  type
+    AWSResponse PutResourcePolicy =
+      PutResourcePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutResourcePolicyResponse'
+            Prelude.<$> (x Core..?> "resourcePolicy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable PutResourcePolicy where
+instance Prelude.Hashable PutResourcePolicy
 
-instance NFData PutResourcePolicy where
+instance Prelude.NFData PutResourcePolicy
 
-instance ToHeaders PutResourcePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.PutResourcePolicy" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders PutResourcePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.PutResourcePolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON PutResourcePolicy where
-        toJSON PutResourcePolicy'{..}
-          = object
-              (catMaybes
-                 [("policyName" .=) <$> _prpPolicyName,
-                  ("policyDocument" .=) <$> _prpPolicyDocument])
+instance Core.ToJSON PutResourcePolicy where
+  toJSON PutResourcePolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("policyName" Core..=) Prelude.<$> policyName,
+            ("policyDocument" Core..=)
+              Prelude.<$> policyDocument
+          ]
+      )
 
-instance ToPath PutResourcePolicy where
-        toPath = const "/"
+instance Core.ToPath PutResourcePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutResourcePolicy where
-        toQuery = const mempty
+instance Core.ToQuery PutResourcePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putResourcePolicyResponse' smart constructor.
+-- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { _prprsResourcePolicy :: !(Maybe ResourcePolicy)
-  , _prprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The new policy.
+    resourcePolicy :: Prelude.Maybe ResourcePolicy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutResourcePolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'prprsResourcePolicy' - The new policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'prprsResponseStatus' - -- | The response status code.
-putResourcePolicyResponse
-    :: Int -- ^ 'prprsResponseStatus'
-    -> PutResourcePolicyResponse
-putResourcePolicyResponse pResponseStatus_ =
+-- 'resourcePolicy', 'putResourcePolicyResponse_resourcePolicy' - The new policy.
+--
+-- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
+newPutResourcePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutResourcePolicyResponse
+newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
-    {_prprsResourcePolicy = Nothing, _prprsResponseStatus = pResponseStatus_}
-
+    { resourcePolicy =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The new policy.
-prprsResourcePolicy :: Lens' PutResourcePolicyResponse (Maybe ResourcePolicy)
-prprsResourcePolicy = lens _prprsResourcePolicy (\ s a -> s{_prprsResourcePolicy = a})
+putResourcePolicyResponse_resourcePolicy :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe ResourcePolicy)
+putResourcePolicyResponse_resourcePolicy = Lens.lens (\PutResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@PutResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: PutResourcePolicyResponse)
 
--- | -- | The response status code.
-prprsResponseStatus :: Lens' PutResourcePolicyResponse Int
-prprsResponseStatus = lens _prprsResponseStatus (\ s a -> s{_prprsResponseStatus = a})
+-- | The response's http status code.
+putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
+putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance NFData PutResourcePolicyResponse where
+instance Prelude.NFData PutResourcePolicyResponse

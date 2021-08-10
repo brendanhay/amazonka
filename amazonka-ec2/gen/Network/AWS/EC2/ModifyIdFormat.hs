@@ -1,121 +1,189 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyIdFormat
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the ID format for the specified resource on a per-region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.
+-- Modifies the ID format for the specified resource on a per-Region basis.
+-- You can specify that resources should receive longer IDs (17-character
+-- IDs) when they are created.
 --
+-- This request can only be used to modify longer ID settings for resource
+-- types that are within the opt-in period. Resources currently in their
+-- opt-in period include: @bundle@ | @conversion-task@ | @customer-gateway@
+-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+-- @export-task@ | @flow-log@ | @image@ | @import-task@ |
+-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+-- @route-table@ | @route-table-association@ | @security-group@ | @subnet@
+-- | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@
+-- | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ |
+-- @vpn-gateway@.
 --
--- This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
+-- This setting applies to the IAM user who makes the request; it does not
+-- apply to the entire AWS account. By default, an IAM user defaults to the
+-- same settings as the root user. If you\'re using this action as the root
+-- user, then these settings apply to the entire account, unless an IAM
+-- user explicitly overrides these settings for themselves. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant @Describe@ command for the resource type.
---
+-- Resources created with longer IDs are visible to all IAM roles and
+-- users, regardless of these settings and provided that they have
+-- permission to use the relevant @Describe@ command for the resource type.
 module Network.AWS.EC2.ModifyIdFormat
-    (
-    -- * Creating a Request
-      modifyIdFormat
-    , ModifyIdFormat
+  ( -- * Creating a Request
+    ModifyIdFormat (..),
+    newModifyIdFormat,
+
     -- * Request Lenses
-    , mifResource
-    , mifUseLongIds
+    modifyIdFormat_resource,
+    modifyIdFormat_useLongIds,
 
     -- * Destructuring the Response
-    , modifyIdFormatResponse
-    , ModifyIdFormatResponse
-    ) where
+    ModifyIdFormatResponse (..),
+    newModifyIdFormatResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters of ModifyIdFormat.
---
---
---
--- /See:/ 'modifyIdFormat' smart constructor.
+-- | /See:/ 'newModifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-  { _mifResource   :: !Text
-  , _mifUseLongIds :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+    -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+    -- @export-task@ | @flow-log@ | @image@ | @import-task@ |
+    -- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+    -- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+    -- @route-table@ | @route-table-association@ | @security-group@ | @subnet@
+    -- | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@
+    -- | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ |
+    -- @vpn-gateway@.
+    --
+    -- Alternatively, use the @all-current@ option to include all resource
+    -- types that are currently within their opt-in period for longer IDs.
+    resource :: Prelude.Text,
+    -- | Indicate whether the resource should use longer IDs (17-character IDs).
+    useLongIds :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyIdFormat' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyIdFormat' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mifResource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ . Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mifUseLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
-modifyIdFormat
-    :: Text -- ^ 'mifResource'
-    -> Bool -- ^ 'mifUseLongIds'
-    -> ModifyIdFormat
-modifyIdFormat pResource_ pUseLongIds_ =
-  ModifyIdFormat' {_mifResource = pResource_, _mifUseLongIds = pUseLongIds_}
+-- 'resource', 'modifyIdFormat_resource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+-- @export-task@ | @flow-log@ | @image@ | @import-task@ |
+-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+-- @route-table@ | @route-table-association@ | @security-group@ | @subnet@
+-- | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@
+-- | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ |
+-- @vpn-gateway@.
+--
+-- Alternatively, use the @all-current@ option to include all resource
+-- types that are currently within their opt-in period for longer IDs.
+--
+-- 'useLongIds', 'modifyIdFormat_useLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
+newModifyIdFormat ::
+  -- | 'resource'
+  Prelude.Text ->
+  -- | 'useLongIds'
+  Prelude.Bool ->
+  ModifyIdFormat
+newModifyIdFormat pResource_ pUseLongIds_ =
+  ModifyIdFormat'
+    { resource = pResource_,
+      useLongIds = pUseLongIds_
+    }
 
-
--- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ . Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
-mifResource :: Lens' ModifyIdFormat Text
-mifResource = lens _mifResource (\ s a -> s{_mifResource = a})
+-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+-- @export-task@ | @flow-log@ | @image@ | @import-task@ |
+-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+-- @route-table@ | @route-table-association@ | @security-group@ | @subnet@
+-- | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@
+-- | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ |
+-- @vpn-gateway@.
+--
+-- Alternatively, use the @all-current@ option to include all resource
+-- types that are currently within their opt-in period for longer IDs.
+modifyIdFormat_resource :: Lens.Lens' ModifyIdFormat Prelude.Text
+modifyIdFormat_resource = Lens.lens (\ModifyIdFormat' {resource} -> resource) (\s@ModifyIdFormat' {} a -> s {resource = a} :: ModifyIdFormat)
 
 -- | Indicate whether the resource should use longer IDs (17-character IDs).
-mifUseLongIds :: Lens' ModifyIdFormat Bool
-mifUseLongIds = lens _mifUseLongIds (\ s a -> s{_mifUseLongIds = a})
+modifyIdFormat_useLongIds :: Lens.Lens' ModifyIdFormat Prelude.Bool
+modifyIdFormat_useLongIds = Lens.lens (\ModifyIdFormat' {useLongIds} -> useLongIds) (\s@ModifyIdFormat' {} a -> s {useLongIds = a} :: ModifyIdFormat)
 
-instance AWSRequest ModifyIdFormat where
-        type Rs ModifyIdFormat = ModifyIdFormatResponse
-        request = postQuery ec2
-        response = receiveNull ModifyIdFormatResponse'
+instance Core.AWSRequest ModifyIdFormat where
+  type
+    AWSResponse ModifyIdFormat =
+      ModifyIdFormatResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull ModifyIdFormatResponse'
 
-instance Hashable ModifyIdFormat where
+instance Prelude.Hashable ModifyIdFormat
 
-instance NFData ModifyIdFormat where
+instance Prelude.NFData ModifyIdFormat
 
-instance ToHeaders ModifyIdFormat where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyIdFormat where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyIdFormat where
-        toPath = const "/"
+instance Core.ToPath ModifyIdFormat where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyIdFormat where
-        toQuery ModifyIdFormat'{..}
-          = mconcat
-              ["Action" =: ("ModifyIdFormat" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "Resource" =: _mifResource,
-               "UseLongIds" =: _mifUseLongIds]
+instance Core.ToQuery ModifyIdFormat where
+  toQuery ModifyIdFormat' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyIdFormat" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Resource" Core.=: resource,
+        "UseLongIds" Core.=: useLongIds
+      ]
 
--- | /See:/ 'modifyIdFormatResponse' smart constructor.
-data ModifyIdFormatResponse =
-  ModifyIdFormatResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newModifyIdFormatResponse' smart constructor.
+data ModifyIdFormatResponse = ModifyIdFormatResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyIdFormatResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyIdFormatResponse' with all optional fields omitted.
 --
-modifyIdFormatResponse
-    :: ModifyIdFormatResponse
-modifyIdFormatResponse = ModifyIdFormatResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newModifyIdFormatResponse ::
+  ModifyIdFormatResponse
+newModifyIdFormatResponse = ModifyIdFormatResponse'
 
-
-instance NFData ModifyIdFormatResponse where
+instance Prelude.NFData ModifyIdFormatResponse

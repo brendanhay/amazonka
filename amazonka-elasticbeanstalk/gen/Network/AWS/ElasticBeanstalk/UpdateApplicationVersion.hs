@@ -1,119 +1,156 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified application version to have the specified properties.
+-- Updates the specified application version to have the specified
+-- properties.
 --
---
+-- If a property (for example, @description@) is not provided, the value
+-- remains unchanged. To clear properties, specify an empty string.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-    (
-    -- * Creating a Request
-      updateApplicationVersion
-    , UpdateApplicationVersion
+  ( -- * Creating a Request
+    UpdateApplicationVersion (..),
+    newUpdateApplicationVersion,
+
     -- * Request Lenses
-    , uavDescription
-    , uavApplicationName
-    , uavVersionLabel
+    updateApplicationVersion_description,
+    updateApplicationVersion_applicationName,
+    updateApplicationVersion_versionLabel,
 
     -- * Destructuring the Response
-    , applicationVersionDescriptionMessage
-    , ApplicationVersionDescriptionMessage
-    -- * Response Lenses
-    , avdmApplicationVersion
-    ) where
+    ApplicationVersionDescriptionMessage (..),
+    newApplicationVersionDescriptionMessage,
 
+    -- * Response Lenses
+    applicationVersionDescriptionMessage_applicationVersion,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'updateApplicationVersion' smart constructor.
+-- /See:/ 'newUpdateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
-  { _uavDescription     :: !(Maybe Text)
-  , _uavApplicationName :: !Text
-  , _uavVersionLabel    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A new description for this version.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application associated with this version.
+    --
+    -- If no application is found with this name, @UpdateApplication@ returns
+    -- an @InvalidParameterValue@ error.
+    applicationName :: Prelude.Text,
+    -- | The name of the version to update.
+    --
+    -- If no application version is found with this label, @UpdateApplication@
+    -- returns an @InvalidParameterValue@ error.
+    versionLabel :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateApplicationVersion' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uavDescription' - A new description for this version.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uavApplicationName' - The name of the application associated with this version. If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+-- 'description', 'updateApplicationVersion_description' - A new description for this version.
 --
--- * 'uavVersionLabel' - The name of the version to update. If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-updateApplicationVersion
-    :: Text -- ^ 'uavApplicationName'
-    -> Text -- ^ 'uavVersionLabel'
-    -> UpdateApplicationVersion
-updateApplicationVersion pApplicationName_ pVersionLabel_ =
-  UpdateApplicationVersion'
-    { _uavDescription = Nothing
-    , _uavApplicationName = pApplicationName_
-    , _uavVersionLabel = pVersionLabel_
-    }
-
+-- 'applicationName', 'updateApplicationVersion_applicationName' - The name of the application associated with this version.
+--
+-- If no application is found with this name, @UpdateApplication@ returns
+-- an @InvalidParameterValue@ error.
+--
+-- 'versionLabel', 'updateApplicationVersion_versionLabel' - The name of the version to update.
+--
+-- If no application version is found with this label, @UpdateApplication@
+-- returns an @InvalidParameterValue@ error.
+newUpdateApplicationVersion ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'versionLabel'
+  Prelude.Text ->
+  UpdateApplicationVersion
+newUpdateApplicationVersion
+  pApplicationName_
+  pVersionLabel_ =
+    UpdateApplicationVersion'
+      { description =
+          Prelude.Nothing,
+        applicationName = pApplicationName_,
+        versionLabel = pVersionLabel_
+      }
 
 -- | A new description for this version.
-uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
-uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a})
+updateApplicationVersion_description :: Lens.Lens' UpdateApplicationVersion (Prelude.Maybe Prelude.Text)
+updateApplicationVersion_description = Lens.lens (\UpdateApplicationVersion' {description} -> description) (\s@UpdateApplicationVersion' {} a -> s {description = a} :: UpdateApplicationVersion)
 
--- | The name of the application associated with this version. If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uavApplicationName :: Lens' UpdateApplicationVersion Text
-uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = a})
+-- | The name of the application associated with this version.
+--
+-- If no application is found with this name, @UpdateApplication@ returns
+-- an @InvalidParameterValue@ error.
+updateApplicationVersion_applicationName :: Lens.Lens' UpdateApplicationVersion Prelude.Text
+updateApplicationVersion_applicationName = Lens.lens (\UpdateApplicationVersion' {applicationName} -> applicationName) (\s@UpdateApplicationVersion' {} a -> s {applicationName = a} :: UpdateApplicationVersion)
 
--- | The name of the version to update. If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uavVersionLabel :: Lens' UpdateApplicationVersion Text
-uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a})
+-- | The name of the version to update.
+--
+-- If no application version is found with this label, @UpdateApplication@
+-- returns an @InvalidParameterValue@ error.
+updateApplicationVersion_versionLabel :: Lens.Lens' UpdateApplicationVersion Prelude.Text
+updateApplicationVersion_versionLabel = Lens.lens (\UpdateApplicationVersion' {versionLabel} -> versionLabel) (\s@UpdateApplicationVersion' {} a -> s {versionLabel = a} :: UpdateApplicationVersion)
 
-instance AWSRequest UpdateApplicationVersion where
-        type Rs UpdateApplicationVersion =
-             ApplicationVersionDescriptionMessage
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper "UpdateApplicationVersionResult"
-              (\ s h x -> parseXML x)
+instance Core.AWSRequest UpdateApplicationVersion where
+  type
+    AWSResponse UpdateApplicationVersion =
+      ApplicationVersionDescriptionMessage
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateApplicationVersionResult"
+      (\s h x -> Core.parseXML x)
 
-instance Hashable UpdateApplicationVersion where
+instance Prelude.Hashable UpdateApplicationVersion
 
-instance NFData UpdateApplicationVersion where
+instance Prelude.NFData UpdateApplicationVersion
 
-instance ToHeaders UpdateApplicationVersion where
-        toHeaders = const mempty
+instance Core.ToHeaders UpdateApplicationVersion where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateApplicationVersion where
-        toPath = const "/"
+instance Core.ToPath UpdateApplicationVersion where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateApplicationVersion where
-        toQuery UpdateApplicationVersion'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateApplicationVersion" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _uavDescription,
-               "ApplicationName" =: _uavApplicationName,
-               "VersionLabel" =: _uavVersionLabel]
+instance Core.ToQuery UpdateApplicationVersion where
+  toQuery UpdateApplicationVersion' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UpdateApplicationVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "Description" Core.=: description,
+        "ApplicationName" Core.=: applicationName,
+        "VersionLabel" Core.=: versionLabel
+      ]

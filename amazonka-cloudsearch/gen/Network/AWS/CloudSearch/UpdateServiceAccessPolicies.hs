@@ -1,151 +1,186 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures the access rules that control access to the domain's document and search endpoints. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain> .
---
---
+-- Configures the access rules that control access to the domain\'s
+-- document and search endpoints. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-    (
-    -- * Creating a Request
-      updateServiceAccessPolicies
-    , UpdateServiceAccessPolicies
+  ( -- * Creating a Request
+    UpdateServiceAccessPolicies (..),
+    newUpdateServiceAccessPolicies,
+
     -- * Request Lenses
-    , usapDomainName
-    , usapAccessPolicies
+    updateServiceAccessPolicies_domainName,
+    updateServiceAccessPolicies_accessPolicies,
 
     -- * Destructuring the Response
-    , updateServiceAccessPoliciesResponse
-    , UpdateServiceAccessPoliciesResponse
+    UpdateServiceAccessPoliciesResponse (..),
+    newUpdateServiceAccessPoliciesResponse,
+
     -- * Response Lenses
-    , usaprsResponseStatus
-    , usaprsAccessPolicies
-    ) where
+    updateServiceAccessPoliciesResponse_httpStatus,
+    updateServiceAccessPoliciesResponse_accessPolicies,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'UpdateServiceAccessPolicies' @ operation. Specifies the name of the domain you want to update and the access rules you want to configure.
+-- | Container for the parameters to the @UpdateServiceAccessPolicies@
+-- operation. Specifies the name of the domain you want to update and the
+-- access rules you want to configure.
 --
---
---
--- /See:/ 'updateServiceAccessPolicies' smart constructor.
+-- /See:/ 'newUpdateServiceAccessPolicies' smart constructor.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-  { _usapDomainName     :: !Text
-  , _usapAccessPolicies :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { domainName :: Prelude.Text,
+    -- | The access rules you want to configure. These rules replace any existing
+    -- rules.
+    accessPolicies :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServiceAccessPolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServiceAccessPolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usapDomainName' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usapAccessPolicies' - The access rules you want to configure. These rules replace any existing rules.
-updateServiceAccessPolicies
-    :: Text -- ^ 'usapDomainName'
-    -> Text -- ^ 'usapAccessPolicies'
-    -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
-  UpdateServiceAccessPolicies'
-    {_usapDomainName = pDomainName_, _usapAccessPolicies = pAccessPolicies_}
-
+-- 'domainName', 'updateServiceAccessPolicies_domainName' - Undocumented member.
+--
+-- 'accessPolicies', 'updateServiceAccessPolicies_accessPolicies' - The access rules you want to configure. These rules replace any existing
+-- rules.
+newUpdateServiceAccessPolicies ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'accessPolicies'
+  Prelude.Text ->
+  UpdateServiceAccessPolicies
+newUpdateServiceAccessPolicies
+  pDomainName_
+  pAccessPolicies_ =
+    UpdateServiceAccessPolicies'
+      { domainName =
+          pDomainName_,
+        accessPolicies = pAccessPolicies_
+      }
 
 -- | Undocumented member.
-usapDomainName :: Lens' UpdateServiceAccessPolicies Text
-usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a})
+updateServiceAccessPolicies_domainName :: Lens.Lens' UpdateServiceAccessPolicies Prelude.Text
+updateServiceAccessPolicies_domainName = Lens.lens (\UpdateServiceAccessPolicies' {domainName} -> domainName) (\s@UpdateServiceAccessPolicies' {} a -> s {domainName = a} :: UpdateServiceAccessPolicies)
 
--- | The access rules you want to configure. These rules replace any existing rules.
-usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
-usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a})
+-- | The access rules you want to configure. These rules replace any existing
+-- rules.
+updateServiceAccessPolicies_accessPolicies :: Lens.Lens' UpdateServiceAccessPolicies Prelude.Text
+updateServiceAccessPolicies_accessPolicies = Lens.lens (\UpdateServiceAccessPolicies' {accessPolicies} -> accessPolicies) (\s@UpdateServiceAccessPolicies' {} a -> s {accessPolicies = a} :: UpdateServiceAccessPolicies)
 
-instance AWSRequest UpdateServiceAccessPolicies where
-        type Rs UpdateServiceAccessPolicies =
-             UpdateServiceAccessPoliciesResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper
-              "UpdateServiceAccessPoliciesResult"
-              (\ s h x ->
-                 UpdateServiceAccessPoliciesResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
+instance Core.AWSRequest UpdateServiceAccessPolicies where
+  type
+    AWSResponse UpdateServiceAccessPolicies =
+      UpdateServiceAccessPoliciesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateServiceAccessPoliciesResult"
+      ( \s h x ->
+          UpdateServiceAccessPoliciesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "AccessPolicies")
+      )
 
-instance Hashable UpdateServiceAccessPolicies where
+instance Prelude.Hashable UpdateServiceAccessPolicies
 
-instance NFData UpdateServiceAccessPolicies where
+instance Prelude.NFData UpdateServiceAccessPolicies
 
-instance ToHeaders UpdateServiceAccessPolicies where
-        toHeaders = const mempty
+instance Core.ToHeaders UpdateServiceAccessPolicies where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateServiceAccessPolicies where
-        toPath = const "/"
+instance Core.ToPath UpdateServiceAccessPolicies where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateServiceAccessPolicies where
-        toQuery UpdateServiceAccessPolicies'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateServiceAccessPolicies" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _usapDomainName,
-               "AccessPolicies" =: _usapAccessPolicies]
+instance Core.ToQuery UpdateServiceAccessPolicies where
+  toQuery UpdateServiceAccessPolicies' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "UpdateServiceAccessPolicies" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Core.=: domainName,
+        "AccessPolicies" Core.=: accessPolicies
+      ]
 
--- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new access policies.
+-- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new
+-- access policies.
 --
---
---
--- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
+-- /See:/ 'newUpdateServiceAccessPoliciesResponse' smart constructor.
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-  { _usaprsResponseStatus :: !Int
-  , _usaprsAccessPolicies :: !AccessPoliciesStatus
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The access rules configured for the domain.
+    accessPolicies :: AccessPoliciesStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServiceAccessPoliciesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServiceAccessPoliciesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usaprsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usaprsAccessPolicies' - The access rules configured for the domain.
-updateServiceAccessPoliciesResponse
-    :: Int -- ^ 'usaprsResponseStatus'
-    -> AccessPoliciesStatus -- ^ 'usaprsAccessPolicies'
-    -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
-  UpdateServiceAccessPoliciesResponse'
-    { _usaprsResponseStatus = pResponseStatus_
-    , _usaprsAccessPolicies = pAccessPolicies_
-    }
+-- 'httpStatus', 'updateServiceAccessPoliciesResponse_httpStatus' - The response's http status code.
+--
+-- 'accessPolicies', 'updateServiceAccessPoliciesResponse_accessPolicies' - The access rules configured for the domain.
+newUpdateServiceAccessPoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'accessPolicies'
+  AccessPoliciesStatus ->
+  UpdateServiceAccessPoliciesResponse
+newUpdateServiceAccessPoliciesResponse
+  pHttpStatus_
+  pAccessPolicies_ =
+    UpdateServiceAccessPoliciesResponse'
+      { httpStatus =
+          pHttpStatus_,
+        accessPolicies = pAccessPolicies_
+      }
 
-
--- | -- | The response status code.
-usaprsResponseStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
-usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseStatus = a})
+-- | The response's http status code.
+updateServiceAccessPoliciesResponse_httpStatus :: Lens.Lens' UpdateServiceAccessPoliciesResponse Prelude.Int
+updateServiceAccessPoliciesResponse_httpStatus = Lens.lens (\UpdateServiceAccessPoliciesResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceAccessPoliciesResponse' {} a -> s {httpStatus = a} :: UpdateServiceAccessPoliciesResponse)
 
 -- | The access rules configured for the domain.
-usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprsAccessPolicies = lens _usaprsAccessPolicies (\ s a -> s{_usaprsAccessPolicies = a})
+updateServiceAccessPoliciesResponse_accessPolicies :: Lens.Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+updateServiceAccessPoliciesResponse_accessPolicies = Lens.lens (\UpdateServiceAccessPoliciesResponse' {accessPolicies} -> accessPolicies) (\s@UpdateServiceAccessPoliciesResponse' {} a -> s {accessPolicies = a} :: UpdateServiceAccessPoliciesResponse)
 
-instance NFData UpdateServiceAccessPoliciesResponse
-         where
+instance
+  Prelude.NFData
+    UpdateServiceAccessPoliciesResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.CreateSubscription
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,92 +22,112 @@
 --
 -- Activates AWS Shield Advanced for an account.
 --
---
+-- When you initally create a subscription, your subscription is set to be
+-- automatically renewed at the end of the existing subscription period.
+-- You can change this by submitting an @UpdateSubscription@ request.
 module Network.AWS.Shield.CreateSubscription
-    (
-    -- * Creating a Request
-      createSubscription
-    , CreateSubscription
+  ( -- * Creating a Request
+    CreateSubscription (..),
+    newCreateSubscription,
 
     -- * Destructuring the Response
-    , createSubscriptionResponse
-    , CreateSubscriptionResponse
+    CreateSubscriptionResponse (..),
+    newCreateSubscriptionResponse,
+
     -- * Response Lenses
-    , csrsResponseStatus
-    ) where
+    createSubscriptionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
--- | /See:/ 'createSubscription' smart constructor.
-data CreateSubscription =
-  CreateSubscription'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateSubscription' smart constructor.
+data CreateSubscription = CreateSubscription'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSubscription' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSubscription' with all optional fields omitted.
 --
-createSubscription
-    :: CreateSubscription
-createSubscription = CreateSubscription'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCreateSubscription ::
+  CreateSubscription
+newCreateSubscription = CreateSubscription'
 
+instance Core.AWSRequest CreateSubscription where
+  type
+    AWSResponse CreateSubscription =
+      CreateSubscriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateSubscriptionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateSubscription where
-        type Rs CreateSubscription =
-             CreateSubscriptionResponse
-        request = postJSON shield
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateSubscriptionResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable CreateSubscription
 
-instance Hashable CreateSubscription where
+instance Prelude.NFData CreateSubscription
 
-instance NFData CreateSubscription where
+instance Core.ToHeaders CreateSubscription where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSShield_20160616.CreateSubscription" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders CreateSubscription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.CreateSubscription" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON CreateSubscription where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToJSON CreateSubscription where
-        toJSON = const (Object mempty)
+instance Core.ToPath CreateSubscription where
+  toPath = Prelude.const "/"
 
-instance ToPath CreateSubscription where
-        toPath = const "/"
+instance Core.ToQuery CreateSubscription where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery CreateSubscription where
-        toQuery = const mempty
+-- | /See:/ 'newCreateSubscriptionResponse' smart constructor.
+data CreateSubscriptionResponse = CreateSubscriptionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'createSubscriptionResponse' smart constructor.
-newtype CreateSubscriptionResponse = CreateSubscriptionResponse'
-  { _csrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateSubscriptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSubscriptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csrsResponseStatus' - -- | The response status code.
-createSubscriptionResponse
-    :: Int -- ^ 'csrsResponseStatus'
-    -> CreateSubscriptionResponse
-createSubscriptionResponse pResponseStatus_ =
-  CreateSubscriptionResponse' {_csrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createSubscriptionResponse_httpStatus' - The response's http status code.
+newCreateSubscriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateSubscriptionResponse
+newCreateSubscriptionResponse pHttpStatus_ =
+  CreateSubscriptionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+createSubscriptionResponse_httpStatus :: Lens.Lens' CreateSubscriptionResponse Prelude.Int
+createSubscriptionResponse_httpStatus = Lens.lens (\CreateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateSubscriptionResponse)
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
-
-instance NFData CreateSubscriptionResponse where
+instance Prelude.NFData CreateSubscriptionResponse

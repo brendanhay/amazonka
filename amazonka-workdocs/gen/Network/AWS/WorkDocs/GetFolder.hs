@@ -1,161 +1,185 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetFolder
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the metadata of the specified folder.
---
---
 module Network.AWS.WorkDocs.GetFolder
-    (
-    -- * Creating a Request
-      getFolder
-    , GetFolder
+  ( -- * Creating a Request
+    GetFolder (..),
+    newGetFolder,
+
     -- * Request Lenses
-    , gfAuthenticationToken
-    , gfIncludeCustomMetadata
-    , gfFolderId
+    getFolder_includeCustomMetadata,
+    getFolder_authenticationToken,
+    getFolder_folderId,
 
     -- * Destructuring the Response
-    , getFolderResponse
-    , GetFolderResponse
+    GetFolderResponse (..),
+    newGetFolderResponse,
+
     -- * Response Lenses
-    , gfrsCustomMetadata
-    , gfrsMetadata
-    , gfrsResponseStatus
-    ) where
+    getFolderResponse_metadata,
+    getFolderResponse_customMetadata,
+    getFolderResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'getFolder' smart constructor.
+-- | /See:/ 'newGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { _gfAuthenticationToken   :: !(Maybe (Sensitive Text))
-  , _gfIncludeCustomMetadata :: !(Maybe Bool)
-  , _gfFolderId              :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Set to TRUE to include custom metadata in the response.
+    includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the folder.
+    folderId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFolder' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFolder' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfIncludeCustomMetadata' - Set to TRUE to include custom metadata in the response.
+-- 'includeCustomMetadata', 'getFolder_includeCustomMetadata' - Set to TRUE to include custom metadata in the response.
 --
--- * 'gfFolderId' - The ID of the folder.
-getFolder
-    :: Text -- ^ 'gfFolderId'
-    -> GetFolder
-getFolder pFolderId_ =
+-- 'authenticationToken', 'getFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
+-- 'folderId', 'getFolder_folderId' - The ID of the folder.
+newGetFolder ::
+  -- | 'folderId'
+  Prelude.Text ->
+  GetFolder
+newGetFolder pFolderId_ =
   GetFolder'
-    { _gfAuthenticationToken = Nothing
-    , _gfIncludeCustomMetadata = Nothing
-    , _gfFolderId = pFolderId_
+    { includeCustomMetadata = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      folderId = pFolderId_
     }
-
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-gfAuthenticationToken :: Lens' GetFolder (Maybe Text)
-gfAuthenticationToken = lens _gfAuthenticationToken (\ s a -> s{_gfAuthenticationToken = a}) . mapping _Sensitive
 
 -- | Set to TRUE to include custom metadata in the response.
-gfIncludeCustomMetadata :: Lens' GetFolder (Maybe Bool)
-gfIncludeCustomMetadata = lens _gfIncludeCustomMetadata (\ s a -> s{_gfIncludeCustomMetadata = a})
+getFolder_includeCustomMetadata :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Bool)
+getFolder_includeCustomMetadata = Lens.lens (\GetFolder' {includeCustomMetadata} -> includeCustomMetadata) (\s@GetFolder' {} a -> s {includeCustomMetadata = a} :: GetFolder)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+getFolder_authenticationToken :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Text)
+getFolder_authenticationToken = Lens.lens (\GetFolder' {authenticationToken} -> authenticationToken) (\s@GetFolder' {} a -> s {authenticationToken = a} :: GetFolder) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the folder.
-gfFolderId :: Lens' GetFolder Text
-gfFolderId = lens _gfFolderId (\ s a -> s{_gfFolderId = a})
+getFolder_folderId :: Lens.Lens' GetFolder Prelude.Text
+getFolder_folderId = Lens.lens (\GetFolder' {folderId} -> folderId) (\s@GetFolder' {} a -> s {folderId = a} :: GetFolder)
 
-instance AWSRequest GetFolder where
-        type Rs GetFolder = GetFolderResponse
-        request = get workDocs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetFolderResponse' <$>
-                   (x .?> "CustomMetadata" .!@ mempty) <*>
-                     (x .?> "Metadata")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetFolder where
+  type AWSResponse GetFolder = GetFolderResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetFolderResponse'
+            Prelude.<$> (x Core..?> "Metadata")
+            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetFolder where
+instance Prelude.Hashable GetFolder
 
-instance NFData GetFolder where
+instance Prelude.NFData GetFolder
 
-instance ToHeaders GetFolder where
-        toHeaders GetFolder'{..}
-          = mconcat
-              ["Authentication" =# _gfAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders GetFolder where
+  toHeaders GetFolder' {..} =
+    Prelude.mconcat
+      [ "Authentication" Core.=# authenticationToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToPath GetFolder where
-        toPath GetFolder'{..}
-          = mconcat ["/api/v1/folders/", toBS _gfFolderId]
+instance Core.ToPath GetFolder where
+  toPath GetFolder' {..} =
+    Prelude.mconcat
+      ["/api/v1/folders/", Core.toBS folderId]
 
-instance ToQuery GetFolder where
-        toQuery GetFolder'{..}
-          = mconcat
-              ["includeCustomMetadata" =: _gfIncludeCustomMetadata]
+instance Core.ToQuery GetFolder where
+  toQuery GetFolder' {..} =
+    Prelude.mconcat
+      [ "includeCustomMetadata"
+          Core.=: includeCustomMetadata
+      ]
 
--- | /See:/ 'getFolderResponse' smart constructor.
+-- | /See:/ 'newGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-  { _gfrsCustomMetadata :: !(Maybe (Map Text Text))
-  , _gfrsMetadata       :: !(Maybe FolderMetadata)
-  , _gfrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The metadata of the folder.
+    metadata :: Prelude.Maybe FolderMetadata,
+    -- | The custom metadata on the folder.
+    customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFolderResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFolderResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfrsCustomMetadata' - The custom metadata on the folder.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfrsMetadata' - The metadata of the folder.
+-- 'metadata', 'getFolderResponse_metadata' - The metadata of the folder.
 --
--- * 'gfrsResponseStatus' - -- | The response status code.
-getFolderResponse
-    :: Int -- ^ 'gfrsResponseStatus'
-    -> GetFolderResponse
-getFolderResponse pResponseStatus_ =
+-- 'customMetadata', 'getFolderResponse_customMetadata' - The custom metadata on the folder.
+--
+-- 'httpStatus', 'getFolderResponse_httpStatus' - The response's http status code.
+newGetFolderResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFolderResponse
+newGetFolderResponse pHttpStatus_ =
   GetFolderResponse'
-    { _gfrsCustomMetadata = Nothing
-    , _gfrsMetadata = Nothing
-    , _gfrsResponseStatus = pResponseStatus_
+    { metadata = Prelude.Nothing,
+      customMetadata = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The metadata of the folder.
+getFolderResponse_metadata :: Lens.Lens' GetFolderResponse (Prelude.Maybe FolderMetadata)
+getFolderResponse_metadata = Lens.lens (\GetFolderResponse' {metadata} -> metadata) (\s@GetFolderResponse' {} a -> s {metadata = a} :: GetFolderResponse)
 
 -- | The custom metadata on the folder.
-gfrsCustomMetadata :: Lens' GetFolderResponse (HashMap Text Text)
-gfrsCustomMetadata = lens _gfrsCustomMetadata (\ s a -> s{_gfrsCustomMetadata = a}) . _Default . _Map
+getFolderResponse_customMetadata :: Lens.Lens' GetFolderResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFolderResponse_customMetadata = Lens.lens (\GetFolderResponse' {customMetadata} -> customMetadata) (\s@GetFolderResponse' {} a -> s {customMetadata = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The metadata of the folder.
-gfrsMetadata :: Lens' GetFolderResponse (Maybe FolderMetadata)
-gfrsMetadata = lens _gfrsMetadata (\ s a -> s{_gfrsMetadata = a})
+-- | The response's http status code.
+getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Prelude.Int
+getFolderResponse_httpStatus = Lens.lens (\GetFolderResponse' {httpStatus} -> httpStatus) (\s@GetFolderResponse' {} a -> s {httpStatus = a} :: GetFolderResponse)
 
--- | -- | The response status code.
-gfrsResponseStatus :: Lens' GetFolderResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a})
-
-instance NFData GetFolderResponse where
+instance Prelude.NFData GetFolderResponse

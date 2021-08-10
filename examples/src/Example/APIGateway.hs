@@ -1,9 +1,8 @@
-{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PartialTypeSignatures #-}
-{-# LANGUAGE ScopedTypeVariables   #-}
-
-{-# OPTIONS_GHC -fno-warn-partial-type-signatures #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 {-# OPTIONS_GHC -fno-warn-name-shadowing #-}
+{-# OPTIONS_GHC -fno-warn-partial-type-signatures #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 module Example.APIGateway where
@@ -18,18 +17,18 @@ import System.IO
 
 main :: Region -> IO Method
 main r = do
-    lgr <- newLogger Trace stdout
-    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
-    runResourceT . runAWST env $ do
-        restApi <- send (createRestAPI "myApi")
-        let Just apiId = restApi ^. raId
+  lgr <- newLogger Trace stdout
+  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  runResourceT . runAWST env $ do
+    restApi <- send (createRestAPI "myApi")
+    let Just apiId = restApi ^. raId
 
-        resources :: [Resource] <- (view grrsItems) <$> send (getResources apiId)
-        let Just rootId = head resources ^. rId
+    resources :: [Resource] <- (view grrsItems) <$> send (getResources apiId)
+    let Just rootId = head resources ^. rId
 
-        resource :: Resource <- send (createResource apiId rootId "{file}")
+    resource :: Resource <- send (createResource apiId rootId "{file}")
 
-        let Just fileResourceId = resource ^. rId
-        method :: Method <- send (putMethod apiId fileResourceId "GET" "NONE")
+    let Just fileResourceId = resource ^. rId
+    method :: Method <- send (putMethod apiId fileResourceId "GET" "NONE")
 
-        return method
+    return method

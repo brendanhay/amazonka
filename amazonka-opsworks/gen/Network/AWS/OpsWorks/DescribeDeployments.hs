@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,141 +22,185 @@
 --
 -- Requests a description of a specified set of deployments.
 --
+-- This call accepts only one resource-identifying parameter.
 --
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information about
+-- user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeDeployments
-    (
-    -- * Creating a Request
-      describeDeployments
-    , DescribeDeployments
+  ( -- * Creating a Request
+    DescribeDeployments (..),
+    newDescribeDeployments,
+
     -- * Request Lenses
-    , ddAppId
-    , ddDeploymentIds
-    , ddStackId
+    describeDeployments_deploymentIds,
+    describeDeployments_appId,
+    describeDeployments_stackId,
 
     -- * Destructuring the Response
-    , describeDeploymentsResponse
-    , DescribeDeploymentsResponse
+    DescribeDeploymentsResponse (..),
+    newDescribeDeploymentsResponse,
+
     -- * Response Lenses
-    , ddrsDeployments
-    , ddrsResponseStatus
-    ) where
+    describeDeploymentsResponse_deployments,
+    describeDeploymentsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeDeployments' smart constructor.
+-- | /See:/ 'newDescribeDeployments' smart constructor.
 data DescribeDeployments = DescribeDeployments'
-  { _ddAppId         :: !(Maybe Text)
-  , _ddDeploymentIds :: !(Maybe [Text])
-  , _ddStackId       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of deployment IDs to be described. If you include this
+    -- parameter, the command returns a description of the specified
+    -- deployments. Otherwise, it returns a description of every deployment.
+    deploymentIds :: Prelude.Maybe [Prelude.Text],
+    -- | The app ID. If you include this parameter, the command returns a
+    -- description of the commands associated with the specified app.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | The stack ID. If you include this parameter, the command returns a
+    -- description of the commands associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDeployments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddAppId' - The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddDeploymentIds' - An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
+-- 'deploymentIds', 'describeDeployments_deploymentIds' - An array of deployment IDs to be described. If you include this
+-- parameter, the command returns a description of the specified
+-- deployments. Otherwise, it returns a description of every deployment.
 --
--- * 'ddStackId' - The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
-describeDeployments
-    :: DescribeDeployments
-describeDeployments =
+-- 'appId', 'describeDeployments_appId' - The app ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified app.
+--
+-- 'stackId', 'describeDeployments_stackId' - The stack ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified stack.
+newDescribeDeployments ::
+  DescribeDeployments
+newDescribeDeployments =
   DescribeDeployments'
-    {_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing}
+    { deploymentIds =
+        Prelude.Nothing,
+      appId = Prelude.Nothing,
+      stackId = Prelude.Nothing
+    }
 
+-- | An array of deployment IDs to be described. If you include this
+-- parameter, the command returns a description of the specified
+-- deployments. Otherwise, it returns a description of every deployment.
+describeDeployments_deploymentIds :: Lens.Lens' DescribeDeployments (Prelude.Maybe [Prelude.Text])
+describeDeployments_deploymentIds = Lens.lens (\DescribeDeployments' {deploymentIds} -> deploymentIds) (\s@DescribeDeployments' {} a -> s {deploymentIds = a} :: DescribeDeployments) Prelude.. Lens.mapping Lens._Coerce
 
--- | The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
-ddAppId :: Lens' DescribeDeployments (Maybe Text)
-ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a})
+-- | The app ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified app.
+describeDeployments_appId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
+describeDeployments_appId = Lens.lens (\DescribeDeployments' {appId} -> appId) (\s@DescribeDeployments' {} a -> s {appId = a} :: DescribeDeployments)
 
--- | An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
-ddDeploymentIds :: Lens' DescribeDeployments [Text]
-ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce
+-- | The stack ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified stack.
+describeDeployments_stackId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
+describeDeployments_stackId = Lens.lens (\DescribeDeployments' {stackId} -> stackId) (\s@DescribeDeployments' {} a -> s {stackId = a} :: DescribeDeployments)
 
--- | The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
-ddStackId :: Lens' DescribeDeployments (Maybe Text)
-ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a})
+instance Core.AWSRequest DescribeDeployments where
+  type
+    AWSResponse DescribeDeployments =
+      DescribeDeploymentsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDeploymentsResponse'
+            Prelude.<$> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeDeployments where
-        type Rs DescribeDeployments =
-             DescribeDeploymentsResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDeploymentsResponse' <$>
-                   (x .?> "Deployments" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DescribeDeployments
 
-instance Hashable DescribeDeployments where
+instance Prelude.NFData DescribeDeployments
 
-instance NFData DescribeDeployments where
+instance Core.ToHeaders DescribeDeployments where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DescribeDeployments" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeDeployments where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeDeployments" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeDeployments where
+  toJSON DescribeDeployments' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("DeploymentIds" Core..=) Prelude.<$> deploymentIds,
+            ("AppId" Core..=) Prelude.<$> appId,
+            ("StackId" Core..=) Prelude.<$> stackId
+          ]
+      )
 
-instance ToJSON DescribeDeployments where
-        toJSON DescribeDeployments'{..}
-          = object
-              (catMaybes
-                 [("AppId" .=) <$> _ddAppId,
-                  ("DeploymentIds" .=) <$> _ddDeploymentIds,
-                  ("StackId" .=) <$> _ddStackId])
+instance Core.ToPath DescribeDeployments where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeDeployments where
-        toPath = const "/"
-
-instance ToQuery DescribeDeployments where
-        toQuery = const mempty
+instance Core.ToQuery DescribeDeployments where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeDeployments@ request.
 --
---
---
--- /See:/ 'describeDeploymentsResponse' smart constructor.
+-- /See:/ 'newDescribeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
-  { _ddrsDeployments    :: !(Maybe [Deployment])
-  , _ddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of @Deployment@ objects that describe the deployments.
+    deployments :: Prelude.Maybe [Deployment],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDeploymentsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsDeployments' - An array of @Deployment@ objects that describe the deployments.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDeploymentsResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DescribeDeploymentsResponse
-describeDeploymentsResponse pResponseStatus_ =
+-- 'deployments', 'describeDeploymentsResponse_deployments' - An array of @Deployment@ objects that describe the deployments.
+--
+-- 'httpStatus', 'describeDeploymentsResponse_httpStatus' - The response's http status code.
+newDescribeDeploymentsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDeploymentsResponse
+newDescribeDeploymentsResponse pHttpStatus_ =
   DescribeDeploymentsResponse'
-    {_ddrsDeployments = Nothing, _ddrsResponseStatus = pResponseStatus_}
-
+    { deployments =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An array of @Deployment@ objects that describe the deployments.
-ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce
+describeDeploymentsResponse_deployments :: Lens.Lens' DescribeDeploymentsResponse (Prelude.Maybe [Deployment])
+describeDeploymentsResponse_deployments = Lens.lens (\DescribeDeploymentsResponse' {deployments} -> deployments) (\s@DescribeDeploymentsResponse' {} a -> s {deployments = a} :: DescribeDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDeploymentsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
+-- | The response's http status code.
+describeDeploymentsResponse_httpStatus :: Lens.Lens' DescribeDeploymentsResponse Prelude.Int
+describeDeploymentsResponse_httpStatus = Lens.lens (\DescribeDeploymentsResponse' {httpStatus} -> httpStatus) (\s@DescribeDeploymentsResponse' {} a -> s {httpStatus = a} :: DescribeDeploymentsResponse)
 
-instance NFData DescribeDeploymentsResponse where
+instance Prelude.NFData DescribeDeploymentsResponse

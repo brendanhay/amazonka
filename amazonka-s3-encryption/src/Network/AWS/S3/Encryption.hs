@@ -1,9 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -52,78 +49,53 @@
 -- with this library should be retrievable by any of the other official SDKs, and
 -- vice versa.
 module Network.AWS.S3.Encryption
-    (
-    -- * Usage
+  ( -- * Usage
     -- $usage
 
     -- * Specifying Master Keys
     -- $master-key
-
-      KeyEnv
-    , Key
-    , kmsKey
-    , asymmetricKey
-    , symmetricKey
-    , newSecret
-
-    , master
-    , material
+    Key (..),
+    kmsKey,
+    asymmetricKey,
+    symmetricKey,
+    newSecret,
 
     -- * Request Encryption/Decryption
     -- $requests
-
-    , encrypt
-    , decrypt
-    , initiate
+    encrypt,
+    decrypt,
+    initiate,
 
     -- ** Instruction Files
     -- $instructions
-
-    , encryptInstructions
-    , decryptInstructions
-    , initiateInstructions
-    , cleanupInstructions
+    encryptInstructions,
+    decryptInstructions,
+    initiateInstructions,
+    cleanupInstructions,
 
     -- *** Default Instruction Extension
-    , Ext (..)
-    , defaultExtension
+    Ext (..),
+    defaultExtension,
 
     -- * Handling Errors
     -- $errors
+    EncryptionError (..),
+    AsEncryptionError (..),
+  )
+where
 
-    , EncryptionError   (..)
-    , AsEncryptionError (..)
-    ) where
-
-import           Control.Lens
-import           Control.Monad.Catch
-import           Control.Monad.Reader
-import           Control.Monad.Trans.AWS                as AWST
-import           Crypto.PubKey.RSA.Types                as RSA
-import           Crypto.Random
-import           Data.ByteString                        (ByteString)
-import           Data.Text                              (Text)
-import           Network.AWS.S3
-import           Network.AWS.S3.Encryption.Decrypt
-import           Network.AWS.S3.Encryption.Encrypt
-import           Network.AWS.S3.Encryption.Envelope
-import           Network.AWS.S3.Encryption.Instructions
-import           Network.AWS.S3.Encryption.Types
-
--- | Set (using 'local') the client-side master key used to encrypt/decrypt
--- a block of actions.
-master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
-master k = local (envKey .~ k)
-
--- | Set (using 'local') any additional material description to be used.
---
--- For encryption, this provides audit and logging information and is logged
--- by CloudTrail, if enabled.
---
--- For decryption when using KMS, this is merged with whatever material description
--- is stored on the envelope and supplied to KMS as a decryption context.
-material :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
-material d = local (envKey . description .~ d)
+import Control.Lens
+import Control.Monad.Reader
+import Crypto.PubKey.RSA.Types as RSA
+import Crypto.Random
+import Network.AWS as AWS
+import Network.AWS.Prelude
+import Network.AWS.S3
+import Network.AWS.S3.Encryption.Decrypt
+import Network.AWS.S3.Encryption.Encrypt
+import Network.AWS.S3.Encryption.Envelope
+import Network.AWS.S3.Encryption.Instructions
+import Network.AWS.S3.Encryption.Types
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -143,39 +115,45 @@ asymmetricKey k = Asymmetric (KeyPair k) mempty
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
 -- /See:/ 'newSecret', 'description', 'material'.
-symmetricKey :: MonadThrow m => ByteString -> m Key
+symmetricKey :: MonadIO m => ByteString -> m Key
 symmetricKey = fmap (`Symmetric` mempty) . createCipher
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption
 -- of any requests that are encrypted using this secret.
-newSecret :: (MonadThrow m, MonadRandom m) => m ByteString
+newSecret :: MonadRandom m => m ByteString
 newSecret = getRandomBytes aesKeySize
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
 -- headers.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-encrypt :: (AWSConstraint r m, HasKeyEnv r)
-        => PutObject
-        -> m PutObjectResponse
-encrypt x = do
-    (a, _) <- encrypted x
-    send (set location Metadata a)
+-- Throws 'EncryptionError', 'AWS.Error'.
+encrypt ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  PutObject ->
+  m PutObjectResponse
+encrypt key env x = do
+  (a, _) <- encrypted key env x
+  send env (set location Metadata a)
 
 -- | Encrypt an object, storing the encryption envelope in an adjacent instruction
 -- file with the same 'ObjectKey' and 'defaultExtension'.
 -- This makes two HTTP requests, storing the instruction file first and upon success,
 -- storing the actual object.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-encryptInstructions :: (AWSConstraint r m, HasKeyEnv r)
-                    => PutObject
-                    -> m PutObjectResponse
-encryptInstructions x = do
-    (a, b) <- encrypted x
-    _      <- send b
-    send a
+-- Throws 'EncryptionError', 'AWS.Error'.
+encryptInstructions ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  PutObject ->
+  m PutObjectResponse
+encryptInstructions key env x = do
+  (a, b) <- encrypted key env x
+  _ <- send env b
+  send env a
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
 -- in the @x-amz-meta-*@ headers.
@@ -192,16 +170,20 @@ encryptInstructions x = do
 -- b'      <- send (f b :: Encrypted UploadPart)
 -- @
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-initiate :: (AWSConstraint r m, HasKeyEnv r)
-         => CreateMultipartUpload
-         -> m ( CreateMultipartUploadResponse
-              , UploadPart -> Encrypted UploadPart
-              )
-initiate x = do
-    (a, _) <- encrypted x
-    rs     <- send (set location Metadata a)
-    return (rs, encryptPart a)
+-- Throws 'EncryptionError', 'AWS.Error'.
+initiate ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  CreateMultipartUpload ->
+  m
+    ( CreateMultipartUploadResponse,
+      UploadPart -> Encrypted UploadPart
+    )
+initiate key env x = do
+  (a, _) <- encrypted key env x
+  rs <- send env (set location Metadata a)
+  return (rs, encryptPart a)
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
 -- in an adjacent instruction file with the same 'ObjectKey' and 'defaultExtension'.
@@ -211,128 +193,137 @@ initiate x = do
 -- assumed that each part is uploaded in order and each part needs to be
 -- individually encrypted.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-initiateInstructions :: (AWSConstraint r m, HasKeyEnv r)
-                     => CreateMultipartUpload
-                     -> m ( CreateMultipartUploadResponse
-                          , UploadPart -> Encrypted UploadPart
-                          )
-initiateInstructions x = do
-    (a, b) <- encrypted x
-    rs     <- send a
-    _      <- send b
-    return (rs, encryptPart a)
+-- Throws 'EncryptionError', 'AWS.Error'.
+initiateInstructions ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  CreateMultipartUpload ->
+  m
+    ( CreateMultipartUploadResponse,
+      UploadPart -> Encrypted UploadPart
+    )
+initiateInstructions key env x = do
+  (a, b) <- encrypted key env x
+  rs <- send env a
+  _ <- send env b
+  return (rs, encryptPart a)
 
 -- | Retrieve an object, parsing the envelope from any @x-amz-meta-*@ headers
 -- and decrypting the response body.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-decrypt :: (AWSConstraint r m, HasKeyEnv r)
-        => GetObject
-        -> m GetObjectResponse
-decrypt x = do
-    let (a, _) = decrypted x
-    Decrypted f <- send a
-    f Nothing
+-- Throws 'EncryptionError', 'AWS.Error'.
+decrypt ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  GetObject ->
+  m GetObjectResponse
+decrypt key env x = do
+  let (a, _) = decrypted x
+  Decrypted f <- send env a
+  f key env Nothing
 
 -- | Retrieve an object and its adjacent instruction file. The instruction
 -- are retrieved and parsed first.
 -- Performs two HTTP requests.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-decryptInstructions :: (AWSConstraint r m, HasKeyEnv r)
-                    => GetObject
-                    -> m GetObjectResponse
-decryptInstructions x = do
-    let (a, b) = decrypted x
-    Instructions g <- send b
-    Decrypted    f <- send a
-    g >>= f . Just
+-- Throws 'EncryptionError', 'AWS.Error'.
+decryptInstructions ::
+  MonadResource m =>
+  Key ->
+  Env ->
+  GetObject ->
+  m GetObjectResponse
+decryptInstructions key env x = do
+  let (a, b) = decrypted x
+  Instructions g <- send env b
+  Decrypted f <- send env a
+  g key env >>= f key env . Just
 
 -- | Given a request to execute, such as 'AbortMultipartUpload' or 'DeleteObject',
 -- remove the adjacent instruction file, if it exists with the 'defaultExtension'.
 -- Performs two HTTP requests.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
-cleanupInstructions :: (AWSConstraint r m, RemoveInstructions a)
-                    => a
-                    -> m (Rs a)
-cleanupInstructions x = do
-    rs <- send x
-    _  <- send (deleteInstructions x)
-    return rs
+-- Throws 'EncryptionError', 'AWS.Error'.
+cleanupInstructions ::
+  ( MonadResource m,
+    RemoveInstructions a
+  ) =>
+  Env ->
+  a ->
+  m (AWSResponse a)
+cleanupInstructions env x = do
+  rs <- send env x
+  _ <- send env (deleteInstructions x)
+  return rs
 
-{- $usage
-When sending requests that make use of a master key, an extension to the underlying
-'AWS' environment is required. You can specify this environment as follows:
+-- $usage
+-- When sending requests that make use of a master key, an extension to the underlying
+-- 'AWS' environment is required. You can specify this environment as follows:
+--
+-- @
+-- import Network.AWS
+-- import Network.AWS.S3
+-- import Network.AWS.S3.Encryption
+-- import System.IO
+--
+-- example :: Key -> IO GetObjectResponse
+-- example k = do
+--     -- A standard AWS environment with credentials is created using 'newEnv':
+--     e <- newEnv Frankfurt Discover
+--
+--     -- The environment needed for encryption is then extended using a 'Key':
+--     runAWS (KeyEnv e (kmsKey "alias/master-key")) $ do
+--         -- To store an encrypted object, 'encrypt' is used inplace of where you would
+--         -- typically use 'AWS.send':
+--         _  <- encrypt (putObject "bucket-name" "object-key" body)
+--
+--         -- To retrieve a previously encrypted object, 'decrypt' is used, again similarly to
+--         -- how you'd use 'AWS.send':
+--         rs <- decrypt (getObject "bucket-name" "object-key")
+--
+--         -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted during read:
+--         return rs
+-- @
 
-@
-import Network.AWS
-import Network.AWS.S3
-import Network.AWS.S3.Encryption
-import System.IO
+-- $master-key
+-- You master key should be stored and secured by you alone (or KMS). The specific
+-- key that is used to encrypt an object is required to decrypt the same object.
+-- If you lose this key, you will not be able to decrypt the related objects.
 
-example :: Key -> IO GetObjectResponse
-example k = do
-    -- A standard AWS environment with credentials is created using 'newEnv':
-    e <- newEnv Frankfurt Discover
+-- $errors
+-- Errors are thrown by the library using 'MonadThrow' and will consist of one of
+-- the branches from 'EncryptionError' for anything crypto related, or a disparate
+-- 'AWS.Error' anything related to the underlying 'AWS' service calls.
+--
+-- You can catch errors and sub-errors via 'trying' etc. from "Control.Exception.Lens",
+-- and the appropriate 'AsEncryptionError' 'Prism':
+--
+-- @
+-- trying '_EncryptionError' (encrypt (putObject "bkt" "key")) :: Either 'EncryptionError' PutObjectResponse
+-- @
 
-    -- The environment needed for encryption is then extended using a 'Key':
-    runAWS (KeyEnv e (kmsKey "alias/master-key")) $ do
-        -- To store an encrypted object, 'encrypt' is used inplace of where you would
-        -- typically use 'AWST.send':
-        _  <- encrypt (putObject "bucket-name" "object-key" body)
+-- $requests
+-- Only a small number of S3 operations actually utilise encryption/decryption
+-- behaviour, namely 'PutObject', 'GetObject', and the related multipart upload
+-- operations. The following functions store the encryption envelope in object
+-- metadata (headers).
 
-        -- To retrieve a previously encrypted object, 'decrypt' is used, again similarly to
-        -- how you'd use 'AWST.send':
-        rs <- decrypt (getObject "bucket-name" "object-key")
-
-        -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted during read:
-        return rs
-@
--}
-
-{- $master-key
-You master key should be stored and secured by you alone (or KMS). The specific
-key that is used to encrypt an object is required to decrypt the same object.
-If you lose this key, you will not be able to decrypt the related objects.
--}
-
-{- $errors
-Errors are thrown by the library using 'MonadThrow' and will consist of one of
-the branches from 'EncryptionError' for anything crypto related, or a disparate
-'AWST.Error' anything related to the underlying 'AWS' service calls.
-
-You can catch errors and sub-errors via 'trying' etc. from "Control.Exception.Lens",
-and the appropriate 'AsEncryptionError' 'Prism':
-
-@
-trying '_EncryptionError' (encrypt (putObject "bkt" "key")) :: Either 'EncryptionError' PutObjectResponse
-@
--}
-
-{- $requests
-Only a small number of S3 operations actually utilise encryption/decryption
-behaviour, namely 'PutObject', 'GetObject', and the related multipart upload
-operations. The following functions store the encryption envelope in object
-metadata (headers).
--}
-
-{- $instructions
-An alternative method of storing the encryption envelope in an adjacent S3
-object is provided for the case when metadata headers are reserved for other
-data. This method removes the metadata overhead at the expense of an additional
-HTTP request to perform encryption/decryption.
-The provided @*Instruction@ functions make the convenient assumption that
-the 'defaultExtension' is desired. If you wish to override the suffix\/extension,
-you can simply call the underlying plumbing to modify the
-'PutInstructions' or 'GetInstructions' suffix before sending.
-
-An example of encryption with a non-default instruction extension:
-
-@
-(a, b) <- 'encrypted' (x :: 'PutObject')
-_      <- 'AWST.send' (b & 'piExtension' .~ ".envelope") -- Store the custom instruction file.
-'AWST.send' a -- Store the actual encrypted object.
-@
--}
+-- $instructions
+-- An alternative method of storing the encryption envelope in an adjacent S3
+-- object is provided for the case when metadata headers are reserved for other
+-- data. This method removes the metadata overhead at the expense of an additional
+-- HTTP request to perform encryption/decryption.
+-- The provided @*Instruction@ functions make the convenient assumption that
+-- the 'defaultExtension' is desired. If you wish to override the suffix\/extension,
+-- you can simply call the underlying plumbing to modify the
+-- 'PutInstructions' or 'GetInstructions' suffix before sending.
+--
+-- An example of encryption with a non-default instruction extension:
+--
+-- @
+-- (a, b) <- 'encrypted' (x :: 'PutObject')
+-- _      <- 'AWS.send' (b & 'piExtension' .~ ".envelope") -- Store the custom instruction file.
+-- 'AWS.send' a -- Store the actual encrypted object.
+-- @

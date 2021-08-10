@@ -1,169 +1,214 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.DescribeReportDefinitions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe a list of report definitions owned by the account
+-- Lists the AWS Cost and Usage reports available to this account.
 --
 -- This operation returns paginated results.
 module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-    (
-    -- * Creating a Request
-      describeReportDefinitions
-    , DescribeReportDefinitions
+  ( -- * Creating a Request
+    DescribeReportDefinitions (..),
+    newDescribeReportDefinitions,
+
     -- * Request Lenses
-    , drdNextToken
-    , drdMaxResults
+    describeReportDefinitions_nextToken,
+    describeReportDefinitions_maxResults,
 
     -- * Destructuring the Response
-    , describeReportDefinitionsResponse
-    , DescribeReportDefinitionsResponse
+    DescribeReportDefinitionsResponse (..),
+    newDescribeReportDefinitionsResponse,
+
     -- * Response Lenses
-    , drdrsNextToken
-    , drdrsReportDefinitions
-    , drdrsResponseStatus
-    ) where
+    describeReportDefinitionsResponse_nextToken,
+    describeReportDefinitionsResponse_reportDefinitions,
+    describeReportDefinitionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
-import Network.AWS.CostAndUsageReport.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request of DescribeReportDefinitions
+-- | Requests a list of AWS Cost and Usage reports owned by the account.
 --
--- /See:/ 'describeReportDefinitions' smart constructor.
+-- /See:/ 'newDescribeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-  { _drdNextToken  :: !(Maybe Text)
-  , _drdMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReportDefinitions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReportDefinitions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drdNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drdMaxResults' - Undocumented member.
-describeReportDefinitions
-    :: DescribeReportDefinitions
-describeReportDefinitions =
-  DescribeReportDefinitions' {_drdNextToken = Nothing, _drdMaxResults = Nothing}
-
-
--- | Undocumented member.
-drdNextToken :: Lens' DescribeReportDefinitions (Maybe Text)
-drdNextToken = lens _drdNextToken (\ s a -> s{_drdNextToken = a})
-
--- | Undocumented member.
-drdMaxResults :: Lens' DescribeReportDefinitions (Maybe Natural)
-drdMaxResults = lens _drdMaxResults (\ s a -> s{_drdMaxResults = a}) . mapping _Nat
-
-instance AWSPager DescribeReportDefinitions where
-        page rq rs
-          | stop (rs ^. drdrsNextToken) = Nothing
-          | stop (rs ^. drdrsReportDefinitions) = Nothing
-          | otherwise =
-            Just $ rq & drdNextToken .~ rs ^. drdrsNextToken
-
-instance AWSRequest DescribeReportDefinitions where
-        type Rs DescribeReportDefinitions =
-             DescribeReportDefinitionsResponse
-        request = postJSON costAndUsageReport
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeReportDefinitionsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "ReportDefinitions" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeReportDefinitions where
-
-instance NFData DescribeReportDefinitions where
-
-instance ToHeaders DescribeReportDefinitions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrigamiServiceGatewayService.DescribeReportDefinitions"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeReportDefinitions where
-        toJSON DescribeReportDefinitions'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _drdNextToken,
-                  ("MaxResults" .=) <$> _drdMaxResults])
-
-instance ToPath DescribeReportDefinitions where
-        toPath = const "/"
-
-instance ToQuery DescribeReportDefinitions where
-        toQuery = const mempty
-
--- | Response of DescribeReportDefinitions
+-- 'nextToken', 'describeReportDefinitions_nextToken' - Undocumented member.
 --
--- /See:/ 'describeReportDefinitionsResponse' smart constructor.
-data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
-  { _drdrsNextToken         :: !(Maybe Text)
-  , _drdrsReportDefinitions :: !(Maybe [ReportDefinition])
-  , _drdrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeReportDefinitionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdrsNextToken' - Undocumented member.
---
--- * 'drdrsReportDefinitions' - Undocumented member.
---
--- * 'drdrsResponseStatus' - -- | The response status code.
-describeReportDefinitionsResponse
-    :: Int -- ^ 'drdrsResponseStatus'
-    -> DescribeReportDefinitionsResponse
-describeReportDefinitionsResponse pResponseStatus_ =
-  DescribeReportDefinitionsResponse'
-    { _drdrsNextToken = Nothing
-    , _drdrsReportDefinitions = Nothing
-    , _drdrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'describeReportDefinitions_maxResults' - Undocumented member.
+newDescribeReportDefinitions ::
+  DescribeReportDefinitions
+newDescribeReportDefinitions =
+  DescribeReportDefinitions'
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | Undocumented member.
+describeReportDefinitions_nextToken :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Text)
+describeReportDefinitions_nextToken = Lens.lens (\DescribeReportDefinitions' {nextToken} -> nextToken) (\s@DescribeReportDefinitions' {} a -> s {nextToken = a} :: DescribeReportDefinitions)
 
 -- | Undocumented member.
-drdrsNextToken :: Lens' DescribeReportDefinitionsResponse (Maybe Text)
-drdrsNextToken = lens _drdrsNextToken (\ s a -> s{_drdrsNextToken = a})
+describeReportDefinitions_maxResults :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Natural)
+describeReportDefinitions_maxResults = Lens.lens (\DescribeReportDefinitions' {maxResults} -> maxResults) (\s@DescribeReportDefinitions' {} a -> s {maxResults = a} :: DescribeReportDefinitions)
+
+instance Core.AWSPager DescribeReportDefinitions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeReportDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeReportDefinitionsResponse_reportDefinitions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeReportDefinitions_nextToken
+          Lens..~ rs
+          Lens.^? describeReportDefinitionsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeReportDefinitions where
+  type
+    AWSResponse DescribeReportDefinitions =
+      DescribeReportDefinitionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeReportDefinitionsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ReportDefinitions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeReportDefinitions
+
+instance Prelude.NFData DescribeReportDefinitions
+
+instance Core.ToHeaders DescribeReportDefinitions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeReportDefinitions where
+  toJSON DescribeReportDefinitions' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Core.ToPath DescribeReportDefinitions where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeReportDefinitions where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | If the action is successful, the service sends back an HTTP 200
+-- response.
+--
+-- /See:/ 'newDescribeReportDefinitionsResponse' smart constructor.
+data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of AWS Cost and Usage reports owned by the account.
+    reportDefinitions :: Prelude.Maybe [ReportDefinition],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeReportDefinitionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeReportDefinitionsResponse_nextToken' - Undocumented member.
+--
+-- 'reportDefinitions', 'describeReportDefinitionsResponse_reportDefinitions' - A list of AWS Cost and Usage reports owned by the account.
+--
+-- 'httpStatus', 'describeReportDefinitionsResponse_httpStatus' - The response's http status code.
+newDescribeReportDefinitionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReportDefinitionsResponse
+newDescribeReportDefinitionsResponse pHttpStatus_ =
+  DescribeReportDefinitionsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      reportDefinitions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-drdrsReportDefinitions :: Lens' DescribeReportDefinitionsResponse [ReportDefinition]
-drdrsReportDefinitions = lens _drdrsReportDefinitions (\ s a -> s{_drdrsReportDefinitions = a}) . _Default . _Coerce
+describeReportDefinitionsResponse_nextToken :: Lens.Lens' DescribeReportDefinitionsResponse (Prelude.Maybe Prelude.Text)
+describeReportDefinitionsResponse_nextToken = Lens.lens (\DescribeReportDefinitionsResponse' {nextToken} -> nextToken) (\s@DescribeReportDefinitionsResponse' {} a -> s {nextToken = a} :: DescribeReportDefinitionsResponse)
 
--- | -- | The response status code.
-drdrsResponseStatus :: Lens' DescribeReportDefinitionsResponse Int
-drdrsResponseStatus = lens _drdrsResponseStatus (\ s a -> s{_drdrsResponseStatus = a})
+-- | A list of AWS Cost and Usage reports owned by the account.
+describeReportDefinitionsResponse_reportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Prelude.Maybe [ReportDefinition])
+describeReportDefinitionsResponse_reportDefinitions = Lens.lens (\DescribeReportDefinitionsResponse' {reportDefinitions} -> reportDefinitions) (\s@DescribeReportDefinitionsResponse' {} a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData DescribeReportDefinitionsResponse
-         where
+-- | The response's http status code.
+describeReportDefinitionsResponse_httpStatus :: Lens.Lens' DescribeReportDefinitionsResponse Prelude.Int
+describeReportDefinitionsResponse_httpStatus = Lens.lens (\DescribeReportDefinitionsResponse' {httpStatus} -> httpStatus) (\s@DescribeReportDefinitionsResponse' {} a -> s {httpStatus = a} :: DescribeReportDefinitionsResponse)
+
+instance
+  Prelude.NFData
+    DescribeReportDefinitionsResponse

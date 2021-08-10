@@ -1,199 +1,255 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetTableVersions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of strings that identify available versions of a specified table.
---
---
+-- Retrieves a list of strings that identify available versions of a
+-- specified table.
 --
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetTableVersions
-    (
-    -- * Creating a Request
-      getTableVersions
-    , GetTableVersions
+  ( -- * Creating a Request
+    GetTableVersions (..),
+    newGetTableVersions,
+
     -- * Request Lenses
-    , gtvsCatalogId
-    , gtvsNextToken
-    , gtvsMaxResults
-    , gtvsDatabaseName
-    , gtvsTableName
+    getTableVersions_nextToken,
+    getTableVersions_catalogId,
+    getTableVersions_maxResults,
+    getTableVersions_databaseName,
+    getTableVersions_tableName,
 
     -- * Destructuring the Response
-    , getTableVersionsResponse
-    , GetTableVersionsResponse
+    GetTableVersionsResponse (..),
+    newGetTableVersionsResponse,
+
     -- * Response Lenses
-    , gtvsrsTableVersions
-    , gtvsrsNextToken
-    , gtvsrsResponseStatus
-    ) where
+    getTableVersionsResponse_nextToken,
+    getTableVersionsResponse_tableVersions,
+    getTableVersionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getTableVersions' smart constructor.
+-- | /See:/ 'newGetTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-  { _gtvsCatalogId    :: !(Maybe Text)
-  , _gtvsNextToken    :: !(Maybe Text)
-  , _gtvsMaxResults   :: !(Maybe Nat)
-  , _gtvsDatabaseName :: !Text
-  , _gtvsTableName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A continuation token, if this is not the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of table versions to return in one response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The database in the catalog in which the table resides. For Hive
+    -- compatibility, this name is entirely lowercase.
+    databaseName :: Prelude.Text,
+    -- | The name of the table. For Hive compatibility, this name is entirely
+    -- lowercase.
+    tableName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTableVersions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTableVersions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtvsCatalogId' - The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtvsNextToken' - A continuation token, if this is not the first call.
+-- 'nextToken', 'getTableVersions_nextToken' - A continuation token, if this is not the first call.
 --
--- * 'gtvsMaxResults' - The maximum number of table versions to return in one response.
+-- 'catalogId', 'getTableVersions_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the AWS account ID is used by default.
 --
--- * 'gtvsDatabaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- 'maxResults', 'getTableVersions_maxResults' - The maximum number of table versions to return in one response.
 --
--- * 'gtvsTableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
-getTableVersions
-    :: Text -- ^ 'gtvsDatabaseName'
-    -> Text -- ^ 'gtvsTableName'
-    -> GetTableVersions
-getTableVersions pDatabaseName_ pTableName_ =
+-- 'databaseName', 'getTableVersions_databaseName' - The database in the catalog in which the table resides. For Hive
+-- compatibility, this name is entirely lowercase.
+--
+-- 'tableName', 'getTableVersions_tableName' - The name of the table. For Hive compatibility, this name is entirely
+-- lowercase.
+newGetTableVersions ::
+  -- | 'databaseName'
+  Prelude.Text ->
+  -- | 'tableName'
+  Prelude.Text ->
+  GetTableVersions
+newGetTableVersions pDatabaseName_ pTableName_ =
   GetTableVersions'
-    { _gtvsCatalogId = Nothing
-    , _gtvsNextToken = Nothing
-    , _gtvsMaxResults = Nothing
-    , _gtvsDatabaseName = pDatabaseName_
-    , _gtvsTableName = pTableName_
+    { nextToken = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
-
-
--- | The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
-gtvsCatalogId :: Lens' GetTableVersions (Maybe Text)
-gtvsCatalogId = lens _gtvsCatalogId (\ s a -> s{_gtvsCatalogId = a})
 
 -- | A continuation token, if this is not the first call.
-gtvsNextToken :: Lens' GetTableVersions (Maybe Text)
-gtvsNextToken = lens _gtvsNextToken (\ s a -> s{_gtvsNextToken = a})
+getTableVersions_nextToken :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
+getTableVersions_nextToken = Lens.lens (\GetTableVersions' {nextToken} -> nextToken) (\s@GetTableVersions' {} a -> s {nextToken = a} :: GetTableVersions)
+
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the AWS account ID is used by default.
+getTableVersions_catalogId :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
+getTableVersions_catalogId = Lens.lens (\GetTableVersions' {catalogId} -> catalogId) (\s@GetTableVersions' {} a -> s {catalogId = a} :: GetTableVersions)
 
 -- | The maximum number of table versions to return in one response.
-gtvsMaxResults :: Lens' GetTableVersions (Maybe Natural)
-gtvsMaxResults = lens _gtvsMaxResults (\ s a -> s{_gtvsMaxResults = a}) . mapping _Nat
+getTableVersions_maxResults :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Natural)
+getTableVersions_maxResults = Lens.lens (\GetTableVersions' {maxResults} -> maxResults) (\s@GetTableVersions' {} a -> s {maxResults = a} :: GetTableVersions)
 
--- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-gtvsDatabaseName :: Lens' GetTableVersions Text
-gtvsDatabaseName = lens _gtvsDatabaseName (\ s a -> s{_gtvsDatabaseName = a})
+-- | The database in the catalog in which the table resides. For Hive
+-- compatibility, this name is entirely lowercase.
+getTableVersions_databaseName :: Lens.Lens' GetTableVersions Prelude.Text
+getTableVersions_databaseName = Lens.lens (\GetTableVersions' {databaseName} -> databaseName) (\s@GetTableVersions' {} a -> s {databaseName = a} :: GetTableVersions)
 
--- | The name of the table. For Hive compatibility, this name is entirely lowercase.
-gtvsTableName :: Lens' GetTableVersions Text
-gtvsTableName = lens _gtvsTableName (\ s a -> s{_gtvsTableName = a})
+-- | The name of the table. For Hive compatibility, this name is entirely
+-- lowercase.
+getTableVersions_tableName :: Lens.Lens' GetTableVersions Prelude.Text
+getTableVersions_tableName = Lens.lens (\GetTableVersions' {tableName} -> tableName) (\s@GetTableVersions' {} a -> s {tableName = a} :: GetTableVersions)
 
-instance AWSPager GetTableVersions where
-        page rq rs
-          | stop (rs ^. gtvsrsNextToken) = Nothing
-          | stop (rs ^. gtvsrsTableVersions) = Nothing
-          | otherwise =
-            Just $ rq & gtvsNextToken .~ rs ^. gtvsrsNextToken
+instance Core.AWSPager GetTableVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getTableVersionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getTableVersionsResponse_tableVersions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getTableVersions_nextToken
+          Lens..~ rs
+          Lens.^? getTableVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest GetTableVersions where
-        type Rs GetTableVersions = GetTableVersionsResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTableVersionsResponse' <$>
-                   (x .?> "TableVersions" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetTableVersions where
+  type
+    AWSResponse GetTableVersions =
+      GetTableVersionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTableVersionsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TableVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetTableVersions where
+instance Prelude.Hashable GetTableVersions
 
-instance NFData GetTableVersions where
+instance Prelude.NFData GetTableVersions
 
-instance ToHeaders GetTableVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetTableVersions" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetTableVersions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetTableVersions" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetTableVersions where
-        toJSON GetTableVersions'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _gtvsCatalogId,
-                  ("NextToken" .=) <$> _gtvsNextToken,
-                  ("MaxResults" .=) <$> _gtvsMaxResults,
-                  Just ("DatabaseName" .= _gtvsDatabaseName),
-                  Just ("TableName" .= _gtvsTableName)])
+instance Core.ToJSON GetTableVersions where
+  toJSON GetTableVersions' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
+          ]
+      )
 
-instance ToPath GetTableVersions where
-        toPath = const "/"
+instance Core.ToPath GetTableVersions where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetTableVersions where
-        toQuery = const mempty
+instance Core.ToQuery GetTableVersions where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getTableVersionsResponse' smart constructor.
+-- | /See:/ 'newGetTableVersionsResponse' smart constructor.
 data GetTableVersionsResponse = GetTableVersionsResponse'
-  { _gtvsrsTableVersions  :: !(Maybe [TableVersion])
-  , _gtvsrsNextToken      :: !(Maybe Text)
-  , _gtvsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A continuation token, if the list of available versions does not include
+    -- the last one.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of strings identifying available versions of the specified table.
+    tableVersions :: Prelude.Maybe [TableVersion],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTableVersionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTableVersionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtvsrsTableVersions' - A list of strings identifying available versions of the specified table.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtvsrsNextToken' - A continuation token, if the list of available versions does not include the last one.
+-- 'nextToken', 'getTableVersionsResponse_nextToken' - A continuation token, if the list of available versions does not include
+-- the last one.
 --
--- * 'gtvsrsResponseStatus' - -- | The response status code.
-getTableVersionsResponse
-    :: Int -- ^ 'gtvsrsResponseStatus'
-    -> GetTableVersionsResponse
-getTableVersionsResponse pResponseStatus_ =
+-- 'tableVersions', 'getTableVersionsResponse_tableVersions' - A list of strings identifying available versions of the specified table.
+--
+-- 'httpStatus', 'getTableVersionsResponse_httpStatus' - The response's http status code.
+newGetTableVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTableVersionsResponse
+newGetTableVersionsResponse pHttpStatus_ =
   GetTableVersionsResponse'
-    { _gtvsrsTableVersions = Nothing
-    , _gtvsrsNextToken = Nothing
-    , _gtvsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      tableVersions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A continuation token, if the list of available versions does not include
+-- the last one.
+getTableVersionsResponse_nextToken :: Lens.Lens' GetTableVersionsResponse (Prelude.Maybe Prelude.Text)
+getTableVersionsResponse_nextToken = Lens.lens (\GetTableVersionsResponse' {nextToken} -> nextToken) (\s@GetTableVersionsResponse' {} a -> s {nextToken = a} :: GetTableVersionsResponse)
 
 -- | A list of strings identifying available versions of the specified table.
-gtvsrsTableVersions :: Lens' GetTableVersionsResponse [TableVersion]
-gtvsrsTableVersions = lens _gtvsrsTableVersions (\ s a -> s{_gtvsrsTableVersions = a}) . _Default . _Coerce
+getTableVersionsResponse_tableVersions :: Lens.Lens' GetTableVersionsResponse (Prelude.Maybe [TableVersion])
+getTableVersionsResponse_tableVersions = Lens.lens (\GetTableVersionsResponse' {tableVersions} -> tableVersions) (\s@GetTableVersionsResponse' {} a -> s {tableVersions = a} :: GetTableVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A continuation token, if the list of available versions does not include the last one.
-gtvsrsNextToken :: Lens' GetTableVersionsResponse (Maybe Text)
-gtvsrsNextToken = lens _gtvsrsNextToken (\ s a -> s{_gtvsrsNextToken = a})
+-- | The response's http status code.
+getTableVersionsResponse_httpStatus :: Lens.Lens' GetTableVersionsResponse Prelude.Int
+getTableVersionsResponse_httpStatus = Lens.lens (\GetTableVersionsResponse' {httpStatus} -> httpStatus) (\s@GetTableVersionsResponse' {} a -> s {httpStatus = a} :: GetTableVersionsResponse)
 
--- | -- | The response status code.
-gtvsrsResponseStatus :: Lens' GetTableVersionsResponse Int
-gtvsrsResponseStatus = lens _gtvsrsResponseStatus (\ s a -> s{_gtvsrsResponseStatus = a})
-
-instance NFData GetTableVersionsResponse where
+instance Prelude.NFData GetTableVersionsResponse

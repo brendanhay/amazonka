@@ -1,177 +1,242 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.ListStreams
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of stream ARNs associated with the current account and endpoint. If the @TableName@ parameter is present, then @ListStreams@ will return only the streams ARNs for that table.
+-- Returns an array of stream ARNs associated with the current account and
+-- endpoint. If the @TableName@ parameter is present, then @ListStreams@
+-- will return only the streams ARNs for that table.
 --
---
+-- You can call @ListStreams@ at a maximum rate of 5 times per second.
 module Network.AWS.DynamoDBStreams.ListStreams
-    (
-    -- * Creating a Request
-      listStreams
-    , ListStreams
+  ( -- * Creating a Request
+    ListStreams (..),
+    newListStreams,
+
     -- * Request Lenses
-    , lsExclusiveStartStreamARN
-    , lsLimit
-    , lsTableName
+    listStreams_tableName,
+    listStreams_exclusiveStartStreamArn,
+    listStreams_limit,
 
     -- * Destructuring the Response
-    , listStreamsResponse
-    , ListStreamsResponse
-    -- * Response Lenses
-    , lsrsLastEvaluatedStreamARN
-    , lsrsStreams
-    , lsrsResponseStatus
-    ) where
+    ListStreamsResponse (..),
+    newListStreamsResponse,
 
+    -- * Response Lenses
+    listStreamsResponse_streams,
+    listStreamsResponse_lastEvaluatedStreamArn,
+    listStreamsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.DynamoDBStreams.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListStreams@ operation.
 --
---
---
--- /See:/ 'listStreams' smart constructor.
+-- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { _lsExclusiveStartStreamARN :: !(Maybe Text)
-  , _lsLimit                   :: !(Maybe Nat)
-  , _lsTableName               :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If this parameter is provided, then only the streams associated with
+    -- this table name are returned.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN (Amazon Resource Name) of the first item that this operation
+    -- will evaluate. Use the value that was returned for
+    -- @LastEvaluatedStreamArn@ in the previous operation.
+    exclusiveStartStreamArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of streams to return. The upper limit is 100.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListStreams' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsExclusiveStartStreamARN' - The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsLimit' - The maximum number of streams to return. The upper limit is 100.
+-- 'tableName', 'listStreams_tableName' - If this parameter is provided, then only the streams associated with
+-- this table name are returned.
 --
--- * 'lsTableName' - If this parameter is provided, then only the streams associated with this table name are returned.
-listStreams
-    :: ListStreams
-listStreams =
+-- 'exclusiveStartStreamArn', 'listStreams_exclusiveStartStreamArn' - The ARN (Amazon Resource Name) of the first item that this operation
+-- will evaluate. Use the value that was returned for
+-- @LastEvaluatedStreamArn@ in the previous operation.
+--
+-- 'limit', 'listStreams_limit' - The maximum number of streams to return. The upper limit is 100.
+newListStreams ::
+  ListStreams
+newListStreams =
   ListStreams'
-    { _lsExclusiveStartStreamARN = Nothing
-    , _lsLimit = Nothing
-    , _lsTableName = Nothing
+    { tableName = Prelude.Nothing,
+      exclusiveStartStreamArn = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | If this parameter is provided, then only the streams associated with
+-- this table name are returned.
+listStreams_tableName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_tableName = Lens.lens (\ListStreams' {tableName} -> tableName) (\s@ListStreams' {} a -> s {tableName = a} :: ListStreams)
 
--- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
-lsExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
-lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a})
+-- | The ARN (Amazon Resource Name) of the first item that this operation
+-- will evaluate. Use the value that was returned for
+-- @LastEvaluatedStreamArn@ in the previous operation.
+listStreams_exclusiveStartStreamArn :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_exclusiveStartStreamArn = Lens.lens (\ListStreams' {exclusiveStartStreamArn} -> exclusiveStartStreamArn) (\s@ListStreams' {} a -> s {exclusiveStartStreamArn = a} :: ListStreams)
 
 -- | The maximum number of streams to return. The upper limit is 100.
-lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat
+listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
+listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
--- | If this parameter is provided, then only the streams associated with this table name are returned.
-lsTableName :: Lens' ListStreams (Maybe Text)
-lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a})
+instance Core.AWSRequest ListStreams where
+  type AWSResponse ListStreams = ListStreamsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListStreamsResponse'
+            Prelude.<$> (x Core..?> "Streams" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastEvaluatedStreamArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListStreams where
-        type Rs ListStreams = ListStreamsResponse
-        request = postJSON dynamoDBStreams
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListStreamsResponse' <$>
-                   (x .?> "LastEvaluatedStreamArn") <*>
-                     (x .?> "Streams" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListStreams
 
-instance Hashable ListStreams where
+instance Prelude.NFData ListStreams
 
-instance NFData ListStreams where
+instance Core.ToHeaders ListStreams where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DynamoDBStreams_20120810.ListStreams" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListStreams where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDBStreams_20120810.ListStreams" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Core.ToJSON ListStreams where
+  toJSON ListStreams' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("TableName" Core..=) Prelude.<$> tableName,
+            ("ExclusiveStartStreamArn" Core..=)
+              Prelude.<$> exclusiveStartStreamArn,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToJSON ListStreams where
-        toJSON ListStreams'{..}
-          = object
-              (catMaybes
-                 [("ExclusiveStartStreamArn" .=) <$>
-                    _lsExclusiveStartStreamARN,
-                  ("Limit" .=) <$> _lsLimit,
-                  ("TableName" .=) <$> _lsTableName])
+instance Core.ToPath ListStreams where
+  toPath = Prelude.const "/"
 
-instance ToPath ListStreams where
-        toPath = const "/"
-
-instance ToQuery ListStreams where
-        toQuery = const mempty
+instance Core.ToQuery ListStreams where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListStreams@ operation.
 --
---
---
--- /See:/ 'listStreamsResponse' smart constructor.
+-- /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { _lsrsLastEvaluatedStreamARN :: !(Maybe Text)
-  , _lsrsStreams                :: !(Maybe [Stream])
-  , _lsrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of stream descriptors associated with the current account and
+    -- endpoint.
+    streams :: Prelude.Maybe [Stream],
+    -- | The stream ARN of the item where the operation stopped, inclusive of the
+    -- previous result set. Use this value to start a new operation, excluding
+    -- this value in the new request.
+    --
+    -- If @LastEvaluatedStreamArn@ is empty, then the \"last page\" of results
+    -- has been processed and there is no more data to be retrieved.
+    --
+    -- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean
+    -- that there is more data in the result set. The only way to know when you
+    -- have reached the end of the result set is when @LastEvaluatedStreamArn@
+    -- is empty.
+    lastEvaluatedStreamArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListStreamsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsrsLastEvaluatedStreamARN' - The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsrsStreams' - A list of stream descriptors associated with the current account and endpoint.
+-- 'streams', 'listStreamsResponse_streams' - A list of stream descriptors associated with the current account and
+-- endpoint.
 --
--- * 'lsrsResponseStatus' - -- | The response status code.
-listStreamsResponse
-    :: Int -- ^ 'lsrsResponseStatus'
-    -> ListStreamsResponse
-listStreamsResponse pResponseStatus_ =
+-- 'lastEvaluatedStreamArn', 'listStreamsResponse_lastEvaluatedStreamArn' - The stream ARN of the item where the operation stopped, inclusive of the
+-- previous result set. Use this value to start a new operation, excluding
+-- this value in the new request.
+--
+-- If @LastEvaluatedStreamArn@ is empty, then the \"last page\" of results
+-- has been processed and there is no more data to be retrieved.
+--
+-- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean
+-- that there is more data in the result set. The only way to know when you
+-- have reached the end of the result set is when @LastEvaluatedStreamArn@
+-- is empty.
+--
+-- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
+newListStreamsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListStreamsResponse
+newListStreamsResponse pHttpStatus_ =
   ListStreamsResponse'
-    { _lsrsLastEvaluatedStreamARN = Nothing
-    , _lsrsStreams = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
+    { streams = Prelude.Nothing,
+      lastEvaluatedStreamArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of stream descriptors associated with the current account and
+-- endpoint.
+listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [Stream])
+listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
-lsrsLastEvaluatedStreamARN :: Lens' ListStreamsResponse (Maybe Text)
-lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsLastEvaluatedStreamARN = a})
+-- | The stream ARN of the item where the operation stopped, inclusive of the
+-- previous result set. Use this value to start a new operation, excluding
+-- this value in the new request.
+--
+-- If @LastEvaluatedStreamArn@ is empty, then the \"last page\" of results
+-- has been processed and there is no more data to be retrieved.
+--
+-- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean
+-- that there is more data in the result set. The only way to know when you
+-- have reached the end of the result set is when @LastEvaluatedStreamArn@
+-- is empty.
+listStreamsResponse_lastEvaluatedStreamArn :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
+listStreamsResponse_lastEvaluatedStreamArn = Lens.lens (\ListStreamsResponse' {lastEvaluatedStreamArn} -> lastEvaluatedStreamArn) (\s@ListStreamsResponse' {} a -> s {lastEvaluatedStreamArn = a} :: ListStreamsResponse)
 
--- | A list of stream descriptors associated with the current account and endpoint.
-lsrsStreams :: Lens' ListStreamsResponse [Stream]
-lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce
+-- | The response's http status code.
+listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
+listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListStreamsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
-
-instance NFData ListStreamsResponse where
+instance Prelude.NFData ListStreamsResponse

@@ -1,146 +1,170 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateModel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new 'Model' resource to an existing 'RestApi' resource.
---
---
+-- Adds a new Model resource to an existing RestApi resource.
 module Network.AWS.APIGateway.CreateModel
-    (
-    -- * Creating a Request
-      createModel
-    , CreateModel
+  ( -- * Creating a Request
+    CreateModel (..),
+    newCreateModel,
+
     -- * Request Lenses
-    , cmSchema
-    , cmDescription
-    , cmRestAPIId
-    , cmName
-    , cmContentType
+    createModel_schema,
+    createModel_description,
+    createModel_restApiId,
+    createModel_name,
+    createModel_contentType,
 
     -- * Destructuring the Response
-    , model
-    , Model
+    Model (..),
+    newModel,
+
     -- * Response Lenses
-    , mSchema
-    , mName
-    , mId
-    , mDescription
-    , mContentType
-    ) where
+    model_contentType,
+    model_schema,
+    model_id,
+    model_name,
+    model_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to add a new 'Model' to an existing 'RestApi' resource.
+-- | Request to add a new Model to an existing RestApi resource.
 --
---
---
--- /See:/ 'createModel' smart constructor.
+-- /See:/ 'newCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { _cmSchema      :: !(Maybe Text)
-  , _cmDescription :: !(Maybe Text)
-  , _cmRestAPIId   :: !Text
-  , _cmName        :: !Text
-  , _cmContentType :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The schema for the model. For @application\/json@ models, this should be
+    -- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
+    -- model.
+    schema :: Prelude.Maybe Prelude.Text,
+    -- | The description of the model.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | [Required] The RestApi identifier under which the Model will be created.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name of the model. Must be alphanumeric.
+    name :: Prelude.Text,
+    -- | [Required] The content-type for the model.
+    contentType :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateModel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cmSchema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cmDescription' - The description of the model.
+-- 'schema', 'createModel_schema' - The schema for the model. For @application\/json@ models, this should be
+-- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
+-- model.
 --
--- * 'cmRestAPIId' - [Required] The 'RestApi' identifier under which the 'Model' will be created.
+-- 'description', 'createModel_description' - The description of the model.
 --
--- * 'cmName' - [Required] The name of the model. Must be alphanumeric.
+-- 'restApiId', 'createModel_restApiId' - [Required] The RestApi identifier under which the Model will be created.
 --
--- * 'cmContentType' - [Required] The content-type for the model.
-createModel
-    :: Text -- ^ 'cmRestAPIId'
-    -> Text -- ^ 'cmName'
-    -> Text -- ^ 'cmContentType'
-    -> CreateModel
-createModel pRestAPIId_ pName_ pContentType_ =
+-- 'name', 'createModel_name' - [Required] The name of the model. Must be alphanumeric.
+--
+-- 'contentType', 'createModel_contentType' - [Required] The content-type for the model.
+newCreateModel ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'contentType'
+  Prelude.Text ->
+  CreateModel
+newCreateModel pRestApiId_ pName_ pContentType_ =
   CreateModel'
-    { _cmSchema = Nothing
-    , _cmDescription = Nothing
-    , _cmRestAPIId = pRestAPIId_
-    , _cmName = pName_
-    , _cmContentType = pContentType_
+    { schema = Prelude.Nothing,
+      description = Prelude.Nothing,
+      restApiId = pRestApiId_,
+      name = pName_,
+      contentType = pContentType_
     }
 
-
--- | The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
-cmSchema :: Lens' CreateModel (Maybe Text)
-cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a})
+-- | The schema for the model. For @application\/json@ models, this should be
+-- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
+-- model.
+createModel_schema :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
+createModel_schema = Lens.lens (\CreateModel' {schema} -> schema) (\s@CreateModel' {} a -> s {schema = a} :: CreateModel)
 
 -- | The description of the model.
-cmDescription :: Lens' CreateModel (Maybe Text)
-cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a})
+createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
+createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
 
--- | [Required] The 'RestApi' identifier under which the 'Model' will be created.
-cmRestAPIId :: Lens' CreateModel Text
-cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a})
+-- | [Required] The RestApi identifier under which the Model will be created.
+createModel_restApiId :: Lens.Lens' CreateModel Prelude.Text
+createModel_restApiId = Lens.lens (\CreateModel' {restApiId} -> restApiId) (\s@CreateModel' {} a -> s {restApiId = a} :: CreateModel)
 
 -- | [Required] The name of the model. Must be alphanumeric.
-cmName :: Lens' CreateModel Text
-cmName = lens _cmName (\ s a -> s{_cmName = a})
+createModel_name :: Lens.Lens' CreateModel Prelude.Text
+createModel_name = Lens.lens (\CreateModel' {name} -> name) (\s@CreateModel' {} a -> s {name = a} :: CreateModel)
 
 -- | [Required] The content-type for the model.
-cmContentType :: Lens' CreateModel Text
-cmContentType = lens _cmContentType (\ s a -> s{_cmContentType = a})
+createModel_contentType :: Lens.Lens' CreateModel Prelude.Text
+createModel_contentType = Lens.lens (\CreateModel' {contentType} -> contentType) (\s@CreateModel' {} a -> s {contentType = a} :: CreateModel)
 
-instance AWSRequest CreateModel where
-        type Rs CreateModel = Model
-        request = postJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest CreateModel where
+  type AWSResponse CreateModel = Model
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable CreateModel where
+instance Prelude.Hashable CreateModel
 
-instance NFData CreateModel where
+instance Prelude.NFData CreateModel
 
-instance ToHeaders CreateModel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders CreateModel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToJSON CreateModel where
-        toJSON CreateModel'{..}
-          = object
-              (catMaybes
-                 [("schema" .=) <$> _cmSchema,
-                  ("description" .=) <$> _cmDescription,
-                  Just ("name" .= _cmName),
-                  Just ("contentType" .= _cmContentType)])
+instance Core.ToJSON CreateModel where
+  toJSON CreateModel' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("schema" Core..=) Prelude.<$> schema,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("contentType" Core..= contentType)
+          ]
+      )
 
-instance ToPath CreateModel where
-        toPath CreateModel'{..}
-          = mconcat
-              ["/restapis/", toBS _cmRestAPIId, "/models"]
+instance Core.ToPath CreateModel where
+  toPath CreateModel' {..} =
+    Prelude.mconcat
+      ["/restapis/", Core.toBS restApiId, "/models"]
 
-instance ToQuery CreateModel where
-        toQuery = const mempty
+instance Core.ToQuery CreateModel where
+  toQuery = Prelude.const Prelude.mempty

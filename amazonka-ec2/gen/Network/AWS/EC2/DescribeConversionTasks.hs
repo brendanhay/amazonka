@@ -1,150 +1,181 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your conversion tasks. For more information, see the <http://docs.aws.amazon.com/vm-import/latest/userguide/ VM Import/Export User Guide> .
+-- Describes the specified conversion tasks or all your conversion tasks.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/ VM Import\/Export User Guide>.
 --
---
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
---
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.DescribeConversionTasks
-    (
-    -- * Creating a Request
-      describeConversionTasks
-    , DescribeConversionTasks
+  ( -- * Creating a Request
+    DescribeConversionTasks (..),
+    newDescribeConversionTasks,
+
     -- * Request Lenses
-    , dctConversionTaskIds
-    , dctDryRun
+    describeConversionTasks_dryRun,
+    describeConversionTasks_conversionTaskIds,
 
     -- * Destructuring the Response
-    , describeConversionTasksResponse
-    , DescribeConversionTasksResponse
+    DescribeConversionTasksResponse (..),
+    newDescribeConversionTasksResponse,
+
     -- * Response Lenses
-    , dctrsConversionTasks
-    , dctrsResponseStatus
-    ) where
+    describeConversionTasksResponse_conversionTasks,
+    describeConversionTasksResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DescribeConversionTasks.
---
---
---
--- /See:/ 'describeConversionTasks' smart constructor.
+-- | /See:/ 'newDescribeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-  { _dctConversionTaskIds :: !(Maybe [Text])
-  , _dctDryRun            :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The conversion task IDs.
+    conversionTaskIds :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeConversionTasks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeConversionTasks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dctConversionTaskIds' - One or more conversion task IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeConversionTasks
-    :: DescribeConversionTasks
-describeConversionTasks =
+-- 'dryRun', 'describeConversionTasks_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'conversionTaskIds', 'describeConversionTasks_conversionTaskIds' - The conversion task IDs.
+newDescribeConversionTasks ::
+  DescribeConversionTasks
+newDescribeConversionTasks =
   DescribeConversionTasks'
-    {_dctConversionTaskIds = Nothing, _dctDryRun = Nothing}
+    { dryRun = Prelude.Nothing,
+      conversionTaskIds = Prelude.Nothing
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeConversionTasks_dryRun :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe Prelude.Bool)
+describeConversionTasks_dryRun = Lens.lens (\DescribeConversionTasks' {dryRun} -> dryRun) (\s@DescribeConversionTasks' {} a -> s {dryRun = a} :: DescribeConversionTasks)
 
--- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce
+-- | The conversion task IDs.
+describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
+describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Lens._Coerce
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a})
+instance Core.AWSRequest DescribeConversionTasks where
+  type
+    AWSResponse DescribeConversionTasks =
+      DescribeConversionTasksResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeConversionTasksResponse'
+            Prelude.<$> ( x Core..@? "conversionTasks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeConversionTasks where
-        type Rs DescribeConversionTasks =
-             DescribeConversionTasksResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeConversionTasksResponse' <$>
-                   (x .@? "conversionTasks" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeConversionTasks
 
-instance Hashable DescribeConversionTasks where
+instance Prelude.NFData DescribeConversionTasks
 
-instance NFData DescribeConversionTasks where
+instance Core.ToHeaders DescribeConversionTasks where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeConversionTasks where
-        toHeaders = const mempty
+instance Core.ToPath DescribeConversionTasks where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeConversionTasks where
-        toPath = const "/"
+instance Core.ToQuery DescribeConversionTasks where
+  toQuery DescribeConversionTasks' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeConversionTasks" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "ConversionTaskId"
+              Prelude.<$> conversionTaskIds
+          )
+      ]
 
-instance ToQuery DescribeConversionTasks where
-        toQuery DescribeConversionTasks'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeConversionTasks" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery
-                 (toQueryList "ConversionTaskId" <$>
-                    _dctConversionTaskIds),
-               "DryRun" =: _dctDryRun]
-
--- | Contains the output for DescribeConversionTasks.
---
---
---
--- /See:/ 'describeConversionTasksResponse' smart constructor.
+-- | /See:/ 'newDescribeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
-  { _dctrsConversionTasks :: !(Maybe [ConversionTask])
-  , _dctrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the conversion tasks.
+    conversionTasks :: Prelude.Maybe [ConversionTask],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeConversionTasksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dctrsConversionTasks' - Information about the conversion tasks.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dctrsResponseStatus' - -- | The response status code.
-describeConversionTasksResponse
-    :: Int -- ^ 'dctrsResponseStatus'
-    -> DescribeConversionTasksResponse
-describeConversionTasksResponse pResponseStatus_ =
+-- 'conversionTasks', 'describeConversionTasksResponse_conversionTasks' - Information about the conversion tasks.
+--
+-- 'httpStatus', 'describeConversionTasksResponse_httpStatus' - The response's http status code.
+newDescribeConversionTasksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeConversionTasksResponse
+newDescribeConversionTasksResponse pHttpStatus_ =
   DescribeConversionTasksResponse'
-    {_dctrsConversionTasks = Nothing, _dctrsResponseStatus = pResponseStatus_}
-
+    { conversionTasks =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the conversion tasks.
-dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce
+describeConversionTasksResponse_conversionTasks :: Lens.Lens' DescribeConversionTasksResponse (Prelude.Maybe [ConversionTask])
+describeConversionTasksResponse_conversionTasks = Lens.lens (\DescribeConversionTasksResponse' {conversionTasks} -> conversionTasks) (\s@DescribeConversionTasksResponse' {} a -> s {conversionTasks = a} :: DescribeConversionTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
-dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a})
+-- | The response's http status code.
+describeConversionTasksResponse_httpStatus :: Lens.Lens' DescribeConversionTasksResponse Prelude.Int
+describeConversionTasksResponse_httpStatus = Lens.lens (\DescribeConversionTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeConversionTasksResponse' {} a -> s {httpStatus = a} :: DescribeConversionTasksResponse)
 
-instance NFData DescribeConversionTasksResponse where
+instance
+  Prelude.NFData
+    DescribeConversionTasksResponse

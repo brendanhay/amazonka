@@ -1,122 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.DescribeDataset
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a data set.
---
---
+-- Retrieves information about a dataset.
 module Network.AWS.IoTAnalytics.DescribeDataset
-    (
-    -- * Creating a Request
-      describeDataset
-    , DescribeDataset
+  ( -- * Creating a Request
+    DescribeDataset (..),
+    newDescribeDataset,
+
     -- * Request Lenses
-    , ddDatasetName
+    describeDataset_datasetName,
 
     -- * Destructuring the Response
-    , describeDatasetResponse
-    , DescribeDatasetResponse
+    DescribeDatasetResponse (..),
+    newDescribeDatasetResponse,
+
     -- * Response Lenses
-    , ddrsDataset
-    , ddrsResponseStatus
-    ) where
+    describeDatasetResponse_dataset,
+    describeDatasetResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeDataset' smart constructor.
-newtype DescribeDataset = DescribeDataset'
-  { _ddDatasetName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeDataset' smart constructor.
+data DescribeDataset = DescribeDataset'
+  { -- | The name of the data set whose information is retrieved.
+    datasetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDataset' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDatasetName' - The name of the data set whose information is retrieved.
-describeDataset
-    :: Text -- ^ 'ddDatasetName'
-    -> DescribeDataset
-describeDataset pDatasetName_ =
-  DescribeDataset' {_ddDatasetName = pDatasetName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'datasetName', 'describeDataset_datasetName' - The name of the data set whose information is retrieved.
+newDescribeDataset ::
+  -- | 'datasetName'
+  Prelude.Text ->
+  DescribeDataset
+newDescribeDataset pDatasetName_ =
+  DescribeDataset' {datasetName = pDatasetName_}
 
 -- | The name of the data set whose information is retrieved.
-ddDatasetName :: Lens' DescribeDataset Text
-ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a})
+describeDataset_datasetName :: Lens.Lens' DescribeDataset Prelude.Text
+describeDataset_datasetName = Lens.lens (\DescribeDataset' {datasetName} -> datasetName) (\s@DescribeDataset' {} a -> s {datasetName = a} :: DescribeDataset)
 
-instance AWSRequest DescribeDataset where
-        type Rs DescribeDataset = DescribeDatasetResponse
-        request = get ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDatasetResponse' <$>
-                   (x .?> "dataset") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeDataset where
+  type
+    AWSResponse DescribeDataset =
+      DescribeDatasetResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDatasetResponse'
+            Prelude.<$> (x Core..?> "dataset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeDataset where
+instance Prelude.Hashable DescribeDataset
 
-instance NFData DescribeDataset where
+instance Prelude.NFData DescribeDataset
 
-instance ToHeaders DescribeDataset where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeDataset where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeDataset where
-        toPath DescribeDataset'{..}
-          = mconcat ["/datasets/", toBS _ddDatasetName]
+instance Core.ToPath DescribeDataset where
+  toPath DescribeDataset' {..} =
+    Prelude.mconcat
+      ["/datasets/", Core.toBS datasetName]
 
-instance ToQuery DescribeDataset where
-        toQuery = const mempty
+instance Core.ToQuery DescribeDataset where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeDatasetResponse' smart constructor.
+-- | /See:/ 'newDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { _ddrsDataset        :: !(Maybe Dataset)
-  , _ddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object that contains information about the data set.
+    dataset :: Prelude.Maybe Dataset,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDatasetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsDataset' - An object that contains information about the data set.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDatasetResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DescribeDatasetResponse
-describeDatasetResponse pResponseStatus_ =
+-- 'dataset', 'describeDatasetResponse_dataset' - An object that contains information about the data set.
+--
+-- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.
+newDescribeDatasetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDatasetResponse
+newDescribeDatasetResponse pHttpStatus_ =
   DescribeDatasetResponse'
-    {_ddrsDataset = Nothing, _ddrsResponseStatus = pResponseStatus_}
-
+    { dataset = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An object that contains information about the data set.
-ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a})
+describeDatasetResponse_dataset :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Dataset)
+describeDatasetResponse_dataset = Lens.lens (\DescribeDatasetResponse' {dataset} -> dataset) (\s@DescribeDatasetResponse' {} a -> s {dataset = a} :: DescribeDatasetResponse)
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
+-- | The response's http status code.
+describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
+describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetResponse' {} a -> s {httpStatus = a} :: DescribeDatasetResponse)
 
-instance NFData DescribeDatasetResponse where
+instance Prelude.NFData DescribeDatasetResponse

@@ -1,157 +1,188 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachToIndex
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches the specified object to the specified index.
---
---
 module Network.AWS.CloudDirectory.AttachToIndex
-    (
-    -- * Creating a Request
-      attachToIndex
-    , AttachToIndex
+  ( -- * Creating a Request
+    AttachToIndex (..),
+    newAttachToIndex,
+
     -- * Request Lenses
-    , atiDirectoryARN
-    , atiIndexReference
-    , atiTargetReference
+    attachToIndex_directoryArn,
+    attachToIndex_indexReference,
+    attachToIndex_targetReference,
 
     -- * Destructuring the Response
-    , attachToIndexResponse
-    , AttachToIndexResponse
+    AttachToIndexResponse (..),
+    newAttachToIndexResponse,
+
     -- * Response Lenses
-    , atirsAttachedObjectIdentifier
-    , atirsResponseStatus
-    ) where
+    attachToIndexResponse_attachedObjectIdentifier,
+    attachToIndexResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'attachToIndex' smart constructor.
+-- | /See:/ 'newAttachToIndex' smart constructor.
 data AttachToIndex = AttachToIndex'
-  { _atiDirectoryARN    :: !Text
-  , _atiIndexReference  :: !ObjectReference
-  , _atiTargetReference :: !ObjectReference
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the directory where the object and
+    -- index exist.
+    directoryArn :: Prelude.Text,
+    -- | A reference to the index that you are attaching the object to.
+    indexReference :: ObjectReference,
+    -- | A reference to the object that you are attaching to the index.
+    targetReference :: ObjectReference
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AttachToIndex' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryArn', 'attachToIndex_directoryArn' - The Amazon Resource Name (ARN) of the directory where the object and
+-- index exist.
+--
+-- 'indexReference', 'attachToIndex_indexReference' - A reference to the index that you are attaching the object to.
+--
+-- 'targetReference', 'attachToIndex_targetReference' - A reference to the object that you are attaching to the index.
+newAttachToIndex ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'indexReference'
+  ObjectReference ->
+  -- | 'targetReference'
+  ObjectReference ->
+  AttachToIndex
+newAttachToIndex
+  pDirectoryArn_
+  pIndexReference_
+  pTargetReference_ =
+    AttachToIndex'
+      { directoryArn = pDirectoryArn_,
+        indexReference = pIndexReference_,
+        targetReference = pTargetReference_
+      }
 
--- | Creates a value of 'AttachToIndex' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atiDirectoryARN' - The Amazon Resource Name (ARN) of the directory where the object and index exist.
---
--- * 'atiIndexReference' - A reference to the index that you are attaching the object to.
---
--- * 'atiTargetReference' - A reference to the object that you are attaching to the index.
-attachToIndex
-    :: Text -- ^ 'atiDirectoryARN'
-    -> ObjectReference -- ^ 'atiIndexReference'
-    -> ObjectReference -- ^ 'atiTargetReference'
-    -> AttachToIndex
-attachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
-  AttachToIndex'
-    { _atiDirectoryARN = pDirectoryARN_
-    , _atiIndexReference = pIndexReference_
-    , _atiTargetReference = pTargetReference_
-    }
-
-
--- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
-atiDirectoryARN :: Lens' AttachToIndex Text
-atiDirectoryARN = lens _atiDirectoryARN (\ s a -> s{_atiDirectoryARN = a})
+-- | The Amazon Resource Name (ARN) of the directory where the object and
+-- index exist.
+attachToIndex_directoryArn :: Lens.Lens' AttachToIndex Prelude.Text
+attachToIndex_directoryArn = Lens.lens (\AttachToIndex' {directoryArn} -> directoryArn) (\s@AttachToIndex' {} a -> s {directoryArn = a} :: AttachToIndex)
 
 -- | A reference to the index that you are attaching the object to.
-atiIndexReference :: Lens' AttachToIndex ObjectReference
-atiIndexReference = lens _atiIndexReference (\ s a -> s{_atiIndexReference = a})
+attachToIndex_indexReference :: Lens.Lens' AttachToIndex ObjectReference
+attachToIndex_indexReference = Lens.lens (\AttachToIndex' {indexReference} -> indexReference) (\s@AttachToIndex' {} a -> s {indexReference = a} :: AttachToIndex)
 
 -- | A reference to the object that you are attaching to the index.
-atiTargetReference :: Lens' AttachToIndex ObjectReference
-atiTargetReference = lens _atiTargetReference (\ s a -> s{_atiTargetReference = a})
+attachToIndex_targetReference :: Lens.Lens' AttachToIndex ObjectReference
+attachToIndex_targetReference = Lens.lens (\AttachToIndex' {targetReference} -> targetReference) (\s@AttachToIndex' {} a -> s {targetReference = a} :: AttachToIndex)
 
-instance AWSRequest AttachToIndex where
-        type Rs AttachToIndex = AttachToIndexResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AttachToIndexResponse' <$>
-                   (x .?> "AttachedObjectIdentifier") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest AttachToIndex where
+  type
+    AWSResponse AttachToIndex =
+      AttachToIndexResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AttachToIndexResponse'
+            Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AttachToIndex where
+instance Prelude.Hashable AttachToIndex
 
-instance NFData AttachToIndex where
+instance Prelude.NFData AttachToIndex
 
-instance ToHeaders AttachToIndex where
-        toHeaders AttachToIndex'{..}
-          = mconcat
-              ["x-amz-data-partition" =# _atiDirectoryARN]
+instance Core.ToHeaders AttachToIndex where
+  toHeaders AttachToIndex' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON AttachToIndex where
-        toJSON AttachToIndex'{..}
-          = object
-              (catMaybes
-                 [Just ("IndexReference" .= _atiIndexReference),
-                  Just ("TargetReference" .= _atiTargetReference)])
+instance Core.ToJSON AttachToIndex where
+  toJSON AttachToIndex' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IndexReference" Core..= indexReference),
+            Prelude.Just
+              ("TargetReference" Core..= targetReference)
+          ]
+      )
 
-instance ToPath AttachToIndex where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/index/attach"
+instance Core.ToPath AttachToIndex where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/index/attach"
 
-instance ToQuery AttachToIndex where
-        toQuery = const mempty
+instance Core.ToQuery AttachToIndex where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'attachToIndexResponse' smart constructor.
+-- | /See:/ 'newAttachToIndexResponse' smart constructor.
 data AttachToIndexResponse = AttachToIndexResponse'
-  { _atirsAttachedObjectIdentifier :: !(Maybe Text)
-  , _atirsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ObjectIdentifier@ of the object that was attached to the index.
+    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AttachToIndexResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachToIndexResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atirsAttachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was attached to the index.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atirsResponseStatus' - -- | The response status code.
-attachToIndexResponse
-    :: Int -- ^ 'atirsResponseStatus'
-    -> AttachToIndexResponse
-attachToIndexResponse pResponseStatus_ =
+-- 'attachedObjectIdentifier', 'attachToIndexResponse_attachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was attached to the index.
+--
+-- 'httpStatus', 'attachToIndexResponse_httpStatus' - The response's http status code.
+newAttachToIndexResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AttachToIndexResponse
+newAttachToIndexResponse pHttpStatus_ =
   AttachToIndexResponse'
-    { _atirsAttachedObjectIdentifier = Nothing
-    , _atirsResponseStatus = pResponseStatus_
+    { attachedObjectIdentifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
-atirsAttachedObjectIdentifier :: Lens' AttachToIndexResponse (Maybe Text)
-atirsAttachedObjectIdentifier = lens _atirsAttachedObjectIdentifier (\ s a -> s{_atirsAttachedObjectIdentifier = a})
+attachToIndexResponse_attachedObjectIdentifier :: Lens.Lens' AttachToIndexResponse (Prelude.Maybe Prelude.Text)
+attachToIndexResponse_attachedObjectIdentifier = Lens.lens (\AttachToIndexResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@AttachToIndexResponse' {} a -> s {attachedObjectIdentifier = a} :: AttachToIndexResponse)
 
--- | -- | The response status code.
-atirsResponseStatus :: Lens' AttachToIndexResponse Int
-atirsResponseStatus = lens _atirsResponseStatus (\ s a -> s{_atirsResponseStatus = a})
+-- | The response's http status code.
+attachToIndexResponse_httpStatus :: Lens.Lens' AttachToIndexResponse Prelude.Int
+attachToIndexResponse_httpStatus = Lens.lens (\AttachToIndexResponse' {httpStatus} -> httpStatus) (\s@AttachToIndexResponse' {} a -> s {httpStatus = a} :: AttachToIndexResponse)
 
-instance NFData AttachToIndexResponse where
+instance Prelude.NFData AttachToIndexResponse

@@ -1,142 +1,179 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the AWS service and region that were specified in the last request made with that key.
---
---
+-- Retrieves information about when the specified access key was last used.
+-- The information includes the date and time of last use, along with the
+-- AWS service and Region that were specified in the last request made with
+-- that key.
 module Network.AWS.IAM.GetAccessKeyLastUsed
-    (
-    -- * Creating a Request
-      getAccessKeyLastUsed
-    , GetAccessKeyLastUsed
+  ( -- * Creating a Request
+    GetAccessKeyLastUsed (..),
+    newGetAccessKeyLastUsed,
+
     -- * Request Lenses
-    , gakluAccessKeyId
+    getAccessKeyLastUsed_accessKeyId,
 
     -- * Destructuring the Response
-    , getAccessKeyLastUsedResponse
-    , GetAccessKeyLastUsedResponse
+    GetAccessKeyLastUsedResponse (..),
+    newGetAccessKeyLastUsedResponse,
+
     -- * Response Lenses
-    , gaklursUserName
-    , gaklursAccessKeyLastUsed
-    , gaklursResponseStatus
-    ) where
+    getAccessKeyLastUsedResponse_userName,
+    getAccessKeyLastUsedResponse_accessKeyLastUsed,
+    getAccessKeyLastUsedResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getAccessKeyLastUsed' smart constructor.
-newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-  { _gakluAccessKeyId :: AccessKey
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetAccessKeyLastUsed' smart constructor.
+data GetAccessKeyLastUsed = GetAccessKeyLastUsed'
+  { -- | The identifier of an access key.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- that can consist of any upper or lowercased letter or digit.
+    accessKeyId :: Core.AccessKey
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAccessKeyLastUsed' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gakluAccessKeyId' - The identifier of an access key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-getAccessKeyLastUsed
-    :: AccessKey -- ^ 'gakluAccessKeyId'
-    -> GetAccessKeyLastUsed
-getAccessKeyLastUsed pAccessKeyId_ =
-  GetAccessKeyLastUsed' {_gakluAccessKeyId = pAccessKeyId_}
-
-
--- | The identifier of an access key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-gakluAccessKeyId :: Lens' GetAccessKeyLastUsed AccessKey
-gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a})
-
-instance AWSRequest GetAccessKeyLastUsed where
-        type Rs GetAccessKeyLastUsed =
-             GetAccessKeyLastUsedResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "GetAccessKeyLastUsedResult"
-              (\ s h x ->
-                 GetAccessKeyLastUsedResponse' <$>
-                   (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetAccessKeyLastUsed where
-
-instance NFData GetAccessKeyLastUsed where
-
-instance ToHeaders GetAccessKeyLastUsed where
-        toHeaders = const mempty
-
-instance ToPath GetAccessKeyLastUsed where
-        toPath = const "/"
-
-instance ToQuery GetAccessKeyLastUsed where
-        toQuery GetAccessKeyLastUsed'{..}
-          = mconcat
-              ["Action" =: ("GetAccessKeyLastUsed" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "AccessKeyId" =: _gakluAccessKeyId]
-
--- | Contains the response to a successful 'GetAccessKeyLastUsed' request. It is also returned as a member of the 'AccessKeyMetaData' structure returned by the 'ListAccessKeys' action.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
+-- 'accessKeyId', 'getAccessKeyLastUsed_accessKeyId' - The identifier of an access key.
 --
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+newGetAccessKeyLastUsed ::
+  -- | 'accessKeyId'
+  Core.AccessKey ->
+  GetAccessKeyLastUsed
+newGetAccessKeyLastUsed pAccessKeyId_ =
+  GetAccessKeyLastUsed' {accessKeyId = pAccessKeyId_}
+
+-- | The identifier of an access key.
 --
--- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+getAccessKeyLastUsed_accessKeyId :: Lens.Lens' GetAccessKeyLastUsed Core.AccessKey
+getAccessKeyLastUsed_accessKeyId = Lens.lens (\GetAccessKeyLastUsed' {accessKeyId} -> accessKeyId) (\s@GetAccessKeyLastUsed' {} a -> s {accessKeyId = a} :: GetAccessKeyLastUsed)
+
+instance Core.AWSRequest GetAccessKeyLastUsed where
+  type
+    AWSResponse GetAccessKeyLastUsed =
+      GetAccessKeyLastUsedResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetAccessKeyLastUsedResult"
+      ( \s h x ->
+          GetAccessKeyLastUsedResponse'
+            Prelude.<$> (x Core..@? "UserName")
+            Prelude.<*> (x Core..@? "AccessKeyLastUsed")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetAccessKeyLastUsed
+
+instance Prelude.NFData GetAccessKeyLastUsed
+
+instance Core.ToHeaders GetAccessKeyLastUsed where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath GetAccessKeyLastUsed where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetAccessKeyLastUsed where
+  toQuery GetAccessKeyLastUsed' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetAccessKeyLastUsed" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "AccessKeyId" Core.=: accessKeyId
+      ]
+
+-- | Contains the response to a successful GetAccessKeyLastUsed request. It
+-- is also returned as a member of the AccessKeyMetaData structure returned
+-- by the ListAccessKeys action.
+--
+-- /See:/ 'newGetAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-  { _gaklursUserName          :: !(Maybe Text)
-  , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-  , _gaklursResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the AWS IAM user that owns this access key.
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the last time the access key was used.
+    accessKeyLastUsed :: Prelude.Maybe AccessKeyLastUsed,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAccessKeyLastUsedResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gaklursUserName' - The name of the AWS IAM user that owns this access key.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gaklursAccessKeyLastUsed' - Contains information about the last time the access key was used.
+-- 'userName', 'getAccessKeyLastUsedResponse_userName' - The name of the AWS IAM user that owns this access key.
 --
--- * 'gaklursResponseStatus' - -- | The response status code.
-getAccessKeyLastUsedResponse
-    :: Int -- ^ 'gaklursResponseStatus'
-    -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pResponseStatus_ =
+-- 'accessKeyLastUsed', 'getAccessKeyLastUsedResponse_accessKeyLastUsed' - Contains information about the last time the access key was used.
+--
+-- 'httpStatus', 'getAccessKeyLastUsedResponse_httpStatus' - The response's http status code.
+newGetAccessKeyLastUsedResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetAccessKeyLastUsedResponse
+newGetAccessKeyLastUsedResponse pHttpStatus_ =
   GetAccessKeyLastUsedResponse'
-    { _gaklursUserName = Nothing
-    , _gaklursAccessKeyLastUsed = Nothing
-    , _gaklursResponseStatus = pResponseStatus_
+    { userName =
+        Prelude.Nothing,
+      accessKeyLastUsed = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The name of the AWS IAM user that owns this access key.
-gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
-gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a})
+getAccessKeyLastUsedResponse_userName :: Lens.Lens' GetAccessKeyLastUsedResponse (Prelude.Maybe Prelude.Text)
+getAccessKeyLastUsedResponse_userName = Lens.lens (\GetAccessKeyLastUsedResponse' {userName} -> userName) (\s@GetAccessKeyLastUsedResponse' {} a -> s {userName = a} :: GetAccessKeyLastUsedResponse)
 
 -- | Contains information about the last time the access key was used.
-gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
-gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a})
+getAccessKeyLastUsedResponse_accessKeyLastUsed :: Lens.Lens' GetAccessKeyLastUsedResponse (Prelude.Maybe AccessKeyLastUsed)
+getAccessKeyLastUsedResponse_accessKeyLastUsed = Lens.lens (\GetAccessKeyLastUsedResponse' {accessKeyLastUsed} -> accessKeyLastUsed) (\s@GetAccessKeyLastUsedResponse' {} a -> s {accessKeyLastUsed = a} :: GetAccessKeyLastUsedResponse)
 
--- | -- | The response status code.
-gaklursResponseStatus :: Lens' GetAccessKeyLastUsedResponse Int
-gaklursResponseStatus = lens _gaklursResponseStatus (\ s a -> s{_gaklursResponseStatus = a})
+-- | The response's http status code.
+getAccessKeyLastUsedResponse_httpStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Prelude.Int
+getAccessKeyLastUsedResponse_httpStatus = Lens.lens (\GetAccessKeyLastUsedResponse' {httpStatus} -> httpStatus) (\s@GetAccessKeyLastUsedResponse' {} a -> s {httpStatus = a} :: GetAccessKeyLastUsedResponse)
 
-instance NFData GetAccessKeyLastUsedResponse where
+instance Prelude.NFData GetAccessKeyLastUsedResponse

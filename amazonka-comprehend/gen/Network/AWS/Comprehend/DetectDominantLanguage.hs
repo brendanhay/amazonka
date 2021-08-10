@@ -1,133 +1,185 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Comprehend.DetectDominantLanguage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html Amazon Comprehend Supported Languages> .
---
---
+-- Determines the dominant language of the input text. For a list of
+-- languages that Amazon Comprehend can detect, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html Amazon Comprehend Supported Languages>.
 module Network.AWS.Comprehend.DetectDominantLanguage
-    (
-    -- * Creating a Request
-      detectDominantLanguage
-    , DetectDominantLanguage
+  ( -- * Creating a Request
+    DetectDominantLanguage (..),
+    newDetectDominantLanguage,
+
     -- * Request Lenses
-    , ddlText
+    detectDominantLanguage_text,
 
     -- * Destructuring the Response
-    , detectDominantLanguageResponse
-    , DetectDominantLanguageResponse
+    DetectDominantLanguageResponse (..),
+    newDetectDominantLanguageResponse,
+
     -- * Response Lenses
-    , ddlrsLanguages
-    , ddlrsResponseStatus
-    ) where
+    detectDominantLanguageResponse_languages,
+    detectDominantLanguageResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Comprehend.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detectDominantLanguage' smart constructor.
-newtype DetectDominantLanguage = DetectDominantLanguage'
-  { _ddlText :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDetectDominantLanguage' smart constructor.
+data DetectDominantLanguage = DetectDominantLanguage'
+  { -- | A UTF-8 text string. Each string should contain at least 20 characters
+    -- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    text :: Core.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetectDominantLanguage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetectDominantLanguage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddlText' - A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-detectDominantLanguage
-    :: Text -- ^ 'ddlText'
-    -> DetectDominantLanguage
-detectDominantLanguage pText_ = DetectDominantLanguage' {_ddlText = pText_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'text', 'detectDominantLanguage_text' - A UTF-8 text string. Each string should contain at least 20 characters
+-- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+newDetectDominantLanguage ::
+  -- | 'text'
+  Prelude.Text ->
+  DetectDominantLanguage
+newDetectDominantLanguage pText_ =
+  DetectDominantLanguage'
+    { text =
+        Core._Sensitive Lens.# pText_
+    }
 
+-- | A UTF-8 text string. Each string should contain at least 20 characters
+-- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+detectDominantLanguage_text :: Lens.Lens' DetectDominantLanguage Prelude.Text
+detectDominantLanguage_text = Lens.lens (\DetectDominantLanguage' {text} -> text) (\s@DetectDominantLanguage' {} a -> s {text = a} :: DetectDominantLanguage) Prelude.. Core._Sensitive
 
--- | A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-ddlText :: Lens' DetectDominantLanguage Text
-ddlText = lens _ddlText (\ s a -> s{_ddlText = a})
+instance Core.AWSRequest DetectDominantLanguage where
+  type
+    AWSResponse DetectDominantLanguage =
+      DetectDominantLanguageResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DetectDominantLanguageResponse'
+            Prelude.<$> (x Core..?> "Languages" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DetectDominantLanguage where
-        type Rs DetectDominantLanguage =
-             DetectDominantLanguageResponse
-        request = postJSON comprehend
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DetectDominantLanguageResponse' <$>
-                   (x .?> "Languages" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DetectDominantLanguage
 
-instance Hashable DetectDominantLanguage where
+instance Prelude.NFData DetectDominantLanguage
 
-instance NFData DetectDominantLanguage where
+instance Core.ToHeaders DetectDominantLanguage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Comprehend_20171127.DetectDominantLanguage" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DetectDominantLanguage where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Comprehend_20171127.DetectDominantLanguage" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DetectDominantLanguage where
+  toJSON DetectDominantLanguage' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Text" Core..= text)]
+      )
 
-instance ToJSON DetectDominantLanguage where
-        toJSON DetectDominantLanguage'{..}
-          = object (catMaybes [Just ("Text" .= _ddlText)])
+instance Core.ToPath DetectDominantLanguage where
+  toPath = Prelude.const "/"
 
-instance ToPath DetectDominantLanguage where
-        toPath = const "/"
+instance Core.ToQuery DetectDominantLanguage where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DetectDominantLanguage where
-        toQuery = const mempty
-
--- | /See:/ 'detectDominantLanguageResponse' smart constructor.
+-- | /See:/ 'newDetectDominantLanguageResponse' smart constructor.
 data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
-  { _ddlrsLanguages      :: !(Maybe [DominantLanguage])
-  , _ddlrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The languages that Amazon Comprehend detected in the input text. For
+    -- each language, the response returns the RFC 5646 language code and the
+    -- level of confidence that Amazon Comprehend has in the accuracy of its
+    -- inference. For more information about RFC 5646, see
+    -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
+    -- the /IETF Tools/ web site.
+    languages :: Prelude.Maybe [DominantLanguage],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetectDominantLanguageResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetectDominantLanguageResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddlrsLanguages' - The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddlrsResponseStatus' - -- | The response status code.
-detectDominantLanguageResponse
-    :: Int -- ^ 'ddlrsResponseStatus'
-    -> DetectDominantLanguageResponse
-detectDominantLanguageResponse pResponseStatus_ =
+-- 'languages', 'detectDominantLanguageResponse_languages' - The languages that Amazon Comprehend detected in the input text. For
+-- each language, the response returns the RFC 5646 language code and the
+-- level of confidence that Amazon Comprehend has in the accuracy of its
+-- inference. For more information about RFC 5646, see
+-- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
+-- the /IETF Tools/ web site.
+--
+-- 'httpStatus', 'detectDominantLanguageResponse_httpStatus' - The response's http status code.
+newDetectDominantLanguageResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DetectDominantLanguageResponse
+newDetectDominantLanguageResponse pHttpStatus_ =
   DetectDominantLanguageResponse'
-    {_ddlrsLanguages = Nothing, _ddlrsResponseStatus = pResponseStatus_}
+    { languages =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The languages that Amazon Comprehend detected in the input text. For
+-- each language, the response returns the RFC 5646 language code and the
+-- level of confidence that Amazon Comprehend has in the accuracy of its
+-- inference. For more information about RFC 5646, see
+-- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
+-- the /IETF Tools/ web site.
+detectDominantLanguageResponse_languages :: Lens.Lens' DetectDominantLanguageResponse (Prelude.Maybe [DominantLanguage])
+detectDominantLanguageResponse_languages = Lens.lens (\DetectDominantLanguageResponse' {languages} -> languages) (\s@DetectDominantLanguageResponse' {} a -> s {languages = a} :: DetectDominantLanguageResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
-ddlrsLanguages :: Lens' DetectDominantLanguageResponse [DominantLanguage]
-ddlrsLanguages = lens _ddlrsLanguages (\ s a -> s{_ddlrsLanguages = a}) . _Default . _Coerce
+-- | The response's http status code.
+detectDominantLanguageResponse_httpStatus :: Lens.Lens' DetectDominantLanguageResponse Prelude.Int
+detectDominantLanguageResponse_httpStatus = Lens.lens (\DetectDominantLanguageResponse' {httpStatus} -> httpStatus) (\s@DetectDominantLanguageResponse' {} a -> s {httpStatus = a} :: DetectDominantLanguageResponse)
 
--- | -- | The response status code.
-ddlrsResponseStatus :: Lens' DetectDominantLanguageResponse Int
-ddlrsResponseStatus = lens _ddlrsResponseStatus (\ s a -> s{_ddlrsResponseStatus = a})
-
-instance NFData DetectDominantLanguageResponse where
+instance
+  Prelude.NFData
+    DetectDominantLanguageResponse

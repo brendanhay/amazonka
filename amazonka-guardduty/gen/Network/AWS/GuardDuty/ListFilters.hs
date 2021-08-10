@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.ListFilters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,147 +24,199 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.GuardDuty.ListFilters
-    (
-    -- * Creating a Request
-      listFilters
-    , ListFilters
+  ( -- * Creating a Request
+    ListFilters (..),
+    newListFilters,
+
     -- * Request Lenses
-    , lNextToken
-    , lMaxResults
-    , lDetectorId
+    listFilters_nextToken,
+    listFilters_maxResults,
+    listFilters_detectorId,
 
     -- * Destructuring the Response
-    , listFiltersResponse
-    , ListFiltersResponse
+    ListFiltersResponse (..),
+    newListFiltersResponse,
+
     -- * Response Lenses
-    , lrsFilterNames
-    , lrsNextToken
-    , lrsResponseStatus
-    ) where
+    listFiltersResponse_nextToken,
+    listFiltersResponse_httpStatus,
+    listFiltersResponse_filterNames,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listFilters' smart constructor.
+-- | /See:/ 'newListFilters' smart constructor.
 data ListFilters = ListFilters'
-  { _lNextToken  :: !(Maybe Text)
-  , _lMaxResults :: !(Maybe Nat)
-  , _lDetectorId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | You can use this parameter when paginating results. Set the value of
+    -- this parameter to null on your first call to the list action. For
+    -- subsequent calls to the action, fill nextToken in the request with the
+    -- value of NextToken from the previous response to continue listing data.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | You can use this parameter to indicate the maximum number of items that
+    -- you want in the response. The default value is 50. The maximum value is
+    -- 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique ID of the detector that the filter is associated with.
+    detectorId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListFilters' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFilters' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lNextToken' - Paginates results. Set the value of this parameter to NULL on your first call to the ListFilters operation.For subsequent calls to the operation, fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lMaxResults' - Indicates the maximum number of items that you want in the response. The maximum value is 50.
+-- 'nextToken', 'listFilters_nextToken' - You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
 --
--- * 'lDetectorId' - The ID of the detector that specifies the GuardDuty service where you want to list filters.
-listFilters
-    :: Text -- ^ 'lDetectorId'
-    -> ListFilters
-listFilters pDetectorId_ =
+-- 'maxResults', 'listFilters_maxResults' - You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 50. The maximum value is
+-- 50.
+--
+-- 'detectorId', 'listFilters_detectorId' - The unique ID of the detector that the filter is associated with.
+newListFilters ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  ListFilters
+newListFilters pDetectorId_ =
   ListFilters'
-    {_lNextToken = Nothing, _lMaxResults = Nothing, _lDetectorId = pDetectorId_}
-
-
--- | Paginates results. Set the value of this parameter to NULL on your first call to the ListFilters operation.For subsequent calls to the operation, fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
-lNextToken :: Lens' ListFilters (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
-
--- | Indicates the maximum number of items that you want in the response. The maximum value is 50.
-lMaxResults :: Lens' ListFilters (Maybe Natural)
-lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat
-
--- | The ID of the detector that specifies the GuardDuty service where you want to list filters.
-lDetectorId :: Lens' ListFilters Text
-lDetectorId = lens _lDetectorId (\ s a -> s{_lDetectorId = a})
-
-instance AWSPager ListFilters where
-        page rq rs
-          | stop (rs ^. lrsNextToken) = Nothing
-          | stop (rs ^. lrsFilterNames) = Nothing
-          | otherwise =
-            Just $ rq & lNextToken .~ rs ^. lrsNextToken
-
-instance AWSRequest ListFilters where
-        type Rs ListFilters = ListFiltersResponse
-        request = get guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListFiltersResponse' <$>
-                   (x .?> "filterNames" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListFilters where
-
-instance NFData ListFilters where
-
-instance ToHeaders ListFilters where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath ListFilters where
-        toPath ListFilters'{..}
-          = mconcat
-              ["/detector/", toBS _lDetectorId, "/filter"]
-
-instance ToQuery ListFilters where
-        toQuery ListFilters'{..}
-          = mconcat
-              ["nextToken" =: _lNextToken,
-               "maxResults" =: _lMaxResults]
-
--- | /See:/ 'listFiltersResponse' smart constructor.
-data ListFiltersResponse = ListFiltersResponse'
-  { _lrsFilterNames    :: !(Maybe [Text])
-  , _lrsNextToken      :: !(Maybe Text)
-  , _lrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListFiltersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsFilterNames' - Undocumented member.
---
--- * 'lrsNextToken' - Undocumented member.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listFiltersResponse
-    :: Int -- ^ 'lrsResponseStatus'
-    -> ListFiltersResponse
-listFiltersResponse pResponseStatus_ =
-  ListFiltersResponse'
-    { _lrsFilterNames = Nothing
-    , _lrsNextToken = Nothing
-    , _lrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      detectorId = pDetectorId_
     }
 
+-- | You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
+listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
+listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
 
--- | Undocumented member.
-lrsFilterNames :: Lens' ListFiltersResponse [Text]
-lrsFilterNames = lens _lrsFilterNames (\ s a -> s{_lrsFilterNames = a}) . _Default . _Coerce
+-- | You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 50. The maximum value is
+-- 50.
+listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
+listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
 
--- | Undocumented member.
-lrsNextToken :: Lens' ListFiltersResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
+-- | The unique ID of the detector that the filter is associated with.
+listFilters_detectorId :: Lens.Lens' ListFilters Prelude.Text
+listFilters_detectorId = Lens.lens (\ListFilters' {detectorId} -> detectorId) (\s@ListFilters' {} a -> s {detectorId = a} :: ListFilters)
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListFiltersResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
+instance Core.AWSPager ListFilters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listFiltersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listFiltersResponse_filterNames) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listFilters_nextToken
+          Lens..~ rs
+          Lens.^? listFiltersResponse_nextToken Prelude.. Lens._Just
 
-instance NFData ListFiltersResponse where
+instance Core.AWSRequest ListFilters where
+  type AWSResponse ListFilters = ListFiltersResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFiltersResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "filterNames" Core..!@ Prelude.mempty)
+      )
+
+instance Prelude.Hashable ListFilters
+
+instance Prelude.NFData ListFilters
+
+instance Core.ToHeaders ListFilters where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListFilters where
+  toPath ListFilters' {..} =
+    Prelude.mconcat
+      ["/detector/", Core.toBS detectorId, "/filter"]
+
+instance Core.ToQuery ListFilters where
+  toQuery ListFilters' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListFiltersResponse' smart constructor.
+data ListFiltersResponse = ListFiltersResponse'
+  { -- | The pagination parameter to be used on the next list operation to
+    -- retrieve more items.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of filter names.
+    filterNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListFiltersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listFiltersResponse_nextToken' - The pagination parameter to be used on the next list operation to
+-- retrieve more items.
+--
+-- 'httpStatus', 'listFiltersResponse_httpStatus' - The response's http status code.
+--
+-- 'filterNames', 'listFiltersResponse_filterNames' - A list of filter names.
+newListFiltersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFiltersResponse
+newListFiltersResponse pHttpStatus_ =
+  ListFiltersResponse'
+    { nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      filterNames = Prelude.mempty
+    }
+
+-- | The pagination parameter to be used on the next list operation to
+-- retrieve more items.
+listFiltersResponse_nextToken :: Lens.Lens' ListFiltersResponse (Prelude.Maybe Prelude.Text)
+listFiltersResponse_nextToken = Lens.lens (\ListFiltersResponse' {nextToken} -> nextToken) (\s@ListFiltersResponse' {} a -> s {nextToken = a} :: ListFiltersResponse)
+
+-- | The response's http status code.
+listFiltersResponse_httpStatus :: Lens.Lens' ListFiltersResponse Prelude.Int
+listFiltersResponse_httpStatus = Lens.lens (\ListFiltersResponse' {httpStatus} -> httpStatus) (\s@ListFiltersResponse' {} a -> s {httpStatus = a} :: ListFiltersResponse)
+
+-- | A list of filter names.
+listFiltersResponse_filterNames :: Lens.Lens' ListFiltersResponse [Prelude.Text]
+listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Prelude.. Lens._Coerce
+
+instance Prelude.NFData ListFiltersResponse

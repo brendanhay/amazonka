@@ -1,178 +1,230 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateInstanceProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a profile that can be applied to one or more private fleet device instances.
---
---
+-- Creates a profile that can be applied to one or more private fleet
+-- device instances.
 module Network.AWS.DeviceFarm.CreateInstanceProfile
-    (
-    -- * Creating a Request
-      createInstanceProfile
-    , CreateInstanceProfile
+  ( -- * Creating a Request
+    CreateInstanceProfile (..),
+    newCreateInstanceProfile,
+
     -- * Request Lenses
-    , cipRebootAfterUse
-    , cipPackageCleanup
-    , cipExcludeAppPackagesFromCleanup
-    , cipDescription
-    , cipName
+    createInstanceProfile_excludeAppPackagesFromCleanup,
+    createInstanceProfile_description,
+    createInstanceProfile_rebootAfterUse,
+    createInstanceProfile_packageCleanup,
+    createInstanceProfile_name,
 
     -- * Destructuring the Response
-    , createInstanceProfileResponse
-    , CreateInstanceProfileResponse
+    CreateInstanceProfileResponse (..),
+    newCreateInstanceProfileResponse,
+
     -- * Response Lenses
-    , ciprsInstanceProfile
-    , ciprsResponseStatus
-    ) where
+    createInstanceProfileResponse_instanceProfile,
+    createInstanceProfileResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createInstanceProfile' smart constructor.
+-- | /See:/ 'newCreateInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { _cipRebootAfterUse                :: !(Maybe Bool)
-  , _cipPackageCleanup                :: !(Maybe Bool)
-  , _cipExcludeAppPackagesFromCleanup :: !(Maybe [Text])
-  , _cipDescription                   :: !(Maybe Text)
-  , _cipName                          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of strings that specifies the list of app packages that should
+    -- not be cleaned up from the device after a test run.
+    --
+    -- The list of packages is considered only if you set @packageCleanup@ to
+    -- @true@.
+    excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
+    -- | The description of your instance profile.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | When set to @true@, Device Farm reboots the instance after a test run.
+    -- The default value is @true@.
+    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
+    -- | When set to @true@, Device Farm removes app packages after a test run.
+    -- The default value is @false@ for private devices.
+    packageCleanup :: Prelude.Maybe Prelude.Bool,
+    -- | The name of your instance profile.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateInstanceProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cipRebootAfterUse' - When set to @true@ , Device Farm will reboot the instance after a test run. The default value is @true@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cipPackageCleanup' - When set to @true@ , Device Farm will remove app packages after a test run. The default value is @false@ for private devices.
+-- 'excludeAppPackagesFromCleanup', 'createInstanceProfile_excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should
+-- not be cleaned up from the device after a test run.
 --
--- * 'cipExcludeAppPackagesFromCleanup' - An array of strings specifying the list of app packages that should not be cleaned up from the device after a test run is over. The list of packages is only considered if you set @packageCleanup@ to @true@ .
+-- The list of packages is considered only if you set @packageCleanup@ to
+-- @true@.
 --
--- * 'cipDescription' - The description of your instance profile.
+-- 'description', 'createInstanceProfile_description' - The description of your instance profile.
 --
--- * 'cipName' - The name of your instance profile.
-createInstanceProfile
-    :: Text -- ^ 'cipName'
-    -> CreateInstanceProfile
-createInstanceProfile pName_ =
+-- 'rebootAfterUse', 'createInstanceProfile_rebootAfterUse' - When set to @true@, Device Farm reboots the instance after a test run.
+-- The default value is @true@.
+--
+-- 'packageCleanup', 'createInstanceProfile_packageCleanup' - When set to @true@, Device Farm removes app packages after a test run.
+-- The default value is @false@ for private devices.
+--
+-- 'name', 'createInstanceProfile_name' - The name of your instance profile.
+newCreateInstanceProfile ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateInstanceProfile
+newCreateInstanceProfile pName_ =
   CreateInstanceProfile'
-    { _cipRebootAfterUse = Nothing
-    , _cipPackageCleanup = Nothing
-    , _cipExcludeAppPackagesFromCleanup = Nothing
-    , _cipDescription = Nothing
-    , _cipName = pName_
+    { excludeAppPackagesFromCleanup =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      rebootAfterUse = Prelude.Nothing,
+      packageCleanup = Prelude.Nothing,
+      name = pName_
     }
 
-
--- | When set to @true@ , Device Farm will reboot the instance after a test run. The default value is @true@ .
-cipRebootAfterUse :: Lens' CreateInstanceProfile (Maybe Bool)
-cipRebootAfterUse = lens _cipRebootAfterUse (\ s a -> s{_cipRebootAfterUse = a})
-
--- | When set to @true@ , Device Farm will remove app packages after a test run. The default value is @false@ for private devices.
-cipPackageCleanup :: Lens' CreateInstanceProfile (Maybe Bool)
-cipPackageCleanup = lens _cipPackageCleanup (\ s a -> s{_cipPackageCleanup = a})
-
--- | An array of strings specifying the list of app packages that should not be cleaned up from the device after a test run is over. The list of packages is only considered if you set @packageCleanup@ to @true@ .
-cipExcludeAppPackagesFromCleanup :: Lens' CreateInstanceProfile [Text]
-cipExcludeAppPackagesFromCleanup = lens _cipExcludeAppPackagesFromCleanup (\ s a -> s{_cipExcludeAppPackagesFromCleanup = a}) . _Default . _Coerce
+-- | An array of strings that specifies the list of app packages that should
+-- not be cleaned up from the device after a test run.
+--
+-- The list of packages is considered only if you set @packageCleanup@ to
+-- @true@.
+createInstanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Prelude.Text])
+createInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\CreateInstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@CreateInstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of your instance profile.
-cipDescription :: Lens' CreateInstanceProfile (Maybe Text)
-cipDescription = lens _cipDescription (\ s a -> s{_cipDescription = a})
+createInstanceProfile_description :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Text)
+createInstanceProfile_description = Lens.lens (\CreateInstanceProfile' {description} -> description) (\s@CreateInstanceProfile' {} a -> s {description = a} :: CreateInstanceProfile)
+
+-- | When set to @true@, Device Farm reboots the instance after a test run.
+-- The default value is @true@.
+createInstanceProfile_rebootAfterUse :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Bool)
+createInstanceProfile_rebootAfterUse = Lens.lens (\CreateInstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@CreateInstanceProfile' {} a -> s {rebootAfterUse = a} :: CreateInstanceProfile)
+
+-- | When set to @true@, Device Farm removes app packages after a test run.
+-- The default value is @false@ for private devices.
+createInstanceProfile_packageCleanup :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Bool)
+createInstanceProfile_packageCleanup = Lens.lens (\CreateInstanceProfile' {packageCleanup} -> packageCleanup) (\s@CreateInstanceProfile' {} a -> s {packageCleanup = a} :: CreateInstanceProfile)
 
 -- | The name of your instance profile.
-cipName :: Lens' CreateInstanceProfile Text
-cipName = lens _cipName (\ s a -> s{_cipName = a})
+createInstanceProfile_name :: Lens.Lens' CreateInstanceProfile Prelude.Text
+createInstanceProfile_name = Lens.lens (\CreateInstanceProfile' {name} -> name) (\s@CreateInstanceProfile' {} a -> s {name = a} :: CreateInstanceProfile)
 
-instance AWSRequest CreateInstanceProfile where
-        type Rs CreateInstanceProfile =
-             CreateInstanceProfileResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateInstanceProfileResponse' <$>
-                   (x .?> "instanceProfile") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateInstanceProfile where
+  type
+    AWSResponse CreateInstanceProfile =
+      CreateInstanceProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateInstanceProfileResponse'
+            Prelude.<$> (x Core..?> "instanceProfile")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateInstanceProfile where
+instance Prelude.Hashable CreateInstanceProfile
 
-instance NFData CreateInstanceProfile where
+instance Prelude.NFData CreateInstanceProfile
 
-instance ToHeaders CreateInstanceProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.CreateInstanceProfile" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateInstanceProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.CreateInstanceProfile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateInstanceProfile where
-        toJSON CreateInstanceProfile'{..}
-          = object
-              (catMaybes
-                 [("rebootAfterUse" .=) <$> _cipRebootAfterUse,
-                  ("packageCleanup" .=) <$> _cipPackageCleanup,
-                  ("excludeAppPackagesFromCleanup" .=) <$>
-                    _cipExcludeAppPackagesFromCleanup,
-                  ("description" .=) <$> _cipDescription,
-                  Just ("name" .= _cipName)])
+instance Core.ToJSON CreateInstanceProfile where
+  toJSON CreateInstanceProfile' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("excludeAppPackagesFromCleanup" Core..=)
+              Prelude.<$> excludeAppPackagesFromCleanup,
+            ("description" Core..=) Prelude.<$> description,
+            ("rebootAfterUse" Core..=)
+              Prelude.<$> rebootAfterUse,
+            ("packageCleanup" Core..=)
+              Prelude.<$> packageCleanup,
+            Prelude.Just ("name" Core..= name)
+          ]
+      )
 
-instance ToPath CreateInstanceProfile where
-        toPath = const "/"
+instance Core.ToPath CreateInstanceProfile where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateInstanceProfile where
-        toQuery = const mempty
+instance Core.ToQuery CreateInstanceProfile where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createInstanceProfileResponse' smart constructor.
+-- | /See:/ 'newCreateInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-  { _ciprsInstanceProfile :: !(Maybe InstanceProfile)
-  , _ciprsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object that contains information about your instance profile.
+    instanceProfile :: Prelude.Maybe InstanceProfile,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateInstanceProfileResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ciprsInstanceProfile' - An object containing information about your instance profile.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ciprsResponseStatus' - -- | The response status code.
-createInstanceProfileResponse
-    :: Int -- ^ 'ciprsResponseStatus'
-    -> CreateInstanceProfileResponse
-createInstanceProfileResponse pResponseStatus_ =
+-- 'instanceProfile', 'createInstanceProfileResponse_instanceProfile' - An object that contains information about your instance profile.
+--
+-- 'httpStatus', 'createInstanceProfileResponse_httpStatus' - The response's http status code.
+newCreateInstanceProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateInstanceProfileResponse
+newCreateInstanceProfileResponse pHttpStatus_ =
   CreateInstanceProfileResponse'
-    {_ciprsInstanceProfile = Nothing, _ciprsResponseStatus = pResponseStatus_}
+    { instanceProfile =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An object that contains information about your instance profile.
+createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse (Prelude.Maybe InstanceProfile)
+createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@CreateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
 
--- | An object containing information about your instance profile.
-ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse (Maybe InstanceProfile)
-ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a})
+-- | The response's http status code.
+createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Prelude.Int
+createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceProfileResponse' {} a -> s {httpStatus = a} :: CreateInstanceProfileResponse)
 
--- | -- | The response status code.
-ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
-ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a})
-
-instance NFData CreateInstanceProfileResponse where
+instance Prelude.NFData CreateInstanceProfileResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MQ.ListConfigurationRevisions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,164 +22,207 @@
 --
 -- Returns a list of all revisions for the specified configuration.
 module Network.AWS.MQ.ListConfigurationRevisions
-    (
-    -- * Creating a Request
-      listConfigurationRevisions
-    , ListConfigurationRevisions
+  ( -- * Creating a Request
+    ListConfigurationRevisions (..),
+    newListConfigurationRevisions,
+
     -- * Request Lenses
-    , lcrNextToken
-    , lcrMaxResults
-    , lcrConfigurationId
+    listConfigurationRevisions_nextToken,
+    listConfigurationRevisions_maxResults,
+    listConfigurationRevisions_configurationId,
 
     -- * Destructuring the Response
-    , listConfigurationRevisionsResponse
-    , ListConfigurationRevisionsResponse
+    ListConfigurationRevisionsResponse (..),
+    newListConfigurationRevisionsResponse,
+
     -- * Response Lenses
-    , lcrrsConfigurationId
-    , lcrrsNextToken
-    , lcrrsRevisions
-    , lcrrsMaxResults
-    , lcrrsResponseStatus
-    ) where
+    listConfigurationRevisionsResponse_nextToken,
+    listConfigurationRevisionsResponse_maxResults,
+    listConfigurationRevisionsResponse_revisions,
+    listConfigurationRevisionsResponse_configurationId,
+    listConfigurationRevisionsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.MQ.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listConfigurationRevisions' smart constructor.
+-- | /See:/ 'newListConfigurationRevisions' smart constructor.
 data ListConfigurationRevisions = ListConfigurationRevisions'
-  { _lcrNextToken       :: !(Maybe Text)
-  , _lcrMaxResults      :: !(Maybe Nat)
-  , _lcrConfigurationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token that specifies the next page of results Amazon MQ should
+    -- return. To request the first page, leave nextToken empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of configurations that Amazon MQ can return per page
+    -- (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListConfigurationRevisions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListConfigurationRevisions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcrNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcrMaxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+-- 'nextToken', 'listConfigurationRevisions_nextToken' - The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
 --
--- * 'lcrConfigurationId' - The unique ID that Amazon MQ generates for the configuration.
-listConfigurationRevisions
-    :: Text -- ^ 'lcrConfigurationId'
-    -> ListConfigurationRevisions
-listConfigurationRevisions pConfigurationId_ =
+-- 'maxResults', 'listConfigurationRevisions_maxResults' - The maximum number of configurations that Amazon MQ can return per page
+-- (20 by default). This value must be an integer from 5 to 100.
+--
+-- 'configurationId', 'listConfigurationRevisions_configurationId' - The unique ID that Amazon MQ generates for the configuration.
+newListConfigurationRevisions ::
+  -- | 'configurationId'
+  Prelude.Text ->
+  ListConfigurationRevisions
+newListConfigurationRevisions pConfigurationId_ =
   ListConfigurationRevisions'
-    { _lcrNextToken = Nothing
-    , _lcrMaxResults = Nothing
-    , _lcrConfigurationId = pConfigurationId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      configurationId = pConfigurationId_
     }
 
+-- | The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
+listConfigurationRevisions_nextToken :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Text)
+listConfigurationRevisions_nextToken = Lens.lens (\ListConfigurationRevisions' {nextToken} -> nextToken) (\s@ListConfigurationRevisions' {} a -> s {nextToken = a} :: ListConfigurationRevisions)
 
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-lcrNextToken :: Lens' ListConfigurationRevisions (Maybe Text)
-lcrNextToken = lens _lcrNextToken (\ s a -> s{_lcrNextToken = a})
-
--- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-lcrMaxResults :: Lens' ListConfigurationRevisions (Maybe Natural)
-lcrMaxResults = lens _lcrMaxResults (\ s a -> s{_lcrMaxResults = a}) . mapping _Nat
+-- | The maximum number of configurations that Amazon MQ can return per page
+-- (20 by default). This value must be an integer from 5 to 100.
+listConfigurationRevisions_maxResults :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Natural)
+listConfigurationRevisions_maxResults = Lens.lens (\ListConfigurationRevisions' {maxResults} -> maxResults) (\s@ListConfigurationRevisions' {} a -> s {maxResults = a} :: ListConfigurationRevisions)
 
 -- | The unique ID that Amazon MQ generates for the configuration.
-lcrConfigurationId :: Lens' ListConfigurationRevisions Text
-lcrConfigurationId = lens _lcrConfigurationId (\ s a -> s{_lcrConfigurationId = a})
+listConfigurationRevisions_configurationId :: Lens.Lens' ListConfigurationRevisions Prelude.Text
+listConfigurationRevisions_configurationId = Lens.lens (\ListConfigurationRevisions' {configurationId} -> configurationId) (\s@ListConfigurationRevisions' {} a -> s {configurationId = a} :: ListConfigurationRevisions)
 
-instance AWSRequest ListConfigurationRevisions where
-        type Rs ListConfigurationRevisions =
-             ListConfigurationRevisionsResponse
-        request = get mq
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListConfigurationRevisionsResponse' <$>
-                   (x .?> "configurationId") <*> (x .?> "nextToken") <*>
-                     (x .?> "revisions" .!@ mempty)
-                     <*> (x .?> "maxResults")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListConfigurationRevisions where
+  type
+    AWSResponse ListConfigurationRevisions =
+      ListConfigurationRevisionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListConfigurationRevisionsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "configurationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListConfigurationRevisions where
+instance Prelude.Hashable ListConfigurationRevisions
 
-instance NFData ListConfigurationRevisions where
+instance Prelude.NFData ListConfigurationRevisions
 
-instance ToHeaders ListConfigurationRevisions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListConfigurationRevisions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListConfigurationRevisions where
-        toPath ListConfigurationRevisions'{..}
-          = mconcat
-              ["/v1/configurations/", toBS _lcrConfigurationId,
-               "/revisions"]
+instance Core.ToPath ListConfigurationRevisions where
+  toPath ListConfigurationRevisions' {..} =
+    Prelude.mconcat
+      [ "/v1/configurations/",
+        Core.toBS configurationId,
+        "/revisions"
+      ]
 
-instance ToQuery ListConfigurationRevisions where
-        toQuery ListConfigurationRevisions'{..}
-          = mconcat
-              ["nextToken" =: _lcrNextToken,
-               "maxResults" =: _lcrMaxResults]
+instance Core.ToQuery ListConfigurationRevisions where
+  toQuery ListConfigurationRevisions' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
 
--- | /See:/ 'listConfigurationRevisionsResponse' smart constructor.
+-- | /See:/ 'newListConfigurationRevisionsResponse' smart constructor.
 data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
-  { _lcrrsConfigurationId :: !(Maybe Text)
-  , _lcrrsNextToken       :: !(Maybe Text)
-  , _lcrrsRevisions       :: !(Maybe [ConfigurationRevision])
-  , _lcrrsMaxResults      :: !(Maybe Int)
-  , _lcrrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token that specifies the next page of results Amazon MQ should
+    -- return. To request the first page, leave nextToken empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of configuration revisions that can be returned per
+    -- page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The list of all revisions for the specified configuration.
+    revisions :: Prelude.Maybe [ConfigurationRevision],
+    -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListConfigurationRevisionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListConfigurationRevisionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcrrsConfigurationId' - The unique ID that Amazon MQ generates for the configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcrrsNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- 'nextToken', 'listConfigurationRevisionsResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
 --
--- * 'lcrrsRevisions' - The list of all revisions for the specified configuration.
+-- 'maxResults', 'listConfigurationRevisionsResponse_maxResults' - The maximum number of configuration revisions that can be returned per
+-- page (20 by default). This value must be an integer from 5 to 100.
 --
--- * 'lcrrsMaxResults' - The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+-- 'revisions', 'listConfigurationRevisionsResponse_revisions' - The list of all revisions for the specified configuration.
 --
--- * 'lcrrsResponseStatus' - -- | The response status code.
-listConfigurationRevisionsResponse
-    :: Int -- ^ 'lcrrsResponseStatus'
-    -> ListConfigurationRevisionsResponse
-listConfigurationRevisionsResponse pResponseStatus_ =
+-- 'configurationId', 'listConfigurationRevisionsResponse_configurationId' - The unique ID that Amazon MQ generates for the configuration.
+--
+-- 'httpStatus', 'listConfigurationRevisionsResponse_httpStatus' - The response's http status code.
+newListConfigurationRevisionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListConfigurationRevisionsResponse
+newListConfigurationRevisionsResponse pHttpStatus_ =
   ListConfigurationRevisionsResponse'
-    { _lcrrsConfigurationId = Nothing
-    , _lcrrsNextToken = Nothing
-    , _lcrrsRevisions = Nothing
-    , _lcrrsMaxResults = Nothing
-    , _lcrrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      revisions = Prelude.Nothing,
+      configurationId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
+listConfigurationRevisionsResponse_nextToken :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Text)
+listConfigurationRevisionsResponse_nextToken = Lens.lens (\ListConfigurationRevisionsResponse' {nextToken} -> nextToken) (\s@ListConfigurationRevisionsResponse' {} a -> s {nextToken = a} :: ListConfigurationRevisionsResponse)
 
--- | The unique ID that Amazon MQ generates for the configuration.
-lcrrsConfigurationId :: Lens' ListConfigurationRevisionsResponse (Maybe Text)
-lcrrsConfigurationId = lens _lcrrsConfigurationId (\ s a -> s{_lcrrsConfigurationId = a})
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-lcrrsNextToken :: Lens' ListConfigurationRevisionsResponse (Maybe Text)
-lcrrsNextToken = lens _lcrrsNextToken (\ s a -> s{_lcrrsNextToken = a})
+-- | The maximum number of configuration revisions that can be returned per
+-- page (20 by default). This value must be an integer from 5 to 100.
+listConfigurationRevisionsResponse_maxResults :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Int)
+listConfigurationRevisionsResponse_maxResults = Lens.lens (\ListConfigurationRevisionsResponse' {maxResults} -> maxResults) (\s@ListConfigurationRevisionsResponse' {} a -> s {maxResults = a} :: ListConfigurationRevisionsResponse)
 
 -- | The list of all revisions for the specified configuration.
-lcrrsRevisions :: Lens' ListConfigurationRevisionsResponse [ConfigurationRevision]
-lcrrsRevisions = lens _lcrrsRevisions (\ s a -> s{_lcrrsRevisions = a}) . _Default . _Coerce
+listConfigurationRevisionsResponse_revisions :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe [ConfigurationRevision])
+listConfigurationRevisionsResponse_revisions = Lens.lens (\ListConfigurationRevisionsResponse' {revisions} -> revisions) (\s@ListConfigurationRevisionsResponse' {} a -> s {revisions = a} :: ListConfigurationRevisionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-lcrrsMaxResults :: Lens' ListConfigurationRevisionsResponse (Maybe Int)
-lcrrsMaxResults = lens _lcrrsMaxResults (\ s a -> s{_lcrrsMaxResults = a})
+-- | The unique ID that Amazon MQ generates for the configuration.
+listConfigurationRevisionsResponse_configurationId :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Text)
+listConfigurationRevisionsResponse_configurationId = Lens.lens (\ListConfigurationRevisionsResponse' {configurationId} -> configurationId) (\s@ListConfigurationRevisionsResponse' {} a -> s {configurationId = a} :: ListConfigurationRevisionsResponse)
 
--- | -- | The response status code.
-lcrrsResponseStatus :: Lens' ListConfigurationRevisionsResponse Int
-lcrrsResponseStatus = lens _lcrrsResponseStatus (\ s a -> s{_lcrrsResponseStatus = a})
+-- | The response's http status code.
+listConfigurationRevisionsResponse_httpStatus :: Lens.Lens' ListConfigurationRevisionsResponse Prelude.Int
+listConfigurationRevisionsResponse_httpStatus = Lens.lens (\ListConfigurationRevisionsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationRevisionsResponse' {} a -> s {httpStatus = a} :: ListConfigurationRevisionsResponse)
 
-instance NFData ListConfigurationRevisionsResponse
-         where
+instance
+  Prelude.NFData
+    ListConfigurationRevisionsResponse

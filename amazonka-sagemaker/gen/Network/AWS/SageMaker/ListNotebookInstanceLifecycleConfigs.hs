@@ -1,244 +1,352 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists notebook instance lifestyle configurations created with the API.
+-- Lists notebook instance lifestyle configurations created with the
+-- CreateNotebookInstanceLifecycleConfig API.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
-    (
-    -- * Creating a Request
-      listNotebookInstanceLifecycleConfigs
-    , ListNotebookInstanceLifecycleConfigs
+  ( -- * Creating a Request
+    ListNotebookInstanceLifecycleConfigs (..),
+    newListNotebookInstanceLifecycleConfigs,
+
     -- * Request Lenses
-    , lnilcNameContains
-    , lnilcLastModifiedTimeBefore
-    , lnilcCreationTimeAfter
-    , lnilcNextToken
-    , lnilcSortOrder
-    , lnilcLastModifiedTimeAfter
-    , lnilcCreationTimeBefore
-    , lnilcMaxResults
-    , lnilcSortBy
+    listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore,
+    listNotebookInstanceLifecycleConfigs_sortOrder,
+    listNotebookInstanceLifecycleConfigs_nextToken,
+    listNotebookInstanceLifecycleConfigs_nameContains,
+    listNotebookInstanceLifecycleConfigs_maxResults,
+    listNotebookInstanceLifecycleConfigs_creationTimeBefore,
+    listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter,
+    listNotebookInstanceLifecycleConfigs_sortBy,
+    listNotebookInstanceLifecycleConfigs_creationTimeAfter,
 
     -- * Destructuring the Response
-    , listNotebookInstanceLifecycleConfigsResponse
-    , ListNotebookInstanceLifecycleConfigsResponse
+    ListNotebookInstanceLifecycleConfigsResponse (..),
+    newListNotebookInstanceLifecycleConfigsResponse,
+
     -- * Response Lenses
-    , lnilcrsNextToken
-    , lnilcrsNotebookInstanceLifecycleConfigs
-    , lnilcrsResponseStatus
-    ) where
+    listNotebookInstanceLifecycleConfigsResponse_nextToken,
+    listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs,
+    listNotebookInstanceLifecycleConfigsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'listNotebookInstanceLifecycleConfigs' smart constructor.
+-- | /See:/ 'newListNotebookInstanceLifecycleConfigs' smart constructor.
 data ListNotebookInstanceLifecycleConfigs = ListNotebookInstanceLifecycleConfigs'
-  { _lnilcNameContains :: !(Maybe Text)
-  , _lnilcLastModifiedTimeBefore :: !(Maybe POSIX)
-  , _lnilcCreationTimeAfter :: !(Maybe POSIX)
-  , _lnilcNextToken :: !(Maybe Text)
-  , _lnilcSortOrder :: !(Maybe NotebookInstanceLifecycleConfigSortOrder)
-  , _lnilcLastModifiedTimeAfter :: !(Maybe POSIX)
-  , _lnilcCreationTimeBefore :: !(Maybe POSIX)
-  , _lnilcMaxResults :: !(Maybe Nat)
-  , _lnilcSortBy :: !(Maybe NotebookInstanceLifecycleConfigSortKey)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A filter that returns only lifecycle configurations that were modified
+    -- before the specified time (timestamp).
+    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The sort order for results.
+    sortOrder :: Prelude.Maybe NotebookInstanceLifecycleConfigSortOrder,
+    -- | If the result of a @ListNotebookInstanceLifecycleConfigs@ request was
+    -- truncated, the response includes a @NextToken@. To get the next set of
+    -- lifecycle configurations, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A string in the lifecycle configuration name. This filter returns only
+    -- lifecycle configurations whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of lifecycle configurations to return in the
+    -- response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that returns only lifecycle configurations that were created
+    -- before the specified time (timestamp).
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns only lifecycle configurations that were modified
+    -- after the specified time (timestamp).
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | Sorts the list of results. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe NotebookInstanceLifecycleConfigSortKey,
+    -- | A filter that returns only lifecycle configurations that were created
+    -- after the specified time (timestamp).
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListNotebookInstanceLifecycleConfigs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListNotebookInstanceLifecycleConfigs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lnilcNameContains' - A string in the lifecycle configuration name. This filter returns only lifecycle configurations whose name contains the specified string.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lnilcLastModifiedTimeBefore' - A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).
+-- 'lastModifiedTimeBefore', 'listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore' - A filter that returns only lifecycle configurations that were modified
+-- before the specified time (timestamp).
 --
--- * 'lnilcCreationTimeAfter' - A filter that returns only lifecycle configurations that were created after the specified time (timestamp).
+-- 'sortOrder', 'listNotebookInstanceLifecycleConfigs_sortOrder' - The sort order for results.
 --
--- * 'lnilcNextToken' - If the result of a @ListNotebookInstanceLifecycleConfigs@ request was truncated, the response includes a @NextToken@ . To get the next set of lifecycle configurations, use the token in the next request.
+-- 'nextToken', 'listNotebookInstanceLifecycleConfigs_nextToken' - If the result of a @ListNotebookInstanceLifecycleConfigs@ request was
+-- truncated, the response includes a @NextToken@. To get the next set of
+-- lifecycle configurations, use the token in the next request.
 --
--- * 'lnilcSortOrder' - The sort order for results.
+-- 'nameContains', 'listNotebookInstanceLifecycleConfigs_nameContains' - A string in the lifecycle configuration name. This filter returns only
+-- lifecycle configurations whose name contains the specified string.
 --
--- * 'lnilcLastModifiedTimeAfter' - A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).
+-- 'maxResults', 'listNotebookInstanceLifecycleConfigs_maxResults' - The maximum number of lifecycle configurations to return in the
+-- response.
 --
--- * 'lnilcCreationTimeBefore' - A filter that returns only lifecycle configurations that were created before the specified time (timestamp).
+-- 'creationTimeBefore', 'listNotebookInstanceLifecycleConfigs_creationTimeBefore' - A filter that returns only lifecycle configurations that were created
+-- before the specified time (timestamp).
 --
--- * 'lnilcMaxResults' - The maximum number of lifecycle configurations to return in the response.
+-- 'lastModifiedTimeAfter', 'listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter' - A filter that returns only lifecycle configurations that were modified
+-- after the specified time (timestamp).
 --
--- * 'lnilcSortBy' - Sorts the list of results. The default is @CreationTime@ .
-listNotebookInstanceLifecycleConfigs
-    :: ListNotebookInstanceLifecycleConfigs
-listNotebookInstanceLifecycleConfigs =
+-- 'sortBy', 'listNotebookInstanceLifecycleConfigs_sortBy' - Sorts the list of results. The default is @CreationTime@.
+--
+-- 'creationTimeAfter', 'listNotebookInstanceLifecycleConfigs_creationTimeAfter' - A filter that returns only lifecycle configurations that were created
+-- after the specified time (timestamp).
+newListNotebookInstanceLifecycleConfigs ::
+  ListNotebookInstanceLifecycleConfigs
+newListNotebookInstanceLifecycleConfigs =
   ListNotebookInstanceLifecycleConfigs'
-    { _lnilcNameContains = Nothing
-    , _lnilcLastModifiedTimeBefore = Nothing
-    , _lnilcCreationTimeAfter = Nothing
-    , _lnilcNextToken = Nothing
-    , _lnilcSortOrder = Nothing
-    , _lnilcLastModifiedTimeAfter = Nothing
-    , _lnilcCreationTimeBefore = Nothing
-    , _lnilcMaxResults = Nothing
-    , _lnilcSortBy = Nothing
+    { lastModifiedTimeBefore =
+        Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      lastModifiedTimeAfter =
+        Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
 
-
--- | A string in the lifecycle configuration name. This filter returns only lifecycle configurations whose name contains the specified string.
-lnilcNameContains :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe Text)
-lnilcNameContains = lens _lnilcNameContains (\ s a -> s{_lnilcNameContains = a})
-
--- | A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).
-lnilcLastModifiedTimeBefore :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe UTCTime)
-lnilcLastModifiedTimeBefore = lens _lnilcLastModifiedTimeBefore (\ s a -> s{_lnilcLastModifiedTimeBefore = a}) . mapping _Time
-
--- | A filter that returns only lifecycle configurations that were created after the specified time (timestamp).
-lnilcCreationTimeAfter :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe UTCTime)
-lnilcCreationTimeAfter = lens _lnilcCreationTimeAfter (\ s a -> s{_lnilcCreationTimeAfter = a}) . mapping _Time
-
--- | If the result of a @ListNotebookInstanceLifecycleConfigs@ request was truncated, the response includes a @NextToken@ . To get the next set of lifecycle configurations, use the token in the next request.
-lnilcNextToken :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe Text)
-lnilcNextToken = lens _lnilcNextToken (\ s a -> s{_lnilcNextToken = a})
+-- | A filter that returns only lifecycle configurations that were modified
+-- before the specified time (timestamp).
+listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {lastModifiedTimeBefore = a} :: ListNotebookInstanceLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
 -- | The sort order for results.
-lnilcSortOrder :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe NotebookInstanceLifecycleConfigSortOrder)
-lnilcSortOrder = lens _lnilcSortOrder (\ s a -> s{_lnilcSortOrder = a})
+listNotebookInstanceLifecycleConfigs_sortOrder :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe NotebookInstanceLifecycleConfigSortOrder)
+listNotebookInstanceLifecycleConfigs_sortOrder = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {sortOrder} -> sortOrder) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {sortOrder = a} :: ListNotebookInstanceLifecycleConfigs)
 
--- | A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).
-lnilcLastModifiedTimeAfter :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe UTCTime)
-lnilcLastModifiedTimeAfter = lens _lnilcLastModifiedTimeAfter (\ s a -> s{_lnilcLastModifiedTimeAfter = a}) . mapping _Time
+-- | If the result of a @ListNotebookInstanceLifecycleConfigs@ request was
+-- truncated, the response includes a @NextToken@. To get the next set of
+-- lifecycle configurations, use the token in the next request.
+listNotebookInstanceLifecycleConfigs_nextToken :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.Text)
+listNotebookInstanceLifecycleConfigs_nextToken = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {nextToken} -> nextToken) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {nextToken = a} :: ListNotebookInstanceLifecycleConfigs)
 
--- | A filter that returns only lifecycle configurations that were created before the specified time (timestamp).
-lnilcCreationTimeBefore :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe UTCTime)
-lnilcCreationTimeBefore = lens _lnilcCreationTimeBefore (\ s a -> s{_lnilcCreationTimeBefore = a}) . mapping _Time
+-- | A string in the lifecycle configuration name. This filter returns only
+-- lifecycle configurations whose name contains the specified string.
+listNotebookInstanceLifecycleConfigs_nameContains :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.Text)
+listNotebookInstanceLifecycleConfigs_nameContains = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {nameContains} -> nameContains) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {nameContains = a} :: ListNotebookInstanceLifecycleConfigs)
 
--- | The maximum number of lifecycle configurations to return in the response.
-lnilcMaxResults :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe Natural)
-lnilcMaxResults = lens _lnilcMaxResults (\ s a -> s{_lnilcMaxResults = a}) . mapping _Nat
+-- | The maximum number of lifecycle configurations to return in the
+-- response.
+listNotebookInstanceLifecycleConfigs_maxResults :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.Natural)
+listNotebookInstanceLifecycleConfigs_maxResults = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {maxResults} -> maxResults) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {maxResults = a} :: ListNotebookInstanceLifecycleConfigs)
 
--- | Sorts the list of results. The default is @CreationTime@ .
-lnilcSortBy :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe NotebookInstanceLifecycleConfigSortKey)
-lnilcSortBy = lens _lnilcSortBy (\ s a -> s{_lnilcSortBy = a})
+-- | A filter that returns only lifecycle configurations that were created
+-- before the specified time (timestamp).
+listNotebookInstanceLifecycleConfigs_creationTimeBefore :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listNotebookInstanceLifecycleConfigs_creationTimeBefore = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {creationTimeBefore = a} :: ListNotebookInstanceLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
-instance AWSRequest
-           ListNotebookInstanceLifecycleConfigs
-         where
-        type Rs ListNotebookInstanceLifecycleConfigs =
-             ListNotebookInstanceLifecycleConfigsResponse
-        request = postJSON sageMaker
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListNotebookInstanceLifecycleConfigsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "NotebookInstanceLifecycleConfigs" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | A filter that returns only lifecycle configurations that were modified
+-- after the specified time (timestamp).
+listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {lastModifiedTimeAfter = a} :: ListNotebookInstanceLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
-instance Hashable
-           ListNotebookInstanceLifecycleConfigs
-         where
+-- | Sorts the list of results. The default is @CreationTime@.
+listNotebookInstanceLifecycleConfigs_sortBy :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe NotebookInstanceLifecycleConfigSortKey)
+listNotebookInstanceLifecycleConfigs_sortBy = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {sortBy} -> sortBy) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {sortBy = a} :: ListNotebookInstanceLifecycleConfigs)
 
-instance NFData ListNotebookInstanceLifecycleConfigs
-         where
+-- | A filter that returns only lifecycle configurations that were created
+-- after the specified time (timestamp).
+listNotebookInstanceLifecycleConfigs_creationTimeAfter :: Lens.Lens' ListNotebookInstanceLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listNotebookInstanceLifecycleConfigs_creationTimeAfter = Lens.lens (\ListNotebookInstanceLifecycleConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListNotebookInstanceLifecycleConfigs' {} a -> s {creationTimeAfter = a} :: ListNotebookInstanceLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
-instance ToHeaders
-           ListNotebookInstanceLifecycleConfigs
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.ListNotebookInstanceLifecycleConfigs" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.AWSPager
+    ListNotebookInstanceLifecycleConfigs
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listNotebookInstanceLifecycleConfigs_nextToken
+          Lens..~ rs
+            Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
-instance ToJSON ListNotebookInstanceLifecycleConfigs
-         where
-        toJSON ListNotebookInstanceLifecycleConfigs'{..}
-          = object
-              (catMaybes
-                 [("NameContains" .=) <$> _lnilcNameContains,
-                  ("LastModifiedTimeBefore" .=) <$>
-                    _lnilcLastModifiedTimeBefore,
-                  ("CreationTimeAfter" .=) <$> _lnilcCreationTimeAfter,
-                  ("NextToken" .=) <$> _lnilcNextToken,
-                  ("SortOrder" .=) <$> _lnilcSortOrder,
-                  ("LastModifiedTimeAfter" .=) <$>
-                    _lnilcLastModifiedTimeAfter,
-                  ("CreationTimeBefore" .=) <$>
-                    _lnilcCreationTimeBefore,
-                  ("MaxResults" .=) <$> _lnilcMaxResults,
-                  ("SortBy" .=) <$> _lnilcSortBy])
+instance
+  Core.AWSRequest
+    ListNotebookInstanceLifecycleConfigs
+  where
+  type
+    AWSResponse ListNotebookInstanceLifecycleConfigs =
+      ListNotebookInstanceLifecycleConfigsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListNotebookInstanceLifecycleConfigsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "NotebookInstanceLifecycleConfigs"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToPath ListNotebookInstanceLifecycleConfigs
-         where
-        toPath = const "/"
+instance
+  Prelude.Hashable
+    ListNotebookInstanceLifecycleConfigs
 
-instance ToQuery ListNotebookInstanceLifecycleConfigs
-         where
-        toQuery = const mempty
+instance
+  Prelude.NFData
+    ListNotebookInstanceLifecycleConfigs
 
--- | /See:/ 'listNotebookInstanceLifecycleConfigsResponse' smart constructor.
+instance
+  Core.ToHeaders
+    ListNotebookInstanceLifecycleConfigs
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SageMaker.ListNotebookInstanceLifecycleConfigs" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToJSON
+    ListNotebookInstanceLifecycleConfigs
+  where
+  toJSON ListNotebookInstanceLifecycleConfigs' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("LastModifiedTimeBefore" Core..=)
+              Prelude.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
+          ]
+      )
+
+instance
+  Core.ToPath
+    ListNotebookInstanceLifecycleConfigs
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    ListNotebookInstanceLifecycleConfigs
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListNotebookInstanceLifecycleConfigsResponse' smart constructor.
 data ListNotebookInstanceLifecycleConfigsResponse = ListNotebookInstanceLifecycleConfigsResponse'
-  { _lnilcrsNextToken :: !(Maybe Text)
-  , _lnilcrsNotebookInstanceLifecycleConfigs :: !(Maybe [NotebookInstanceLifecycleConfigSummary])
-  , _lnilcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To
+    -- get the next set of lifecycle configurations, use it in the next
+    -- request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @NotebookInstanceLifecycleConfiguration@ objects, each
+    -- listing a lifecycle configuration.
+    notebookInstanceLifecycleConfigs :: Prelude.Maybe [NotebookInstanceLifecycleConfigSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListNotebookInstanceLifecycleConfigsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListNotebookInstanceLifecycleConfigsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lnilcrsNextToken' - If the response is truncated, Amazon SageMaker returns this token. To get the next set of lifecycle configurations, use it in the next request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lnilcrsNotebookInstanceLifecycleConfigs' - An array of @NotebookInstanceLifecycleConfiguration@ objects, each listing a lifecycle configuration.
+-- 'nextToken', 'listNotebookInstanceLifecycleConfigsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
+-- get the next set of lifecycle configurations, use it in the next
+-- request.
 --
--- * 'lnilcrsResponseStatus' - -- | The response status code.
-listNotebookInstanceLifecycleConfigsResponse
-    :: Int -- ^ 'lnilcrsResponseStatus'
-    -> ListNotebookInstanceLifecycleConfigsResponse
-listNotebookInstanceLifecycleConfigsResponse pResponseStatus_ =
-  ListNotebookInstanceLifecycleConfigsResponse'
-    { _lnilcrsNextToken = Nothing
-    , _lnilcrsNotebookInstanceLifecycleConfigs = Nothing
-    , _lnilcrsResponseStatus = pResponseStatus_
-    }
+-- 'notebookInstanceLifecycleConfigs', 'listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs' - An array of @NotebookInstanceLifecycleConfiguration@ objects, each
+-- listing a lifecycle configuration.
+--
+-- 'httpStatus', 'listNotebookInstanceLifecycleConfigsResponse_httpStatus' - The response's http status code.
+newListNotebookInstanceLifecycleConfigsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListNotebookInstanceLifecycleConfigsResponse
+newListNotebookInstanceLifecycleConfigsResponse
+  pHttpStatus_ =
+    ListNotebookInstanceLifecycleConfigsResponse'
+      { nextToken =
+          Prelude.Nothing,
+        notebookInstanceLifecycleConfigs =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | If the response is truncated, Amazon SageMaker returns this token. To
+-- get the next set of lifecycle configurations, use it in the next
+-- request.
+listNotebookInstanceLifecycleConfigsResponse_nextToken :: Lens.Lens' ListNotebookInstanceLifecycleConfigsResponse (Prelude.Maybe Prelude.Text)
+listNotebookInstanceLifecycleConfigsResponse_nextToken = Lens.lens (\ListNotebookInstanceLifecycleConfigsResponse' {nextToken} -> nextToken) (\s@ListNotebookInstanceLifecycleConfigsResponse' {} a -> s {nextToken = a} :: ListNotebookInstanceLifecycleConfigsResponse)
 
--- | If the response is truncated, Amazon SageMaker returns this token. To get the next set of lifecycle configurations, use it in the next request.
-lnilcrsNextToken :: Lens' ListNotebookInstanceLifecycleConfigsResponse (Maybe Text)
-lnilcrsNextToken = lens _lnilcrsNextToken (\ s a -> s{_lnilcrsNextToken = a})
+-- | An array of @NotebookInstanceLifecycleConfiguration@ objects, each
+-- listing a lifecycle configuration.
+listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs :: Lens.Lens' ListNotebookInstanceLifecycleConfigsResponse (Prelude.Maybe [NotebookInstanceLifecycleConfigSummary])
+listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs = Lens.lens (\ListNotebookInstanceLifecycleConfigsResponse' {notebookInstanceLifecycleConfigs} -> notebookInstanceLifecycleConfigs) (\s@ListNotebookInstanceLifecycleConfigsResponse' {} a -> s {notebookInstanceLifecycleConfigs = a} :: ListNotebookInstanceLifecycleConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of @NotebookInstanceLifecycleConfiguration@ objects, each listing a lifecycle configuration.
-lnilcrsNotebookInstanceLifecycleConfigs :: Lens' ListNotebookInstanceLifecycleConfigsResponse [NotebookInstanceLifecycleConfigSummary]
-lnilcrsNotebookInstanceLifecycleConfigs = lens _lnilcrsNotebookInstanceLifecycleConfigs (\ s a -> s{_lnilcrsNotebookInstanceLifecycleConfigs = a}) . _Default . _Coerce
+-- | The response's http status code.
+listNotebookInstanceLifecycleConfigsResponse_httpStatus :: Lens.Lens' ListNotebookInstanceLifecycleConfigsResponse Prelude.Int
+listNotebookInstanceLifecycleConfigsResponse_httpStatus = Lens.lens (\ListNotebookInstanceLifecycleConfigsResponse' {httpStatus} -> httpStatus) (\s@ListNotebookInstanceLifecycleConfigsResponse' {} a -> s {httpStatus = a} :: ListNotebookInstanceLifecycleConfigsResponse)
 
--- | -- | The response status code.
-lnilcrsResponseStatus :: Lens' ListNotebookInstanceLifecycleConfigsResponse Int
-lnilcrsResponseStatus = lens _lnilcrsResponseStatus (\ s a -> s{_lnilcrsResponseStatus = a})
-
-instance NFData
-           ListNotebookInstanceLifecycleConfigsResponse
-         where
+instance
+  Prelude.NFData
+    ListNotebookInstanceLifecycleConfigsResponse

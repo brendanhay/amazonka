@@ -1,168 +1,215 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a patch baseline for a patch group.
---
---
 module Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
-    (
-    -- * Creating a Request
-      registerPatchBaselineForPatchGroup
-    , RegisterPatchBaselineForPatchGroup
+  ( -- * Creating a Request
+    RegisterPatchBaselineForPatchGroup (..),
+    newRegisterPatchBaselineForPatchGroup,
+
     -- * Request Lenses
-    , rpbfpgBaselineId
-    , rpbfpgPatchGroup
+    registerPatchBaselineForPatchGroup_baselineId,
+    registerPatchBaselineForPatchGroup_patchGroup,
 
     -- * Destructuring the Response
-    , registerPatchBaselineForPatchGroupResponse
-    , RegisterPatchBaselineForPatchGroupResponse
+    RegisterPatchBaselineForPatchGroupResponse (..),
+    newRegisterPatchBaselineForPatchGroupResponse,
+
     -- * Response Lenses
-    , rpbfpgrsBaselineId
-    , rpbfpgrsPatchGroup
-    , rpbfpgrsResponseStatus
-    ) where
+    registerPatchBaselineForPatchGroupResponse_baselineId,
+    registerPatchBaselineForPatchGroupResponse_patchGroup,
+    registerPatchBaselineForPatchGroupResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'registerPatchBaselineForPatchGroup' smart constructor.
+-- | /See:/ 'newRegisterPatchBaselineForPatchGroup' smart constructor.
 data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
-  { _rpbfpgBaselineId :: !Text
-  , _rpbfpgPatchGroup :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the patch baseline to register the patch group with.
+    baselineId :: Prelude.Text,
+    -- | The name of the patch group that should be registered with the patch
+    -- baseline.
+    patchGroup :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterPatchBaselineForPatchGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpbfpgBaselineId' - The ID of the patch baseline to register the patch group with.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpbfpgPatchGroup' - The name of the patch group that should be registered with the patch baseline.
-registerPatchBaselineForPatchGroup
-    :: Text -- ^ 'rpbfpgBaselineId'
-    -> Text -- ^ 'rpbfpgPatchGroup'
-    -> RegisterPatchBaselineForPatchGroup
-registerPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
-  RegisterPatchBaselineForPatchGroup'
-    {_rpbfpgBaselineId = pBaselineId_, _rpbfpgPatchGroup = pPatchGroup_}
-
+-- 'baselineId', 'registerPatchBaselineForPatchGroup_baselineId' - The ID of the patch baseline to register the patch group with.
+--
+-- 'patchGroup', 'registerPatchBaselineForPatchGroup_patchGroup' - The name of the patch group that should be registered with the patch
+-- baseline.
+newRegisterPatchBaselineForPatchGroup ::
+  -- | 'baselineId'
+  Prelude.Text ->
+  -- | 'patchGroup'
+  Prelude.Text ->
+  RegisterPatchBaselineForPatchGroup
+newRegisterPatchBaselineForPatchGroup
+  pBaselineId_
+  pPatchGroup_ =
+    RegisterPatchBaselineForPatchGroup'
+      { baselineId =
+          pBaselineId_,
+        patchGroup = pPatchGroup_
+      }
 
 -- | The ID of the patch baseline to register the patch group with.
-rpbfpgBaselineId :: Lens' RegisterPatchBaselineForPatchGroup Text
-rpbfpgBaselineId = lens _rpbfpgBaselineId (\ s a -> s{_rpbfpgBaselineId = a})
+registerPatchBaselineForPatchGroup_baselineId :: Lens.Lens' RegisterPatchBaselineForPatchGroup Prelude.Text
+registerPatchBaselineForPatchGroup_baselineId = Lens.lens (\RegisterPatchBaselineForPatchGroup' {baselineId} -> baselineId) (\s@RegisterPatchBaselineForPatchGroup' {} a -> s {baselineId = a} :: RegisterPatchBaselineForPatchGroup)
 
--- | The name of the patch group that should be registered with the patch baseline.
-rpbfpgPatchGroup :: Lens' RegisterPatchBaselineForPatchGroup Text
-rpbfpgPatchGroup = lens _rpbfpgPatchGroup (\ s a -> s{_rpbfpgPatchGroup = a})
+-- | The name of the patch group that should be registered with the patch
+-- baseline.
+registerPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' RegisterPatchBaselineForPatchGroup Prelude.Text
+registerPatchBaselineForPatchGroup_patchGroup = Lens.lens (\RegisterPatchBaselineForPatchGroup' {patchGroup} -> patchGroup) (\s@RegisterPatchBaselineForPatchGroup' {} a -> s {patchGroup = a} :: RegisterPatchBaselineForPatchGroup)
 
-instance AWSRequest
-           RegisterPatchBaselineForPatchGroup
-         where
-        type Rs RegisterPatchBaselineForPatchGroup =
-             RegisterPatchBaselineForPatchGroupResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterPatchBaselineForPatchGroupResponse' <$>
-                   (x .?> "BaselineId") <*> (x .?> "PatchGroup") <*>
-                     (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    RegisterPatchBaselineForPatchGroup
+  where
+  type
+    AWSResponse RegisterPatchBaselineForPatchGroup =
+      RegisterPatchBaselineForPatchGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterPatchBaselineForPatchGroupResponse'
+            Prelude.<$> (x Core..?> "BaselineId")
+              Prelude.<*> (x Core..?> "PatchGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterPatchBaselineForPatchGroup
-         where
+instance
+  Prelude.Hashable
+    RegisterPatchBaselineForPatchGroup
 
-instance NFData RegisterPatchBaselineForPatchGroup
-         where
+instance
+  Prelude.NFData
+    RegisterPatchBaselineForPatchGroup
 
-instance ToHeaders RegisterPatchBaselineForPatchGroup
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.RegisterPatchBaselineForPatchGroup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    RegisterPatchBaselineForPatchGroup
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.RegisterPatchBaselineForPatchGroup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RegisterPatchBaselineForPatchGroup
-         where
-        toJSON RegisterPatchBaselineForPatchGroup'{..}
-          = object
-              (catMaybes
-                 [Just ("BaselineId" .= _rpbfpgBaselineId),
-                  Just ("PatchGroup" .= _rpbfpgPatchGroup)])
+instance
+  Core.ToJSON
+    RegisterPatchBaselineForPatchGroup
+  where
+  toJSON RegisterPatchBaselineForPatchGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("BaselineId" Core..= baselineId),
+            Prelude.Just ("PatchGroup" Core..= patchGroup)
+          ]
+      )
 
-instance ToPath RegisterPatchBaselineForPatchGroup
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    RegisterPatchBaselineForPatchGroup
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterPatchBaselineForPatchGroup
-         where
-        toQuery = const mempty
+instance
+  Core.ToQuery
+    RegisterPatchBaselineForPatchGroup
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'registerPatchBaselineForPatchGroupResponse' smart constructor.
+-- | /See:/ 'newRegisterPatchBaselineForPatchGroupResponse' smart constructor.
 data RegisterPatchBaselineForPatchGroupResponse = RegisterPatchBaselineForPatchGroupResponse'
-  { _rpbfpgrsBaselineId     :: !(Maybe Text)
-  , _rpbfpgrsPatchGroup     :: !(Maybe Text)
-  , _rpbfpgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the patch baseline the patch group was registered with.
+    baselineId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the patch group registered with the patch baseline.
+    patchGroup :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterPatchBaselineForPatchGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpbfpgrsBaselineId' - The ID of the patch baseline the patch group was registered with.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpbfpgrsPatchGroup' - The name of the patch group registered with the patch baseline.
+-- 'baselineId', 'registerPatchBaselineForPatchGroupResponse_baselineId' - The ID of the patch baseline the patch group was registered with.
 --
--- * 'rpbfpgrsResponseStatus' - -- | The response status code.
-registerPatchBaselineForPatchGroupResponse
-    :: Int -- ^ 'rpbfpgrsResponseStatus'
-    -> RegisterPatchBaselineForPatchGroupResponse
-registerPatchBaselineForPatchGroupResponse pResponseStatus_ =
-  RegisterPatchBaselineForPatchGroupResponse'
-    { _rpbfpgrsBaselineId = Nothing
-    , _rpbfpgrsPatchGroup = Nothing
-    , _rpbfpgrsResponseStatus = pResponseStatus_
-    }
-
+-- 'patchGroup', 'registerPatchBaselineForPatchGroupResponse_patchGroup' - The name of the patch group registered with the patch baseline.
+--
+-- 'httpStatus', 'registerPatchBaselineForPatchGroupResponse_httpStatus' - The response's http status code.
+newRegisterPatchBaselineForPatchGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterPatchBaselineForPatchGroupResponse
+newRegisterPatchBaselineForPatchGroupResponse
+  pHttpStatus_ =
+    RegisterPatchBaselineForPatchGroupResponse'
+      { baselineId =
+          Prelude.Nothing,
+        patchGroup = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | The ID of the patch baseline the patch group was registered with.
-rpbfpgrsBaselineId :: Lens' RegisterPatchBaselineForPatchGroupResponse (Maybe Text)
-rpbfpgrsBaselineId = lens _rpbfpgrsBaselineId (\ s a -> s{_rpbfpgrsBaselineId = a})
+registerPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' RegisterPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
+registerPatchBaselineForPatchGroupResponse_baselineId = Lens.lens (\RegisterPatchBaselineForPatchGroupResponse' {baselineId} -> baselineId) (\s@RegisterPatchBaselineForPatchGroupResponse' {} a -> s {baselineId = a} :: RegisterPatchBaselineForPatchGroupResponse)
 
 -- | The name of the patch group registered with the patch baseline.
-rpbfpgrsPatchGroup :: Lens' RegisterPatchBaselineForPatchGroupResponse (Maybe Text)
-rpbfpgrsPatchGroup = lens _rpbfpgrsPatchGroup (\ s a -> s{_rpbfpgrsPatchGroup = a})
+registerPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' RegisterPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
+registerPatchBaselineForPatchGroupResponse_patchGroup = Lens.lens (\RegisterPatchBaselineForPatchGroupResponse' {patchGroup} -> patchGroup) (\s@RegisterPatchBaselineForPatchGroupResponse' {} a -> s {patchGroup = a} :: RegisterPatchBaselineForPatchGroupResponse)
 
--- | -- | The response status code.
-rpbfpgrsResponseStatus :: Lens' RegisterPatchBaselineForPatchGroupResponse Int
-rpbfpgrsResponseStatus = lens _rpbfpgrsResponseStatus (\ s a -> s{_rpbfpgrsResponseStatus = a})
+-- | The response's http status code.
+registerPatchBaselineForPatchGroupResponse_httpStatus :: Lens.Lens' RegisterPatchBaselineForPatchGroupResponse Prelude.Int
+registerPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\RegisterPatchBaselineForPatchGroupResponse' {httpStatus} -> httpStatus) (\s@RegisterPatchBaselineForPatchGroupResponse' {} a -> s {httpStatus = a} :: RegisterPatchBaselineForPatchGroupResponse)
 
-instance NFData
-           RegisterPatchBaselineForPatchGroupResponse
-         where
+instance
+  Prelude.NFData
+    RegisterPatchBaselineForPatchGroupResponse

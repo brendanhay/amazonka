@@ -1,141 +1,169 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateLabels
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified list of labels to the given resource (a document or folder)
---
---
+-- Adds the specified list of labels to the given resource (a document or
+-- folder)
 module Network.AWS.WorkDocs.CreateLabels
-    (
-    -- * Creating a Request
-      createLabels
-    , CreateLabels
+  ( -- * Creating a Request
+    CreateLabels (..),
+    newCreateLabels,
+
     -- * Request Lenses
-    , clAuthenticationToken
-    , clResourceId
-    , clLabels
+    createLabels_authenticationToken,
+    createLabels_resourceId,
+    createLabels_labels,
 
     -- * Destructuring the Response
-    , createLabelsResponse
-    , CreateLabelsResponse
+    CreateLabelsResponse (..),
+    newCreateLabelsResponse,
+
     -- * Response Lenses
-    , clrsResponseStatus
-    ) where
+    createLabelsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'createLabels' smart constructor.
+-- | /See:/ 'newCreateLabels' smart constructor.
 data CreateLabels = CreateLabels'
-  { _clAuthenticationToken :: !(Maybe (Sensitive Text))
-  , _clResourceId          :: !Text
-  , _clLabels              :: ![Text]
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the resource.
+    resourceId :: Prelude.Text,
+    -- | List of labels to add to the resource.
+    labels :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateLabels' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateLabels' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'clAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'clResourceId' - The ID of the resource.
+-- 'authenticationToken', 'createLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
--- * 'clLabels' - List of labels to add to the resource.
-createLabels
-    :: Text -- ^ 'clResourceId'
-    -> CreateLabels
-createLabels pResourceId_ =
+-- 'resourceId', 'createLabels_resourceId' - The ID of the resource.
+--
+-- 'labels', 'createLabels_labels' - List of labels to add to the resource.
+newCreateLabels ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  CreateLabels
+newCreateLabels pResourceId_ =
   CreateLabels'
-    { _clAuthenticationToken = Nothing
-    , _clResourceId = pResourceId_
-    , _clLabels = mempty
+    { authenticationToken =
+        Prelude.Nothing,
+      resourceId = pResourceId_,
+      labels = Prelude.mempty
     }
 
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-clAuthenticationToken :: Lens' CreateLabels (Maybe Text)
-clAuthenticationToken = lens _clAuthenticationToken (\ s a -> s{_clAuthenticationToken = a}) . mapping _Sensitive
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+createLabels_authenticationToken :: Lens.Lens' CreateLabels (Prelude.Maybe Prelude.Text)
+createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the resource.
-clResourceId :: Lens' CreateLabels Text
-clResourceId = lens _clResourceId (\ s a -> s{_clResourceId = a})
+createLabels_resourceId :: Lens.Lens' CreateLabels Prelude.Text
+createLabels_resourceId = Lens.lens (\CreateLabels' {resourceId} -> resourceId) (\s@CreateLabels' {} a -> s {resourceId = a} :: CreateLabels)
 
 -- | List of labels to add to the resource.
-clLabels :: Lens' CreateLabels [Text]
-clLabels = lens _clLabels (\ s a -> s{_clLabels = a}) . _Coerce
+createLabels_labels :: Lens.Lens' CreateLabels [Prelude.Text]
+createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLabels' {} a -> s {labels = a} :: CreateLabels) Prelude.. Lens._Coerce
 
-instance AWSRequest CreateLabels where
-        type Rs CreateLabels = CreateLabelsResponse
-        request = putJSON workDocs
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateLabelsResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest CreateLabels where
+  type AWSResponse CreateLabels = CreateLabelsResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateLabelsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateLabels where
+instance Prelude.Hashable CreateLabels
 
-instance NFData CreateLabels where
+instance Prelude.NFData CreateLabels
 
-instance ToHeaders CreateLabels where
-        toHeaders CreateLabels'{..}
-          = mconcat
-              ["Authentication" =# _clAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders CreateLabels where
+  toHeaders CreateLabels' {..} =
+    Prelude.mconcat
+      [ "Authentication" Core.=# authenticationToken,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToJSON CreateLabels where
-        toJSON CreateLabels'{..}
-          = object (catMaybes [Just ("Labels" .= _clLabels)])
+instance Core.ToJSON CreateLabels where
+  toJSON CreateLabels' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Labels" Core..= labels)]
+      )
 
-instance ToPath CreateLabels where
-        toPath CreateLabels'{..}
-          = mconcat
-              ["/api/v1/resources/", toBS _clResourceId, "/labels"]
+instance Core.ToPath CreateLabels where
+  toPath CreateLabels' {..} =
+    Prelude.mconcat
+      [ "/api/v1/resources/",
+        Core.toBS resourceId,
+        "/labels"
+      ]
 
-instance ToQuery CreateLabels where
-        toQuery = const mempty
+instance Core.ToQuery CreateLabels where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createLabelsResponse' smart constructor.
-newtype CreateLabelsResponse = CreateLabelsResponse'
-  { _clrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateLabelsResponse' smart constructor.
+data CreateLabelsResponse = CreateLabelsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateLabelsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateLabelsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'clrsResponseStatus' - -- | The response status code.
-createLabelsResponse
-    :: Int -- ^ 'clrsResponseStatus'
-    -> CreateLabelsResponse
-createLabelsResponse pResponseStatus_ =
-  CreateLabelsResponse' {_clrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createLabelsResponse_httpStatus' - The response's http status code.
+newCreateLabelsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateLabelsResponse
+newCreateLabelsResponse pHttpStatus_ =
+  CreateLabelsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+createLabelsResponse_httpStatus :: Lens.Lens' CreateLabelsResponse Prelude.Int
+createLabelsResponse_httpStatus = Lens.lens (\CreateLabelsResponse' {httpStatus} -> httpStatus) (\s@CreateLabelsResponse' {} a -> s {httpStatus = a} :: CreateLabelsResponse)
 
--- | -- | The response status code.
-clrsResponseStatus :: Lens' CreateLabelsResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a})
-
-instance NFData CreateLabelsResponse where
+instance Prelude.NFData CreateLabelsResponse

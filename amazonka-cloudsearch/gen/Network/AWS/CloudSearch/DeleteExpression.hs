@@ -1,145 +1,175 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an @'Expression' @ from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
---
---
+-- Removes an @Expression@ from the search domain. For more information,
+-- see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
+-- in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DeleteExpression
-    (
-    -- * Creating a Request
-      deleteExpression
-    , DeleteExpression
+  ( -- * Creating a Request
+    DeleteExpression (..),
+    newDeleteExpression,
+
     -- * Request Lenses
-    , delDomainName
-    , delExpressionName
+    deleteExpression_domainName,
+    deleteExpression_expressionName,
 
     -- * Destructuring the Response
-    , deleteExpressionResponse
-    , DeleteExpressionResponse
+    DeleteExpressionResponse (..),
+    newDeleteExpressionResponse,
+
     -- * Response Lenses
-    , delrsResponseStatus
-    , delrsExpression
-    ) where
+    deleteExpressionResponse_httpStatus,
+    deleteExpressionResponse_expression,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DeleteExpression' @ operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
+-- | Container for the parameters to the @DeleteExpression@ operation.
+-- Specifies the name of the domain you want to update and the name of the
+-- expression you want to delete.
 --
---
---
--- /See:/ 'deleteExpression' smart constructor.
+-- /See:/ 'newDeleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
-  { _delDomainName     :: !Text
-  , _delExpressionName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { domainName :: Prelude.Text,
+    -- | The name of the @Expression@ to delete.
+    expressionName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteExpression' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteExpression' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delDomainName' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delExpressionName' - The name of the @'Expression' @ to delete.
-deleteExpression
-    :: Text -- ^ 'delDomainName'
-    -> Text -- ^ 'delExpressionName'
-    -> DeleteExpression
-deleteExpression pDomainName_ pExpressionName_ =
+-- 'domainName', 'deleteExpression_domainName' - Undocumented member.
+--
+-- 'expressionName', 'deleteExpression_expressionName' - The name of the @Expression@ to delete.
+newDeleteExpression ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'expressionName'
+  Prelude.Text ->
+  DeleteExpression
+newDeleteExpression pDomainName_ pExpressionName_ =
   DeleteExpression'
-    {_delDomainName = pDomainName_, _delExpressionName = pExpressionName_}
-
+    { domainName = pDomainName_,
+      expressionName = pExpressionName_
+    }
 
 -- | Undocumented member.
-delDomainName :: Lens' DeleteExpression Text
-delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a})
+deleteExpression_domainName :: Lens.Lens' DeleteExpression Prelude.Text
+deleteExpression_domainName = Lens.lens (\DeleteExpression' {domainName} -> domainName) (\s@DeleteExpression' {} a -> s {domainName = a} :: DeleteExpression)
 
--- | The name of the @'Expression' @ to delete.
-delExpressionName :: Lens' DeleteExpression Text
-delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a})
+-- | The name of the @Expression@ to delete.
+deleteExpression_expressionName :: Lens.Lens' DeleteExpression Prelude.Text
+deleteExpression_expressionName = Lens.lens (\DeleteExpression' {expressionName} -> expressionName) (\s@DeleteExpression' {} a -> s {expressionName = a} :: DeleteExpression)
 
-instance AWSRequest DeleteExpression where
-        type Rs DeleteExpression = DeleteExpressionResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "DeleteExpressionResult"
-              (\ s h x ->
-                 DeleteExpressionResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "Expression"))
+instance Core.AWSRequest DeleteExpression where
+  type
+    AWSResponse DeleteExpression =
+      DeleteExpressionResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteExpressionResult"
+      ( \s h x ->
+          DeleteExpressionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Expression")
+      )
 
-instance Hashable DeleteExpression where
+instance Prelude.Hashable DeleteExpression
 
-instance NFData DeleteExpression where
+instance Prelude.NFData DeleteExpression
 
-instance ToHeaders DeleteExpression where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteExpression where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteExpression where
-        toPath = const "/"
+instance Core.ToPath DeleteExpression where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteExpression where
-        toQuery DeleteExpression'{..}
-          = mconcat
-              ["Action" =: ("DeleteExpression" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _delDomainName,
-               "ExpressionName" =: _delExpressionName]
+instance Core.ToQuery DeleteExpression where
+  toQuery DeleteExpression' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteExpression" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Core.=: domainName,
+        "ExpressionName" Core.=: expressionName
+      ]
 
--- | The result of a @'DeleteExpression' @ request. Specifies the expression being deleted.
+-- | The result of a @DeleteExpression@ request. Specifies the expression
+-- being deleted.
 --
---
---
--- /See:/ 'deleteExpressionResponse' smart constructor.
+-- /See:/ 'newDeleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
-  { _delrsResponseStatus :: !Int
-  , _delrsExpression     :: !ExpressionStatus
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The status of the expression being deleted.
+    expression :: ExpressionStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteExpressionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delrsExpression' - The status of the expression being deleted.
-deleteExpressionResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> ExpressionStatus -- ^ 'delrsExpression'
-    -> DeleteExpressionResponse
-deleteExpressionResponse pResponseStatus_ pExpression_ =
+-- 'httpStatus', 'deleteExpressionResponse_httpStatus' - The response's http status code.
+--
+-- 'expression', 'deleteExpressionResponse_expression' - The status of the expression being deleted.
+newDeleteExpressionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'expression'
+  ExpressionStatus ->
+  DeleteExpressionResponse
+newDeleteExpressionResponse pHttpStatus_ pExpression_ =
   DeleteExpressionResponse'
-    {_delrsResponseStatus = pResponseStatus_, _delrsExpression = pExpression_}
+    { httpStatus =
+        pHttpStatus_,
+      expression = pExpression_
+    }
 
-
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteExpressionResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
+-- | The response's http status code.
+deleteExpressionResponse_httpStatus :: Lens.Lens' DeleteExpressionResponse Prelude.Int
+deleteExpressionResponse_httpStatus = Lens.lens (\DeleteExpressionResponse' {httpStatus} -> httpStatus) (\s@DeleteExpressionResponse' {} a -> s {httpStatus = a} :: DeleteExpressionResponse)
 
 -- | The status of the expression being deleted.
-delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a})
+deleteExpressionResponse_expression :: Lens.Lens' DeleteExpressionResponse ExpressionStatus
+deleteExpressionResponse_expression = Lens.lens (\DeleteExpressionResponse' {expression} -> expression) (\s@DeleteExpressionResponse' {} a -> s {expression = a} :: DeleteExpressionResponse)
 
-instance NFData DeleteExpressionResponse where
+instance Prelude.NFData DeleteExpressionResponse

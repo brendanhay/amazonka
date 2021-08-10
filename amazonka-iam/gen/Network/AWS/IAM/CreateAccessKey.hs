@@ -1,134 +1,182 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.CreateAccessKey
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is @Active@ .
+-- Creates a new AWS secret access key and corresponding AWS access key ID
+-- for the specified user. The default status for new keys is @Active@.
 --
+-- If you do not specify a user name, IAM determines the user name
+-- implicitly based on the AWS access key ID signing the request. This
+-- operation works for access keys under the AWS account. Consequently, you
+-- can use this operation to manage AWS account root user credentials. This
+-- is true even if the AWS account has no associated users.
 --
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials. This is true even if the AWS account has no associated users.
+-- For information about quotas on the number of keys you can create, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html IAM and STS quotas>
+-- in the /IAM User Guide/.
 --
--- For information about limits on the number of keys you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
---
--- /Important:/ To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
---
+-- To ensure the security of your AWS account, the secret access key is
+-- accessible only during key and user creation. You must save the key (for
+-- example, in a text file) if you want to be able to access it again. If a
+-- secret key is lost, you can delete the access keys for the associated
+-- user and then create new keys.
 module Network.AWS.IAM.CreateAccessKey
-    (
-    -- * Creating a Request
-      createAccessKey
-    , CreateAccessKey
+  ( -- * Creating a Request
+    CreateAccessKey (..),
+    newCreateAccessKey,
+
     -- * Request Lenses
-    , cakUserName
+    createAccessKey_userName,
 
     -- * Destructuring the Response
-    , createAccessKeyResponse
-    , CreateAccessKeyResponse
+    CreateAccessKeyResponse (..),
+    newCreateAccessKeyResponse,
+
     -- * Response Lenses
-    , cakrsResponseStatus
-    , cakrsAccessKey
-    ) where
+    createAccessKeyResponse_httpStatus,
+    createAccessKeyResponse_accessKey,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createAccessKey' smart constructor.
-newtype CreateAccessKey = CreateAccessKey'
-  { _cakUserName :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateAccessKey' smart constructor.
+data CreateAccessKey = CreateAccessKey'
+  { -- | The name of the IAM user that the new key will belong to.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateAccessKey' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateAccessKey' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cakUserName' - The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-createAccessKey
-    :: CreateAccessKey
-createAccessKey = CreateAccessKey' {_cakUserName = Nothing}
-
-
--- | The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-cakUserName :: Lens' CreateAccessKey (Maybe Text)
-cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a})
-
-instance AWSRequest CreateAccessKey where
-        type Rs CreateAccessKey = CreateAccessKeyResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "CreateAccessKeyResult"
-              (\ s h x ->
-                 CreateAccessKeyResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "AccessKey"))
-
-instance Hashable CreateAccessKey where
-
-instance NFData CreateAccessKey where
-
-instance ToHeaders CreateAccessKey where
-        toHeaders = const mempty
-
-instance ToPath CreateAccessKey where
-        toPath = const "/"
-
-instance ToQuery CreateAccessKey where
-        toQuery CreateAccessKey'{..}
-          = mconcat
-              ["Action" =: ("CreateAccessKey" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _cakUserName]
-
--- | Contains the response to a successful 'CreateAccessKey' request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
+-- 'userName', 'createAccessKey_userName' - The name of the IAM user that the new key will belong to.
 --
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+newCreateAccessKey ::
+  CreateAccessKey
+newCreateAccessKey =
+  CreateAccessKey' {userName = Prelude.Nothing}
+
+-- | The name of the IAM user that the new key will belong to.
 --
--- /See:/ 'createAccessKeyResponse' smart constructor.
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+createAccessKey_userName :: Lens.Lens' CreateAccessKey (Prelude.Maybe Prelude.Text)
+createAccessKey_userName = Lens.lens (\CreateAccessKey' {userName} -> userName) (\s@CreateAccessKey' {} a -> s {userName = a} :: CreateAccessKey)
+
+instance Core.AWSRequest CreateAccessKey where
+  type
+    AWSResponse CreateAccessKey =
+      CreateAccessKeyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateAccessKeyResult"
+      ( \s h x ->
+          CreateAccessKeyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "AccessKey")
+      )
+
+instance Prelude.Hashable CreateAccessKey
+
+instance Prelude.NFData CreateAccessKey
+
+instance Core.ToHeaders CreateAccessKey where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath CreateAccessKey where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateAccessKey where
+  toQuery CreateAccessKey' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateAccessKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Core.=: userName
+      ]
+
+-- | Contains the response to a successful CreateAccessKey request.
+--
+-- /See:/ 'newCreateAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-  { _cakrsResponseStatus :: !Int
-  , _cakrsAccessKey      :: !AccessKeyInfo
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A structure with details about the access key.
+    accessKey :: AccessKeyInfo
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateAccessKeyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cakrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cakrsAccessKey' - A structure with details about the access key.
-createAccessKeyResponse
-    :: Int -- ^ 'cakrsResponseStatus'
-    -> AccessKeyInfo -- ^ 'cakrsAccessKey'
-    -> CreateAccessKeyResponse
-createAccessKeyResponse pResponseStatus_ pAccessKey_ =
+-- 'httpStatus', 'createAccessKeyResponse_httpStatus' - The response's http status code.
+--
+-- 'accessKey', 'createAccessKeyResponse_accessKey' - A structure with details about the access key.
+newCreateAccessKeyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'accessKey'
+  AccessKeyInfo ->
+  CreateAccessKeyResponse
+newCreateAccessKeyResponse pHttpStatus_ pAccessKey_ =
   CreateAccessKeyResponse'
-    {_cakrsResponseStatus = pResponseStatus_, _cakrsAccessKey = pAccessKey_}
+    { httpStatus = pHttpStatus_,
+      accessKey = pAccessKey_
+    }
 
-
--- | -- | The response status code.
-cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
-cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus = a})
+-- | The response's http status code.
+createAccessKeyResponse_httpStatus :: Lens.Lens' CreateAccessKeyResponse Prelude.Int
+createAccessKeyResponse_httpStatus = Lens.lens (\CreateAccessKeyResponse' {httpStatus} -> httpStatus) (\s@CreateAccessKeyResponse' {} a -> s {httpStatus = a} :: CreateAccessKeyResponse)
 
 -- | A structure with details about the access key.
-cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKeyInfo
-cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a})
+createAccessKeyResponse_accessKey :: Lens.Lens' CreateAccessKeyResponse AccessKeyInfo
+createAccessKeyResponse_accessKey = Lens.lens (\CreateAccessKeyResponse' {accessKey} -> accessKey) (\s@CreateAccessKeyResponse' {} a -> s {accessKey = a} :: CreateAccessKeyResponse)
 
-instance NFData CreateAccessKeyResponse where
+instance Prelude.NFData CreateAccessKeyResponse

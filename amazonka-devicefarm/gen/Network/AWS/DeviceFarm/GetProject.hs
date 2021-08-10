@@ -1,138 +1,160 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetProject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a project.
---
---
 module Network.AWS.DeviceFarm.GetProject
-    (
-    -- * Creating a Request
-      getProject
-    , GetProject
+  ( -- * Creating a Request
+    GetProject (..),
+    newGetProject,
+
     -- * Request Lenses
-    , gpArn
+    getProject_arn,
 
     -- * Destructuring the Response
-    , getProjectResponse
-    , GetProjectResponse
-    -- * Response Lenses
-    , gprsProject
-    , gprsResponseStatus
-    ) where
+    GetProjectResponse (..),
+    newGetProjectResponse,
 
+    -- * Response Lenses
+    getProjectResponse_project,
+    getProjectResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the get project operation.
 --
+-- /See:/ 'newGetProject' smart constructor.
+data GetProject = GetProject'
+  { -- | The project\'s ARN.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetProject' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getProject' smart constructor.
-newtype GetProject = GetProject'
-  { _gpArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetProject' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpArn' - The project's ARN.
-getProject
-    :: Text -- ^ 'gpArn'
-    -> GetProject
-getProject pArn_ = GetProject' {_gpArn = pArn_}
+-- 'arn', 'getProject_arn' - The project\'s ARN.
+newGetProject ::
+  -- | 'arn'
+  Prelude.Text ->
+  GetProject
+newGetProject pArn_ = GetProject' {arn = pArn_}
 
+-- | The project\'s ARN.
+getProject_arn :: Lens.Lens' GetProject Prelude.Text
+getProject_arn = Lens.lens (\GetProject' {arn} -> arn) (\s@GetProject' {} a -> s {arn = a} :: GetProject)
 
--- | The project's ARN.
-gpArn :: Lens' GetProject Text
-gpArn = lens _gpArn (\ s a -> s{_gpArn = a})
+instance Core.AWSRequest GetProject where
+  type AWSResponse GetProject = GetProjectResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetProjectResponse'
+            Prelude.<$> (x Core..?> "project")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetProject where
-        type Rs GetProject = GetProjectResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetProjectResponse' <$>
-                   (x .?> "project") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetProject
 
-instance Hashable GetProject where
+instance Prelude.NFData GetProject
 
-instance NFData GetProject where
+instance Core.ToHeaders GetProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.GetProject" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.GetProject" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetProject where
+  toJSON GetProject' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
-instance ToJSON GetProject where
-        toJSON GetProject'{..}
-          = object (catMaybes [Just ("arn" .= _gpArn)])
+instance Core.ToPath GetProject where
+  toPath = Prelude.const "/"
 
-instance ToPath GetProject where
-        toPath = const "/"
-
-instance ToQuery GetProject where
-        toQuery = const mempty
+instance Core.ToQuery GetProject where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get project request.
 --
---
---
--- /See:/ 'getProjectResponse' smart constructor.
+-- /See:/ 'newGetProjectResponse' smart constructor.
 data GetProjectResponse = GetProjectResponse'
-  { _gprsProject        :: !(Maybe Project)
-  , _gprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The project to get information about.
+    project :: Prelude.Maybe Project,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetProjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetProjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gprsProject' - The project you wish to get information about.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gprsResponseStatus' - -- | The response status code.
-getProjectResponse
-    :: Int -- ^ 'gprsResponseStatus'
-    -> GetProjectResponse
-getProjectResponse pResponseStatus_ =
+-- 'project', 'getProjectResponse_project' - The project to get information about.
+--
+-- 'httpStatus', 'getProjectResponse_httpStatus' - The response's http status code.
+newGetProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetProjectResponse
+newGetProjectResponse pHttpStatus_ =
   GetProjectResponse'
-    {_gprsProject = Nothing, _gprsResponseStatus = pResponseStatus_}
+    { project = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The project to get information about.
+getProjectResponse_project :: Lens.Lens' GetProjectResponse (Prelude.Maybe Project)
+getProjectResponse_project = Lens.lens (\GetProjectResponse' {project} -> project) (\s@GetProjectResponse' {} a -> s {project = a} :: GetProjectResponse)
 
--- | The project you wish to get information about.
-gprsProject :: Lens' GetProjectResponse (Maybe Project)
-gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a})
+-- | The response's http status code.
+getProjectResponse_httpStatus :: Lens.Lens' GetProjectResponse Prelude.Int
+getProjectResponse_httpStatus = Lens.lens (\GetProjectResponse' {httpStatus} -> httpStatus) (\s@GetProjectResponse' {} a -> s {httpStatus = a} :: GetProjectResponse)
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetProjectResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
-
-instance NFData GetProjectResponse where
+instance Prelude.NFData GetProjectResponse

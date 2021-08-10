@@ -1,169 +1,250 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a reference data source configuration from the specified application configuration.
+-- This documentation is for version 1 of the Amazon Kinesis Data Analytics
+-- API, which only supports SQL applications. Version 2 of the API supports
+-- SQL and Java applications. For more information about version 2, see
+-- </kinesisanalytics/latest/apiv2/Welcome.html Amazon Kinesis Data Analytics API V2 Documentation>.
 --
+-- Deletes a reference data source configuration from the specified
+-- application configuration.
 --
--- If the application is running, Amazon Kinesis Analytics immediately removes the in-application table that you created using the 'AddApplicationReferenceDataSource' operation.
+-- If the application is running, Amazon Kinesis Analytics immediately
+-- removes the in-application table that you created using the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>
+-- operation.
 --
--- This operation requires permissions to perform the @kinesisanalytics.DeleteApplicationReferenceDataSource@ action.
---
+-- This operation requires permissions to perform the
+-- @kinesisanalytics.DeleteApplicationReferenceDataSource@ action.
 module Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
-    (
-    -- * Creating a Request
-      deleteApplicationReferenceDataSource
-    , DeleteApplicationReferenceDataSource
+  ( -- * Creating a Request
+    DeleteApplicationReferenceDataSource (..),
+    newDeleteApplicationReferenceDataSource,
+
     -- * Request Lenses
-    , dardsApplicationName
-    , dardsCurrentApplicationVersionId
-    , dardsReferenceId
+    deleteApplicationReferenceDataSource_applicationName,
+    deleteApplicationReferenceDataSource_currentApplicationVersionId,
+    deleteApplicationReferenceDataSource_referenceId,
 
     -- * Destructuring the Response
-    , deleteApplicationReferenceDataSourceResponse
-    , DeleteApplicationReferenceDataSourceResponse
+    DeleteApplicationReferenceDataSourceResponse (..),
+    newDeleteApplicationReferenceDataSourceResponse,
+
     -- * Response Lenses
-    , dardsrsResponseStatus
-    ) where
+    deleteApplicationReferenceDataSourceResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.KinesisAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteApplicationReferenceDataSource' smart constructor.
+-- | /See:/ 'newDeleteApplicationReferenceDataSource' smart constructor.
 data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource'
-  { _dardsApplicationName             :: !Text
-  , _dardsCurrentApplicationVersionId :: !Nat
-  , _dardsReferenceId                 :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Name of an existing application.
+    applicationName :: Prelude.Text,
+    -- | Version of the application. You can use the
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+    -- operation to get the current application version. If the version
+    -- specified is not the current version, the
+    -- @ConcurrentModificationException@ is returned.
+    currentApplicationVersionId :: Prelude.Natural,
+    -- | ID of the reference data source. When you add a reference data source to
+    -- your application using the
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>,
+    -- Amazon Kinesis Analytics assigns an ID. You can use the
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+    -- operation to get the reference ID.
+    referenceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteApplicationReferenceDataSource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteApplicationReferenceDataSource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dardsApplicationName' - Name of an existing application.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dardsCurrentApplicationVersionId' - Version of the application. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+-- 'applicationName', 'deleteApplicationReferenceDataSource_applicationName' - Name of an existing application.
 --
--- * 'dardsReferenceId' - ID of the reference data source. When you add a reference data source to your application using the 'AddApplicationReferenceDataSource' , Amazon Kinesis Analytics assigns an ID. You can use the 'DescribeApplication' operation to get the reference ID.
-deleteApplicationReferenceDataSource
-    :: Text -- ^ 'dardsApplicationName'
-    -> Natural -- ^ 'dardsCurrentApplicationVersionId'
-    -> Text -- ^ 'dardsReferenceId'
-    -> DeleteApplicationReferenceDataSource
-deleteApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceId_ =
-  DeleteApplicationReferenceDataSource'
-    { _dardsApplicationName = pApplicationName_
-    , _dardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _dardsReferenceId = pReferenceId_
-    }
-
+-- 'currentApplicationVersionId', 'deleteApplicationReferenceDataSource_currentApplicationVersionId' - Version of the application. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the current application version. If the version
+-- specified is not the current version, the
+-- @ConcurrentModificationException@ is returned.
+--
+-- 'referenceId', 'deleteApplicationReferenceDataSource_referenceId' - ID of the reference data source. When you add a reference data source to
+-- your application using the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>,
+-- Amazon Kinesis Analytics assigns an ID. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the reference ID.
+newDeleteApplicationReferenceDataSource ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'currentApplicationVersionId'
+  Prelude.Natural ->
+  -- | 'referenceId'
+  Prelude.Text ->
+  DeleteApplicationReferenceDataSource
+newDeleteApplicationReferenceDataSource
+  pApplicationName_
+  pCurrentApplicationVersionId_
+  pReferenceId_ =
+    DeleteApplicationReferenceDataSource'
+      { applicationName =
+          pApplicationName_,
+        currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        referenceId = pReferenceId_
+      }
 
 -- | Name of an existing application.
-dardsApplicationName :: Lens' DeleteApplicationReferenceDataSource Text
-dardsApplicationName = lens _dardsApplicationName (\ s a -> s{_dardsApplicationName = a})
+deleteApplicationReferenceDataSource_applicationName :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Text
+deleteApplicationReferenceDataSource_applicationName = Lens.lens (\DeleteApplicationReferenceDataSource' {applicationName} -> applicationName) (\s@DeleteApplicationReferenceDataSource' {} a -> s {applicationName = a} :: DeleteApplicationReferenceDataSource)
 
--- | Version of the application. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
-dardsCurrentApplicationVersionId :: Lens' DeleteApplicationReferenceDataSource Natural
-dardsCurrentApplicationVersionId = lens _dardsCurrentApplicationVersionId (\ s a -> s{_dardsCurrentApplicationVersionId = a}) . _Nat
+-- | Version of the application. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the current application version. If the version
+-- specified is not the current version, the
+-- @ConcurrentModificationException@ is returned.
+deleteApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Natural
+deleteApplicationReferenceDataSource_currentApplicationVersionId = Lens.lens (\DeleteApplicationReferenceDataSource' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationReferenceDataSource' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationReferenceDataSource)
 
--- | ID of the reference data source. When you add a reference data source to your application using the 'AddApplicationReferenceDataSource' , Amazon Kinesis Analytics assigns an ID. You can use the 'DescribeApplication' operation to get the reference ID.
-dardsReferenceId :: Lens' DeleteApplicationReferenceDataSource Text
-dardsReferenceId = lens _dardsReferenceId (\ s a -> s{_dardsReferenceId = a})
+-- | ID of the reference data source. When you add a reference data source to
+-- your application using the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>,
+-- Amazon Kinesis Analytics assigns an ID. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the reference ID.
+deleteApplicationReferenceDataSource_referenceId :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Text
+deleteApplicationReferenceDataSource_referenceId = Lens.lens (\DeleteApplicationReferenceDataSource' {referenceId} -> referenceId) (\s@DeleteApplicationReferenceDataSource' {} a -> s {referenceId = a} :: DeleteApplicationReferenceDataSource)
 
-instance AWSRequest
-           DeleteApplicationReferenceDataSource
-         where
-        type Rs DeleteApplicationReferenceDataSource =
-             DeleteApplicationReferenceDataSourceResponse
-        request = postJSON kinesisAnalytics
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteApplicationReferenceDataSourceResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    DeleteApplicationReferenceDataSource
+  where
+  type
+    AWSResponse DeleteApplicationReferenceDataSource =
+      DeleteApplicationReferenceDataSourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteApplicationReferenceDataSourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable
-           DeleteApplicationReferenceDataSource
-         where
+instance
+  Prelude.Hashable
+    DeleteApplicationReferenceDataSource
 
-instance NFData DeleteApplicationReferenceDataSource
-         where
+instance
+  Prelude.NFData
+    DeleteApplicationReferenceDataSource
 
-instance ToHeaders
-           DeleteApplicationReferenceDataSource
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    DeleteApplicationReferenceDataSource
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteApplicationReferenceDataSource
-         where
-        toJSON DeleteApplicationReferenceDataSource'{..}
-          = object
-              (catMaybes
-                 [Just ("ApplicationName" .= _dardsApplicationName),
-                  Just
-                    ("CurrentApplicationVersionId" .=
-                       _dardsCurrentApplicationVersionId),
-                  Just ("ReferenceId" .= _dardsReferenceId)])
+instance
+  Core.ToJSON
+    DeleteApplicationReferenceDataSource
+  where
+  toJSON DeleteApplicationReferenceDataSource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ApplicationName" Core..= applicationName),
+            Prelude.Just
+              ( "CurrentApplicationVersionId"
+                  Core..= currentApplicationVersionId
+              ),
+            Prelude.Just ("ReferenceId" Core..= referenceId)
+          ]
+      )
 
-instance ToPath DeleteApplicationReferenceDataSource
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    DeleteApplicationReferenceDataSource
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteApplicationReferenceDataSource
-         where
-        toQuery = const mempty
+instance
+  Core.ToQuery
+    DeleteApplicationReferenceDataSource
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteApplicationReferenceDataSourceResponse' smart constructor.
-newtype DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDataSourceResponse'
-  { _dardsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteApplicationReferenceDataSourceResponse' smart constructor.
+data DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDataSourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteApplicationReferenceDataSourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dardsrsResponseStatus' - -- | The response status code.
-deleteApplicationReferenceDataSourceResponse
-    :: Int -- ^ 'dardsrsResponseStatus'
-    -> DeleteApplicationReferenceDataSourceResponse
-deleteApplicationReferenceDataSourceResponse pResponseStatus_ =
-  DeleteApplicationReferenceDataSourceResponse'
-    {_dardsrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.
+newDeleteApplicationReferenceDataSourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteApplicationReferenceDataSourceResponse
+newDeleteApplicationReferenceDataSourceResponse
+  pHttpStatus_ =
+    DeleteApplicationReferenceDataSourceResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+deleteApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' DeleteApplicationReferenceDataSourceResponse Prelude.Int
+deleteApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\DeleteApplicationReferenceDataSourceResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationReferenceDataSourceResponse' {} a -> s {httpStatus = a} :: DeleteApplicationReferenceDataSourceResponse)
 
--- | -- | The response status code.
-dardsrsResponseStatus :: Lens' DeleteApplicationReferenceDataSourceResponse Int
-dardsrsResponseStatus = lens _dardsrsResponseStatus (\ s a -> s{_dardsrsResponseStatus = a})
-
-instance NFData
-           DeleteApplicationReferenceDataSourceResponse
-         where
+instance
+  Prelude.NFData
+    DeleteApplicationReferenceDataSourceResponse

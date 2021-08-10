@@ -1,159 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateDirectoryConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified directory configuration.
---
---
+-- Updates the specified Directory Config object in AppStream 2.0. This
+-- object includes the configuration information required to join fleets
+-- and image builders to Microsoft Active Directory domains.
 module Network.AWS.AppStream.UpdateDirectoryConfig
-    (
-    -- * Creating a Request
-      updateDirectoryConfig
-    , UpdateDirectoryConfig
+  ( -- * Creating a Request
+    UpdateDirectoryConfig (..),
+    newUpdateDirectoryConfig,
+
     -- * Request Lenses
-    , udcServiceAccountCredentials
-    , udcOrganizationalUnitDistinguishedNames
-    , udcDirectoryName
+    updateDirectoryConfig_serviceAccountCredentials,
+    updateDirectoryConfig_organizationalUnitDistinguishedNames,
+    updateDirectoryConfig_directoryName,
 
     -- * Destructuring the Response
-    , updateDirectoryConfigResponse
-    , UpdateDirectoryConfigResponse
+    UpdateDirectoryConfigResponse (..),
+    newUpdateDirectoryConfigResponse,
+
     -- * Response Lenses
-    , udcrsDirectoryConfig
-    , udcrsResponseStatus
-    ) where
+    updateDirectoryConfigResponse_directoryConfig,
+    updateDirectoryConfigResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateDirectoryConfig' smart constructor.
+-- | /See:/ 'newUpdateDirectoryConfig' smart constructor.
 data UpdateDirectoryConfig = UpdateDirectoryConfig'
-  { _udcServiceAccountCredentials :: !(Maybe ServiceAccountCredentials)
-  , _udcOrganizationalUnitDistinguishedNames :: !(Maybe [Text])
-  , _udcDirectoryName :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The credentials for the service account used by the fleet or image
+    -- builder to connect to the directory.
+    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
+    -- | The distinguished names of the organizational units for computer
+    -- accounts.
+    organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Directory Config object.
+    directoryName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDirectoryConfig' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDirectoryConfig' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcServiceAccountCredentials' - The credentials for the service account used by the streaming instance to connect to the directory.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
+-- 'serviceAccountCredentials', 'updateDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
 --
--- * 'udcDirectoryName' - The name of the directory configuration.
-updateDirectoryConfig
-    :: Text -- ^ 'udcDirectoryName'
-    -> UpdateDirectoryConfig
-updateDirectoryConfig pDirectoryName_ =
+-- 'organizationalUnitDistinguishedNames', 'updateDirectoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
+-- accounts.
+--
+-- 'directoryName', 'updateDirectoryConfig_directoryName' - The name of the Directory Config object.
+newUpdateDirectoryConfig ::
+  -- | 'directoryName'
+  Prelude.Text ->
+  UpdateDirectoryConfig
+newUpdateDirectoryConfig pDirectoryName_ =
   UpdateDirectoryConfig'
-    { _udcServiceAccountCredentials = Nothing
-    , _udcOrganizationalUnitDistinguishedNames = Nothing
-    , _udcDirectoryName = pDirectoryName_
+    { serviceAccountCredentials =
+        Prelude.Nothing,
+      organizationalUnitDistinguishedNames =
+        Prelude.Nothing,
+      directoryName = pDirectoryName_
     }
 
+-- | The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
+updateDirectoryConfig_serviceAccountCredentials :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@UpdateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: UpdateDirectoryConfig)
 
--- | The credentials for the service account used by the streaming instance to connect to the directory.
-udcServiceAccountCredentials :: Lens' UpdateDirectoryConfig (Maybe ServiceAccountCredentials)
-udcServiceAccountCredentials = lens _udcServiceAccountCredentials (\ s a -> s{_udcServiceAccountCredentials = a})
+-- | The distinguished names of the organizational units for computer
+-- accounts.
+updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
+updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens._Coerce
 
--- | The distinguished names of the organizational units for computer accounts.
-udcOrganizationalUnitDistinguishedNames :: Lens' UpdateDirectoryConfig [Text]
-udcOrganizationalUnitDistinguishedNames = lens _udcOrganizationalUnitDistinguishedNames (\ s a -> s{_udcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce
+-- | The name of the Directory Config object.
+updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Prelude.Text
+updateDirectoryConfig_directoryName = Lens.lens (\UpdateDirectoryConfig' {directoryName} -> directoryName) (\s@UpdateDirectoryConfig' {} a -> s {directoryName = a} :: UpdateDirectoryConfig)
 
--- | The name of the directory configuration.
-udcDirectoryName :: Lens' UpdateDirectoryConfig Text
-udcDirectoryName = lens _udcDirectoryName (\ s a -> s{_udcDirectoryName = a})
+instance Core.AWSRequest UpdateDirectoryConfig where
+  type
+    AWSResponse UpdateDirectoryConfig =
+      UpdateDirectoryConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDirectoryConfigResponse'
+            Prelude.<$> (x Core..?> "DirectoryConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateDirectoryConfig where
-        type Rs UpdateDirectoryConfig =
-             UpdateDirectoryConfigResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDirectoryConfigResponse' <$>
-                   (x .?> "DirectoryConfig") <*> (pure (fromEnum s)))
+instance Prelude.Hashable UpdateDirectoryConfig
 
-instance Hashable UpdateDirectoryConfig where
+instance Prelude.NFData UpdateDirectoryConfig
 
-instance NFData UpdateDirectoryConfig where
+instance Core.ToHeaders UpdateDirectoryConfig where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "PhotonAdminProxyService.UpdateDirectoryConfig" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateDirectoryConfig where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.UpdateDirectoryConfig" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateDirectoryConfig where
+  toJSON UpdateDirectoryConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ServiceAccountCredentials" Core..=)
+              Prelude.<$> serviceAccountCredentials,
+            ("OrganizationalUnitDistinguishedNames" Core..=)
+              Prelude.<$> organizationalUnitDistinguishedNames,
+            Prelude.Just
+              ("DirectoryName" Core..= directoryName)
+          ]
+      )
 
-instance ToJSON UpdateDirectoryConfig where
-        toJSON UpdateDirectoryConfig'{..}
-          = object
-              (catMaybes
-                 [("ServiceAccountCredentials" .=) <$>
-                    _udcServiceAccountCredentials,
-                  ("OrganizationalUnitDistinguishedNames" .=) <$>
-                    _udcOrganizationalUnitDistinguishedNames,
-                  Just ("DirectoryName" .= _udcDirectoryName)])
+instance Core.ToPath UpdateDirectoryConfig where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateDirectoryConfig where
-        toPath = const "/"
+instance Core.ToQuery UpdateDirectoryConfig where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateDirectoryConfig where
-        toQuery = const mempty
-
--- | /See:/ 'updateDirectoryConfigResponse' smart constructor.
+-- | /See:/ 'newUpdateDirectoryConfigResponse' smart constructor.
 data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
-  { _udcrsDirectoryConfig :: !(Maybe DirectoryConfig)
-  , _udcrsResponseStatus  :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Information about the Directory Config object.
+    directoryConfig :: Prelude.Maybe DirectoryConfig,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDirectoryConfigResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDirectoryConfigResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcrsDirectoryConfig' - Information about the directory configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcrsResponseStatus' - -- | The response status code.
-updateDirectoryConfigResponse
-    :: Int -- ^ 'udcrsResponseStatus'
-    -> UpdateDirectoryConfigResponse
-updateDirectoryConfigResponse pResponseStatus_ =
+-- 'directoryConfig', 'updateDirectoryConfigResponse_directoryConfig' - Information about the Directory Config object.
+--
+-- 'httpStatus', 'updateDirectoryConfigResponse_httpStatus' - The response's http status code.
+newUpdateDirectoryConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDirectoryConfigResponse
+newUpdateDirectoryConfigResponse pHttpStatus_ =
   UpdateDirectoryConfigResponse'
-    {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
+    { directoryConfig =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the Directory Config object.
+updateDirectoryConfigResponse_directoryConfig :: Lens.Lens' UpdateDirectoryConfigResponse (Prelude.Maybe DirectoryConfig)
+updateDirectoryConfigResponse_directoryConfig = Lens.lens (\UpdateDirectoryConfigResponse' {directoryConfig} -> directoryConfig) (\s@UpdateDirectoryConfigResponse' {} a -> s {directoryConfig = a} :: UpdateDirectoryConfigResponse)
 
--- | Information about the directory configuration.
-udcrsDirectoryConfig :: Lens' UpdateDirectoryConfigResponse (Maybe DirectoryConfig)
-udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryConfig = a})
+-- | The response's http status code.
+updateDirectoryConfigResponse_httpStatus :: Lens.Lens' UpdateDirectoryConfigResponse Prelude.Int
+updateDirectoryConfigResponse_httpStatus = Lens.lens (\UpdateDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateDirectoryConfigResponse' {} a -> s {httpStatus = a} :: UpdateDirectoryConfigResponse)
 
--- | -- | The response status code.
-udcrsResponseStatus :: Lens' UpdateDirectoryConfigResponse Int
-udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a})
-
-instance NFData UpdateDirectoryConfigResponse where
+instance Prelude.NFData UpdateDirectoryConfigResponse

@@ -1,191 +1,294 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeElasticGpus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Elastic GPUs associated with your instances. For more information about Elastic GPUs, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html Amazon EC2 Elastic GPUs> .
---
---
+-- Describes the Elastic Graphics accelerator associated with your
+-- instances. For more information about Elastic Graphics, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html Amazon Elastic Graphics>.
 module Network.AWS.EC2.DescribeElasticGpus
-    (
-    -- * Creating a Request
-      describeElasticGpus
-    , DescribeElasticGpus
+  ( -- * Creating a Request
+    DescribeElasticGpus (..),
+    newDescribeElasticGpus,
+
     -- * Request Lenses
-    , degFilters
-    , degNextToken
-    , degDryRun
-    , degMaxResults
-    , degElasticGpuIds
+    describeElasticGpus_nextToken,
+    describeElasticGpus_elasticGpuIds,
+    describeElasticGpus_dryRun,
+    describeElasticGpus_maxResults,
+    describeElasticGpus_filters,
 
     -- * Destructuring the Response
-    , describeElasticGpusResponse
-    , DescribeElasticGpusResponse
+    DescribeElasticGpusResponse (..),
+    newDescribeElasticGpusResponse,
+
     -- * Response Lenses
-    , degrsElasticGpuSet
-    , degrsNextToken
-    , degrsMaxResults
-    , degrsResponseStatus
-    ) where
+    describeElasticGpusResponse_nextToken,
+    describeElasticGpusResponse_maxResults,
+    describeElasticGpusResponse_elasticGpuSet,
+    describeElasticGpusResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeElasticGpus' smart constructor.
+-- | /See:/ 'newDescribeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-  { _degFilters       :: !(Maybe [Filter])
-  , _degNextToken     :: !(Maybe Text)
-  , _degDryRun        :: !(Maybe Bool)
-  , _degMaxResults    :: !(Maybe Int)
-  , _degElasticGpuIds :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Elastic Graphics accelerator IDs.
+    elasticGpuIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 5 and 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The filters.
+    --
+    -- -   @availability-zone@ - The Availability Zone in which the Elastic
+    --     Graphics accelerator resides.
+    --
+    -- -   @elastic-gpu-health@ - The status of the Elastic Graphics
+    --     accelerator (@OK@ | @IMPAIRED@).
+    --
+    -- -   @elastic-gpu-state@ - The state of the Elastic Graphics accelerator
+    --     (@ATTACHED@).
+    --
+    -- -   @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for
+    --     example, @eg1.medium@.
+    --
+    -- -   @instance-id@ - The ID of the instance to which the Elastic Graphics
+    --     accelerator is associated.
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeElasticGpus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeElasticGpus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'degFilters' - One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic GPU resides.     * @elastic-gpu-health@ - The status of the Elastic GPU (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic GPU (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic GPU; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic GPU is associated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'degNextToken' - The token to request the next page of results.
+-- 'nextToken', 'describeElasticGpus_nextToken' - The token to request the next page of results.
 --
--- * 'degDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'elasticGpuIds', 'describeElasticGpus_elasticGpuIds' - The Elastic Graphics accelerator IDs.
 --
--- * 'degMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- 'dryRun', 'describeElasticGpus_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'degElasticGpuIds' - One or more Elastic GPU IDs.
-describeElasticGpus
-    :: DescribeElasticGpus
-describeElasticGpus =
+-- 'maxResults', 'describeElasticGpus_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000.
+--
+-- 'filters', 'describeElasticGpus_filters' - The filters.
+--
+-- -   @availability-zone@ - The Availability Zone in which the Elastic
+--     Graphics accelerator resides.
+--
+-- -   @elastic-gpu-health@ - The status of the Elastic Graphics
+--     accelerator (@OK@ | @IMPAIRED@).
+--
+-- -   @elastic-gpu-state@ - The state of the Elastic Graphics accelerator
+--     (@ATTACHED@).
+--
+-- -   @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for
+--     example, @eg1.medium@.
+--
+-- -   @instance-id@ - The ID of the instance to which the Elastic Graphics
+--     accelerator is associated.
+newDescribeElasticGpus ::
+  DescribeElasticGpus
+newDescribeElasticGpus =
   DescribeElasticGpus'
-    { _degFilters = Nothing
-    , _degNextToken = Nothing
-    , _degDryRun = Nothing
-    , _degMaxResults = Nothing
-    , _degElasticGpuIds = Nothing
+    { nextToken = Prelude.Nothing,
+      elasticGpuIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
-
-
--- | One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic GPU resides.     * @elastic-gpu-health@ - The status of the Elastic GPU (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic GPU (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic GPU; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic GPU is associated.
-degFilters :: Lens' DescribeElasticGpus [Filter]
-degFilters = lens _degFilters (\ s a -> s{_degFilters = a}) . _Default . _Coerce
 
 -- | The token to request the next page of results.
-degNextToken :: Lens' DescribeElasticGpus (Maybe Text)
-degNextToken = lens _degNextToken (\ s a -> s{_degNextToken = a})
+describeElasticGpus_nextToken :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Text)
+describeElasticGpus_nextToken = Lens.lens (\DescribeElasticGpus' {nextToken} -> nextToken) (\s@DescribeElasticGpus' {} a -> s {nextToken = a} :: DescribeElasticGpus)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-degDryRun :: Lens' DescribeElasticGpus (Maybe Bool)
-degDryRun = lens _degDryRun (\ s a -> s{_degDryRun = a})
+-- | The Elastic Graphics accelerator IDs.
+describeElasticGpus_elasticGpuIds :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe [Prelude.Text])
+describeElasticGpus_elasticGpuIds = Lens.lens (\DescribeElasticGpus' {elasticGpuIds} -> elasticGpuIds) (\s@DescribeElasticGpus' {} a -> s {elasticGpuIds = a} :: DescribeElasticGpus) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
-degMaxResults :: Lens' DescribeElasticGpus (Maybe Int)
-degMaxResults = lens _degMaxResults (\ s a -> s{_degMaxResults = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeElasticGpus_dryRun :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Bool)
+describeElasticGpus_dryRun = Lens.lens (\DescribeElasticGpus' {dryRun} -> dryRun) (\s@DescribeElasticGpus' {} a -> s {dryRun = a} :: DescribeElasticGpus)
 
--- | One or more Elastic GPU IDs.
-degElasticGpuIds :: Lens' DescribeElasticGpus [Text]
-degElasticGpuIds = lens _degElasticGpuIds (\ s a -> s{_degElasticGpuIds = a}) . _Default . _Coerce
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000.
+describeElasticGpus_maxResults :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Natural)
+describeElasticGpus_maxResults = Lens.lens (\DescribeElasticGpus' {maxResults} -> maxResults) (\s@DescribeElasticGpus' {} a -> s {maxResults = a} :: DescribeElasticGpus)
 
-instance AWSRequest DescribeElasticGpus where
-        type Rs DescribeElasticGpus =
-             DescribeElasticGpusResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeElasticGpusResponse' <$>
-                   (x .@? "elasticGpuSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "nextToken")
-                     <*> (x .@? "maxResults")
-                     <*> (pure (fromEnum s)))
+-- | The filters.
+--
+-- -   @availability-zone@ - The Availability Zone in which the Elastic
+--     Graphics accelerator resides.
+--
+-- -   @elastic-gpu-health@ - The status of the Elastic Graphics
+--     accelerator (@OK@ | @IMPAIRED@).
+--
+-- -   @elastic-gpu-state@ - The state of the Elastic Graphics accelerator
+--     (@ATTACHED@).
+--
+-- -   @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for
+--     example, @eg1.medium@.
+--
+-- -   @instance-id@ - The ID of the instance to which the Elastic Graphics
+--     accelerator is associated.
+describeElasticGpus_filters :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe [Filter])
+describeElasticGpus_filters = Lens.lens (\DescribeElasticGpus' {filters} -> filters) (\s@DescribeElasticGpus' {} a -> s {filters = a} :: DescribeElasticGpus) Prelude.. Lens.mapping Lens._Coerce
 
-instance Hashable DescribeElasticGpus where
+instance Core.AWSRequest DescribeElasticGpus where
+  type
+    AWSResponse DescribeElasticGpus =
+      DescribeElasticGpusResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeElasticGpusResponse'
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> (x Core..@? "maxResults")
+            Prelude.<*> ( x Core..@? "elasticGpuSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeElasticGpus where
+instance Prelude.Hashable DescribeElasticGpus
 
-instance ToHeaders DescribeElasticGpus where
-        toHeaders = const mempty
+instance Prelude.NFData DescribeElasticGpus
 
-instance ToPath DescribeElasticGpus where
-        toPath = const "/"
+instance Core.ToHeaders DescribeElasticGpus where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeElasticGpus where
-        toQuery DescribeElasticGpus'{..}
-          = mconcat
-              ["Action" =: ("DescribeElasticGpus" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _degFilters),
-               "NextToken" =: _degNextToken, "DryRun" =: _degDryRun,
-               "MaxResults" =: _degMaxResults,
-               toQuery
-                 (toQueryList "ElasticGpuId" <$> _degElasticGpuIds)]
+instance Core.ToPath DescribeElasticGpus where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeElasticGpusResponse' smart constructor.
+instance Core.ToQuery DescribeElasticGpus where
+  toQuery DescribeElasticGpus' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeElasticGpus" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "ElasticGpuId"
+              Prelude.<$> elasticGpuIds
+          ),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
+      ]
+
+-- | /See:/ 'newDescribeElasticGpusResponse' smart constructor.
 data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
-  { _degrsElasticGpuSet  :: !(Maybe [ElasticGpus])
-  , _degrsNextToken      :: !(Maybe Text)
-  , _degrsMaxResults     :: !(Maybe Int)
-  , _degrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of items to return. If the total number of items
+    -- available is more than the value specified in max-items then a
+    -- Next-Token will be provided in the output that you can use to resume
+    -- pagination.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Information about the Elastic Graphics accelerators.
+    elasticGpuSet :: Prelude.Maybe [ElasticGpus],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeElasticGpusResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeElasticGpusResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'degrsElasticGpuSet' - Information about the Elastic GPUs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'degrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- 'nextToken', 'describeElasticGpusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
--- * 'degrsMaxResults' - The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
+-- 'maxResults', 'describeElasticGpusResponse_maxResults' - The total number of items to return. If the total number of items
+-- available is more than the value specified in max-items then a
+-- Next-Token will be provided in the output that you can use to resume
+-- pagination.
 --
--- * 'degrsResponseStatus' - -- | The response status code.
-describeElasticGpusResponse
-    :: Int -- ^ 'degrsResponseStatus'
-    -> DescribeElasticGpusResponse
-describeElasticGpusResponse pResponseStatus_ =
+-- 'elasticGpuSet', 'describeElasticGpusResponse_elasticGpuSet' - Information about the Elastic Graphics accelerators.
+--
+-- 'httpStatus', 'describeElasticGpusResponse_httpStatus' - The response's http status code.
+newDescribeElasticGpusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeElasticGpusResponse
+newDescribeElasticGpusResponse pHttpStatus_ =
   DescribeElasticGpusResponse'
-    { _degrsElasticGpuSet = Nothing
-    , _degrsNextToken = Nothing
-    , _degrsMaxResults = Nothing
-    , _degrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      elasticGpuSet = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeElasticGpusResponse_nextToken :: Lens.Lens' DescribeElasticGpusResponse (Prelude.Maybe Prelude.Text)
+describeElasticGpusResponse_nextToken = Lens.lens (\DescribeElasticGpusResponse' {nextToken} -> nextToken) (\s@DescribeElasticGpusResponse' {} a -> s {nextToken = a} :: DescribeElasticGpusResponse)
 
--- | Information about the Elastic GPUs.
-degrsElasticGpuSet :: Lens' DescribeElasticGpusResponse [ElasticGpus]
-degrsElasticGpuSet = lens _degrsElasticGpuSet (\ s a -> s{_degrsElasticGpuSet = a}) . _Default . _Coerce
+-- | The total number of items to return. If the total number of items
+-- available is more than the value specified in max-items then a
+-- Next-Token will be provided in the output that you can use to resume
+-- pagination.
+describeElasticGpusResponse_maxResults :: Lens.Lens' DescribeElasticGpusResponse (Prelude.Maybe Prelude.Int)
+describeElasticGpusResponse_maxResults = Lens.lens (\DescribeElasticGpusResponse' {maxResults} -> maxResults) (\s@DescribeElasticGpusResponse' {} a -> s {maxResults = a} :: DescribeElasticGpusResponse)
 
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-degrsNextToken :: Lens' DescribeElasticGpusResponse (Maybe Text)
-degrsNextToken = lens _degrsNextToken (\ s a -> s{_degrsNextToken = a})
+-- | Information about the Elastic Graphics accelerators.
+describeElasticGpusResponse_elasticGpuSet :: Lens.Lens' DescribeElasticGpusResponse (Prelude.Maybe [ElasticGpus])
+describeElasticGpusResponse_elasticGpuSet = Lens.lens (\DescribeElasticGpusResponse' {elasticGpuSet} -> elasticGpuSet) (\s@DescribeElasticGpusResponse' {} a -> s {elasticGpuSet = a} :: DescribeElasticGpusResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
-degrsMaxResults :: Lens' DescribeElasticGpusResponse (Maybe Int)
-degrsMaxResults = lens _degrsMaxResults (\ s a -> s{_degrsMaxResults = a})
+-- | The response's http status code.
+describeElasticGpusResponse_httpStatus :: Lens.Lens' DescribeElasticGpusResponse Prelude.Int
+describeElasticGpusResponse_httpStatus = Lens.lens (\DescribeElasticGpusResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticGpusResponse' {} a -> s {httpStatus = a} :: DescribeElasticGpusResponse)
 
--- | -- | The response status code.
-degrsResponseStatus :: Lens' DescribeElasticGpusResponse Int
-degrsResponseStatus = lens _degrsResponseStatus (\ s a -> s{_degrsResponseStatus = a})
-
-instance NFData DescribeElasticGpusResponse where
+instance Prelude.NFData DescribeElasticGpusResponse

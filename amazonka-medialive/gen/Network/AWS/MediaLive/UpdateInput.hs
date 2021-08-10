@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.UpdateInput
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,157 +22,240 @@
 --
 -- Updates an input.
 module Network.AWS.MediaLive.UpdateInput
-    (
-    -- * Creating a Request
-      updateInput
-    , UpdateInput
+  ( -- * Creating a Request
+    UpdateInput' (..),
+    newUpdateInput',
+
     -- * Request Lenses
-    , uiSources
-    , uiInputSecurityGroups
-    , uiDestinations
-    , uiName
-    , uiInputId
+    updateInput'_inputSecurityGroups,
+    updateInput'_roleArn,
+    updateInput'_sources,
+    updateInput'_mediaConnectFlows,
+    updateInput'_destinations,
+    updateInput'_name,
+    updateInput'_inputDevices,
+    updateInput'_inputId,
 
     -- * Destructuring the Response
-    , updateInputResponse
-    , UpdateInputResponse
-    -- * Response Lenses
-    , uirsInput
-    , uirsResponseStatus
-    ) where
+    UpdateInputResponse (..),
+    newUpdateInputResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    updateInputResponse_input,
+    updateInputResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request to update an input.
 --
--- /See:/ 'updateInput' smart constructor.
-data UpdateInput = UpdateInput'
-  { _uiSources             :: !(Maybe [InputSourceRequest])
-  , _uiInputSecurityGroups :: !(Maybe [Text])
-  , _uiDestinations        :: !(Maybe [InputDestinationRequest])
-  , _uiName                :: !(Maybe Text)
-  , _uiInputId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newUpdateInput'' smart constructor.
+data UpdateInput' = UpdateInput''
+  { -- | A list of security groups referenced by IDs to attach to the input.
+    inputSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and
+    -- after creation.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The source URLs for a PULL-type input. Every PULL type input needs
+    -- exactly two source URLs for redundancy. Only specify sources for PULL
+    -- type Inputs. Leave Destinations empty.
+    sources :: Prelude.Maybe [InputSourceRequest],
+    -- | A list of the MediaConnect Flow ARNs that you want to use as the source
+    -- of the input. You can specify as few as one Flow and presently, as many
+    -- as two. The only requirement is when you have more than one is that each
+    -- Flow is in a separate Availability Zone as this ensures your EML input
+    -- is redundant to AZ issues.
+    mediaConnectFlows :: Prelude.Maybe [MediaConnectFlowRequest],
+    -- | Destination settings for PUSH type inputs.
+    destinations :: Prelude.Maybe [InputDestinationRequest],
+    -- | Name of the input.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Settings for the devices.
+    inputDevices :: Prelude.Maybe [InputDeviceRequest],
+    -- | Unique ID of the input.
+    inputId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateInput' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateInput'' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uiSources' - The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uiInputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- 'inputSecurityGroups', 'updateInput'_inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
 --
--- * 'uiDestinations' - Destination settings for PUSH type inputs.
+-- 'roleArn', 'updateInput'_roleArn' - The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
 --
--- * 'uiName' - Name of the input.
+-- 'sources', 'updateInput'_sources' - The source URLs for a PULL-type input. Every PULL type input needs
+-- exactly two source URLs for redundancy. Only specify sources for PULL
+-- type Inputs. Leave Destinations empty.
 --
--- * 'uiInputId' - Unique ID of the input.
-updateInput
-    :: Text -- ^ 'uiInputId'
-    -> UpdateInput
-updateInput pInputId_ =
+-- 'mediaConnectFlows', 'updateInput'_mediaConnectFlows' - A list of the MediaConnect Flow ARNs that you want to use as the source
+-- of the input. You can specify as few as one Flow and presently, as many
+-- as two. The only requirement is when you have more than one is that each
+-- Flow is in a separate Availability Zone as this ensures your EML input
+-- is redundant to AZ issues.
+--
+-- 'destinations', 'updateInput'_destinations' - Destination settings for PUSH type inputs.
+--
+-- 'name', 'updateInput'_name' - Name of the input.
+--
+-- 'inputDevices', 'updateInput'_inputDevices' - Settings for the devices.
+--
+-- 'inputId', 'updateInput'_inputId' - Unique ID of the input.
+newUpdateInput' ::
+  -- | 'inputId'
+  Prelude.Text ->
   UpdateInput'
-    { _uiSources = Nothing
-    , _uiInputSecurityGroups = Nothing
-    , _uiDestinations = Nothing
-    , _uiName = Nothing
-    , _uiInputId = pInputId_
+newUpdateInput' pInputId_ =
+  UpdateInput''
+    { inputSecurityGroups =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      mediaConnectFlows = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      name = Prelude.Nothing,
+      inputDevices = Prelude.Nothing,
+      inputId = pInputId_
     }
 
-
--- | The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
-uiSources :: Lens' UpdateInput [InputSourceRequest]
-uiSources = lens _uiSources (\ s a -> s{_uiSources = a}) . _Default . _Coerce
-
 -- | A list of security groups referenced by IDs to attach to the input.
-uiInputSecurityGroups :: Lens' UpdateInput [Text]
-uiInputSecurityGroups = lens _uiInputSecurityGroups (\ s a -> s{_uiInputSecurityGroups = a}) . _Default . _Coerce
+updateInput'_inputSecurityGroups :: Lens.Lens' UpdateInput' (Prelude.Maybe [Prelude.Text])
+updateInput'_inputSecurityGroups = Lens.lens (\UpdateInput'' {inputSecurityGroups} -> inputSecurityGroups) (\s@UpdateInput'' {} a -> s {inputSecurityGroups = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
+updateInput'_roleArn :: Lens.Lens' UpdateInput' (Prelude.Maybe Prelude.Text)
+updateInput'_roleArn = Lens.lens (\UpdateInput'' {roleArn} -> roleArn) (\s@UpdateInput'' {} a -> s {roleArn = a} :: UpdateInput')
+
+-- | The source URLs for a PULL-type input. Every PULL type input needs
+-- exactly two source URLs for redundancy. Only specify sources for PULL
+-- type Inputs. Leave Destinations empty.
+updateInput'_sources :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputSourceRequest])
+updateInput'_sources = Lens.lens (\UpdateInput'' {sources} -> sources) (\s@UpdateInput'' {} a -> s {sources = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
+
+-- | A list of the MediaConnect Flow ARNs that you want to use as the source
+-- of the input. You can specify as few as one Flow and presently, as many
+-- as two. The only requirement is when you have more than one is that each
+-- Flow is in a separate Availability Zone as this ensures your EML input
+-- is redundant to AZ issues.
+updateInput'_mediaConnectFlows :: Lens.Lens' UpdateInput' (Prelude.Maybe [MediaConnectFlowRequest])
+updateInput'_mediaConnectFlows = Lens.lens (\UpdateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@UpdateInput'' {} a -> s {mediaConnectFlows = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Destination settings for PUSH type inputs.
-uiDestinations :: Lens' UpdateInput [InputDestinationRequest]
-uiDestinations = lens _uiDestinations (\ s a -> s{_uiDestinations = a}) . _Default . _Coerce
+updateInput'_destinations :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputDestinationRequest])
+updateInput'_destinations = Lens.lens (\UpdateInput'' {destinations} -> destinations) (\s@UpdateInput'' {} a -> s {destinations = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of the input.
-uiName :: Lens' UpdateInput (Maybe Text)
-uiName = lens _uiName (\ s a -> s{_uiName = a})
+updateInput'_name :: Lens.Lens' UpdateInput' (Prelude.Maybe Prelude.Text)
+updateInput'_name = Lens.lens (\UpdateInput'' {name} -> name) (\s@UpdateInput'' {} a -> s {name = a} :: UpdateInput')
+
+-- | Settings for the devices.
+updateInput'_inputDevices :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputDeviceRequest])
+updateInput'_inputDevices = Lens.lens (\UpdateInput'' {inputDevices} -> inputDevices) (\s@UpdateInput'' {} a -> s {inputDevices = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Unique ID of the input.
-uiInputId :: Lens' UpdateInput Text
-uiInputId = lens _uiInputId (\ s a -> s{_uiInputId = a})
+updateInput'_inputId :: Lens.Lens' UpdateInput' Prelude.Text
+updateInput'_inputId = Lens.lens (\UpdateInput'' {inputId} -> inputId) (\s@UpdateInput'' {} a -> s {inputId = a} :: UpdateInput')
 
-instance AWSRequest UpdateInput where
-        type Rs UpdateInput = UpdateInputResponse
-        request = putJSON mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateInputResponse' <$>
-                   (x .?> "input") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateInput' where
+  type AWSResponse UpdateInput' = UpdateInputResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateInputResponse'
+            Prelude.<$> (x Core..?> "input")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateInput where
+instance Prelude.Hashable UpdateInput'
 
-instance NFData UpdateInput where
+instance Prelude.NFData UpdateInput'
 
-instance ToHeaders UpdateInput where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateInput' where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateInput where
-        toJSON UpdateInput'{..}
-          = object
-              (catMaybes
-                 [("sources" .=) <$> _uiSources,
-                  ("inputSecurityGroups" .=) <$>
-                    _uiInputSecurityGroups,
-                  ("destinations" .=) <$> _uiDestinations,
-                  ("name" .=) <$> _uiName])
+instance Core.ToJSON UpdateInput' where
+  toJSON UpdateInput'' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("inputSecurityGroups" Core..=)
+              Prelude.<$> inputSecurityGroups,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("sources" Core..=) Prelude.<$> sources,
+            ("mediaConnectFlows" Core..=)
+              Prelude.<$> mediaConnectFlows,
+            ("destinations" Core..=) Prelude.<$> destinations,
+            ("name" Core..=) Prelude.<$> name,
+            ("inputDevices" Core..=) Prelude.<$> inputDevices
+          ]
+      )
 
-instance ToPath UpdateInput where
-        toPath UpdateInput'{..}
-          = mconcat ["/prod/inputs/", toBS _uiInputId]
+instance Core.ToPath UpdateInput' where
+  toPath UpdateInput'' {..} =
+    Prelude.mconcat
+      ["/prod/inputs/", Core.toBS inputId]
 
-instance ToQuery UpdateInput where
-        toQuery = const mempty
+instance Core.ToQuery UpdateInput' where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateInputResponse
 --
--- /See:/ 'updateInputResponse' smart constructor.
+-- /See:/ 'newUpdateInputResponse' smart constructor.
 data UpdateInputResponse = UpdateInputResponse'
-  { _uirsInput          :: !(Maybe Input)
-  , _uirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { input :: Prelude.Maybe Input,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateInputResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateInputResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uirsInput' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uirsResponseStatus' - -- | The response status code.
-updateInputResponse
-    :: Int -- ^ 'uirsResponseStatus'
-    -> UpdateInputResponse
-updateInputResponse pResponseStatus_ =
+-- 'input', 'updateInputResponse_input' - Undocumented member.
+--
+-- 'httpStatus', 'updateInputResponse_httpStatus' - The response's http status code.
+newUpdateInputResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateInputResponse
+newUpdateInputResponse pHttpStatus_ =
   UpdateInputResponse'
-    {_uirsInput = Nothing, _uirsResponseStatus = pResponseStatus_}
-
+    { input = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-uirsInput :: Lens' UpdateInputResponse (Maybe Input)
-uirsInput = lens _uirsInput (\ s a -> s{_uirsInput = a})
+updateInputResponse_input :: Lens.Lens' UpdateInputResponse (Prelude.Maybe Input)
+updateInputResponse_input = Lens.lens (\UpdateInputResponse' {input} -> input) (\s@UpdateInputResponse' {} a -> s {input = a} :: UpdateInputResponse)
 
--- | -- | The response status code.
-uirsResponseStatus :: Lens' UpdateInputResponse Int
-uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a})
+-- | The response's http status code.
+updateInputResponse_httpStatus :: Lens.Lens' UpdateInputResponse Prelude.Int
+updateInputResponse_httpStatus = Lens.lens (\UpdateInputResponse' {httpStatus} -> httpStatus) (\s@UpdateInputResponse' {} a -> s {httpStatus = a} :: UpdateInputResponse)
 
-instance NFData UpdateInputResponse where
+instance Prelude.NFData UpdateInputResponse

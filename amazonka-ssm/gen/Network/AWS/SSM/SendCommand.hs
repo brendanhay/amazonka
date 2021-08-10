@@ -1,285 +1,539 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.SendCommand
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Executes commands on one or more managed instances.
---
---
+-- Runs commands on one or more managed instances.
 module Network.AWS.SSM.SendCommand
-    (
-    -- * Creating a Request
-      sendCommand
-    , SendCommand
+  ( -- * Creating a Request
+    SendCommand (..),
+    newSendCommand,
+
     -- * Request Lenses
-    , scServiceRoleARN
-    , scNotificationConfig
-    , scDocumentHashType
-    , scOutputS3KeyPrefix
-    , scMaxErrors
-    , scInstanceIds
-    , scOutputS3Region
-    , scTargets
-    , scParameters
-    , scDocumentHash
-    , scDocumentVersion
-    , scTimeoutSeconds
-    , scComment
-    , scOutputS3BucketName
-    , scMaxConcurrency
-    , scDocumentName
+    sendCommand_notificationConfig,
+    sendCommand_instanceIds,
+    sendCommand_maxErrors,
+    sendCommand_serviceRoleArn,
+    sendCommand_outputS3BucketName,
+    sendCommand_comment,
+    sendCommand_documentHash,
+    sendCommand_targets,
+    sendCommand_outputS3Region,
+    sendCommand_maxConcurrency,
+    sendCommand_outputS3KeyPrefix,
+    sendCommand_timeoutSeconds,
+    sendCommand_cloudWatchOutputConfig,
+    sendCommand_documentHashType,
+    sendCommand_documentVersion,
+    sendCommand_parameters,
+    sendCommand_documentName,
 
     -- * Destructuring the Response
-    , sendCommandResponse
-    , SendCommandResponse
+    SendCommandResponse (..),
+    newSendCommandResponse,
+
     -- * Response Lenses
-    , scrsCommand
-    , scrsResponseStatus
-    ) where
+    sendCommandResponse_command,
+    sendCommandResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'sendCommand' smart constructor.
+-- | /See:/ 'newSendCommand' smart constructor.
 data SendCommand = SendCommand'
-  { _scServiceRoleARN     :: !(Maybe Text)
-  , _scNotificationConfig :: !(Maybe NotificationConfig)
-  , _scDocumentHashType   :: !(Maybe DocumentHashType)
-  , _scOutputS3KeyPrefix  :: !(Maybe Text)
-  , _scMaxErrors          :: !(Maybe Text)
-  , _scInstanceIds        :: !(Maybe [Text])
-  , _scOutputS3Region     :: !(Maybe Text)
-  , _scTargets            :: !(Maybe [Target])
-  , _scParameters         :: !(Maybe (Map Text [Text]))
-  , _scDocumentHash       :: !(Maybe Text)
-  , _scDocumentVersion    :: !(Maybe Text)
-  , _scTimeoutSeconds     :: !(Maybe Nat)
-  , _scComment            :: !(Maybe Text)
-  , _scOutputS3BucketName :: !(Maybe Text)
-  , _scMaxConcurrency     :: !(Maybe Text)
-  , _scDocumentName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Configurations for sending notifications.
+    notificationConfig :: Prelude.Maybe NotificationConfig,
+    -- | The IDs of the instances where the command should run. Specifying
+    -- instance IDs is most useful when you are targeting a limited number of
+    -- instances, though you can specify up to 50 IDs.
+    --
+    -- To target a larger number of instances, or if you prefer not to list
+    -- individual instance IDs, we recommend using the @Targets@ option
+    -- instead. Using @Targets@, which accepts tag key-value pairs to identify
+    -- the instances to send commands to, you can a send command to tens,
+    -- hundreds, or thousands of instances at once.
+    --
+    -- For more information about how to use targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+    -- in the /AWS Systems Manager User Guide/.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of errors allowed without the command failing. When
+    -- the command fails one more time beyond the value of MaxErrors, the
+    -- systems stops sending the command to additional targets. You can specify
+    -- a number like 10 or a percentage like 10%. The default value is 0. For
+    -- more information about how to use MaxErrors, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls>
+    -- in the /AWS Systems Manager User Guide/.
+    maxErrors :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM service role to use to publish Amazon Simple
+    -- Notification Service (Amazon SNS) notifications for Run Command
+    -- commands.
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the S3 bucket where command execution responses should be
+    -- stored.
+    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | User-specified information about the command, such as a brief
+    -- description of what the command should do.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The Sha256 or Sha1 hash created by the system when the document was
+    -- created.
+    --
+    -- Sha1 hashes have been deprecated.
+    documentHash :: Prelude.Maybe Prelude.Text,
+    -- | An array of search criteria that targets instances using a @Key,Value@
+    -- combination that you specify. Specifying targets is most useful when you
+    -- want to send a command to a large number of instances at once. Using
+    -- @Targets@, which accepts tag key-value pairs to identify instances, you
+    -- can send a command to tens, hundreds, or thousands of instances at once.
+    --
+    -- To send a command to a smaller number of instances, you can use the
+    -- @InstanceIds@ option instead.
+    --
+    -- For more information about how to use targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+    -- in the /AWS Systems Manager User Guide/.
+    targets :: Prelude.Maybe [Target],
+    -- | (Deprecated) You can no longer specify this parameter. The system
+    -- ignores it. Instead, Systems Manager automatically determines the Region
+    -- of the S3 bucket.
+    outputS3Region :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The maximum number of instances that are allowed to run the
+    -- command at the same time. You can specify a number such as 10 or a
+    -- percentage such as 10%. The default value is 50. For more information
+    -- about how to use MaxConcurrency, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
+    -- in the /AWS Systems Manager User Guide/.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | The directory structure within the S3 bucket where the responses should
+    -- be stored.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | If this time is reached and the command has not already started running,
+    -- it will not run.
+    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Enables Systems Manager to send Run Command output to Amazon CloudWatch
+    -- Logs.
+    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    -- | Sha256 or Sha1.
+    --
+    -- Sha1 hashes have been deprecated.
+    documentHashType :: Prelude.Maybe DocumentHashType,
+    -- | The SSM document version to use in the request. You can specify
+    -- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+    -- using the AWS CLI, then you must escape the first two options by using a
+    -- backslash. If you specify a version number, then you don\'t need to use
+    -- the backslash. For example:
+    --
+    -- --document-version \"\\$DEFAULT\"
+    --
+    -- --document-version \"\\$LATEST\"
+    --
+    -- --document-version \"3\"
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The required and optional parameters specified in the document being
+    -- run.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The name of the Systems Manager document to run. This can be a public
+    -- document or a custom document. To run a shared document belonging to
+    -- another account, specify the document ARN. For more information about
+    -- how to use shared documents, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
+    -- in the /AWS Systems Manager User Guide/.
+    documentName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SendCommand' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SendCommand' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'scServiceRoleARN' - The IAM role that Systems Manager uses to send notifications.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'scNotificationConfig' - Configurations for sending notifications.
+-- 'notificationConfig', 'sendCommand_notificationConfig' - Configurations for sending notifications.
 --
--- * 'scDocumentHashType' - Sha256 or Sha1.
+-- 'instanceIds', 'sendCommand_instanceIds' - The IDs of the instances where the command should run. Specifying
+-- instance IDs is most useful when you are targeting a limited number of
+-- instances, though you can specify up to 50 IDs.
 --
--- * 'scOutputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
+-- To target a larger number of instances, or if you prefer not to list
+-- individual instance IDs, we recommend using the @Targets@ option
+-- instead. Using @Targets@, which accepts tag key-value pairs to identify
+-- the instances to send commands to, you can a send command to tens,
+-- hundreds, or thousands of instances at once.
 --
--- * 'scMaxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html Using Error Controls> .
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+-- in the /AWS Systems Manager User Guide/.
 --
--- * 'scInstanceIds' - The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
+-- 'maxErrors', 'sendCommand_maxErrors' - The maximum number of errors allowed without the command failing. When
+-- the command fails one more time beyond the value of MaxErrors, the
+-- systems stops sending the command to additional targets. You can specify
+-- a number like 10 or a percentage like 10%. The default value is 0. For
+-- more information about how to use MaxErrors, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls>
+-- in the /AWS Systems Manager User Guide/.
 --
--- * 'scOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
+-- 'serviceRoleArn', 'sendCommand_serviceRoleArn' - The ARN of the IAM service role to use to publish Amazon Simple
+-- Notification Service (Amazon SNS) notifications for Run Command
+-- commands.
 --
--- * 'scTargets' - (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
+-- 'outputS3BucketName', 'sendCommand_outputS3BucketName' - The name of the S3 bucket where command execution responses should be
+-- stored.
 --
--- * 'scParameters' - The required and optional parameters specified in the document being executed.
+-- 'comment', 'sendCommand_comment' - User-specified information about the command, such as a brief
+-- description of what the command should do.
 --
--- * 'scDocumentHash' - The Sha256 or Sha1 hash created by the system when the document was created.
+-- 'documentHash', 'sendCommand_documentHash' - The Sha256 or Sha1 hash created by the system when the document was
+-- created.
 --
--- * 'scDocumentVersion' - The SSM document version to use in the request. You can specify Default, Latest, or a specific version number.
+-- Sha1 hashes have been deprecated.
 --
--- * 'scTimeoutSeconds' - If this time is reached and the command has not already started executing, it will not run.
+-- 'targets', 'sendCommand_targets' - An array of search criteria that targets instances using a @Key,Value@
+-- combination that you specify. Specifying targets is most useful when you
+-- want to send a command to a large number of instances at once. Using
+-- @Targets@, which accepts tag key-value pairs to identify instances, you
+-- can send a command to tens, hundreds, or thousands of instances at once.
 --
--- * 'scComment' - User-specified information about the command, such as a brief description of what the command should do.
+-- To send a command to a smaller number of instances, you can use the
+-- @InstanceIds@ option instead.
 --
--- * 'scOutputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+-- in the /AWS Systems Manager User Guide/.
 --
--- * 'scMaxConcurrency' - (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html Using Concurrency Controls> .
+-- 'outputS3Region', 'sendCommand_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Region
+-- of the S3 bucket.
 --
--- * 'scDocumentName' - Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.
-sendCommand
-    :: Text -- ^ 'scDocumentName'
-    -> SendCommand
-sendCommand pDocumentName_ =
+-- 'maxConcurrency', 'sendCommand_maxConcurrency' - (Optional) The maximum number of instances that are allowed to run the
+-- command at the same time. You can specify a number such as 10 or a
+-- percentage such as 10%. The default value is 50. For more information
+-- about how to use MaxConcurrency, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
+-- in the /AWS Systems Manager User Guide/.
+--
+-- 'outputS3KeyPrefix', 'sendCommand_outputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should
+-- be stored.
+--
+-- 'timeoutSeconds', 'sendCommand_timeoutSeconds' - If this time is reached and the command has not already started running,
+-- it will not run.
+--
+-- 'cloudWatchOutputConfig', 'sendCommand_cloudWatchOutputConfig' - Enables Systems Manager to send Run Command output to Amazon CloudWatch
+-- Logs.
+--
+-- 'documentHashType', 'sendCommand_documentHashType' - Sha256 or Sha1.
+--
+-- Sha1 hashes have been deprecated.
+--
+-- 'documentVersion', 'sendCommand_documentVersion' - The SSM document version to use in the request. You can specify
+-- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+-- using the AWS CLI, then you must escape the first two options by using a
+-- backslash. If you specify a version number, then you don\'t need to use
+-- the backslash. For example:
+--
+-- --document-version \"\\$DEFAULT\"
+--
+-- --document-version \"\\$LATEST\"
+--
+-- --document-version \"3\"
+--
+-- 'parameters', 'sendCommand_parameters' - The required and optional parameters specified in the document being
+-- run.
+--
+-- 'documentName', 'sendCommand_documentName' - The name of the Systems Manager document to run. This can be a public
+-- document or a custom document. To run a shared document belonging to
+-- another account, specify the document ARN. For more information about
+-- how to use shared documents, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
+-- in the /AWS Systems Manager User Guide/.
+newSendCommand ::
+  -- | 'documentName'
+  Prelude.Text ->
+  SendCommand
+newSendCommand pDocumentName_ =
   SendCommand'
-    { _scServiceRoleARN = Nothing
-    , _scNotificationConfig = Nothing
-    , _scDocumentHashType = Nothing
-    , _scOutputS3KeyPrefix = Nothing
-    , _scMaxErrors = Nothing
-    , _scInstanceIds = Nothing
-    , _scOutputS3Region = Nothing
-    , _scTargets = Nothing
-    , _scParameters = Nothing
-    , _scDocumentHash = Nothing
-    , _scDocumentVersion = Nothing
-    , _scTimeoutSeconds = Nothing
-    , _scComment = Nothing
-    , _scOutputS3BucketName = Nothing
-    , _scMaxConcurrency = Nothing
-    , _scDocumentName = pDocumentName_
+    { notificationConfig = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      outputS3BucketName = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      documentHash = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      outputS3Region = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
+      outputS3KeyPrefix = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing,
+      cloudWatchOutputConfig = Prelude.Nothing,
+      documentHashType = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      documentName = pDocumentName_
     }
 
-
--- | The IAM role that Systems Manager uses to send notifications.
-scServiceRoleARN :: Lens' SendCommand (Maybe Text)
-scServiceRoleARN = lens _scServiceRoleARN (\ s a -> s{_scServiceRoleARN = a})
-
 -- | Configurations for sending notifications.
-scNotificationConfig :: Lens' SendCommand (Maybe NotificationConfig)
-scNotificationConfig = lens _scNotificationConfig (\ s a -> s{_scNotificationConfig = a})
+sendCommand_notificationConfig :: Lens.Lens' SendCommand (Prelude.Maybe NotificationConfig)
+sendCommand_notificationConfig = Lens.lens (\SendCommand' {notificationConfig} -> notificationConfig) (\s@SendCommand' {} a -> s {notificationConfig = a} :: SendCommand)
+
+-- | The IDs of the instances where the command should run. Specifying
+-- instance IDs is most useful when you are targeting a limited number of
+-- instances, though you can specify up to 50 IDs.
+--
+-- To target a larger number of instances, or if you prefer not to list
+-- individual instance IDs, we recommend using the @Targets@ option
+-- instead. Using @Targets@, which accepts tag key-value pairs to identify
+-- the instances to send commands to, you can a send command to tens,
+-- hundreds, or thousands of instances at once.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+-- in the /AWS Systems Manager User Guide/.
+sendCommand_instanceIds :: Lens.Lens' SendCommand (Prelude.Maybe [Prelude.Text])
+sendCommand_instanceIds = Lens.lens (\SendCommand' {instanceIds} -> instanceIds) (\s@SendCommand' {} a -> s {instanceIds = a} :: SendCommand) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The maximum number of errors allowed without the command failing. When
+-- the command fails one more time beyond the value of MaxErrors, the
+-- systems stops sending the command to additional targets. You can specify
+-- a number like 10 or a percentage like 10%. The default value is 0. For
+-- more information about how to use MaxErrors, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls>
+-- in the /AWS Systems Manager User Guide/.
+sendCommand_maxErrors :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_maxErrors = Lens.lens (\SendCommand' {maxErrors} -> maxErrors) (\s@SendCommand' {} a -> s {maxErrors = a} :: SendCommand)
+
+-- | The ARN of the IAM service role to use to publish Amazon Simple
+-- Notification Service (Amazon SNS) notifications for Run Command
+-- commands.
+sendCommand_serviceRoleArn :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_serviceRoleArn = Lens.lens (\SendCommand' {serviceRoleArn} -> serviceRoleArn) (\s@SendCommand' {} a -> s {serviceRoleArn = a} :: SendCommand)
+
+-- | The name of the S3 bucket where command execution responses should be
+-- stored.
+sendCommand_outputS3BucketName :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_outputS3BucketName = Lens.lens (\SendCommand' {outputS3BucketName} -> outputS3BucketName) (\s@SendCommand' {} a -> s {outputS3BucketName = a} :: SendCommand)
+
+-- | User-specified information about the command, such as a brief
+-- description of what the command should do.
+sendCommand_comment :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_comment = Lens.lens (\SendCommand' {comment} -> comment) (\s@SendCommand' {} a -> s {comment = a} :: SendCommand)
+
+-- | The Sha256 or Sha1 hash created by the system when the document was
+-- created.
+--
+-- Sha1 hashes have been deprecated.
+sendCommand_documentHash :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_documentHash = Lens.lens (\SendCommand' {documentHash} -> documentHash) (\s@SendCommand' {} a -> s {documentHash = a} :: SendCommand)
+
+-- | An array of search criteria that targets instances using a @Key,Value@
+-- combination that you specify. Specifying targets is most useful when you
+-- want to send a command to a large number of instances at once. Using
+-- @Targets@, which accepts tag key-value pairs to identify instances, you
+-- can send a command to tens, hundreds, or thousands of instances at once.
+--
+-- To send a command to a smaller number of instances, you can use the
+-- @InstanceIds@ option instead.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+-- in the /AWS Systems Manager User Guide/.
+sendCommand_targets :: Lens.Lens' SendCommand (Prelude.Maybe [Target])
+sendCommand_targets = Lens.lens (\SendCommand' {targets} -> targets) (\s@SendCommand' {} a -> s {targets = a} :: SendCommand) Prelude.. Lens.mapping Lens._Coerce
+
+-- | (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Region
+-- of the S3 bucket.
+sendCommand_outputS3Region :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_outputS3Region = Lens.lens (\SendCommand' {outputS3Region} -> outputS3Region) (\s@SendCommand' {} a -> s {outputS3Region = a} :: SendCommand)
+
+-- | (Optional) The maximum number of instances that are allowed to run the
+-- command at the same time. You can specify a number such as 10 or a
+-- percentage such as 10%. The default value is 50. For more information
+-- about how to use MaxConcurrency, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
+-- in the /AWS Systems Manager User Guide/.
+sendCommand_maxConcurrency :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_maxConcurrency = Lens.lens (\SendCommand' {maxConcurrency} -> maxConcurrency) (\s@SendCommand' {} a -> s {maxConcurrency = a} :: SendCommand)
+
+-- | The directory structure within the S3 bucket where the responses should
+-- be stored.
+sendCommand_outputS3KeyPrefix :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_outputS3KeyPrefix = Lens.lens (\SendCommand' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@SendCommand' {} a -> s {outputS3KeyPrefix = a} :: SendCommand)
+
+-- | If this time is reached and the command has not already started running,
+-- it will not run.
+sendCommand_timeoutSeconds :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Natural)
+sendCommand_timeoutSeconds = Lens.lens (\SendCommand' {timeoutSeconds} -> timeoutSeconds) (\s@SendCommand' {} a -> s {timeoutSeconds = a} :: SendCommand)
+
+-- | Enables Systems Manager to send Run Command output to Amazon CloudWatch
+-- Logs.
+sendCommand_cloudWatchOutputConfig :: Lens.Lens' SendCommand (Prelude.Maybe CloudWatchOutputConfig)
+sendCommand_cloudWatchOutputConfig = Lens.lens (\SendCommand' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@SendCommand' {} a -> s {cloudWatchOutputConfig = a} :: SendCommand)
 
 -- | Sha256 or Sha1.
-scDocumentHashType :: Lens' SendCommand (Maybe DocumentHashType)
-scDocumentHashType = lens _scDocumentHashType (\ s a -> s{_scDocumentHashType = a})
+--
+-- Sha1 hashes have been deprecated.
+sendCommand_documentHashType :: Lens.Lens' SendCommand (Prelude.Maybe DocumentHashType)
+sendCommand_documentHashType = Lens.lens (\SendCommand' {documentHashType} -> documentHashType) (\s@SendCommand' {} a -> s {documentHashType = a} :: SendCommand)
 
--- | The directory structure within the S3 bucket where the responses should be stored.
-scOutputS3KeyPrefix :: Lens' SendCommand (Maybe Text)
-scOutputS3KeyPrefix = lens _scOutputS3KeyPrefix (\ s a -> s{_scOutputS3KeyPrefix = a})
+-- | The SSM document version to use in the request. You can specify
+-- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+-- using the AWS CLI, then you must escape the first two options by using a
+-- backslash. If you specify a version number, then you don\'t need to use
+-- the backslash. For example:
+--
+-- --document-version \"\\$DEFAULT\"
+--
+-- --document-version \"\\$LATEST\"
+--
+-- --document-version \"3\"
+sendCommand_documentVersion :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_documentVersion = Lens.lens (\SendCommand' {documentVersion} -> documentVersion) (\s@SendCommand' {} a -> s {documentVersion = a} :: SendCommand)
 
--- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html Using Error Controls> .
-scMaxErrors :: Lens' SendCommand (Maybe Text)
-scMaxErrors = lens _scMaxErrors (\ s a -> s{_scMaxErrors = a})
+-- | The required and optional parameters specified in the document being
+-- run.
+sendCommand_parameters :: Lens.Lens' SendCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping Lens._Coerce
 
--- | The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
-scInstanceIds :: Lens' SendCommand [Text]
-scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _Default . _Coerce
+-- | The name of the Systems Manager document to run. This can be a public
+-- document or a custom document. To run a shared document belonging to
+-- another account, specify the document ARN. For more information about
+-- how to use shared documents, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
+-- in the /AWS Systems Manager User Guide/.
+sendCommand_documentName :: Lens.Lens' SendCommand Prelude.Text
+sendCommand_documentName = Lens.lens (\SendCommand' {documentName} -> documentName) (\s@SendCommand' {} a -> s {documentName = a} :: SendCommand)
 
--- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
-scOutputS3Region :: Lens' SendCommand (Maybe Text)
-scOutputS3Region = lens _scOutputS3Region (\ s a -> s{_scOutputS3Region = a})
+instance Core.AWSRequest SendCommand where
+  type AWSResponse SendCommand = SendCommandResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SendCommandResponse'
+            Prelude.<$> (x Core..?> "Command")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
-scTargets :: Lens' SendCommand [Target]
-scTargets = lens _scTargets (\ s a -> s{_scTargets = a}) . _Default . _Coerce
+instance Prelude.Hashable SendCommand
 
--- | The required and optional parameters specified in the document being executed.
-scParameters :: Lens' SendCommand (HashMap Text [Text])
-scParameters = lens _scParameters (\ s a -> s{_scParameters = a}) . _Default . _Map
+instance Prelude.NFData SendCommand
 
--- | The Sha256 or Sha1 hash created by the system when the document was created.
-scDocumentHash :: Lens' SendCommand (Maybe Text)
-scDocumentHash = lens _scDocumentHash (\ s a -> s{_scDocumentHash = a})
+instance Core.ToHeaders SendCommand where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonSSM.SendCommand" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
--- | The SSM document version to use in the request. You can specify Default, Latest, or a specific version number.
-scDocumentVersion :: Lens' SendCommand (Maybe Text)
-scDocumentVersion = lens _scDocumentVersion (\ s a -> s{_scDocumentVersion = a})
+instance Core.ToJSON SendCommand where
+  toJSON SendCommand' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NotificationConfig" Core..=)
+              Prelude.<$> notificationConfig,
+            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
+            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("ServiceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
+            ("OutputS3BucketName" Core..=)
+              Prelude.<$> outputS3BucketName,
+            ("Comment" Core..=) Prelude.<$> comment,
+            ("DocumentHash" Core..=) Prelude.<$> documentHash,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("OutputS3Region" Core..=)
+              Prelude.<$> outputS3Region,
+            ("MaxConcurrency" Core..=)
+              Prelude.<$> maxConcurrency,
+            ("OutputS3KeyPrefix" Core..=)
+              Prelude.<$> outputS3KeyPrefix,
+            ("TimeoutSeconds" Core..=)
+              Prelude.<$> timeoutSeconds,
+            ("CloudWatchOutputConfig" Core..=)
+              Prelude.<$> cloudWatchOutputConfig,
+            ("DocumentHashType" Core..=)
+              Prelude.<$> documentHashType,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("DocumentName" Core..= documentName)
+          ]
+      )
 
--- | If this time is reached and the command has not already started executing, it will not run.
-scTimeoutSeconds :: Lens' SendCommand (Maybe Natural)
-scTimeoutSeconds = lens _scTimeoutSeconds (\ s a -> s{_scTimeoutSeconds = a}) . mapping _Nat
+instance Core.ToPath SendCommand where
+  toPath = Prelude.const "/"
 
--- | User-specified information about the command, such as a brief description of what the command should do.
-scComment :: Lens' SendCommand (Maybe Text)
-scComment = lens _scComment (\ s a -> s{_scComment = a})
+instance Core.ToQuery SendCommand where
+  toQuery = Prelude.const Prelude.mempty
 
--- | The name of the S3 bucket where command execution responses should be stored.
-scOutputS3BucketName :: Lens' SendCommand (Maybe Text)
-scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketName = a})
-
--- | (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html Using Concurrency Controls> .
-scMaxConcurrency :: Lens' SendCommand (Maybe Text)
-scMaxConcurrency = lens _scMaxConcurrency (\ s a -> s{_scMaxConcurrency = a})
-
--- | Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.
-scDocumentName :: Lens' SendCommand Text
-scDocumentName = lens _scDocumentName (\ s a -> s{_scDocumentName = a})
-
-instance AWSRequest SendCommand where
-        type Rs SendCommand = SendCommandResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 SendCommandResponse' <$>
-                   (x .?> "Command") <*> (pure (fromEnum s)))
-
-instance Hashable SendCommand where
-
-instance NFData SendCommand where
-
-instance ToHeaders SendCommand where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.SendCommand" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON SendCommand where
-        toJSON SendCommand'{..}
-          = object
-              (catMaybes
-                 [("ServiceRoleArn" .=) <$> _scServiceRoleARN,
-                  ("NotificationConfig" .=) <$> _scNotificationConfig,
-                  ("DocumentHashType" .=) <$> _scDocumentHashType,
-                  ("OutputS3KeyPrefix" .=) <$> _scOutputS3KeyPrefix,
-                  ("MaxErrors" .=) <$> _scMaxErrors,
-                  ("InstanceIds" .=) <$> _scInstanceIds,
-                  ("OutputS3Region" .=) <$> _scOutputS3Region,
-                  ("Targets" .=) <$> _scTargets,
-                  ("Parameters" .=) <$> _scParameters,
-                  ("DocumentHash" .=) <$> _scDocumentHash,
-                  ("DocumentVersion" .=) <$> _scDocumentVersion,
-                  ("TimeoutSeconds" .=) <$> _scTimeoutSeconds,
-                  ("Comment" .=) <$> _scComment,
-                  ("OutputS3BucketName" .=) <$> _scOutputS3BucketName,
-                  ("MaxConcurrency" .=) <$> _scMaxConcurrency,
-                  Just ("DocumentName" .= _scDocumentName)])
-
-instance ToPath SendCommand where
-        toPath = const "/"
-
-instance ToQuery SendCommand where
-        toQuery = const mempty
-
--- | /See:/ 'sendCommandResponse' smart constructor.
+-- | /See:/ 'newSendCommandResponse' smart constructor.
 data SendCommandResponse = SendCommandResponse'
-  { _scrsCommand        :: !(Maybe Command)
-  , _scrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The request as it was received by Systems Manager. Also provides the
+    -- command ID which can be used future references to this request.
+    command :: Prelude.Maybe Command,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SendCommandResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SendCommandResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'scrsCommand' - The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'scrsResponseStatus' - -- | The response status code.
-sendCommandResponse
-    :: Int -- ^ 'scrsResponseStatus'
-    -> SendCommandResponse
-sendCommandResponse pResponseStatus_ =
+-- 'command', 'sendCommandResponse_command' - The request as it was received by Systems Manager. Also provides the
+-- command ID which can be used future references to this request.
+--
+-- 'httpStatus', 'sendCommandResponse_httpStatus' - The response's http status code.
+newSendCommandResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SendCommandResponse
+newSendCommandResponse pHttpStatus_ =
   SendCommandResponse'
-    {_scrsCommand = Nothing, _scrsResponseStatus = pResponseStatus_}
+    { command = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The request as it was received by Systems Manager. Also provides the
+-- command ID which can be used future references to this request.
+sendCommandResponse_command :: Lens.Lens' SendCommandResponse (Prelude.Maybe Command)
+sendCommandResponse_command = Lens.lens (\SendCommandResponse' {command} -> command) (\s@SendCommandResponse' {} a -> s {command = a} :: SendCommandResponse)
 
--- | The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
-scrsCommand :: Lens' SendCommandResponse (Maybe Command)
-scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a})
+-- | The response's http status code.
+sendCommandResponse_httpStatus :: Lens.Lens' SendCommandResponse Prelude.Int
+sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -> httpStatus) (\s@SendCommandResponse' {} a -> s {httpStatus = a} :: SendCommandResponse)
 
--- | -- | The response status code.
-scrsResponseStatus :: Lens' SendCommandResponse Int
-scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a})
-
-instance NFData SendCommandResponse where
+instance Prelude.NFData SendCommandResponse

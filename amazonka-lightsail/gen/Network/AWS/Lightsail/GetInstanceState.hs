@@ -1,134 +1,160 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceState
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the state of a specific instance. Works on one instance at a time.
---
---
+-- Returns the state of a specific instance. Works on one instance at a
+-- time.
 module Network.AWS.Lightsail.GetInstanceState
-    (
-    -- * Creating a Request
-      getInstanceState
-    , GetInstanceState
+  ( -- * Creating a Request
+    GetInstanceState (..),
+    newGetInstanceState,
+
     -- * Request Lenses
-    , gisInstanceName
+    getInstanceState_instanceName,
 
     -- * Destructuring the Response
-    , getInstanceStateResponse
-    , GetInstanceStateResponse
+    GetInstanceStateResponse (..),
+    newGetInstanceStateResponse,
+
     -- * Response Lenses
-    , gisirsState
-    , gisirsResponseStatus
-    ) where
+    getInstanceStateResponse_state,
+    getInstanceStateResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getInstanceState' smart constructor.
-newtype GetInstanceState = GetInstanceState'
-  { _gisInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetInstanceState' smart constructor.
+data GetInstanceState = GetInstanceState'
+  { -- | The name of the instance to get state information about.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstanceState' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstanceState' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisInstanceName' - The name of the instance to get state information about.
-getInstanceState
-    :: Text -- ^ 'gisInstanceName'
-    -> GetInstanceState
-getInstanceState pInstanceName_ =
-  GetInstanceState' {_gisInstanceName = pInstanceName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceName', 'getInstanceState_instanceName' - The name of the instance to get state information about.
+newGetInstanceState ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  GetInstanceState
+newGetInstanceState pInstanceName_ =
+  GetInstanceState' {instanceName = pInstanceName_}
 
 -- | The name of the instance to get state information about.
-gisInstanceName :: Lens' GetInstanceState Text
-gisInstanceName = lens _gisInstanceName (\ s a -> s{_gisInstanceName = a})
+getInstanceState_instanceName :: Lens.Lens' GetInstanceState Prelude.Text
+getInstanceState_instanceName = Lens.lens (\GetInstanceState' {instanceName} -> instanceName) (\s@GetInstanceState' {} a -> s {instanceName = a} :: GetInstanceState)
 
-instance AWSRequest GetInstanceState where
-        type Rs GetInstanceState = GetInstanceStateResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetInstanceStateResponse' <$>
-                   (x .?> "state") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetInstanceState where
+  type
+    AWSResponse GetInstanceState =
+      GetInstanceStateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInstanceStateResponse'
+            Prelude.<$> (x Core..?> "state")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetInstanceState where
+instance Prelude.Hashable GetInstanceState
 
-instance NFData GetInstanceState where
+instance Prelude.NFData GetInstanceState
 
-instance ToHeaders GetInstanceState where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetInstanceState" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetInstanceState where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetInstanceState" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetInstanceState where
-        toJSON GetInstanceState'{..}
-          = object
-              (catMaybes
-                 [Just ("instanceName" .= _gisInstanceName)])
+instance Core.ToJSON GetInstanceState where
+  toJSON GetInstanceState' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("instanceName" Core..= instanceName)]
+      )
 
-instance ToPath GetInstanceState where
-        toPath = const "/"
+instance Core.ToPath GetInstanceState where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetInstanceState where
-        toQuery = const mempty
+instance Core.ToQuery GetInstanceState where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getInstanceStateResponse' smart constructor.
+-- | /See:/ 'newGetInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
-  { _gisirsState          :: !(Maybe InstanceState)
-  , _gisirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The state of the instance.
+    state :: Prelude.Maybe InstanceState,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstanceStateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstanceStateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisirsState' - The state of the instance.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gisirsResponseStatus' - -- | The response status code.
-getInstanceStateResponse
-    :: Int -- ^ 'gisirsResponseStatus'
-    -> GetInstanceStateResponse
-getInstanceStateResponse pResponseStatus_ =
+-- 'state', 'getInstanceStateResponse_state' - The state of the instance.
+--
+-- 'httpStatus', 'getInstanceStateResponse_httpStatus' - The response's http status code.
+newGetInstanceStateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetInstanceStateResponse
+newGetInstanceStateResponse pHttpStatus_ =
   GetInstanceStateResponse'
-    {_gisirsState = Nothing, _gisirsResponseStatus = pResponseStatus_}
-
+    { state = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The state of the instance.
-gisirsState :: Lens' GetInstanceStateResponse (Maybe InstanceState)
-gisirsState = lens _gisirsState (\ s a -> s{_gisirsState = a})
+getInstanceStateResponse_state :: Lens.Lens' GetInstanceStateResponse (Prelude.Maybe InstanceState)
+getInstanceStateResponse_state = Lens.lens (\GetInstanceStateResponse' {state} -> state) (\s@GetInstanceStateResponse' {} a -> s {state = a} :: GetInstanceStateResponse)
 
--- | -- | The response status code.
-gisirsResponseStatus :: Lens' GetInstanceStateResponse Int
-gisirsResponseStatus = lens _gisirsResponseStatus (\ s a -> s{_gisirsResponseStatus = a})
+-- | The response's http status code.
+getInstanceStateResponse_httpStatus :: Lens.Lens' GetInstanceStateResponse Prelude.Int
+getInstanceStateResponse_httpStatus = Lens.lens (\GetInstanceStateResponse' {httpStatus} -> httpStatus) (\s@GetInstanceStateResponse' {} a -> s {httpStatus = a} :: GetInstanceStateResponse)
 
-instance NFData GetInstanceStateResponse where
+instance Prelude.NFData GetInstanceStateResponse

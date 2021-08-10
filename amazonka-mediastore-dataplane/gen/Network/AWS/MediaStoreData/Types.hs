@@ -1,116 +1,156 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStoreData.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.MediaStoreData.Types
-    (
-    -- * Service Configuration
-      mediaStoreData
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _RequestedRangeNotSatisfiableException
-    , _InternalServerError
-    , _ContainerNotFoundException
-    , _ObjectNotFoundException
+    _RequestedRangeNotSatisfiableException,
+    _ObjectNotFoundException,
+    _InternalServerError,
+    _ContainerNotFoundException,
 
     -- * ItemType
-    , ItemType (..)
+    ItemType (..),
 
     -- * StorageClass
-    , StorageClass (..)
+    StorageClass (..),
+
+    -- * UploadAvailability
+    UploadAvailability (..),
 
     -- * Item
-    , Item
-    , item
-    , iETag
-    , iContentLength
-    , iName
-    , iType
-    , iLastModified
-    , iContentType
-    ) where
+    Item (..),
+    newItem,
+    item_eTag,
+    item_contentType,
+    item_contentLength,
+    item_name,
+    item_lastModified,
+    item_type,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.MediaStoreData.Types.Product
-import Network.AWS.MediaStoreData.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaStoreData.Types.Item
+import Network.AWS.MediaStoreData.Types.ItemType
+import Network.AWS.MediaStoreData.Types.StorageClass
+import Network.AWS.MediaStoreData.Types.UploadAvailability
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-01@ of the Amazon Elemental MediaStore Data Plane SDK configuration.
-mediaStoreData :: Service
-mediaStoreData =
-  Service
-    { _svcAbbrev = "MediaStoreData"
-    , _svcSigner = v4
-    , _svcPrefix = "data.mediastore"
-    , _svcVersion = "2017-09-01"
-    , _svcEndpoint = defaultEndpoint mediaStoreData
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MediaStoreData"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "MediaStoreData",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "data.mediastore",
+      Core._serviceSigningName = "mediastore",
+      Core._serviceVersion = "2017-09-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "MediaStoreData",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested content range is not valid.
---
---
-_RequestedRangeNotSatisfiableException :: AsError a => Getting (First ServiceError) a ServiceError
+_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RequestedRangeNotSatisfiableException =
-  _MatchServiceError mediaStoreData "RequestedRangeNotSatisfiableException" .
-  hasStatus 416
-
-
--- | The service is temporarily unavailable.
---
---
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _MatchServiceError mediaStoreData "InternalServerError"
-
-
--- | The specified container was not found for the specified account.
---
---
-_ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ContainerNotFoundException =
-  _MatchServiceError mediaStoreData "ContainerNotFoundException" . hasStatus 404
-
+  Core._MatchServiceError
+    defaultService
+    "RequestedRangeNotSatisfiableException"
+    Prelude.. Core.hasStatus 416
 
 -- | Could not perform an operation on an object that does not exist.
---
---
-_ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ObjectNotFoundException =
-  _MatchServiceError mediaStoreData "ObjectNotFoundException" . hasStatus 404
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotFoundException"
+    Prelude.. Core.hasStatus 404
 
+-- | The service is temporarily unavailable.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+
+-- | The specified container was not found for the specified account.
+_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ContainerNotFoundException"
+    Prelude.. Core.hasStatus 404

@@ -1,168 +1,194 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.CreateKeysAndCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.
+-- Creates a 2048-bit RSA key pair and issues an X.509 certificate using
+-- the issued public key. You can also call @CreateKeysAndCertificate@ over
+-- MQTT from a device, for more information, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api Provisioning MQTT API>.
 --
---
--- __Note__ This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.
---
+-- __Note__ This is the only time AWS IoT issues the private key for this
+-- certificate, so it is important to keep it in a secure location.
 module Network.AWS.IoT.CreateKeysAndCertificate
-    (
-    -- * Creating a Request
-      createKeysAndCertificate
-    , CreateKeysAndCertificate
+  ( -- * Creating a Request
+    CreateKeysAndCertificate (..),
+    newCreateKeysAndCertificate,
+
     -- * Request Lenses
-    , ckacSetAsActive
+    createKeysAndCertificate_setAsActive,
 
     -- * Destructuring the Response
-    , createKeysAndCertificateResponse
-    , CreateKeysAndCertificateResponse
-    -- * Response Lenses
-    , ckacrsKeyPair
-    , ckacrsCertificatePem
-    , ckacrsCertificateARN
-    , ckacrsCertificateId
-    , ckacrsResponseStatus
-    ) where
+    CreateKeysAndCertificateResponse (..),
+    newCreateKeysAndCertificateResponse,
 
+    -- * Response Lenses
+    createKeysAndCertificateResponse_certificateArn,
+    createKeysAndCertificateResponse_keyPair,
+    createKeysAndCertificateResponse_certificateId,
+    createKeysAndCertificateResponse_certificatePem,
+    createKeysAndCertificateResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the CreateKeysAndCertificate operation.
 --
---
---
--- /See:/ 'createKeysAndCertificate' smart constructor.
-newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
-  { _ckacSetAsActive :: Maybe Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newCreateKeysAndCertificate' smart constructor.
+data CreateKeysAndCertificate = CreateKeysAndCertificate'
+  { -- | Specifies whether the certificate is active.
+    setAsActive :: Prelude.Maybe Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateKeysAndCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateKeysAndCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ckacSetAsActive' - Specifies whether the certificate is active.
-createKeysAndCertificate
-    :: CreateKeysAndCertificate
-createKeysAndCertificate =
-  CreateKeysAndCertificate' {_ckacSetAsActive = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'setAsActive', 'createKeysAndCertificate_setAsActive' - Specifies whether the certificate is active.
+newCreateKeysAndCertificate ::
+  CreateKeysAndCertificate
+newCreateKeysAndCertificate =
+  CreateKeysAndCertificate'
+    { setAsActive =
+        Prelude.Nothing
+    }
 
 -- | Specifies whether the certificate is active.
-ckacSetAsActive :: Lens' CreateKeysAndCertificate (Maybe Bool)
-ckacSetAsActive = lens _ckacSetAsActive (\ s a -> s{_ckacSetAsActive = a})
+createKeysAndCertificate_setAsActive :: Lens.Lens' CreateKeysAndCertificate (Prelude.Maybe Prelude.Bool)
+createKeysAndCertificate_setAsActive = Lens.lens (\CreateKeysAndCertificate' {setAsActive} -> setAsActive) (\s@CreateKeysAndCertificate' {} a -> s {setAsActive = a} :: CreateKeysAndCertificate)
 
-instance AWSRequest CreateKeysAndCertificate where
-        type Rs CreateKeysAndCertificate =
-             CreateKeysAndCertificateResponse
-        request = postJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateKeysAndCertificateResponse' <$>
-                   (x .?> "keyPair") <*> (x .?> "certificatePem") <*>
-                     (x .?> "certificateArn")
-                     <*> (x .?> "certificateId")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateKeysAndCertificate where
+  type
+    AWSResponse CreateKeysAndCertificate =
+      CreateKeysAndCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateKeysAndCertificateResponse'
+            Prelude.<$> (x Core..?> "certificateArn")
+            Prelude.<*> (x Core..?> "keyPair")
+            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateKeysAndCertificate where
+instance Prelude.Hashable CreateKeysAndCertificate
 
-instance NFData CreateKeysAndCertificate where
+instance Prelude.NFData CreateKeysAndCertificate
 
-instance ToHeaders CreateKeysAndCertificate where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateKeysAndCertificate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON CreateKeysAndCertificate where
-        toJSON = const (Object mempty)
+instance Core.ToJSON CreateKeysAndCertificate where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToPath CreateKeysAndCertificate where
-        toPath = const "/keys-and-certificate"
+instance Core.ToPath CreateKeysAndCertificate where
+  toPath = Prelude.const "/keys-and-certificate"
 
-instance ToQuery CreateKeysAndCertificate where
-        toQuery CreateKeysAndCertificate'{..}
-          = mconcat ["setAsActive" =: _ckacSetAsActive]
+instance Core.ToQuery CreateKeysAndCertificate where
+  toQuery CreateKeysAndCertificate' {..} =
+    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
 
 -- | The output of the CreateKeysAndCertificate operation.
 --
---
---
--- /See:/ 'createKeysAndCertificateResponse' smart constructor.
+-- /See:/ 'newCreateKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
-  { _ckacrsKeyPair        :: !(Maybe KeyPair)
-  , _ckacrsCertificatePem :: !(Maybe Text)
-  , _ckacrsCertificateARN :: !(Maybe Text)
-  , _ckacrsCertificateId  :: !(Maybe Text)
-  , _ckacrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The ARN of the certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The generated key pair.
+    keyPair :: Prelude.Maybe KeyPair,
+    -- | The ID of the certificate. AWS IoT issues a default subject name for the
+    -- certificate (for example, AWS IoT Certificate).
+    certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateKeysAndCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateKeysAndCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ckacrsKeyPair' - The generated key pair.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ckacrsCertificatePem' - The certificate data, in PEM format.
+-- 'certificateArn', 'createKeysAndCertificateResponse_certificateArn' - The ARN of the certificate.
 --
--- * 'ckacrsCertificateARN' - The ARN of the certificate.
+-- 'keyPair', 'createKeysAndCertificateResponse_keyPair' - The generated key pair.
 --
--- * 'ckacrsCertificateId' - The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
+-- 'certificateId', 'createKeysAndCertificateResponse_certificateId' - The ID of the certificate. AWS IoT issues a default subject name for the
+-- certificate (for example, AWS IoT Certificate).
 --
--- * 'ckacrsResponseStatus' - -- | The response status code.
-createKeysAndCertificateResponse
-    :: Int -- ^ 'ckacrsResponseStatus'
-    -> CreateKeysAndCertificateResponse
-createKeysAndCertificateResponse pResponseStatus_ =
+-- 'certificatePem', 'createKeysAndCertificateResponse_certificatePem' - The certificate data, in PEM format.
+--
+-- 'httpStatus', 'createKeysAndCertificateResponse_httpStatus' - The response's http status code.
+newCreateKeysAndCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateKeysAndCertificateResponse
+newCreateKeysAndCertificateResponse pHttpStatus_ =
   CreateKeysAndCertificateResponse'
-    { _ckacrsKeyPair = Nothing
-    , _ckacrsCertificatePem = Nothing
-    , _ckacrsCertificateARN = Nothing
-    , _ckacrsCertificateId = Nothing
-    , _ckacrsResponseStatus = pResponseStatus_
+    { certificateArn =
+        Prelude.Nothing,
+      keyPair = Prelude.Nothing,
+      certificateId = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The ARN of the certificate.
+createKeysAndCertificateResponse_certificateArn :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
+createKeysAndCertificateResponse_certificateArn = Lens.lens (\CreateKeysAndCertificateResponse' {certificateArn} -> certificateArn) (\s@CreateKeysAndCertificateResponse' {} a -> s {certificateArn = a} :: CreateKeysAndCertificateResponse)
 
 -- | The generated key pair.
-ckacrsKeyPair :: Lens' CreateKeysAndCertificateResponse (Maybe KeyPair)
-ckacrsKeyPair = lens _ckacrsKeyPair (\ s a -> s{_ckacrsKeyPair = a})
+createKeysAndCertificateResponse_keyPair :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe KeyPair)
+createKeysAndCertificateResponse_keyPair = Lens.lens (\CreateKeysAndCertificateResponse' {keyPair} -> keyPair) (\s@CreateKeysAndCertificateResponse' {} a -> s {keyPair = a} :: CreateKeysAndCertificateResponse)
+
+-- | The ID of the certificate. AWS IoT issues a default subject name for the
+-- certificate (for example, AWS IoT Certificate).
+createKeysAndCertificateResponse_certificateId :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
+createKeysAndCertificateResponse_certificateId = Lens.lens (\CreateKeysAndCertificateResponse' {certificateId} -> certificateId) (\s@CreateKeysAndCertificateResponse' {} a -> s {certificateId = a} :: CreateKeysAndCertificateResponse)
 
 -- | The certificate data, in PEM format.
-ckacrsCertificatePem :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificatePem = lens _ckacrsCertificatePem (\ s a -> s{_ckacrsCertificatePem = a})
+createKeysAndCertificateResponse_certificatePem :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
+createKeysAndCertificateResponse_certificatePem = Lens.lens (\CreateKeysAndCertificateResponse' {certificatePem} -> certificatePem) (\s@CreateKeysAndCertificateResponse' {} a -> s {certificatePem = a} :: CreateKeysAndCertificateResponse)
 
--- | The ARN of the certificate.
-ckacrsCertificateARN :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificateARN = a})
+-- | The response's http status code.
+createKeysAndCertificateResponse_httpStatus :: Lens.Lens' CreateKeysAndCertificateResponse Prelude.Int
+createKeysAndCertificateResponse_httpStatus = Lens.lens (\CreateKeysAndCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateKeysAndCertificateResponse' {} a -> s {httpStatus = a} :: CreateKeysAndCertificateResponse)
 
--- | The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
-ckacrsCertificateId :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a})
-
--- | -- | The response status code.
-ckacrsResponseStatus :: Lens' CreateKeysAndCertificateResponse Int
-ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a})
-
-instance NFData CreateKeysAndCertificateResponse
-         where
+instance
+  Prelude.NFData
+    CreateKeysAndCertificateResponse

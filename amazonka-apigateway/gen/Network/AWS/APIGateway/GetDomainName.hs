@@ -1,101 +1,119 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainName
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
---
---
+-- Represents a domain name that is contained in a simpler, more intuitive
+-- URL that can be called.
 module Network.AWS.APIGateway.GetDomainName
-    (
-    -- * Creating a Request
-      getDomainName
-    , GetDomainName
+  ( -- * Creating a Request
+    GetDomainName (..),
+    newGetDomainName,
+
     -- * Request Lenses
-    , gdnDomainName
+    getDomainName_domainName,
 
     -- * Destructuring the Response
-    , domainName
-    , DomainName
+    DomainName (..),
+    newDomainName,
+
     -- * Response Lenses
-    , dnRegionalHostedZoneId
-    , dnCertificateName
-    , dnRegionalCertificateARN
-    , dnCertificateARN
-    , dnDistributionHostedZoneId
-    , dnDomainName
-    , dnRegionalCertificateName
-    , dnRegionalDomainName
-    , dnCertificateUploadDate
-    , dnDistributionDomainName
-    , dnEndpointConfiguration
-    ) where
+    domainName_regionalHostedZoneId,
+    domainName_regionalCertificateName,
+    domainName_mutualTlsAuthentication,
+    domainName_endpointConfiguration,
+    domainName_distributionHostedZoneId,
+    domainName_certificateArn,
+    domainName_domainNameStatusMessage,
+    domainName_distributionDomainName,
+    domainName_certificateUploadDate,
+    domainName_domainName,
+    domainName_tags,
+    domainName_securityPolicy,
+    domainName_domainNameStatus,
+    domainName_regionalCertificateArn,
+    domainName_certificateName,
+    domainName_regionalDomainName,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to get the name of a 'DomainName' resource.
+-- | Request to get the name of a DomainName resource.
 --
+-- /See:/ 'newGetDomainName' smart constructor.
+data GetDomainName = GetDomainName'
+  { -- | [Required] The name of the DomainName resource.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDomainName' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getDomainName' smart constructor.
-newtype GetDomainName = GetDomainName'
-  { _gdnDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDomainName' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdnDomainName' - [Required] The name of the 'DomainName' resource.
-getDomainName
-    :: Text -- ^ 'gdnDomainName'
-    -> GetDomainName
-getDomainName pDomainName_ = GetDomainName' {_gdnDomainName = pDomainName_}
+-- 'domainName', 'getDomainName_domainName' - [Required] The name of the DomainName resource.
+newGetDomainName ::
+  -- | 'domainName'
+  Prelude.Text ->
+  GetDomainName
+newGetDomainName pDomainName_ =
+  GetDomainName' {domainName = pDomainName_}
 
+-- | [Required] The name of the DomainName resource.
+getDomainName_domainName :: Lens.Lens' GetDomainName Prelude.Text
+getDomainName_domainName = Lens.lens (\GetDomainName' {domainName} -> domainName) (\s@GetDomainName' {} a -> s {domainName = a} :: GetDomainName)
 
--- | [Required] The name of the 'DomainName' resource.
-gdnDomainName :: Lens' GetDomainName Text
-gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a})
+instance Core.AWSRequest GetDomainName where
+  type AWSResponse GetDomainName = DomainName
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetDomainName where
-        type Rs GetDomainName = DomainName
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetDomainName
 
-instance Hashable GetDomainName where
+instance Prelude.NFData GetDomainName
 
-instance NFData GetDomainName where
+instance Core.ToHeaders GetDomainName where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetDomainName where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetDomainName where
+  toPath GetDomainName' {..} =
+    Prelude.mconcat
+      ["/domainnames/", Core.toBS domainName]
 
-instance ToPath GetDomainName where
-        toPath GetDomainName'{..}
-          = mconcat ["/domainnames/", toBS _gdnDomainName]
-
-instance ToQuery GetDomainName where
-        toQuery = const mempty
+instance Core.ToQuery GetDomainName where
+  toQuery = Prelude.const Prelude.mempty

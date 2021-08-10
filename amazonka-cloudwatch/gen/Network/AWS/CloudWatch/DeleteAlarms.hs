@@ -1,99 +1,131 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified alarms. In the event of an error, no alarms are deleted.
+-- Deletes the specified alarms. You can delete up to 100 alarms in one
+-- operation. However, this total can include no more than one composite
+-- alarm. For example, you could delete 99 metric alarms and one composite
+-- alarms with one operation, but you can\'t delete two composite alarms
+-- with one operation.
 --
+-- In the event of an error, no alarms are deleted.
 --
+-- It is possible to create a loop or cycle of composite alarms, where
+-- composite alarm A depends on composite alarm B, and composite alarm B
+-- also depends on composite alarm A. In this scenario, you can\'t delete
+-- any composite alarm that is part of the cycle because there is always
+-- still a composite alarm that depends on that alarm that you want to
+-- delete.
+--
+-- To get out of such a situation, you must break the cycle by changing the
+-- rule of one of the composite alarms in the cycle to remove a dependency
+-- that creates the cycle. The simplest change to make to break a cycle is
+-- to change the @AlarmRule@ of one of the alarms to @False@.
+--
+-- Additionally, the evaluation of composite alarms stops if CloudWatch
+-- detects a cycle in the evaluation path.
 module Network.AWS.CloudWatch.DeleteAlarms
-    (
-    -- * Creating a Request
-      deleteAlarms
-    , DeleteAlarms
+  ( -- * Creating a Request
+    DeleteAlarms (..),
+    newDeleteAlarms,
+
     -- * Request Lenses
-    , dAlarmNames
+    deleteAlarms_alarmNames,
 
     -- * Destructuring the Response
-    , deleteAlarmsResponse
-    , DeleteAlarmsResponse
-    ) where
+    DeleteAlarmsResponse (..),
+    newDeleteAlarmsResponse,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteAlarms' smart constructor.
-newtype DeleteAlarms = DeleteAlarms'
-  { _dAlarmNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteAlarms' smart constructor.
+data DeleteAlarms = DeleteAlarms'
+  { -- | The alarms to be deleted.
+    alarmNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAlarms' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dAlarmNames' - The alarms to be deleted.
-deleteAlarms
-    :: DeleteAlarms
-deleteAlarms = DeleteAlarms' {_dAlarmNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'alarmNames', 'deleteAlarms_alarmNames' - The alarms to be deleted.
+newDeleteAlarms ::
+  DeleteAlarms
+newDeleteAlarms =
+  DeleteAlarms' {alarmNames = Prelude.mempty}
 
 -- | The alarms to be deleted.
-dAlarmNames :: Lens' DeleteAlarms [Text]
-dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce
+deleteAlarms_alarmNames :: Lens.Lens' DeleteAlarms [Prelude.Text]
+deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Prelude.. Lens._Coerce
 
-instance AWSRequest DeleteAlarms where
-        type Rs DeleteAlarms = DeleteAlarmsResponse
-        request = postQuery cloudWatch
-        response = receiveNull DeleteAlarmsResponse'
+instance Core.AWSRequest DeleteAlarms where
+  type AWSResponse DeleteAlarms = DeleteAlarmsResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeleteAlarmsResponse'
 
-instance Hashable DeleteAlarms where
+instance Prelude.Hashable DeleteAlarms
 
-instance NFData DeleteAlarms where
+instance Prelude.NFData DeleteAlarms
 
-instance ToHeaders DeleteAlarms where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteAlarms where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteAlarms where
-        toPath = const "/"
+instance Core.ToPath DeleteAlarms where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteAlarms where
-        toQuery DeleteAlarms'{..}
-          = mconcat
-              ["Action" =: ("DeleteAlarms" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _dAlarmNames]
+instance Core.ToQuery DeleteAlarms where
+  toQuery DeleteAlarms' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteAlarms" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "AlarmNames"
+          Core.=: Core.toQueryList "member" alarmNames
+      ]
 
--- | /See:/ 'deleteAlarmsResponse' smart constructor.
-data DeleteAlarmsResponse =
-  DeleteAlarmsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteAlarmsResponse' smart constructor.
+data DeleteAlarmsResponse = DeleteAlarmsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAlarmsResponse' with all optional fields omitted.
 --
-deleteAlarmsResponse
-    :: DeleteAlarmsResponse
-deleteAlarmsResponse = DeleteAlarmsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAlarmsResponse ::
+  DeleteAlarmsResponse
+newDeleteAlarmsResponse = DeleteAlarmsResponse'
 
-
-instance NFData DeleteAlarmsResponse where
+instance Prelude.NFData DeleteAlarmsResponse

@@ -1,139 +1,182 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateResourceGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see 'CreateAssessmentTarget' .
---
---
+-- Creates a resource group using the specified set of tags (key and value
+-- pairs) that are used to select the EC2 instances to be included in an
+-- Amazon Inspector assessment target. The created resource group is then
+-- used to create an Amazon Inspector assessment target. For more
+-- information, see CreateAssessmentTarget.
 module Network.AWS.Inspector.CreateResourceGroup
-    (
-    -- * Creating a Request
-      createResourceGroup
-    , CreateResourceGroup
+  ( -- * Creating a Request
+    CreateResourceGroup (..),
+    newCreateResourceGroup,
+
     -- * Request Lenses
-    , crgResourceGroupTags
+    createResourceGroup_resourceGroupTags,
 
     -- * Destructuring the Response
-    , createResourceGroupResponse
-    , CreateResourceGroupResponse
+    CreateResourceGroupResponse (..),
+    newCreateResourceGroupResponse,
+
     -- * Response Lenses
-    , crgrsResponseStatus
-    , crgrsResourceGroupARN
-    ) where
+    createResourceGroupResponse_httpStatus,
+    createResourceGroupResponse_resourceGroupArn,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createResourceGroup' smart constructor.
-newtype CreateResourceGroup = CreateResourceGroup'
-  { _crgResourceGroupTags :: List1 ResourceGroupTag
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateResourceGroup' smart constructor.
+data CreateResourceGroup = CreateResourceGroup'
+  { -- | A collection of keys and an array of possible values,
+    -- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
+    --
+    -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
+    resourceGroupTags :: Prelude.NonEmpty ResourceGroupTag
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateResourceGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crgResourceGroupTags' - A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
-createResourceGroup
-    :: NonEmpty ResourceGroupTag -- ^ 'crgResourceGroupTags'
-    -> CreateResourceGroup
-createResourceGroup pResourceGroupTags_ =
-  CreateResourceGroup' {_crgResourceGroupTags = _List1 # pResourceGroupTags_}
-
-
--- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
-crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)
-crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a}) . _List1
-
-instance AWSRequest CreateResourceGroup where
-        type Rs CreateResourceGroup =
-             CreateResourceGroupResponse
-        request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateResourceGroupResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "resourceGroupArn"))
-
-instance Hashable CreateResourceGroup where
-
-instance NFData CreateResourceGroup where
-
-instance ToHeaders CreateResourceGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.CreateResourceGroup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateResourceGroup where
-        toJSON CreateResourceGroup'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("resourceGroupTags" .= _crgResourceGroupTags)])
-
-instance ToPath CreateResourceGroup where
-        toPath = const "/"
-
-instance ToQuery CreateResourceGroup where
-        toQuery = const mempty
-
--- | /See:/ 'createResourceGroupResponse' smart constructor.
-data CreateResourceGroupResponse = CreateResourceGroupResponse'
-  { _crgrsResponseStatus   :: !Int
-  , _crgrsResourceGroupARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateResourceGroupResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'resourceGroupTags', 'createResourceGroup_resourceGroupTags' - A collection of keys and an array of possible values,
+-- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
 --
--- * 'crgrsResponseStatus' - -- | The response status code.
---
--- * 'crgrsResourceGroupARN' - The ARN that specifies the resource group that is created.
-createResourceGroupResponse
-    :: Int -- ^ 'crgrsResponseStatus'
-    -> Text -- ^ 'crgrsResourceGroupARN'
-    -> CreateResourceGroupResponse
-createResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
-  CreateResourceGroupResponse'
-    { _crgrsResponseStatus = pResponseStatus_
-    , _crgrsResourceGroupARN = pResourceGroupARN_
+-- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
+newCreateResourceGroup ::
+  -- | 'resourceGroupTags'
+  Prelude.NonEmpty ResourceGroupTag ->
+  CreateResourceGroup
+newCreateResourceGroup pResourceGroupTags_ =
+  CreateResourceGroup'
+    { resourceGroupTags =
+        Lens._Coerce Lens.# pResourceGroupTags_
     }
 
+-- | A collection of keys and an array of possible values,
+-- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
+--
+-- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
+createResourceGroup_resourceGroupTags :: Lens.Lens' CreateResourceGroup (Prelude.NonEmpty ResourceGroupTag)
+createResourceGroup_resourceGroupTags = Lens.lens (\CreateResourceGroup' {resourceGroupTags} -> resourceGroupTags) (\s@CreateResourceGroup' {} a -> s {resourceGroupTags = a} :: CreateResourceGroup) Prelude.. Lens._Coerce
 
--- | -- | The response status code.
-crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
-crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a})
+instance Core.AWSRequest CreateResourceGroup where
+  type
+    AWSResponse CreateResourceGroup =
+      CreateResourceGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateResourceGroupResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "resourceGroupArn")
+      )
+
+instance Prelude.Hashable CreateResourceGroup
+
+instance Prelude.NFData CreateResourceGroup
+
+instance Core.ToHeaders CreateResourceGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "InspectorService.CreateResourceGroup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateResourceGroup where
+  toJSON CreateResourceGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("resourceGroupTags" Core..= resourceGroupTags)
+          ]
+      )
+
+instance Core.ToPath CreateResourceGroup where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateResourceGroup where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateResourceGroupResponse' smart constructor.
+data CreateResourceGroupResponse = CreateResourceGroupResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The ARN that specifies the resource group that is created.
+    resourceGroupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateResourceGroupResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createResourceGroupResponse_httpStatus' - The response's http status code.
+--
+-- 'resourceGroupArn', 'createResourceGroupResponse_resourceGroupArn' - The ARN that specifies the resource group that is created.
+newCreateResourceGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'resourceGroupArn'
+  Prelude.Text ->
+  CreateResourceGroupResponse
+newCreateResourceGroupResponse
+  pHttpStatus_
+  pResourceGroupArn_ =
+    CreateResourceGroupResponse'
+      { httpStatus =
+          pHttpStatus_,
+        resourceGroupArn = pResourceGroupArn_
+      }
+
+-- | The response's http status code.
+createResourceGroupResponse_httpStatus :: Lens.Lens' CreateResourceGroupResponse Prelude.Int
+createResourceGroupResponse_httpStatus = Lens.lens (\CreateResourceGroupResponse' {httpStatus} -> httpStatus) (\s@CreateResourceGroupResponse' {} a -> s {httpStatus = a} :: CreateResourceGroupResponse)
 
 -- | The ARN that specifies the resource group that is created.
-crgrsResourceGroupARN :: Lens' CreateResourceGroupResponse Text
-crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a})
+createResourceGroupResponse_resourceGroupArn :: Lens.Lens' CreateResourceGroupResponse Prelude.Text
+createResourceGroupResponse_resourceGroupArn = Lens.lens (\CreateResourceGroupResponse' {resourceGroupArn} -> resourceGroupArn) (\s@CreateResourceGroupResponse' {} a -> s {resourceGroupArn = a} :: CreateResourceGroupResponse)
 
-instance NFData CreateResourceGroupResponse where
+instance Prelude.NFData CreateResourceGroupResponse

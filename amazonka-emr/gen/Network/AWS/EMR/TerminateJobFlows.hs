@@ -1,112 +1,136 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.TerminateJobFlows
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.
+-- TerminateJobFlows shuts a list of clusters (job flows) down. When a job
+-- flow is shut down, any step not yet completed is canceled and the EC2
+-- instances on which the cluster is running are stopped. Any log files not
+-- already saved are uploaded to Amazon S3 if a LogUri was specified when
+-- the cluster was created.
 --
---
--- The maximum number of clusters allowed is 10. The call to @TerminateJobFlows@ is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.
---
+-- The maximum number of clusters allowed is 10. The call to
+-- @TerminateJobFlows@ is asynchronous. Depending on the configuration of
+-- the cluster, it may take up to 1-5 minutes for the cluster to completely
+-- terminate and release allocated resources, such as Amazon EC2 instances.
 module Network.AWS.EMR.TerminateJobFlows
-    (
-    -- * Creating a Request
-      terminateJobFlows
-    , TerminateJobFlows
+  ( -- * Creating a Request
+    TerminateJobFlows (..),
+    newTerminateJobFlows,
+
     -- * Request Lenses
-    , tjfJobFlowIds
+    terminateJobFlows_jobFlowIds,
 
     -- * Destructuring the Response
-    , terminateJobFlowsResponse
-    , TerminateJobFlowsResponse
-    ) where
+    TerminateJobFlowsResponse (..),
+    newTerminateJobFlowsResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Input to the 'TerminateJobFlows' operation.
+-- | Input to the TerminateJobFlows operation.
 --
+-- /See:/ 'newTerminateJobFlows' smart constructor.
+data TerminateJobFlows = TerminateJobFlows'
+  { -- | A list of job flows to be shut down.
+    jobFlowIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'TerminateJobFlows' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'terminateJobFlows' smart constructor.
-newtype TerminateJobFlows = TerminateJobFlows'
-  { _tjfJobFlowIds :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'TerminateJobFlows' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'jobFlowIds', 'terminateJobFlows_jobFlowIds' - A list of job flows to be shut down.
+newTerminateJobFlows ::
+  TerminateJobFlows
+newTerminateJobFlows =
+  TerminateJobFlows' {jobFlowIds = Prelude.mempty}
+
+-- | A list of job flows to be shut down.
+terminateJobFlows_jobFlowIds :: Lens.Lens' TerminateJobFlows [Prelude.Text]
+terminateJobFlows_jobFlowIds = Lens.lens (\TerminateJobFlows' {jobFlowIds} -> jobFlowIds) (\s@TerminateJobFlows' {} a -> s {jobFlowIds = a} :: TerminateJobFlows) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest TerminateJobFlows where
+  type
+    AWSResponse TerminateJobFlows =
+      TerminateJobFlowsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull TerminateJobFlowsResponse'
+
+instance Prelude.Hashable TerminateJobFlows
+
+instance Prelude.NFData TerminateJobFlows
+
+instance Core.ToHeaders TerminateJobFlows where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.TerminateJobFlows" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON TerminateJobFlows where
+  toJSON TerminateJobFlows' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobFlowIds" Core..= jobFlowIds)]
+      )
+
+instance Core.ToPath TerminateJobFlows where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery TerminateJobFlows where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newTerminateJobFlowsResponse' smart constructor.
+data TerminateJobFlowsResponse = TerminateJobFlowsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'TerminateJobFlowsResponse' with all optional fields omitted.
 --
--- * 'tjfJobFlowIds' - A list of job flows to be shutdown.
-terminateJobFlows
-    :: TerminateJobFlows
-terminateJobFlows = TerminateJobFlows' {_tjfJobFlowIds = mempty}
-
-
--- | A list of job flows to be shutdown.
-tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
-tjfJobFlowIds = lens _tjfJobFlowIds (\ s a -> s{_tjfJobFlowIds = a}) . _Coerce
-
-instance AWSRequest TerminateJobFlows where
-        type Rs TerminateJobFlows = TerminateJobFlowsResponse
-        request = postJSON emr
-        response = receiveNull TerminateJobFlowsResponse'
-
-instance Hashable TerminateJobFlows where
-
-instance NFData TerminateJobFlows where
-
-instance ToHeaders TerminateJobFlows where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.TerminateJobFlows" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON TerminateJobFlows where
-        toJSON TerminateJobFlows'{..}
-          = object
-              (catMaybes [Just ("JobFlowIds" .= _tjfJobFlowIds)])
-
-instance ToPath TerminateJobFlows where
-        toPath = const "/"
-
-instance ToQuery TerminateJobFlows where
-        toQuery = const mempty
-
--- | /See:/ 'terminateJobFlowsResponse' smart constructor.
-data TerminateJobFlowsResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newTerminateJobFlowsResponse ::
+  TerminateJobFlowsResponse
+newTerminateJobFlowsResponse =
   TerminateJobFlowsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'TerminateJobFlowsResponse' with the minimum fields required to make a request.
---
-terminateJobFlowsResponse
-    :: TerminateJobFlowsResponse
-terminateJobFlowsResponse = TerminateJobFlowsResponse'
-
-
-instance NFData TerminateJobFlowsResponse where
+instance Prelude.NFData TerminateJobFlowsResponse

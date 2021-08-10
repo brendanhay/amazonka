@@ -1,112 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteOTAUpdate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an OTA update.
---
---
 module Network.AWS.IoT.DeleteOTAUpdate
-    (
-    -- * Creating a Request
-      deleteOTAUpdate
-    , DeleteOTAUpdate
+  ( -- * Creating a Request
+    DeleteOTAUpdate (..),
+    newDeleteOTAUpdate,
+
     -- * Request Lenses
-    , dotauOtaUpdateId
+    deleteOTAUpdate_forceDeleteAWSJob,
+    deleteOTAUpdate_deleteStream,
+    deleteOTAUpdate_otaUpdateId,
 
     -- * Destructuring the Response
-    , deleteOTAUpdateResponse
-    , DeleteOTAUpdateResponse
+    DeleteOTAUpdateResponse (..),
+    newDeleteOTAUpdateResponse,
+
     -- * Response Lenses
-    , dotaursResponseStatus
-    ) where
+    deleteOTAUpdateResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteOTAUpdate' smart constructor.
-newtype DeleteOTAUpdate = DeleteOTAUpdate'
-  { _dotauOtaUpdateId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteOTAUpdate' smart constructor.
+data DeleteOTAUpdate = DeleteOTAUpdate'
+  { -- | When true, deletes the AWS job created by the OTAUpdate process even if
+    -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
+    -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
+    -- false.
+    forceDeleteAWSJob :: Prelude.Maybe Prelude.Bool,
+    -- | When true, the stream created by the OTAUpdate process is deleted when
+    -- the OTA update is deleted. Ignored if the stream specified in the
+    -- OTAUpdate is supplied by the user.
+    deleteStream :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the OTA update to delete.
+    otaUpdateId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteOTAUpdate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteOTAUpdate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dotauOtaUpdateId' - The OTA update ID to delete.
-deleteOTAUpdate
-    :: Text -- ^ 'dotauOtaUpdateId'
-    -> DeleteOTAUpdate
-deleteOTAUpdate pOtaUpdateId_ =
-  DeleteOTAUpdate' {_dotauOtaUpdateId = pOtaUpdateId_}
-
-
--- | The OTA update ID to delete.
-dotauOtaUpdateId :: Lens' DeleteOTAUpdate Text
-dotauOtaUpdateId = lens _dotauOtaUpdateId (\ s a -> s{_dotauOtaUpdateId = a})
-
-instance AWSRequest DeleteOTAUpdate where
-        type Rs DeleteOTAUpdate = DeleteOTAUpdateResponse
-        request = delete ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteOTAUpdateResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteOTAUpdate where
-
-instance NFData DeleteOTAUpdate where
-
-instance ToHeaders DeleteOTAUpdate where
-        toHeaders = const mempty
-
-instance ToPath DeleteOTAUpdate where
-        toPath DeleteOTAUpdate'{..}
-          = mconcat ["/otaUpdates/", toBS _dotauOtaUpdateId]
-
-instance ToQuery DeleteOTAUpdate where
-        toQuery = const mempty
-
--- | /See:/ 'deleteOTAUpdateResponse' smart constructor.
-newtype DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
-  { _dotaursResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteOTAUpdateResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'forceDeleteAWSJob', 'deleteOTAUpdate_forceDeleteAWSJob' - When true, deletes the AWS job created by the OTAUpdate process even if
+-- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
+-- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
+-- false.
 --
--- * 'dotaursResponseStatus' - -- | The response status code.
-deleteOTAUpdateResponse
-    :: Int -- ^ 'dotaursResponseStatus'
-    -> DeleteOTAUpdateResponse
-deleteOTAUpdateResponse pResponseStatus_ =
-  DeleteOTAUpdateResponse' {_dotaursResponseStatus = pResponseStatus_}
+-- 'deleteStream', 'deleteOTAUpdate_deleteStream' - When true, the stream created by the OTAUpdate process is deleted when
+-- the OTA update is deleted. Ignored if the stream specified in the
+-- OTAUpdate is supplied by the user.
+--
+-- 'otaUpdateId', 'deleteOTAUpdate_otaUpdateId' - The ID of the OTA update to delete.
+newDeleteOTAUpdate ::
+  -- | 'otaUpdateId'
+  Prelude.Text ->
+  DeleteOTAUpdate
+newDeleteOTAUpdate pOtaUpdateId_ =
+  DeleteOTAUpdate'
+    { forceDeleteAWSJob =
+        Prelude.Nothing,
+      deleteStream = Prelude.Nothing,
+      otaUpdateId = pOtaUpdateId_
+    }
 
+-- | When true, deletes the AWS job created by the OTAUpdate process even if
+-- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
+-- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
+-- false.
+deleteOTAUpdate_forceDeleteAWSJob :: Lens.Lens' DeleteOTAUpdate (Prelude.Maybe Prelude.Bool)
+deleteOTAUpdate_forceDeleteAWSJob = Lens.lens (\DeleteOTAUpdate' {forceDeleteAWSJob} -> forceDeleteAWSJob) (\s@DeleteOTAUpdate' {} a -> s {forceDeleteAWSJob = a} :: DeleteOTAUpdate)
 
--- | -- | The response status code.
-dotaursResponseStatus :: Lens' DeleteOTAUpdateResponse Int
-dotaursResponseStatus = lens _dotaursResponseStatus (\ s a -> s{_dotaursResponseStatus = a})
+-- | When true, the stream created by the OTAUpdate process is deleted when
+-- the OTA update is deleted. Ignored if the stream specified in the
+-- OTAUpdate is supplied by the user.
+deleteOTAUpdate_deleteStream :: Lens.Lens' DeleteOTAUpdate (Prelude.Maybe Prelude.Bool)
+deleteOTAUpdate_deleteStream = Lens.lens (\DeleteOTAUpdate' {deleteStream} -> deleteStream) (\s@DeleteOTAUpdate' {} a -> s {deleteStream = a} :: DeleteOTAUpdate)
 
-instance NFData DeleteOTAUpdateResponse where
+-- | The ID of the OTA update to delete.
+deleteOTAUpdate_otaUpdateId :: Lens.Lens' DeleteOTAUpdate Prelude.Text
+deleteOTAUpdate_otaUpdateId = Lens.lens (\DeleteOTAUpdate' {otaUpdateId} -> otaUpdateId) (\s@DeleteOTAUpdate' {} a -> s {otaUpdateId = a} :: DeleteOTAUpdate)
+
+instance Core.AWSRequest DeleteOTAUpdate where
+  type
+    AWSResponse DeleteOTAUpdate =
+      DeleteOTAUpdateResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteOTAUpdateResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteOTAUpdate
+
+instance Prelude.NFData DeleteOTAUpdate
+
+instance Core.ToHeaders DeleteOTAUpdate where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteOTAUpdate where
+  toPath DeleteOTAUpdate' {..} =
+    Prelude.mconcat
+      ["/otaUpdates/", Core.toBS otaUpdateId]
+
+instance Core.ToQuery DeleteOTAUpdate where
+  toQuery DeleteOTAUpdate' {..} =
+    Prelude.mconcat
+      [ "forceDeleteAWSJob" Core.=: forceDeleteAWSJob,
+        "deleteStream" Core.=: deleteStream
+      ]
+
+-- | /See:/ 'newDeleteOTAUpdateResponse' smart constructor.
+data DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteOTAUpdateResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteOTAUpdateResponse_httpStatus' - The response's http status code.
+newDeleteOTAUpdateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteOTAUpdateResponse
+newDeleteOTAUpdateResponse pHttpStatus_ =
+  DeleteOTAUpdateResponse' {httpStatus = pHttpStatus_}
+
+-- | The response's http status code.
+deleteOTAUpdateResponse_httpStatus :: Lens.Lens' DeleteOTAUpdateResponse Prelude.Int
+deleteOTAUpdateResponse_httpStatus = Lens.lens (\DeleteOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@DeleteOTAUpdateResponse' {} a -> s {httpStatus = a} :: DeleteOTAUpdateResponse)
+
+instance Prelude.NFData DeleteOTAUpdateResponse

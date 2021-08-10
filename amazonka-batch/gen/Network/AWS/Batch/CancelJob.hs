@@ -1,131 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Batch.CancelJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a job in an AWS Batch job queue. Jobs that are in the @SUBMITTED@ , @PENDING@ , or @RUNNABLE@ state are cancelled. Jobs that have progressed to @STARTING@ or @RUNNING@ are not cancelled (but the API operation still succeeds, even if no job is cancelled); these jobs must be terminated with the 'TerminateJob' operation.
---
---
+-- Cancels a job in an AWS Batch job queue. Jobs that are in the
+-- @SUBMITTED@, @PENDING@, or @RUNNABLE@ state are canceled. Jobs that have
+-- progressed to @STARTING@ or @RUNNING@ are not canceled (but the API
+-- operation still succeeds, even if no job is canceled); these jobs must
+-- be terminated with the TerminateJob operation.
 module Network.AWS.Batch.CancelJob
-    (
-    -- * Creating a Request
-      cancelJob
-    , CancelJob
+  ( -- * Creating a Request
+    CancelJob (..),
+    newCancelJob,
+
     -- * Request Lenses
-    , cjJobId
-    , cjReason
+    cancelJob_jobId,
+    cancelJob_reason,
 
     -- * Destructuring the Response
-    , cancelJobResponse
-    , CancelJobResponse
+    CancelJobResponse (..),
+    newCancelJobResponse,
+
     -- * Response Lenses
-    , cjrsResponseStatus
-    ) where
+    cancelJobResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Batch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'cancelJob' smart constructor.
+-- | Contains the parameters for @CancelJob@.
+--
+-- /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { _cjJobId  :: !Text
-  , _cjReason :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The AWS Batch job ID of the job to cancel.
+    jobId :: Prelude.Text,
+    -- | A message to attach to the job that explains the reason for canceling
+    -- it. This message is returned by future DescribeJobs operations on the
+    -- job. This message is also recorded in the AWS Batch activity logs.
+    reason :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cjJobId' - The AWS Batch job ID of the job to cancel.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cjReason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
-cancelJob
-    :: Text -- ^ 'cjJobId'
-    -> Text -- ^ 'cjReason'
-    -> CancelJob
-cancelJob pJobId_ pReason_ =
-  CancelJob' {_cjJobId = pJobId_, _cjReason = pReason_}
-
+-- 'jobId', 'cancelJob_jobId' - The AWS Batch job ID of the job to cancel.
+--
+-- 'reason', 'cancelJob_reason' - A message to attach to the job that explains the reason for canceling
+-- it. This message is returned by future DescribeJobs operations on the
+-- job. This message is also recorded in the AWS Batch activity logs.
+newCancelJob ::
+  -- | 'jobId'
+  Prelude.Text ->
+  -- | 'reason'
+  Prelude.Text ->
+  CancelJob
+newCancelJob pJobId_ pReason_ =
+  CancelJob' {jobId = pJobId_, reason = pReason_}
 
 -- | The AWS Batch job ID of the job to cancel.
-cjJobId :: Lens' CancelJob Text
-cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a})
+cancelJob_jobId :: Lens.Lens' CancelJob Prelude.Text
+cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -> s {jobId = a} :: CancelJob)
 
--- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
-cjReason :: Lens' CancelJob Text
-cjReason = lens _cjReason (\ s a -> s{_cjReason = a})
+-- | A message to attach to the job that explains the reason for canceling
+-- it. This message is returned by future DescribeJobs operations on the
+-- job. This message is also recorded in the AWS Batch activity logs.
+cancelJob_reason :: Lens.Lens' CancelJob Prelude.Text
+cancelJob_reason = Lens.lens (\CancelJob' {reason} -> reason) (\s@CancelJob' {} a -> s {reason = a} :: CancelJob)
 
-instance AWSRequest CancelJob where
-        type Rs CancelJob = CancelJobResponse
-        request = postJSON batch
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CancelJobResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest CancelJob where
+  type AWSResponse CancelJob = CancelJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CancelJobResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CancelJob where
+instance Prelude.Hashable CancelJob
 
-instance NFData CancelJob where
+instance Prelude.NFData CancelJob
 
-instance ToHeaders CancelJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CancelJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CancelJob where
-        toJSON CancelJob'{..}
-          = object
-              (catMaybes
-                 [Just ("jobId" .= _cjJobId),
-                  Just ("reason" .= _cjReason)])
+instance Core.ToJSON CancelJob where
+  toJSON CancelJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Core..= jobId),
+            Prelude.Just ("reason" Core..= reason)
+          ]
+      )
 
-instance ToPath CancelJob where
-        toPath = const "/v1/canceljob"
+instance Core.ToPath CancelJob where
+  toPath = Prelude.const "/v1/canceljob"
 
-instance ToQuery CancelJob where
-        toQuery = const mempty
+instance Core.ToQuery CancelJob where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'cancelJobResponse' smart constructor.
-newtype CancelJobResponse = CancelJobResponse'
-  { _cjrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCancelJobResponse' smart constructor.
+data CancelJobResponse = CancelJobResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cjrsResponseStatus' - -- | The response status code.
-cancelJobResponse
-    :: Int -- ^ 'cjrsResponseStatus'
-    -> CancelJobResponse
-cancelJobResponse pResponseStatus_ =
-  CancelJobResponse' {_cjrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.
+newCancelJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CancelJobResponse
+newCancelJobResponse pHttpStatus_ =
+  CancelJobResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
+cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
--- | -- | The response status code.
-cjrsResponseStatus :: Lens' CancelJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a})
-
-instance NFData CancelJobResponse where
+instance Prelude.NFData CancelJobResponse

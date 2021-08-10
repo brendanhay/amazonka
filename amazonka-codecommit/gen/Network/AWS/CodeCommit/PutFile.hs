@@ -1,243 +1,352 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.PutFile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates a file in an AWS CodeCommit repository.
---
---
+-- Adds or updates a file in a branch in an AWS CodeCommit repository, and
+-- generates a commit for the addition in the specified branch.
 module Network.AWS.CodeCommit.PutFile
-    (
-    -- * Creating a Request
-      putFile
-    , PutFile
+  ( -- * Creating a Request
+    PutFile (..),
+    newPutFile,
+
     -- * Request Lenses
-    , pfEmail
-    , pfFileMode
-    , pfParentCommitId
-    , pfName
-    , pfCommitMessage
-    , pfRepositoryName
-    , pfBranchName
-    , pfFileContent
-    , pfFilePath
+    putFile_parentCommitId,
+    putFile_commitMessage,
+    putFile_name,
+    putFile_email,
+    putFile_fileMode,
+    putFile_repositoryName,
+    putFile_branchName,
+    putFile_fileContent,
+    putFile_filePath,
 
     -- * Destructuring the Response
-    , putFileResponse
-    , PutFileResponse
+    PutFileResponse (..),
+    newPutFileResponse,
+
     -- * Response Lenses
-    , pfrsResponseStatus
-    , pfrsCommitId
-    , pfrsBlobId
-    , pfrsTreeId
-    ) where
+    putFileResponse_httpStatus,
+    putFileResponse_commitId,
+    putFileResponse_blobId,
+    putFileResponse_treeId,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putFile' smart constructor.
+-- | /See:/ 'newPutFile' smart constructor.
 data PutFile = PutFile'
-  { _pfEmail          :: !(Maybe Text)
-  , _pfFileMode       :: !(Maybe FileModeTypeEnum)
-  , _pfParentCommitId :: !(Maybe Text)
-  , _pfName           :: !(Maybe Text)
-  , _pfCommitMessage  :: !(Maybe Text)
-  , _pfRepositoryName :: !Text
-  , _pfBranchName     :: !Text
-  , _pfFileContent    :: !Base64
-  , _pfFilePath       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The full commit ID of the head commit in the branch where you want to
+    -- add or update the file. If this is an empty repository, no commit ID is
+    -- required. If this is not an empty repository, a commit ID is required.
+    --
+    -- The commit ID must match the ID of the head commit at the time of the
+    -- operation. Otherwise, an error occurs, and the file is not added or
+    -- updated.
+    parentCommitId :: Prelude.Maybe Prelude.Text,
+    -- | A message about why this file was added or updated. Although it is
+    -- optional, a message makes the commit history for your repository more
+    -- useful.
+    commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | The name of the person adding or updating the file. Although it is
+    -- optional, a name makes the commit history for your repository more
+    -- useful.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An email address for the person adding or updating the file.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The file mode permissions of the blob. Valid file mode permissions are
+    -- listed here.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    -- | The name of the repository where you want to add or update the file.
+    repositoryName :: Prelude.Text,
+    -- | The name of the branch where you want to add or update the file. If this
+    -- is an empty repository, this branch is created.
+    branchName :: Prelude.Text,
+    -- | The content of the file, in binary object format.
+    fileContent :: Core.Base64,
+    -- | The name of the file you want to add or update, including the relative
+    -- path to the file in the repository.
+    --
+    -- If the path does not currently exist in the repository, the path is
+    -- created as part of adding the file.
+    filePath :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutFile' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'parentCommitId', 'putFile_parentCommitId' - The full commit ID of the head commit in the branch where you want to
+-- add or update the file. If this is an empty repository, no commit ID is
+-- required. If this is not an empty repository, a commit ID is required.
+--
+-- The commit ID must match the ID of the head commit at the time of the
+-- operation. Otherwise, an error occurs, and the file is not added or
+-- updated.
+--
+-- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is
+-- optional, a message makes the commit history for your repository more
+-- useful.
+--
+-- 'name', 'putFile_name' - The name of the person adding or updating the file. Although it is
+-- optional, a name makes the commit history for your repository more
+-- useful.
+--
+-- 'email', 'putFile_email' - An email address for the person adding or updating the file.
+--
+-- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are
+-- listed here.
+--
+-- 'repositoryName', 'putFile_repositoryName' - The name of the repository where you want to add or update the file.
+--
+-- 'branchName', 'putFile_branchName' - The name of the branch where you want to add or update the file. If this
+-- is an empty repository, this branch is created.
+--
+-- 'fileContent', 'putFile_fileContent' - The content of the file, in binary object format.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'filePath', 'putFile_filePath' - The name of the file you want to add or update, including the relative
+-- path to the file in the repository.
+--
+-- If the path does not currently exist in the repository, the path is
+-- created as part of adding the file.
+newPutFile ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  -- | 'branchName'
+  Prelude.Text ->
+  -- | 'fileContent'
+  Prelude.ByteString ->
+  -- | 'filePath'
+  Prelude.Text ->
+  PutFile
+newPutFile
+  pRepositoryName_
+  pBranchName_
+  pFileContent_
+  pFilePath_ =
+    PutFile'
+      { parentCommitId = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
+        name = Prelude.Nothing,
+        email = Prelude.Nothing,
+        fileMode = Prelude.Nothing,
+        repositoryName = pRepositoryName_,
+        branchName = pBranchName_,
+        fileContent = Core._Base64 Lens.# pFileContent_,
+        filePath = pFilePath_
+      }
 
--- | Creates a value of 'PutFile' with the minimum fields required to make a request.
+-- | The full commit ID of the head commit in the branch where you want to
+-- add or update the file. If this is an empty repository, no commit ID is
+-- required. If this is not an empty repository, a commit ID is required.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfEmail' - An email address for the person adding or updating the file.
---
--- * 'pfFileMode' - The file mode permissions of the blob. Valid file mode permissions are listed below.
---
--- * 'pfParentCommitId' - The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not be added or updated.
---
--- * 'pfName' - The name of the person adding or updating the file. While optional, adding a name is strongly encouraged in order to provide a more useful commit history for your repository.
---
--- * 'pfCommitMessage' - A message about why this file was added or updated. While optional, adding a message is strongly encouraged in order to provide a more useful commit history for your repository.
---
--- * 'pfRepositoryName' - The name of the repository where you want to add or update the file.
---
--- * 'pfBranchName' - The name of the branch where you want to add or update the file.
---
--- * 'pfFileContent' - The content of the file, in binary object format. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'pfFilePath' - The name of the file you want to add or update, including the relative path to the file in the repository.
-putFile
-    :: Text -- ^ 'pfRepositoryName'
-    -> Text -- ^ 'pfBranchName'
-    -> ByteString -- ^ 'pfFileContent'
-    -> Text -- ^ 'pfFilePath'
-    -> PutFile
-putFile pRepositoryName_ pBranchName_ pFileContent_ pFilePath_ =
-  PutFile'
-    { _pfEmail = Nothing
-    , _pfFileMode = Nothing
-    , _pfParentCommitId = Nothing
-    , _pfName = Nothing
-    , _pfCommitMessage = Nothing
-    , _pfRepositoryName = pRepositoryName_
-    , _pfBranchName = pBranchName_
-    , _pfFileContent = _Base64 # pFileContent_
-    , _pfFilePath = pFilePath_
-    }
+-- The commit ID must match the ID of the head commit at the time of the
+-- operation. Otherwise, an error occurs, and the file is not added or
+-- updated.
+putFile_parentCommitId :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_parentCommitId = Lens.lens (\PutFile' {parentCommitId} -> parentCommitId) (\s@PutFile' {} a -> s {parentCommitId = a} :: PutFile)
 
+-- | A message about why this file was added or updated. Although it is
+-- optional, a message makes the commit history for your repository more
+-- useful.
+putFile_commitMessage :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_commitMessage = Lens.lens (\PutFile' {commitMessage} -> commitMessage) (\s@PutFile' {} a -> s {commitMessage = a} :: PutFile)
+
+-- | The name of the person adding or updating the file. Although it is
+-- optional, a name makes the commit history for your repository more
+-- useful.
+putFile_name :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_name = Lens.lens (\PutFile' {name} -> name) (\s@PutFile' {} a -> s {name = a} :: PutFile)
 
 -- | An email address for the person adding or updating the file.
-pfEmail :: Lens' PutFile (Maybe Text)
-pfEmail = lens _pfEmail (\ s a -> s{_pfEmail = a})
+putFile_email :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_email = Lens.lens (\PutFile' {email} -> email) (\s@PutFile' {} a -> s {email = a} :: PutFile)
 
--- | The file mode permissions of the blob. Valid file mode permissions are listed below.
-pfFileMode :: Lens' PutFile (Maybe FileModeTypeEnum)
-pfFileMode = lens _pfFileMode (\ s a -> s{_pfFileMode = a})
-
--- | The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not be added or updated.
-pfParentCommitId :: Lens' PutFile (Maybe Text)
-pfParentCommitId = lens _pfParentCommitId (\ s a -> s{_pfParentCommitId = a})
-
--- | The name of the person adding or updating the file. While optional, adding a name is strongly encouraged in order to provide a more useful commit history for your repository.
-pfName :: Lens' PutFile (Maybe Text)
-pfName = lens _pfName (\ s a -> s{_pfName = a})
-
--- | A message about why this file was added or updated. While optional, adding a message is strongly encouraged in order to provide a more useful commit history for your repository.
-pfCommitMessage :: Lens' PutFile (Maybe Text)
-pfCommitMessage = lens _pfCommitMessage (\ s a -> s{_pfCommitMessage = a})
+-- | The file mode permissions of the blob. Valid file mode permissions are
+-- listed here.
+putFile_fileMode :: Lens.Lens' PutFile (Prelude.Maybe FileModeTypeEnum)
+putFile_fileMode = Lens.lens (\PutFile' {fileMode} -> fileMode) (\s@PutFile' {} a -> s {fileMode = a} :: PutFile)
 
 -- | The name of the repository where you want to add or update the file.
-pfRepositoryName :: Lens' PutFile Text
-pfRepositoryName = lens _pfRepositoryName (\ s a -> s{_pfRepositoryName = a})
+putFile_repositoryName :: Lens.Lens' PutFile Prelude.Text
+putFile_repositoryName = Lens.lens (\PutFile' {repositoryName} -> repositoryName) (\s@PutFile' {} a -> s {repositoryName = a} :: PutFile)
 
--- | The name of the branch where you want to add or update the file.
-pfBranchName :: Lens' PutFile Text
-pfBranchName = lens _pfBranchName (\ s a -> s{_pfBranchName = a})
+-- | The name of the branch where you want to add or update the file. If this
+-- is an empty repository, this branch is created.
+putFile_branchName :: Lens.Lens' PutFile Prelude.Text
+putFile_branchName = Lens.lens (\PutFile' {branchName} -> branchName) (\s@PutFile' {} a -> s {branchName = a} :: PutFile)
 
--- | The content of the file, in binary object format. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-pfFileContent :: Lens' PutFile ByteString
-pfFileContent = lens _pfFileContent (\ s a -> s{_pfFileContent = a}) . _Base64
+-- | The content of the file, in binary object format.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+putFile_fileContent :: Lens.Lens' PutFile Prelude.ByteString
+putFile_fileContent = Lens.lens (\PutFile' {fileContent} -> fileContent) (\s@PutFile' {} a -> s {fileContent = a} :: PutFile) Prelude.. Core._Base64
 
--- | The name of the file you want to add or update, including the relative path to the file in the repository.
-pfFilePath :: Lens' PutFile Text
-pfFilePath = lens _pfFilePath (\ s a -> s{_pfFilePath = a})
+-- | The name of the file you want to add or update, including the relative
+-- path to the file in the repository.
+--
+-- If the path does not currently exist in the repository, the path is
+-- created as part of adding the file.
+putFile_filePath :: Lens.Lens' PutFile Prelude.Text
+putFile_filePath = Lens.lens (\PutFile' {filePath} -> filePath) (\s@PutFile' {} a -> s {filePath = a} :: PutFile)
 
-instance AWSRequest PutFile where
-        type Rs PutFile = PutFileResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutFileResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "commitId") <*>
-                     (x .:> "blobId")
-                     <*> (x .:> "treeId"))
+instance Core.AWSRequest PutFile where
+  type AWSResponse PutFile = PutFileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutFileResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "commitId")
+            Prelude.<*> (x Core..:> "blobId")
+            Prelude.<*> (x Core..:> "treeId")
+      )
 
-instance Hashable PutFile where
+instance Prelude.Hashable PutFile
 
-instance NFData PutFile where
+instance Prelude.NFData PutFile
 
-instance ToHeaders PutFile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.PutFile" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders PutFile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeCommit_20150413.PutFile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON PutFile where
-        toJSON PutFile'{..}
-          = object
-              (catMaybes
-                 [("email" .=) <$> _pfEmail,
-                  ("fileMode" .=) <$> _pfFileMode,
-                  ("parentCommitId" .=) <$> _pfParentCommitId,
-                  ("name" .=) <$> _pfName,
-                  ("commitMessage" .=) <$> _pfCommitMessage,
-                  Just ("repositoryName" .= _pfRepositoryName),
-                  Just ("branchName" .= _pfBranchName),
-                  Just ("fileContent" .= _pfFileContent),
-                  Just ("filePath" .= _pfFilePath)])
+instance Core.ToJSON PutFile where
+  toJSON PutFile' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("parentCommitId" Core..=)
+              Prelude.<$> parentCommitId,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
+            ("name" Core..=) Prelude.<$> name,
+            ("email" Core..=) Prelude.<$> email,
+            ("fileMode" Core..=) Prelude.<$> fileMode,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("branchName" Core..= branchName),
+            Prelude.Just ("fileContent" Core..= fileContent),
+            Prelude.Just ("filePath" Core..= filePath)
+          ]
+      )
 
-instance ToPath PutFile where
-        toPath = const "/"
+instance Core.ToPath PutFile where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutFile where
-        toQuery = const mempty
+instance Core.ToQuery PutFile where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putFileResponse' smart constructor.
+-- | /See:/ 'newPutFileResponse' smart constructor.
 data PutFileResponse = PutFileResponse'
-  { _pfrsResponseStatus :: !Int
-  , _pfrsCommitId       :: !Text
-  , _pfrsBlobId         :: !Text
-  , _pfrsTreeId         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The full SHA ID of the commit that contains this file change.
+    commitId :: Prelude.Text,
+    -- | The ID of the blob, which is its SHA-1 pointer.
+    blobId :: Prelude.Text,
+    -- | The full SHA-1 pointer of the tree information for the commit that
+    -- contains this file change.
+    treeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutFileResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'putFileResponse_httpStatus' - The response's http status code.
+--
+-- 'commitId', 'putFileResponse_commitId' - The full SHA ID of the commit that contains this file change.
+--
+-- 'blobId', 'putFileResponse_blobId' - The ID of the blob, which is its SHA-1 pointer.
+--
+-- 'treeId', 'putFileResponse_treeId' - The full SHA-1 pointer of the tree information for the commit that
+-- contains this file change.
+newPutFileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'commitId'
+  Prelude.Text ->
+  -- | 'blobId'
+  Prelude.Text ->
+  -- | 'treeId'
+  Prelude.Text ->
+  PutFileResponse
+newPutFileResponse
+  pHttpStatus_
+  pCommitId_
+  pBlobId_
+  pTreeId_ =
+    PutFileResponse'
+      { httpStatus = pHttpStatus_,
+        commitId = pCommitId_,
+        blobId = pBlobId_,
+        treeId = pTreeId_
+      }
 
--- | Creates a value of 'PutFileResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfrsResponseStatus' - -- | The response status code.
---
--- * 'pfrsCommitId' - The full SHA of the commit that contains this file change.
---
--- * 'pfrsBlobId' - The ID of the blob, which is its SHA-1 pointer.
---
--- * 'pfrsTreeId' - Tree information for the commit that contains this file change.
-putFileResponse
-    :: Int -- ^ 'pfrsResponseStatus'
-    -> Text -- ^ 'pfrsCommitId'
-    -> Text -- ^ 'pfrsBlobId'
-    -> Text -- ^ 'pfrsTreeId'
-    -> PutFileResponse
-putFileResponse pResponseStatus_ pCommitId_ pBlobId_ pTreeId_ =
-  PutFileResponse'
-    { _pfrsResponseStatus = pResponseStatus_
-    , _pfrsCommitId = pCommitId_
-    , _pfrsBlobId = pBlobId_
-    , _pfrsTreeId = pTreeId_
-    }
+-- | The response's http status code.
+putFileResponse_httpStatus :: Lens.Lens' PutFileResponse Prelude.Int
+putFileResponse_httpStatus = Lens.lens (\PutFileResponse' {httpStatus} -> httpStatus) (\s@PutFileResponse' {} a -> s {httpStatus = a} :: PutFileResponse)
 
-
--- | -- | The response status code.
-pfrsResponseStatus :: Lens' PutFileResponse Int
-pfrsResponseStatus = lens _pfrsResponseStatus (\ s a -> s{_pfrsResponseStatus = a})
-
--- | The full SHA of the commit that contains this file change.
-pfrsCommitId :: Lens' PutFileResponse Text
-pfrsCommitId = lens _pfrsCommitId (\ s a -> s{_pfrsCommitId = a})
+-- | The full SHA ID of the commit that contains this file change.
+putFileResponse_commitId :: Lens.Lens' PutFileResponse Prelude.Text
+putFileResponse_commitId = Lens.lens (\PutFileResponse' {commitId} -> commitId) (\s@PutFileResponse' {} a -> s {commitId = a} :: PutFileResponse)
 
 -- | The ID of the blob, which is its SHA-1 pointer.
-pfrsBlobId :: Lens' PutFileResponse Text
-pfrsBlobId = lens _pfrsBlobId (\ s a -> s{_pfrsBlobId = a})
+putFileResponse_blobId :: Lens.Lens' PutFileResponse Prelude.Text
+putFileResponse_blobId = Lens.lens (\PutFileResponse' {blobId} -> blobId) (\s@PutFileResponse' {} a -> s {blobId = a} :: PutFileResponse)
 
--- | Tree information for the commit that contains this file change.
-pfrsTreeId :: Lens' PutFileResponse Text
-pfrsTreeId = lens _pfrsTreeId (\ s a -> s{_pfrsTreeId = a})
+-- | The full SHA-1 pointer of the tree information for the commit that
+-- contains this file change.
+putFileResponse_treeId :: Lens.Lens' PutFileResponse Prelude.Text
+putFileResponse_treeId = Lens.lens (\PutFileResponse' {treeId} -> treeId) (\s@PutFileResponse' {} a -> s {treeId = a} :: PutFileResponse)
 
-instance NFData PutFileResponse where
+instance Prelude.NFData PutFileResponse

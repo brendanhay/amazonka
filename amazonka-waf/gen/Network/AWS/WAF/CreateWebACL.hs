@@ -1,200 +1,295 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAF.CreateWebACL
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a @WebACL@ , which contains the @Rules@ that identify the CloudFront web requests that you want to allow, block, or count. AWS WAF evaluates @Rules@ in order based on the value of @Priority@ for each @Rule@ .
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
--- You also specify a default action, either @ALLOW@ or @BLOCK@ . If a web request doesn't match any of the @Rules@ in a @WebACL@ , AWS WAF responds to the request with the default action.
+-- Creates a @WebACL@, which contains the @Rules@ that identify the
+-- CloudFront web requests that you want to allow, block, or count. AWS WAF
+-- evaluates @Rules@ in order based on the value of @Priority@ for each
+-- @Rule@.
 --
--- To create and configure a @WebACL@ , perform the following steps:
+-- You also specify a default action, either @ALLOW@ or @BLOCK@. If a web
+-- request doesn\'t match any of the @Rules@ in a @WebACL@, AWS WAF
+-- responds to the request with the default action.
 --
---     * Create and update the @ByteMatchSet@ objects and other predicates that you want to include in @Rules@ . For more information, see 'CreateByteMatchSet' , 'UpdateByteMatchSet' , 'CreateIPSet' , 'UpdateIPSet' , 'CreateSqlInjectionMatchSet' , and 'UpdateSqlInjectionMatchSet' .
+-- To create and configure a @WebACL@, perform the following steps:
 --
---     * Create and update the @Rules@ that you want to include in the @WebACL@ . For more information, see 'CreateRule' and 'UpdateRule' .
+-- 1.  Create and update the @ByteMatchSet@ objects and other predicates
+--     that you want to include in @Rules@. For more information, see
+--     CreateByteMatchSet, UpdateByteMatchSet, CreateIPSet, UpdateIPSet,
+--     CreateSqlInjectionMatchSet, and UpdateSqlInjectionMatchSet.
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateWebACL@ request.
+-- 2.  Create and update the @Rules@ that you want to include in the
+--     @WebACL@. For more information, see CreateRule and UpdateRule.
 --
---     * Submit a @CreateWebACL@ request.
+-- 3.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of a @CreateWebACL@ request.
 --
---     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateWebACL' request.
+-- 4.  Submit a @CreateWebACL@ request.
 --
---     * Submit an 'UpdateWebACL' request to specify the @Rules@ that you want to include in the @WebACL@ , to specify the default action, and to associate the @WebACL@ with a CloudFront distribution.
+-- 5.  Use @GetChangeToken@ to get the change token that you provide in the
+--     @ChangeToken@ parameter of an UpdateWebACL request.
 --
+-- 6.  Submit an UpdateWebACL request to specify the @Rules@ that you want
+--     to include in the @WebACL@, to specify the default action, and to
+--     associate the @WebACL@ with a CloudFront distribution.
 --
---
--- For more information about how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
---
+-- For more information about how to use the AWS WAF API, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.CreateWebACL
-    (
-    -- * Creating a Request
-      createWebACL
-    , CreateWebACL
+  ( -- * Creating a Request
+    CreateWebACL (..),
+    newCreateWebACL,
+
     -- * Request Lenses
-    , cwaName
-    , cwaMetricName
-    , cwaDefaultAction
-    , cwaChangeToken
+    createWebACL_tags,
+    createWebACL_name,
+    createWebACL_metricName,
+    createWebACL_defaultAction,
+    createWebACL_changeToken,
 
     -- * Destructuring the Response
-    , createWebACLResponse
-    , CreateWebACLResponse
+    CreateWebACLResponse (..),
+    newCreateWebACLResponse,
+
     -- * Response Lenses
-    , cwarsWebACL
-    , cwarsChangeToken
-    , cwarsResponseStatus
-    ) where
+    createWebACLResponse_webACL,
+    createWebACLResponse_changeToken,
+    createWebACLResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
-import Network.AWS.WAF.Types.Product
 
--- | /See:/ 'createWebACL' smart constructor.
+-- | /See:/ 'newCreateWebACL' smart constructor.
 data CreateWebACL = CreateWebACL'
-  { _cwaName          :: !Text
-  , _cwaMetricName    :: !Text
-  , _cwaDefaultAction :: !WafAction
-  , _cwaChangeToken   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A friendly name or description of the WebACL. You can\'t change @Name@
+    -- after you create the @WebACL@.
+    name :: Prelude.Text,
+    -- | A friendly name or description for the metrics for this @WebACL@.The
+    -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
+    -- maximum length 128 and minimum length one. It can\'t contain whitespace
+    -- or metric names reserved for AWS WAF, including \"All\" and
+    -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
+    -- @WebACL@.
+    metricName :: Prelude.Text,
+    -- | The action that you want AWS WAF to take when a request doesn\'t match
+    -- the criteria specified in any of the @Rule@ objects that are associated
+    -- with the @WebACL@.
+    defaultAction :: WafAction,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWebACL' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWebACL' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwaName' - A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cwaMetricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
+-- 'tags', 'createWebACL_tags' -
 --
--- * 'cwaDefaultAction' - The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
+-- 'name', 'createWebACL_name' - A friendly name or description of the WebACL. You can\'t change @Name@
+-- after you create the @WebACL@.
 --
--- * 'cwaChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-createWebACL
-    :: Text -- ^ 'cwaName'
-    -> Text -- ^ 'cwaMetricName'
-    -> WafAction -- ^ 'cwaDefaultAction'
-    -> Text -- ^ 'cwaChangeToken'
-    -> CreateWebACL
-createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
-  CreateWebACL'
-    { _cwaName = pName_
-    , _cwaMetricName = pMetricName_
-    , _cwaDefaultAction = pDefaultAction_
-    , _cwaChangeToken = pChangeToken_
-    }
+-- 'metricName', 'createWebACL_metricName' - A friendly name or description for the metrics for this @WebACL@.The
+-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
+-- maximum length 128 and minimum length one. It can\'t contain whitespace
+-- or metric names reserved for AWS WAF, including \"All\" and
+-- \"Default_Action.\" You can\'t change @MetricName@ after you create the
+-- @WebACL@.
+--
+-- 'defaultAction', 'createWebACL_defaultAction' - The action that you want AWS WAF to take when a request doesn\'t match
+-- the criteria specified in any of the @Rule@ objects that are associated
+-- with the @WebACL@.
+--
+-- 'changeToken', 'createWebACL_changeToken' - The value returned by the most recent call to GetChangeToken.
+newCreateWebACL ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'metricName'
+  Prelude.Text ->
+  -- | 'defaultAction'
+  WafAction ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  CreateWebACL
+newCreateWebACL
+  pName_
+  pMetricName_
+  pDefaultAction_
+  pChangeToken_ =
+    CreateWebACL'
+      { tags = Prelude.Nothing,
+        name = pName_,
+        metricName = pMetricName_,
+        defaultAction = pDefaultAction_,
+        changeToken = pChangeToken_
+      }
 
+-- |
+createWebACL_tags :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Tag))
+createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' {} a -> s {tags = a} :: CreateWebACL) Prelude.. Lens.mapping Lens._Coerce
 
--- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
-cwaName :: Lens' CreateWebACL Text
-cwaName = lens _cwaName (\ s a -> s{_cwaName = a})
+-- | A friendly name or description of the WebACL. You can\'t change @Name@
+-- after you create the @WebACL@.
+createWebACL_name :: Lens.Lens' CreateWebACL Prelude.Text
+createWebACL_name = Lens.lens (\CreateWebACL' {name} -> name) (\s@CreateWebACL' {} a -> s {name = a} :: CreateWebACL)
 
--- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
-cwaMetricName :: Lens' CreateWebACL Text
-cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a})
+-- | A friendly name or description for the metrics for this @WebACL@.The
+-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
+-- maximum length 128 and minimum length one. It can\'t contain whitespace
+-- or metric names reserved for AWS WAF, including \"All\" and
+-- \"Default_Action.\" You can\'t change @MetricName@ after you create the
+-- @WebACL@.
+createWebACL_metricName :: Lens.Lens' CreateWebACL Prelude.Text
+createWebACL_metricName = Lens.lens (\CreateWebACL' {metricName} -> metricName) (\s@CreateWebACL' {} a -> s {metricName = a} :: CreateWebACL)
 
--- | The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
-cwaDefaultAction :: Lens' CreateWebACL WafAction
-cwaDefaultAction = lens _cwaDefaultAction (\ s a -> s{_cwaDefaultAction = a})
+-- | The action that you want AWS WAF to take when a request doesn\'t match
+-- the criteria specified in any of the @Rule@ objects that are associated
+-- with the @WebACL@.
+createWebACL_defaultAction :: Lens.Lens' CreateWebACL WafAction
+createWebACL_defaultAction = Lens.lens (\CreateWebACL' {defaultAction} -> defaultAction) (\s@CreateWebACL' {} a -> s {defaultAction = a} :: CreateWebACL)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-cwaChangeToken :: Lens' CreateWebACL Text
-cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a})
+-- | The value returned by the most recent call to GetChangeToken.
+createWebACL_changeToken :: Lens.Lens' CreateWebACL Prelude.Text
+createWebACL_changeToken = Lens.lens (\CreateWebACL' {changeToken} -> changeToken) (\s@CreateWebACL' {} a -> s {changeToken = a} :: CreateWebACL)
 
-instance AWSRequest CreateWebACL where
-        type Rs CreateWebACL = CreateWebACLResponse
-        request = postJSON waf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateWebACLResponse' <$>
-                   (x .?> "WebACL") <*> (x .?> "ChangeToken") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest CreateWebACL where
+  type AWSResponse CreateWebACL = CreateWebACLResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateWebACLResponse'
+            Prelude.<$> (x Core..?> "WebACL")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateWebACL where
+instance Prelude.Hashable CreateWebACL
 
-instance NFData CreateWebACL where
+instance Prelude.NFData CreateWebACL
 
-instance ToHeaders CreateWebACL where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_20150824.CreateWebACL" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateWebACL where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_20150824.CreateWebACL" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateWebACL where
-        toJSON CreateWebACL'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _cwaName),
-                  Just ("MetricName" .= _cwaMetricName),
-                  Just ("DefaultAction" .= _cwaDefaultAction),
-                  Just ("ChangeToken" .= _cwaChangeToken)])
+instance Core.ToJSON CreateWebACL where
+  toJSON CreateWebACL' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("MetricName" Core..= metricName),
+            Prelude.Just ("DefaultAction" Core..= defaultAction),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
 
-instance ToPath CreateWebACL where
-        toPath = const "/"
+instance Core.ToPath CreateWebACL where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateWebACL where
-        toQuery = const mempty
+instance Core.ToQuery CreateWebACL where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createWebACLResponse' smart constructor.
+-- | /See:/ 'newCreateWebACLResponse' smart constructor.
 data CreateWebACLResponse = CreateWebACLResponse'
-  { _cwarsWebACL         :: !(Maybe WebACL)
-  , _cwarsChangeToken    :: !(Maybe Text)
-  , _cwarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The WebACL returned in the @CreateWebACL@ response.
+    webACL :: Prelude.Maybe WebACL,
+    -- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request.
+    -- You can also use this value to query the status of the request. For more
+    -- information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWebACLResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWebACLResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwarsWebACL' - The 'WebACL' returned in the @CreateWebACL@ response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cwarsChangeToken' - The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- 'webACL', 'createWebACLResponse_webACL' - The WebACL returned in the @CreateWebACL@ response.
 --
--- * 'cwarsResponseStatus' - -- | The response status code.
-createWebACLResponse
-    :: Int -- ^ 'cwarsResponseStatus'
-    -> CreateWebACLResponse
-createWebACLResponse pResponseStatus_ =
+-- 'changeToken', 'createWebACLResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateWebACL@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'createWebACLResponse_httpStatus' - The response's http status code.
+newCreateWebACLResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateWebACLResponse
+newCreateWebACLResponse pHttpStatus_ =
   CreateWebACLResponse'
-    { _cwarsWebACL = Nothing
-    , _cwarsChangeToken = Nothing
-    , _cwarsResponseStatus = pResponseStatus_
+    { webACL = Prelude.Nothing,
+      changeToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The WebACL returned in the @CreateWebACL@ response.
+createWebACLResponse_webACL :: Lens.Lens' CreateWebACLResponse (Prelude.Maybe WebACL)
+createWebACLResponse_webACL = Lens.lens (\CreateWebACLResponse' {webACL} -> webACL) (\s@CreateWebACLResponse' {} a -> s {webACL = a} :: CreateWebACLResponse)
 
--- | The 'WebACL' returned in the @CreateWebACL@ response.
-cwarsWebACL :: Lens' CreateWebACLResponse (Maybe WebACL)
-cwarsWebACL = lens _cwarsWebACL (\ s a -> s{_cwarsWebACL = a})
+-- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+createWebACLResponse_changeToken :: Lens.Lens' CreateWebACLResponse (Prelude.Maybe Prelude.Text)
+createWebACLResponse_changeToken = Lens.lens (\CreateWebACLResponse' {changeToken} -> changeToken) (\s@CreateWebACLResponse' {} a -> s {changeToken = a} :: CreateWebACLResponse)
 
--- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-cwarsChangeToken :: Lens' CreateWebACLResponse (Maybe Text)
-cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a})
+-- | The response's http status code.
+createWebACLResponse_httpStatus :: Lens.Lens' CreateWebACLResponse Prelude.Int
+createWebACLResponse_httpStatus = Lens.lens (\CreateWebACLResponse' {httpStatus} -> httpStatus) (\s@CreateWebACLResponse' {} a -> s {httpStatus = a} :: CreateWebACLResponse)
 
--- | -- | The response status code.
-cwarsResponseStatus :: Lens' CreateWebACLResponse Int
-cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a})
-
-instance NFData CreateWebACLResponse where
+instance Prelude.NFData CreateWebACLResponse

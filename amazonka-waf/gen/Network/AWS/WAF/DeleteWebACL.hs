@@ -1,153 +1,203 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteWebACL
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a 'WebACL' . You can't delete a @WebACL@ if it still contains any @Rules@ .
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
--- To delete a @WebACL@ , perform the following steps:
+-- Permanently deletes a WebACL. You can\'t delete a @WebACL@ if it still
+-- contains any @Rules@.
 --
---     * Update the @WebACL@ to remove @Rules@ , if any. For more information, see 'UpdateWebACL' .
+-- To delete a @WebACL@, perform the following steps:
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteWebACL@ request.
+-- 1.  Update the @WebACL@ to remove @Rules@, if any. For more information,
+--     see UpdateWebACL.
 --
---     * Submit a @DeleteWebACL@ request.
+-- 2.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of a @DeleteWebACL@ request.
 --
---
---
+-- 3.  Submit a @DeleteWebACL@ request.
 module Network.AWS.WAF.DeleteWebACL
-    (
-    -- * Creating a Request
-      deleteWebACL
-    , DeleteWebACL
+  ( -- * Creating a Request
+    DeleteWebACL (..),
+    newDeleteWebACL,
+
     -- * Request Lenses
-    , dwaWebACLId
-    , dwaChangeToken
+    deleteWebACL_webACLId,
+    deleteWebACL_changeToken,
 
     -- * Destructuring the Response
-    , deleteWebACLResponse
-    , DeleteWebACLResponse
+    DeleteWebACLResponse (..),
+    newDeleteWebACLResponse,
+
     -- * Response Lenses
-    , dwarsChangeToken
-    , dwarsResponseStatus
-    ) where
+    deleteWebACLResponse_changeToken,
+    deleteWebACLResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
-import Network.AWS.WAF.Types.Product
 
--- | /See:/ 'deleteWebACL' smart constructor.
+-- | /See:/ 'newDeleteWebACL' smart constructor.
 data DeleteWebACL = DeleteWebACL'
-  { _dwaWebACLId    :: !Text
-  , _dwaChangeToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is
+    -- returned by CreateWebACL and by ListWebACLs.
+    webACLId :: Prelude.Text,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteWebACL' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteWebACL' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dwaWebACLId' - The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dwaChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteWebACL
-    :: Text -- ^ 'dwaWebACLId'
-    -> Text -- ^ 'dwaChangeToken'
-    -> DeleteWebACL
-deleteWebACL pWebACLId_ pChangeToken_ =
-  DeleteWebACL' {_dwaWebACLId = pWebACLId_, _dwaChangeToken = pChangeToken_}
+-- 'webACLId', 'deleteWebACL_webACLId' - The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is
+-- returned by CreateWebACL and by ListWebACLs.
+--
+-- 'changeToken', 'deleteWebACL_changeToken' - The value returned by the most recent call to GetChangeToken.
+newDeleteWebACL ::
+  -- | 'webACLId'
+  Prelude.Text ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  DeleteWebACL
+newDeleteWebACL pWebACLId_ pChangeToken_ =
+  DeleteWebACL'
+    { webACLId = pWebACLId_,
+      changeToken = pChangeToken_
+    }
 
+-- | The @WebACLId@ of the WebACL that you want to delete. @WebACLId@ is
+-- returned by CreateWebACL and by ListWebACLs.
+deleteWebACL_webACLId :: Lens.Lens' DeleteWebACL Prelude.Text
+deleteWebACL_webACLId = Lens.lens (\DeleteWebACL' {webACLId} -> webACLId) (\s@DeleteWebACL' {} a -> s {webACLId = a} :: DeleteWebACL)
 
--- | The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
-dwaWebACLId :: Lens' DeleteWebACL Text
-dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a})
+-- | The value returned by the most recent call to GetChangeToken.
+deleteWebACL_changeToken :: Lens.Lens' DeleteWebACL Prelude.Text
+deleteWebACL_changeToken = Lens.lens (\DeleteWebACL' {changeToken} -> changeToken) (\s@DeleteWebACL' {} a -> s {changeToken = a} :: DeleteWebACL)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-dwaChangeToken :: Lens' DeleteWebACL Text
-dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a})
+instance Core.AWSRequest DeleteWebACL where
+  type AWSResponse DeleteWebACL = DeleteWebACLResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteWebACLResponse'
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteWebACL where
-        type Rs DeleteWebACL = DeleteWebACLResponse
-        request = postJSON waf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteWebACLResponse' <$>
-                   (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteWebACL
 
-instance Hashable DeleteWebACL where
+instance Prelude.NFData DeleteWebACL
 
-instance NFData DeleteWebACL where
+instance Core.ToHeaders DeleteWebACL where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_20150824.DeleteWebACL" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteWebACL where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_20150824.DeleteWebACL" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteWebACL where
+  toJSON DeleteWebACL' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("WebACLId" Core..= webACLId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
 
-instance ToJSON DeleteWebACL where
-        toJSON DeleteWebACL'{..}
-          = object
-              (catMaybes
-                 [Just ("WebACLId" .= _dwaWebACLId),
-                  Just ("ChangeToken" .= _dwaChangeToken)])
+instance Core.ToPath DeleteWebACL where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteWebACL where
-        toPath = const "/"
+instance Core.ToQuery DeleteWebACL where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteWebACL where
-        toQuery = const mempty
-
--- | /See:/ 'deleteWebACLResponse' smart constructor.
+-- | /See:/ 'newDeleteWebACLResponse' smart constructor.
 data DeleteWebACLResponse = DeleteWebACLResponse'
-  { _dwarsChangeToken    :: !(Maybe Text)
-  , _dwarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.
+    -- You can also use this value to query the status of the request. For more
+    -- information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteWebACLResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteWebACLResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dwarsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dwarsResponseStatus' - -- | The response status code.
-deleteWebACLResponse
-    :: Int -- ^ 'dwarsResponseStatus'
-    -> DeleteWebACLResponse
-deleteWebACLResponse pResponseStatus_ =
+-- 'changeToken', 'deleteWebACLResponse_changeToken' - The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'deleteWebACLResponse_httpStatus' - The response's http status code.
+newDeleteWebACLResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteWebACLResponse
+newDeleteWebACLResponse pHttpStatus_ =
   DeleteWebACLResponse'
-    {_dwarsChangeToken = Nothing, _dwarsResponseStatus = pResponseStatus_}
+    { changeToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+deleteWebACLResponse_changeToken :: Lens.Lens' DeleteWebACLResponse (Prelude.Maybe Prelude.Text)
+deleteWebACLResponse_changeToken = Lens.lens (\DeleteWebACLResponse' {changeToken} -> changeToken) (\s@DeleteWebACLResponse' {} a -> s {changeToken = a} :: DeleteWebACLResponse)
 
--- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-dwarsChangeToken :: Lens' DeleteWebACLResponse (Maybe Text)
-dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a})
+-- | The response's http status code.
+deleteWebACLResponse_httpStatus :: Lens.Lens' DeleteWebACLResponse Prelude.Int
+deleteWebACLResponse_httpStatus = Lens.lens (\DeleteWebACLResponse' {httpStatus} -> httpStatus) (\s@DeleteWebACLResponse' {} a -> s {httpStatus = a} :: DeleteWebACLResponse)
 
--- | -- | The response status code.
-dwarsResponseStatus :: Lens' DeleteWebACLResponse Int
-dwarsResponseStatus = lens _dwarsResponseStatus (\ s a -> s{_dwarsResponseStatus = a})
-
-instance NFData DeleteWebACLResponse where
+instance Prelude.NFData DeleteWebACLResponse

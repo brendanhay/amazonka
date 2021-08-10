@@ -1,170 +1,219 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.AcceptMatch
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a player's acceptance or rejection of a proposed FlexMatch match. A matchmaking configuration may require player acceptance; if so, then matches built with that configuration cannot be completed unless all players accept the proposed match within a specified time limit.
+-- Registers a player\'s acceptance or rejection of a proposed FlexMatch
+-- match. A matchmaking configuration may require player acceptance; if so,
+-- then matches built with that configuration cannot be completed unless
+-- all players accept the proposed match within a specified time limit.
 --
+-- When FlexMatch builds a match, all the matchmaking tickets involved in
+-- the proposed match are placed into status @REQUIRES_ACCEPTANCE@. This is
+-- a trigger for your game to get acceptance from all players in the
+-- ticket. Acceptances are only valid for tickets when they are in this
+-- status; all other acceptances result in an error.
 --
--- When FlexMatch builds a match, all the matchmaking tickets involved in the proposed match are placed into status @REQUIRES_ACCEPTANCE@ . This is a trigger for your game to get acceptance from all players in the ticket. Acceptances are only valid for tickets when they are in this status; all other acceptances result in an error.
+-- To register acceptance, specify the ticket ID, a response, and one or
+-- more players. Once all players have registered acceptance, the
+-- matchmaking tickets advance to status @PLACING@, where a new game
+-- session is created for the match.
 --
--- To register acceptance, specify the ticket ID, a response, and one or more players. Once all players have registered acceptance, the matchmaking tickets advance to status @PLACING@ , where a new game session is created for the match.
+-- If any player rejects the match, or if acceptances are not received
+-- before a specified timeout, the proposed match is dropped. The
+-- matchmaking tickets are then handled in one of two ways: For tickets
+-- where one or more players rejected the match, the ticket status is
+-- returned to @SEARCHING@ to find a new match. For tickets where one or
+-- more players failed to respond, the ticket status is set to @CANCELLED@,
+-- and processing is terminated. A new matchmaking request for these
+-- players can be submitted as needed.
 --
--- If any player rejects the match, or if acceptances are not received before a specified timeout, the proposed match is dropped. The matchmaking tickets are then handled in one of two ways: For tickets where all players accepted the match, the ticket status is returned to @SEARCHING@ to find a new match. For tickets where one or more players failed to accept the match, the ticket status is set to @FAILED@ , and processing is terminated. A new matchmaking request for these players can be submitted as needed.
+-- __Learn more__
 --
--- Matchmaking-related operations include:
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a Game Client>
 --
---     * 'StartMatchmaking'
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html FlexMatch Events Reference>
 --
---     * 'DescribeMatchmaking'
+-- __Related operations__
 --
---     * 'StopMatchmaking'
+-- -   StartMatchmaking
 --
---     * 'AcceptMatch'
+-- -   DescribeMatchmaking
 --
---     * 'StartMatchBackfill'
+-- -   StopMatchmaking
 --
+-- -   AcceptMatch
 --
---
+-- -   StartMatchBackfill
 module Network.AWS.GameLift.AcceptMatch
-    (
-    -- * Creating a Request
-      acceptMatch
-    , AcceptMatch
+  ( -- * Creating a Request
+    AcceptMatch (..),
+    newAcceptMatch,
+
     -- * Request Lenses
-    , amTicketId
-    , amPlayerIds
-    , amAcceptanceType
+    acceptMatch_ticketId,
+    acceptMatch_playerIds,
+    acceptMatch_acceptanceType,
 
     -- * Destructuring the Response
-    , acceptMatchResponse
-    , AcceptMatchResponse
+    AcceptMatchResponse (..),
+    newAcceptMatchResponse,
+
     -- * Response Lenses
-    , amrsResponseStatus
-    ) where
+    acceptMatchResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'acceptMatch' smart constructor.
+-- /See:/ 'newAcceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-  { _amTicketId       :: !Text
-  , _amPlayerIds      :: ![Text]
-  , _amAcceptanceType :: !AcceptanceType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier for a matchmaking ticket. The ticket must be in
+    -- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.
+    ticketId :: Prelude.Text,
+    -- | A unique identifier for a player delivering the response. This parameter
+    -- can include one or multiple player IDs.
+    playerIds :: [Prelude.Text],
+    -- | Player response to the proposed match.
+    acceptanceType :: AcceptanceType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AcceptMatch' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcceptMatch' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'amTicketId' - Unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'amPlayerIds' - Unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
+-- 'ticketId', 'acceptMatch_ticketId' - A unique identifier for a matchmaking ticket. The ticket must be in
+-- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.
 --
--- * 'amAcceptanceType' - Player response to the proposed match.
-acceptMatch
-    :: Text -- ^ 'amTicketId'
-    -> AcceptanceType -- ^ 'amAcceptanceType'
-    -> AcceptMatch
-acceptMatch pTicketId_ pAcceptanceType_ =
+-- 'playerIds', 'acceptMatch_playerIds' - A unique identifier for a player delivering the response. This parameter
+-- can include one or multiple player IDs.
+--
+-- 'acceptanceType', 'acceptMatch_acceptanceType' - Player response to the proposed match.
+newAcceptMatch ::
+  -- | 'ticketId'
+  Prelude.Text ->
+  -- | 'acceptanceType'
+  AcceptanceType ->
+  AcceptMatch
+newAcceptMatch pTicketId_ pAcceptanceType_ =
   AcceptMatch'
-    { _amTicketId = pTicketId_
-    , _amPlayerIds = mempty
-    , _amAcceptanceType = pAcceptanceType_
+    { ticketId = pTicketId_,
+      playerIds = Prelude.mempty,
+      acceptanceType = pAcceptanceType_
     }
 
+-- | A unique identifier for a matchmaking ticket. The ticket must be in
+-- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.
+acceptMatch_ticketId :: Lens.Lens' AcceptMatch Prelude.Text
+acceptMatch_ticketId = Lens.lens (\AcceptMatch' {ticketId} -> ticketId) (\s@AcceptMatch' {} a -> s {ticketId = a} :: AcceptMatch)
 
--- | Unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
-amTicketId :: Lens' AcceptMatch Text
-amTicketId = lens _amTicketId (\ s a -> s{_amTicketId = a})
-
--- | Unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
-amPlayerIds :: Lens' AcceptMatch [Text]
-amPlayerIds = lens _amPlayerIds (\ s a -> s{_amPlayerIds = a}) . _Coerce
+-- | A unique identifier for a player delivering the response. This parameter
+-- can include one or multiple player IDs.
+acceptMatch_playerIds :: Lens.Lens' AcceptMatch [Prelude.Text]
+acceptMatch_playerIds = Lens.lens (\AcceptMatch' {playerIds} -> playerIds) (\s@AcceptMatch' {} a -> s {playerIds = a} :: AcceptMatch) Prelude.. Lens._Coerce
 
 -- | Player response to the proposed match.
-amAcceptanceType :: Lens' AcceptMatch AcceptanceType
-amAcceptanceType = lens _amAcceptanceType (\ s a -> s{_amAcceptanceType = a})
+acceptMatch_acceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
+acceptMatch_acceptanceType = Lens.lens (\AcceptMatch' {acceptanceType} -> acceptanceType) (\s@AcceptMatch' {} a -> s {acceptanceType = a} :: AcceptMatch)
 
-instance AWSRequest AcceptMatch where
-        type Rs AcceptMatch = AcceptMatchResponse
-        request = postJSON gameLift
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AcceptMatchResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest AcceptMatch where
+  type AWSResponse AcceptMatch = AcceptMatchResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AcceptMatchResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AcceptMatch where
+instance Prelude.Hashable AcceptMatch
 
-instance NFData AcceptMatch where
+instance Prelude.NFData AcceptMatch
 
-instance ToHeaders AcceptMatch where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.AcceptMatch" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AcceptMatch where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("GameLift.AcceptMatch" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AcceptMatch where
-        toJSON AcceptMatch'{..}
-          = object
-              (catMaybes
-                 [Just ("TicketId" .= _amTicketId),
-                  Just ("PlayerIds" .= _amPlayerIds),
-                  Just ("AcceptanceType" .= _amAcceptanceType)])
+instance Core.ToJSON AcceptMatch where
+  toJSON AcceptMatch' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TicketId" Core..= ticketId),
+            Prelude.Just ("PlayerIds" Core..= playerIds),
+            Prelude.Just
+              ("AcceptanceType" Core..= acceptanceType)
+          ]
+      )
 
-instance ToPath AcceptMatch where
-        toPath = const "/"
+instance Core.ToPath AcceptMatch where
+  toPath = Prelude.const "/"
 
-instance ToQuery AcceptMatch where
-        toQuery = const mempty
+instance Core.ToQuery AcceptMatch where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'acceptMatchResponse' smart constructor.
-newtype AcceptMatchResponse = AcceptMatchResponse'
-  { _amrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAcceptMatchResponse' smart constructor.
+data AcceptMatchResponse = AcceptMatchResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AcceptMatchResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcceptMatchResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'amrsResponseStatus' - -- | The response status code.
-acceptMatchResponse
-    :: Int -- ^ 'amrsResponseStatus'
-    -> AcceptMatchResponse
-acceptMatchResponse pResponseStatus_ =
-  AcceptMatchResponse' {_amrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'acceptMatchResponse_httpStatus' - The response's http status code.
+newAcceptMatchResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AcceptMatchResponse
+newAcceptMatchResponse pHttpStatus_ =
+  AcceptMatchResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+acceptMatchResponse_httpStatus :: Lens.Lens' AcceptMatchResponse Prelude.Int
+acceptMatchResponse_httpStatus = Lens.lens (\AcceptMatchResponse' {httpStatus} -> httpStatus) (\s@AcceptMatchResponse' {} a -> s {httpStatus = a} :: AcceptMatchResponse)
 
--- | -- | The response status code.
-amrsResponseStatus :: Lens' AcceptMatchResponse Int
-amrsResponseStatus = lens _amrsResponseStatus (\ s a -> s{_amrsResponseStatus = a})
-
-instance NFData AcceptMatchResponse where
+instance Prelude.NFData AcceptMatchResponse

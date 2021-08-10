@@ -1,109 +1,136 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UnassignInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unassigns a registered instance from all of it's layers. The instance remains in the stack as an unassigned instance and can be assigned to another layer, as needed. You cannot use this action with instances that were created with AWS OpsWorks Stacks.
+-- Unassigns a registered instance from all layers that are using the
+-- instance. The instance remains in the stack as an unassigned instance,
+-- and can be assigned to another layer as needed. You cannot use this
+-- action with instances that were created with AWS OpsWorks Stacks.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack or an attached policy that
+-- explicitly grants permissions. For more information about user
+-- permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.UnassignInstance
-    (
-    -- * Creating a Request
-      unassignInstance
-    , UnassignInstance
+  ( -- * Creating a Request
+    UnassignInstance (..),
+    newUnassignInstance,
+
     -- * Request Lenses
-    , uInstanceId
+    unassignInstance_instanceId,
 
     -- * Destructuring the Response
-    , unassignInstanceResponse
-    , UnassignInstanceResponse
-    ) where
+    UnassignInstanceResponse (..),
+    newUnassignInstanceResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'unassignInstance' smart constructor.
-newtype UnassignInstance = UnassignInstance'
-  { _uInstanceId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUnassignInstance' smart constructor.
+data UnassignInstance = UnassignInstance'
+  { -- | The instance ID.
+    instanceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UnassignInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UnassignInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uInstanceId' - The instance ID.
-unassignInstance
-    :: Text -- ^ 'uInstanceId'
-    -> UnassignInstance
-unassignInstance pInstanceId_ = UnassignInstance' {_uInstanceId = pInstanceId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceId', 'unassignInstance_instanceId' - The instance ID.
+newUnassignInstance ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  UnassignInstance
+newUnassignInstance pInstanceId_ =
+  UnassignInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-uInstanceId :: Lens' UnassignInstance Text
-uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a})
+unassignInstance_instanceId :: Lens.Lens' UnassignInstance Prelude.Text
+unassignInstance_instanceId = Lens.lens (\UnassignInstance' {instanceId} -> instanceId) (\s@UnassignInstance' {} a -> s {instanceId = a} :: UnassignInstance)
 
-instance AWSRequest UnassignInstance where
-        type Rs UnassignInstance = UnassignInstanceResponse
-        request = postJSON opsWorks
-        response = receiveNull UnassignInstanceResponse'
+instance Core.AWSRequest UnassignInstance where
+  type
+    AWSResponse UnassignInstance =
+      UnassignInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull UnassignInstanceResponse'
 
-instance Hashable UnassignInstance where
+instance Prelude.Hashable UnassignInstance
 
-instance NFData UnassignInstance where
+instance Prelude.NFData UnassignInstance
 
-instance ToHeaders UnassignInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.UnassignInstance" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UnassignInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.UnassignInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UnassignInstance where
-        toJSON UnassignInstance'{..}
-          = object
-              (catMaybes [Just ("InstanceId" .= _uInstanceId)])
+instance Core.ToJSON UnassignInstance where
+  toJSON UnassignInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("InstanceId" Core..= instanceId)]
+      )
 
-instance ToPath UnassignInstance where
-        toPath = const "/"
+instance Core.ToPath UnassignInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery UnassignInstance where
-        toQuery = const mempty
+instance Core.ToQuery UnassignInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'unassignInstanceResponse' smart constructor.
-data UnassignInstanceResponse =
-  UnassignInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUnassignInstanceResponse' smart constructor.
+data UnassignInstanceResponse = UnassignInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UnassignInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UnassignInstanceResponse' with all optional fields omitted.
 --
-unassignInstanceResponse
-    :: UnassignInstanceResponse
-unassignInstanceResponse = UnassignInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUnassignInstanceResponse ::
+  UnassignInstanceResponse
+newUnassignInstanceResponse =
+  UnassignInstanceResponse'
 
-
-instance NFData UnassignInstanceResponse where
+instance Prelude.NFData UnassignInstanceResponse

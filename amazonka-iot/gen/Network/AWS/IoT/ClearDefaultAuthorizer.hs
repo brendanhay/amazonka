@@ -1,102 +1,116 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ClearDefaultAuthorizer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Clears the default authorizer.
---
---
 module Network.AWS.IoT.ClearDefaultAuthorizer
-    (
-    -- * Creating a Request
-      clearDefaultAuthorizer
-    , ClearDefaultAuthorizer
+  ( -- * Creating a Request
+    ClearDefaultAuthorizer (..),
+    newClearDefaultAuthorizer,
 
     -- * Destructuring the Response
-    , clearDefaultAuthorizerResponse
-    , ClearDefaultAuthorizerResponse
+    ClearDefaultAuthorizerResponse (..),
+    newClearDefaultAuthorizerResponse,
+
     -- * Response Lenses
-    , cdarsResponseStatus
-    ) where
+    clearDefaultAuthorizerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'clearDefaultAuthorizer' smart constructor.
-data ClearDefaultAuthorizer =
-  ClearDefaultAuthorizer'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newClearDefaultAuthorizer' smart constructor.
+data ClearDefaultAuthorizer = ClearDefaultAuthorizer'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ClearDefaultAuthorizer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ClearDefaultAuthorizer' with all optional fields omitted.
 --
-clearDefaultAuthorizer
-    :: ClearDefaultAuthorizer
-clearDefaultAuthorizer = ClearDefaultAuthorizer'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newClearDefaultAuthorizer ::
+  ClearDefaultAuthorizer
+newClearDefaultAuthorizer = ClearDefaultAuthorizer'
 
+instance Core.AWSRequest ClearDefaultAuthorizer where
+  type
+    AWSResponse ClearDefaultAuthorizer =
+      ClearDefaultAuthorizerResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          ClearDefaultAuthorizerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ClearDefaultAuthorizer where
-        type Rs ClearDefaultAuthorizer =
-             ClearDefaultAuthorizerResponse
-        request = delete ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 ClearDefaultAuthorizerResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.Hashable ClearDefaultAuthorizer
 
-instance Hashable ClearDefaultAuthorizer where
+instance Prelude.NFData ClearDefaultAuthorizer
 
-instance NFData ClearDefaultAuthorizer where
+instance Core.ToHeaders ClearDefaultAuthorizer where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ClearDefaultAuthorizer where
-        toHeaders = const mempty
+instance Core.ToPath ClearDefaultAuthorizer where
+  toPath = Prelude.const "/default-authorizer"
 
-instance ToPath ClearDefaultAuthorizer where
-        toPath = const "/default-authorizer"
+instance Core.ToQuery ClearDefaultAuthorizer where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ClearDefaultAuthorizer where
-        toQuery = const mempty
+-- | /See:/ 'newClearDefaultAuthorizerResponse' smart constructor.
+data ClearDefaultAuthorizerResponse = ClearDefaultAuthorizerResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'clearDefaultAuthorizerResponse' smart constructor.
-newtype ClearDefaultAuthorizerResponse = ClearDefaultAuthorizerResponse'
-  { _cdarsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ClearDefaultAuthorizerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ClearDefaultAuthorizerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdarsResponseStatus' - -- | The response status code.
-clearDefaultAuthorizerResponse
-    :: Int -- ^ 'cdarsResponseStatus'
-    -> ClearDefaultAuthorizerResponse
-clearDefaultAuthorizerResponse pResponseStatus_ =
-  ClearDefaultAuthorizerResponse' {_cdarsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'clearDefaultAuthorizerResponse_httpStatus' - The response's http status code.
+newClearDefaultAuthorizerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ClearDefaultAuthorizerResponse
+newClearDefaultAuthorizerResponse pHttpStatus_ =
+  ClearDefaultAuthorizerResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+clearDefaultAuthorizerResponse_httpStatus :: Lens.Lens' ClearDefaultAuthorizerResponse Prelude.Int
+clearDefaultAuthorizerResponse_httpStatus = Lens.lens (\ClearDefaultAuthorizerResponse' {httpStatus} -> httpStatus) (\s@ClearDefaultAuthorizerResponse' {} a -> s {httpStatus = a} :: ClearDefaultAuthorizerResponse)
 
--- | -- | The response status code.
-cdarsResponseStatus :: Lens' ClearDefaultAuthorizerResponse Int
-cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a})
-
-instance NFData ClearDefaultAuthorizerResponse where
+instance
+  Prelude.NFData
+    ClearDefaultAuthorizerResponse

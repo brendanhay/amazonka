@@ -1,129 +1,163 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApplicationSettings
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used to request the settings for an app.
+-- Retrieves information about the settings for an application.
 module Network.AWS.Pinpoint.GetApplicationSettings
-    (
-    -- * Creating a Request
-      getApplicationSettings
-    , GetApplicationSettings
+  ( -- * Creating a Request
+    GetApplicationSettings (..),
+    newGetApplicationSettings,
+
     -- * Request Lenses
-    , gasApplicationId
+    getApplicationSettings_applicationId,
 
     -- * Destructuring the Response
-    , getApplicationSettingsResponse
-    , GetApplicationSettingsResponse
+    GetApplicationSettingsResponse (..),
+    newGetApplicationSettingsResponse,
+
     -- * Response Lenses
-    , gassrsResponseStatus
-    , gassrsApplicationSettingsResource
-    ) where
+    getApplicationSettingsResponse_httpStatus,
+    getApplicationSettingsResponse_applicationSettingsResource,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getApplicationSettings' smart constructor.
-newtype GetApplicationSettings = GetApplicationSettings'
-  { _gasApplicationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetApplicationSettings' smart constructor.
+data GetApplicationSettings = GetApplicationSettings'
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetApplicationSettings' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetApplicationSettings' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gasApplicationId' - Undocumented member.
-getApplicationSettings
-    :: Text -- ^ 'gasApplicationId'
-    -> GetApplicationSettings
-getApplicationSettings pApplicationId_ =
-  GetApplicationSettings' {_gasApplicationId = pApplicationId_}
-
-
--- | Undocumented member.
-gasApplicationId :: Lens' GetApplicationSettings Text
-gasApplicationId = lens _gasApplicationId (\ s a -> s{_gasApplicationId = a})
-
-instance AWSRequest GetApplicationSettings where
-        type Rs GetApplicationSettings =
-             GetApplicationSettingsResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetApplicationSettingsResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable GetApplicationSettings where
-
-instance NFData GetApplicationSettings where
-
-instance ToHeaders GetApplicationSettings where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetApplicationSettings where
-        toPath GetApplicationSettings'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gasApplicationId, "/settings"]
-
-instance ToQuery GetApplicationSettings where
-        toQuery = const mempty
-
--- | /See:/ 'getApplicationSettingsResponse' smart constructor.
-data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
-  { _gassrsResponseStatus              :: !Int
-  , _gassrsApplicationSettingsResource :: !ApplicationSettingsResource
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetApplicationSettingsResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gassrsResponseStatus' - -- | The response status code.
---
--- * 'gassrsApplicationSettingsResource' - Undocumented member.
-getApplicationSettingsResponse
-    :: Int -- ^ 'gassrsResponseStatus'
-    -> ApplicationSettingsResource -- ^ 'gassrsApplicationSettingsResource'
-    -> GetApplicationSettingsResponse
-getApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
-  GetApplicationSettingsResponse'
-    { _gassrsResponseStatus = pResponseStatus_
-    , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
+-- 'applicationId', 'getApplicationSettings_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetApplicationSettings ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetApplicationSettings
+newGetApplicationSettings pApplicationId_ =
+  GetApplicationSettings'
+    { applicationId =
+        pApplicationId_
     }
 
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getApplicationSettings_applicationId :: Lens.Lens' GetApplicationSettings Prelude.Text
+getApplicationSettings_applicationId = Lens.lens (\GetApplicationSettings' {applicationId} -> applicationId) (\s@GetApplicationSettings' {} a -> s {applicationId = a} :: GetApplicationSettings)
 
--- | -- | The response status code.
-gassrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
-gassrsResponseStatus = lens _gassrsResponseStatus (\ s a -> s{_gassrsResponseStatus = a})
+instance Core.AWSRequest GetApplicationSettings where
+  type
+    AWSResponse GetApplicationSettings =
+      GetApplicationSettingsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetApplicationSettingsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable GetApplicationSettings
+
+instance Prelude.NFData GetApplicationSettings
+
+instance Core.ToHeaders GetApplicationSettings where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetApplicationSettings where
+  toPath GetApplicationSettings' {..} =
+    Prelude.mconcat
+      ["/v1/apps/", Core.toBS applicationId, "/settings"]
+
+instance Core.ToQuery GetApplicationSettings where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetApplicationSettingsResponse' smart constructor.
+data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    applicationSettingsResource :: ApplicationSettingsResource
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetApplicationSettingsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'getApplicationSettingsResponse_httpStatus' - The response's http status code.
+--
+-- 'applicationSettingsResource', 'getApplicationSettingsResponse_applicationSettingsResource' - Undocumented member.
+newGetApplicationSettingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'applicationSettingsResource'
+  ApplicationSettingsResource ->
+  GetApplicationSettingsResponse
+newGetApplicationSettingsResponse
+  pHttpStatus_
+  pApplicationSettingsResource_ =
+    GetApplicationSettingsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        applicationSettingsResource =
+          pApplicationSettingsResource_
+      }
+
+-- | The response's http status code.
+getApplicationSettingsResponse_httpStatus :: Lens.Lens' GetApplicationSettingsResponse Prelude.Int
+getApplicationSettingsResponse_httpStatus = Lens.lens (\GetApplicationSettingsResponse' {httpStatus} -> httpStatus) (\s@GetApplicationSettingsResponse' {} a -> s {httpStatus = a} :: GetApplicationSettingsResponse)
 
 -- | Undocumented member.
-gassrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
-gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\ s a -> s{_gassrsApplicationSettingsResource = a})
+getApplicationSettingsResponse_applicationSettingsResource :: Lens.Lens' GetApplicationSettingsResponse ApplicationSettingsResource
+getApplicationSettingsResponse_applicationSettingsResource = Lens.lens (\GetApplicationSettingsResponse' {applicationSettingsResource} -> applicationSettingsResource) (\s@GetApplicationSettingsResponse' {} a -> s {applicationSettingsResource = a} :: GetApplicationSettingsResponse)
 
-instance NFData GetApplicationSettingsResponse where
+instance
+  Prelude.NFData
+    GetApplicationSettingsResponse

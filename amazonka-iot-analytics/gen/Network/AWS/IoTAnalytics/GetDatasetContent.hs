@@ -1,154 +1,187 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.GetDatasetContent
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the contents of a data set as pre-signed URIs.
---
---
+-- Retrieves the contents of a data set as presigned URIs.
 module Network.AWS.IoTAnalytics.GetDatasetContent
-    (
-    -- * Creating a Request
-      getDatasetContent
-    , GetDatasetContent
+  ( -- * Creating a Request
+    GetDatasetContent (..),
+    newGetDatasetContent,
+
     -- * Request Lenses
-    , gdcVersionId
-    , gdcDatasetName
+    getDatasetContent_versionId,
+    getDatasetContent_datasetName,
 
     -- * Destructuring the Response
-    , getDatasetContentResponse
-    , GetDatasetContentResponse
+    GetDatasetContentResponse (..),
+    newGetDatasetContentResponse,
+
     -- * Response Lenses
-    , gdcrsStatus
-    , gdcrsEntries
-    , gdcrsTimestamp
-    , gdcrsResponseStatus
-    ) where
+    getDatasetContentResponse_status,
+    getDatasetContentResponse_timestamp,
+    getDatasetContentResponse_entries,
+    getDatasetContentResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDatasetContent' smart constructor.
+-- | /See:/ 'newGetDatasetContent' smart constructor.
 data GetDatasetContent = GetDatasetContent'
-  { _gdcVersionId   :: !(Maybe Text)
-  , _gdcDatasetName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The version of the data set whose contents are retrieved. You can also
+    -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
+    -- contents of the latest or latest successfully completed data set. If not
+    -- specified, \"$LATEST_SUCCEEDED\" is the default.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the data set whose contents are retrieved.
+    datasetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDatasetContent' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDatasetContent' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdcVersionId' - The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdcDatasetName' - The name of the data set whose contents are retrieved.
-getDatasetContent
-    :: Text -- ^ 'gdcDatasetName'
-    -> GetDatasetContent
-getDatasetContent pDatasetName_ =
-  GetDatasetContent' {_gdcVersionId = Nothing, _gdcDatasetName = pDatasetName_}
-
-
--- | The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
-gdcVersionId :: Lens' GetDatasetContent (Maybe Text)
-gdcVersionId = lens _gdcVersionId (\ s a -> s{_gdcVersionId = a})
-
--- | The name of the data set whose contents are retrieved.
-gdcDatasetName :: Lens' GetDatasetContent Text
-gdcDatasetName = lens _gdcDatasetName (\ s a -> s{_gdcDatasetName = a})
-
-instance AWSRequest GetDatasetContent where
-        type Rs GetDatasetContent = GetDatasetContentResponse
-        request = get ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDatasetContentResponse' <$>
-                   (x .?> "status") <*> (x .?> "entries" .!@ mempty) <*>
-                     (x .?> "timestamp")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetDatasetContent where
-
-instance NFData GetDatasetContent where
-
-instance ToHeaders GetDatasetContent where
-        toHeaders = const mempty
-
-instance ToPath GetDatasetContent where
-        toPath GetDatasetContent'{..}
-          = mconcat
-              ["/datasets/", toBS _gdcDatasetName, "/content"]
-
-instance ToQuery GetDatasetContent where
-        toQuery GetDatasetContent'{..}
-          = mconcat ["versionId" =: _gdcVersionId]
-
--- | /See:/ 'getDatasetContentResponse' smart constructor.
-data GetDatasetContentResponse = GetDatasetContentResponse'
-  { _gdcrsStatus         :: !(Maybe DatasetContentStatus)
-  , _gdcrsEntries        :: !(Maybe [DatasetEntry])
-  , _gdcrsTimestamp      :: !(Maybe POSIX)
-  , _gdcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDatasetContentResponse' with the minimum fields required to make a request.
+-- 'versionId', 'getDatasetContent_versionId' - The version of the data set whose contents are retrieved. You can also
+-- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
+-- contents of the latest or latest successfully completed data set. If not
+-- specified, \"$LATEST_SUCCEEDED\" is the default.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcrsStatus' - The status of the data set content.
---
--- * 'gdcrsEntries' - A list of "DatasetEntry" objects.
---
--- * 'gdcrsTimestamp' - The time when the request was made.
---
--- * 'gdcrsResponseStatus' - -- | The response status code.
-getDatasetContentResponse
-    :: Int -- ^ 'gdcrsResponseStatus'
-    -> GetDatasetContentResponse
-getDatasetContentResponse pResponseStatus_ =
-  GetDatasetContentResponse'
-    { _gdcrsStatus = Nothing
-    , _gdcrsEntries = Nothing
-    , _gdcrsTimestamp = Nothing
-    , _gdcrsResponseStatus = pResponseStatus_
+-- 'datasetName', 'getDatasetContent_datasetName' - The name of the data set whose contents are retrieved.
+newGetDatasetContent ::
+  -- | 'datasetName'
+  Prelude.Text ->
+  GetDatasetContent
+newGetDatasetContent pDatasetName_ =
+  GetDatasetContent'
+    { versionId = Prelude.Nothing,
+      datasetName = pDatasetName_
     }
 
+-- | The version of the data set whose contents are retrieved. You can also
+-- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
+-- contents of the latest or latest successfully completed data set. If not
+-- specified, \"$LATEST_SUCCEEDED\" is the default.
+getDatasetContent_versionId :: Lens.Lens' GetDatasetContent (Prelude.Maybe Prelude.Text)
+getDatasetContent_versionId = Lens.lens (\GetDatasetContent' {versionId} -> versionId) (\s@GetDatasetContent' {} a -> s {versionId = a} :: GetDatasetContent)
+
+-- | The name of the data set whose contents are retrieved.
+getDatasetContent_datasetName :: Lens.Lens' GetDatasetContent Prelude.Text
+getDatasetContent_datasetName = Lens.lens (\GetDatasetContent' {datasetName} -> datasetName) (\s@GetDatasetContent' {} a -> s {datasetName = a} :: GetDatasetContent)
+
+instance Core.AWSRequest GetDatasetContent where
+  type
+    AWSResponse GetDatasetContent =
+      GetDatasetContentResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDatasetContentResponse'
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "timestamp")
+            Prelude.<*> (x Core..?> "entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetDatasetContent
+
+instance Prelude.NFData GetDatasetContent
+
+instance Core.ToHeaders GetDatasetContent where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath GetDatasetContent where
+  toPath GetDatasetContent' {..} =
+    Prelude.mconcat
+      ["/datasets/", Core.toBS datasetName, "/content"]
+
+instance Core.ToQuery GetDatasetContent where
+  toQuery GetDatasetContent' {..} =
+    Prelude.mconcat ["versionId" Core.=: versionId]
+
+-- | /See:/ 'newGetDatasetContentResponse' smart constructor.
+data GetDatasetContentResponse = GetDatasetContentResponse'
+  { -- | The status of the data set content.
+    status :: Prelude.Maybe DatasetContentStatus,
+    -- | The time when the request was made.
+    timestamp :: Prelude.Maybe Core.POSIX,
+    -- | A list of @DatasetEntry@ objects.
+    entries :: Prelude.Maybe [DatasetEntry],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDatasetContentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'status', 'getDatasetContentResponse_status' - The status of the data set content.
+--
+-- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
+--
+-- 'entries', 'getDatasetContentResponse_entries' - A list of @DatasetEntry@ objects.
+--
+-- 'httpStatus', 'getDatasetContentResponse_httpStatus' - The response's http status code.
+newGetDatasetContentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDatasetContentResponse
+newGetDatasetContentResponse pHttpStatus_ =
+  GetDatasetContentResponse'
+    { status =
+        Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      entries = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The status of the data set content.
-gdcrsStatus :: Lens' GetDatasetContentResponse (Maybe DatasetContentStatus)
-gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a})
-
--- | A list of "DatasetEntry" objects.
-gdcrsEntries :: Lens' GetDatasetContentResponse [DatasetEntry]
-gdcrsEntries = lens _gdcrsEntries (\ s a -> s{_gdcrsEntries = a}) . _Default . _Coerce
+getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)
+getDatasetContentResponse_status = Lens.lens (\GetDatasetContentResponse' {status} -> status) (\s@GetDatasetContentResponse' {} a -> s {status = a} :: GetDatasetContentResponse)
 
 -- | The time when the request was made.
-gdcrsTimestamp :: Lens' GetDatasetContentResponse (Maybe UTCTime)
-gdcrsTimestamp = lens _gdcrsTimestamp (\ s a -> s{_gdcrsTimestamp = a}) . mapping _Time
+getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
+getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Core._Time
 
--- | -- | The response status code.
-gdcrsResponseStatus :: Lens' GetDatasetContentResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a})
+-- | A list of @DatasetEntry@ objects.
+getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
+getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData GetDatasetContentResponse where
+-- | The response's http status code.
+getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Prelude.Int
+getDatasetContentResponse_httpStatus = Lens.lens (\GetDatasetContentResponse' {httpStatus} -> httpStatus) (\s@GetDatasetContentResponse' {} a -> s {httpStatus = a} :: GetDatasetContentResponse)
+
+instance Prelude.NFData GetDatasetContentResponse

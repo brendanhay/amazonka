@@ -1,162 +1,271 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResources
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns AWS resource descriptions for running and deleted stacks. If @StackName@ is specified, all the associated resources that are part of the stack are returned. If @PhysicalResourceId@ is specified, the associated resources of the stack that the resource belongs to are returned.
+-- Returns AWS resource descriptions for running and deleted stacks. If
+-- @StackName@ is specified, all the associated resources that are part of
+-- the stack are returned. If @PhysicalResourceId@ is specified, the
+-- associated resources of the stack that the resource belongs to are
+-- returned.
 --
+-- Only the first 100 resources will be returned. If your stack has more
+-- resources than this, you should use @ListStackResources@ instead.
 --
--- For deleted stacks, @DescribeStackResources@ returns resource information for up to 90 days after the stack has been deleted.
+-- For deleted stacks, @DescribeStackResources@ returns resource
+-- information for up to 90 days after the stack has been deleted.
 --
--- You must specify either @StackName@ or @PhysicalResourceId@ , but not both. In addition, you can specify @LogicalResourceId@ to filter the returned result. For more information about resources, the @LogicalResourceId@ and @PhysicalResourceId@ , go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ AWS CloudFormation User Guide> .
+-- You must specify either @StackName@ or @PhysicalResourceId@, but not
+-- both. In addition, you can specify @LogicalResourceId@ to filter the
+-- returned result. For more information about resources, the
+-- @LogicalResourceId@ and @PhysicalResourceId@, go to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ AWS CloudFormation User Guide>.
 --
+-- A @ValidationError@ is returned if you specify both @StackName@ and
+-- @PhysicalResourceId@ in the same request.
 module Network.AWS.CloudFormation.DescribeStackResources
-    (
-    -- * Creating a Request
-      describeStackResources
-    , DescribeStackResources
+  ( -- * Creating a Request
+    DescribeStackResources (..),
+    newDescribeStackResources,
+
     -- * Request Lenses
-    , dsrLogicalResourceId
-    , dsrPhysicalResourceId
-    , dsrStackName
+    describeStackResources_stackName,
+    describeStackResources_physicalResourceId,
+    describeStackResources_logicalResourceId,
 
     -- * Destructuring the Response
-    , describeStackResourcesResponse
-    , DescribeStackResourcesResponse
+    DescribeStackResourcesResponse (..),
+    newDescribeStackResourcesResponse,
+
     -- * Response Lenses
-    , dsrsrsStackResources
-    , dsrsrsResponseStatus
-    ) where
+    describeStackResourcesResponse_stackResources,
+    describeStackResourcesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input for 'DescribeStackResources' action.
+-- | The input for DescribeStackResources action.
 --
---
---
--- /See:/ 'describeStackResources' smart constructor.
+-- /See:/ 'newDescribeStackResources' smart constructor.
 data DescribeStackResources = DescribeStackResources'
-  { _dsrLogicalResourceId  :: !(Maybe Text)
-  , _dsrPhysicalResourceId :: !(Maybe Text)
-  , _dsrStackName          :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name or the unique stack ID that is associated with the stack, which
+    -- are not always interchangeable:
+    --
+    -- -   Running stacks: You can specify either the stack\'s name or its
+    --     unique stack ID.
+    --
+    -- -   Deleted stacks: You must specify the unique stack ID.
+    --
+    -- Default: There is no default value.
+    --
+    -- Required: Conditional. If you do not specify @StackName@, you must
+    -- specify @PhysicalResourceId@.
+    stackName :: Prelude.Maybe Prelude.Text,
+    -- | The name or unique identifier that corresponds to a physical instance ID
+    -- of a resource supported by AWS CloudFormation.
+    --
+    -- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
+    -- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
+    -- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
+    -- instance belongs to and what other resources are part of the stack.
+    --
+    -- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+    -- must specify @StackName@.
+    --
+    -- Default: There is no default value.
+    physicalResourceId :: Prelude.Maybe Prelude.Text,
+    -- | The logical name of the resource as specified in the template.
+    --
+    -- Default: There is no default value.
+    logicalResourceId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackResources' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackResources' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrLogicalResourceId' - The logical name of the resource as specified in the template. Default: There is no default value.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrPhysicalResourceId' - The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation. For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack. Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ . Default: There is no default value.
+-- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which
+-- are not always interchangeable:
 --
--- * 'dsrStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value. Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
-describeStackResources
-    :: DescribeStackResources
-describeStackResources =
+-- -   Running stacks: You can specify either the stack\'s name or its
+--     unique stack ID.
+--
+-- -   Deleted stacks: You must specify the unique stack ID.
+--
+-- Default: There is no default value.
+--
+-- Required: Conditional. If you do not specify @StackName@, you must
+-- specify @PhysicalResourceId@.
+--
+-- 'physicalResourceId', 'describeStackResources_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
+-- of a resource supported by AWS CloudFormation.
+--
+-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
+-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
+-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
+-- instance belongs to and what other resources are part of the stack.
+--
+-- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+-- must specify @StackName@.
+--
+-- Default: There is no default value.
+--
+-- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+newDescribeStackResources ::
+  DescribeStackResources
+newDescribeStackResources =
   DescribeStackResources'
-    { _dsrLogicalResourceId = Nothing
-    , _dsrPhysicalResourceId = Nothing
-    , _dsrStackName = Nothing
+    { stackName =
+        Prelude.Nothing,
+      physicalResourceId = Prelude.Nothing,
+      logicalResourceId = Prelude.Nothing
     }
 
-
--- | The logical name of the resource as specified in the template. Default: There is no default value.
-dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrLogicalResourceId = lens _dsrLogicalResourceId (\ s a -> s{_dsrLogicalResourceId = a})
-
--- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation. For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack. Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ . Default: There is no default value.
-dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalResourceId = a})
-
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value. Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
-dsrStackName :: Lens' DescribeStackResources (Maybe Text)
-dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a})
-
-instance AWSRequest DescribeStackResources where
-        type Rs DescribeStackResources =
-             DescribeStackResourcesResponse
-        request = postQuery cloudFormation
-        response
-          = receiveXMLWrapper "DescribeStackResourcesResult"
-              (\ s h x ->
-                 DescribeStackResourcesResponse' <$>
-                   (x .@? "StackResources" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeStackResources where
-
-instance NFData DescribeStackResources where
-
-instance ToHeaders DescribeStackResources where
-        toHeaders = const mempty
-
-instance ToPath DescribeStackResources where
-        toPath = const "/"
-
-instance ToQuery DescribeStackResources where
-        toQuery DescribeStackResources'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeStackResources" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "LogicalResourceId" =: _dsrLogicalResourceId,
-               "PhysicalResourceId" =: _dsrPhysicalResourceId,
-               "StackName" =: _dsrStackName]
-
--- | The output for a 'DescribeStackResources' action.
+-- | The name or the unique stack ID that is associated with the stack, which
+-- are not always interchangeable:
 --
+-- -   Running stacks: You can specify either the stack\'s name or its
+--     unique stack ID.
 --
+-- -   Deleted stacks: You must specify the unique stack ID.
 --
--- /See:/ 'describeStackResourcesResponse' smart constructor.
+-- Default: There is no default value.
+--
+-- Required: Conditional. If you do not specify @StackName@, you must
+-- specify @PhysicalResourceId@.
+describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
+
+-- | The name or unique identifier that corresponds to a physical instance ID
+-- of a resource supported by AWS CloudFormation.
+--
+-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
+-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
+-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
+-- instance belongs to and what other resources are part of the stack.
+--
+-- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+-- must specify @StackName@.
+--
+-- Default: There is no default value.
+describeStackResources_physicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_physicalResourceId = Lens.lens (\DescribeStackResources' {physicalResourceId} -> physicalResourceId) (\s@DescribeStackResources' {} a -> s {physicalResourceId = a} :: DescribeStackResources)
+
+-- | The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+describeStackResources_logicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_logicalResourceId = Lens.lens (\DescribeStackResources' {logicalResourceId} -> logicalResourceId) (\s@DescribeStackResources' {} a -> s {logicalResourceId = a} :: DescribeStackResources)
+
+instance Core.AWSRequest DescribeStackResources where
+  type
+    AWSResponse DescribeStackResources =
+      DescribeStackResourcesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeStackResourcesResult"
+      ( \s h x ->
+          DescribeStackResourcesResponse'
+            Prelude.<$> ( x Core..@? "StackResources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeStackResources
+
+instance Prelude.NFData DescribeStackResources
+
+instance Core.ToHeaders DescribeStackResources where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeStackResources where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeStackResources where
+  toQuery DescribeStackResources' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeStackResources" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Core.=: stackName,
+        "PhysicalResourceId" Core.=: physicalResourceId,
+        "LogicalResourceId" Core.=: logicalResourceId
+      ]
+
+-- | The output for a DescribeStackResources action.
+--
+-- /See:/ 'newDescribeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
-  { _dsrsrsStackResources :: !(Maybe [StackResource])
-  , _dsrsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of @StackResource@ structures.
+    stackResources :: Prelude.Maybe [StackResource],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackResourcesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackResourcesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsrsStackResources' - A list of @StackResource@ structures.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrsrsResponseStatus' - -- | The response status code.
-describeStackResourcesResponse
-    :: Int -- ^ 'dsrsrsResponseStatus'
-    -> DescribeStackResourcesResponse
-describeStackResourcesResponse pResponseStatus_ =
+-- 'stackResources', 'describeStackResourcesResponse_stackResources' - A list of @StackResource@ structures.
+--
+-- 'httpStatus', 'describeStackResourcesResponse_httpStatus' - The response's http status code.
+newDescribeStackResourcesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeStackResourcesResponse
+newDescribeStackResourcesResponse pHttpStatus_ =
   DescribeStackResourcesResponse'
-    {_dsrsrsStackResources = Nothing, _dsrsrsResponseStatus = pResponseStatus_}
-
+    { stackResources =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A list of @StackResource@ structures.
-dsrsrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrsrsStackResources = lens _dsrsrsStackResources (\ s a -> s{_dsrsrsStackResources = a}) . _Default . _Coerce
+describeStackResourcesResponse_stackResources :: Lens.Lens' DescribeStackResourcesResponse (Prelude.Maybe [StackResource])
+describeStackResourcesResponse_stackResources = Lens.lens (\DescribeStackResourcesResponse' {stackResources} -> stackResources) (\s@DescribeStackResourcesResponse' {} a -> s {stackResources = a} :: DescribeStackResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dsrsrsResponseStatus :: Lens' DescribeStackResourcesResponse Int
-dsrsrsResponseStatus = lens _dsrsrsResponseStatus (\ s a -> s{_dsrsrsResponseStatus = a})
+-- | The response's http status code.
+describeStackResourcesResponse_httpStatus :: Lens.Lens' DescribeStackResourcesResponse Prelude.Int
+describeStackResourcesResponse_httpStatus = Lens.lens (\DescribeStackResourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeStackResourcesResponse' {} a -> s {httpStatus = a} :: DescribeStackResourcesResponse)
 
-instance NFData DescribeStackResourcesResponse where
+instance
+  Prelude.NFData
+    DescribeStackResourcesResponse

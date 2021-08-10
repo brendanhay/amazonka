@@ -1,137 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveAutoScalingPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an automatic scaling policy from a specified instance group within an EMR cluster.
---
---
+-- Removes an automatic scaling policy from a specified instance group
+-- within an EMR cluster.
 module Network.AWS.EMR.RemoveAutoScalingPolicy
-    (
-    -- * Creating a Request
-      removeAutoScalingPolicy
-    , RemoveAutoScalingPolicy
+  ( -- * Creating a Request
+    RemoveAutoScalingPolicy (..),
+    newRemoveAutoScalingPolicy,
+
     -- * Request Lenses
-    , raspClusterId
-    , raspInstanceGroupId
+    removeAutoScalingPolicy_clusterId,
+    removeAutoScalingPolicy_instanceGroupId,
 
     -- * Destructuring the Response
-    , removeAutoScalingPolicyResponse
-    , RemoveAutoScalingPolicyResponse
+    RemoveAutoScalingPolicyResponse (..),
+    newRemoveAutoScalingPolicyResponse,
+
     -- * Response Lenses
-    , rasprsResponseStatus
-    ) where
+    removeAutoScalingPolicyResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'removeAutoScalingPolicy' smart constructor.
+-- | /See:/ 'newRemoveAutoScalingPolicy' smart constructor.
 data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
-  { _raspClusterId       :: !Text
-  , _raspInstanceGroupId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies the ID of a cluster. The instance group to which the automatic
+    -- scaling policy is applied is within this cluster.
+    clusterId :: Prelude.Text,
+    -- | Specifies the ID of the instance group to which the scaling policy is
+    -- applied.
+    instanceGroupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveAutoScalingPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveAutoScalingPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'raspClusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'raspInstanceGroupId' - Specifies the ID of the instance group to which the scaling policy is applied.
-removeAutoScalingPolicy
-    :: Text -- ^ 'raspClusterId'
-    -> Text -- ^ 'raspInstanceGroupId'
-    -> RemoveAutoScalingPolicy
-removeAutoScalingPolicy pClusterId_ pInstanceGroupId_ =
-  RemoveAutoScalingPolicy'
-    {_raspClusterId = pClusterId_, _raspInstanceGroupId = pInstanceGroupId_}
-
-
--- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
-raspClusterId :: Lens' RemoveAutoScalingPolicy Text
-raspClusterId = lens _raspClusterId (\ s a -> s{_raspClusterId = a})
-
--- | Specifies the ID of the instance group to which the scaling policy is applied.
-raspInstanceGroupId :: Lens' RemoveAutoScalingPolicy Text
-raspInstanceGroupId = lens _raspInstanceGroupId (\ s a -> s{_raspInstanceGroupId = a})
-
-instance AWSRequest RemoveAutoScalingPolicy where
-        type Rs RemoveAutoScalingPolicy =
-             RemoveAutoScalingPolicyResponse
-        request = postJSON emr
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 RemoveAutoScalingPolicyResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable RemoveAutoScalingPolicy where
-
-instance NFData RemoveAutoScalingPolicy where
-
-instance ToHeaders RemoveAutoScalingPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.RemoveAutoScalingPolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON RemoveAutoScalingPolicy where
-        toJSON RemoveAutoScalingPolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("ClusterId" .= _raspClusterId),
-                  Just ("InstanceGroupId" .= _raspInstanceGroupId)])
-
-instance ToPath RemoveAutoScalingPolicy where
-        toPath = const "/"
-
-instance ToQuery RemoveAutoScalingPolicy where
-        toQuery = const mempty
-
--- | /See:/ 'removeAutoScalingPolicyResponse' smart constructor.
-newtype RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
-  { _rasprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RemoveAutoScalingPolicyResponse' with the minimum fields required to make a request.
+-- 'clusterId', 'removeAutoScalingPolicy_clusterId' - Specifies the ID of a cluster. The instance group to which the automatic
+-- scaling policy is applied is within this cluster.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'instanceGroupId', 'removeAutoScalingPolicy_instanceGroupId' - Specifies the ID of the instance group to which the scaling policy is
+-- applied.
+newRemoveAutoScalingPolicy ::
+  -- | 'clusterId'
+  Prelude.Text ->
+  -- | 'instanceGroupId'
+  Prelude.Text ->
+  RemoveAutoScalingPolicy
+newRemoveAutoScalingPolicy
+  pClusterId_
+  pInstanceGroupId_ =
+    RemoveAutoScalingPolicy'
+      { clusterId = pClusterId_,
+        instanceGroupId = pInstanceGroupId_
+      }
+
+-- | Specifies the ID of a cluster. The instance group to which the automatic
+-- scaling policy is applied is within this cluster.
+removeAutoScalingPolicy_clusterId :: Lens.Lens' RemoveAutoScalingPolicy Prelude.Text
+removeAutoScalingPolicy_clusterId = Lens.lens (\RemoveAutoScalingPolicy' {clusterId} -> clusterId) (\s@RemoveAutoScalingPolicy' {} a -> s {clusterId = a} :: RemoveAutoScalingPolicy)
+
+-- | Specifies the ID of the instance group to which the scaling policy is
+-- applied.
+removeAutoScalingPolicy_instanceGroupId :: Lens.Lens' RemoveAutoScalingPolicy Prelude.Text
+removeAutoScalingPolicy_instanceGroupId = Lens.lens (\RemoveAutoScalingPolicy' {instanceGroupId} -> instanceGroupId) (\s@RemoveAutoScalingPolicy' {} a -> s {instanceGroupId = a} :: RemoveAutoScalingPolicy)
+
+instance Core.AWSRequest RemoveAutoScalingPolicy where
+  type
+    AWSResponse RemoveAutoScalingPolicy =
+      RemoveAutoScalingPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          RemoveAutoScalingPolicyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable RemoveAutoScalingPolicy
+
+instance Prelude.NFData RemoveAutoScalingPolicy
+
+instance Core.ToHeaders RemoveAutoScalingPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.RemoveAutoScalingPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON RemoveAutoScalingPolicy where
+  toJSON RemoveAutoScalingPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ClusterId" Core..= clusterId),
+            Prelude.Just
+              ("InstanceGroupId" Core..= instanceGroupId)
+          ]
+      )
+
+instance Core.ToPath RemoveAutoScalingPolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery RemoveAutoScalingPolicy where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newRemoveAutoScalingPolicyResponse' smart constructor.
+data RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RemoveAutoScalingPolicyResponse' with all optional fields omitted.
 --
--- * 'rasprsResponseStatus' - -- | The response status code.
-removeAutoScalingPolicyResponse
-    :: Int -- ^ 'rasprsResponseStatus'
-    -> RemoveAutoScalingPolicyResponse
-removeAutoScalingPolicyResponse pResponseStatus_ =
-  RemoveAutoScalingPolicyResponse' {_rasprsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'removeAutoScalingPolicyResponse_httpStatus' - The response's http status code.
+newRemoveAutoScalingPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RemoveAutoScalingPolicyResponse
+newRemoveAutoScalingPolicyResponse pHttpStatus_ =
+  RemoveAutoScalingPolicyResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+removeAutoScalingPolicyResponse_httpStatus :: Lens.Lens' RemoveAutoScalingPolicyResponse Prelude.Int
+removeAutoScalingPolicyResponse_httpStatus = Lens.lens (\RemoveAutoScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@RemoveAutoScalingPolicyResponse' {} a -> s {httpStatus = a} :: RemoveAutoScalingPolicyResponse)
 
--- | -- | The response status code.
-rasprsResponseStatus :: Lens' RemoveAutoScalingPolicyResponse Int
-rasprsResponseStatus = lens _rasprsResponseStatus (\ s a -> s{_rasprsResponseStatus = a})
-
-instance NFData RemoveAutoScalingPolicyResponse where
+instance
+  Prelude.NFData
+    RemoveAutoScalingPolicyResponse

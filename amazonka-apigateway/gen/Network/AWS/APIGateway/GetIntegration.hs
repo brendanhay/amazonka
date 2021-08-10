@@ -1,130 +1,153 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegration
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the integration settings.
---
---
 module Network.AWS.APIGateway.GetIntegration
-    (
-    -- * Creating a Request
-      getIntegration
-    , GetIntegration
+  ( -- * Creating a Request
+    GetIntegration (..),
+    newGetIntegration,
+
     -- * Request Lenses
-    , giRestAPIId
-    , giResourceId
-    , giHttpMethod
+    getIntegration_restApiId,
+    getIntegration_resourceId,
+    getIntegration_httpMethod,
 
     -- * Destructuring the Response
-    , integration
-    , Integration
+    Integration (..),
+    newIntegration,
+
     -- * Response Lenses
-    , iHttpMethod
-    , iRequestTemplates
-    , iCredentials
-    , iConnectionId
-    , iRequestParameters
-    , iContentHandling
-    , iPassthroughBehavior
-    , iUri
-    , iIntegrationResponses
-    , iCacheNamespace
-    , iTimeoutInMillis
-    , iType
-    , iConnectionType
-    , iCacheKeyParameters
-    ) where
+    integration_httpMethod,
+    integration_passthroughBehavior,
+    integration_contentHandling,
+    integration_uri,
+    integration_connectionType,
+    integration_connectionId,
+    integration_requestTemplates,
+    integration_timeoutInMillis,
+    integration_cacheNamespace,
+    integration_cacheKeyParameters,
+    integration_tlsConfig,
+    integration_integrationResponses,
+    integration_requestParameters,
+    integration_type,
+    integration_credentials,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to get the integration configuration.
 --
---
---
--- /See:/ 'getIntegration' smart constructor.
+-- /See:/ 'newGetIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-  { _giRestAPIId  :: !Text
-  , _giResourceId :: !Text
-  , _giHttpMethod :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] Specifies a get integration request\'s resource identifier
+    resourceId :: Prelude.Text,
+    -- | [Required] Specifies a get integration request\'s HTTP method.
+    httpMethod :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIntegration' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIntegration' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giResourceId' - [Required] Specifies a get integration request's resource identifier
+-- 'restApiId', 'getIntegration_restApiId' - [Required] The string identifier of the associated RestApi.
 --
--- * 'giHttpMethod' - [Required] Specifies a get integration request's HTTP method.
-getIntegration
-    :: Text -- ^ 'giRestAPIId'
-    -> Text -- ^ 'giResourceId'
-    -> Text -- ^ 'giHttpMethod'
-    -> GetIntegration
-getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
-  GetIntegration'
-    { _giRestAPIId = pRestAPIId_
-    , _giResourceId = pResourceId_
-    , _giHttpMethod = pHttpMethod_
-    }
+-- 'resourceId', 'getIntegration_resourceId' - [Required] Specifies a get integration request\'s resource identifier
+--
+-- 'httpMethod', 'getIntegration_httpMethod' - [Required] Specifies a get integration request\'s HTTP method.
+newGetIntegration ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  -- | 'httpMethod'
+  Prelude.Text ->
+  GetIntegration
+newGetIntegration
+  pRestApiId_
+  pResourceId_
+  pHttpMethod_ =
+    GetIntegration'
+      { restApiId = pRestApiId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_
+      }
 
+-- | [Required] The string identifier of the associated RestApi.
+getIntegration_restApiId :: Lens.Lens' GetIntegration Prelude.Text
+getIntegration_restApiId = Lens.lens (\GetIntegration' {restApiId} -> restApiId) (\s@GetIntegration' {} a -> s {restApiId = a} :: GetIntegration)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-giRestAPIId :: Lens' GetIntegration Text
-giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a})
+-- | [Required] Specifies a get integration request\'s resource identifier
+getIntegration_resourceId :: Lens.Lens' GetIntegration Prelude.Text
+getIntegration_resourceId = Lens.lens (\GetIntegration' {resourceId} -> resourceId) (\s@GetIntegration' {} a -> s {resourceId = a} :: GetIntegration)
 
--- | [Required] Specifies a get integration request's resource identifier
-giResourceId :: Lens' GetIntegration Text
-giResourceId = lens _giResourceId (\ s a -> s{_giResourceId = a})
+-- | [Required] Specifies a get integration request\'s HTTP method.
+getIntegration_httpMethod :: Lens.Lens' GetIntegration Prelude.Text
+getIntegration_httpMethod = Lens.lens (\GetIntegration' {httpMethod} -> httpMethod) (\s@GetIntegration' {} a -> s {httpMethod = a} :: GetIntegration)
 
--- | [Required] Specifies a get integration request's HTTP method.
-giHttpMethod :: Lens' GetIntegration Text
-giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a})
+instance Core.AWSRequest GetIntegration where
+  type AWSResponse GetIntegration = Integration
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetIntegration where
-        type Rs GetIntegration = Integration
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetIntegration
 
-instance Hashable GetIntegration where
+instance Prelude.NFData GetIntegration
 
-instance NFData GetIntegration where
+instance Core.ToHeaders GetIntegration where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetIntegration where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetIntegration where
+  toPath GetIntegration' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/resources/",
+        Core.toBS resourceId,
+        "/methods/",
+        Core.toBS httpMethod,
+        "/integration"
+      ]
 
-instance ToPath GetIntegration where
-        toPath GetIntegration'{..}
-          = mconcat
-              ["/restapis/", toBS _giRestAPIId, "/resources/",
-               toBS _giResourceId, "/methods/", toBS _giHttpMethod,
-               "/integration"]
-
-instance ToQuery GetIntegration where
-        toQuery = const mempty
+instance Core.ToQuery GetIntegration where
+  toQuery = Prelude.const Prelude.mempty

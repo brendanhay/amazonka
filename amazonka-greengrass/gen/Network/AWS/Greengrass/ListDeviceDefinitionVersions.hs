@@ -1,164 +1,226 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeviceDefinitionVersions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a device definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeviceDefinitionVersions
-    (
-    -- * Creating a Request
-      listDeviceDefinitionVersions
-    , ListDeviceDefinitionVersions
+  ( -- * Creating a Request
+    ListDeviceDefinitionVersions (..),
+    newListDeviceDefinitionVersions,
+
     -- * Request Lenses
-    , lddvNextToken
-    , lddvMaxResults
-    , lddvDeviceDefinitionId
+    listDeviceDefinitionVersions_nextToken,
+    listDeviceDefinitionVersions_maxResults,
+    listDeviceDefinitionVersions_deviceDefinitionId,
 
     -- * Destructuring the Response
-    , listDeviceDefinitionVersionsResponse
-    , ListDeviceDefinitionVersionsResponse
+    ListDeviceDefinitionVersionsResponse (..),
+    newListDeviceDefinitionVersionsResponse,
+
     -- * Response Lenses
-    , lddvrsVersions
-    , lddvrsNextToken
-    , lddvrsResponseStatus
-    ) where
+    listDeviceDefinitionVersionsResponse_nextToken,
+    listDeviceDefinitionVersionsResponse_versions,
+    listDeviceDefinitionVersionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listDeviceDefinitionVersions' smart constructor.
+-- | /See:/ 'newListDeviceDefinitionVersions' smart constructor.
 data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
-  { _lddvNextToken          :: !(Maybe Text)
-  , _lddvMaxResults         :: !(Maybe Text)
-  , _lddvDeviceDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the device definition.
+    deviceDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListDeviceDefinitionVersions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDeviceDefinitionVersions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lddvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lddvMaxResults' - The maximum number of results to be returned per request.
+-- 'nextToken', 'listDeviceDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
--- * 'lddvDeviceDefinitionId' - The ID of the device definition.
-listDeviceDefinitionVersions
-    :: Text -- ^ 'lddvDeviceDefinitionId'
-    -> ListDeviceDefinitionVersions
-listDeviceDefinitionVersions pDeviceDefinitionId_ =
+-- 'maxResults', 'listDeviceDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'deviceDefinitionId', 'listDeviceDefinitionVersions_deviceDefinitionId' - The ID of the device definition.
+newListDeviceDefinitionVersions ::
+  -- | 'deviceDefinitionId'
+  Prelude.Text ->
+  ListDeviceDefinitionVersions
+newListDeviceDefinitionVersions pDeviceDefinitionId_ =
   ListDeviceDefinitionVersions'
-    { _lddvNextToken = Nothing
-    , _lddvMaxResults = Nothing
-    , _lddvDeviceDefinitionId = pDeviceDefinitionId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      deviceDefinitionId = pDeviceDefinitionId_
     }
 
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lddvNextToken :: Lens' ListDeviceDefinitionVersions (Maybe Text)
-lddvNextToken = lens _lddvNextToken (\ s a -> s{_lddvNextToken = a})
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeviceDefinitionVersions_nextToken :: Lens.Lens' ListDeviceDefinitionVersions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitionVersions_nextToken = Lens.lens (\ListDeviceDefinitionVersions' {nextToken} -> nextToken) (\s@ListDeviceDefinitionVersions' {} a -> s {nextToken = a} :: ListDeviceDefinitionVersions)
 
 -- | The maximum number of results to be returned per request.
-lddvMaxResults :: Lens' ListDeviceDefinitionVersions (Maybe Text)
-lddvMaxResults = lens _lddvMaxResults (\ s a -> s{_lddvMaxResults = a})
+listDeviceDefinitionVersions_maxResults :: Lens.Lens' ListDeviceDefinitionVersions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitionVersions_maxResults = Lens.lens (\ListDeviceDefinitionVersions' {maxResults} -> maxResults) (\s@ListDeviceDefinitionVersions' {} a -> s {maxResults = a} :: ListDeviceDefinitionVersions)
 
 -- | The ID of the device definition.
-lddvDeviceDefinitionId :: Lens' ListDeviceDefinitionVersions Text
-lddvDeviceDefinitionId = lens _lddvDeviceDefinitionId (\ s a -> s{_lddvDeviceDefinitionId = a})
+listDeviceDefinitionVersions_deviceDefinitionId :: Lens.Lens' ListDeviceDefinitionVersions Prelude.Text
+listDeviceDefinitionVersions_deviceDefinitionId = Lens.lens (\ListDeviceDefinitionVersions' {deviceDefinitionId} -> deviceDefinitionId) (\s@ListDeviceDefinitionVersions' {} a -> s {deviceDefinitionId = a} :: ListDeviceDefinitionVersions)
 
-instance AWSRequest ListDeviceDefinitionVersions
-         where
-        type Rs ListDeviceDefinitionVersions =
-             ListDeviceDefinitionVersionsResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDeviceDefinitionVersionsResponse' <$>
-                   (x .?> "Versions" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager ListDeviceDefinitionVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listDeviceDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listDeviceDefinitionVersionsResponse_versions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listDeviceDefinitionVersions_nextToken
+          Lens..~ rs
+          Lens.^? listDeviceDefinitionVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListDeviceDefinitionVersions where
+instance Core.AWSRequest ListDeviceDefinitionVersions where
+  type
+    AWSResponse ListDeviceDefinitionVersions =
+      ListDeviceDefinitionVersionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDeviceDefinitionVersionsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListDeviceDefinitionVersions where
+instance
+  Prelude.Hashable
+    ListDeviceDefinitionVersions
 
-instance ToHeaders ListDeviceDefinitionVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListDeviceDefinitionVersions
 
-instance ToPath ListDeviceDefinitionVersions where
-        toPath ListDeviceDefinitionVersions'{..}
-          = mconcat
-              ["/greengrass/definition/devices/",
-               toBS _lddvDeviceDefinitionId, "/versions"]
+instance Core.ToHeaders ListDeviceDefinitionVersions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery ListDeviceDefinitionVersions where
-        toQuery ListDeviceDefinitionVersions'{..}
-          = mconcat
-              ["NextToken" =: _lddvNextToken,
-               "MaxResults" =: _lddvMaxResults]
+instance Core.ToPath ListDeviceDefinitionVersions where
+  toPath ListDeviceDefinitionVersions' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/devices/",
+        Core.toBS deviceDefinitionId,
+        "/versions"
+      ]
 
--- | /See:/ 'listDeviceDefinitionVersionsResponse' smart constructor.
+instance Core.ToQuery ListDeviceDefinitionVersions where
+  toQuery ListDeviceDefinitionVersions' {..} =
+    Prelude.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListDeviceDefinitionVersionsResponse' smart constructor.
 data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse'
-  { _lddvrsVersions       :: !(Maybe [VersionInformation])
-  , _lddvrsNextToken      :: !(Maybe Text)
-  , _lddvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListDeviceDefinitionVersionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDeviceDefinitionVersionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lddvrsVersions' - Information about a version.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lddvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- 'nextToken', 'listDeviceDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
--- * 'lddvrsResponseStatus' - -- | The response status code.
-listDeviceDefinitionVersionsResponse
-    :: Int -- ^ 'lddvrsResponseStatus'
-    -> ListDeviceDefinitionVersionsResponse
-listDeviceDefinitionVersionsResponse pResponseStatus_ =
+-- 'versions', 'listDeviceDefinitionVersionsResponse_versions' - Information about a version.
+--
+-- 'httpStatus', 'listDeviceDefinitionVersionsResponse_httpStatus' - The response's http status code.
+newListDeviceDefinitionVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDeviceDefinitionVersionsResponse
+newListDeviceDefinitionVersionsResponse pHttpStatus_ =
   ListDeviceDefinitionVersionsResponse'
-    { _lddvrsVersions = Nothing
-    , _lddvrsNextToken = Nothing
-    , _lddvrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      versions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeviceDefinitionVersionsResponse_nextToken :: Lens.Lens' ListDeviceDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
+listDeviceDefinitionVersionsResponse_nextToken = Lens.lens (\ListDeviceDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListDeviceDefinitionVersionsResponse)
 
 -- | Information about a version.
-lddvrsVersions :: Lens' ListDeviceDefinitionVersionsResponse [VersionInformation]
-lddvrsVersions = lens _lddvrsVersions (\ s a -> s{_lddvrsVersions = a}) . _Default . _Coerce
+listDeviceDefinitionVersionsResponse_versions :: Lens.Lens' ListDeviceDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listDeviceDefinitionVersionsResponse_versions = Lens.lens (\ListDeviceDefinitionVersionsResponse' {versions} -> versions) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {versions = a} :: ListDeviceDefinitionVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lddvrsNextToken :: Lens' ListDeviceDefinitionVersionsResponse (Maybe Text)
-lddvrsNextToken = lens _lddvrsNextToken (\ s a -> s{_lddvrsNextToken = a})
+-- | The response's http status code.
+listDeviceDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionVersionsResponse Prelude.Int
+listDeviceDefinitionVersionsResponse_httpStatus = Lens.lens (\ListDeviceDefinitionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {httpStatus = a} :: ListDeviceDefinitionVersionsResponse)
 
--- | -- | The response status code.
-lddvrsResponseStatus :: Lens' ListDeviceDefinitionVersionsResponse Int
-lddvrsResponseStatus = lens _lddvrsResponseStatus (\ s a -> s{_lddvrsResponseStatus = a})
-
-instance NFData ListDeviceDefinitionVersionsResponse
-         where
+instance
+  Prelude.NFData
+    ListDeviceDefinitionVersionsResponse

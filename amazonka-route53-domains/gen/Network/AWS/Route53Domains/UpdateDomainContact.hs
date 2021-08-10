@@ -1,178 +1,219 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the contact information for a particular domain. You must specify information for at least one contact: registrant, administrator, or technical.
+-- This operation updates the contact information for a particular domain.
+-- You must specify information for at least one contact: registrant,
+-- administrator, or technical.
 --
---
--- If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
---
+-- If the update is successful, this method returns an operation ID that
+-- you can use to track the progress and completion of the action. If the
+-- request is not completed successfully, the domain registrant will be
+-- notified by email.
 module Network.AWS.Route53Domains.UpdateDomainContact
-    (
-    -- * Creating a Request
-      updateDomainContact
-    , UpdateDomainContact
+  ( -- * Creating a Request
+    UpdateDomainContact (..),
+    newUpdateDomainContact,
+
     -- * Request Lenses
-    , udcRegistrantContact
-    , udcAdminContact
-    , udcTechContact
-    , udcDomainName
+    updateDomainContact_registrantContact,
+    updateDomainContact_techContact,
+    updateDomainContact_adminContact,
+    updateDomainContact_domainName,
 
     -- * Destructuring the Response
-    , updateDomainContactResponse
-    , UpdateDomainContactResponse
-    -- * Response Lenses
-    , udcrsResponseStatus
-    , udcrsOperationId
-    ) where
+    UpdateDomainContactResponse (..),
+    newUpdateDomainContactResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    updateDomainContactResponse_httpStatus,
+    updateDomainContactResponse_operationId,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateDomainContact request includes the following elements.
 --
---
---
--- /See:/ 'updateDomainContact' smart constructor.
+-- /See:/ 'newUpdateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
-  { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
-  , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
-  , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
-  , _udcDomainName        :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Provides detailed contact information.
+    registrantContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
+    -- | Provides detailed contact information.
+    techContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
+    -- | Provides detailed contact information.
+    adminContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
+    -- | The name of the domain that you want to update contact information for.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDomainContact' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDomainContact' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcRegistrantContact' - Provides detailed contact information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcAdminContact' - Provides detailed contact information.
+-- 'registrantContact', 'updateDomainContact_registrantContact' - Provides detailed contact information.
 --
--- * 'udcTechContact' - Provides detailed contact information.
+-- 'techContact', 'updateDomainContact_techContact' - Provides detailed contact information.
 --
--- * 'udcDomainName' - The name of the domain that you want to update contact information for.
-updateDomainContact
-    :: Text -- ^ 'udcDomainName'
-    -> UpdateDomainContact
-updateDomainContact pDomainName_ =
+-- 'adminContact', 'updateDomainContact_adminContact' - Provides detailed contact information.
+--
+-- 'domainName', 'updateDomainContact_domainName' - The name of the domain that you want to update contact information for.
+newUpdateDomainContact ::
+  -- | 'domainName'
+  Prelude.Text ->
+  UpdateDomainContact
+newUpdateDomainContact pDomainName_ =
   UpdateDomainContact'
-    { _udcRegistrantContact = Nothing
-    , _udcAdminContact = Nothing
-    , _udcTechContact = Nothing
-    , _udcDomainName = pDomainName_
+    { registrantContact =
+        Prelude.Nothing,
+      techContact = Prelude.Nothing,
+      adminContact = Prelude.Nothing,
+      domainName = pDomainName_
     }
 
+-- | Provides detailed contact information.
+updateDomainContact_registrantContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
+updateDomainContact_registrantContact = Lens.lens (\UpdateDomainContact' {registrantContact} -> registrantContact) (\s@UpdateDomainContact' {} a -> s {registrantContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Provides detailed contact information.
-udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive
+updateDomainContact_techContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
+updateDomainContact_techContact = Lens.lens (\UpdateDomainContact' {techContact} -> techContact) (\s@UpdateDomainContact' {} a -> s {techContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Provides detailed contact information.
-udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive
-
--- | Provides detailed contact information.
-udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive
+updateDomainContact_adminContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
+updateDomainContact_adminContact = Lens.lens (\UpdateDomainContact' {adminContact} -> adminContact) (\s@UpdateDomainContact' {} a -> s {adminContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the domain that you want to update contact information for.
-udcDomainName :: Lens' UpdateDomainContact Text
-udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a})
+updateDomainContact_domainName :: Lens.Lens' UpdateDomainContact Prelude.Text
+updateDomainContact_domainName = Lens.lens (\UpdateDomainContact' {domainName} -> domainName) (\s@UpdateDomainContact' {} a -> s {domainName = a} :: UpdateDomainContact)
 
-instance AWSRequest UpdateDomainContact where
-        type Rs UpdateDomainContact =
-             UpdateDomainContactResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDomainContactResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
+instance Core.AWSRequest UpdateDomainContact where
+  type
+    AWSResponse UpdateDomainContact =
+      UpdateDomainContactResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDomainContactResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
+      )
 
-instance Hashable UpdateDomainContact where
+instance Prelude.Hashable UpdateDomainContact
 
-instance NFData UpdateDomainContact where
+instance Prelude.NFData UpdateDomainContact
 
-instance ToHeaders UpdateDomainContact where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.UpdateDomainContact" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateDomainContact where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53Domains_v20140515.UpdateDomainContact" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateDomainContact where
-        toJSON UpdateDomainContact'{..}
-          = object
-              (catMaybes
-                 [("RegistrantContact" .=) <$> _udcRegistrantContact,
-                  ("AdminContact" .=) <$> _udcAdminContact,
-                  ("TechContact" .=) <$> _udcTechContact,
-                  Just ("DomainName" .= _udcDomainName)])
+instance Core.ToJSON UpdateDomainContact where
+  toJSON UpdateDomainContact' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RegistrantContact" Core..=)
+              Prelude.<$> registrantContact,
+            ("TechContact" Core..=) Prelude.<$> techContact,
+            ("AdminContact" Core..=) Prelude.<$> adminContact,
+            Prelude.Just ("DomainName" Core..= domainName)
+          ]
+      )
 
-instance ToPath UpdateDomainContact where
-        toPath = const "/"
+instance Core.ToPath UpdateDomainContact where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDomainContact where
-        toQuery = const mempty
+instance Core.ToQuery UpdateDomainContact where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateDomainContact response includes the following element.
 --
---
---
--- /See:/ 'updateDomainContactResponse' smart constructor.
+-- /See:/ 'newUpdateDomainContactResponse' smart constructor.
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-  { _udcrsResponseStatus :: !Int
-  , _udcrsOperationId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Identifier for tracking the progress of the request. To query the
+    -- operation status, use
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+    operationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDomainContactResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDomainContactResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
-updateDomainContactResponse
-    :: Int -- ^ 'udcrsResponseStatus'
-    -> Text -- ^ 'udcrsOperationId'
-    -> UpdateDomainContactResponse
-updateDomainContactResponse pResponseStatus_ pOperationId_ =
-  UpdateDomainContactResponse'
-    {_udcrsResponseStatus = pResponseStatus_, _udcrsOperationId = pOperationId_}
+-- 'httpStatus', 'updateDomainContactResponse_httpStatus' - The response's http status code.
+--
+-- 'operationId', 'updateDomainContactResponse_operationId' - Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+newUpdateDomainContactResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'operationId'
+  Prelude.Text ->
+  UpdateDomainContactResponse
+newUpdateDomainContactResponse
+  pHttpStatus_
+  pOperationId_ =
+    UpdateDomainContactResponse'
+      { httpStatus =
+          pHttpStatus_,
+        operationId = pOperationId_
+      }
 
+-- | The response's http status code.
+updateDomainContactResponse_httpStatus :: Lens.Lens' UpdateDomainContactResponse Prelude.Int
+updateDomainContactResponse_httpStatus = Lens.lens (\UpdateDomainContactResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainContactResponse' {} a -> s {httpStatus = a} :: UpdateDomainContactResponse)
 
--- | -- | The response status code.
-udcrsResponseStatus :: Lens' UpdateDomainContactResponse Int
-udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a})
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+updateDomainContactResponse_operationId :: Lens.Lens' UpdateDomainContactResponse Prelude.Text
+updateDomainContactResponse_operationId = Lens.lens (\UpdateDomainContactResponse' {operationId} -> operationId) (\s@UpdateDomainContactResponse' {} a -> s {operationId = a} :: UpdateDomainContactResponse)
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
-udcrsOperationId :: Lens' UpdateDomainContactResponse Text
-udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a})
-
-instance NFData UpdateDomainContactResponse where
+instance Prelude.NFData UpdateDomainContactResponse

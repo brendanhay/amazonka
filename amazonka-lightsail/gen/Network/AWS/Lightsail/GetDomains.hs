@@ -1,153 +1,221 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetDomains
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all domains in the user's account.
---
---
+-- Returns a list of all domains in the user\'s account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDomains
-    (
-    -- * Creating a Request
-      getDomains
-    , GetDomains
+  ( -- * Creating a Request
+    GetDomains (..),
+    newGetDomains,
+
     -- * Request Lenses
-    , gdPageToken
+    getDomains_pageToken,
 
     -- * Destructuring the Response
-    , getDomainsResponse
-    , GetDomainsResponse
+    GetDomainsResponse (..),
+    newGetDomainsResponse,
+
     -- * Response Lenses
-    , ggrsNextPageToken
-    , ggrsDomains
-    , ggrsResponseStatus
-    ) where
+    getDomainsResponse_domains,
+    getDomainsResponse_nextPageToken,
+    getDomainsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDomains' smart constructor.
-newtype GetDomains = GetDomains'
-  { _gdPageToken :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetDomains' smart constructor.
+data GetDomains = GetDomains'
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetDomains@ request. If your
+    -- results are paginated, the response will return a next page token that
+    -- you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDomains' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDomains' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdPageToken' - A token used for advancing to the next page of results from your get domains request.
-getDomains
-    :: GetDomains
-getDomains = GetDomains' {_gdPageToken = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pageToken', 'getDomains_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDomains@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+newGetDomains ::
+  GetDomains
+newGetDomains =
+  GetDomains' {pageToken = Prelude.Nothing}
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDomains@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+getDomains_pageToken :: Lens.Lens' GetDomains (Prelude.Maybe Prelude.Text)
+getDomains_pageToken = Lens.lens (\GetDomains' {pageToken} -> pageToken) (\s@GetDomains' {} a -> s {pageToken = a} :: GetDomains)
 
--- | A token used for advancing to the next page of results from your get domains request.
-gdPageToken :: Lens' GetDomains (Maybe Text)
-gdPageToken = lens _gdPageToken (\ s a -> s{_gdPageToken = a})
+instance Core.AWSPager GetDomains where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getDomainsResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getDomainsResponse_domains Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getDomains_pageToken
+          Lens..~ rs
+          Lens.^? getDomainsResponse_nextPageToken Prelude.. Lens._Just
 
-instance AWSPager GetDomains where
-        page rq rs
-          | stop (rs ^. ggrsNextPageToken) = Nothing
-          | stop (rs ^. ggrsDomains) = Nothing
-          | otherwise =
-            Just $ rq & gdPageToken .~ rs ^. ggrsNextPageToken
+instance Core.AWSRequest GetDomains where
+  type AWSResponse GetDomains = GetDomainsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDomainsResponse'
+            Prelude.<$> (x Core..?> "domains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetDomains where
-        type Rs GetDomains = GetDomainsResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDomainsResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "domains" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetDomains
 
-instance Hashable GetDomains where
+instance Prelude.NFData GetDomains
 
-instance NFData GetDomains where
+instance Core.ToHeaders GetDomains where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetDomains" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetDomains where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetDomains" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetDomains where
+  toJSON GetDomains' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
+      )
 
-instance ToJSON GetDomains where
-        toJSON GetDomains'{..}
-          = object
-              (catMaybes [("pageToken" .=) <$> _gdPageToken])
+instance Core.ToPath GetDomains where
+  toPath = Prelude.const "/"
 
-instance ToPath GetDomains where
-        toPath = const "/"
+instance Core.ToQuery GetDomains where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetDomains where
-        toQuery = const mempty
-
--- | /See:/ 'getDomainsResponse' smart constructor.
+-- | /See:/ 'newGetDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
-  { _ggrsNextPageToken  :: !(Maybe Text)
-  , _ggrsDomains        :: !(Maybe [Domain])
-  , _ggrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of key-value pairs containing information about each of the
+    -- domain entries in the user\'s account.
+    domains :: Prelude.Maybe [Domain],
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to
+    -- display.
+    --
+    -- To get the next page of results, perform another @GetDomains@ request
+    -- and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDomainsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDomainsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggrsNextPageToken' - A token used for advancing to the next page of results from your get active names request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggrsDomains' - An array of key-value pairs containing information about each of the domain entries in the user's account.
+-- 'domains', 'getDomainsResponse_domains' - An array of key-value pairs containing information about each of the
+-- domain entries in the user\'s account.
 --
--- * 'ggrsResponseStatus' - -- | The response status code.
-getDomainsResponse
-    :: Int -- ^ 'ggrsResponseStatus'
-    -> GetDomainsResponse
-getDomainsResponse pResponseStatus_ =
+-- 'nextPageToken', 'getDomainsResponse_nextPageToken' - The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetDomains@ request
+-- and specify the next page token using the @pageToken@ parameter.
+--
+-- 'httpStatus', 'getDomainsResponse_httpStatus' - The response's http status code.
+newGetDomainsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDomainsResponse
+newGetDomainsResponse pHttpStatus_ =
   GetDomainsResponse'
-    { _ggrsNextPageToken = Nothing
-    , _ggrsDomains = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
+    { domains = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An array of key-value pairs containing information about each of the
+-- domain entries in the user\'s account.
+getDomainsResponse_domains :: Lens.Lens' GetDomainsResponse (Prelude.Maybe [Domain])
+getDomainsResponse_domains = Lens.lens (\GetDomainsResponse' {domains} -> domains) (\s@GetDomainsResponse' {} a -> s {domains = a} :: GetDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A token used for advancing to the next page of results from your get active names request.
-ggrsNextPageToken :: Lens' GetDomainsResponse (Maybe Text)
-ggrsNextPageToken = lens _ggrsNextPageToken (\ s a -> s{_ggrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetDomains@ request
+-- and specify the next page token using the @pageToken@ parameter.
+getDomainsResponse_nextPageToken :: Lens.Lens' GetDomainsResponse (Prelude.Maybe Prelude.Text)
+getDomainsResponse_nextPageToken = Lens.lens (\GetDomainsResponse' {nextPageToken} -> nextPageToken) (\s@GetDomainsResponse' {} a -> s {nextPageToken = a} :: GetDomainsResponse)
 
--- | An array of key-value pairs containing information about each of the domain entries in the user's account.
-ggrsDomains :: Lens' GetDomainsResponse [Domain]
-ggrsDomains = lens _ggrsDomains (\ s a -> s{_ggrsDomains = a}) . _Default . _Coerce
+-- | The response's http status code.
+getDomainsResponse_httpStatus :: Lens.Lens' GetDomainsResponse Prelude.Int
+getDomainsResponse_httpStatus = Lens.lens (\GetDomainsResponse' {httpStatus} -> httpStatus) (\s@GetDomainsResponse' {} a -> s {httpStatus = a} :: GetDomainsResponse)
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetDomainsResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
-
-instance NFData GetDomainsResponse where
+instance Prelude.NFData GetDomainsResponse

@@ -1,129 +1,155 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethodResponse
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a 'MethodResponse' resource.
---
---
+-- Describes a MethodResponse resource.
 module Network.AWS.APIGateway.GetMethodResponse
-    (
-    -- * Creating a Request
-      getMethodResponse
-    , GetMethodResponse
+  ( -- * Creating a Request
+    GetMethodResponse (..),
+    newGetMethodResponse,
+
     -- * Request Lenses
-    , gmRestAPIId
-    , gmResourceId
-    , gmHttpMethod
-    , gmStatusCode
+    getMethodResponse_restApiId,
+    getMethodResponse_resourceId,
+    getMethodResponse_httpMethod,
+    getMethodResponse_statusCode,
 
     -- * Destructuring the Response
-    , methodResponse
-    , MethodResponse
+    MethodResponse (..),
+    newMethodResponse,
+
     -- * Response Lenses
-    , mResponseModels
-    , mStatusCode
-    , mResponseParameters
-    ) where
+    methodResponse_responseModels,
+    methodResponse_statusCode,
+    methodResponse_responseParameters,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to describe a 'MethodResponse' resource.
+-- | Request to describe a MethodResponse resource.
 --
---
---
--- /See:/ 'getMethodResponse' smart constructor.
+-- /See:/ 'newGetMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-  { _gmRestAPIId  :: !Text
-  , _gmResourceId :: !Text
-  , _gmHttpMethod :: !Text
-  , _gmStatusCode :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The Resource identifier for the MethodResponse resource.
+    resourceId :: Prelude.Text,
+    -- | [Required] The HTTP verb of the Method resource.
+    httpMethod :: Prelude.Text,
+    -- | [Required] The status code for the MethodResponse resource.
+    statusCode :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetMethodResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetMethodResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gmResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
+-- 'restApiId', 'getMethodResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
--- * 'gmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
+-- 'resourceId', 'getMethodResponse_resourceId' - [Required] The Resource identifier for the MethodResponse resource.
 --
--- * 'gmStatusCode' - [Required] The status code for the 'MethodResponse' resource.
-getMethodResponse
-    :: Text -- ^ 'gmRestAPIId'
-    -> Text -- ^ 'gmResourceId'
-    -> Text -- ^ 'gmHttpMethod'
-    -> Text -- ^ 'gmStatusCode'
-    -> GetMethodResponse
-getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-  GetMethodResponse'
-    { _gmRestAPIId = pRestAPIId_
-    , _gmResourceId = pResourceId_
-    , _gmHttpMethod = pHttpMethod_
-    , _gmStatusCode = pStatusCode_
-    }
+-- 'httpMethod', 'getMethodResponse_httpMethod' - [Required] The HTTP verb of the Method resource.
+--
+-- 'statusCode', 'getMethodResponse_statusCode' - [Required] The status code for the MethodResponse resource.
+newGetMethodResponse ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  -- | 'httpMethod'
+  Prelude.Text ->
+  -- | 'statusCode'
+  Prelude.Text ->
+  GetMethodResponse
+newGetMethodResponse
+  pRestApiId_
+  pResourceId_
+  pHttpMethod_
+  pStatusCode_ =
+    GetMethodResponse'
+      { restApiId = pRestApiId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
+      }
 
+-- | [Required] The string identifier of the associated RestApi.
+getMethodResponse_restApiId :: Lens.Lens' GetMethodResponse Prelude.Text
+getMethodResponse_restApiId = Lens.lens (\GetMethodResponse' {restApiId} -> restApiId) (\s@GetMethodResponse' {} a -> s {restApiId = a} :: GetMethodResponse)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-gmRestAPIId :: Lens' GetMethodResponse Text
-gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a})
+-- | [Required] The Resource identifier for the MethodResponse resource.
+getMethodResponse_resourceId :: Lens.Lens' GetMethodResponse Prelude.Text
+getMethodResponse_resourceId = Lens.lens (\GetMethodResponse' {resourceId} -> resourceId) (\s@GetMethodResponse' {} a -> s {resourceId = a} :: GetMethodResponse)
 
--- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
-gmResourceId :: Lens' GetMethodResponse Text
-gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a})
+-- | [Required] The HTTP verb of the Method resource.
+getMethodResponse_httpMethod :: Lens.Lens' GetMethodResponse Prelude.Text
+getMethodResponse_httpMethod = Lens.lens (\GetMethodResponse' {httpMethod} -> httpMethod) (\s@GetMethodResponse' {} a -> s {httpMethod = a} :: GetMethodResponse)
 
--- | [Required] The HTTP verb of the 'Method' resource.
-gmHttpMethod :: Lens' GetMethodResponse Text
-gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a})
+-- | [Required] The status code for the MethodResponse resource.
+getMethodResponse_statusCode :: Lens.Lens' GetMethodResponse Prelude.Text
+getMethodResponse_statusCode = Lens.lens (\GetMethodResponse' {statusCode} -> statusCode) (\s@GetMethodResponse' {} a -> s {statusCode = a} :: GetMethodResponse)
 
--- | [Required] The status code for the 'MethodResponse' resource.
-gmStatusCode :: Lens' GetMethodResponse Text
-gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a})
+instance Core.AWSRequest GetMethodResponse where
+  type AWSResponse GetMethodResponse = MethodResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetMethodResponse where
-        type Rs GetMethodResponse = MethodResponse
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetMethodResponse
 
-instance Hashable GetMethodResponse where
+instance Prelude.NFData GetMethodResponse
 
-instance NFData GetMethodResponse where
+instance Core.ToHeaders GetMethodResponse where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetMethodResponse where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetMethodResponse where
+  toPath GetMethodResponse' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/resources/",
+        Core.toBS resourceId,
+        "/methods/",
+        Core.toBS httpMethod,
+        "/responses/",
+        Core.toBS statusCode
+      ]
 
-instance ToPath GetMethodResponse where
-        toPath GetMethodResponse'{..}
-          = mconcat
-              ["/restapis/", toBS _gmRestAPIId, "/resources/",
-               toBS _gmResourceId, "/methods/", toBS _gmHttpMethod,
-               "/responses/", toBS _gmStatusCode]
-
-instance ToQuery GetMethodResponse where
-        toQuery = const mempty
+instance Core.ToQuery GetMethodResponse where
+  toQuery = Prelude.const Prelude.mempty

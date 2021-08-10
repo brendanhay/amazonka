@@ -1,128 +1,152 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.GetRoom
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets room details by room ARN.
---
---
 module Network.AWS.AlexaBusiness.GetRoom
-    (
-    -- * Creating a Request
-      getRoom
-    , GetRoom
+  ( -- * Creating a Request
+    GetRoom (..),
+    newGetRoom,
+
     -- * Request Lenses
-    , grRoomARN
+    getRoom_roomArn,
 
     -- * Destructuring the Response
-    , getRoomResponse
-    , GetRoomResponse
+    GetRoomResponse (..),
+    newGetRoomResponse,
+
     -- * Response Lenses
-    , grrsRoom
-    , grrsResponseStatus
-    ) where
+    getRoomResponse_room,
+    getRoomResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getRoom' smart constructor.
-newtype GetRoom = GetRoom'
-  { _grRoomARN :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetRoom' smart constructor.
+data GetRoom = GetRoom'
+  { -- | The ARN of the room for which to request details. Required.
+    roomArn :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetRoom' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRoom' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grRoomARN' - The ARN of the room for which to request details. Required.
-getRoom
-    :: GetRoom
-getRoom = GetRoom' {_grRoomARN = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'roomArn', 'getRoom_roomArn' - The ARN of the room for which to request details. Required.
+newGetRoom ::
+  GetRoom
+newGetRoom = GetRoom' {roomArn = Prelude.Nothing}
 
 -- | The ARN of the room for which to request details. Required.
-grRoomARN :: Lens' GetRoom (Maybe Text)
-grRoomARN = lens _grRoomARN (\ s a -> s{_grRoomARN = a})
+getRoom_roomArn :: Lens.Lens' GetRoom (Prelude.Maybe Prelude.Text)
+getRoom_roomArn = Lens.lens (\GetRoom' {roomArn} -> roomArn) (\s@GetRoom' {} a -> s {roomArn = a} :: GetRoom)
 
-instance AWSRequest GetRoom where
-        type Rs GetRoom = GetRoomResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRoomResponse' <$>
-                   (x .?> "Room") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetRoom where
+  type AWSResponse GetRoom = GetRoomResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRoomResponse'
+            Prelude.<$> (x Core..?> "Room")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetRoom where
+instance Prelude.Hashable GetRoom
 
-instance NFData GetRoom where
+instance Prelude.NFData GetRoom
 
-instance ToHeaders GetRoom where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.GetRoom" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetRoom where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AlexaForBusiness.GetRoom" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetRoom where
-        toJSON GetRoom'{..}
-          = object (catMaybes [("RoomArn" .=) <$> _grRoomARN])
+instance Core.ToJSON GetRoom where
+  toJSON GetRoom' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("RoomArn" Core..=) Prelude.<$> roomArn]
+      )
 
-instance ToPath GetRoom where
-        toPath = const "/"
+instance Core.ToPath GetRoom where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetRoom where
-        toQuery = const mempty
+instance Core.ToQuery GetRoom where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getRoomResponse' smart constructor.
+-- | /See:/ 'newGetRoomResponse' smart constructor.
 data GetRoomResponse = GetRoomResponse'
-  { _grrsRoom           :: !(Maybe Room)
-  , _grrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The details of the room requested.
+    room :: Prelude.Maybe Room,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetRoomResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRoomResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grrsRoom' - The details of the room requested.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grrsResponseStatus' - -- | The response status code.
-getRoomResponse
-    :: Int -- ^ 'grrsResponseStatus'
-    -> GetRoomResponse
-getRoomResponse pResponseStatus_ =
-  GetRoomResponse' {_grrsRoom = Nothing, _grrsResponseStatus = pResponseStatus_}
-
+-- 'room', 'getRoomResponse_room' - The details of the room requested.
+--
+-- 'httpStatus', 'getRoomResponse_httpStatus' - The response's http status code.
+newGetRoomResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRoomResponse
+newGetRoomResponse pHttpStatus_ =
+  GetRoomResponse'
+    { room = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The details of the room requested.
-grrsRoom :: Lens' GetRoomResponse (Maybe Room)
-grrsRoom = lens _grrsRoom (\ s a -> s{_grrsRoom = a})
+getRoomResponse_room :: Lens.Lens' GetRoomResponse (Prelude.Maybe Room)
+getRoomResponse_room = Lens.lens (\GetRoomResponse' {room} -> room) (\s@GetRoomResponse' {} a -> s {room = a} :: GetRoomResponse)
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRoomResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
+-- | The response's http status code.
+getRoomResponse_httpStatus :: Lens.Lens' GetRoomResponse Prelude.Int
+getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpStatus) (\s@GetRoomResponse' {} a -> s {httpStatus = a} :: GetRoomResponse)
 
-instance NFData GetRoomResponse where
+instance Prelude.NFData GetRoomResponse

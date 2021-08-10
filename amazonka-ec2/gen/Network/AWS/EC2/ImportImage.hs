@@ -1,329 +1,642 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ImportImage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import/Export> in the /VM Import\/Export User Guide/ .
---
---
+-- Import single or multi-volume disk images or EBS snapshots into an
+-- Amazon Machine Image (AMI). For more information, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import\/Export>
+-- in the /VM Import\/Export User Guide/.
 module Network.AWS.EC2.ImportImage
-    (
-    -- * Creating a Request
-      importImage
-    , ImportImage
+  ( -- * Creating a Request
+    ImportImage (..),
+    newImportImage,
+
     -- * Request Lenses
-    , impHypervisor
-    , impPlatform
-    , impClientToken
-    , impLicenseType
-    , impRoleName
-    , impArchitecture
-    , impDescription
-    , impDryRun
-    , impClientData
-    , impDiskContainers
+    importImage_hypervisor,
+    importImage_platform,
+    importImage_tagSpecifications,
+    importImage_dryRun,
+    importImage_encrypted,
+    importImage_roleName,
+    importImage_licenseSpecifications,
+    importImage_architecture,
+    importImage_kmsKeyId,
+    importImage_diskContainers,
+    importImage_clientData,
+    importImage_description,
+    importImage_licenseType,
+    importImage_clientToken,
 
     -- * Destructuring the Response
-    , importImageResponse
-    , ImportImageResponse
+    ImportImageResponse (..),
+    newImportImageResponse,
+
     -- * Response Lenses
-    , irsStatus
-    , irsHypervisor
-    , irsPlatform
-    , irsProgress
-    , irsLicenseType
-    , irsSnapshotDetails
-    , irsStatusMessage
-    , irsImageId
-    , irsImportTaskId
-    , irsArchitecture
-    , irsDescription
-    , irsResponseStatus
-    ) where
+    importImageResponse_hypervisor,
+    importImageResponse_platform,
+    importImageResponse_statusMessage,
+    importImageResponse_status,
+    importImageResponse_snapshotDetails,
+    importImageResponse_encrypted,
+    importImageResponse_importTaskId,
+    importImageResponse_licenseSpecifications,
+    importImageResponse_architecture,
+    importImageResponse_imageId,
+    importImageResponse_kmsKeyId,
+    importImageResponse_tags,
+    importImageResponse_description,
+    importImageResponse_licenseType,
+    importImageResponse_progress,
+    importImageResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for ImportImage.
---
---
---
--- /See:/ 'importImage' smart constructor.
+-- | /See:/ 'newImportImage' smart constructor.
 data ImportImage = ImportImage'
-  { _impHypervisor     :: !(Maybe Text)
-  , _impPlatform       :: !(Maybe Text)
-  , _impClientToken    :: !(Maybe Text)
-  , _impLicenseType    :: !(Maybe Text)
-  , _impRoleName       :: !(Maybe Text)
-  , _impArchitecture   :: !(Maybe Text)
-  , _impDescription    :: !(Maybe Text)
-  , _impDryRun         :: !(Maybe Bool)
-  , _impClientData     :: !(Maybe ClientData)
-  , _impDiskContainers :: !(Maybe [ImageDiskContainer])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The target hypervisor platform.
+    --
+    -- Valid values: @xen@
+    hypervisor :: Prelude.Maybe Prelude.Text,
+    -- | The operating system of the virtual machine.
+    --
+    -- Valid values: @Windows@ | @Linux@
+    platform :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the import image task during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the destination AMI of the imported image should be
+    -- encrypted. The default CMK for EBS is used unless you specify a
+    -- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the role to use when not using the default role,
+    -- \'vmimport\'.
+    roleName :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationRequest],
+    -- | The architecture of the virtual machine.
+    --
+    -- Valid values: @i386@ | @x86_64@ | @arm64@
+    architecture :: Prelude.Maybe Prelude.Text,
+    -- | An identifier for the symmetric AWS Key Management Service (AWS KMS)
+    -- customer master key (CMK) to use when creating the encrypted AMI. This
+    -- parameter is only required if you want to use a non-default CMK; if this
+    -- parameter is not specified, the default CMK for EBS is used. If a
+    -- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+    --
+    -- The CMK identifier may be provided in any of the following formats:
+    --
+    -- -   Key ID
+    --
+    -- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
+    --     followed by the Region of the CMK, the AWS account ID of the CMK
+    --     owner, the @alias@ namespace, and then the CMK alias. For example,
+    --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+    --
+    -- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
+    --     followed by the Region of the CMK, the AWS account ID of the CMK
+    --     owner, the @key@ namespace, and then the CMK ID. For example,
+    --     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+    --
+    -- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
+    --     namespace, followed by the Region of the CMK, the AWS account ID of
+    --     the CMK owner, the @alias@ namespace, and then the CMK alias. For
+    --     example,
+    --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+    --
+    -- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
+    -- may appear to complete even though you provided an invalid identifier.
+    -- This action will eventually report failure.
+    --
+    -- The specified CMK must exist in the Region that the AMI is being copied
+    -- to.
+    --
+    -- Amazon EBS does not support asymmetric CMKs.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the disk containers.
+    diskContainers :: Prelude.Maybe [ImageDiskContainer],
+    -- | The client-specific data.
+    clientData :: Prelude.Maybe ClientData,
+    -- | A description string for the import image task.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The license type to be used for the Amazon Machine Image (AMI) after
+    -- importing.
+    --
+    -- By default, we detect the source-system operating system (OS) and apply
+    -- the appropriate license. Specify @AWS@ to replace the source-system
+    -- license with an AWS license, if appropriate. Specify @BYOL@ to retain
+    -- the source-system license, if appropriate.
+    --
+    -- To use @BYOL@, you must have existing licenses with rights to use these
+    -- licenses in a third party cloud, such as AWS. For more information, see
+    -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
+    -- in the VM Import\/Export User Guide.
+    licenseType :: Prelude.Maybe Prelude.Text,
+    -- | The token to enable idempotency for VM import requests.
+    clientToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ImportImage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportImage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'impHypervisor' - The target hypervisor platform. Valid values: @xen@
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'impPlatform' - The operating system of the virtual machine. Valid values: @Windows@ | @Linux@
+-- 'hypervisor', 'importImage_hypervisor' - The target hypervisor platform.
 --
--- * 'impClientToken' - The token to enable idempotency for VM import requests.
+-- Valid values: @xen@
 --
--- * 'impLicenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
+-- 'platform', 'importImage_platform' - The operating system of the virtual machine.
 --
--- * 'impRoleName' - The name of the role to use when not using the default role, 'vmimport'.
+-- Valid values: @Windows@ | @Linux@
 --
--- * 'impArchitecture' - The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
+-- 'tagSpecifications', 'importImage_tagSpecifications' - The tags to apply to the import image task during creation.
 --
--- * 'impDescription' - A description string for the import image task.
+-- 'dryRun', 'importImage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'impDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'encrypted', 'importImage_encrypted' - Specifies whether the destination AMI of the imported image should be
+-- encrypted. The default CMK for EBS is used unless you specify a
+-- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- * 'impClientData' - The client-specific data.
+-- 'roleName', 'importImage_roleName' - The name of the role to use when not using the default role,
+-- \'vmimport\'.
 --
--- * 'impDiskContainers' - Information about the disk containers.
-importImage
-    :: ImportImage
-importImage =
+-- 'licenseSpecifications', 'importImage_licenseSpecifications' - The ARNs of the license configurations.
+--
+-- 'architecture', 'importImage_architecture' - The architecture of the virtual machine.
+--
+-- Valid values: @i386@ | @x86_64@ | @arm64@
+--
+-- 'kmsKeyId', 'importImage_kmsKeyId' - An identifier for the symmetric AWS Key Management Service (AWS KMS)
+-- customer master key (CMK) to use when creating the encrypted AMI. This
+-- parameter is only required if you want to use a non-default CMK; if this
+-- parameter is not specified, the default CMK for EBS is used. If a
+-- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+--
+-- The CMK identifier may be provided in any of the following formats:
+--
+-- -   Key ID
+--
+-- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
+--     followed by the Region of the CMK, the AWS account ID of the CMK
+--     owner, the @alias@ namespace, and then the CMK alias. For example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+--
+-- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
+--     followed by the Region of the CMK, the AWS account ID of the CMK
+--     owner, the @key@ namespace, and then the CMK ID. For example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+--
+-- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
+--     namespace, followed by the Region of the CMK, the AWS account ID of
+--     the CMK owner, the @alias@ namespace, and then the CMK alias. For
+--     example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+--
+-- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
+-- may appear to complete even though you provided an invalid identifier.
+-- This action will eventually report failure.
+--
+-- The specified CMK must exist in the Region that the AMI is being copied
+-- to.
+--
+-- Amazon EBS does not support asymmetric CMKs.
+--
+-- 'diskContainers', 'importImage_diskContainers' - Information about the disk containers.
+--
+-- 'clientData', 'importImage_clientData' - The client-specific data.
+--
+-- 'description', 'importImage_description' - A description string for the import image task.
+--
+-- 'licenseType', 'importImage_licenseType' - The license type to be used for the Amazon Machine Image (AMI) after
+-- importing.
+--
+-- By default, we detect the source-system operating system (OS) and apply
+-- the appropriate license. Specify @AWS@ to replace the source-system
+-- license with an AWS license, if appropriate. Specify @BYOL@ to retain
+-- the source-system license, if appropriate.
+--
+-- To use @BYOL@, you must have existing licenses with rights to use these
+-- licenses in a third party cloud, such as AWS. For more information, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
+-- in the VM Import\/Export User Guide.
+--
+-- 'clientToken', 'importImage_clientToken' - The token to enable idempotency for VM import requests.
+newImportImage ::
+  ImportImage
+newImportImage =
   ImportImage'
-    { _impHypervisor = Nothing
-    , _impPlatform = Nothing
-    , _impClientToken = Nothing
-    , _impLicenseType = Nothing
-    , _impRoleName = Nothing
-    , _impArchitecture = Nothing
-    , _impDescription = Nothing
-    , _impDryRun = Nothing
-    , _impClientData = Nothing
-    , _impDiskContainers = Nothing
+    { hypervisor = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      roleName = Prelude.Nothing,
+      licenseSpecifications = Prelude.Nothing,
+      architecture = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      diskContainers = Prelude.Nothing,
+      clientData = Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseType = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
-
--- | The target hypervisor platform. Valid values: @xen@
-impHypervisor :: Lens' ImportImage (Maybe Text)
-impHypervisor = lens _impHypervisor (\ s a -> s{_impHypervisor = a})
-
--- | The operating system of the virtual machine. Valid values: @Windows@ | @Linux@
-impPlatform :: Lens' ImportImage (Maybe Text)
-impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a})
-
--- | The token to enable idempotency for VM import requests.
-impClientToken :: Lens' ImportImage (Maybe Text)
-impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a})
-
--- | The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
-impLicenseType :: Lens' ImportImage (Maybe Text)
-impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a})
-
--- | The name of the role to use when not using the default role, 'vmimport'.
-impRoleName :: Lens' ImportImage (Maybe Text)
-impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a})
-
--- | The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
-impArchitecture :: Lens' ImportImage (Maybe Text)
-impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a})
-
--- | A description string for the import image task.
-impDescription :: Lens' ImportImage (Maybe Text)
-impDescription = lens _impDescription (\ s a -> s{_impDescription = a})
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-impDryRun :: Lens' ImportImage (Maybe Bool)
-impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a})
-
--- | The client-specific data.
-impClientData :: Lens' ImportImage (Maybe ClientData)
-impClientData = lens _impClientData (\ s a -> s{_impClientData = a})
-
--- | Information about the disk containers.
-impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
-impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default . _Coerce
-
-instance AWSRequest ImportImage where
-        type Rs ImportImage = ImportImageResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 ImportImageResponse' <$>
-                   (x .@? "status") <*> (x .@? "hypervisor") <*>
-                     (x .@? "platform")
-                     <*> (x .@? "progress")
-                     <*> (x .@? "licenseType")
-                     <*>
-                     (x .@? "snapshotDetailSet" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (x .@? "statusMessage")
-                     <*> (x .@? "imageId")
-                     <*> (x .@? "importTaskId")
-                     <*> (x .@? "architecture")
-                     <*> (x .@? "description")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ImportImage where
-
-instance NFData ImportImage where
-
-instance ToHeaders ImportImage where
-        toHeaders = const mempty
-
-instance ToPath ImportImage where
-        toPath = const "/"
-
-instance ToQuery ImportImage where
-        toQuery ImportImage'{..}
-          = mconcat
-              ["Action" =: ("ImportImage" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "Hypervisor" =: _impHypervisor,
-               "Platform" =: _impPlatform,
-               "ClientToken" =: _impClientToken,
-               "LicenseType" =: _impLicenseType,
-               "RoleName" =: _impRoleName,
-               "Architecture" =: _impArchitecture,
-               "Description" =: _impDescription,
-               "DryRun" =: _impDryRun,
-               "ClientData" =: _impClientData,
-               toQuery
-                 (toQueryList "DiskContainer" <$> _impDiskContainers)]
-
--- | Contains the output for ImportImage.
+-- | The target hypervisor platform.
 --
---
---
--- /See:/ 'importImageResponse' smart constructor.
-data ImportImageResponse = ImportImageResponse'
-  { _irsStatus          :: !(Maybe Text)
-  , _irsHypervisor      :: !(Maybe Text)
-  , _irsPlatform        :: !(Maybe Text)
-  , _irsProgress        :: !(Maybe Text)
-  , _irsLicenseType     :: !(Maybe Text)
-  , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
-  , _irsStatusMessage   :: !(Maybe Text)
-  , _irsImageId         :: !(Maybe Text)
-  , _irsImportTaskId    :: !(Maybe Text)
-  , _irsArchitecture    :: !(Maybe Text)
-  , _irsDescription     :: !(Maybe Text)
-  , _irsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irsStatus' - A brief status of the task.
---
--- * 'irsHypervisor' - The target hypervisor of the import task.
---
--- * 'irsPlatform' - The operating system of the virtual machine.
---
--- * 'irsProgress' - The progress of the task.
---
--- * 'irsLicenseType' - The license type of the virtual machine.
---
--- * 'irsSnapshotDetails' - Information about the snapshots.
---
--- * 'irsStatusMessage' - A detailed status message of the import task.
---
--- * 'irsImageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
---
--- * 'irsImportTaskId' - The task ID of the import image task.
---
--- * 'irsArchitecture' - The architecture of the virtual machine.
---
--- * 'irsDescription' - A description of the import task.
---
--- * 'irsResponseStatus' - -- | The response status code.
-importImageResponse
-    :: Int -- ^ 'irsResponseStatus'
-    -> ImportImageResponse
-importImageResponse pResponseStatus_ =
-  ImportImageResponse'
-    { _irsStatus = Nothing
-    , _irsHypervisor = Nothing
-    , _irsPlatform = Nothing
-    , _irsProgress = Nothing
-    , _irsLicenseType = Nothing
-    , _irsSnapshotDetails = Nothing
-    , _irsStatusMessage = Nothing
-    , _irsImageId = Nothing
-    , _irsImportTaskId = Nothing
-    , _irsArchitecture = Nothing
-    , _irsDescription = Nothing
-    , _irsResponseStatus = pResponseStatus_
-    }
-
-
--- | A brief status of the task.
-irsStatus :: Lens' ImportImageResponse (Maybe Text)
-irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a})
-
--- | The target hypervisor of the import task.
-irsHypervisor :: Lens' ImportImageResponse (Maybe Text)
-irsHypervisor = lens _irsHypervisor (\ s a -> s{_irsHypervisor = a})
+-- Valid values: @xen@
+importImage_hypervisor :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_hypervisor = Lens.lens (\ImportImage' {hypervisor} -> hypervisor) (\s@ImportImage' {} a -> s {hypervisor = a} :: ImportImage)
 
 -- | The operating system of the virtual machine.
-irsPlatform :: Lens' ImportImageResponse (Maybe Text)
-irsPlatform = lens _irsPlatform (\ s a -> s{_irsPlatform = a})
+--
+-- Valid values: @Windows@ | @Linux@
+importImage_platform :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_platform = Lens.lens (\ImportImage' {platform} -> platform) (\s@ImportImage' {} a -> s {platform = a} :: ImportImage)
 
--- | The progress of the task.
-irsProgress :: Lens' ImportImageResponse (Maybe Text)
-irsProgress = lens _irsProgress (\ s a -> s{_irsProgress = a})
+-- | The tags to apply to the import image task during creation.
+importImage_tagSpecifications :: Lens.Lens' ImportImage (Prelude.Maybe [TagSpecification])
+importImage_tagSpecifications = Lens.lens (\ImportImage' {tagSpecifications} -> tagSpecifications) (\s@ImportImage' {} a -> s {tagSpecifications = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
 
--- | The license type of the virtual machine.
-irsLicenseType :: Lens' ImportImageResponse (Maybe Text)
-irsLicenseType = lens _irsLicenseType (\ s a -> s{_irsLicenseType = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+importImage_dryRun :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Bool)
+importImage_dryRun = Lens.lens (\ImportImage' {dryRun} -> dryRun) (\s@ImportImage' {} a -> s {dryRun = a} :: ImportImage)
 
--- | Information about the snapshots.
-irsSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
-irsSnapshotDetails = lens _irsSnapshotDetails (\ s a -> s{_irsSnapshotDetails = a}) . _Default . _Coerce
+-- | Specifies whether the destination AMI of the imported image should be
+-- encrypted. The default CMK for EBS is used unless you specify a
+-- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+importImage_encrypted :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Bool)
+importImage_encrypted = Lens.lens (\ImportImage' {encrypted} -> encrypted) (\s@ImportImage' {} a -> s {encrypted = a} :: ImportImage)
 
--- | A detailed status message of the import task.
-irsStatusMessage :: Lens' ImportImageResponse (Maybe Text)
-irsStatusMessage = lens _irsStatusMessage (\ s a -> s{_irsStatusMessage = a})
+-- | The name of the role to use when not using the default role,
+-- \'vmimport\'.
+importImage_roleName :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_roleName = Lens.lens (\ImportImage' {roleName} -> roleName) (\s@ImportImage' {} a -> s {roleName = a} :: ImportImage)
 
--- | The ID of the Amazon Machine Image (AMI) created by the import task.
-irsImageId :: Lens' ImportImageResponse (Maybe Text)
-irsImageId = lens _irsImageId (\ s a -> s{_irsImageId = a})
-
--- | The task ID of the import image task.
-irsImportTaskId :: Lens' ImportImageResponse (Maybe Text)
-irsImportTaskId = lens _irsImportTaskId (\ s a -> s{_irsImportTaskId = a})
+-- | The ARNs of the license configurations.
+importImage_licenseSpecifications :: Lens.Lens' ImportImage (Prelude.Maybe [ImportImageLicenseConfigurationRequest])
+importImage_licenseSpecifications = Lens.lens (\ImportImage' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImage' {} a -> s {licenseSpecifications = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The architecture of the virtual machine.
-irsArchitecture :: Lens' ImportImageResponse (Maybe Text)
-irsArchitecture = lens _irsArchitecture (\ s a -> s{_irsArchitecture = a})
+--
+-- Valid values: @i386@ | @x86_64@ | @arm64@
+importImage_architecture :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_architecture = Lens.lens (\ImportImage' {architecture} -> architecture) (\s@ImportImage' {} a -> s {architecture = a} :: ImportImage)
+
+-- | An identifier for the symmetric AWS Key Management Service (AWS KMS)
+-- customer master key (CMK) to use when creating the encrypted AMI. This
+-- parameter is only required if you want to use a non-default CMK; if this
+-- parameter is not specified, the default CMK for EBS is used. If a
+-- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+--
+-- The CMK identifier may be provided in any of the following formats:
+--
+-- -   Key ID
+--
+-- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
+--     followed by the Region of the CMK, the AWS account ID of the CMK
+--     owner, the @alias@ namespace, and then the CMK alias. For example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+--
+-- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
+--     followed by the Region of the CMK, the AWS account ID of the CMK
+--     owner, the @key@ namespace, and then the CMK ID. For example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+--
+-- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
+--     namespace, followed by the Region of the CMK, the AWS account ID of
+--     the CMK owner, the @alias@ namespace, and then the CMK alias. For
+--     example,
+--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
+--
+-- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
+-- may appear to complete even though you provided an invalid identifier.
+-- This action will eventually report failure.
+--
+-- The specified CMK must exist in the Region that the AMI is being copied
+-- to.
+--
+-- Amazon EBS does not support asymmetric CMKs.
+importImage_kmsKeyId :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_kmsKeyId = Lens.lens (\ImportImage' {kmsKeyId} -> kmsKeyId) (\s@ImportImage' {} a -> s {kmsKeyId = a} :: ImportImage)
+
+-- | Information about the disk containers.
+importImage_diskContainers :: Lens.Lens' ImportImage (Prelude.Maybe [ImageDiskContainer])
+importImage_diskContainers = Lens.lens (\ImportImage' {diskContainers} -> diskContainers) (\s@ImportImage' {} a -> s {diskContainers = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The client-specific data.
+importImage_clientData :: Lens.Lens' ImportImage (Prelude.Maybe ClientData)
+importImage_clientData = Lens.lens (\ImportImage' {clientData} -> clientData) (\s@ImportImage' {} a -> s {clientData = a} :: ImportImage)
+
+-- | A description string for the import image task.
+importImage_description :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_description = Lens.lens (\ImportImage' {description} -> description) (\s@ImportImage' {} a -> s {description = a} :: ImportImage)
+
+-- | The license type to be used for the Amazon Machine Image (AMI) after
+-- importing.
+--
+-- By default, we detect the source-system operating system (OS) and apply
+-- the appropriate license. Specify @AWS@ to replace the source-system
+-- license with an AWS license, if appropriate. Specify @BYOL@ to retain
+-- the source-system license, if appropriate.
+--
+-- To use @BYOL@, you must have existing licenses with rights to use these
+-- licenses in a third party cloud, such as AWS. For more information, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
+-- in the VM Import\/Export User Guide.
+importImage_licenseType :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_licenseType = Lens.lens (\ImportImage' {licenseType} -> licenseType) (\s@ImportImage' {} a -> s {licenseType = a} :: ImportImage)
+
+-- | The token to enable idempotency for VM import requests.
+importImage_clientToken :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_clientToken = Lens.lens (\ImportImage' {clientToken} -> clientToken) (\s@ImportImage' {} a -> s {clientToken = a} :: ImportImage)
+
+instance Core.AWSRequest ImportImage where
+  type AWSResponse ImportImage = ImportImageResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ImportImageResponse'
+            Prelude.<$> (x Core..@? "hypervisor")
+            Prelude.<*> (x Core..@? "platform")
+            Prelude.<*> (x Core..@? "statusMessage")
+            Prelude.<*> (x Core..@? "status")
+            Prelude.<*> ( x Core..@? "snapshotDetailSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "encrypted")
+            Prelude.<*> (x Core..@? "importTaskId")
+            Prelude.<*> ( x Core..@? "licenseSpecifications"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "architecture")
+            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<*> (x Core..@? "kmsKeyId")
+            Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "description")
+            Prelude.<*> (x Core..@? "licenseType")
+            Prelude.<*> (x Core..@? "progress")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ImportImage
+
+instance Prelude.NFData ImportImage
+
+instance Core.ToHeaders ImportImage where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ImportImage where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ImportImage where
+  toQuery ImportImage' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ImportImage" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Hypervisor" Core.=: hypervisor,
+        "Platform" Core.=: platform,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        "DryRun" Core.=: dryRun,
+        "Encrypted" Core.=: encrypted,
+        "RoleName" Core.=: roleName,
+        Core.toQuery
+          ( Core.toQueryList "LicenseSpecifications"
+              Prelude.<$> licenseSpecifications
+          ),
+        "Architecture" Core.=: architecture,
+        "KmsKeyId" Core.=: kmsKeyId,
+        Core.toQuery
+          ( Core.toQueryList "DiskContainer"
+              Prelude.<$> diskContainers
+          ),
+        "ClientData" Core.=: clientData,
+        "Description" Core.=: description,
+        "LicenseType" Core.=: licenseType,
+        "ClientToken" Core.=: clientToken
+      ]
+
+-- | /See:/ 'newImportImageResponse' smart constructor.
+data ImportImageResponse = ImportImageResponse'
+  { -- | The target hypervisor of the import task.
+    hypervisor :: Prelude.Maybe Prelude.Text,
+    -- | The operating system of the virtual machine.
+    platform :: Prelude.Maybe Prelude.Text,
+    -- | A detailed status message of the import task.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | A brief status of the task.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | Information about the snapshots.
+    snapshotDetails :: Prelude.Maybe [SnapshotDetail],
+    -- | Indicates whether the AMI is encrypted.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The task ID of the import image task.
+    importTaskId :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | The architecture of the virtual machine.
+    architecture :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Machine Image (AMI) created by the import task.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the symmetric AWS Key Management Service (AWS KMS)
+    -- customer master key (CMK) that was used to create the encrypted AMI.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Any tags assigned to the import image task.
+    tags :: Prelude.Maybe [Tag],
+    -- | A description of the import task.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The license type of the virtual machine.
+    licenseType :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the task.
+    progress :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ImportImageResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'hypervisor', 'importImageResponse_hypervisor' - The target hypervisor of the import task.
+--
+-- 'platform', 'importImageResponse_platform' - The operating system of the virtual machine.
+--
+-- 'statusMessage', 'importImageResponse_statusMessage' - A detailed status message of the import task.
+--
+-- 'status', 'importImageResponse_status' - A brief status of the task.
+--
+-- 'snapshotDetails', 'importImageResponse_snapshotDetails' - Information about the snapshots.
+--
+-- 'encrypted', 'importImageResponse_encrypted' - Indicates whether the AMI is encrypted.
+--
+-- 'importTaskId', 'importImageResponse_importTaskId' - The task ID of the import image task.
+--
+-- 'licenseSpecifications', 'importImageResponse_licenseSpecifications' - The ARNs of the license configurations.
+--
+-- 'architecture', 'importImageResponse_architecture' - The architecture of the virtual machine.
+--
+-- 'imageId', 'importImageResponse_imageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
+--
+-- 'kmsKeyId', 'importImageResponse_kmsKeyId' - The identifier for the symmetric AWS Key Management Service (AWS KMS)
+-- customer master key (CMK) that was used to create the encrypted AMI.
+--
+-- 'tags', 'importImageResponse_tags' - Any tags assigned to the import image task.
+--
+-- 'description', 'importImageResponse_description' - A description of the import task.
+--
+-- 'licenseType', 'importImageResponse_licenseType' - The license type of the virtual machine.
+--
+-- 'progress', 'importImageResponse_progress' - The progress of the task.
+--
+-- 'httpStatus', 'importImageResponse_httpStatus' - The response's http status code.
+newImportImageResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ImportImageResponse
+newImportImageResponse pHttpStatus_ =
+  ImportImageResponse'
+    { hypervisor = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      status = Prelude.Nothing,
+      snapshotDetails = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      importTaskId = Prelude.Nothing,
+      licenseSpecifications = Prelude.Nothing,
+      architecture = Prelude.Nothing,
+      imageId = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseType = Prelude.Nothing,
+      progress = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The target hypervisor of the import task.
+importImageResponse_hypervisor :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_hypervisor = Lens.lens (\ImportImageResponse' {hypervisor} -> hypervisor) (\s@ImportImageResponse' {} a -> s {hypervisor = a} :: ImportImageResponse)
+
+-- | The operating system of the virtual machine.
+importImageResponse_platform :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_platform = Lens.lens (\ImportImageResponse' {platform} -> platform) (\s@ImportImageResponse' {} a -> s {platform = a} :: ImportImageResponse)
+
+-- | A detailed status message of the import task.
+importImageResponse_statusMessage :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_statusMessage = Lens.lens (\ImportImageResponse' {statusMessage} -> statusMessage) (\s@ImportImageResponse' {} a -> s {statusMessage = a} :: ImportImageResponse)
+
+-- | A brief status of the task.
+importImageResponse_status :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_status = Lens.lens (\ImportImageResponse' {status} -> status) (\s@ImportImageResponse' {} a -> s {status = a} :: ImportImageResponse)
+
+-- | Information about the snapshots.
+importImageResponse_snapshotDetails :: Lens.Lens' ImportImageResponse (Prelude.Maybe [SnapshotDetail])
+importImageResponse_snapshotDetails = Lens.lens (\ImportImageResponse' {snapshotDetails} -> snapshotDetails) (\s@ImportImageResponse' {} a -> s {snapshotDetails = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Indicates whether the AMI is encrypted.
+importImageResponse_encrypted :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Bool)
+importImageResponse_encrypted = Lens.lens (\ImportImageResponse' {encrypted} -> encrypted) (\s@ImportImageResponse' {} a -> s {encrypted = a} :: ImportImageResponse)
+
+-- | The task ID of the import image task.
+importImageResponse_importTaskId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_importTaskId = Lens.lens (\ImportImageResponse' {importTaskId} -> importTaskId) (\s@ImportImageResponse' {} a -> s {importTaskId = a} :: ImportImageResponse)
+
+-- | The ARNs of the license configurations.
+importImageResponse_licenseSpecifications :: Lens.Lens' ImportImageResponse (Prelude.Maybe [ImportImageLicenseConfigurationResponse])
+importImageResponse_licenseSpecifications = Lens.lens (\ImportImageResponse' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImageResponse' {} a -> s {licenseSpecifications = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The architecture of the virtual machine.
+importImageResponse_architecture :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_architecture = Lens.lens (\ImportImageResponse' {architecture} -> architecture) (\s@ImportImageResponse' {} a -> s {architecture = a} :: ImportImageResponse)
+
+-- | The ID of the Amazon Machine Image (AMI) created by the import task.
+importImageResponse_imageId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_imageId = Lens.lens (\ImportImageResponse' {imageId} -> imageId) (\s@ImportImageResponse' {} a -> s {imageId = a} :: ImportImageResponse)
+
+-- | The identifier for the symmetric AWS Key Management Service (AWS KMS)
+-- customer master key (CMK) that was used to create the encrypted AMI.
+importImageResponse_kmsKeyId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_kmsKeyId = Lens.lens (\ImportImageResponse' {kmsKeyId} -> kmsKeyId) (\s@ImportImageResponse' {} a -> s {kmsKeyId = a} :: ImportImageResponse)
+
+-- | Any tags assigned to the import image task.
+importImageResponse_tags :: Lens.Lens' ImportImageResponse (Prelude.Maybe [Tag])
+importImageResponse_tags = Lens.lens (\ImportImageResponse' {tags} -> tags) (\s@ImportImageResponse' {} a -> s {tags = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the import task.
-irsDescription :: Lens' ImportImageResponse (Maybe Text)
-irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a})
+importImageResponse_description :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_description = Lens.lens (\ImportImageResponse' {description} -> description) (\s@ImportImageResponse' {} a -> s {description = a} :: ImportImageResponse)
 
--- | -- | The response status code.
-irsResponseStatus :: Lens' ImportImageResponse Int
-irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a})
+-- | The license type of the virtual machine.
+importImageResponse_licenseType :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_licenseType = Lens.lens (\ImportImageResponse' {licenseType} -> licenseType) (\s@ImportImageResponse' {} a -> s {licenseType = a} :: ImportImageResponse)
 
-instance NFData ImportImageResponse where
+-- | The progress of the task.
+importImageResponse_progress :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_progress = Lens.lens (\ImportImageResponse' {progress} -> progress) (\s@ImportImageResponse' {} a -> s {progress = a} :: ImportImageResponse)
+
+-- | The response's http status code.
+importImageResponse_httpStatus :: Lens.Lens' ImportImageResponse Prelude.Int
+importImageResponse_httpStatus = Lens.lens (\ImportImageResponse' {httpStatus} -> httpStatus) (\s@ImportImageResponse' {} a -> s {httpStatus = a} :: ImportImageResponse)
+
+instance Prelude.NFData ImportImageResponse

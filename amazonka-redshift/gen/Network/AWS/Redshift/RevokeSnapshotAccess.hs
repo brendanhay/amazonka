@@ -1,157 +1,200 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.
+-- Removes the ability of the specified AWS customer account to restore the
+-- specified snapshot. If the account is currently restoring the snapshot,
+-- the restore will run to completion.
 --
---
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
---
+-- For more information about working with snapshots, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
+-- in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.RevokeSnapshotAccess
-    (
-    -- * Creating a Request
-      revokeSnapshotAccess
-    , RevokeSnapshotAccess
+  ( -- * Creating a Request
+    RevokeSnapshotAccess (..),
+    newRevokeSnapshotAccess,
+
     -- * Request Lenses
-    , rsaSnapshotClusterIdentifier
-    , rsaSnapshotIdentifier
-    , rsaAccountWithRestoreAccess
+    revokeSnapshotAccess_snapshotClusterIdentifier,
+    revokeSnapshotAccess_snapshotIdentifier,
+    revokeSnapshotAccess_accountWithRestoreAccess,
 
     -- * Destructuring the Response
-    , revokeSnapshotAccessResponse
-    , RevokeSnapshotAccessResponse
-    -- * Response Lenses
-    , rsarsSnapshot
-    , rsarsResponseStatus
-    ) where
+    RevokeSnapshotAccessResponse (..),
+    newRevokeSnapshotAccessResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    revokeSnapshotAccessResponse_snapshot,
+    revokeSnapshotAccessResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'revokeSnapshotAccess' smart constructor.
+-- /See:/ 'newRevokeSnapshotAccess' smart constructor.
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-  { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
-  , _rsaSnapshotIdentifier        :: !Text
-  , _rsaAccountWithRestoreAccess  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier of the cluster the snapshot was created from. This
+    -- parameter is required if your IAM user has a policy containing a
+    -- snapshot resource element that specifies anything other than * for the
+    -- cluster name.
+    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the snapshot that the account can no longer access.
+    snapshotIdentifier :: Prelude.Text,
+    -- | The identifier of the AWS customer account that can no longer restore
+    -- the specified snapshot.
+    accountWithRestoreAccess :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'RevokeSnapshotAccess' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'snapshotClusterIdentifier', 'revokeSnapshotAccess_snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+--
+-- 'snapshotIdentifier', 'revokeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
+--
+-- 'accountWithRestoreAccess', 'revokeSnapshotAccess_accountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore
+-- the specified snapshot.
+newRevokeSnapshotAccess ::
+  -- | 'snapshotIdentifier'
+  Prelude.Text ->
+  -- | 'accountWithRestoreAccess'
+  Prelude.Text ->
+  RevokeSnapshotAccess
+newRevokeSnapshotAccess
+  pSnapshotIdentifier_
+  pAccountWithRestoreAccess_ =
+    RevokeSnapshotAccess'
+      { snapshotClusterIdentifier =
+          Prelude.Nothing,
+        snapshotIdentifier = pSnapshotIdentifier_,
+        accountWithRestoreAccess =
+          pAccountWithRestoreAccess_
+      }
 
--- | Creates a value of 'RevokeSnapshotAccess' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsaSnapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- * 'rsaSnapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
---
--- * 'rsaAccountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore the specified snapshot.
-revokeSnapshotAccess
-    :: Text -- ^ 'rsaSnapshotIdentifier'
-    -> Text -- ^ 'rsaAccountWithRestoreAccess'
-    -> RevokeSnapshotAccess
-revokeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
-  RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier = Nothing
-    , _rsaSnapshotIdentifier = pSnapshotIdentifier_
-    , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess_
-    }
-
-
--- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
-rsaSnapshotClusterIdentifier = lens _rsaSnapshotClusterIdentifier (\ s a -> s{_rsaSnapshotClusterIdentifier = a})
+-- | The identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+revokeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
+revokeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotClusterIdentifier = a} :: RevokeSnapshotAccess)
 
 -- | The identifier of the snapshot that the account can no longer access.
-rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
-rsaSnapshotIdentifier = lens _rsaSnapshotIdentifier (\ s a -> s{_rsaSnapshotIdentifier = a})
+revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
+revokeSnapshotAccess_snapshotIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
 
--- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
-rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
-rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a})
+-- | The identifier of the AWS customer account that can no longer restore
+-- the specified snapshot.
+revokeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
+revokeSnapshotAccess_accountWithRestoreAccess = Lens.lens (\RevokeSnapshotAccess' {accountWithRestoreAccess} -> accountWithRestoreAccess) (\s@RevokeSnapshotAccess' {} a -> s {accountWithRestoreAccess = a} :: RevokeSnapshotAccess)
 
-instance AWSRequest RevokeSnapshotAccess where
-        type Rs RevokeSnapshotAccess =
-             RevokeSnapshotAccessResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "RevokeSnapshotAccessResult"
-              (\ s h x ->
-                 RevokeSnapshotAccessResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+instance Core.AWSRequest RevokeSnapshotAccess where
+  type
+    AWSResponse RevokeSnapshotAccess =
+      RevokeSnapshotAccessResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "RevokeSnapshotAccessResult"
+      ( \s h x ->
+          RevokeSnapshotAccessResponse'
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RevokeSnapshotAccess where
+instance Prelude.Hashable RevokeSnapshotAccess
 
-instance NFData RevokeSnapshotAccess where
+instance Prelude.NFData RevokeSnapshotAccess
 
-instance ToHeaders RevokeSnapshotAccess where
-        toHeaders = const mempty
+instance Core.ToHeaders RevokeSnapshotAccess where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath RevokeSnapshotAccess where
-        toPath = const "/"
+instance Core.ToPath RevokeSnapshotAccess where
+  toPath = Prelude.const "/"
 
-instance ToQuery RevokeSnapshotAccess where
-        toQuery RevokeSnapshotAccess'{..}
-          = mconcat
-              ["Action" =: ("RevokeSnapshotAccess" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "SnapshotClusterIdentifier" =:
-                 _rsaSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _rsaSnapshotIdentifier,
-               "AccountWithRestoreAccess" =:
-                 _rsaAccountWithRestoreAccess]
+instance Core.ToQuery RevokeSnapshotAccess where
+  toQuery RevokeSnapshotAccess' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RevokeSnapshotAccess" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "SnapshotClusterIdentifier"
+          Core.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Core.=: snapshotIdentifier,
+        "AccountWithRestoreAccess"
+          Core.=: accountWithRestoreAccess
+      ]
 
--- | /See:/ 'revokeSnapshotAccessResponse' smart constructor.
+-- | /See:/ 'newRevokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-  { _rsarsSnapshot       :: !(Maybe Snapshot)
-  , _rsarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { snapshot :: Prelude.Maybe Snapshot,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RevokeSnapshotAccessResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RevokeSnapshotAccessResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rsarsSnapshot' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rsarsResponseStatus' - -- | The response status code.
-revokeSnapshotAccessResponse
-    :: Int -- ^ 'rsarsResponseStatus'
-    -> RevokeSnapshotAccessResponse
-revokeSnapshotAccessResponse pResponseStatus_ =
+-- 'snapshot', 'revokeSnapshotAccessResponse_snapshot' - Undocumented member.
+--
+-- 'httpStatus', 'revokeSnapshotAccessResponse_httpStatus' - The response's http status code.
+newRevokeSnapshotAccessResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RevokeSnapshotAccessResponse
+newRevokeSnapshotAccessResponse pHttpStatus_ =
   RevokeSnapshotAccessResponse'
-    {_rsarsSnapshot = Nothing, _rsarsResponseStatus = pResponseStatus_}
-
+    { snapshot =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
-rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a})
+revokeSnapshotAccessResponse_snapshot :: Lens.Lens' RevokeSnapshotAccessResponse (Prelude.Maybe Snapshot)
+revokeSnapshotAccessResponse_snapshot = Lens.lens (\RevokeSnapshotAccessResponse' {snapshot} -> snapshot) (\s@RevokeSnapshotAccessResponse' {} a -> s {snapshot = a} :: RevokeSnapshotAccessResponse)
 
--- | -- | The response status code.
-rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
-rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a})
+-- | The response's http status code.
+revokeSnapshotAccessResponse_httpStatus :: Lens.Lens' RevokeSnapshotAccessResponse Prelude.Int
+revokeSnapshotAccessResponse_httpStatus = Lens.lens (\RevokeSnapshotAccessResponse' {httpStatus} -> httpStatus) (\s@RevokeSnapshotAccessResponse' {} a -> s {httpStatus = a} :: RevokeSnapshotAccessResponse)
 
-instance NFData RevokeSnapshotAccessResponse where
+instance Prelude.NFData RevokeSnapshotAccessResponse

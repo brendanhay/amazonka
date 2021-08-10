@@ -1,156 +1,192 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.UpdateResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates data for the resource. It must be preceded by a describe call in order to have the latest information. The dataset in the request should be the one expected when performing another describe call.
---
---
+-- Updates data for the resource. To have the latest information, it must
+-- be preceded by a DescribeResource call. The dataset in the request
+-- should be the one expected when performing another @DescribeResource@
+-- call.
 module Network.AWS.WorkMail.UpdateResource
-    (
-    -- * Creating a Request
-      updateResource
-    , UpdateResource
+  ( -- * Creating a Request
+    UpdateResource (..),
+    newUpdateResource,
+
     -- * Request Lenses
-    , urName
-    , urBookingOptions
-    , urOrganizationId
-    , urResourceId
+    updateResource_name,
+    updateResource_bookingOptions,
+    updateResource_organizationId,
+    updateResource_resourceId,
 
     -- * Destructuring the Response
-    , updateResourceResponse
-    , UpdateResourceResponse
+    UpdateResourceResponse (..),
+    newUpdateResourceResponse,
+
     -- * Response Lenses
-    , urrsResponseStatus
-    ) where
+    updateResourceResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'updateResource' smart constructor.
+-- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { _urName           :: !(Maybe Text)
-  , _urBookingOptions :: !(Maybe BookingOptions)
-  , _urOrganizationId :: !Text
-  , _urResourceId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the resource to be updated.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The resource\'s booking options to be updated.
+    bookingOptions :: Prelude.Maybe BookingOptions,
+    -- | The identifier associated with the organization for which the resource
+    -- is updated.
+    organizationId :: Prelude.Text,
+    -- | The identifier of the resource to be updated.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urName' - The name of the resource to be updated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urBookingOptions' - The resource's booking options to be updated.
+-- 'name', 'updateResource_name' - The name of the resource to be updated.
 --
--- * 'urOrganizationId' - The identifier associated with the organization for which the resource is updated.
+-- 'bookingOptions', 'updateResource_bookingOptions' - The resource\'s booking options to be updated.
 --
--- * 'urResourceId' - The identifier of the resource to be updated.
-updateResource
-    :: Text -- ^ 'urOrganizationId'
-    -> Text -- ^ 'urResourceId'
-    -> UpdateResource
-updateResource pOrganizationId_ pResourceId_ =
+-- 'organizationId', 'updateResource_organizationId' - The identifier associated with the organization for which the resource
+-- is updated.
+--
+-- 'resourceId', 'updateResource_resourceId' - The identifier of the resource to be updated.
+newUpdateResource ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  UpdateResource
+newUpdateResource pOrganizationId_ pResourceId_ =
   UpdateResource'
-    { _urName = Nothing
-    , _urBookingOptions = Nothing
-    , _urOrganizationId = pOrganizationId_
-    , _urResourceId = pResourceId_
+    { name = Prelude.Nothing,
+      bookingOptions = Prelude.Nothing,
+      organizationId = pOrganizationId_,
+      resourceId = pResourceId_
     }
 
-
 -- | The name of the resource to be updated.
-urName :: Lens' UpdateResource (Maybe Text)
-urName = lens _urName (\ s a -> s{_urName = a})
+updateResource_name :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.Text)
+updateResource_name = Lens.lens (\UpdateResource' {name} -> name) (\s@UpdateResource' {} a -> s {name = a} :: UpdateResource)
 
--- | The resource's booking options to be updated.
-urBookingOptions :: Lens' UpdateResource (Maybe BookingOptions)
-urBookingOptions = lens _urBookingOptions (\ s a -> s{_urBookingOptions = a})
+-- | The resource\'s booking options to be updated.
+updateResource_bookingOptions :: Lens.Lens' UpdateResource (Prelude.Maybe BookingOptions)
+updateResource_bookingOptions = Lens.lens (\UpdateResource' {bookingOptions} -> bookingOptions) (\s@UpdateResource' {} a -> s {bookingOptions = a} :: UpdateResource)
 
--- | The identifier associated with the organization for which the resource is updated.
-urOrganizationId :: Lens' UpdateResource Text
-urOrganizationId = lens _urOrganizationId (\ s a -> s{_urOrganizationId = a})
+-- | The identifier associated with the organization for which the resource
+-- is updated.
+updateResource_organizationId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_organizationId = Lens.lens (\UpdateResource' {organizationId} -> organizationId) (\s@UpdateResource' {} a -> s {organizationId = a} :: UpdateResource)
 
 -- | The identifier of the resource to be updated.
-urResourceId :: Lens' UpdateResource Text
-urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a})
+updateResource_resourceId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resourceId) (\s@UpdateResource' {} a -> s {resourceId = a} :: UpdateResource)
 
-instance AWSRequest UpdateResource where
-        type Rs UpdateResource = UpdateResourceResponse
-        request = postJSON workMail
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateResourceResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateResource where
+  type
+    AWSResponse UpdateResource =
+      UpdateResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateResource where
+instance Prelude.Hashable UpdateResource
 
-instance NFData UpdateResource where
+instance Prelude.NFData UpdateResource
 
-instance ToHeaders UpdateResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.UpdateResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "WorkMailService.UpdateResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateResource where
-        toJSON UpdateResource'{..}
-          = object
-              (catMaybes
-                 [("Name" .=) <$> _urName,
-                  ("BookingOptions" .=) <$> _urBookingOptions,
-                  Just ("OrganizationId" .= _urOrganizationId),
-                  Just ("ResourceId" .= _urResourceId)])
+instance Core.ToJSON UpdateResource where
+  toJSON UpdateResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("BookingOptions" Core..=)
+              Prelude.<$> bookingOptions,
+            Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("ResourceId" Core..= resourceId)
+          ]
+      )
 
-instance ToPath UpdateResource where
-        toPath = const "/"
+instance Core.ToPath UpdateResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateResource where
-        toQuery = const mempty
+instance Core.ToQuery UpdateResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateResourceResponse' smart constructor.
-newtype UpdateResourceResponse = UpdateResourceResponse'
-  { _urrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateResourceResponse' smart constructor.
+data UpdateResourceResponse = UpdateResourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-updateResourceResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UpdateResourceResponse
-updateResourceResponse pResponseStatus_ =
-  UpdateResourceResponse' {_urrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateResourceResponse_httpStatus' - The response's http status code.
+newUpdateResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateResourceResponse
+newUpdateResourceResponse pHttpStatus_ =
+  UpdateResourceResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateResourceResponse_httpStatus :: Lens.Lens' UpdateResourceResponse Prelude.Int
+updateResourceResponse_httpStatus = Lens.lens (\UpdateResourceResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceResponse' {} a -> s {httpStatus = a} :: UpdateResourceResponse)
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
-
-instance NFData UpdateResourceResponse where
+instance Prelude.NFData UpdateResourceResponse

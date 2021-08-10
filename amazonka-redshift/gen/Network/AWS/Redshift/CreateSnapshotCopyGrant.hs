@@ -1,158 +1,231 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateSnapshotCopyGrant
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.
+-- Creates a snapshot copy grant that permits Amazon Redshift to use a
+-- customer master key (CMK) from AWS Key Management Service (AWS KMS) to
+-- encrypt copied snapshots in a destination region.
 --
---
--- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ .
---
+-- For more information about managing snapshot copy grants, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
+-- in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
-    (
-    -- * Creating a Request
-      createSnapshotCopyGrant
-    , CreateSnapshotCopyGrant
+  ( -- * Creating a Request
+    CreateSnapshotCopyGrant (..),
+    newCreateSnapshotCopyGrant,
+
     -- * Request Lenses
-    , cscgKMSKeyId
-    , cscgTags
-    , cscgSnapshotCopyGrantName
+    createSnapshotCopyGrant_kmsKeyId,
+    createSnapshotCopyGrant_tags,
+    createSnapshotCopyGrant_snapshotCopyGrantName,
 
     -- * Destructuring the Response
-    , createSnapshotCopyGrantResponse
-    , CreateSnapshotCopyGrantResponse
-    -- * Response Lenses
-    , cscgrsSnapshotCopyGrant
-    , cscgrsResponseStatus
-    ) where
+    CreateSnapshotCopyGrantResponse (..),
+    newCreateSnapshotCopyGrantResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    createSnapshotCopyGrantResponse_snapshotCopyGrant,
+    createSnapshotCopyGrantResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The result of the @CreateSnapshotCopyGrant@ action.
 --
---
---
--- /See:/ 'createSnapshotCopyGrant' smart constructor.
+-- /See:/ 'newCreateSnapshotCopyGrant' smart constructor.
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-  { _cscgKMSKeyId              :: !(Maybe Text)
-  , _cscgTags                  :: !(Maybe [Tag])
-  , _cscgSnapshotCopyGrantName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier of the customer master key (CMK) to which to grant
+    -- Amazon Redshift permission. If no key is specified, the default key is
+    -- used.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the snapshot copy grant. This name must be unique in the
+    -- region for the AWS account.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+    --
+    -- -   Alphabetic characters must be lowercase.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    -- -   Must be unique for all clusters within an AWS account.
+    snapshotCopyGrantName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSnapshotCopyGrant' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSnapshotCopyGrant' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cscgKMSKeyId' - The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cscgTags' - A list of tag instances.
+-- 'kmsKeyId', 'createSnapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) to which to grant
+-- Amazon Redshift permission. If no key is specified, the default key is
+-- used.
 --
--- * 'cscgSnapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
-createSnapshotCopyGrant
-    :: Text -- ^ 'cscgSnapshotCopyGrantName'
-    -> CreateSnapshotCopyGrant
-createSnapshotCopyGrant pSnapshotCopyGrantName_ =
+-- 'tags', 'createSnapshotCopyGrant_tags' - A list of tag instances.
+--
+-- 'snapshotCopyGrantName', 'createSnapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the
+-- region for the AWS account.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+-- -   Alphabetic characters must be lowercase.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for all clusters within an AWS account.
+newCreateSnapshotCopyGrant ::
+  -- | 'snapshotCopyGrantName'
+  Prelude.Text ->
+  CreateSnapshotCopyGrant
+newCreateSnapshotCopyGrant pSnapshotCopyGrantName_ =
   CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId = Nothing
-    , _cscgTags = Nothing
-    , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
+    { kmsKeyId =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      snapshotCopyGrantName = pSnapshotCopyGrantName_
     }
 
-
--- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
-cscgKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
-cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a})
+-- | The unique identifier of the customer master key (CMK) to which to grant
+-- Amazon Redshift permission. If no key is specified, the default key is
+-- used.
+createSnapshotCopyGrant_kmsKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe Prelude.Text)
+createSnapshotCopyGrant_kmsKeyId = Lens.lens (\CreateSnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: CreateSnapshotCopyGrant)
 
 -- | A list of tag instances.
-cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
-cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce
+createSnapshotCopyGrant_tags :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe [Tag])
+createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> tags) (\s@CreateSnapshotCopyGrant' {} a -> s {tags = a} :: CreateSnapshotCopyGrant) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
-cscgSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
-cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a})
+-- | The name of the snapshot copy grant. This name must be unique in the
+-- region for the AWS account.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+-- -   Alphabetic characters must be lowercase.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for all clusters within an AWS account.
+createSnapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' CreateSnapshotCopyGrant Prelude.Text
+createSnapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\CreateSnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@CreateSnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: CreateSnapshotCopyGrant)
 
-instance AWSRequest CreateSnapshotCopyGrant where
-        type Rs CreateSnapshotCopyGrant =
-             CreateSnapshotCopyGrantResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "CreateSnapshotCopyGrantResult"
-              (\ s h x ->
-                 CreateSnapshotCopyGrantResponse' <$>
-                   (x .@? "SnapshotCopyGrant") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateSnapshotCopyGrant where
+  type
+    AWSResponse CreateSnapshotCopyGrant =
+      CreateSnapshotCopyGrantResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateSnapshotCopyGrantResult"
+      ( \s h x ->
+          CreateSnapshotCopyGrantResponse'
+            Prelude.<$> (x Core..@? "SnapshotCopyGrant")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateSnapshotCopyGrant where
+instance Prelude.Hashable CreateSnapshotCopyGrant
 
-instance NFData CreateSnapshotCopyGrant where
+instance Prelude.NFData CreateSnapshotCopyGrant
 
-instance ToHeaders CreateSnapshotCopyGrant where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateSnapshotCopyGrant where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateSnapshotCopyGrant where
-        toPath = const "/"
+instance Core.ToPath CreateSnapshotCopyGrant where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateSnapshotCopyGrant where
-        toQuery CreateSnapshotCopyGrant'{..}
-          = mconcat
-              ["Action" =:
-                 ("CreateSnapshotCopyGrant" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "KmsKeyId" =: _cscgKMSKeyId,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cscgTags),
-               "SnapshotCopyGrantName" =:
-                 _cscgSnapshotCopyGrantName]
+instance Core.ToQuery CreateSnapshotCopyGrant where
+  toQuery CreateSnapshotCopyGrant' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateSnapshotCopyGrant" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "KmsKeyId" Core.=: kmsKeyId,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
+        "SnapshotCopyGrantName"
+          Core.=: snapshotCopyGrantName
+      ]
 
--- | /See:/ 'createSnapshotCopyGrantResponse' smart constructor.
+-- | /See:/ 'newCreateSnapshotCopyGrantResponse' smart constructor.
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-  { _cscgrsSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
-  , _cscgrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { snapshotCopyGrant :: Prelude.Maybe SnapshotCopyGrant,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSnapshotCopyGrantResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSnapshotCopyGrantResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cscgrsSnapshotCopyGrant' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cscgrsResponseStatus' - -- | The response status code.
-createSnapshotCopyGrantResponse
-    :: Int -- ^ 'cscgrsResponseStatus'
-    -> CreateSnapshotCopyGrantResponse
-createSnapshotCopyGrantResponse pResponseStatus_ =
+-- 'snapshotCopyGrant', 'createSnapshotCopyGrantResponse_snapshotCopyGrant' - Undocumented member.
+--
+-- 'httpStatus', 'createSnapshotCopyGrantResponse_httpStatus' - The response's http status code.
+newCreateSnapshotCopyGrantResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateSnapshotCopyGrantResponse
+newCreateSnapshotCopyGrantResponse pHttpStatus_ =
   CreateSnapshotCopyGrantResponse'
-    { _cscgrsSnapshotCopyGrant = Nothing
-    , _cscgrsResponseStatus = pResponseStatus_
+    { snapshotCopyGrant =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Undocumented member.
-cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
-cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a})
+createSnapshotCopyGrantResponse_snapshotCopyGrant :: Lens.Lens' CreateSnapshotCopyGrantResponse (Prelude.Maybe SnapshotCopyGrant)
+createSnapshotCopyGrantResponse_snapshotCopyGrant = Lens.lens (\CreateSnapshotCopyGrantResponse' {snapshotCopyGrant} -> snapshotCopyGrant) (\s@CreateSnapshotCopyGrantResponse' {} a -> s {snapshotCopyGrant = a} :: CreateSnapshotCopyGrantResponse)
 
--- | -- | The response status code.
-cscgrsResponseStatus :: Lens' CreateSnapshotCopyGrantResponse Int
-cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a})
+-- | The response's http status code.
+createSnapshotCopyGrantResponse_httpStatus :: Lens.Lens' CreateSnapshotCopyGrantResponse Prelude.Int
+createSnapshotCopyGrantResponse_httpStatus = Lens.lens (\CreateSnapshotCopyGrantResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotCopyGrantResponse' {} a -> s {httpStatus = a} :: CreateSnapshotCopyGrantResponse)
 
-instance NFData CreateSnapshotCopyGrantResponse where
+instance
+  Prelude.NFData
+    CreateSnapshotCopyGrantResponse

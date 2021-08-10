@@ -1,173 +1,212 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateBuild
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates metadata in a build record, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
+-- Updates metadata in a build resource, including the build name and
+-- version. To update the metadata, specify the build ID to update and
+-- provide the new values. If successful, a build object containing the
+-- updated metadata is returned.
 --
+-- __Learn more__
 --
--- Build-related operations include:
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
---     * 'CreateBuild'
+-- __Related operations__
 --
---     * 'ListBuilds'
+-- -   CreateBuild
 --
---     * 'DescribeBuild'
+-- -   ListBuilds
 --
---     * 'UpdateBuild'
+-- -   DescribeBuild
 --
---     * 'DeleteBuild'
+-- -   UpdateBuild
 --
---
---
+-- -   DeleteBuild
 module Network.AWS.GameLift.UpdateBuild
-    (
-    -- * Creating a Request
-      updateBuild
-    , UpdateBuild
+  ( -- * Creating a Request
+    UpdateBuild (..),
+    newUpdateBuild,
+
     -- * Request Lenses
-    , ubName
-    , ubVersion
-    , ubBuildId
+    updateBuild_version,
+    updateBuild_name,
+    updateBuild_buildId,
 
     -- * Destructuring the Response
-    , updateBuildResponse
-    , UpdateBuildResponse
+    UpdateBuildResponse (..),
+    newUpdateBuildResponse,
+
     -- * Response Lenses
-    , ubrsBuild
-    , ubrsResponseStatus
-    ) where
+    updateBuildResponse_build,
+    updateBuildResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'updateBuild' smart constructor.
+-- /See:/ 'newUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { _ubName    :: !(Maybe Text)
-  , _ubVersion :: !(Maybe Text)
-  , _ubBuildId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Version information that is associated with a build or script. Version
+    -- strings do not need to be unique.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with a build. Build names do not
+    -- need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for a build to update. You can use either the build
+    -- ID or ARN value.
+    buildId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateBuild' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateBuild' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ubName' - Descriptive label that is associated with a build. Build names do not need to be unique.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ubVersion' - Version that is associated with this build. Version strings do not need to be unique.
+-- 'version', 'updateBuild_version' - Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
 --
--- * 'ubBuildId' - Unique identifier for a build to update.
-updateBuild
-    :: Text -- ^ 'ubBuildId'
-    -> UpdateBuild
-updateBuild pBuildId_ =
-  UpdateBuild' {_ubName = Nothing, _ubVersion = Nothing, _ubBuildId = pBuildId_}
-
-
--- | Descriptive label that is associated with a build. Build names do not need to be unique.
-ubName :: Lens' UpdateBuild (Maybe Text)
-ubName = lens _ubName (\ s a -> s{_ubName = a})
-
--- | Version that is associated with this build. Version strings do not need to be unique.
-ubVersion :: Lens' UpdateBuild (Maybe Text)
-ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a})
-
--- | Unique identifier for a build to update.
-ubBuildId :: Lens' UpdateBuild Text
-ubBuildId = lens _ubBuildId (\ s a -> s{_ubBuildId = a})
-
-instance AWSRequest UpdateBuild where
-        type Rs UpdateBuild = UpdateBuildResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateBuildResponse' <$>
-                   (x .?> "Build") <*> (pure (fromEnum s)))
-
-instance Hashable UpdateBuild where
-
-instance NFData UpdateBuild where
-
-instance ToHeaders UpdateBuild where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.UpdateBuild" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateBuild where
-        toJSON UpdateBuild'{..}
-          = object
-              (catMaybes
-                 [("Name" .=) <$> _ubName,
-                  ("Version" .=) <$> _ubVersion,
-                  Just ("BuildId" .= _ubBuildId)])
-
-instance ToPath UpdateBuild where
-        toPath = const "/"
-
-instance ToQuery UpdateBuild where
-        toQuery = const mempty
-
--- | Represents the returned data in response to a request action.
+-- 'name', 'updateBuild_name' - A descriptive label that is associated with a build. Build names do not
+-- need to be unique.
 --
+-- 'buildId', 'updateBuild_buildId' - A unique identifier for a build to update. You can use either the build
+-- ID or ARN value.
+newUpdateBuild ::
+  -- | 'buildId'
+  Prelude.Text ->
+  UpdateBuild
+newUpdateBuild pBuildId_ =
+  UpdateBuild'
+    { version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      buildId = pBuildId_
+    }
+
+-- | Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
+updateBuild_version :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
+updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateBuild' {} a -> s {version = a} :: UpdateBuild)
+
+-- | A descriptive label that is associated with a build. Build names do not
+-- need to be unique.
+updateBuild_name :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
+updateBuild_name = Lens.lens (\UpdateBuild' {name} -> name) (\s@UpdateBuild' {} a -> s {name = a} :: UpdateBuild)
+
+-- | A unique identifier for a build to update. You can use either the build
+-- ID or ARN value.
+updateBuild_buildId :: Lens.Lens' UpdateBuild Prelude.Text
+updateBuild_buildId = Lens.lens (\UpdateBuild' {buildId} -> buildId) (\s@UpdateBuild' {} a -> s {buildId = a} :: UpdateBuild)
+
+instance Core.AWSRequest UpdateBuild where
+  type AWSResponse UpdateBuild = UpdateBuildResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateBuildResponse'
+            Prelude.<$> (x Core..?> "Build")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateBuild
+
+instance Prelude.NFData UpdateBuild
+
+instance Core.ToHeaders UpdateBuild where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("GameLift.UpdateBuild" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateBuild where
+  toJSON UpdateBuild' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Version" Core..=) Prelude.<$> version,
+            ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just ("BuildId" Core..= buildId)
+          ]
+      )
+
+instance Core.ToPath UpdateBuild where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateBuild where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the returned data in response to a request operation.
 --
---
--- /See:/ 'updateBuildResponse' smart constructor.
+-- /See:/ 'newUpdateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
-  { _ubrsBuild          :: !(Maybe Build)
-  , _ubrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The updated build resource.
+    build :: Prelude.Maybe Build,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateBuildResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateBuildResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ubrsBuild' - Object that contains the updated build record.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ubrsResponseStatus' - -- | The response status code.
-updateBuildResponse
-    :: Int -- ^ 'ubrsResponseStatus'
-    -> UpdateBuildResponse
-updateBuildResponse pResponseStatus_ =
+-- 'build', 'updateBuildResponse_build' - The updated build resource.
+--
+-- 'httpStatus', 'updateBuildResponse_httpStatus' - The response's http status code.
+newUpdateBuildResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateBuildResponse
+newUpdateBuildResponse pHttpStatus_ =
   UpdateBuildResponse'
-    {_ubrsBuild = Nothing, _ubrsResponseStatus = pResponseStatus_}
+    { build = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The updated build resource.
+updateBuildResponse_build :: Lens.Lens' UpdateBuildResponse (Prelude.Maybe Build)
+updateBuildResponse_build = Lens.lens (\UpdateBuildResponse' {build} -> build) (\s@UpdateBuildResponse' {} a -> s {build = a} :: UpdateBuildResponse)
 
--- | Object that contains the updated build record.
-ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
-ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a})
+-- | The response's http status code.
+updateBuildResponse_httpStatus :: Lens.Lens' UpdateBuildResponse Prelude.Int
+updateBuildResponse_httpStatus = Lens.lens (\UpdateBuildResponse' {httpStatus} -> httpStatus) (\s@UpdateBuildResponse' {} a -> s {httpStatus = a} :: UpdateBuildResponse)
 
--- | -- | The response status code.
-ubrsResponseStatus :: Lens' UpdateBuildResponse Int
-ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a})
-
-instance NFData UpdateBuildResponse where
+instance Prelude.NFData UpdateBuildResponse

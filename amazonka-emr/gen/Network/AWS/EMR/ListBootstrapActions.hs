@@ -1,175 +1,216 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.ListBootstrapActions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about the bootstrap actions associated with a cluster.
---
---
+-- Provides information about the bootstrap actions associated with a
+-- cluster.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
-    (
-    -- * Creating a Request
-      listBootstrapActions
-    , ListBootstrapActions
+  ( -- * Creating a Request
+    ListBootstrapActions (..),
+    newListBootstrapActions,
+
     -- * Request Lenses
-    , lbaMarker
-    , lbaClusterId
+    listBootstrapActions_marker,
+    listBootstrapActions_clusterId,
 
     -- * Destructuring the Response
-    , listBootstrapActionsResponse
-    , ListBootstrapActionsResponse
-    -- * Response Lenses
-    , lbarsBootstrapActions
-    , lbarsMarker
-    , lbarsResponseStatus
-    ) where
+    ListBootstrapActionsResponse (..),
+    newListBootstrapActionsResponse,
 
+    -- * Response Lenses
+    listBootstrapActionsResponse_bootstrapActions,
+    listBootstrapActionsResponse_marker,
+    listBootstrapActionsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
---
---
--- /See:/ 'listBootstrapActions' smart constructor.
+-- /See:/ 'newListBootstrapActions' smart constructor.
 data ListBootstrapActions = ListBootstrapActions'
-  { _lbaMarker    :: !(Maybe Text)
-  , _lbaClusterId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The cluster identifier for the bootstrap actions to list.
+    clusterId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListBootstrapActions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBootstrapActions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbaMarker' - The pagination token that indicates the next set of results to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbaClusterId' - The cluster identifier for the bootstrap actions to list.
-listBootstrapActions
-    :: Text -- ^ 'lbaClusterId'
-    -> ListBootstrapActions
-listBootstrapActions pClusterId_ =
-  ListBootstrapActions' {_lbaMarker = Nothing, _lbaClusterId = pClusterId_}
-
+-- 'marker', 'listBootstrapActions_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'clusterId', 'listBootstrapActions_clusterId' - The cluster identifier for the bootstrap actions to list.
+newListBootstrapActions ::
+  -- | 'clusterId'
+  Prelude.Text ->
+  ListBootstrapActions
+newListBootstrapActions pClusterId_ =
+  ListBootstrapActions'
+    { marker = Prelude.Nothing,
+      clusterId = pClusterId_
+    }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a})
+listBootstrapActions_marker :: Lens.Lens' ListBootstrapActions (Prelude.Maybe Prelude.Text)
+listBootstrapActions_marker = Lens.lens (\ListBootstrapActions' {marker} -> marker) (\s@ListBootstrapActions' {} a -> s {marker = a} :: ListBootstrapActions)
 
 -- | The cluster identifier for the bootstrap actions to list.
-lbaClusterId :: Lens' ListBootstrapActions Text
-lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a})
+listBootstrapActions_clusterId :: Lens.Lens' ListBootstrapActions Prelude.Text
+listBootstrapActions_clusterId = Lens.lens (\ListBootstrapActions' {clusterId} -> clusterId) (\s@ListBootstrapActions' {} a -> s {clusterId = a} :: ListBootstrapActions)
 
-instance AWSPager ListBootstrapActions where
-        page rq rs
-          | stop (rs ^. lbarsMarker) = Nothing
-          | stop (rs ^. lbarsBootstrapActions) = Nothing
-          | otherwise =
-            Just $ rq & lbaMarker .~ rs ^. lbarsMarker
+instance Core.AWSPager ListBootstrapActions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBootstrapActionsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBootstrapActionsResponse_bootstrapActions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBootstrapActions_marker
+          Lens..~ rs
+          Lens.^? listBootstrapActionsResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSRequest ListBootstrapActions where
-        type Rs ListBootstrapActions =
-             ListBootstrapActionsResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListBootstrapActionsResponse' <$>
-                   (x .?> "BootstrapActions" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListBootstrapActions where
+  type
+    AWSResponse ListBootstrapActions =
+      ListBootstrapActionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBootstrapActionsResponse'
+            Prelude.<$> ( x Core..?> "BootstrapActions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListBootstrapActions where
+instance Prelude.Hashable ListBootstrapActions
 
-instance NFData ListBootstrapActions where
+instance Prelude.NFData ListBootstrapActions
 
-instance ToHeaders ListBootstrapActions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.ListBootstrapActions" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListBootstrapActions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.ListBootstrapActions" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListBootstrapActions where
-        toJSON ListBootstrapActions'{..}
-          = object
-              (catMaybes
-                 [("Marker" .=) <$> _lbaMarker,
-                  Just ("ClusterId" .= _lbaClusterId)])
+instance Core.ToJSON ListBootstrapActions where
+  toJSON ListBootstrapActions' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just ("ClusterId" Core..= clusterId)
+          ]
+      )
 
-instance ToPath ListBootstrapActions where
-        toPath = const "/"
+instance Core.ToPath ListBootstrapActions where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListBootstrapActions where
-        toQuery = const mempty
+instance Core.ToQuery ListBootstrapActions where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the bootstrap actions detail.
 --
---
---
--- /See:/ 'listBootstrapActionsResponse' smart constructor.
+-- /See:/ 'newListBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-  { _lbarsBootstrapActions :: !(Maybe [Command])
-  , _lbarsMarker           :: !(Maybe Text)
-  , _lbarsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The bootstrap actions associated with the cluster.
+    bootstrapActions :: Prelude.Maybe [Command],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBootstrapActionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbarsBootstrapActions' - The bootstrap actions associated with the cluster.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbarsMarker' - The pagination token that indicates the next set of results to retrieve.
+-- 'bootstrapActions', 'listBootstrapActionsResponse_bootstrapActions' - The bootstrap actions associated with the cluster.
 --
--- * 'lbarsResponseStatus' - -- | The response status code.
-listBootstrapActionsResponse
-    :: Int -- ^ 'lbarsResponseStatus'
-    -> ListBootstrapActionsResponse
-listBootstrapActionsResponse pResponseStatus_ =
+-- 'marker', 'listBootstrapActionsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'httpStatus', 'listBootstrapActionsResponse_httpStatus' - The response's http status code.
+newListBootstrapActionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListBootstrapActionsResponse
+newListBootstrapActionsResponse pHttpStatus_ =
   ListBootstrapActionsResponse'
-    { _lbarsBootstrapActions = Nothing
-    , _lbarsMarker = Nothing
-    , _lbarsResponseStatus = pResponseStatus_
+    { bootstrapActions =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The bootstrap actions associated with the cluster.
-lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
-lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce
+listBootstrapActionsResponse_bootstrapActions :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe [Command])
+listBootstrapActionsResponse_bootstrapActions = Lens.lens (\ListBootstrapActionsResponse' {bootstrapActions} -> bootstrapActions) (\s@ListBootstrapActionsResponse' {} a -> s {bootstrapActions = a} :: ListBootstrapActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a})
+listBootstrapActionsResponse_marker :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe Prelude.Text)
+listBootstrapActionsResponse_marker = Lens.lens (\ListBootstrapActionsResponse' {marker} -> marker) (\s@ListBootstrapActionsResponse' {} a -> s {marker = a} :: ListBootstrapActionsResponse)
 
--- | -- | The response status code.
-lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
-lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a})
+-- | The response's http status code.
+listBootstrapActionsResponse_httpStatus :: Lens.Lens' ListBootstrapActionsResponse Prelude.Int
+listBootstrapActionsResponse_httpStatus = Lens.lens (\ListBootstrapActionsResponse' {httpStatus} -> httpStatus) (\s@ListBootstrapActionsResponse' {} a -> s {httpStatus = a} :: ListBootstrapActionsResponse)
 
-instance NFData ListBootstrapActionsResponse where
+instance Prelude.NFData ListBootstrapActionsResponse

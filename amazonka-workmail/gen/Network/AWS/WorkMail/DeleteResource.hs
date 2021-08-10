@@ -1,134 +1,166 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.DeleteResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified resource.
---
---
 module Network.AWS.WorkMail.DeleteResource
-    (
-    -- * Creating a Request
-      deleteResource
-    , DeleteResource
+  ( -- * Creating a Request
+    DeleteResource (..),
+    newDeleteResource,
+
     -- * Request Lenses
-    , dOrganizationId
-    , dResourceId
+    deleteResource_organizationId,
+    deleteResource_resourceId,
 
     -- * Destructuring the Response
-    , deleteResourceResponse
-    , DeleteResourceResponse
+    DeleteResourceResponse (..),
+    newDeleteResourceResponse,
+
     -- * Response Lenses
-    , drsResponseStatus
-    ) where
+    deleteResourceResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'deleteResource' smart constructor.
+-- | /See:/ 'newDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-  { _dOrganizationId :: !Text
-  , _dResourceId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier associated with the organization from which the resource
+    -- is deleted.
+    organizationId :: Prelude.Text,
+    -- | The identifier of the resource to be deleted.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dOrganizationId' - The identifier associated with the organization for which the resource is deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dResourceId' - The identifier of the resource to be deleted.
-deleteResource
-    :: Text -- ^ 'dOrganizationId'
-    -> Text -- ^ 'dResourceId'
-    -> DeleteResource
-deleteResource pOrganizationId_ pResourceId_ =
+-- 'organizationId', 'deleteResource_organizationId' - The identifier associated with the organization from which the resource
+-- is deleted.
+--
+-- 'resourceId', 'deleteResource_resourceId' - The identifier of the resource to be deleted.
+newDeleteResource ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  DeleteResource
+newDeleteResource pOrganizationId_ pResourceId_ =
   DeleteResource'
-    {_dOrganizationId = pOrganizationId_, _dResourceId = pResourceId_}
+    { organizationId = pOrganizationId_,
+      resourceId = pResourceId_
+    }
 
-
--- | The identifier associated with the organization for which the resource is deleted.
-dOrganizationId :: Lens' DeleteResource Text
-dOrganizationId = lens _dOrganizationId (\ s a -> s{_dOrganizationId = a})
+-- | The identifier associated with the organization from which the resource
+-- is deleted.
+deleteResource_organizationId :: Lens.Lens' DeleteResource Prelude.Text
+deleteResource_organizationId = Lens.lens (\DeleteResource' {organizationId} -> organizationId) (\s@DeleteResource' {} a -> s {organizationId = a} :: DeleteResource)
 
 -- | The identifier of the resource to be deleted.
-dResourceId :: Lens' DeleteResource Text
-dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a})
+deleteResource_resourceId :: Lens.Lens' DeleteResource Prelude.Text
+deleteResource_resourceId = Lens.lens (\DeleteResource' {resourceId} -> resourceId) (\s@DeleteResource' {} a -> s {resourceId = a} :: DeleteResource)
 
-instance AWSRequest DeleteResource where
-        type Rs DeleteResource = DeleteResourceResponse
-        request = postJSON workMail
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteResourceResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteResource where
+  type
+    AWSResponse DeleteResource =
+      DeleteResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteResource where
+instance Prelude.Hashable DeleteResource
 
-instance NFData DeleteResource where
+instance Prelude.NFData DeleteResource
 
-instance ToHeaders DeleteResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.DeleteResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "WorkMailService.DeleteResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteResource where
-        toJSON DeleteResource'{..}
-          = object
-              (catMaybes
-                 [Just ("OrganizationId" .= _dOrganizationId),
-                  Just ("ResourceId" .= _dResourceId)])
+instance Core.ToJSON DeleteResource where
+  toJSON DeleteResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("ResourceId" Core..= resourceId)
+          ]
+      )
 
-instance ToPath DeleteResource where
-        toPath = const "/"
+instance Core.ToPath DeleteResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteResource where
-        toQuery = const mempty
+instance Core.ToQuery DeleteResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteResourceResponse' smart constructor.
-newtype DeleteResourceResponse = DeleteResourceResponse'
-  { _drsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteResourceResponse' smart constructor.
+data DeleteResourceResponse = DeleteResourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteResourceResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteResourceResponse
-deleteResourceResponse pResponseStatus_ =
-  DeleteResourceResponse' {_drsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteResourceResponse_httpStatus' - The response's http status code.
+newDeleteResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteResourceResponse
+newDeleteResourceResponse pHttpStatus_ =
+  DeleteResourceResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteResourceResponse_httpStatus :: Lens.Lens' DeleteResourceResponse Prelude.Int
+deleteResourceResponse_httpStatus = Lens.lens (\DeleteResourceResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceResponse' {} a -> s {httpStatus = a} :: DeleteResourceResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteResourceResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
-
-instance NFData DeleteResourceResponse where
+instance Prelude.NFData DeleteResourceResponse

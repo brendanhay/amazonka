@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.CreateConfigurationSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,111 +22,135 @@
 --
 -- Creates a configuration set.
 --
---
--- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- Configuration sets enable you to publish email sending events. For
+-- information about using configuration sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.CreateConfigurationSet
-    (
-    -- * Creating a Request
-      createConfigurationSet
-    , CreateConfigurationSet
+  ( -- * Creating a Request
+    CreateConfigurationSet (..),
+    newCreateConfigurationSet,
+
     -- * Request Lenses
-    , ccsConfigurationSet
+    createConfigurationSet_configurationSet,
 
     -- * Destructuring the Response
-    , createConfigurationSetResponse
-    , CreateConfigurationSetResponse
+    CreateConfigurationSetResponse (..),
+    newCreateConfigurationSetResponse,
+
     -- * Response Lenses
-    , ccsrsResponseStatus
-    ) where
+    createConfigurationSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- | Represents a request to create a configuration set. Configuration sets
+-- enable you to publish email sending events. For information about using
+-- configuration sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'createConfigurationSet' smart constructor.
-newtype CreateConfigurationSet = CreateConfigurationSet'
-  { _ccsConfigurationSet :: ConfigurationSet
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newCreateConfigurationSet' smart constructor.
+data CreateConfigurationSet = CreateConfigurationSet'
+  { -- | A data structure that contains the name of the configuration set.
+    configurationSet :: ConfigurationSet
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConfigurationSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConfigurationSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccsConfigurationSet' - A data structure that contains the name of the configuration set.
-createConfigurationSet
-    :: ConfigurationSet -- ^ 'ccsConfigurationSet'
-    -> CreateConfigurationSet
-createConfigurationSet pConfigurationSet_ =
-  CreateConfigurationSet' {_ccsConfigurationSet = pConfigurationSet_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'configurationSet', 'createConfigurationSet_configurationSet' - A data structure that contains the name of the configuration set.
+newCreateConfigurationSet ::
+  -- | 'configurationSet'
+  ConfigurationSet ->
+  CreateConfigurationSet
+newCreateConfigurationSet pConfigurationSet_ =
+  CreateConfigurationSet'
+    { configurationSet =
+        pConfigurationSet_
+    }
 
 -- | A data structure that contains the name of the configuration set.
-ccsConfigurationSet :: Lens' CreateConfigurationSet ConfigurationSet
-ccsConfigurationSet = lens _ccsConfigurationSet (\ s a -> s{_ccsConfigurationSet = a})
+createConfigurationSet_configurationSet :: Lens.Lens' CreateConfigurationSet ConfigurationSet
+createConfigurationSet_configurationSet = Lens.lens (\CreateConfigurationSet' {configurationSet} -> configurationSet) (\s@CreateConfigurationSet' {} a -> s {configurationSet = a} :: CreateConfigurationSet)
 
-instance AWSRequest CreateConfigurationSet where
-        type Rs CreateConfigurationSet =
-             CreateConfigurationSetResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "CreateConfigurationSetResult"
-              (\ s h x ->
-                 CreateConfigurationSetResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest CreateConfigurationSet where
+  type
+    AWSResponse CreateConfigurationSet =
+      CreateConfigurationSetResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateConfigurationSetResult"
+      ( \s h x ->
+          CreateConfigurationSetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateConfigurationSet where
+instance Prelude.Hashable CreateConfigurationSet
 
-instance NFData CreateConfigurationSet where
+instance Prelude.NFData CreateConfigurationSet
 
-instance ToHeaders CreateConfigurationSet where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateConfigurationSet where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateConfigurationSet where
-        toPath = const "/"
+instance Core.ToPath CreateConfigurationSet where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateConfigurationSet where
-        toQuery CreateConfigurationSet'{..}
-          = mconcat
-              ["Action" =:
-                 ("CreateConfigurationSet" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ConfigurationSet" =: _ccsConfigurationSet]
+instance Core.ToQuery CreateConfigurationSet where
+  toQuery CreateConfigurationSet' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateConfigurationSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSet" Core.=: configurationSet
+      ]
 
 -- | An empty element returned on a successful request.
 --
+-- /See:/ 'newCreateConfigurationSetResponse' smart constructor.
+data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateConfigurationSetResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'createConfigurationSetResponse' smart constructor.
-newtype CreateConfigurationSetResponse = CreateConfigurationSetResponse'
-  { _ccsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateConfigurationSetResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsrsResponseStatus' - -- | The response status code.
-createConfigurationSetResponse
-    :: Int -- ^ 'ccsrsResponseStatus'
-    -> CreateConfigurationSetResponse
-createConfigurationSetResponse pResponseStatus_ =
-  CreateConfigurationSetResponse' {_ccsrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'createConfigurationSetResponse_httpStatus' - The response's http status code.
+newCreateConfigurationSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateConfigurationSetResponse
+newCreateConfigurationSetResponse pHttpStatus_ =
+  CreateConfigurationSetResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+createConfigurationSetResponse_httpStatus :: Lens.Lens' CreateConfigurationSetResponse Prelude.Int
+createConfigurationSetResponse_httpStatus = Lens.lens (\CreateConfigurationSetResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationSetResponse' {} a -> s {httpStatus = a} :: CreateConfigurationSetResponse)
 
--- | -- | The response status code.
-ccsrsResponseStatus :: Lens' CreateConfigurationSetResponse Int
-ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a})
-
-instance NFData CreateConfigurationSetResponse where
+instance
+  Prelude.NFData
+    CreateConfigurationSetResponse

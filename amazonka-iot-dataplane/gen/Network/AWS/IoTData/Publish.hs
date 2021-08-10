@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTData.Publish
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,104 +22,116 @@
 --
 -- Publishes state information.
 --
---
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol> in the /AWS IoT Developer Guide/ .
---
+-- For more information, see
+-- <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol>
+-- in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.Publish
-    (
-    -- * Creating a Request
-      publish
-    , Publish
+  ( -- * Creating a Request
+    Publish (..),
+    newPublish,
+
     -- * Request Lenses
-    , pPayload
-    , pQos
-    , pTopic
+    publish_payload,
+    publish_qos,
+    publish_topic,
 
     -- * Destructuring the Response
-    , publishResponse
-    , PublishResponse
-    ) where
+    PublishResponse (..),
+    newPublishResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
-import Network.AWS.IoTData.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the Publish operation.
 --
---
---
--- /See:/ 'publish' smart constructor.
+-- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
-  { _pPayload :: !(Maybe ByteString)
-  , _pQos     :: !(Maybe Nat)
-  , _pTopic   :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The state information, in JSON format.
+    payload :: Prelude.Maybe Prelude.ByteString,
+    -- | The Quality of Service (QoS) level.
+    qos :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the MQTT topic.
+    topic :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'Publish' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'Publish' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pPayload' - The state information, in JSON format.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pQos' - The Quality of Service (QoS) level.
+-- 'payload', 'publish_payload' - The state information, in JSON format.
 --
--- * 'pTopic' - The name of the MQTT topic.
-publish
-    :: Text -- ^ 'pTopic'
-    -> Publish
-publish pTopic_ =
-  Publish' {_pPayload = Nothing, _pQos = Nothing, _pTopic = pTopic_}
-
+-- 'qos', 'publish_qos' - The Quality of Service (QoS) level.
+--
+-- 'topic', 'publish_topic' - The name of the MQTT topic.
+newPublish ::
+  -- | 'topic'
+  Prelude.Text ->
+  Publish
+newPublish pTopic_ =
+  Publish'
+    { payload = Prelude.Nothing,
+      qos = Prelude.Nothing,
+      topic = pTopic_
+    }
 
 -- | The state information, in JSON format.
-pPayload :: Lens' Publish (Maybe ByteString)
-pPayload = lens _pPayload (\ s a -> s{_pPayload = a})
+publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
+publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
 
 -- | The Quality of Service (QoS) level.
-pQos :: Lens' Publish (Maybe Natural)
-pQos = lens _pQos (\ s a -> s{_pQos = a}) . mapping _Nat
+publish_qos :: Lens.Lens' Publish (Prelude.Maybe Prelude.Natural)
+publish_qos = Lens.lens (\Publish' {qos} -> qos) (\s@Publish' {} a -> s {qos = a} :: Publish)
 
 -- | The name of the MQTT topic.
-pTopic :: Lens' Publish Text
-pTopic = lens _pTopic (\ s a -> s{_pTopic = a})
+publish_topic :: Lens.Lens' Publish Prelude.Text
+publish_topic = Lens.lens (\Publish' {topic} -> topic) (\s@Publish' {} a -> s {topic = a} :: Publish)
 
-instance AWSRequest Publish where
-        type Rs Publish = PublishResponse
-        request = postBody ioTData
-        response = receiveNull PublishResponse'
+instance Core.AWSRequest Publish where
+  type AWSResponse Publish = PublishResponse
+  request = Request.postBody defaultService
+  response = Response.receiveNull PublishResponse'
 
-instance Hashable Publish where
+instance Prelude.Hashable Publish
 
-instance NFData Publish where
+instance Prelude.NFData Publish
 
-instance ToBody Publish where
-        toBody = toBody . _pPayload
+instance Core.ToBody Publish where
+  toBody Publish' {..} = Core.toBody payload
 
-instance ToHeaders Publish where
-        toHeaders = const mempty
+instance Core.ToHeaders Publish where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath Publish where
-        toPath Publish'{..}
-          = mconcat ["/topics/", toBS _pTopic]
+instance Core.ToPath Publish where
+  toPath Publish' {..} =
+    Prelude.mconcat ["/topics/", Core.toBS topic]
 
-instance ToQuery Publish where
-        toQuery Publish'{..} = mconcat ["qos" =: _pQos]
+instance Core.ToQuery Publish where
+  toQuery Publish' {..} =
+    Prelude.mconcat ["qos" Core.=: qos]
 
--- | /See:/ 'publishResponse' smart constructor.
-data PublishResponse =
-  PublishResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newPublishResponse' smart constructor.
+data PublishResponse = PublishResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PublishResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PublishResponse' with all optional fields omitted.
 --
-publishResponse
-    :: PublishResponse
-publishResponse = PublishResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPublishResponse ::
+  PublishResponse
+newPublishResponse = PublishResponse'
 
-
-instance NFData PublishResponse where
+instance Prelude.NFData PublishResponse

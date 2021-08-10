@@ -1,175 +1,234 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateDevicePool
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a device pool.
---
---
 module Network.AWS.DeviceFarm.CreateDevicePool
-    (
-    -- * Creating a Request
-      createDevicePool
-    , CreateDevicePool
+  ( -- * Creating a Request
+    CreateDevicePool (..),
+    newCreateDevicePool,
+
     -- * Request Lenses
-    , cdpDescription
-    , cdpProjectARN
-    , cdpName
-    , cdpRules
+    createDevicePool_maxDevices,
+    createDevicePool_description,
+    createDevicePool_projectArn,
+    createDevicePool_name,
+    createDevicePool_rules,
 
     -- * Destructuring the Response
-    , createDevicePoolResponse
-    , CreateDevicePoolResponse
-    -- * Response Lenses
-    , cdprsDevicePool
-    , cdprsResponseStatus
-    ) where
+    CreateDevicePoolResponse (..),
+    newCreateDevicePoolResponse,
 
+    -- * Response Lenses
+    createDevicePoolResponse_devicePool,
+    createDevicePoolResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the create device pool operation.
 --
---
---
--- /See:/ 'createDevicePool' smart constructor.
+-- /See:/ 'newCreateDevicePool' smart constructor.
 data CreateDevicePool = CreateDevicePool'
-  { _cdpDescription :: !(Maybe Text)
-  , _cdpProjectARN  :: !Text
-  , _cdpName        :: !Text
-  , _cdpRules       :: ![Rule]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The number of devices that Device Farm can add to your device pool.
+    -- Device Farm adds devices that are available and meet the criteria that
+    -- you assign for the @rules@ parameter. Depending on how many devices meet
+    -- these constraints, your device pool might contain fewer devices than the
+    -- value for this parameter.
+    --
+    -- By specifying the maximum number of devices, you can control the costs
+    -- that you incur by running tests.
+    maxDevices :: Prelude.Maybe Prelude.Int,
+    -- | The device pool\'s description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the project for the device pool.
+    projectArn :: Prelude.Text,
+    -- | The device pool\'s name.
+    name :: Prelude.Text,
+    -- | The device pool\'s rules.
+    rules :: [Rule]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDevicePool' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDevicePool' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdpDescription' - The device pool's description.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdpProjectARN' - The ARN of the project for the device pool.
+-- 'maxDevices', 'createDevicePool_maxDevices' - The number of devices that Device Farm can add to your device pool.
+-- Device Farm adds devices that are available and meet the criteria that
+-- you assign for the @rules@ parameter. Depending on how many devices meet
+-- these constraints, your device pool might contain fewer devices than the
+-- value for this parameter.
 --
--- * 'cdpName' - The device pool's name.
+-- By specifying the maximum number of devices, you can control the costs
+-- that you incur by running tests.
 --
--- * 'cdpRules' - The device pool's rules.
-createDevicePool
-    :: Text -- ^ 'cdpProjectARN'
-    -> Text -- ^ 'cdpName'
-    -> CreateDevicePool
-createDevicePool pProjectARN_ pName_ =
+-- 'description', 'createDevicePool_description' - The device pool\'s description.
+--
+-- 'projectArn', 'createDevicePool_projectArn' - The ARN of the project for the device pool.
+--
+-- 'name', 'createDevicePool_name' - The device pool\'s name.
+--
+-- 'rules', 'createDevicePool_rules' - The device pool\'s rules.
+newCreateDevicePool ::
+  -- | 'projectArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  CreateDevicePool
+newCreateDevicePool pProjectArn_ pName_ =
   CreateDevicePool'
-    { _cdpDescription = Nothing
-    , _cdpProjectARN = pProjectARN_
-    , _cdpName = pName_
-    , _cdpRules = mempty
+    { maxDevices = Prelude.Nothing,
+      description = Prelude.Nothing,
+      projectArn = pProjectArn_,
+      name = pName_,
+      rules = Prelude.mempty
     }
 
+-- | The number of devices that Device Farm can add to your device pool.
+-- Device Farm adds devices that are available and meet the criteria that
+-- you assign for the @rules@ parameter. Depending on how many devices meet
+-- these constraints, your device pool might contain fewer devices than the
+-- value for this parameter.
+--
+-- By specifying the maximum number of devices, you can control the costs
+-- that you incur by running tests.
+createDevicePool_maxDevices :: Lens.Lens' CreateDevicePool (Prelude.Maybe Prelude.Int)
+createDevicePool_maxDevices = Lens.lens (\CreateDevicePool' {maxDevices} -> maxDevices) (\s@CreateDevicePool' {} a -> s {maxDevices = a} :: CreateDevicePool)
 
--- | The device pool's description.
-cdpDescription :: Lens' CreateDevicePool (Maybe Text)
-cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a})
+-- | The device pool\'s description.
+createDevicePool_description :: Lens.Lens' CreateDevicePool (Prelude.Maybe Prelude.Text)
+createDevicePool_description = Lens.lens (\CreateDevicePool' {description} -> description) (\s@CreateDevicePool' {} a -> s {description = a} :: CreateDevicePool)
 
 -- | The ARN of the project for the device pool.
-cdpProjectARN :: Lens' CreateDevicePool Text
-cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a})
+createDevicePool_projectArn :: Lens.Lens' CreateDevicePool Prelude.Text
+createDevicePool_projectArn = Lens.lens (\CreateDevicePool' {projectArn} -> projectArn) (\s@CreateDevicePool' {} a -> s {projectArn = a} :: CreateDevicePool)
 
--- | The device pool's name.
-cdpName :: Lens' CreateDevicePool Text
-cdpName = lens _cdpName (\ s a -> s{_cdpName = a})
+-- | The device pool\'s name.
+createDevicePool_name :: Lens.Lens' CreateDevicePool Prelude.Text
+createDevicePool_name = Lens.lens (\CreateDevicePool' {name} -> name) (\s@CreateDevicePool' {} a -> s {name = a} :: CreateDevicePool)
 
--- | The device pool's rules.
-cdpRules :: Lens' CreateDevicePool [Rule]
-cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce
+-- | The device pool\'s rules.
+createDevicePool_rules :: Lens.Lens' CreateDevicePool [Rule]
+createDevicePool_rules = Lens.lens (\CreateDevicePool' {rules} -> rules) (\s@CreateDevicePool' {} a -> s {rules = a} :: CreateDevicePool) Prelude.. Lens._Coerce
 
-instance AWSRequest CreateDevicePool where
-        type Rs CreateDevicePool = CreateDevicePoolResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDevicePoolResponse' <$>
-                   (x .?> "devicePool") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateDevicePool where
+  type
+    AWSResponse CreateDevicePool =
+      CreateDevicePoolResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDevicePoolResponse'
+            Prelude.<$> (x Core..?> "devicePool")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateDevicePool where
+instance Prelude.Hashable CreateDevicePool
 
-instance NFData CreateDevicePool where
+instance Prelude.NFData CreateDevicePool
 
-instance ToHeaders CreateDevicePool where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.CreateDevicePool" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateDevicePool where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.CreateDevicePool" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateDevicePool where
-        toJSON CreateDevicePool'{..}
-          = object
-              (catMaybes
-                 [("description" .=) <$> _cdpDescription,
-                  Just ("projectArn" .= _cdpProjectARN),
-                  Just ("name" .= _cdpName),
-                  Just ("rules" .= _cdpRules)])
+instance Core.ToJSON CreateDevicePool where
+  toJSON CreateDevicePool' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("maxDevices" Core..=) Prelude.<$> maxDevices,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("projectArn" Core..= projectArn),
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("rules" Core..= rules)
+          ]
+      )
 
-instance ToPath CreateDevicePool where
-        toPath = const "/"
+instance Core.ToPath CreateDevicePool where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateDevicePool where
-        toQuery = const mempty
+instance Core.ToQuery CreateDevicePool where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a create device pool request.
 --
---
---
--- /See:/ 'createDevicePoolResponse' smart constructor.
+-- /See:/ 'newCreateDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-  { _cdprsDevicePool     :: !(Maybe DevicePool)
-  , _cdprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The newly created device pool.
+    devicePool :: Prelude.Maybe DevicePool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDevicePoolResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDevicePoolResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdprsDevicePool' - The newly created device pool.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdprsResponseStatus' - -- | The response status code.
-createDevicePoolResponse
-    :: Int -- ^ 'cdprsResponseStatus'
-    -> CreateDevicePoolResponse
-createDevicePoolResponse pResponseStatus_ =
+-- 'devicePool', 'createDevicePoolResponse_devicePool' - The newly created device pool.
+--
+-- 'httpStatus', 'createDevicePoolResponse_httpStatus' - The response's http status code.
+newCreateDevicePoolResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDevicePoolResponse
+newCreateDevicePoolResponse pHttpStatus_ =
   CreateDevicePoolResponse'
-    {_cdprsDevicePool = Nothing, _cdprsResponseStatus = pResponseStatus_}
-
+    { devicePool =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The newly created device pool.
-cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
-cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a})
+createDevicePoolResponse_devicePool :: Lens.Lens' CreateDevicePoolResponse (Prelude.Maybe DevicePool)
+createDevicePoolResponse_devicePool = Lens.lens (\CreateDevicePoolResponse' {devicePool} -> devicePool) (\s@CreateDevicePoolResponse' {} a -> s {devicePool = a} :: CreateDevicePoolResponse)
 
--- | -- | The response status code.
-cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
-cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a})
+-- | The response's http status code.
+createDevicePoolResponse_httpStatus :: Lens.Lens' CreateDevicePoolResponse Prelude.Int
+createDevicePoolResponse_httpStatus = Lens.lens (\CreateDevicePoolResponse' {httpStatus} -> httpStatus) (\s@CreateDevicePoolResponse' {} a -> s {httpStatus = a} :: CreateDevicePoolResponse)
 
-instance NFData CreateDevicePoolResponse where
+instance Prelude.NFData CreateDevicePoolResponse

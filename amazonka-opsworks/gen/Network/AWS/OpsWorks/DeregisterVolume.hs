@@ -1,109 +1,141 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
+-- Deregisters an Amazon EBS volume. The volume can then be registered by
+-- another stack. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DeregisterVolume
-    (
-    -- * Creating a Request
-      deregisterVolume
-    , DeregisterVolume
+  ( -- * Creating a Request
+    DeregisterVolume (..),
+    newDeregisterVolume,
+
     -- * Request Lenses
-    , dvVolumeId
+    deregisterVolume_volumeId,
 
     -- * Destructuring the Response
-    , deregisterVolumeResponse
-    , DeregisterVolumeResponse
-    ) where
+    DeregisterVolumeResponse (..),
+    newDeregisterVolumeResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deregisterVolume' smart constructor.
-newtype DeregisterVolume = DeregisterVolume'
-  { _dvVolumeId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeregisterVolume' smart constructor.
+data DeregisterVolume = DeregisterVolume'
+  { -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks
+    -- Stacks assigned to the instance when you registered the volume with the
+    -- stack, not the Amazon EC2 volume ID.
+    volumeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeregisterVolume' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeregisterVolume' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvVolumeId' - The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
-deregisterVolume
-    :: Text -- ^ 'dvVolumeId'
-    -> DeregisterVolume
-deregisterVolume pVolumeId_ = DeregisterVolume' {_dvVolumeId = pVolumeId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'volumeId', 'deregisterVolume_volumeId' - The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks
+-- Stacks assigned to the instance when you registered the volume with the
+-- stack, not the Amazon EC2 volume ID.
+newDeregisterVolume ::
+  -- | 'volumeId'
+  Prelude.Text ->
+  DeregisterVolume
+newDeregisterVolume pVolumeId_ =
+  DeregisterVolume' {volumeId = pVolumeId_}
 
+-- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks
+-- Stacks assigned to the instance when you registered the volume with the
+-- stack, not the Amazon EC2 volume ID.
+deregisterVolume_volumeId :: Lens.Lens' DeregisterVolume Prelude.Text
+deregisterVolume_volumeId = Lens.lens (\DeregisterVolume' {volumeId} -> volumeId) (\s@DeregisterVolume' {} a -> s {volumeId = a} :: DeregisterVolume)
 
--- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
-dvVolumeId :: Lens' DeregisterVolume Text
-dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a})
+instance Core.AWSRequest DeregisterVolume where
+  type
+    AWSResponse DeregisterVolume =
+      DeregisterVolumeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeregisterVolumeResponse'
 
-instance AWSRequest DeregisterVolume where
-        type Rs DeregisterVolume = DeregisterVolumeResponse
-        request = postJSON opsWorks
-        response = receiveNull DeregisterVolumeResponse'
+instance Prelude.Hashable DeregisterVolume
 
-instance Hashable DeregisterVolume where
+instance Prelude.NFData DeregisterVolume
 
-instance NFData DeregisterVolume where
+instance Core.ToHeaders DeregisterVolume where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DeregisterVolume" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeregisterVolume where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DeregisterVolume" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeregisterVolume where
+  toJSON DeregisterVolume' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("VolumeId" Core..= volumeId)]
+      )
 
-instance ToJSON DeregisterVolume where
-        toJSON DeregisterVolume'{..}
-          = object
-              (catMaybes [Just ("VolumeId" .= _dvVolumeId)])
+instance Core.ToPath DeregisterVolume where
+  toPath = Prelude.const "/"
 
-instance ToPath DeregisterVolume where
-        toPath = const "/"
+instance Core.ToQuery DeregisterVolume where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeregisterVolume where
-        toQuery = const mempty
+-- | /See:/ 'newDeregisterVolumeResponse' smart constructor.
+data DeregisterVolumeResponse = DeregisterVolumeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deregisterVolumeResponse' smart constructor.
-data DeregisterVolumeResponse =
+-- |
+-- Create a value of 'DeregisterVolumeResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeregisterVolumeResponse ::
+  DeregisterVolumeResponse
+newDeregisterVolumeResponse =
   DeregisterVolumeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeregisterVolumeResponse' with the minimum fields required to make a request.
---
-deregisterVolumeResponse
-    :: DeregisterVolumeResponse
-deregisterVolumeResponse = DeregisterVolumeResponse'
-
-
-instance NFData DeregisterVolumeResponse where
+instance Prelude.NFData DeregisterVolumeResponse

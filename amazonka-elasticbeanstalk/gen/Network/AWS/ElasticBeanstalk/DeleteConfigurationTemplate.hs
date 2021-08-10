@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,101 +22,124 @@
 --
 -- Deletes the specified configuration template.
 --
---
+-- When you launch an environment using a configuration template, the
+-- environment gets a copy of the template. You can delete or modify the
+-- environment\'s copy of the template without affecting the running
+-- environment.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-    (
-    -- * Creating a Request
-      deleteConfigurationTemplate
-    , DeleteConfigurationTemplate
+  ( -- * Creating a Request
+    DeleteConfigurationTemplate (..),
+    newDeleteConfigurationTemplate,
+
     -- * Request Lenses
-    , dctApplicationName
-    , dctTemplateName
+    deleteConfigurationTemplate_applicationName,
+    deleteConfigurationTemplate_templateName,
 
     -- * Destructuring the Response
-    , deleteConfigurationTemplateResponse
-    , DeleteConfigurationTemplateResponse
-    ) where
+    DeleteConfigurationTemplateResponse (..),
+    newDeleteConfigurationTemplateResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to delete a configuration template.
 --
---
---
--- /See:/ 'deleteConfigurationTemplate' smart constructor.
+-- /See:/ 'newDeleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-  { _dctApplicationName :: !Text
-  , _dctTemplateName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the application to delete the configuration template from.
+    applicationName :: Prelude.Text,
+    -- | The name of the configuration template to delete.
+    templateName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteConfigurationTemplate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteConfigurationTemplate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dctApplicationName' - The name of the application to delete the configuration template from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dctTemplateName' - The name of the configuration template to delete.
-deleteConfigurationTemplate
-    :: Text -- ^ 'dctApplicationName'
-    -> Text -- ^ 'dctTemplateName'
-    -> DeleteConfigurationTemplate
-deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
-  DeleteConfigurationTemplate'
-    {_dctApplicationName = pApplicationName_, _dctTemplateName = pTemplateName_}
-
+-- 'applicationName', 'deleteConfigurationTemplate_applicationName' - The name of the application to delete the configuration template from.
+--
+-- 'templateName', 'deleteConfigurationTemplate_templateName' - The name of the configuration template to delete.
+newDeleteConfigurationTemplate ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'templateName'
+  Prelude.Text ->
+  DeleteConfigurationTemplate
+newDeleteConfigurationTemplate
+  pApplicationName_
+  pTemplateName_ =
+    DeleteConfigurationTemplate'
+      { applicationName =
+          pApplicationName_,
+        templateName = pTemplateName_
+      }
 
 -- | The name of the application to delete the configuration template from.
-dctApplicationName :: Lens' DeleteConfigurationTemplate Text
-dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = a})
+deleteConfigurationTemplate_applicationName :: Lens.Lens' DeleteConfigurationTemplate Prelude.Text
+deleteConfigurationTemplate_applicationName = Lens.lens (\DeleteConfigurationTemplate' {applicationName} -> applicationName) (\s@DeleteConfigurationTemplate' {} a -> s {applicationName = a} :: DeleteConfigurationTemplate)
 
 -- | The name of the configuration template to delete.
-dctTemplateName :: Lens' DeleteConfigurationTemplate Text
-dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a})
+deleteConfigurationTemplate_templateName :: Lens.Lens' DeleteConfigurationTemplate Prelude.Text
+deleteConfigurationTemplate_templateName = Lens.lens (\DeleteConfigurationTemplate' {templateName} -> templateName) (\s@DeleteConfigurationTemplate' {} a -> s {templateName = a} :: DeleteConfigurationTemplate)
 
-instance AWSRequest DeleteConfigurationTemplate where
-        type Rs DeleteConfigurationTemplate =
-             DeleteConfigurationTemplateResponse
-        request = postQuery elasticBeanstalk
-        response
-          = receiveNull DeleteConfigurationTemplateResponse'
+instance Core.AWSRequest DeleteConfigurationTemplate where
+  type
+    AWSResponse DeleteConfigurationTemplate =
+      DeleteConfigurationTemplateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteConfigurationTemplateResponse'
 
-instance Hashable DeleteConfigurationTemplate where
+instance Prelude.Hashable DeleteConfigurationTemplate
 
-instance NFData DeleteConfigurationTemplate where
+instance Prelude.NFData DeleteConfigurationTemplate
 
-instance ToHeaders DeleteConfigurationTemplate where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteConfigurationTemplate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteConfigurationTemplate where
-        toPath = const "/"
+instance Core.ToPath DeleteConfigurationTemplate where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteConfigurationTemplate where
-        toQuery DeleteConfigurationTemplate'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteConfigurationTemplate" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ApplicationName" =: _dctApplicationName,
-               "TemplateName" =: _dctTemplateName]
+instance Core.ToQuery DeleteConfigurationTemplate where
+  toQuery DeleteConfigurationTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DeleteConfigurationTemplate" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "ApplicationName" Core.=: applicationName,
+        "TemplateName" Core.=: templateName
+      ]
 
--- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
-data DeleteConfigurationTemplateResponse =
-  DeleteConfigurationTemplateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteConfigurationTemplateResponse' smart constructor.
+data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteConfigurationTemplateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteConfigurationTemplateResponse' with all optional fields omitted.
 --
-deleteConfigurationTemplateResponse
-    :: DeleteConfigurationTemplateResponse
-deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteConfigurationTemplateResponse ::
+  DeleteConfigurationTemplateResponse
+newDeleteConfigurationTemplateResponse =
+  DeleteConfigurationTemplateResponse'
 
-
-instance NFData DeleteConfigurationTemplateResponse
-         where
+instance
+  Prelude.NFData
+    DeleteConfigurationTemplateResponse

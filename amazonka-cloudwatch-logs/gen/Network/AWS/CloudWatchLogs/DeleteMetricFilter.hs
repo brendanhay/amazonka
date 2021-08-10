@@ -1,121 +1,143 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified metric filter.
---
---
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
-    (
-    -- * Creating a Request
-      deleteMetricFilter
-    , DeleteMetricFilter
+  ( -- * Creating a Request
+    DeleteMetricFilter (..),
+    newDeleteMetricFilter,
+
     -- * Request Lenses
-    , delLogGroupName
-    , delFilterName
+    deleteMetricFilter_logGroupName,
+    deleteMetricFilter_filterName,
 
     -- * Destructuring the Response
-    , deleteMetricFilterResponse
-    , DeleteMetricFilterResponse
-    ) where
+    DeleteMetricFilterResponse (..),
+    newDeleteMetricFilterResponse,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteMetricFilter' smart constructor.
+-- | /See:/ 'newDeleteMetricFilter' smart constructor.
 data DeleteMetricFilter = DeleteMetricFilter'
-  { _delLogGroupName :: !Text
-  , _delFilterName   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the log group.
+    logGroupName :: Prelude.Text,
+    -- | The name of the metric filter.
+    filterName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteMetricFilter' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteMetricFilter' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delLogGroupName' - The name of the log group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delFilterName' - The name of the metric filter.
-deleteMetricFilter
-    :: Text -- ^ 'delLogGroupName'
-    -> Text -- ^ 'delFilterName'
-    -> DeleteMetricFilter
-deleteMetricFilter pLogGroupName_ pFilterName_ =
+-- 'logGroupName', 'deleteMetricFilter_logGroupName' - The name of the log group.
+--
+-- 'filterName', 'deleteMetricFilter_filterName' - The name of the metric filter.
+newDeleteMetricFilter ::
+  -- | 'logGroupName'
+  Prelude.Text ->
+  -- | 'filterName'
+  Prelude.Text ->
+  DeleteMetricFilter
+newDeleteMetricFilter pLogGroupName_ pFilterName_ =
   DeleteMetricFilter'
-    {_delLogGroupName = pLogGroupName_, _delFilterName = pFilterName_}
-
+    { logGroupName = pLogGroupName_,
+      filterName = pFilterName_
+    }
 
 -- | The name of the log group.
-delLogGroupName :: Lens' DeleteMetricFilter Text
-delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a})
+deleteMetricFilter_logGroupName :: Lens.Lens' DeleteMetricFilter Prelude.Text
+deleteMetricFilter_logGroupName = Lens.lens (\DeleteMetricFilter' {logGroupName} -> logGroupName) (\s@DeleteMetricFilter' {} a -> s {logGroupName = a} :: DeleteMetricFilter)
 
 -- | The name of the metric filter.
-delFilterName :: Lens' DeleteMetricFilter Text
-delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a})
+deleteMetricFilter_filterName :: Lens.Lens' DeleteMetricFilter Prelude.Text
+deleteMetricFilter_filterName = Lens.lens (\DeleteMetricFilter' {filterName} -> filterName) (\s@DeleteMetricFilter' {} a -> s {filterName = a} :: DeleteMetricFilter)
 
-instance AWSRequest DeleteMetricFilter where
-        type Rs DeleteMetricFilter =
-             DeleteMetricFilterResponse
-        request = postJSON cloudWatchLogs
-        response = receiveNull DeleteMetricFilterResponse'
+instance Core.AWSRequest DeleteMetricFilter where
+  type
+    AWSResponse DeleteMetricFilter =
+      DeleteMetricFilterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeleteMetricFilterResponse'
 
-instance Hashable DeleteMetricFilter where
+instance Prelude.Hashable DeleteMetricFilter
 
-instance NFData DeleteMetricFilter where
+instance Prelude.NFData DeleteMetricFilter
 
-instance ToHeaders DeleteMetricFilter where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.DeleteMetricFilter" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteMetricFilter where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.DeleteMetricFilter" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteMetricFilter where
-        toJSON DeleteMetricFilter'{..}
-          = object
-              (catMaybes
-                 [Just ("logGroupName" .= _delLogGroupName),
-                  Just ("filterName" .= _delFilterName)])
+instance Core.ToJSON DeleteMetricFilter where
+  toJSON DeleteMetricFilter' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("filterName" Core..= filterName)
+          ]
+      )
 
-instance ToPath DeleteMetricFilter where
-        toPath = const "/"
+instance Core.ToPath DeleteMetricFilter where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteMetricFilter where
-        toQuery = const mempty
+instance Core.ToQuery DeleteMetricFilter where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteMetricFilterResponse' smart constructor.
-data DeleteMetricFilterResponse =
-  DeleteMetricFilterResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteMetricFilterResponse' smart constructor.
+data DeleteMetricFilterResponse = DeleteMetricFilterResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteMetricFilterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteMetricFilterResponse' with all optional fields omitted.
 --
-deleteMetricFilterResponse
-    :: DeleteMetricFilterResponse
-deleteMetricFilterResponse = DeleteMetricFilterResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteMetricFilterResponse ::
+  DeleteMetricFilterResponse
+newDeleteMetricFilterResponse =
+  DeleteMetricFilterResponse'
 
-
-instance NFData DeleteMetricFilterResponse where
+instance Prelude.NFData DeleteMetricFilterResponse

@@ -1,129 +1,153 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.AttachInternetGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide> .
---
---
+-- Attaches an internet gateway or a virtual private gateway to a VPC,
+-- enabling connectivity between the internet and the VPC. For more
+-- information about your VPC and internet gateway, see the
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/ Amazon Virtual Private Cloud User Guide>.
 module Network.AWS.EC2.AttachInternetGateway
-    (
-    -- * Creating a Request
-      attachInternetGateway
-    , AttachInternetGateway
+  ( -- * Creating a Request
+    AttachInternetGateway (..),
+    newAttachInternetGateway,
+
     -- * Request Lenses
-    , aigDryRun
-    , aigInternetGatewayId
-    , aigVPCId
+    attachInternetGateway_dryRun,
+    attachInternetGateway_internetGatewayId,
+    attachInternetGateway_vpcId,
 
     -- * Destructuring the Response
-    , attachInternetGatewayResponse
-    , AttachInternetGatewayResponse
-    ) where
+    AttachInternetGatewayResponse (..),
+    newAttachInternetGatewayResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for AttachInternetGateway.
---
---
---
--- /See:/ 'attachInternetGateway' smart constructor.
+-- | /See:/ 'newAttachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
-  { _aigDryRun            :: !(Maybe Bool)
-  , _aigInternetGatewayId :: !Text
-  , _aigVPCId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the internet gateway.
+    internetGatewayId :: Prelude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachInternetGateway' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aigInternetGatewayId' - The ID of the Internet gateway.
+-- 'dryRun', 'attachInternetGateway_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'aigVPCId' - The ID of the VPC.
-attachInternetGateway
-    :: Text -- ^ 'aigInternetGatewayId'
-    -> Text -- ^ 'aigVPCId'
-    -> AttachInternetGateway
-attachInternetGateway pInternetGatewayId_ pVPCId_ =
+-- 'internetGatewayId', 'attachInternetGateway_internetGatewayId' - The ID of the internet gateway.
+--
+-- 'vpcId', 'attachInternetGateway_vpcId' - The ID of the VPC.
+newAttachInternetGateway ::
+  -- | 'internetGatewayId'
+  Prelude.Text ->
+  -- | 'vpcId'
+  Prelude.Text ->
+  AttachInternetGateway
+newAttachInternetGateway pInternetGatewayId_ pVpcId_ =
   AttachInternetGateway'
-    { _aigDryRun = Nothing
-    , _aigInternetGatewayId = pInternetGatewayId_
-    , _aigVPCId = pVPCId_
+    { dryRun = Prelude.Nothing,
+      internetGatewayId = pInternetGatewayId_,
+      vpcId = pVpcId_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+attachInternetGateway_dryRun :: Lens.Lens' AttachInternetGateway (Prelude.Maybe Prelude.Bool)
+attachInternetGateway_dryRun = Lens.lens (\AttachInternetGateway' {dryRun} -> dryRun) (\s@AttachInternetGateway' {} a -> s {dryRun = a} :: AttachInternetGateway)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
-aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a})
-
--- | The ID of the Internet gateway.
-aigInternetGatewayId :: Lens' AttachInternetGateway Text
-aigInternetGatewayId = lens _aigInternetGatewayId (\ s a -> s{_aigInternetGatewayId = a})
+-- | The ID of the internet gateway.
+attachInternetGateway_internetGatewayId :: Lens.Lens' AttachInternetGateway Prelude.Text
+attachInternetGateway_internetGatewayId = Lens.lens (\AttachInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@AttachInternetGateway' {} a -> s {internetGatewayId = a} :: AttachInternetGateway)
 
 -- | The ID of the VPC.
-aigVPCId :: Lens' AttachInternetGateway Text
-aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a})
+attachInternetGateway_vpcId :: Lens.Lens' AttachInternetGateway Prelude.Text
+attachInternetGateway_vpcId = Lens.lens (\AttachInternetGateway' {vpcId} -> vpcId) (\s@AttachInternetGateway' {} a -> s {vpcId = a} :: AttachInternetGateway)
 
-instance AWSRequest AttachInternetGateway where
-        type Rs AttachInternetGateway =
-             AttachInternetGatewayResponse
-        request = postQuery ec2
-        response = receiveNull AttachInternetGatewayResponse'
+instance Core.AWSRequest AttachInternetGateway where
+  type
+    AWSResponse AttachInternetGateway =
+      AttachInternetGatewayResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull AttachInternetGatewayResponse'
 
-instance Hashable AttachInternetGateway where
+instance Prelude.Hashable AttachInternetGateway
 
-instance NFData AttachInternetGateway where
+instance Prelude.NFData AttachInternetGateway
 
-instance ToHeaders AttachInternetGateway where
-        toHeaders = const mempty
+instance Core.ToHeaders AttachInternetGateway where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath AttachInternetGateway where
-        toPath = const "/"
+instance Core.ToPath AttachInternetGateway where
+  toPath = Prelude.const "/"
 
-instance ToQuery AttachInternetGateway where
-        toQuery AttachInternetGateway'{..}
-          = mconcat
-              ["Action" =: ("AttachInternetGateway" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _aigDryRun,
-               "InternetGatewayId" =: _aigInternetGatewayId,
-               "VpcId" =: _aigVPCId]
+instance Core.ToQuery AttachInternetGateway where
+  toQuery AttachInternetGateway' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AttachInternetGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InternetGatewayId" Core.=: internetGatewayId,
+        "VpcId" Core.=: vpcId
+      ]
 
--- | /See:/ 'attachInternetGatewayResponse' smart constructor.
-data AttachInternetGatewayResponse =
-  AttachInternetGatewayResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAttachInternetGatewayResponse' smart constructor.
+data AttachInternetGatewayResponse = AttachInternetGatewayResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachInternetGatewayResponse' with all optional fields omitted.
 --
-attachInternetGatewayResponse
-    :: AttachInternetGatewayResponse
-attachInternetGatewayResponse = AttachInternetGatewayResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAttachInternetGatewayResponse ::
+  AttachInternetGatewayResponse
+newAttachInternetGatewayResponse =
+  AttachInternetGatewayResponse'
 
-
-instance NFData AttachInternetGatewayResponse where
+instance Prelude.NFData AttachInternetGatewayResponse

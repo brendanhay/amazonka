@@ -1,176 +1,262 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.CreateContact
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a contact with the specified details.
---
---
 module Network.AWS.AlexaBusiness.CreateContact
-    (
-    -- * Creating a Request
-      createContact
-    , CreateContact
+  ( -- * Creating a Request
+    CreateContact (..),
+    newCreateContact,
+
     -- * Request Lenses
-    , ccLastName
-    , ccDisplayName
-    , ccClientRequestToken
-    , ccFirstName
-    , ccPhoneNumber
+    createContact_phoneNumber,
+    createContact_phoneNumbers,
+    createContact_tags,
+    createContact_clientRequestToken,
+    createContact_displayName,
+    createContact_lastName,
+    createContact_sipAddresses,
+    createContact_firstName,
 
     -- * Destructuring the Response
-    , createContactResponse
-    , CreateContactResponse
+    CreateContactResponse (..),
+    newCreateContactResponse,
+
     -- * Response Lenses
-    , ccrsContactARN
-    , ccrsResponseStatus
-    ) where
+    createContactResponse_contactArn,
+    createContactResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createContact' smart constructor.
+-- | /See:/ 'newCreateContact' smart constructor.
 data CreateContact = CreateContact'
-  { _ccLastName           :: !(Maybe Text)
-  , _ccDisplayName        :: !(Maybe Text)
-  , _ccClientRequestToken :: !(Maybe Text)
-  , _ccFirstName          :: !Text
-  , _ccPhoneNumber        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The phone number of the contact in E.164 format. The phone number type
+    -- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
+    -- recommend that you use PhoneNumbers, which lets you specify the phone
+    -- number type and multiple numbers.
+    phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The list of phone numbers for the contact.
+    phoneNumbers :: Prelude.Maybe [PhoneNumber],
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | A unique, user-specified identifier for this request that ensures
+    -- idempotency.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the contact to display on the console.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The last name of the contact that is used to call the contact on the
+    -- device.
+    lastName :: Prelude.Maybe Prelude.Text,
+    -- | The list of SIP addresses for the contact.
+    sipAddresses :: Prelude.Maybe [SipAddress],
+    -- | The first name of the contact that is used to call the contact on the
+    -- device.
+    firstName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateContact' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateContact' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccLastName' - The last name of the contact that is used to call the contact on the device.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccDisplayName' - The name of the contact to display on the console.
+-- 'phoneNumber', 'createContact_phoneNumber' - The phone number of the contact in E.164 format. The phone number type
+-- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
+-- recommend that you use PhoneNumbers, which lets you specify the phone
+-- number type and multiple numbers.
 --
--- * 'ccClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- 'phoneNumbers', 'createContact_phoneNumbers' - The list of phone numbers for the contact.
 --
--- * 'ccFirstName' - The first name of the contact that is used to call the contact on the device.
+-- 'tags', 'createContact_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags.
 --
--- * 'ccPhoneNumber' - The phone number of the contact in E.164 format.
-createContact
-    :: Text -- ^ 'ccFirstName'
-    -> Text -- ^ 'ccPhoneNumber'
-    -> CreateContact
-createContact pFirstName_ pPhoneNumber_ =
+-- 'clientRequestToken', 'createContact_clientRequestToken' - A unique, user-specified identifier for this request that ensures
+-- idempotency.
+--
+-- 'displayName', 'createContact_displayName' - The name of the contact to display on the console.
+--
+-- 'lastName', 'createContact_lastName' - The last name of the contact that is used to call the contact on the
+-- device.
+--
+-- 'sipAddresses', 'createContact_sipAddresses' - The list of SIP addresses for the contact.
+--
+-- 'firstName', 'createContact_firstName' - The first name of the contact that is used to call the contact on the
+-- device.
+newCreateContact ::
+  -- | 'firstName'
+  Prelude.Text ->
+  CreateContact
+newCreateContact pFirstName_ =
   CreateContact'
-    { _ccLastName = Nothing
-    , _ccDisplayName = Nothing
-    , _ccClientRequestToken = Nothing
-    , _ccFirstName = pFirstName_
-    , _ccPhoneNumber = pPhoneNumber_
+    { phoneNumber = Prelude.Nothing,
+      phoneNumbers = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      lastName = Prelude.Nothing,
+      sipAddresses = Prelude.Nothing,
+      firstName = pFirstName_
     }
 
+-- | The phone number of the contact in E.164 format. The phone number type
+-- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
+-- recommend that you use PhoneNumbers, which lets you specify the phone
+-- number type and multiple numbers.
+createContact_phoneNumber :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_phoneNumber = Lens.lens (\CreateContact' {phoneNumber} -> phoneNumber) (\s@CreateContact' {} a -> s {phoneNumber = a} :: CreateContact) Prelude.. Lens.mapping Core._Sensitive
 
--- | The last name of the contact that is used to call the contact on the device.
-ccLastName :: Lens' CreateContact (Maybe Text)
-ccLastName = lens _ccLastName (\ s a -> s{_ccLastName = a})
+-- | The list of phone numbers for the contact.
+createContact_phoneNumbers :: Lens.Lens' CreateContact (Prelude.Maybe [PhoneNumber])
+createContact_phoneNumbers = Lens.lens (\CreateContact' {phoneNumbers} -> phoneNumbers) (\s@CreateContact' {} a -> s {phoneNumbers = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags.
+createContact_tags :: Lens.Lens' CreateContact (Prelude.Maybe [Tag])
+createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContact' {} a -> s {tags = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A unique, user-specified identifier for this request that ensures
+-- idempotency.
+createContact_clientRequestToken :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_clientRequestToken = Lens.lens (\CreateContact' {clientRequestToken} -> clientRequestToken) (\s@CreateContact' {} a -> s {clientRequestToken = a} :: CreateContact)
 
 -- | The name of the contact to display on the console.
-ccDisplayName :: Lens' CreateContact (Maybe Text)
-ccDisplayName = lens _ccDisplayName (\ s a -> s{_ccDisplayName = a})
+createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
 
--- | A unique, user-specified identifier for this request that ensures idempotency.
-ccClientRequestToken :: Lens' CreateContact (Maybe Text)
-ccClientRequestToken = lens _ccClientRequestToken (\ s a -> s{_ccClientRequestToken = a})
+-- | The last name of the contact that is used to call the contact on the
+-- device.
+createContact_lastName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_lastName = Lens.lens (\CreateContact' {lastName} -> lastName) (\s@CreateContact' {} a -> s {lastName = a} :: CreateContact)
 
--- | The first name of the contact that is used to call the contact on the device.
-ccFirstName :: Lens' CreateContact Text
-ccFirstName = lens _ccFirstName (\ s a -> s{_ccFirstName = a})
+-- | The list of SIP addresses for the contact.
+createContact_sipAddresses :: Lens.Lens' CreateContact (Prelude.Maybe [SipAddress])
+createContact_sipAddresses = Lens.lens (\CreateContact' {sipAddresses} -> sipAddresses) (\s@CreateContact' {} a -> s {sipAddresses = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
 
--- | The phone number of the contact in E.164 format.
-ccPhoneNumber :: Lens' CreateContact Text
-ccPhoneNumber = lens _ccPhoneNumber (\ s a -> s{_ccPhoneNumber = a})
+-- | The first name of the contact that is used to call the contact on the
+-- device.
+createContact_firstName :: Lens.Lens' CreateContact Prelude.Text
+createContact_firstName = Lens.lens (\CreateContact' {firstName} -> firstName) (\s@CreateContact' {} a -> s {firstName = a} :: CreateContact)
 
-instance AWSRequest CreateContact where
-        type Rs CreateContact = CreateContactResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateContactResponse' <$>
-                   (x .?> "ContactArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateContact where
+  type
+    AWSResponse CreateContact =
+      CreateContactResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateContactResponse'
+            Prelude.<$> (x Core..?> "ContactArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateContact where
+instance Prelude.Hashable CreateContact
 
-instance NFData CreateContact where
+instance Prelude.NFData CreateContact
 
-instance ToHeaders CreateContact where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.CreateContact" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateContact where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AlexaForBusiness.CreateContact" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateContact where
-        toJSON CreateContact'{..}
-          = object
-              (catMaybes
-                 [("LastName" .=) <$> _ccLastName,
-                  ("DisplayName" .=) <$> _ccDisplayName,
-                  ("ClientRequestToken" .=) <$> _ccClientRequestToken,
-                  Just ("FirstName" .= _ccFirstName),
-                  Just ("PhoneNumber" .= _ccPhoneNumber)])
+instance Core.ToJSON CreateContact where
+  toJSON CreateContact' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("LastName" Core..=) Prelude.<$> lastName,
+            ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
+            Prelude.Just ("FirstName" Core..= firstName)
+          ]
+      )
 
-instance ToPath CreateContact where
-        toPath = const "/"
+instance Core.ToPath CreateContact where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateContact where
-        toQuery = const mempty
+instance Core.ToQuery CreateContact where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createContactResponse' smart constructor.
+-- | /See:/ 'newCreateContactResponse' smart constructor.
 data CreateContactResponse = CreateContactResponse'
-  { _ccrsContactARN     :: !(Maybe Text)
-  , _ccrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the newly created address book.
+    contactArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateContactResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateContactResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsContactARN' - The ARN of the newly created address book.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
-createContactResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> CreateContactResponse
-createContactResponse pResponseStatus_ =
+-- 'contactArn', 'createContactResponse_contactArn' - The ARN of the newly created address book.
+--
+-- 'httpStatus', 'createContactResponse_httpStatus' - The response's http status code.
+newCreateContactResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateContactResponse
+newCreateContactResponse pHttpStatus_ =
   CreateContactResponse'
-    {_ccrsContactARN = Nothing, _ccrsResponseStatus = pResponseStatus_}
-
+    { contactArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the newly created address book.
-ccrsContactARN :: Lens' CreateContactResponse (Maybe Text)
-ccrsContactARN = lens _ccrsContactARN (\ s a -> s{_ccrsContactARN = a})
+createContactResponse_contactArn :: Lens.Lens' CreateContactResponse (Prelude.Maybe Prelude.Text)
+createContactResponse_contactArn = Lens.lens (\CreateContactResponse' {contactArn} -> contactArn) (\s@CreateContactResponse' {} a -> s {contactArn = a} :: CreateContactResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateContactResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
+-- | The response's http status code.
+createContactResponse_httpStatus :: Lens.Lens' CreateContactResponse Prelude.Int
+createContactResponse_httpStatus = Lens.lens (\CreateContactResponse' {httpStatus} -> httpStatus) (\s@CreateContactResponse' {} a -> s {httpStatus = a} :: CreateContactResponse)
 
-instance NFData CreateContactResponse where
+instance Prelude.NFData CreateContactResponse

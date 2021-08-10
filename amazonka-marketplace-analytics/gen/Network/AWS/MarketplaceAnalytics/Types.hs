@@ -1,79 +1,116 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.MarketplaceAnalytics.Types
-    (
-    -- * Service Configuration
-      marketplaceAnalytics
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _MarketplaceCommerceAnalyticsException
+    _MarketplaceCommerceAnalyticsException,
 
     -- * DataSetType
-    , DataSetType (..)
+    DataSetType (..),
 
     -- * SupportDataSetType
-    , SupportDataSetType (..)
-    ) where
+    SupportDataSetType (..),
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.MarketplaceAnalytics.Types.Product
-import Network.AWS.MarketplaceAnalytics.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MarketplaceAnalytics.Types.DataSetType
+import Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-07-01@ of the Amazon Marketplace Commerce Analytics SDK configuration.
-marketplaceAnalytics :: Service
-marketplaceAnalytics =
-  Service
-    { _svcAbbrev = "MarketplaceAnalytics"
-    , _svcSigner = v4
-    , _svcPrefix = "marketplacecommerceanalytics"
-    , _svcVersion = "2015-07-01"
-    , _svcEndpoint = defaultEndpoint marketplaceAnalytics
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MarketplaceAnalytics"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "MarketplaceAnalytics",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix =
+        "marketplacecommerceanalytics",
+      Core._serviceSigningName =
+        "marketplacecommerceanalytics",
+      Core._serviceVersion = "2015-07-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "MarketplaceAnalytics",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | This exception is thrown when an internal service error occurs.
-_MarketplaceCommerceAnalyticsException :: AsError a => Getting (First ServiceError) a ServiceError
+_MarketplaceCommerceAnalyticsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MarketplaceCommerceAnalyticsException =
-  _MatchServiceError
-    marketplaceAnalytics
+  Core._MatchServiceError
+    defaultService
     "MarketplaceCommerceAnalyticsException"
-

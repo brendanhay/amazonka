@@ -1,149 +1,184 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the comment for a specified hosted zone.
---
---
 module Network.AWS.Route53.UpdateHostedZoneComment
-    (
-    -- * Creating a Request
-      updateHostedZoneComment
-    , UpdateHostedZoneComment
+  ( -- * Creating a Request
+    UpdateHostedZoneComment (..),
+    newUpdateHostedZoneComment,
+
     -- * Request Lenses
-    , uhzcComment
-    , uhzcId
+    updateHostedZoneComment_comment,
+    updateHostedZoneComment_id,
 
     -- * Destructuring the Response
-    , updateHostedZoneCommentResponse
-    , UpdateHostedZoneCommentResponse
-    -- * Response Lenses
-    , uhzcrsResponseStatus
-    , uhzcrsHostedZone
-    ) where
+    UpdateHostedZoneCommentResponse (..),
+    newUpdateHostedZoneCommentResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    updateHostedZoneCommentResponse_httpStatus,
+    updateHostedZoneCommentResponse_hostedZone,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
 -- | A request to update the comment for a hosted zone.
 --
---
---
--- /See:/ 'updateHostedZoneComment' smart constructor.
+-- /See:/ 'newUpdateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-  { _uhzcComment :: !(Maybe Text)
-  , _uhzcId      :: !ResourceId
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The new comment for the hosted zone. If you don\'t specify a value for
+    -- @Comment@, Amazon Route 53 deletes the existing value of the @Comment@
+    -- element, if any.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the hosted zone that you want to update the comment for.
+    id :: ResourceId
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateHostedZoneComment' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uhzcComment' - The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uhzcId' - The ID for the hosted zone that you want to update the comment for.
-updateHostedZoneComment
-    :: ResourceId -- ^ 'uhzcId'
-    -> UpdateHostedZoneComment
-updateHostedZoneComment pId_ =
-  UpdateHostedZoneComment' {_uhzcComment = Nothing, _uhzcId = pId_}
+-- 'comment', 'updateHostedZoneComment_comment' - The new comment for the hosted zone. If you don\'t specify a value for
+-- @Comment@, Amazon Route 53 deletes the existing value of the @Comment@
+-- element, if any.
+--
+-- 'id', 'updateHostedZoneComment_id' - The ID for the hosted zone that you want to update the comment for.
+newUpdateHostedZoneComment ::
+  -- | 'id'
+  ResourceId ->
+  UpdateHostedZoneComment
+newUpdateHostedZoneComment pId_ =
+  UpdateHostedZoneComment'
+    { comment = Prelude.Nothing,
+      id = pId_
+    }
 
-
--- | The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
-uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a})
+-- | The new comment for the hosted zone. If you don\'t specify a value for
+-- @Comment@, Amazon Route 53 deletes the existing value of the @Comment@
+-- element, if any.
+updateHostedZoneComment_comment :: Lens.Lens' UpdateHostedZoneComment (Prelude.Maybe Prelude.Text)
+updateHostedZoneComment_comment = Lens.lens (\UpdateHostedZoneComment' {comment} -> comment) (\s@UpdateHostedZoneComment' {} a -> s {comment = a} :: UpdateHostedZoneComment)
 
 -- | The ID for the hosted zone that you want to update the comment for.
-uhzcId :: Lens' UpdateHostedZoneComment ResourceId
-uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a})
+updateHostedZoneComment_id :: Lens.Lens' UpdateHostedZoneComment ResourceId
+updateHostedZoneComment_id = Lens.lens (\UpdateHostedZoneComment' {id} -> id) (\s@UpdateHostedZoneComment' {} a -> s {id = a} :: UpdateHostedZoneComment)
 
-instance AWSRequest UpdateHostedZoneComment where
-        type Rs UpdateHostedZoneComment =
-             UpdateHostedZoneCommentResponse
-        request = postXML route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 UpdateHostedZoneCommentResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "HostedZone"))
+instance Core.AWSRequest UpdateHostedZoneComment where
+  type
+    AWSResponse UpdateHostedZoneComment =
+      UpdateHostedZoneCommentResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          UpdateHostedZoneCommentResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "HostedZone")
+      )
 
-instance Hashable UpdateHostedZoneComment where
+instance Prelude.Hashable UpdateHostedZoneComment
 
-instance NFData UpdateHostedZoneComment where
+instance Prelude.NFData UpdateHostedZoneComment
 
-instance ToElement UpdateHostedZoneComment where
-        toElement
-          = mkElement
-              "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
+instance Core.ToElement UpdateHostedZoneComment where
+  toElement =
+    Core.mkElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
 
-instance ToHeaders UpdateHostedZoneComment where
-        toHeaders = const mempty
+instance Core.ToHeaders UpdateHostedZoneComment where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateHostedZoneComment where
-        toPath UpdateHostedZoneComment'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toBS _uhzcId]
+instance Core.ToPath UpdateHostedZoneComment where
+  toPath UpdateHostedZoneComment' {..} =
+    Prelude.mconcat
+      ["/2013-04-01/hostedzone/", Core.toBS id]
 
-instance ToQuery UpdateHostedZoneComment where
-        toQuery = const mempty
+instance Core.ToQuery UpdateHostedZoneComment where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToXML UpdateHostedZoneComment where
-        toXML UpdateHostedZoneComment'{..}
-          = mconcat ["Comment" @= _uhzcComment]
+instance Core.ToXML UpdateHostedZoneComment where
+  toXML UpdateHostedZoneComment' {..} =
+    Prelude.mconcat ["Comment" Core.@= comment]
 
--- | A complex type that contains the response to the @UpdateHostedZoneComment@ request.
+-- | A complex type that contains the response to the
+-- @UpdateHostedZoneComment@ request.
 --
---
---
--- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
+-- /See:/ 'newUpdateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-  { _uhzcrsResponseStatus :: !Int
-  , _uhzcrsHostedZone     :: !HostedZone
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A complex type that contains the response to the
+    -- @UpdateHostedZoneComment@ request.
+    hostedZone :: HostedZone
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateHostedZoneCommentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uhzcrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uhzcrsHostedZone' - Undocumented member.
-updateHostedZoneCommentResponse
-    :: Int -- ^ 'uhzcrsResponseStatus'
-    -> HostedZone -- ^ 'uhzcrsHostedZone'
-    -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
-  UpdateHostedZoneCommentResponse'
-    {_uhzcrsResponseStatus = pResponseStatus_, _uhzcrsHostedZone = pHostedZone_}
+-- 'httpStatus', 'updateHostedZoneCommentResponse_httpStatus' - The response's http status code.
+--
+-- 'hostedZone', 'updateHostedZoneCommentResponse_hostedZone' - A complex type that contains the response to the
+-- @UpdateHostedZoneComment@ request.
+newUpdateHostedZoneCommentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'hostedZone'
+  HostedZone ->
+  UpdateHostedZoneCommentResponse
+newUpdateHostedZoneCommentResponse
+  pHttpStatus_
+  pHostedZone_ =
+    UpdateHostedZoneCommentResponse'
+      { httpStatus =
+          pHttpStatus_,
+        hostedZone = pHostedZone_
+      }
 
+-- | The response's http status code.
+updateHostedZoneCommentResponse_httpStatus :: Lens.Lens' UpdateHostedZoneCommentResponse Prelude.Int
+updateHostedZoneCommentResponse_httpStatus = Lens.lens (\UpdateHostedZoneCommentResponse' {httpStatus} -> httpStatus) (\s@UpdateHostedZoneCommentResponse' {} a -> s {httpStatus = a} :: UpdateHostedZoneCommentResponse)
 
--- | -- | The response status code.
-uhzcrsResponseStatus :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseStatus = a})
+-- | A complex type that contains the response to the
+-- @UpdateHostedZoneComment@ request.
+updateHostedZoneCommentResponse_hostedZone :: Lens.Lens' UpdateHostedZoneCommentResponse HostedZone
+updateHostedZoneCommentResponse_hostedZone = Lens.lens (\UpdateHostedZoneCommentResponse' {hostedZone} -> hostedZone) (\s@UpdateHostedZoneCommentResponse' {} a -> s {hostedZone = a} :: UpdateHostedZoneCommentResponse)
 
--- | Undocumented member.
-uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a})
-
-instance NFData UpdateHostedZoneCommentResponse where
+instance
+  Prelude.NFData
+    UpdateHostedZoneCommentResponse

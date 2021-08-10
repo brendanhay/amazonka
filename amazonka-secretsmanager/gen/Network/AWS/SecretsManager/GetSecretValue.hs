@@ -1,235 +1,462 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SecretsManager.GetSecretValue
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the contents of the encrypted fields @SecretString@ or @SecretBinary@ from the specified version of a secret, whichever contains content.
---
+-- Retrieves the contents of the encrypted fields @SecretString@ or
+-- @SecretBinary@ from the specified version of a secret, whichever
+-- contains content.
 --
 -- __Minimum permissions__
 --
 -- To run this command, you must have the following permissions:
 --
---     * secretsmanager:GetSecretValue
+-- -   secretsmanager:GetSecretValue
 --
---     * kms:Decrypt - required only if you use a customer-created KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager.
---
---
+-- -   kms:Decrypt - required only if you use a customer-managed AWS KMS
+--     key to encrypt the secret. You do not need this permission to use
+--     the account\'s default AWS managed CMK for Secrets Manager.
 --
 -- __Related operations__
 --
---     * To create a new version of the secret with different encrypted information, use 'PutSecretValue' .
+-- -   To create a new version of the secret with different encrypted
+--     information, use PutSecretValue.
 --
---     * To retrieve the non-encrypted details for the secret, use 'DescribeSecret' .
---
---
---
+-- -   To retrieve the non-encrypted details for the secret, use
+--     DescribeSecret.
 module Network.AWS.SecretsManager.GetSecretValue
-    (
-    -- * Creating a Request
-      getSecretValue
-    , GetSecretValue
+  ( -- * Creating a Request
+    GetSecretValue (..),
+    newGetSecretValue,
+
     -- * Request Lenses
-    , gsvVersionId
-    , gsvVersionStage
-    , gsvSecretId
+    getSecretValue_versionId,
+    getSecretValue_versionStage,
+    getSecretValue_secretId,
 
     -- * Destructuring the Response
-    , getSecretValueResponse
-    , GetSecretValueResponse
+    GetSecretValueResponse (..),
+    newGetSecretValueResponse,
+
     -- * Response Lenses
-    , gsvrsVersionId
-    , gsvrsARN
-    , gsvrsVersionStages
-    , gsvrsSecretBinary
-    , gsvrsCreatedDate
-    , gsvrsName
-    , gsvrsSecretString
-    , gsvrsResponseStatus
-    ) where
+    getSecretValueResponse_createdDate,
+    getSecretValueResponse_secretBinary,
+    getSecretValueResponse_versionStages,
+    getSecretValueResponse_arn,
+    getSecretValueResponse_versionId,
+    getSecretValueResponse_name,
+    getSecretValueResponse_secretString,
+    getSecretValueResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
-import Network.AWS.SecretsManager.Types.Product
 
--- | /See:/ 'getSecretValue' smart constructor.
+-- | /See:/ 'newGetSecretValue' smart constructor.
 data GetSecretValue = GetSecretValue'
-  { _gsvVersionId    :: !(Maybe Text)
-  , _gsvVersionStage :: !(Maybe Text)
-  , _gsvSecretId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies the unique identifier of the version of the secret that you
+    -- want to retrieve. If you specify both this parameter and @VersionStage@,
+    -- the two parameters must refer to the same secret version. If you don\'t
+    -- specify either a @VersionStage@ or @VersionId@ then the default is to
+    -- perform the operation on the version with the @VersionStage@ value of
+    -- @AWSCURRENT@.
+    --
+    -- This value is typically a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+    -- value with 32 hexadecimal digits.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the secret version that you want to retrieve by the staging
+    -- label attached to the version.
+    --
+    -- Staging labels are used to keep track of different versions during the
+    -- rotation process. If you specify both this parameter and @VersionId@,
+    -- the two parameters must refer to the same secret version . If you don\'t
+    -- specify either a @VersionStage@ or @VersionId@, then the default is to
+    -- perform the operation on the version with the @VersionStage@ value of
+    -- @AWSCURRENT@.
+    versionStage :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the secret containing the version that you want to retrieve.
+    -- You can specify either the Amazon Resource Name (ARN) or the friendly
+    -- name of the secret.
+    --
+    -- If you specify an ARN, we generally recommend that you specify a
+    -- complete ARN. You can specify a partial ARN too—for example, if you
+    -- don’t include the final hyphen and six random characters that Secrets
+    -- Manager adds at the end of the ARN when you created the secret. A
+    -- partial ARN match can work as long as it uniquely matches only one
+    -- secret. However, if your secret has a name that ends in a hyphen
+    -- followed by six characters (before Secrets Manager adds the hyphen and
+    -- six characters to the ARN) and you try to use that as a partial ARN,
+    -- then those characters cause Secrets Manager to assume that you’re
+    -- specifying a complete ARN. This confusion can cause unexpected results.
+    -- To avoid this situation, we recommend that you don’t create secret names
+    -- ending with a hyphen followed by six characters.
+    --
+    -- If you specify an incomplete ARN without the random suffix, and instead
+    -- provide the \'friendly name\', you /must/ not include the random suffix.
+    -- If you do include the random suffix added by Secrets Manager, you
+    -- receive either a /ResourceNotFoundException/ or an
+    -- /AccessDeniedException/ error, depending on your permissions.
+    secretId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSecretValue' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSecretValue' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gsvVersionId' - Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gsvVersionStage' - Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @SecretVersionId@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
+-- 'versionId', 'getSecretValue_versionId' - Specifies the unique identifier of the version of the secret that you
+-- want to retrieve. If you specify both this parameter and @VersionStage@,
+-- the two parameters must refer to the same secret version. If you don\'t
+-- specify either a @VersionStage@ or @VersionId@ then the default is to
+-- perform the operation on the version with the @VersionStage@ value of
+-- @AWSCURRENT@.
 --
--- * 'gsvSecretId' - Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-getSecretValue
-    :: Text -- ^ 'gsvSecretId'
-    -> GetSecretValue
-getSecretValue pSecretId_ =
+-- This value is typically a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+-- value with 32 hexadecimal digits.
+--
+-- 'versionStage', 'getSecretValue_versionStage' - Specifies the secret version that you want to retrieve by the staging
+-- label attached to the version.
+--
+-- Staging labels are used to keep track of different versions during the
+-- rotation process. If you specify both this parameter and @VersionId@,
+-- the two parameters must refer to the same secret version . If you don\'t
+-- specify either a @VersionStage@ or @VersionId@, then the default is to
+-- perform the operation on the version with the @VersionStage@ value of
+-- @AWSCURRENT@.
+--
+-- 'secretId', 'getSecretValue_secretId' - Specifies the secret containing the version that you want to retrieve.
+-- You can specify either the Amazon Resource Name (ARN) or the friendly
+-- name of the secret.
+--
+-- If you specify an ARN, we generally recommend that you specify a
+-- complete ARN. You can specify a partial ARN too—for example, if you
+-- don’t include the final hyphen and six random characters that Secrets
+-- Manager adds at the end of the ARN when you created the secret. A
+-- partial ARN match can work as long as it uniquely matches only one
+-- secret. However, if your secret has a name that ends in a hyphen
+-- followed by six characters (before Secrets Manager adds the hyphen and
+-- six characters to the ARN) and you try to use that as a partial ARN,
+-- then those characters cause Secrets Manager to assume that you’re
+-- specifying a complete ARN. This confusion can cause unexpected results.
+-- To avoid this situation, we recommend that you don’t create secret names
+-- ending with a hyphen followed by six characters.
+--
+-- If you specify an incomplete ARN without the random suffix, and instead
+-- provide the \'friendly name\', you /must/ not include the random suffix.
+-- If you do include the random suffix added by Secrets Manager, you
+-- receive either a /ResourceNotFoundException/ or an
+-- /AccessDeniedException/ error, depending on your permissions.
+newGetSecretValue ::
+  -- | 'secretId'
+  Prelude.Text ->
+  GetSecretValue
+newGetSecretValue pSecretId_ =
   GetSecretValue'
-    { _gsvVersionId = Nothing
-    , _gsvVersionStage = Nothing
-    , _gsvSecretId = pSecretId_
+    { versionId = Prelude.Nothing,
+      versionStage = Prelude.Nothing,
+      secretId = pSecretId_
     }
 
+-- | Specifies the unique identifier of the version of the secret that you
+-- want to retrieve. If you specify both this parameter and @VersionStage@,
+-- the two parameters must refer to the same secret version. If you don\'t
+-- specify either a @VersionStage@ or @VersionId@ then the default is to
+-- perform the operation on the version with the @VersionStage@ value of
+-- @AWSCURRENT@.
+--
+-- This value is typically a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+-- value with 32 hexadecimal digits.
+getSecretValue_versionId :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
+getSecretValue_versionId = Lens.lens (\GetSecretValue' {versionId} -> versionId) (\s@GetSecretValue' {} a -> s {versionId = a} :: GetSecretValue)
 
--- | Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
-gsvVersionId :: Lens' GetSecretValue (Maybe Text)
-gsvVersionId = lens _gsvVersionId (\ s a -> s{_gsvVersionId = a})
+-- | Specifies the secret version that you want to retrieve by the staging
+-- label attached to the version.
+--
+-- Staging labels are used to keep track of different versions during the
+-- rotation process. If you specify both this parameter and @VersionId@,
+-- the two parameters must refer to the same secret version . If you don\'t
+-- specify either a @VersionStage@ or @VersionId@, then the default is to
+-- perform the operation on the version with the @VersionStage@ value of
+-- @AWSCURRENT@.
+getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
+getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> versionStage) (\s@GetSecretValue' {} a -> s {versionStage = a} :: GetSecretValue)
 
--- | Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @SecretVersionId@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
-gsvVersionStage :: Lens' GetSecretValue (Maybe Text)
-gsvVersionStage = lens _gsvVersionStage (\ s a -> s{_gsvVersionStage = a})
+-- | Specifies the secret containing the version that you want to retrieve.
+-- You can specify either the Amazon Resource Name (ARN) or the friendly
+-- name of the secret.
+--
+-- If you specify an ARN, we generally recommend that you specify a
+-- complete ARN. You can specify a partial ARN too—for example, if you
+-- don’t include the final hyphen and six random characters that Secrets
+-- Manager adds at the end of the ARN when you created the secret. A
+-- partial ARN match can work as long as it uniquely matches only one
+-- secret. However, if your secret has a name that ends in a hyphen
+-- followed by six characters (before Secrets Manager adds the hyphen and
+-- six characters to the ARN) and you try to use that as a partial ARN,
+-- then those characters cause Secrets Manager to assume that you’re
+-- specifying a complete ARN. This confusion can cause unexpected results.
+-- To avoid this situation, we recommend that you don’t create secret names
+-- ending with a hyphen followed by six characters.
+--
+-- If you specify an incomplete ARN without the random suffix, and instead
+-- provide the \'friendly name\', you /must/ not include the random suffix.
+-- If you do include the random suffix added by Secrets Manager, you
+-- receive either a /ResourceNotFoundException/ or an
+-- /AccessDeniedException/ error, depending on your permissions.
+getSecretValue_secretId :: Lens.Lens' GetSecretValue Prelude.Text
+getSecretValue_secretId = Lens.lens (\GetSecretValue' {secretId} -> secretId) (\s@GetSecretValue' {} a -> s {secretId = a} :: GetSecretValue)
 
--- | Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-gsvSecretId :: Lens' GetSecretValue Text
-gsvSecretId = lens _gsvSecretId (\ s a -> s{_gsvSecretId = a})
+instance Core.AWSRequest GetSecretValue where
+  type
+    AWSResponse GetSecretValue =
+      GetSecretValueResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSecretValueResponse'
+            Prelude.<$> (x Core..?> "CreatedDate")
+            Prelude.<*> (x Core..?> "SecretBinary")
+            Prelude.<*> (x Core..?> "VersionStages")
+            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "SecretString")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetSecretValue where
-        type Rs GetSecretValue = GetSecretValueResponse
-        request = postJSON secretsManager
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetSecretValueResponse' <$>
-                   (x .?> "VersionId") <*> (x .?> "ARN") <*>
-                     (x .?> "VersionStages")
-                     <*> (x .?> "SecretBinary")
-                     <*> (x .?> "CreatedDate")
-                     <*> (x .?> "Name")
-                     <*> (x .?> "SecretString")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetSecretValue
 
-instance Hashable GetSecretValue where
+instance Prelude.NFData GetSecretValue
 
-instance NFData GetSecretValue where
+instance Core.ToHeaders GetSecretValue where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "secretsmanager.GetSecretValue" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetSecretValue where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("secretsmanager.GetSecretValue" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetSecretValue where
+  toJSON GetSecretValue' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("VersionId" Core..=) Prelude.<$> versionId,
+            ("VersionStage" Core..=) Prelude.<$> versionStage,
+            Prelude.Just ("SecretId" Core..= secretId)
+          ]
+      )
 
-instance ToJSON GetSecretValue where
-        toJSON GetSecretValue'{..}
-          = object
-              (catMaybes
-                 [("VersionId" .=) <$> _gsvVersionId,
-                  ("VersionStage" .=) <$> _gsvVersionStage,
-                  Just ("SecretId" .= _gsvSecretId)])
+instance Core.ToPath GetSecretValue where
+  toPath = Prelude.const "/"
 
-instance ToPath GetSecretValue where
-        toPath = const "/"
+instance Core.ToQuery GetSecretValue where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetSecretValue where
-        toQuery = const mempty
-
--- | /See:/ 'getSecretValueResponse' smart constructor.
+-- | /See:/ 'newGetSecretValueResponse' smart constructor.
 data GetSecretValueResponse = GetSecretValueResponse'
-  { _gsvrsVersionId      :: !(Maybe Text)
-  , _gsvrsARN            :: !(Maybe Text)
-  , _gsvrsVersionStages  :: !(Maybe (List1 Text))
-  , _gsvrsSecretBinary   :: !(Maybe (Sensitive Base64))
-  , _gsvrsCreatedDate    :: !(Maybe POSIX)
-  , _gsvrsName           :: !(Maybe Text)
-  , _gsvrsSecretString   :: !(Maybe (Sensitive Text))
-  , _gsvrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The date and time that this version of the secret was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The decrypted part of the protected secret information that was
+    -- originally provided as binary data in the form of a byte array. The
+    -- response parameter represents the binary data as a
+    -- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
+    --
+    -- This parameter is not used if the secret is created by the Secrets
+    -- Manager console.
+    --
+    -- If you store custom information in this field of the secret, then you
+    -- must code your Lambda rotation function to parse and interpret whatever
+    -- you store in the @SecretString@ or @SecretBinary@ fields.
+    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    -- | A list of all of the staging labels currently attached to this version
+    -- of the secret.
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The ARN of the secret.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of this version of the secret.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The decrypted part of the protected secret information that was
+    -- originally provided as a string.
+    --
+    -- If you create this secret by using the Secrets Manager console then only
+    -- the @SecretString@ parameter contains data. Secrets Manager stores the
+    -- information as a JSON structure of key\/value pairs that the Lambda
+    -- rotation function knows how to parse.
+    --
+    -- If you store custom information in the secret by using the CreateSecret,
+    -- UpdateSecret, or PutSecretValue API operations instead of the Secrets
+    -- Manager console, or by using the __Other secret type__ in the console,
+    -- then you must code your Lambda rotation function to parse and interpret
+    -- those values.
+    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSecretValueResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSecretValueResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gsvrsVersionId' - The unique identifier of this version of the secret.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gsvrsARN' - The ARN of the secret.
+-- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created.
 --
--- * 'gsvrsVersionStages' - A list of all of the staging labels currently attached to this version of the secret.
+-- 'secretBinary', 'getSecretValueResponse_secretBinary' - The decrypted part of the protected secret information that was
+-- originally provided as binary data in the form of a byte array. The
+-- response parameter represents the binary data as a
+-- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
 --
--- * 'gsvrsSecretBinary' - The decrypted part of the protected secret information that was originally provided as binary data in the form of a byte array. The response parameter represents the binary data as a <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string. This parameter is not used if the secret is created by the Secrets Manager console. If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the @SecretString@ or @SecretBinary@ fields.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- This parameter is not used if the secret is created by the Secrets
+-- Manager console.
 --
--- * 'gsvrsCreatedDate' - The date and time that this version of the secret was created.
+-- If you store custom information in this field of the secret, then you
+-- must code your Lambda rotation function to parse and interpret whatever
+-- you store in the @SecretString@ or @SecretBinary@ fields.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'gsvrsName' - The friendly name of the secret.
+-- 'versionStages', 'getSecretValueResponse_versionStages' - A list of all of the staging labels currently attached to this version
+-- of the secret.
 --
--- * 'gsvrsSecretString' - The decrypted part of the protected secret information that was originally provided as a string. If you create this secret by using the Secrets Manager console then only the @SecretString@ parameter contains data. Secrets Manager stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse. If you store custom information in the secret by using the 'CreateSecret' , 'UpdateSecret' , or 'PutSecretValue' API operations instead of the Secrets Manager console, or by using the __Other secret type__ in the console, then you must code your Lambda rotation function to parse and interpret those values.
+-- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
 --
--- * 'gsvrsResponseStatus' - -- | The response status code.
-getSecretValueResponse
-    :: Int -- ^ 'gsvrsResponseStatus'
-    -> GetSecretValueResponse
-getSecretValueResponse pResponseStatus_ =
+-- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
+--
+-- 'name', 'getSecretValueResponse_name' - The friendly name of the secret.
+--
+-- 'secretString', 'getSecretValueResponse_secretString' - The decrypted part of the protected secret information that was
+-- originally provided as a string.
+--
+-- If you create this secret by using the Secrets Manager console then only
+-- the @SecretString@ parameter contains data. Secrets Manager stores the
+-- information as a JSON structure of key\/value pairs that the Lambda
+-- rotation function knows how to parse.
+--
+-- If you store custom information in the secret by using the CreateSecret,
+-- UpdateSecret, or PutSecretValue API operations instead of the Secrets
+-- Manager console, or by using the __Other secret type__ in the console,
+-- then you must code your Lambda rotation function to parse and interpret
+-- those values.
+--
+-- 'httpStatus', 'getSecretValueResponse_httpStatus' - The response's http status code.
+newGetSecretValueResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetSecretValueResponse
+newGetSecretValueResponse pHttpStatus_ =
   GetSecretValueResponse'
-    { _gsvrsVersionId = Nothing
-    , _gsvrsARN = Nothing
-    , _gsvrsVersionStages = Nothing
-    , _gsvrsSecretBinary = Nothing
-    , _gsvrsCreatedDate = Nothing
-    , _gsvrsName = Nothing
-    , _gsvrsSecretString = Nothing
-    , _gsvrsResponseStatus = pResponseStatus_
+    { createdDate =
+        Prelude.Nothing,
+      secretBinary = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | The unique identifier of this version of the secret.
-gsvrsVersionId :: Lens' GetSecretValueResponse (Maybe Text)
-gsvrsVersionId = lens _gsvrsVersionId (\ s a -> s{_gsvrsVersionId = a})
-
--- | The ARN of the secret.
-gsvrsARN :: Lens' GetSecretValueResponse (Maybe Text)
-gsvrsARN = lens _gsvrsARN (\ s a -> s{_gsvrsARN = a})
-
--- | A list of all of the staging labels currently attached to this version of the secret.
-gsvrsVersionStages :: Lens' GetSecretValueResponse (Maybe (NonEmpty Text))
-gsvrsVersionStages = lens _gsvrsVersionStages (\ s a -> s{_gsvrsVersionStages = a}) . mapping _List1
-
--- | The decrypted part of the protected secret information that was originally provided as binary data in the form of a byte array. The response parameter represents the binary data as a <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string. This parameter is not used if the secret is created by the Secrets Manager console. If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the @SecretString@ or @SecretBinary@ fields.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-gsvrsSecretBinary :: Lens' GetSecretValueResponse (Maybe ByteString)
-gsvrsSecretBinary = lens _gsvrsSecretBinary (\ s a -> s{_gsvrsSecretBinary = a}) . mapping (_Sensitive . _Base64)
 
 -- | The date and time that this version of the secret was created.
-gsvrsCreatedDate :: Lens' GetSecretValueResponse (Maybe UTCTime)
-gsvrsCreatedDate = lens _gsvrsCreatedDate (\ s a -> s{_gsvrsCreatedDate = a}) . mapping _Time
+getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
+getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The decrypted part of the protected secret information that was
+-- originally provided as binary data in the form of a byte array. The
+-- response parameter represents the binary data as a
+-- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
+--
+-- This parameter is not used if the secret is created by the Secrets
+-- Manager console.
+--
+-- If you store custom information in this field of the secret, then you
+-- must code your Lambda rotation function to parse and interpret whatever
+-- you store in the @SecretString@ or @SecretBinary@ fields.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.ByteString)
+getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+
+-- | A list of all of the staging labels currently attached to this version
+-- of the secret.
+getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ARN of the secret.
+getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
+
+-- | The unique identifier of this version of the secret.
+getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
 
 -- | The friendly name of the secret.
-gsvrsName :: Lens' GetSecretValueResponse (Maybe Text)
-gsvrsName = lens _gsvrsName (\ s a -> s{_gsvrsName = a})
+getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
 
--- | The decrypted part of the protected secret information that was originally provided as a string. If you create this secret by using the Secrets Manager console then only the @SecretString@ parameter contains data. Secrets Manager stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse. If you store custom information in the secret by using the 'CreateSecret' , 'UpdateSecret' , or 'PutSecretValue' API operations instead of the Secrets Manager console, or by using the __Other secret type__ in the console, then you must code your Lambda rotation function to parse and interpret those values.
-gsvrsSecretString :: Lens' GetSecretValueResponse (Maybe Text)
-gsvrsSecretString = lens _gsvrsSecretString (\ s a -> s{_gsvrsSecretString = a}) . mapping _Sensitive
+-- | The decrypted part of the protected secret information that was
+-- originally provided as a string.
+--
+-- If you create this secret by using the Secrets Manager console then only
+-- the @SecretString@ parameter contains data. Secrets Manager stores the
+-- information as a JSON structure of key\/value pairs that the Lambda
+-- rotation function knows how to parse.
+--
+-- If you store custom information in the secret by using the CreateSecret,
+-- UpdateSecret, or PutSecretValue API operations instead of the Secrets
+-- Manager console, or by using the __Other secret type__ in the console,
+-- then you must code your Lambda rotation function to parse and interpret
+-- those values.
+getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | -- | The response status code.
-gsvrsResponseStatus :: Lens' GetSecretValueResponse Int
-gsvrsResponseStatus = lens _gsvrsResponseStatus (\ s a -> s{_gsvrsResponseStatus = a})
+-- | The response's http status code.
+getSecretValueResponse_httpStatus :: Lens.Lens' GetSecretValueResponse Prelude.Int
+getSecretValueResponse_httpStatus = Lens.lens (\GetSecretValueResponse' {httpStatus} -> httpStatus) (\s@GetSecretValueResponse' {} a -> s {httpStatus = a} :: GetSecretValueResponse)
 
-instance NFData GetSecretValueResponse where
+instance Prelude.NFData GetSecretValueResponse

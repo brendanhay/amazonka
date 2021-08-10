@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DeleteTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,102 +22,120 @@
 --
 -- Deletes an email template.
 --
---
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DeleteTemplate
-    (
-    -- * Creating a Request
-      deleteTemplate
-    , DeleteTemplate
+  ( -- * Creating a Request
+    DeleteTemplate (..),
+    newDeleteTemplate,
+
     -- * Request Lenses
-    , dtTemplateName
+    deleteTemplate_templateName,
 
     -- * Destructuring the Response
-    , deleteTemplateResponse
-    , DeleteTemplateResponse
+    DeleteTemplateResponse (..),
+    newDeleteTemplateResponse,
+
     -- * Response Lenses
-    , dtrsResponseStatus
-    ) where
+    deleteTemplateResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to delete an email template. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
+-- | Represents a request to delete an email template. For more information,
+-- see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'deleteTemplate' smart constructor.
-newtype DeleteTemplate = DeleteTemplate'
-  { _dtTemplateName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteTemplate' smart constructor.
+data DeleteTemplate = DeleteTemplate'
+  { -- | The name of the template to be deleted.
+    templateName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTemplate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTemplate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtTemplateName' - The name of the template to be deleted.
-deleteTemplate
-    :: Text -- ^ 'dtTemplateName'
-    -> DeleteTemplate
-deleteTemplate pTemplateName_ =
-  DeleteTemplate' {_dtTemplateName = pTemplateName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'templateName', 'deleteTemplate_templateName' - The name of the template to be deleted.
+newDeleteTemplate ::
+  -- | 'templateName'
+  Prelude.Text ->
+  DeleteTemplate
+newDeleteTemplate pTemplateName_ =
+  DeleteTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template to be deleted.
-dtTemplateName :: Lens' DeleteTemplate Text
-dtTemplateName = lens _dtTemplateName (\ s a -> s{_dtTemplateName = a})
+deleteTemplate_templateName :: Lens.Lens' DeleteTemplate Prelude.Text
+deleteTemplate_templateName = Lens.lens (\DeleteTemplate' {templateName} -> templateName) (\s@DeleteTemplate' {} a -> s {templateName = a} :: DeleteTemplate)
 
-instance AWSRequest DeleteTemplate where
-        type Rs DeleteTemplate = DeleteTemplateResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "DeleteTemplateResult"
-              (\ s h x ->
-                 DeleteTemplateResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteTemplate where
+  type
+    AWSResponse DeleteTemplate =
+      DeleteTemplateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteTemplateResult"
+      ( \s h x ->
+          DeleteTemplateResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteTemplate where
+instance Prelude.Hashable DeleteTemplate
 
-instance NFData DeleteTemplate where
+instance Prelude.NFData DeleteTemplate
 
-instance ToHeaders DeleteTemplate where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteTemplate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteTemplate where
-        toPath = const "/"
+instance Core.ToPath DeleteTemplate where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteTemplate where
-        toQuery DeleteTemplate'{..}
-          = mconcat
-              ["Action" =: ("DeleteTemplate" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _dtTemplateName]
+instance Core.ToQuery DeleteTemplate where
+  toQuery DeleteTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Core.=: templateName
+      ]
 
--- | /See:/ 'deleteTemplateResponse' smart constructor.
-newtype DeleteTemplateResponse = DeleteTemplateResponse'
-  { _dtrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteTemplateResponse' smart constructor.
+data DeleteTemplateResponse = DeleteTemplateResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTemplateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTemplateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTemplateResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DeleteTemplateResponse
-deleteTemplateResponse pResponseStatus_ =
-  DeleteTemplateResponse' {_dtrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteTemplateResponse_httpStatus' - The response's http status code.
+newDeleteTemplateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTemplateResponse
+newDeleteTemplateResponse pHttpStatus_ =
+  DeleteTemplateResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteTemplateResponse_httpStatus :: Lens.Lens' DeleteTemplateResponse Prelude.Int
+deleteTemplateResponse_httpStatus = Lens.lens (\DeleteTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteTemplateResponse' {} a -> s {httpStatus = a} :: DeleteTemplateResponse)
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTemplateResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
-
-instance NFData DeleteTemplateResponse where
+instance Prelude.NFData DeleteTemplateResponse

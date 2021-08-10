@@ -1,152 +1,222 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Cloud9.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Cloud9.Types
-    (
-    -- * Service Configuration
-      cloud9
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ConflictException
-    , _ForbiddenException
-    , _NotFoundException
-    , _TooManyRequestsException
-    , _InternalServerErrorException
-    , _BadRequestException
-    , _LimitExceededException
+    _NotFoundException,
+    _BadRequestException,
+    _ConcurrentAccessException,
+    _InternalServerErrorException,
+    _ForbiddenException,
+    _LimitExceededException,
+    _ConflictException,
+    _TooManyRequestsException,
+
+    -- * ConnectionType
+    ConnectionType (..),
+
+    -- * EnvironmentLifecycleStatus
+    EnvironmentLifecycleStatus (..),
 
     -- * EnvironmentStatus
-    , EnvironmentStatus (..)
+    EnvironmentStatus (..),
 
     -- * EnvironmentType
-    , EnvironmentType (..)
+    EnvironmentType (..),
 
     -- * MemberPermissions
-    , MemberPermissions (..)
+    MemberPermissions (..),
 
     -- * Permissions
-    , Permissions (..)
+    Permissions (..),
 
     -- * Environment
-    , Environment
-    , environment
-    , eArn
-    , eOwnerARN
-    , eName
-    , eId
-    , eType
-    , eDescription
+    Environment (..),
+    newEnvironment,
+    environment_lifecycle,
+    environment_connectionType,
+    environment_id,
+    environment_arn,
+    environment_name,
+    environment_ownerArn,
+    environment_description,
+    environment_type,
+
+    -- * EnvironmentLifecycle
+    EnvironmentLifecycle (..),
+    newEnvironmentLifecycle,
+    environmentLifecycle_status,
+    environmentLifecycle_reason,
+    environmentLifecycle_failureResource,
 
     -- * EnvironmentMember
-    , EnvironmentMember
-    , environmentMember
-    , emLastAccess
-    , emUserId
-    , emUserARN
-    , emPermissions
-    , emEnvironmentId
-    ) where
+    EnvironmentMember (..),
+    newEnvironmentMember,
+    environmentMember_userArn,
+    environmentMember_permissions,
+    environmentMember_environmentId,
+    environmentMember_userId,
+    environmentMember_lastAccess,
 
-import Network.AWS.Cloud9.Types.Product
-import Network.AWS.Cloud9.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
+
+import Network.AWS.Cloud9.Types.ConnectionType
+import Network.AWS.Cloud9.Types.Environment
+import Network.AWS.Cloud9.Types.EnvironmentLifecycle
+import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
+import Network.AWS.Cloud9.Types.EnvironmentMember
+import Network.AWS.Cloud9.Types.EnvironmentStatus
+import Network.AWS.Cloud9.Types.EnvironmentType
+import Network.AWS.Cloud9.Types.MemberPermissions
+import Network.AWS.Cloud9.Types.Permissions
+import Network.AWS.Cloud9.Types.Tag
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-23@ of the Amazon Cloud9 SDK configuration.
-cloud9 :: Service
-cloud9 =
-  Service
-    { _svcAbbrev = "Cloud9"
-    , _svcSigner = v4
-    , _svcPrefix = "cloud9"
-    , _svcVersion = "2017-09-23"
-    , _svcEndpoint = defaultEndpoint cloud9
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Cloud9"
-    , _svcRetry = retry
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "Cloud9",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "cloud9",
+      Core._serviceSigningName = "cloud9",
+      Core._serviceVersion = "2017-09-23",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Cloud9",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | A conflict occurred.
---
---
-_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictException = _MatchServiceError cloud9 "ConflictException"
-
-
--- | An access permissions issue occurred.
---
---
-_ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
-_ForbiddenException = _MatchServiceError cloud9 "ForbiddenException"
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The target resource cannot be found.
---
---
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _MatchServiceError cloud9 "NotFoundException"
-
-
--- | Too many service requests were made over the given time period.
---
---
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRequestsException = _MatchServiceError cloud9 "TooManyRequestsException"
-
-
--- | An internal server error occurred.
---
---
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerErrorException =
-  _MatchServiceError cloud9 "InternalServerErrorException"
-
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | The target request is invalid.
---
---
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_BadRequestException = _MatchServiceError cloud9 "BadRequestException"
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
 
+-- | A concurrent access issue occurred.
+_ConcurrentAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentAccessException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentAccessException"
+
+-- | An internal server error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+
+-- | An access permissions issue occurred.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
 
 -- | A service limit was exceeded.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _MatchServiceError cloud9 "LimitExceededException"
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
+-- | A conflict occurred.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
+-- | Too many service requests were made over the given time period.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"

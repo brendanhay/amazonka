@@ -1,114 +1,194 @@
-name:                  amazonka-lambda
-version:               1.6.1
-synopsis:              Amazon Lambda SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-lambda
+version:            1.6.1
+synopsis:           Amazon Lambda SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Lambda" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2015-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Lambda.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Lambda" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-lambda
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-lambda
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Lambda
+    Network.AWS.Lambda.AddLayerVersionPermission
+    Network.AWS.Lambda.AddPermission
+    Network.AWS.Lambda.CreateAlias
+    Network.AWS.Lambda.CreateCodeSigningConfig
+    Network.AWS.Lambda.CreateEventSourceMapping
+    Network.AWS.Lambda.CreateFunction
+    Network.AWS.Lambda.DeleteAlias
+    Network.AWS.Lambda.DeleteCodeSigningConfig
+    Network.AWS.Lambda.DeleteEventSourceMapping
+    Network.AWS.Lambda.DeleteFunction
+    Network.AWS.Lambda.DeleteFunctionCodeSigningConfig
+    Network.AWS.Lambda.DeleteFunctionConcurrency
+    Network.AWS.Lambda.DeleteFunctionEventInvokeConfig
+    Network.AWS.Lambda.DeleteLayerVersion
+    Network.AWS.Lambda.DeleteProvisionedConcurrencyConfig
+    Network.AWS.Lambda.GetAccountSettings
+    Network.AWS.Lambda.GetAlias
+    Network.AWS.Lambda.GetCodeSigningConfig
+    Network.AWS.Lambda.GetEventSourceMapping
+    Network.AWS.Lambda.GetFunction
+    Network.AWS.Lambda.GetFunctionCodeSigningConfig
+    Network.AWS.Lambda.GetFunctionConcurrency
+    Network.AWS.Lambda.GetFunctionConfiguration
+    Network.AWS.Lambda.GetFunctionEventInvokeConfig
+    Network.AWS.Lambda.GetLayerVersion
+    Network.AWS.Lambda.GetLayerVersionByArn
+    Network.AWS.Lambda.GetLayerVersionPolicy
+    Network.AWS.Lambda.GetPolicy
+    Network.AWS.Lambda.GetProvisionedConcurrencyConfig
+    Network.AWS.Lambda.Invoke
+    Network.AWS.Lambda.Lens
+    Network.AWS.Lambda.ListAliases
+    Network.AWS.Lambda.ListCodeSigningConfigs
+    Network.AWS.Lambda.ListEventSourceMappings
+    Network.AWS.Lambda.ListFunctionEventInvokeConfigs
+    Network.AWS.Lambda.ListFunctions
+    Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
+    Network.AWS.Lambda.ListLayers
+    Network.AWS.Lambda.ListLayerVersions
+    Network.AWS.Lambda.ListProvisionedConcurrencyConfigs
+    Network.AWS.Lambda.ListTags
+    Network.AWS.Lambda.ListVersionsByFunction
+    Network.AWS.Lambda.PublishLayerVersion
+    Network.AWS.Lambda.PublishVersion
+    Network.AWS.Lambda.PutFunctionCodeSigningConfig
+    Network.AWS.Lambda.PutFunctionConcurrency
+    Network.AWS.Lambda.PutFunctionEventInvokeConfig
+    Network.AWS.Lambda.PutProvisionedConcurrencyConfig
+    Network.AWS.Lambda.RemoveLayerVersionPermission
+    Network.AWS.Lambda.RemovePermission
+    Network.AWS.Lambda.TagResource
+    Network.AWS.Lambda.Types
+    Network.AWS.Lambda.Types.AccountLimit
+    Network.AWS.Lambda.Types.AccountUsage
+    Network.AWS.Lambda.Types.AliasConfiguration
+    Network.AWS.Lambda.Types.AliasRoutingConfiguration
+    Network.AWS.Lambda.Types.AllowedPublishers
+    Network.AWS.Lambda.Types.CodeSigningConfig
+    Network.AWS.Lambda.Types.CodeSigningPolicies
+    Network.AWS.Lambda.Types.CodeSigningPolicy
+    Network.AWS.Lambda.Types.Concurrency
+    Network.AWS.Lambda.Types.DeadLetterConfig
+    Network.AWS.Lambda.Types.DestinationConfig
+    Network.AWS.Lambda.Types.EndPointType
+    Network.AWS.Lambda.Types.Environment
+    Network.AWS.Lambda.Types.EnvironmentError
+    Network.AWS.Lambda.Types.EnvironmentResponse
+    Network.AWS.Lambda.Types.EventSourceMappingConfiguration
+    Network.AWS.Lambda.Types.EventSourcePosition
+    Network.AWS.Lambda.Types.FileSystemConfig
+    Network.AWS.Lambda.Types.FunctionCode
+    Network.AWS.Lambda.Types.FunctionCodeLocation
+    Network.AWS.Lambda.Types.FunctionConfiguration
+    Network.AWS.Lambda.Types.FunctionEventInvokeConfig
+    Network.AWS.Lambda.Types.FunctionResponseType
+    Network.AWS.Lambda.Types.FunctionVersion
+    Network.AWS.Lambda.Types.GetLayerVersionResponse
+    Network.AWS.Lambda.Types.ImageConfig
+    Network.AWS.Lambda.Types.ImageConfigError
+    Network.AWS.Lambda.Types.ImageConfigResponse
+    Network.AWS.Lambda.Types.InvocationType
+    Network.AWS.Lambda.Types.LastUpdateStatus
+    Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
+    Network.AWS.Lambda.Types.Layer
+    Network.AWS.Lambda.Types.LayersListItem
+    Network.AWS.Lambda.Types.LayerVersionContentInput
+    Network.AWS.Lambda.Types.LayerVersionContentOutput
+    Network.AWS.Lambda.Types.LayerVersionsListItem
+    Network.AWS.Lambda.Types.LogType
+    Network.AWS.Lambda.Types.OnFailure
+    Network.AWS.Lambda.Types.OnSuccess
+    Network.AWS.Lambda.Types.PackageType
+    Network.AWS.Lambda.Types.ProvisionedConcurrencyConfigListItem
+    Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
+    Network.AWS.Lambda.Types.Runtime
+    Network.AWS.Lambda.Types.SelfManagedEventSource
+    Network.AWS.Lambda.Types.SourceAccessConfiguration
+    Network.AWS.Lambda.Types.SourceAccessType
+    Network.AWS.Lambda.Types.State
+    Network.AWS.Lambda.Types.StateReasonCode
+    Network.AWS.Lambda.Types.TracingConfig
+    Network.AWS.Lambda.Types.TracingConfigResponse
+    Network.AWS.Lambda.Types.TracingMode
+    Network.AWS.Lambda.Types.VpcConfig
+    Network.AWS.Lambda.Types.VpcConfigResponse
+    Network.AWS.Lambda.UntagResource
+    Network.AWS.Lambda.UpdateAlias
+    Network.AWS.Lambda.UpdateCodeSigningConfig
+    Network.AWS.Lambda.UpdateEventSourceMapping
+    Network.AWS.Lambda.UpdateFunctionCode
+    Network.AWS.Lambda.UpdateFunctionConfiguration
+    Network.AWS.Lambda.UpdateFunctionEventInvokeConfig
+    Network.AWS.Lambda.Waiters
 
-    exposed-modules:
-          Network.AWS.Lambda
-        , Network.AWS.Lambda.AddPermission
-        , Network.AWS.Lambda.CreateAlias
-        , Network.AWS.Lambda.CreateEventSourceMapping
-        , Network.AWS.Lambda.CreateFunction
-        , Network.AWS.Lambda.DeleteAlias
-        , Network.AWS.Lambda.DeleteEventSourceMapping
-        , Network.AWS.Lambda.DeleteFunction
-        , Network.AWS.Lambda.DeleteFunctionConcurrency
-        , Network.AWS.Lambda.GetAccountSettings
-        , Network.AWS.Lambda.GetAlias
-        , Network.AWS.Lambda.GetEventSourceMapping
-        , Network.AWS.Lambda.GetFunction
-        , Network.AWS.Lambda.GetFunctionConfiguration
-        , Network.AWS.Lambda.GetPolicy
-        , Network.AWS.Lambda.Invoke
-        , Network.AWS.Lambda.ListAliases
-        , Network.AWS.Lambda.ListEventSourceMappings
-        , Network.AWS.Lambda.ListFunctions
-        , Network.AWS.Lambda.ListTags
-        , Network.AWS.Lambda.ListVersionsByFunction
-        , Network.AWS.Lambda.PublishVersion
-        , Network.AWS.Lambda.PutFunctionConcurrency
-        , Network.AWS.Lambda.RemovePermission
-        , Network.AWS.Lambda.TagResource
-        , Network.AWS.Lambda.Types
-        , Network.AWS.Lambda.UntagResource
-        , Network.AWS.Lambda.UpdateAlias
-        , Network.AWS.Lambda.UpdateEventSourceMapping
-        , Network.AWS.Lambda.UpdateFunctionCode
-        , Network.AWS.Lambda.UpdateFunctionConfiguration
-        , Network.AWS.Lambda.Waiters
-
-    other-modules:
-          Network.AWS.Lambda.Types.Product
-        , Network.AWS.Lambda.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-lambda-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Lambda
+    Test.AWS.Lambda
+    Test.AWS.Lambda.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Lambda
-        , Test.AWS.Gen.Lambda
-        , Test.AWS.Lambda.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-lambda
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-lambda
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

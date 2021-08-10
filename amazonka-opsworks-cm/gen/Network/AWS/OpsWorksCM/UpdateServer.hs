@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,163 +22,191 @@
 --
 -- Updates settings for a server.
 --
---
 -- This operation is synchronous.
---
 module Network.AWS.OpsWorksCM.UpdateServer
-    (
-    -- * Creating a Request
-      updateServer
-    , UpdateServer
+  ( -- * Creating a Request
+    UpdateServer (..),
+    newUpdateServer,
+
     -- * Request Lenses
-    , usDisableAutomatedBackup
-    , usPreferredMaintenanceWindow
-    , usPreferredBackupWindow
-    , usBackupRetentionCount
-    , usServerName
+    updateServer_preferredBackupWindow,
+    updateServer_disableAutomatedBackup,
+    updateServer_preferredMaintenanceWindow,
+    updateServer_backupRetentionCount,
+    updateServer_serverName,
 
     -- * Destructuring the Response
-    , updateServerResponse
-    , UpdateServerResponse
+    UpdateServerResponse (..),
+    newUpdateServerResponse,
+
     -- * Response Lenses
-    , usrsServer
-    , usrsResponseStatus
-    ) where
+    updateServerResponse_server,
+    updateServerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.OpsWorksCM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateServer' smart constructor.
+-- | /See:/ 'newUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { _usDisableAutomatedBackup     :: !(Maybe Bool)
-  , _usPreferredMaintenanceWindow :: !(Maybe Text)
-  , _usPreferredBackupWindow      :: !(Maybe Text)
-  , _usBackupRetentionCount       :: !(Maybe Int)
-  , _usServerName                 :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
+    -- backups. Automated backups are enabled by default.
+    disableAutomatedBackup :: Prelude.Maybe Prelude.Bool,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | Sets the number of automated backups that you want to keep.
+    backupRetentionCount :: Prelude.Maybe Prelude.Int,
+    -- | The name of the server to update.
+    serverName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usDisableAutomatedBackup' - Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usPreferredMaintenanceWindow' - Undocumented member.
+-- 'preferredBackupWindow', 'updateServer_preferredBackupWindow' - Undocumented member.
 --
--- * 'usPreferredBackupWindow' - Undocumented member.
+-- 'disableAutomatedBackup', 'updateServer_disableAutomatedBackup' - Setting DisableAutomatedBackup to @true@ disables automated or scheduled
+-- backups. Automated backups are enabled by default.
 --
--- * 'usBackupRetentionCount' - Sets the number of automated backups that you want to keep.
+-- 'preferredMaintenanceWindow', 'updateServer_preferredMaintenanceWindow' - Undocumented member.
 --
--- * 'usServerName' - The name of the server to update.
-updateServer
-    :: Text -- ^ 'usServerName'
-    -> UpdateServer
-updateServer pServerName_ =
+-- 'backupRetentionCount', 'updateServer_backupRetentionCount' - Sets the number of automated backups that you want to keep.
+--
+-- 'serverName', 'updateServer_serverName' - The name of the server to update.
+newUpdateServer ::
+  -- | 'serverName'
+  Prelude.Text ->
+  UpdateServer
+newUpdateServer pServerName_ =
   UpdateServer'
-    { _usDisableAutomatedBackup = Nothing
-    , _usPreferredMaintenanceWindow = Nothing
-    , _usPreferredBackupWindow = Nothing
-    , _usBackupRetentionCount = Nothing
-    , _usServerName = pServerName_
+    { preferredBackupWindow =
+        Prelude.Nothing,
+      disableAutomatedBackup = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      backupRetentionCount = Prelude.Nothing,
+      serverName = pServerName_
     }
 
+-- | Undocumented member.
+updateServer_preferredBackupWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_preferredBackupWindow = Lens.lens (\UpdateServer' {preferredBackupWindow} -> preferredBackupWindow) (\s@UpdateServer' {} a -> s {preferredBackupWindow = a} :: UpdateServer)
 
--- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
-usDisableAutomatedBackup :: Lens' UpdateServer (Maybe Bool)
-usDisableAutomatedBackup = lens _usDisableAutomatedBackup (\ s a -> s{_usDisableAutomatedBackup = a})
+-- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
+-- backups. Automated backups are enabled by default.
+updateServer_disableAutomatedBackup :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Bool)
+updateServer_disableAutomatedBackup = Lens.lens (\UpdateServer' {disableAutomatedBackup} -> disableAutomatedBackup) (\s@UpdateServer' {} a -> s {disableAutomatedBackup = a} :: UpdateServer)
 
 -- | Undocumented member.
-usPreferredMaintenanceWindow :: Lens' UpdateServer (Maybe Text)
-usPreferredMaintenanceWindow = lens _usPreferredMaintenanceWindow (\ s a -> s{_usPreferredMaintenanceWindow = a})
-
--- | Undocumented member.
-usPreferredBackupWindow :: Lens' UpdateServer (Maybe Text)
-usPreferredBackupWindow = lens _usPreferredBackupWindow (\ s a -> s{_usPreferredBackupWindow = a})
+updateServer_preferredMaintenanceWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_preferredMaintenanceWindow = Lens.lens (\UpdateServer' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateServer' {} a -> s {preferredMaintenanceWindow = a} :: UpdateServer)
 
 -- | Sets the number of automated backups that you want to keep.
-usBackupRetentionCount :: Lens' UpdateServer (Maybe Int)
-usBackupRetentionCount = lens _usBackupRetentionCount (\ s a -> s{_usBackupRetentionCount = a})
+updateServer_backupRetentionCount :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Int)
+updateServer_backupRetentionCount = Lens.lens (\UpdateServer' {backupRetentionCount} -> backupRetentionCount) (\s@UpdateServer' {} a -> s {backupRetentionCount = a} :: UpdateServer)
 
 -- | The name of the server to update.
-usServerName :: Lens' UpdateServer Text
-usServerName = lens _usServerName (\ s a -> s{_usServerName = a})
+updateServer_serverName :: Lens.Lens' UpdateServer Prelude.Text
+updateServer_serverName = Lens.lens (\UpdateServer' {serverName} -> serverName) (\s@UpdateServer' {} a -> s {serverName = a} :: UpdateServer)
 
-instance AWSRequest UpdateServer where
-        type Rs UpdateServer = UpdateServerResponse
-        request = postJSON opsWorksCM
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateServerResponse' <$>
-                   (x .?> "Server") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateServer where
+  type AWSResponse UpdateServer = UpdateServerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateServerResponse'
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateServer where
+instance Prelude.Hashable UpdateServer
 
-instance NFData UpdateServer where
+instance Prelude.NFData UpdateServer
 
-instance ToHeaders UpdateServer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorksCM_V2016_11_01.UpdateServer" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateServer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServer" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateServer where
-        toJSON UpdateServer'{..}
-          = object
-              (catMaybes
-                 [("DisableAutomatedBackup" .=) <$>
-                    _usDisableAutomatedBackup,
-                  ("PreferredMaintenanceWindow" .=) <$>
-                    _usPreferredMaintenanceWindow,
-                  ("PreferredBackupWindow" .=) <$>
-                    _usPreferredBackupWindow,
-                  ("BackupRetentionCount" .=) <$>
-                    _usBackupRetentionCount,
-                  Just ("ServerName" .= _usServerName)])
+instance Core.ToJSON UpdateServer where
+  toJSON UpdateServer' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("PreferredBackupWindow" Core..=)
+              Prelude.<$> preferredBackupWindow,
+            ("DisableAutomatedBackup" Core..=)
+              Prelude.<$> disableAutomatedBackup,
+            ("PreferredMaintenanceWindow" Core..=)
+              Prelude.<$> preferredMaintenanceWindow,
+            ("BackupRetentionCount" Core..=)
+              Prelude.<$> backupRetentionCount,
+            Prelude.Just ("ServerName" Core..= serverName)
+          ]
+      )
 
-instance ToPath UpdateServer where
-        toPath = const "/"
+instance Core.ToPath UpdateServer where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateServer where
-        toQuery = const mempty
+instance Core.ToQuery UpdateServer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateServerResponse' smart constructor.
+-- | /See:/ 'newUpdateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
-  { _usrsServer         :: !(Maybe Server)
-  , _usrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Contains the response to a @UpdateServer@ request.
+    server :: Prelude.Maybe Server,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usrsServer' - Contains the response to a @UpdateServer@ request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usrsResponseStatus' - -- | The response status code.
-updateServerResponse
-    :: Int -- ^ 'usrsResponseStatus'
-    -> UpdateServerResponse
-updateServerResponse pResponseStatus_ =
+-- 'server', 'updateServerResponse_server' - Contains the response to a @UpdateServer@ request.
+--
+-- 'httpStatus', 'updateServerResponse_httpStatus' - The response's http status code.
+newUpdateServerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateServerResponse
+newUpdateServerResponse pHttpStatus_ =
   UpdateServerResponse'
-    {_usrsServer = Nothing, _usrsResponseStatus = pResponseStatus_}
-
+    { server = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the response to a @UpdateServer@ request.
-usrsServer :: Lens' UpdateServerResponse (Maybe Server)
-usrsServer = lens _usrsServer (\ s a -> s{_usrsServer = a})
+updateServerResponse_server :: Lens.Lens' UpdateServerResponse (Prelude.Maybe Server)
+updateServerResponse_server = Lens.lens (\UpdateServerResponse' {server} -> server) (\s@UpdateServerResponse' {} a -> s {server = a} :: UpdateServerResponse)
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateServerResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
+-- | The response's http status code.
+updateServerResponse_httpStatus :: Lens.Lens' UpdateServerResponse Prelude.Int
+updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus} -> httpStatus) (\s@UpdateServerResponse' {} a -> s {httpStatus = a} :: UpdateServerResponse)
 
-instance NFData UpdateServerResponse where
+instance Prelude.NFData UpdateServerResponse

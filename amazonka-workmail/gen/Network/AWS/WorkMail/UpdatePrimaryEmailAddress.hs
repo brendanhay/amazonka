@@ -1,151 +1,188 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.UpdatePrimaryEmailAddress
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the primary email for an entity. The current email is moved into the list of aliases (or swapped between an existing alias and the current primary email) and the email provided in the input is promoted as the primary.
---
---
+-- Updates the primary email for a user, group, or resource. The current
+-- email is moved into the list of aliases (or swapped between an existing
+-- alias and the current primary email), and the email provided in the
+-- input is promoted as the primary.
 module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
-    (
-    -- * Creating a Request
-      updatePrimaryEmailAddress
-    , UpdatePrimaryEmailAddress
+  ( -- * Creating a Request
+    UpdatePrimaryEmailAddress (..),
+    newUpdatePrimaryEmailAddress,
+
     -- * Request Lenses
-    , upeaOrganizationId
-    , upeaEntityId
-    , upeaEmail
+    updatePrimaryEmailAddress_organizationId,
+    updatePrimaryEmailAddress_entityId,
+    updatePrimaryEmailAddress_email,
 
     -- * Destructuring the Response
-    , updatePrimaryEmailAddressResponse
-    , UpdatePrimaryEmailAddressResponse
+    UpdatePrimaryEmailAddressResponse (..),
+    newUpdatePrimaryEmailAddressResponse,
+
     -- * Response Lenses
-    , upearsResponseStatus
-    ) where
+    updatePrimaryEmailAddressResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'updatePrimaryEmailAddress' smart constructor.
+-- | /See:/ 'newUpdatePrimaryEmailAddress' smart constructor.
 data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
-  { _upeaOrganizationId :: !Text
-  , _upeaEntityId       :: !Text
-  , _upeaEmail          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The organization that contains the user, group, or resource to update.
+    organizationId :: Prelude.Text,
+    -- | The user, group, or resource to update.
+    entityId :: Prelude.Text,
+    -- | The value of the email to be updated as primary.
+    email :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePrimaryEmailAddress' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePrimaryEmailAddress' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upeaOrganizationId' - The organization that contains the entity to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upeaEntityId' - The entity to update (user, group, or resource).
+-- 'organizationId', 'updatePrimaryEmailAddress_organizationId' - The organization that contains the user, group, or resource to update.
 --
--- * 'upeaEmail' - The value of the email to be updated as primary.
-updatePrimaryEmailAddress
-    :: Text -- ^ 'upeaOrganizationId'
-    -> Text -- ^ 'upeaEntityId'
-    -> Text -- ^ 'upeaEmail'
-    -> UpdatePrimaryEmailAddress
-updatePrimaryEmailAddress pOrganizationId_ pEntityId_ pEmail_ =
-  UpdatePrimaryEmailAddress'
-    { _upeaOrganizationId = pOrganizationId_
-    , _upeaEntityId = pEntityId_
-    , _upeaEmail = pEmail_
-    }
+-- 'entityId', 'updatePrimaryEmailAddress_entityId' - The user, group, or resource to update.
+--
+-- 'email', 'updatePrimaryEmailAddress_email' - The value of the email to be updated as primary.
+newUpdatePrimaryEmailAddress ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'entityId'
+  Prelude.Text ->
+  -- | 'email'
+  Prelude.Text ->
+  UpdatePrimaryEmailAddress
+newUpdatePrimaryEmailAddress
+  pOrganizationId_
+  pEntityId_
+  pEmail_ =
+    UpdatePrimaryEmailAddress'
+      { organizationId =
+          pOrganizationId_,
+        entityId = pEntityId_,
+        email = pEmail_
+      }
 
+-- | The organization that contains the user, group, or resource to update.
+updatePrimaryEmailAddress_organizationId :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
+updatePrimaryEmailAddress_organizationId = Lens.lens (\UpdatePrimaryEmailAddress' {organizationId} -> organizationId) (\s@UpdatePrimaryEmailAddress' {} a -> s {organizationId = a} :: UpdatePrimaryEmailAddress)
 
--- | The organization that contains the entity to update.
-upeaOrganizationId :: Lens' UpdatePrimaryEmailAddress Text
-upeaOrganizationId = lens _upeaOrganizationId (\ s a -> s{_upeaOrganizationId = a})
-
--- | The entity to update (user, group, or resource).
-upeaEntityId :: Lens' UpdatePrimaryEmailAddress Text
-upeaEntityId = lens _upeaEntityId (\ s a -> s{_upeaEntityId = a})
+-- | The user, group, or resource to update.
+updatePrimaryEmailAddress_entityId :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
+updatePrimaryEmailAddress_entityId = Lens.lens (\UpdatePrimaryEmailAddress' {entityId} -> entityId) (\s@UpdatePrimaryEmailAddress' {} a -> s {entityId = a} :: UpdatePrimaryEmailAddress)
 
 -- | The value of the email to be updated as primary.
-upeaEmail :: Lens' UpdatePrimaryEmailAddress Text
-upeaEmail = lens _upeaEmail (\ s a -> s{_upeaEmail = a})
+updatePrimaryEmailAddress_email :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
+updatePrimaryEmailAddress_email = Lens.lens (\UpdatePrimaryEmailAddress' {email} -> email) (\s@UpdatePrimaryEmailAddress' {} a -> s {email = a} :: UpdatePrimaryEmailAddress)
 
-instance AWSRequest UpdatePrimaryEmailAddress where
-        type Rs UpdatePrimaryEmailAddress =
-             UpdatePrimaryEmailAddressResponse
-        request = postJSON workMail
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdatePrimaryEmailAddressResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest UpdatePrimaryEmailAddress where
+  type
+    AWSResponse UpdatePrimaryEmailAddress =
+      UpdatePrimaryEmailAddressResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdatePrimaryEmailAddressResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdatePrimaryEmailAddress where
+instance Prelude.Hashable UpdatePrimaryEmailAddress
 
-instance NFData UpdatePrimaryEmailAddress where
+instance Prelude.NFData UpdatePrimaryEmailAddress
 
-instance ToHeaders UpdatePrimaryEmailAddress where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.UpdatePrimaryEmailAddress" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdatePrimaryEmailAddress where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "WorkMailService.UpdatePrimaryEmailAddress" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdatePrimaryEmailAddress where
-        toJSON UpdatePrimaryEmailAddress'{..}
-          = object
-              (catMaybes
-                 [Just ("OrganizationId" .= _upeaOrganizationId),
-                  Just ("EntityId" .= _upeaEntityId),
-                  Just ("Email" .= _upeaEmail)])
+instance Core.ToJSON UpdatePrimaryEmailAddress where
+  toJSON UpdatePrimaryEmailAddress' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("EntityId" Core..= entityId),
+            Prelude.Just ("Email" Core..= email)
+          ]
+      )
 
-instance ToPath UpdatePrimaryEmailAddress where
-        toPath = const "/"
+instance Core.ToPath UpdatePrimaryEmailAddress where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdatePrimaryEmailAddress where
-        toQuery = const mempty
+instance Core.ToQuery UpdatePrimaryEmailAddress where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updatePrimaryEmailAddressResponse' smart constructor.
-newtype UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
-  { _upearsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdatePrimaryEmailAddressResponse' smart constructor.
+data UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePrimaryEmailAddressResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePrimaryEmailAddressResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upearsResponseStatus' - -- | The response status code.
-updatePrimaryEmailAddressResponse
-    :: Int -- ^ 'upearsResponseStatus'
-    -> UpdatePrimaryEmailAddressResponse
-updatePrimaryEmailAddressResponse pResponseStatus_ =
-  UpdatePrimaryEmailAddressResponse' {_upearsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updatePrimaryEmailAddressResponse_httpStatus' - The response's http status code.
+newUpdatePrimaryEmailAddressResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdatePrimaryEmailAddressResponse
+newUpdatePrimaryEmailAddressResponse pHttpStatus_ =
+  UpdatePrimaryEmailAddressResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updatePrimaryEmailAddressResponse_httpStatus :: Lens.Lens' UpdatePrimaryEmailAddressResponse Prelude.Int
+updatePrimaryEmailAddressResponse_httpStatus = Lens.lens (\UpdatePrimaryEmailAddressResponse' {httpStatus} -> httpStatus) (\s@UpdatePrimaryEmailAddressResponse' {} a -> s {httpStatus = a} :: UpdatePrimaryEmailAddressResponse)
 
--- | -- | The response status code.
-upearsResponseStatus :: Lens' UpdatePrimaryEmailAddressResponse Int
-upearsResponseStatus = lens _upearsResponseStatus (\ s a -> s{_upearsResponseStatus = a})
-
-instance NFData UpdatePrimaryEmailAddressResponse
-         where
+instance
+  Prelude.NFData
+    UpdatePrimaryEmailAddressResponse

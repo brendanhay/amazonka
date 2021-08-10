@@ -1,136 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetFacet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets details of the 'Facet' , such as facet name, attributes, 'Rule' s, or @ObjectType@ . You can call this on all kinds of schema facets -- published, development, or applied.
---
---
+-- Gets details of the Facet, such as facet name, attributes, Rules, or
+-- @ObjectType@. You can call this on all kinds of schema facets --
+-- published, development, or applied.
 module Network.AWS.CloudDirectory.GetFacet
-    (
-    -- * Creating a Request
-      getFacet
-    , GetFacet
+  ( -- * Creating a Request
+    GetFacet (..),
+    newGetFacet,
+
     -- * Request Lenses
-    , gfSchemaARN
-    , gfName
+    getFacet_schemaArn,
+    getFacet_name,
 
     -- * Destructuring the Response
-    , getFacetResponse
-    , GetFacetResponse
+    GetFacetResponse (..),
+    newGetFacetResponse,
+
     -- * Response Lenses
-    , gfrsFacet
-    , gfrsResponseStatus
-    ) where
+    getFacetResponse_facet,
+    getFacetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getFacet' smart constructor.
+-- | /See:/ 'newGetFacet' smart constructor.
 data GetFacet = GetFacet'
-  { _gfSchemaARN :: !Text
-  , _gfName      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
+    -- more information, see arns.
+    schemaArn :: Prelude.Text,
+    -- | The name of the facet to retrieve.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFacet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFacet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfName' - The name of the facet to retrieve.
-getFacet
-    :: Text -- ^ 'gfSchemaARN'
-    -> Text -- ^ 'gfName'
-    -> GetFacet
-getFacet pSchemaARN_ pName_ =
-  GetFacet' {_gfSchemaARN = pSchemaARN_, _gfName = pName_}
+-- 'schemaArn', 'getFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the Facet. For
+-- more information, see arns.
+--
+-- 'name', 'getFacet_name' - The name of the facet to retrieve.
+newGetFacet ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  GetFacet
+newGetFacet pSchemaArn_ pName_ =
+  GetFacet' {schemaArn = pSchemaArn_, name = pName_}
 
-
--- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
-gfSchemaARN :: Lens' GetFacet Text
-gfSchemaARN = lens _gfSchemaARN (\ s a -> s{_gfSchemaARN = a})
+-- | The Amazon Resource Name (ARN) that is associated with the Facet. For
+-- more information, see arns.
+getFacet_schemaArn :: Lens.Lens' GetFacet Prelude.Text
+getFacet_schemaArn = Lens.lens (\GetFacet' {schemaArn} -> schemaArn) (\s@GetFacet' {} a -> s {schemaArn = a} :: GetFacet)
 
 -- | The name of the facet to retrieve.
-gfName :: Lens' GetFacet Text
-gfName = lens _gfName (\ s a -> s{_gfName = a})
+getFacet_name :: Lens.Lens' GetFacet Prelude.Text
+getFacet_name = Lens.lens (\GetFacet' {name} -> name) (\s@GetFacet' {} a -> s {name = a} :: GetFacet)
 
-instance AWSRequest GetFacet where
-        type Rs GetFacet = GetFacetResponse
-        request = postJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetFacetResponse' <$>
-                   (x .?> "Facet") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetFacet where
+  type AWSResponse GetFacet = GetFacetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetFacetResponse'
+            Prelude.<$> (x Core..?> "Facet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetFacet where
+instance Prelude.Hashable GetFacet
 
-instance NFData GetFacet where
+instance Prelude.NFData GetFacet
 
-instance ToHeaders GetFacet where
-        toHeaders GetFacet'{..}
-          = mconcat ["x-amz-data-partition" =# _gfSchemaARN]
+instance Core.ToHeaders GetFacet where
+  toHeaders GetFacet' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# schemaArn]
 
-instance ToJSON GetFacet where
-        toJSON GetFacet'{..}
-          = object (catMaybes [Just ("Name" .= _gfName)])
+instance Core.ToJSON GetFacet where
+  toJSON GetFacet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
-instance ToPath GetFacet where
-        toPath
-          = const "/amazonclouddirectory/2017-01-11/facet"
+instance Core.ToPath GetFacet where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet"
 
-instance ToQuery GetFacet where
-        toQuery = const mempty
+instance Core.ToQuery GetFacet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getFacetResponse' smart constructor.
+-- | /See:/ 'newGetFacetResponse' smart constructor.
 data GetFacetResponse = GetFacetResponse'
-  { _gfrsFacet          :: !(Maybe Facet)
-  , _gfrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Facet structure that is associated with the facet.
+    facet :: Prelude.Maybe Facet,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetFacetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFacetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfrsFacet' - The 'Facet' structure that is associated with the facet.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfrsResponseStatus' - -- | The response status code.
-getFacetResponse
-    :: Int -- ^ 'gfrsResponseStatus'
-    -> GetFacetResponse
-getFacetResponse pResponseStatus_ =
+-- 'facet', 'getFacetResponse_facet' - The Facet structure that is associated with the facet.
+--
+-- 'httpStatus', 'getFacetResponse_httpStatus' - The response's http status code.
+newGetFacetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFacetResponse
+newGetFacetResponse pHttpStatus_ =
   GetFacetResponse'
-    {_gfrsFacet = Nothing, _gfrsResponseStatus = pResponseStatus_}
+    { facet = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Facet structure that is associated with the facet.
+getFacetResponse_facet :: Lens.Lens' GetFacetResponse (Prelude.Maybe Facet)
+getFacetResponse_facet = Lens.lens (\GetFacetResponse' {facet} -> facet) (\s@GetFacetResponse' {} a -> s {facet = a} :: GetFacetResponse)
 
--- | The 'Facet' structure that is associated with the facet.
-gfrsFacet :: Lens' GetFacetResponse (Maybe Facet)
-gfrsFacet = lens _gfrsFacet (\ s a -> s{_gfrsFacet = a})
+-- | The response's http status code.
+getFacetResponse_httpStatus :: Lens.Lens' GetFacetResponse Prelude.Int
+getFacetResponse_httpStatus = Lens.lens (\GetFacetResponse' {httpStatus} -> httpStatus) (\s@GetFacetResponse' {} a -> s {httpStatus = a} :: GetFacetResponse)
 
--- | -- | The response status code.
-gfrsResponseStatus :: Lens' GetFacetResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a})
-
-instance NFData GetFacetResponse where
+instance Prelude.NFData GetFacetResponse

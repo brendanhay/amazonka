@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,120 +22,144 @@
 --
 -- Removes the specified user from the specified group.
 --
---
--- Requires developer credentials.
---
+-- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
-    (
-    -- * Creating a Request
-      adminRemoveUserFromGroup
-    , AdminRemoveUserFromGroup
+  ( -- * Creating a Request
+    AdminRemoveUserFromGroup (..),
+    newAdminRemoveUserFromGroup,
+
     -- * Request Lenses
-    , arufgUserPoolId
-    , arufgUsername
-    , arufgGroupName
+    adminRemoveUserFromGroup_userPoolId,
+    adminRemoveUserFromGroup_username,
+    adminRemoveUserFromGroup_groupName,
 
     -- * Destructuring the Response
-    , adminRemoveUserFromGroupResponse
-    , AdminRemoveUserFromGroupResponse
-    ) where
+    AdminRemoveUserFromGroupResponse (..),
+    newAdminRemoveUserFromGroupResponse,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'adminRemoveUserFromGroup' smart constructor.
+-- | /See:/ 'newAdminRemoveUserFromGroup' smart constructor.
 data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
-  { _arufgUserPoolId :: !Text
-  , _arufgUsername   :: !(Sensitive Text)
-  , _arufgGroupName  :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text,
+    -- | The username for the user.
+    username :: Core.Sensitive Prelude.Text,
+    -- | The group name.
+    groupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AdminRemoveUserFromGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminRemoveUserFromGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'arufgUserPoolId' - The user pool ID for the user pool.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'arufgUsername' - The username for the user.
+-- 'userPoolId', 'adminRemoveUserFromGroup_userPoolId' - The user pool ID for the user pool.
 --
--- * 'arufgGroupName' - The group name.
-adminRemoveUserFromGroup
-    :: Text -- ^ 'arufgUserPoolId'
-    -> Text -- ^ 'arufgUsername'
-    -> Text -- ^ 'arufgGroupName'
-    -> AdminRemoveUserFromGroup
-adminRemoveUserFromGroup pUserPoolId_ pUsername_ pGroupName_ =
-  AdminRemoveUserFromGroup'
-    { _arufgUserPoolId = pUserPoolId_
-    , _arufgUsername = _Sensitive # pUsername_
-    , _arufgGroupName = pGroupName_
-    }
-
+-- 'username', 'adminRemoveUserFromGroup_username' - The username for the user.
+--
+-- 'groupName', 'adminRemoveUserFromGroup_groupName' - The group name.
+newAdminRemoveUserFromGroup ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'username'
+  Prelude.Text ->
+  -- | 'groupName'
+  Prelude.Text ->
+  AdminRemoveUserFromGroup
+newAdminRemoveUserFromGroup
+  pUserPoolId_
+  pUsername_
+  pGroupName_ =
+    AdminRemoveUserFromGroup'
+      { userPoolId =
+          pUserPoolId_,
+        username = Core._Sensitive Lens.# pUsername_,
+        groupName = pGroupName_
+      }
 
 -- | The user pool ID for the user pool.
-arufgUserPoolId :: Lens' AdminRemoveUserFromGroup Text
-arufgUserPoolId = lens _arufgUserPoolId (\ s a -> s{_arufgUserPoolId = a})
+adminRemoveUserFromGroup_userPoolId :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
+adminRemoveUserFromGroup_userPoolId = Lens.lens (\AdminRemoveUserFromGroup' {userPoolId} -> userPoolId) (\s@AdminRemoveUserFromGroup' {} a -> s {userPoolId = a} :: AdminRemoveUserFromGroup)
 
 -- | The username for the user.
-arufgUsername :: Lens' AdminRemoveUserFromGroup Text
-arufgUsername = lens _arufgUsername (\ s a -> s{_arufgUsername = a}) . _Sensitive
+adminRemoveUserFromGroup_username :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
+adminRemoveUserFromGroup_username = Lens.lens (\AdminRemoveUserFromGroup' {username} -> username) (\s@AdminRemoveUserFromGroup' {} a -> s {username = a} :: AdminRemoveUserFromGroup) Prelude.. Core._Sensitive
 
 -- | The group name.
-arufgGroupName :: Lens' AdminRemoveUserFromGroup Text
-arufgGroupName = lens _arufgGroupName (\ s a -> s{_arufgGroupName = a})
+adminRemoveUserFromGroup_groupName :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
+adminRemoveUserFromGroup_groupName = Lens.lens (\AdminRemoveUserFromGroup' {groupName} -> groupName) (\s@AdminRemoveUserFromGroup' {} a -> s {groupName = a} :: AdminRemoveUserFromGroup)
 
-instance AWSRequest AdminRemoveUserFromGroup where
-        type Rs AdminRemoveUserFromGroup =
-             AdminRemoveUserFromGroupResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveNull AdminRemoveUserFromGroupResponse'
+instance Core.AWSRequest AdminRemoveUserFromGroup where
+  type
+    AWSResponse AdminRemoveUserFromGroup =
+      AdminRemoveUserFromGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      AdminRemoveUserFromGroupResponse'
 
-instance Hashable AdminRemoveUserFromGroup where
+instance Prelude.Hashable AdminRemoveUserFromGroup
 
-instance NFData AdminRemoveUserFromGroup where
+instance Prelude.NFData AdminRemoveUserFromGroup
 
-instance ToHeaders AdminRemoveUserFromGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AdminRemoveUserFromGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AdminRemoveUserFromGroup where
-        toJSON AdminRemoveUserFromGroup'{..}
-          = object
-              (catMaybes
-                 [Just ("UserPoolId" .= _arufgUserPoolId),
-                  Just ("Username" .= _arufgUsername),
-                  Just ("GroupName" .= _arufgGroupName)])
+instance Core.ToJSON AdminRemoveUserFromGroup where
+  toJSON AdminRemoveUserFromGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("GroupName" Core..= groupName)
+          ]
+      )
 
-instance ToPath AdminRemoveUserFromGroup where
-        toPath = const "/"
+instance Core.ToPath AdminRemoveUserFromGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminRemoveUserFromGroup where
-        toQuery = const mempty
+instance Core.ToQuery AdminRemoveUserFromGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'adminRemoveUserFromGroupResponse' smart constructor.
-data AdminRemoveUserFromGroupResponse =
-  AdminRemoveUserFromGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAdminRemoveUserFromGroupResponse' smart constructor.
+data AdminRemoveUserFromGroupResponse = AdminRemoveUserFromGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AdminRemoveUserFromGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminRemoveUserFromGroupResponse' with all optional fields omitted.
 --
-adminRemoveUserFromGroupResponse
-    :: AdminRemoveUserFromGroupResponse
-adminRemoveUserFromGroupResponse = AdminRemoveUserFromGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAdminRemoveUserFromGroupResponse ::
+  AdminRemoveUserFromGroupResponse
+newAdminRemoveUserFromGroupResponse =
+  AdminRemoveUserFromGroupResponse'
 
-
-instance NFData AdminRemoveUserFromGroupResponse
-         where
+instance
+  Prelude.NFData
+    AdminRemoveUserFromGroupResponse

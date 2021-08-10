@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterOnPremisesInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,120 +22,140 @@
 --
 -- Registers an on-premises instance.
 --
---
+-- Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in
+-- the request. You cannot use both.
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-    (
-    -- * Creating a Request
-      registerOnPremisesInstance
-    , RegisterOnPremisesInstance
+  ( -- * Creating a Request
+    RegisterOnPremisesInstance (..),
+    newRegisterOnPremisesInstance,
+
     -- * Request Lenses
-    , ropiIamUserARN
-    , ropiIamSessionARN
-    , ropiInstanceName
+    registerOnPremisesInstance_iamUserArn,
+    registerOnPremisesInstance_iamSessionArn,
+    registerOnPremisesInstance_instanceName,
 
     -- * Destructuring the Response
-    , registerOnPremisesInstanceResponse
-    , RegisterOnPremisesInstanceResponse
-    ) where
+    RegisterOnPremisesInstanceResponse (..),
+    newRegisterOnPremisesInstanceResponse,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of the register on-premises instance operation.
 --
---
---
--- /See:/ 'registerOnPremisesInstance' smart constructor.
+-- /See:/ 'newRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-  { _ropiIamUserARN    :: !(Maybe Text)
-  , _ropiIamSessionARN :: !(Maybe Text)
-  , _ropiInstanceName  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the IAM user to associate with the on-premises instance.
+    iamUserArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM session to associate with the on-premises instance.
+    iamSessionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the on-premises instance to register.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterOnPremisesInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ropiIamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ropiIamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
+-- 'iamUserArn', 'registerOnPremisesInstance_iamUserArn' - The ARN of the IAM user to associate with the on-premises instance.
 --
--- * 'ropiInstanceName' - The name of the on-premises instance to register.
-registerOnPremisesInstance
-    :: Text -- ^ 'ropiInstanceName'
-    -> RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName_ =
+-- 'iamSessionArn', 'registerOnPremisesInstance_iamSessionArn' - The ARN of the IAM session to associate with the on-premises instance.
+--
+-- 'instanceName', 'registerOnPremisesInstance_instanceName' - The name of the on-premises instance to register.
+newRegisterOnPremisesInstance ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  RegisterOnPremisesInstance
+newRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
-    { _ropiIamUserARN = Nothing
-    , _ropiIamSessionARN = Nothing
-    , _ropiInstanceName = pInstanceName_
+    { iamUserArn =
+        Prelude.Nothing,
+      iamSessionArn = Prelude.Nothing,
+      instanceName = pInstanceName_
     }
 
-
 -- | The ARN of the IAM user to associate with the on-premises instance.
-ropiIamUserARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a})
+registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
+registerOnPremisesInstance_iamUserArn = Lens.lens (\RegisterOnPremisesInstance' {iamUserArn} -> iamUserArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamUserArn = a} :: RegisterOnPremisesInstance)
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
-ropiIamSessionARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamSessionARN = lens _ropiIamSessionARN (\ s a -> s{_ropiIamSessionARN = a})
+registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
+registerOnPremisesInstance_iamSessionArn = Lens.lens (\RegisterOnPremisesInstance' {iamSessionArn} -> iamSessionArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamSessionArn = a} :: RegisterOnPremisesInstance)
 
 -- | The name of the on-premises instance to register.
-ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
-ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a})
+registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Prelude.Text
+registerOnPremisesInstance_instanceName = Lens.lens (\RegisterOnPremisesInstance' {instanceName} -> instanceName) (\s@RegisterOnPremisesInstance' {} a -> s {instanceName = a} :: RegisterOnPremisesInstance)
 
-instance AWSRequest RegisterOnPremisesInstance where
-        type Rs RegisterOnPremisesInstance =
-             RegisterOnPremisesInstanceResponse
-        request = postJSON codeDeploy
-        response
-          = receiveNull RegisterOnPremisesInstanceResponse'
+instance Core.AWSRequest RegisterOnPremisesInstance where
+  type
+    AWSResponse RegisterOnPremisesInstance =
+      RegisterOnPremisesInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      RegisterOnPremisesInstanceResponse'
 
-instance Hashable RegisterOnPremisesInstance where
+instance Prelude.Hashable RegisterOnPremisesInstance
 
-instance NFData RegisterOnPremisesInstance where
+instance Prelude.NFData RegisterOnPremisesInstance
 
-instance ToHeaders RegisterOnPremisesInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.RegisterOnPremisesInstance" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RegisterOnPremisesInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RegisterOnPremisesInstance where
-        toJSON RegisterOnPremisesInstance'{..}
-          = object
-              (catMaybes
-                 [("iamUserArn" .=) <$> _ropiIamUserARN,
-                  ("iamSessionArn" .=) <$> _ropiIamSessionARN,
-                  Just ("instanceName" .= _ropiInstanceName)])
+instance Core.ToJSON RegisterOnPremisesInstance where
+  toJSON RegisterOnPremisesInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("iamUserArn" Core..=) Prelude.<$> iamUserArn,
+            ("iamSessionArn" Core..=) Prelude.<$> iamSessionArn,
+            Prelude.Just ("instanceName" Core..= instanceName)
+          ]
+      )
 
-instance ToPath RegisterOnPremisesInstance where
-        toPath = const "/"
+instance Core.ToPath RegisterOnPremisesInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterOnPremisesInstance where
-        toQuery = const mempty
+instance Core.ToQuery RegisterOnPremisesInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
-data RegisterOnPremisesInstanceResponse =
-  RegisterOnPremisesInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRegisterOnPremisesInstanceResponse' smart constructor.
+data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterOnPremisesInstanceResponse' with all optional fields omitted.
 --
-registerOnPremisesInstanceResponse
-    :: RegisterOnPremisesInstanceResponse
-registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRegisterOnPremisesInstanceResponse ::
+  RegisterOnPremisesInstanceResponse
+newRegisterOnPremisesInstanceResponse =
+  RegisterOnPremisesInstanceResponse'
 
-
-instance NFData RegisterOnPremisesInstanceResponse
-         where
+instance
+  Prelude.NFData
+    RegisterOnPremisesInstanceResponse

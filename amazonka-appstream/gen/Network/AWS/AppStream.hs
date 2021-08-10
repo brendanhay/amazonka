@@ -1,388 +1,572 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.AppStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon AppStream 2.0__
+-- Derived from API version @2016-12-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- You can use Amazon AppStream 2.0 to stream desktop applications to any device running a web browser, without rewriting them.
+-- Amazon AppStream 2.0
 --
+-- This is the /Amazon AppStream 2.0 API Reference/. This documentation
+-- provides descriptions and syntax for each of the actions and data types
+-- in AppStream 2.0. AppStream 2.0 is a fully managed, secure application
+-- streaming service that lets you stream desktop applications to users
+-- without rewriting applications. AppStream 2.0 manages the AWS resources
+-- that are required to host and run your applications, scales
+-- automatically, and provides access to your users on demand.
+--
+-- You can call the AppStream 2.0 API operations by using an interface VPC
+-- endpoint (interface endpoint). For more information, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+--
+-- To learn more about AppStream 2.0, see the following resources:
+--
+-- -   <http://aws.amazon.com/appstream2 Amazon AppStream 2.0 product page>
+--
+-- -   <http://aws.amazon.com/documentation/appstream2 Amazon AppStream 2.0 documentation>
 module Network.AWS.AppStream
-    (
-    -- * Service Configuration
-      appStream
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidRoleException
-    , _InvalidRoleException
-
-    -- ** ResourceAlreadyExistsException
-    , _ResourceAlreadyExistsException
+    -- ** ResourceNotAvailableException
+    _ResourceNotAvailableException,
 
     -- ** IncompatibleImageException
-    , _IncompatibleImageException
-
-    -- ** ConcurrentModificationException
-    , _ConcurrentModificationException
-
-    -- ** OperationNotPermittedException
-    , _OperationNotPermittedException
-
-    -- ** InvalidAccountStatusException
-    , _InvalidAccountStatusException
-
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    _IncompatibleImageException,
 
     -- ** InvalidParameterCombinationException
-    , _InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
 
-    -- ** ResourceNotAvailableException
-    , _ResourceNotAvailableException
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
-    -- ** LimitExceededException
-    , _LimitExceededException
+    -- ** InvalidAccountStatusException
+    _InvalidAccountStatusException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidRoleException
+    _InvalidRoleException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** RequestLimitExceededException
+    _RequestLimitExceededException,
 
     -- * Waiters
     -- $waiters
 
     -- ** FleetStopped
-    , fleetStopped
+    newFleetStopped,
 
     -- ** FleetStarted
-    , fleetStarted
+    newFleetStarted,
 
     -- * Operations
     -- $operations
 
-    -- ** DisassociateFleet
-    , module Network.AWS.AppStream.DisassociateFleet
-
-    -- ** ListAssociatedFleets
-    , module Network.AWS.AppStream.ListAssociatedFleets
-
-    -- ** DeleteStack
-    , module Network.AWS.AppStream.DeleteStack
-
-    -- ** UpdateStack
-    , module Network.AWS.AppStream.UpdateStack
-
-    -- ** CreateDirectoryConfig
-    , module Network.AWS.AppStream.CreateDirectoryConfig
-
-    -- ** ListAssociatedStacks
-    , module Network.AWS.AppStream.ListAssociatedStacks
-
-    -- ** DeleteFleet
-    , module Network.AWS.AppStream.DeleteFleet
-
-    -- ** UpdateFleet
-    , module Network.AWS.AppStream.UpdateFleet
-
     -- ** DeleteImageBuilder
-    , module Network.AWS.AppStream.DeleteImageBuilder
+    DeleteImageBuilder (DeleteImageBuilder'),
+    newDeleteImageBuilder,
+    DeleteImageBuilderResponse (DeleteImageBuilderResponse'),
+    newDeleteImageBuilderResponse,
 
-    -- ** AssociateFleet
-    , module Network.AWS.AppStream.AssociateFleet
+    -- ** ListAssociatedFleets (Paginated)
+    ListAssociatedFleets (ListAssociatedFleets'),
+    newListAssociatedFleets,
+    ListAssociatedFleetsResponse (ListAssociatedFleetsResponse'),
+    newListAssociatedFleetsResponse,
 
-    -- ** CreateImageBuilder
-    , module Network.AWS.AppStream.CreateImageBuilder
+    -- ** BatchAssociateUserStack
+    BatchAssociateUserStack (BatchAssociateUserStack'),
+    newBatchAssociateUserStack,
+    BatchAssociateUserStackResponse (BatchAssociateUserStackResponse'),
+    newBatchAssociateUserStackResponse,
 
-    -- ** ListTagsForResource
-    , module Network.AWS.AppStream.ListTagsForResource
+    -- ** ListAssociatedStacks (Paginated)
+    ListAssociatedStacks (ListAssociatedStacks'),
+    newListAssociatedStacks,
+    ListAssociatedStacksResponse (ListAssociatedStacksResponse'),
+    newListAssociatedStacksResponse,
 
-    -- ** DescribeDirectoryConfigs
-    , module Network.AWS.AppStream.DescribeDirectoryConfigs
-
-    -- ** CreateImageBuilderStreamingURL
-    , module Network.AWS.AppStream.CreateImageBuilderStreamingURL
-
-    -- ** DescribeSessions
-    , module Network.AWS.AppStream.DescribeSessions
-
-    -- ** DescribeStacks
-    , module Network.AWS.AppStream.DescribeStacks
-
-    -- ** DescribeFleets
-    , module Network.AWS.AppStream.DescribeFleets
-
-    -- ** DescribeImageBuilders
-    , module Network.AWS.AppStream.DescribeImageBuilders
-
-    -- ** StopFleet
-    , module Network.AWS.AppStream.StopFleet
-
-    -- ** StartImageBuilder
-    , module Network.AWS.AppStream.StartImageBuilder
-
-    -- ** DeleteDirectoryConfig
-    , module Network.AWS.AppStream.DeleteDirectoryConfig
-
-    -- ** UpdateDirectoryConfig
-    , module Network.AWS.AppStream.UpdateDirectoryConfig
-
-    -- ** CreateFleet
-    , module Network.AWS.AppStream.CreateFleet
-
-    -- ** CreateStack
-    , module Network.AWS.AppStream.CreateStack
-
-    -- ** CopyImage
-    , module Network.AWS.AppStream.CopyImage
-
-    -- ** ExpireSession
-    , module Network.AWS.AppStream.ExpireSession
-
-    -- ** TagResource
-    , module Network.AWS.AppStream.TagResource
-
-    -- ** CreateStreamingURL
-    , module Network.AWS.AppStream.CreateStreamingURL
-
-    -- ** UntagResource
-    , module Network.AWS.AppStream.UntagResource
-
-    -- ** StartFleet
-    , module Network.AWS.AppStream.StartFleet
+    -- ** DeleteUsageReportSubscription
+    DeleteUsageReportSubscription (DeleteUsageReportSubscription'),
+    newDeleteUsageReportSubscription,
+    DeleteUsageReportSubscriptionResponse (DeleteUsageReportSubscriptionResponse'),
+    newDeleteUsageReportSubscriptionResponse,
 
     -- ** StopImageBuilder
-    , module Network.AWS.AppStream.StopImageBuilder
+    StopImageBuilder (StopImageBuilder'),
+    newStopImageBuilder,
+    StopImageBuilderResponse (StopImageBuilderResponse'),
+    newStopImageBuilderResponse,
+
+    -- ** StartFleet
+    StartFleet (StartFleet'),
+    newStartFleet,
+    StartFleetResponse (StartFleetResponse'),
+    newStartFleetResponse,
+
+    -- ** StartImageBuilder
+    StartImageBuilder (StartImageBuilder'),
+    newStartImageBuilder,
+    StartImageBuilderResponse (StartImageBuilderResponse'),
+    newStartImageBuilderResponse,
+
+    -- ** StopFleet
+    StopFleet (StopFleet'),
+    newStopFleet,
+    StopFleetResponse (StopFleetResponse'),
+    newStopFleetResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** EnableUser
+    EnableUser (EnableUser'),
+    newEnableUser,
+    EnableUserResponse (EnableUserResponse'),
+    newEnableUserResponse,
+
+    -- ** DescribeSessions (Paginated)
+    DescribeSessions (DescribeSessions'),
+    newDescribeSessions,
+    DescribeSessionsResponse (DescribeSessionsResponse'),
+    newDescribeSessionsResponse,
+
+    -- ** DescribeFleets (Paginated)
+    DescribeFleets (DescribeFleets'),
+    newDescribeFleets,
+    DescribeFleetsResponse (DescribeFleetsResponse'),
+    newDescribeFleetsResponse,
+
+    -- ** DescribeStacks (Paginated)
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
+
+    -- ** UpdateDirectoryConfig
+    UpdateDirectoryConfig (UpdateDirectoryConfig'),
+    newUpdateDirectoryConfig,
+    UpdateDirectoryConfigResponse (UpdateDirectoryConfigResponse'),
+    newUpdateDirectoryConfigResponse,
+
+    -- ** CreateStack
+    CreateStack (CreateStack'),
+    newCreateStack,
+    CreateStackResponse (CreateStackResponse'),
+    newCreateStackResponse,
+
+    -- ** DeleteDirectoryConfig
+    DeleteDirectoryConfig (DeleteDirectoryConfig'),
+    newDeleteDirectoryConfig,
+    DeleteDirectoryConfigResponse (DeleteDirectoryConfigResponse'),
+    newDeleteDirectoryConfigResponse,
+
+    -- ** CopyImage
+    CopyImage (CopyImage'),
+    newCopyImage,
+    CopyImageResponse (CopyImageResponse'),
+    newCopyImageResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** CreateImageBuilder
+    CreateImageBuilder (CreateImageBuilder'),
+    newCreateImageBuilder,
+    CreateImageBuilderResponse (CreateImageBuilderResponse'),
+    newCreateImageBuilderResponse,
+
+    -- ** AssociateFleet
+    AssociateFleet (AssociateFleet'),
+    newAssociateFleet,
+    AssociateFleetResponse (AssociateFleetResponse'),
+    newAssociateFleetResponse,
+
+    -- ** CreateDirectoryConfig
+    CreateDirectoryConfig (CreateDirectoryConfig'),
+    newCreateDirectoryConfig,
+    CreateDirectoryConfigResponse (CreateDirectoryConfigResponse'),
+    newCreateDirectoryConfigResponse,
+
+    -- ** UpdateFleet
+    UpdateFleet (UpdateFleet'),
+    newUpdateFleet,
+    UpdateFleetResponse (UpdateFleetResponse'),
+    newUpdateFleetResponse,
+
+    -- ** DeleteStack
+    DeleteStack (DeleteStack'),
+    newDeleteStack,
+    DeleteStackResponse (DeleteStackResponse'),
+    newDeleteStackResponse,
+
+    -- ** DeleteFleet
+    DeleteFleet (DeleteFleet'),
+    newDeleteFleet,
+    DeleteFleetResponse (DeleteFleetResponse'),
+    newDeleteFleetResponse,
+
+    -- ** DescribeUsers (Paginated)
+    DescribeUsers (DescribeUsers'),
+    newDescribeUsers,
+    DescribeUsersResponse (DescribeUsersResponse'),
+    newDescribeUsersResponse,
+
+    -- ** UpdateStack
+    UpdateStack (UpdateStack'),
+    newUpdateStack,
+    UpdateStackResponse (UpdateStackResponse'),
+    newUpdateStackResponse,
+
+    -- ** CreateUsageReportSubscription
+    CreateUsageReportSubscription (CreateUsageReportSubscription'),
+    newCreateUsageReportSubscription,
+    CreateUsageReportSubscriptionResponse (CreateUsageReportSubscriptionResponse'),
+    newCreateUsageReportSubscriptionResponse,
+
+    -- ** DisassociateFleet
+    DisassociateFleet (DisassociateFleet'),
+    newDisassociateFleet,
+    DisassociateFleetResponse (DisassociateFleetResponse'),
+    newDisassociateFleetResponse,
+
+    -- ** DescribeImages (Paginated)
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
+
+    -- ** BatchDisassociateUserStack
+    BatchDisassociateUserStack (BatchDisassociateUserStack'),
+    newBatchDisassociateUserStack,
+    BatchDisassociateUserStackResponse (BatchDisassociateUserStackResponse'),
+    newBatchDisassociateUserStackResponse,
+
+    -- ** DescribeUsageReportSubscriptions
+    DescribeUsageReportSubscriptions (DescribeUsageReportSubscriptions'),
+    newDescribeUsageReportSubscriptions,
+    DescribeUsageReportSubscriptionsResponse (DescribeUsageReportSubscriptionsResponse'),
+    newDescribeUsageReportSubscriptionsResponse,
 
     -- ** DeleteImage
-    , module Network.AWS.AppStream.DeleteImage
+    DeleteImage (DeleteImage'),
+    newDeleteImage,
+    DeleteImageResponse (DeleteImageResponse'),
+    newDeleteImageResponse,
 
-    -- ** DescribeImages
-    , module Network.AWS.AppStream.DescribeImages
+    -- ** DeleteImagePermissions
+    DeleteImagePermissions (DeleteImagePermissions'),
+    newDeleteImagePermissions,
+    DeleteImagePermissionsResponse (DeleteImagePermissionsResponse'),
+    newDeleteImagePermissionsResponse,
+
+    -- ** UpdateImagePermissions
+    UpdateImagePermissions (UpdateImagePermissions'),
+    newUpdateImagePermissions,
+    UpdateImagePermissionsResponse (UpdateImagePermissionsResponse'),
+    newUpdateImagePermissionsResponse,
+
+    -- ** CreateStreamingURL
+    CreateStreamingURL (CreateStreamingURL'),
+    newCreateStreamingURL,
+    CreateStreamingURLResponse (CreateStreamingURLResponse'),
+    newCreateStreamingURLResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
+
+    -- ** DescribeUserStackAssociations (Paginated)
+    DescribeUserStackAssociations (DescribeUserStackAssociations'),
+    newDescribeUserStackAssociations,
+    DescribeUserStackAssociationsResponse (DescribeUserStackAssociationsResponse'),
+    newDescribeUserStackAssociationsResponse,
+
+    -- ** DescribeImageBuilders (Paginated)
+    DescribeImageBuilders (DescribeImageBuilders'),
+    newDescribeImageBuilders,
+    DescribeImageBuildersResponse (DescribeImageBuildersResponse'),
+    newDescribeImageBuildersResponse,
+
+    -- ** DescribeDirectoryConfigs (Paginated)
+    DescribeDirectoryConfigs (DescribeDirectoryConfigs'),
+    newDescribeDirectoryConfigs,
+    DescribeDirectoryConfigsResponse (DescribeDirectoryConfigsResponse'),
+    newDescribeDirectoryConfigsResponse,
+
+    -- ** DisableUser
+    DisableUser (DisableUser'),
+    newDisableUser,
+    DisableUserResponse (DisableUserResponse'),
+    newDisableUserResponse,
+
+    -- ** ExpireSession
+    ExpireSession (ExpireSession'),
+    newExpireSession,
+    ExpireSessionResponse (ExpireSessionResponse'),
+    newExpireSessionResponse,
+
+    -- ** CreateImageBuilderStreamingURL
+    CreateImageBuilderStreamingURL (CreateImageBuilderStreamingURL'),
+    newCreateImageBuilderStreamingURL,
+    CreateImageBuilderStreamingURLResponse (CreateImageBuilderStreamingURLResponse'),
+    newCreateImageBuilderStreamingURLResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DescribeImagePermissions
+    DescribeImagePermissions (DescribeImagePermissions'),
+    newDescribeImagePermissions,
+    DescribeImagePermissionsResponse (DescribeImagePermissionsResponse'),
+    newDescribeImagePermissionsResponse,
 
     -- * Types
 
+    -- ** AccessEndpointType
+    AccessEndpointType (..),
+
+    -- ** Action
+    Action (..),
+
     -- ** AuthenticationType
-    , AuthenticationType (..)
+    AuthenticationType (..),
 
     -- ** FleetAttribute
-    , FleetAttribute (..)
+    FleetAttribute (..),
 
     -- ** FleetErrorCode
-    , FleetErrorCode (..)
+    FleetErrorCode (..),
 
     -- ** FleetState
-    , FleetState (..)
+    FleetState (..),
 
     -- ** FleetType
-    , FleetType (..)
+    FleetType (..),
 
     -- ** ImageBuilderState
-    , ImageBuilderState (..)
+    ImageBuilderState (..),
 
     -- ** ImageBuilderStateChangeReasonCode
-    , ImageBuilderStateChangeReasonCode (..)
+    ImageBuilderStateChangeReasonCode (..),
 
     -- ** ImageState
-    , ImageState (..)
+    ImageState (..),
 
     -- ** ImageStateChangeReasonCode
-    , ImageStateChangeReasonCode (..)
+    ImageStateChangeReasonCode (..),
+
+    -- ** MessageAction
+    MessageAction (..),
+
+    -- ** Permission
+    Permission (..),
 
     -- ** PlatformType
-    , PlatformType (..)
+    PlatformType (..),
+
+    -- ** SessionConnectionState
+    SessionConnectionState (..),
 
     -- ** SessionState
-    , SessionState (..)
+    SessionState (..),
 
     -- ** StackAttribute
-    , StackAttribute (..)
+    StackAttribute (..),
 
     -- ** StackErrorCode
-    , StackErrorCode (..)
+    StackErrorCode (..),
 
     -- ** StorageConnectorType
-    , StorageConnectorType (..)
+    StorageConnectorType (..),
+
+    -- ** StreamView
+    StreamView (..),
+
+    -- ** UsageReportExecutionErrorCode
+    UsageReportExecutionErrorCode (..),
+
+    -- ** UsageReportSchedule
+    UsageReportSchedule (..),
+
+    -- ** UserStackAssociationErrorCode
+    UserStackAssociationErrorCode (..),
 
     -- ** VisibilityType
-    , VisibilityType (..)
+    VisibilityType (..),
+
+    -- ** AccessEndpoint
+    AccessEndpoint (AccessEndpoint'),
+    newAccessEndpoint,
 
     -- ** Application
-    , Application
-    , application
-    , aEnabled
-    , aLaunchPath
-    , aLaunchParameters
-    , aName
-    , aDisplayName
-    , aMetadata
-    , aIconURL
+    Application (Application'),
+    newApplication,
+
+    -- ** ApplicationSettings
+    ApplicationSettings (ApplicationSettings'),
+    newApplicationSettings,
+
+    -- ** ApplicationSettingsResponse
+    ApplicationSettingsResponse (ApplicationSettingsResponse'),
+    newApplicationSettingsResponse,
 
     -- ** ComputeCapacity
-    , ComputeCapacity
-    , computeCapacity
-    , ccDesiredInstances
+    ComputeCapacity (ComputeCapacity'),
+    newComputeCapacity,
 
     -- ** ComputeCapacityStatus
-    , ComputeCapacityStatus
-    , computeCapacityStatus
-    , ccsInUse
-    , ccsRunning
-    , ccsAvailable
-    , ccsDesired
+    ComputeCapacityStatus (ComputeCapacityStatus'),
+    newComputeCapacityStatus,
 
     -- ** DirectoryConfig
-    , DirectoryConfig
-    , directoryConfig
-    , dcCreatedTime
-    , dcServiceAccountCredentials
-    , dcOrganizationalUnitDistinguishedNames
-    , dcDirectoryName
+    DirectoryConfig (DirectoryConfig'),
+    newDirectoryConfig,
 
     -- ** DomainJoinInfo
-    , DomainJoinInfo
-    , domainJoinInfo
-    , djiOrganizationalUnitDistinguishedName
-    , djiDirectoryName
+    DomainJoinInfo (DomainJoinInfo'),
+    newDomainJoinInfo,
 
     -- ** Fleet
-    , Fleet
-    , fleet
-    , fDomainJoinInfo
-    , fDisconnectTimeoutInSeconds
-    , fMaxUserDurationInSeconds
-    , fCreatedTime
-    , fFleetType
-    , fVPCConfig
-    , fFleetErrors
-    , fDisplayName
-    , fEnableDefaultInternetAccess
-    , fDescription
-    , fARN
-    , fName
-    , fImageName
-    , fInstanceType
-    , fComputeCapacityStatus
-    , fState
+    Fleet (Fleet'),
+    newFleet,
 
     -- ** FleetError
-    , FleetError
-    , fleetError
-    , feErrorCode
-    , feErrorMessage
+    FleetError (FleetError'),
+    newFleetError,
 
     -- ** Image
-    , Image
-    , image
-    , iState
-    , iPlatform
-    , iPublicBaseImageReleasedDate
-    , iStateChangeReason
-    , iARN
-    , iCreatedTime
-    , iImageBuilderSupported
-    , iVisibility
-    , iBaseImageARN
-    , iDisplayName
-    , iDescription
-    , iAppstreamAgentVersion
-    , iApplications
-    , iName
+    Image (Image'),
+    newImage,
 
     -- ** ImageBuilder
-    , ImageBuilder
-    , imageBuilder
-    , ibDomainJoinInfo
-    , ibState
-    , ibPlatform
-    , ibStateChangeReason
-    , ibARN
-    , ibCreatedTime
-    , ibImageBuilderErrors
-    , ibInstanceType
-    , ibVPCConfig
-    , ibImageARN
-    , ibDisplayName
-    , ibEnableDefaultInternetAccess
-    , ibDescription
-    , ibAppstreamAgentVersion
-    , ibName
+    ImageBuilder (ImageBuilder'),
+    newImageBuilder,
 
     -- ** ImageBuilderStateChangeReason
-    , ImageBuilderStateChangeReason
-    , imageBuilderStateChangeReason
-    , ibscrCode
-    , ibscrMessage
+    ImageBuilderStateChangeReason (ImageBuilderStateChangeReason'),
+    newImageBuilderStateChangeReason,
+
+    -- ** ImagePermissions
+    ImagePermissions (ImagePermissions'),
+    newImagePermissions,
 
     -- ** ImageStateChangeReason
-    , ImageStateChangeReason
-    , imageStateChangeReason
-    , iscrCode
-    , iscrMessage
+    ImageStateChangeReason (ImageStateChangeReason'),
+    newImageStateChangeReason,
+
+    -- ** LastReportGenerationExecutionError
+    LastReportGenerationExecutionError (LastReportGenerationExecutionError'),
+    newLastReportGenerationExecutionError,
+
+    -- ** NetworkAccessConfiguration
+    NetworkAccessConfiguration (NetworkAccessConfiguration'),
+    newNetworkAccessConfiguration,
 
     -- ** ResourceError
-    , ResourceError
-    , resourceError
-    , reErrorCode
-    , reErrorMessage
-    , reErrorTimestamp
+    ResourceError (ResourceError'),
+    newResourceError,
 
     -- ** ServiceAccountCredentials
-    , ServiceAccountCredentials
-    , serviceAccountCredentials
-    , sacAccountName
-    , sacAccountPassword
+    ServiceAccountCredentials (ServiceAccountCredentials'),
+    newServiceAccountCredentials,
 
     -- ** Session
-    , Session
-    , session
-    , sAuthenticationType
-    , sId
-    , sUserId
-    , sStackName
-    , sFleetName
-    , sState
+    Session (Session'),
+    newSession,
+
+    -- ** SharedImagePermissions
+    SharedImagePermissions (SharedImagePermissions'),
+    newSharedImagePermissions,
 
     -- ** Stack
-    , Stack
-    , stack
-    , sFeedbackURL
-    , sARN
-    , sCreatedTime
-    , sStorageConnectors
-    , sDisplayName
-    , sStackErrors
-    , sDescription
-    , sRedirectURL
-    , sName
+    Stack (Stack'),
+    newStack,
 
     -- ** StackError
-    , StackError
-    , stackError
-    , seErrorCode
-    , seErrorMessage
+    StackError (StackError'),
+    newStackError,
 
     -- ** StorageConnector
-    , StorageConnector
-    , storageConnector
-    , scResourceIdentifier
-    , scConnectorType
+    StorageConnector (StorageConnector'),
+    newStorageConnector,
 
-    -- ** VPCConfig
-    , VPCConfig
-    , vpcConfig
-    , vcSecurityGroupIds
-    , vcSubnetIds
-    ) where
+    -- ** UsageReportSubscription
+    UsageReportSubscription (UsageReportSubscription'),
+    newUsageReportSubscription,
+
+    -- ** User
+    User (User'),
+    newUser,
+
+    -- ** UserSetting
+    UserSetting (UserSetting'),
+    newUserSetting,
+
+    -- ** UserStackAssociation
+    UserStackAssociation (UserStackAssociation'),
+    newUserStackAssociation,
+
+    -- ** UserStackAssociationError
+    UserStackAssociationError (UserStackAssociationError'),
+    newUserStackAssociationError,
+
+    -- ** VpcConfig
+    VpcConfig (VpcConfig'),
+    newVpcConfig,
+  )
+where
 
 import Network.AWS.AppStream.AssociateFleet
+import Network.AWS.AppStream.BatchAssociateUserStack
+import Network.AWS.AppStream.BatchDisassociateUserStack
 import Network.AWS.AppStream.CopyImage
 import Network.AWS.AppStream.CreateDirectoryConfig
 import Network.AWS.AppStream.CreateFleet
@@ -390,19 +574,31 @@ import Network.AWS.AppStream.CreateImageBuilder
 import Network.AWS.AppStream.CreateImageBuilderStreamingURL
 import Network.AWS.AppStream.CreateStack
 import Network.AWS.AppStream.CreateStreamingURL
+import Network.AWS.AppStream.CreateUsageReportSubscription
+import Network.AWS.AppStream.CreateUser
 import Network.AWS.AppStream.DeleteDirectoryConfig
 import Network.AWS.AppStream.DeleteFleet
 import Network.AWS.AppStream.DeleteImage
 import Network.AWS.AppStream.DeleteImageBuilder
+import Network.AWS.AppStream.DeleteImagePermissions
 import Network.AWS.AppStream.DeleteStack
+import Network.AWS.AppStream.DeleteUsageReportSubscription
+import Network.AWS.AppStream.DeleteUser
 import Network.AWS.AppStream.DescribeDirectoryConfigs
 import Network.AWS.AppStream.DescribeFleets
 import Network.AWS.AppStream.DescribeImageBuilders
+import Network.AWS.AppStream.DescribeImagePermissions
 import Network.AWS.AppStream.DescribeImages
 import Network.AWS.AppStream.DescribeSessions
 import Network.AWS.AppStream.DescribeStacks
+import Network.AWS.AppStream.DescribeUsageReportSubscriptions
+import Network.AWS.AppStream.DescribeUserStackAssociations
+import Network.AWS.AppStream.DescribeUsers
+import Network.AWS.AppStream.DisableUser
 import Network.AWS.AppStream.DisassociateFleet
+import Network.AWS.AppStream.EnableUser
 import Network.AWS.AppStream.ExpireSession
+import Network.AWS.AppStream.Lens
 import Network.AWS.AppStream.ListAssociatedFleets
 import Network.AWS.AppStream.ListAssociatedStacks
 import Network.AWS.AppStream.ListTagsForResource
@@ -415,35 +611,33 @@ import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.UntagResource
 import Network.AWS.AppStream.UpdateDirectoryConfig
 import Network.AWS.AppStream.UpdateFleet
+import Network.AWS.AppStream.UpdateImagePermissions
 import Network.AWS.AppStream.UpdateStack
 import Network.AWS.AppStream.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'AppStream'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'AppStream'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

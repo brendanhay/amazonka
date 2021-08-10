@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeBackup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,114 +22,141 @@
 --
 -- Describes an existing backup of a table.
 --
---
 -- You can call @DescribeBackup@ at a maximum rate of 10 times per second.
---
 module Network.AWS.DynamoDB.DescribeBackup
-    (
-    -- * Creating a Request
-      describeBackup
-    , DescribeBackup
+  ( -- * Creating a Request
+    DescribeBackup (..),
+    newDescribeBackup,
+
     -- * Request Lenses
-    , dBackupARN
+    describeBackup_backupArn,
 
     -- * Destructuring the Response
-    , describeBackupResponse
-    , DescribeBackupResponse
+    DescribeBackupResponse (..),
+    newDescribeBackupResponse,
+
     -- * Response Lenses
-    , desrsBackupDescription
-    , desrsResponseStatus
-    ) where
+    describeBackupResponse_backupDescription,
+    describeBackupResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeBackup' smart constructor.
-newtype DescribeBackup = DescribeBackup'
-  { _dBackupARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeBackup' smart constructor.
+data DescribeBackup = DescribeBackup'
+  { -- | The Amazon Resource Name (ARN) associated with the backup.
+    backupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBackup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBackup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dBackupARN' - The ARN associated with the backup.
-describeBackup
-    :: Text -- ^ 'dBackupARN'
-    -> DescribeBackup
-describeBackup pBackupARN_ = DescribeBackup' {_dBackupARN = pBackupARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'backupArn', 'describeBackup_backupArn' - The Amazon Resource Name (ARN) associated with the backup.
+newDescribeBackup ::
+  -- | 'backupArn'
+  Prelude.Text ->
+  DescribeBackup
+newDescribeBackup pBackupArn_ =
+  DescribeBackup' {backupArn = pBackupArn_}
 
+-- | The Amazon Resource Name (ARN) associated with the backup.
+describeBackup_backupArn :: Lens.Lens' DescribeBackup Prelude.Text
+describeBackup_backupArn = Lens.lens (\DescribeBackup' {backupArn} -> backupArn) (\s@DescribeBackup' {} a -> s {backupArn = a} :: DescribeBackup)
 
--- | The ARN associated with the backup.
-dBackupARN :: Lens' DescribeBackup Text
-dBackupARN = lens _dBackupARN (\ s a -> s{_dBackupARN = a})
+instance Core.AWSRequest DescribeBackup where
+  type
+    AWSResponse DescribeBackup =
+      DescribeBackupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeBackupResponse'
+            Prelude.<$> (x Core..?> "BackupDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeBackup where
-        type Rs DescribeBackup = DescribeBackupResponse
-        request = postJSON dynamoDB
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeBackupResponse' <$>
-                   (x .?> "BackupDescription") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeBackup
 
-instance Hashable DescribeBackup where
+instance Prelude.NFData DescribeBackup
 
-instance NFData DescribeBackup where
+instance Core.ToHeaders DescribeBackup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DynamoDB_20120810.DescribeBackup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeBackup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDB_20120810.DescribeBackup" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Core.ToJSON DescribeBackup where
+  toJSON DescribeBackup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("BackupArn" Core..= backupArn)]
+      )
 
-instance ToJSON DescribeBackup where
-        toJSON DescribeBackup'{..}
-          = object
-              (catMaybes [Just ("BackupArn" .= _dBackupARN)])
+instance Core.ToPath DescribeBackup where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeBackup where
-        toPath = const "/"
+instance Core.ToQuery DescribeBackup where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeBackup where
-        toQuery = const mempty
-
--- | /See:/ 'describeBackupResponse' smart constructor.
+-- | /See:/ 'newDescribeBackupResponse' smart constructor.
 data DescribeBackupResponse = DescribeBackupResponse'
-  { _desrsBackupDescription :: !(Maybe BackupDescription)
-  , _desrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Contains the description of the backup created for the table.
+    backupDescription :: Prelude.Maybe BackupDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBackupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBackupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsBackupDescription' - Contains the description of the backup created for the table.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeBackupResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeBackupResponse
-describeBackupResponse pResponseStatus_ =
+-- 'backupDescription', 'describeBackupResponse_backupDescription' - Contains the description of the backup created for the table.
+--
+-- 'httpStatus', 'describeBackupResponse_httpStatus' - The response's http status code.
+newDescribeBackupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeBackupResponse
+newDescribeBackupResponse pHttpStatus_ =
   DescribeBackupResponse'
-    {_desrsBackupDescription = Nothing, _desrsResponseStatus = pResponseStatus_}
-
+    { backupDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the description of the backup created for the table.
-desrsBackupDescription :: Lens' DescribeBackupResponse (Maybe BackupDescription)
-desrsBackupDescription = lens _desrsBackupDescription (\ s a -> s{_desrsBackupDescription = a})
+describeBackupResponse_backupDescription :: Lens.Lens' DescribeBackupResponse (Prelude.Maybe BackupDescription)
+describeBackupResponse_backupDescription = Lens.lens (\DescribeBackupResponse' {backupDescription} -> backupDescription) (\s@DescribeBackupResponse' {} a -> s {backupDescription = a} :: DescribeBackupResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeBackupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | The response's http status code.
+describeBackupResponse_httpStatus :: Lens.Lens' DescribeBackupResponse Prelude.Int
+describeBackupResponse_httpStatus = Lens.lens (\DescribeBackupResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupResponse' {} a -> s {httpStatus = a} :: DescribeBackupResponse)
 
-instance NFData DescribeBackupResponse where
+instance Prelude.NFData DescribeBackupResponse

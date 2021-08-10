@@ -1,164 +1,204 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.StartThingRegistrationTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a bulk thing provisioning task.
---
---
 module Network.AWS.IoT.StartThingRegistrationTask
-    (
-    -- * Creating a Request
-      startThingRegistrationTask
-    , StartThingRegistrationTask
+  ( -- * Creating a Request
+    StartThingRegistrationTask (..),
+    newStartThingRegistrationTask,
+
     -- * Request Lenses
-    , strtTemplateBody
-    , strtInputFileBucket
-    , strtInputFileKey
-    , strtRoleARN
+    startThingRegistrationTask_templateBody,
+    startThingRegistrationTask_inputFileBucket,
+    startThingRegistrationTask_inputFileKey,
+    startThingRegistrationTask_roleArn,
 
     -- * Destructuring the Response
-    , startThingRegistrationTaskResponse
-    , StartThingRegistrationTaskResponse
+    StartThingRegistrationTaskResponse (..),
+    newStartThingRegistrationTaskResponse,
+
     -- * Response Lenses
-    , strtrsTaskId
-    , strtrsResponseStatus
-    ) where
+    startThingRegistrationTaskResponse_taskId,
+    startThingRegistrationTaskResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startThingRegistrationTask' smart constructor.
+-- | /See:/ 'newStartThingRegistrationTask' smart constructor.
 data StartThingRegistrationTask = StartThingRegistrationTask'
-  { _strtTemplateBody    :: !Text
-  , _strtInputFileBucket :: !Text
-  , _strtInputFileKey    :: !Text
-  , _strtRoleARN         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The provisioning template.
+    templateBody :: Prelude.Text,
+    -- | The S3 bucket that contains the input file.
+    inputFileBucket :: Prelude.Text,
+    -- | The name of input file within the S3 bucket. This file contains a
+    -- newline delimited JSON file. Each line contains the parameter values to
+    -- provision one device (thing).
+    inputFileKey :: Prelude.Text,
+    -- | The IAM role ARN that grants permission the input file.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartThingRegistrationTask' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartThingRegistrationTask' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'strtTemplateBody' - The provisioning template.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'strtInputFileBucket' - The S3 bucket that contains the input file.
+-- 'templateBody', 'startThingRegistrationTask_templateBody' - The provisioning template.
 --
--- * 'strtInputFileKey' - The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
+-- 'inputFileBucket', 'startThingRegistrationTask_inputFileBucket' - The S3 bucket that contains the input file.
 --
--- * 'strtRoleARN' - The IAM role ARN that grants permission the input file.
-startThingRegistrationTask
-    :: Text -- ^ 'strtTemplateBody'
-    -> Text -- ^ 'strtInputFileBucket'
-    -> Text -- ^ 'strtInputFileKey'
-    -> Text -- ^ 'strtRoleARN'
-    -> StartThingRegistrationTask
-startThingRegistrationTask pTemplateBody_ pInputFileBucket_ pInputFileKey_ pRoleARN_ =
-  StartThingRegistrationTask'
-    { _strtTemplateBody = pTemplateBody_
-    , _strtInputFileBucket = pInputFileBucket_
-    , _strtInputFileKey = pInputFileKey_
-    , _strtRoleARN = pRoleARN_
-    }
-
+-- 'inputFileKey', 'startThingRegistrationTask_inputFileKey' - The name of input file within the S3 bucket. This file contains a
+-- newline delimited JSON file. Each line contains the parameter values to
+-- provision one device (thing).
+--
+-- 'roleArn', 'startThingRegistrationTask_roleArn' - The IAM role ARN that grants permission the input file.
+newStartThingRegistrationTask ::
+  -- | 'templateBody'
+  Prelude.Text ->
+  -- | 'inputFileBucket'
+  Prelude.Text ->
+  -- | 'inputFileKey'
+  Prelude.Text ->
+  -- | 'roleArn'
+  Prelude.Text ->
+  StartThingRegistrationTask
+newStartThingRegistrationTask
+  pTemplateBody_
+  pInputFileBucket_
+  pInputFileKey_
+  pRoleArn_ =
+    StartThingRegistrationTask'
+      { templateBody =
+          pTemplateBody_,
+        inputFileBucket = pInputFileBucket_,
+        inputFileKey = pInputFileKey_,
+        roleArn = pRoleArn_
+      }
 
 -- | The provisioning template.
-strtTemplateBody :: Lens' StartThingRegistrationTask Text
-strtTemplateBody = lens _strtTemplateBody (\ s a -> s{_strtTemplateBody = a})
+startThingRegistrationTask_templateBody :: Lens.Lens' StartThingRegistrationTask Prelude.Text
+startThingRegistrationTask_templateBody = Lens.lens (\StartThingRegistrationTask' {templateBody} -> templateBody) (\s@StartThingRegistrationTask' {} a -> s {templateBody = a} :: StartThingRegistrationTask)
 
 -- | The S3 bucket that contains the input file.
-strtInputFileBucket :: Lens' StartThingRegistrationTask Text
-strtInputFileBucket = lens _strtInputFileBucket (\ s a -> s{_strtInputFileBucket = a})
+startThingRegistrationTask_inputFileBucket :: Lens.Lens' StartThingRegistrationTask Prelude.Text
+startThingRegistrationTask_inputFileBucket = Lens.lens (\StartThingRegistrationTask' {inputFileBucket} -> inputFileBucket) (\s@StartThingRegistrationTask' {} a -> s {inputFileBucket = a} :: StartThingRegistrationTask)
 
--- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
-strtInputFileKey :: Lens' StartThingRegistrationTask Text
-strtInputFileKey = lens _strtInputFileKey (\ s a -> s{_strtInputFileKey = a})
+-- | The name of input file within the S3 bucket. This file contains a
+-- newline delimited JSON file. Each line contains the parameter values to
+-- provision one device (thing).
+startThingRegistrationTask_inputFileKey :: Lens.Lens' StartThingRegistrationTask Prelude.Text
+startThingRegistrationTask_inputFileKey = Lens.lens (\StartThingRegistrationTask' {inputFileKey} -> inputFileKey) (\s@StartThingRegistrationTask' {} a -> s {inputFileKey = a} :: StartThingRegistrationTask)
 
 -- | The IAM role ARN that grants permission the input file.
-strtRoleARN :: Lens' StartThingRegistrationTask Text
-strtRoleARN = lens _strtRoleARN (\ s a -> s{_strtRoleARN = a})
+startThingRegistrationTask_roleArn :: Lens.Lens' StartThingRegistrationTask Prelude.Text
+startThingRegistrationTask_roleArn = Lens.lens (\StartThingRegistrationTask' {roleArn} -> roleArn) (\s@StartThingRegistrationTask' {} a -> s {roleArn = a} :: StartThingRegistrationTask)
 
-instance AWSRequest StartThingRegistrationTask where
-        type Rs StartThingRegistrationTask =
-             StartThingRegistrationTaskResponse
-        request = postJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartThingRegistrationTaskResponse' <$>
-                   (x .?> "taskId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest StartThingRegistrationTask where
+  type
+    AWSResponse StartThingRegistrationTask =
+      StartThingRegistrationTaskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartThingRegistrationTaskResponse'
+            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartThingRegistrationTask where
+instance Prelude.Hashable StartThingRegistrationTask
 
-instance NFData StartThingRegistrationTask where
+instance Prelude.NFData StartThingRegistrationTask
 
-instance ToHeaders StartThingRegistrationTask where
-        toHeaders = const mempty
+instance Core.ToHeaders StartThingRegistrationTask where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON StartThingRegistrationTask where
-        toJSON StartThingRegistrationTask'{..}
-          = object
-              (catMaybes
-                 [Just ("templateBody" .= _strtTemplateBody),
-                  Just ("inputFileBucket" .= _strtInputFileBucket),
-                  Just ("inputFileKey" .= _strtInputFileKey),
-                  Just ("roleArn" .= _strtRoleARN)])
+instance Core.ToJSON StartThingRegistrationTask where
+  toJSON StartThingRegistrationTask' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("templateBody" Core..= templateBody),
+            Prelude.Just
+              ("inputFileBucket" Core..= inputFileBucket),
+            Prelude.Just ("inputFileKey" Core..= inputFileKey),
+            Prelude.Just ("roleArn" Core..= roleArn)
+          ]
+      )
 
-instance ToPath StartThingRegistrationTask where
-        toPath = const "/thing-registration-tasks"
+instance Core.ToPath StartThingRegistrationTask where
+  toPath = Prelude.const "/thing-registration-tasks"
 
-instance ToQuery StartThingRegistrationTask where
-        toQuery = const mempty
+instance Core.ToQuery StartThingRegistrationTask where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startThingRegistrationTaskResponse' smart constructor.
+-- | /See:/ 'newStartThingRegistrationTaskResponse' smart constructor.
 data StartThingRegistrationTaskResponse = StartThingRegistrationTaskResponse'
-  { _strtrsTaskId         :: !(Maybe Text)
-  , _strtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The bulk thing provisioning task ID.
+    taskId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartThingRegistrationTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartThingRegistrationTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'strtrsTaskId' - The bulk thing provisioning task ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'strtrsResponseStatus' - -- | The response status code.
-startThingRegistrationTaskResponse
-    :: Int -- ^ 'strtrsResponseStatus'
-    -> StartThingRegistrationTaskResponse
-startThingRegistrationTaskResponse pResponseStatus_ =
+-- 'taskId', 'startThingRegistrationTaskResponse_taskId' - The bulk thing provisioning task ID.
+--
+-- 'httpStatus', 'startThingRegistrationTaskResponse_httpStatus' - The response's http status code.
+newStartThingRegistrationTaskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartThingRegistrationTaskResponse
+newStartThingRegistrationTaskResponse pHttpStatus_ =
   StartThingRegistrationTaskResponse'
-    {_strtrsTaskId = Nothing, _strtrsResponseStatus = pResponseStatus_}
-
+    { taskId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The bulk thing provisioning task ID.
-strtrsTaskId :: Lens' StartThingRegistrationTaskResponse (Maybe Text)
-strtrsTaskId = lens _strtrsTaskId (\ s a -> s{_strtrsTaskId = a})
+startThingRegistrationTaskResponse_taskId :: Lens.Lens' StartThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+startThingRegistrationTaskResponse_taskId = Lens.lens (\StartThingRegistrationTaskResponse' {taskId} -> taskId) (\s@StartThingRegistrationTaskResponse' {} a -> s {taskId = a} :: StartThingRegistrationTaskResponse)
 
--- | -- | The response status code.
-strtrsResponseStatus :: Lens' StartThingRegistrationTaskResponse Int
-strtrsResponseStatus = lens _strtrsResponseStatus (\ s a -> s{_strtrsResponseStatus = a})
+-- | The response's http status code.
+startThingRegistrationTaskResponse_httpStatus :: Lens.Lens' StartThingRegistrationTaskResponse Prelude.Int
+startThingRegistrationTaskResponse_httpStatus = Lens.lens (\StartThingRegistrationTaskResponse' {httpStatus} -> httpStatus) (\s@StartThingRegistrationTaskResponse' {} a -> s {httpStatus = a} :: StartThingRegistrationTaskResponse)
 
-instance NFData StartThingRegistrationTaskResponse
-         where
+instance
+  Prelude.NFData
+    StartThingRegistrationTaskResponse

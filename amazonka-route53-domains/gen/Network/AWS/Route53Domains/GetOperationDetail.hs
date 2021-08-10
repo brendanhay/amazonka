@@ -1,194 +1,228 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the current status of an operation that is not completed.
---
---
+-- This operation returns the current status of an operation that is not
+-- completed.
 module Network.AWS.Route53Domains.GetOperationDetail
-    (
-    -- * Creating a Request
-      getOperationDetail
-    , GetOperationDetail
+  ( -- * Creating a Request
+    GetOperationDetail (..),
+    newGetOperationDetail,
+
     -- * Request Lenses
-    , godOperationId
+    getOperationDetail_operationId,
 
     -- * Destructuring the Response
-    , getOperationDetailResponse
-    , GetOperationDetailResponse
+    GetOperationDetailResponse (..),
+    newGetOperationDetailResponse,
+
     -- * Response Lenses
-    , godrsStatus
-    , godrsSubmittedDate
-    , godrsDomainName
-    , godrsOperationId
-    , godrsType
-    , godrsMessage
-    , godrsResponseStatus
-    ) where
+    getOperationDetailResponse_status,
+    getOperationDetailResponse_message,
+    getOperationDetailResponse_operationId,
+    getOperationDetailResponse_submittedDate,
+    getOperationDetailResponse_domainName,
+    getOperationDetailResponse_type,
+    getOperationDetailResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
--- | The 'GetOperationDetail' request includes the following element.
+-- | The
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>
+-- request includes the following element.
 --
+-- /See:/ 'newGetOperationDetail' smart constructor.
+data GetOperationDetail = GetOperationDetail'
+  { -- | The identifier for the operation for which you want to get the status.
+    -- Route 53 returned the identifier in the response to the original
+    -- request.
+    operationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetOperationDetail' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getOperationDetail' smart constructor.
-newtype GetOperationDetail = GetOperationDetail'
-  { _godOperationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetOperationDetail' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'godOperationId' - The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.
-getOperationDetail
-    :: Text -- ^ 'godOperationId'
-    -> GetOperationDetail
-getOperationDetail pOperationId_ =
-  GetOperationDetail' {_godOperationId = pOperationId_}
+-- 'operationId', 'getOperationDetail_operationId' - The identifier for the operation for which you want to get the status.
+-- Route 53 returned the identifier in the response to the original
+-- request.
+newGetOperationDetail ::
+  -- | 'operationId'
+  Prelude.Text ->
+  GetOperationDetail
+newGetOperationDetail pOperationId_ =
+  GetOperationDetail' {operationId = pOperationId_}
 
+-- | The identifier for the operation for which you want to get the status.
+-- Route 53 returned the identifier in the response to the original
+-- request.
+getOperationDetail_operationId :: Lens.Lens' GetOperationDetail Prelude.Text
+getOperationDetail_operationId = Lens.lens (\GetOperationDetail' {operationId} -> operationId) (\s@GetOperationDetail' {} a -> s {operationId = a} :: GetOperationDetail)
 
--- | The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.
-godOperationId :: Lens' GetOperationDetail Text
-godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a})
+instance Core.AWSRequest GetOperationDetail where
+  type
+    AWSResponse GetOperationDetail =
+      GetOperationDetailResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetOperationDetailResponse'
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "OperationId")
+            Prelude.<*> (x Core..?> "SubmittedDate")
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "Type")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetOperationDetail where
-        type Rs GetOperationDetail =
-             GetOperationDetailResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetOperationDetailResponse' <$>
-                   (x .?> "Status") <*> (x .?> "SubmittedDate") <*>
-                     (x .?> "DomainName")
-                     <*> (x .?> "OperationId")
-                     <*> (x .?> "Type")
-                     <*> (x .?> "Message")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetOperationDetail
 
-instance Hashable GetOperationDetail where
+instance Prelude.NFData GetOperationDetail
 
-instance NFData GetOperationDetail where
+instance Core.ToHeaders GetOperationDetail where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53Domains_v20140515.GetOperationDetail" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetOperationDetail where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.GetOperationDetail" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetOperationDetail where
+  toJSON GetOperationDetail' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("OperationId" Core..= operationId)]
+      )
 
-instance ToJSON GetOperationDetail where
-        toJSON GetOperationDetail'{..}
-          = object
-              (catMaybes [Just ("OperationId" .= _godOperationId)])
+instance Core.ToPath GetOperationDetail where
+  toPath = Prelude.const "/"
 
-instance ToPath GetOperationDetail where
-        toPath = const "/"
-
-instance ToQuery GetOperationDetail where
-        toQuery = const mempty
+instance Core.ToQuery GetOperationDetail where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The GetOperationDetail response includes the following elements.
 --
---
---
--- /See:/ 'getOperationDetailResponse' smart constructor.
+-- /See:/ 'newGetOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-  { _godrsStatus         :: !(Maybe OperationStatus)
-  , _godrsSubmittedDate  :: !(Maybe POSIX)
-  , _godrsDomainName     :: !(Maybe Text)
-  , _godrsOperationId    :: !(Maybe Text)
-  , _godrsType           :: !(Maybe OperationType)
-  , _godrsMessage        :: !(Maybe Text)
-  , _godrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current status of the requested operation in the system.
+    status :: Prelude.Maybe OperationStatus,
+    -- | Detailed information on the status including possible errors.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the operation.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The date when the request was submitted.
+    submittedDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of a domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The type of operation that was requested.
+    type' :: Prelude.Maybe OperationType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetOperationDetailResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetOperationDetailResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'godrsStatus' - The current status of the requested operation in the system.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'godrsSubmittedDate' - The date when the request was submitted.
+-- 'status', 'getOperationDetailResponse_status' - The current status of the requested operation in the system.
 --
--- * 'godrsDomainName' - The name of a domain.
+-- 'message', 'getOperationDetailResponse_message' - Detailed information on the status including possible errors.
 --
--- * 'godrsOperationId' - The identifier for the operation.
+-- 'operationId', 'getOperationDetailResponse_operationId' - The identifier for the operation.
 --
--- * 'godrsType' - The type of operation that was requested.
+-- 'submittedDate', 'getOperationDetailResponse_submittedDate' - The date when the request was submitted.
 --
--- * 'godrsMessage' - Detailed information on the status including possible errors.
+-- 'domainName', 'getOperationDetailResponse_domainName' - The name of a domain.
 --
--- * 'godrsResponseStatus' - -- | The response status code.
-getOperationDetailResponse
-    :: Int -- ^ 'godrsResponseStatus'
-    -> GetOperationDetailResponse
-getOperationDetailResponse pResponseStatus_ =
+-- 'type'', 'getOperationDetailResponse_type' - The type of operation that was requested.
+--
+-- 'httpStatus', 'getOperationDetailResponse_httpStatus' - The response's http status code.
+newGetOperationDetailResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetOperationDetailResponse
+newGetOperationDetailResponse pHttpStatus_ =
   GetOperationDetailResponse'
-    { _godrsStatus = Nothing
-    , _godrsSubmittedDate = Nothing
-    , _godrsDomainName = Nothing
-    , _godrsOperationId = Nothing
-    , _godrsType = Nothing
-    , _godrsMessage = Nothing
-    , _godrsResponseStatus = pResponseStatus_
+    { status =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      submittedDate = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The current status of the requested operation in the system.
-godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a})
-
--- | The date when the request was submitted.
-godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
-godrsSubmittedDate = lens _godrsSubmittedDate (\ s a -> s{_godrsSubmittedDate = a}) . mapping _Time
-
--- | The name of a domain.
-godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsDomainName = lens _godrsDomainName (\ s a -> s{_godrsDomainName = a})
-
--- | The identifier for the operation.
-godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsOperationId = lens _godrsOperationId (\ s a -> s{_godrsOperationId = a})
-
--- | The type of operation that was requested.
-godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
-godrsType = lens _godrsType (\ s a -> s{_godrsType = a})
+getOperationDetailResponse_status :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationStatus)
+getOperationDetailResponse_status = Lens.lens (\GetOperationDetailResponse' {status} -> status) (\s@GetOperationDetailResponse' {} a -> s {status = a} :: GetOperationDetailResponse)
 
 -- | Detailed information on the status including possible errors.
-godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a})
+getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {message} -> message) (\s@GetOperationDetailResponse' {} a -> s {message = a} :: GetOperationDetailResponse)
 
--- | -- | The response status code.
-godrsResponseStatus :: Lens' GetOperationDetailResponse Int
-godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a})
+-- | The identifier for the operation.
+getOperationDetailResponse_operationId :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_operationId = Lens.lens (\GetOperationDetailResponse' {operationId} -> operationId) (\s@GetOperationDetailResponse' {} a -> s {operationId = a} :: GetOperationDetailResponse)
 
-instance NFData GetOperationDetailResponse where
+-- | The date when the request was submitted.
+getOperationDetailResponse_submittedDate :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.UTCTime)
+getOperationDetailResponse_submittedDate = Lens.lens (\GetOperationDetailResponse' {submittedDate} -> submittedDate) (\s@GetOperationDetailResponse' {} a -> s {submittedDate = a} :: GetOperationDetailResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of a domain.
+getOperationDetailResponse_domainName :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_domainName = Lens.lens (\GetOperationDetailResponse' {domainName} -> domainName) (\s@GetOperationDetailResponse' {} a -> s {domainName = a} :: GetOperationDetailResponse)
+
+-- | The type of operation that was requested.
+getOperationDetailResponse_type :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationType)
+getOperationDetailResponse_type = Lens.lens (\GetOperationDetailResponse' {type'} -> type') (\s@GetOperationDetailResponse' {} a -> s {type' = a} :: GetOperationDetailResponse)
+
+-- | The response's http status code.
+getOperationDetailResponse_httpStatus :: Lens.Lens' GetOperationDetailResponse Prelude.Int
+getOperationDetailResponse_httpStatus = Lens.lens (\GetOperationDetailResponse' {httpStatus} -> httpStatus) (\s@GetOperationDetailResponse' {} a -> s {httpStatus = a} :: GetOperationDetailResponse)
+
+instance Prelude.NFData GetOperationDetailResponse

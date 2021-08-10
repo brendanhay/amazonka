@@ -1,336 +1,483 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53AutoNaming.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Route53AutoNaming.Types
-    (
-    -- * Service Configuration
-      route53AutoNaming
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ResourceLimitExceeded
-    , _InvalidInput
-    , _NamespaceAlreadyExists
-    , _NamespaceNotFound
-    , _ServiceAlreadyExists
-    , _ResourceInUse
-    , _CustomHealthNotFound
-    , _InstanceNotFound
-    , _DuplicateRequest
-    , _ServiceNotFound
-    , _OperationNotFound
+    _InvalidInput,
+    _TooManyTagsException,
+    _DuplicateRequest,
+    _ResourceInUse,
+    _ServiceAlreadyExists,
+    _RequestLimitExceeded,
+    _ResourceLimitExceeded,
+    _CustomHealthNotFound,
+    _OperationNotFound,
+    _ServiceNotFound,
+    _ResourceNotFoundException,
+    _NamespaceNotFound,
+    _NamespaceAlreadyExists,
+    _InstanceNotFound,
 
     -- * CustomHealthStatus
-    , CustomHealthStatus (..)
+    CustomHealthStatus (..),
 
     -- * FilterCondition
-    , FilterCondition (..)
+    FilterCondition (..),
 
     -- * HealthCheckType
-    , HealthCheckType (..)
+    HealthCheckType (..),
 
     -- * HealthStatus
-    , HealthStatus (..)
+    HealthStatus (..),
+
+    -- * HealthStatusFilter
+    HealthStatusFilter (..),
 
     -- * NamespaceFilterName
-    , NamespaceFilterName (..)
+    NamespaceFilterName (..),
 
     -- * NamespaceType
-    , NamespaceType (..)
+    NamespaceType (..),
 
     -- * OperationFilterName
-    , OperationFilterName (..)
+    OperationFilterName (..),
 
     -- * OperationStatus
-    , OperationStatus (..)
+    OperationStatus (..),
 
     -- * OperationTargetType
-    , OperationTargetType (..)
+    OperationTargetType (..),
 
     -- * OperationType
-    , OperationType (..)
+    OperationType (..),
 
     -- * RecordType
-    , RecordType (..)
+    RecordType (..),
 
     -- * RoutingPolicy
-    , RoutingPolicy (..)
+    RoutingPolicy (..),
 
     -- * ServiceFilterName
-    , ServiceFilterName (..)
+    ServiceFilterName (..),
 
-    -- * DNSConfig
-    , DNSConfig
-    , dnsConfig
-    , dcRoutingPolicy
-    , dcNamespaceId
-    , dcDNSRecords
+    -- * ServiceType
+    ServiceType (..),
 
-    -- * DNSConfigChange
-    , DNSConfigChange
-    , dnsConfigChange
-    , dccDNSRecords
+    -- * ServiceTypeOption
+    ServiceTypeOption (..),
 
-    -- * DNSProperties
-    , DNSProperties
-    , dnsProperties
-    , dpHostedZoneId
+    -- * DnsConfig
+    DnsConfig (..),
+    newDnsConfig,
+    dnsConfig_namespaceId,
+    dnsConfig_routingPolicy,
+    dnsConfig_dnsRecords,
 
-    -- * DNSRecord
-    , DNSRecord
-    , dnsRecord
-    , drType
-    , drTTL
+    -- * DnsConfigChange
+    DnsConfigChange (..),
+    newDnsConfigChange,
+    dnsConfigChange_dnsRecords,
+
+    -- * DnsProperties
+    DnsProperties (..),
+    newDnsProperties,
+    dnsProperties_hostedZoneId,
+
+    -- * DnsRecord
+    DnsRecord (..),
+    newDnsRecord,
+    dnsRecord_type,
+    dnsRecord_ttl,
 
     -- * HealthCheckConfig
-    , HealthCheckConfig
-    , healthCheckConfig
-    , hccFailureThreshold
-    , hccResourcePath
-    , hccType
+    HealthCheckConfig (..),
+    newHealthCheckConfig,
+    healthCheckConfig_failureThreshold,
+    healthCheckConfig_resourcePath,
+    healthCheckConfig_type,
 
     -- * HealthCheckCustomConfig
-    , HealthCheckCustomConfig
-    , healthCheckCustomConfig
-    , hcccFailureThreshold
+    HealthCheckCustomConfig (..),
+    newHealthCheckCustomConfig,
+    healthCheckCustomConfig_failureThreshold,
+
+    -- * HttpInstanceSummary
+    HttpInstanceSummary (..),
+    newHttpInstanceSummary,
+    httpInstanceSummary_namespaceName,
+    httpInstanceSummary_instanceId,
+    httpInstanceSummary_serviceName,
+    httpInstanceSummary_attributes,
+    httpInstanceSummary_healthStatus,
+
+    -- * HttpProperties
+    HttpProperties (..),
+    newHttpProperties,
+    httpProperties_httpName,
 
     -- * Instance
-    , Instance
-    , instance'
-    , iCreatorRequestId
-    , iAttributes
-    , iId
+    Instance (..),
+    newInstance,
+    instance_creatorRequestId,
+    instance_attributes,
+    instance_id,
 
     -- * InstanceSummary
-    , InstanceSummary
-    , instanceSummary
-    , isAttributes
-    , isId
+    InstanceSummary (..),
+    newInstanceSummary,
+    instanceSummary_id,
+    instanceSummary_attributes,
 
     -- * Namespace
-    , Namespace
-    , namespace
-    , nARN
-    , nCreatorRequestId
-    , nCreateDate
-    , nServiceCount
-    , nName
-    , nId
-    , nType
-    , nDescription
-    , nProperties
+    Namespace (..),
+    newNamespace,
+    namespace_createDate,
+    namespace_creatorRequestId,
+    namespace_arn,
+    namespace_id,
+    namespace_name,
+    namespace_properties,
+    namespace_serviceCount,
+    namespace_description,
+    namespace_type,
 
     -- * NamespaceFilter
-    , NamespaceFilter
-    , namespaceFilter
-    , nfCondition
-    , nfName
-    , nfValues
+    NamespaceFilter (..),
+    newNamespaceFilter,
+    namespaceFilter_condition,
+    namespaceFilter_name,
+    namespaceFilter_values,
 
     -- * NamespaceProperties
-    , NamespaceProperties
-    , namespaceProperties
-    , npDNSProperties
+    NamespaceProperties (..),
+    newNamespaceProperties,
+    namespaceProperties_httpProperties,
+    namespaceProperties_dnsProperties,
 
     -- * NamespaceSummary
-    , NamespaceSummary
-    , namespaceSummary
-    , nsARN
-    , nsName
-    , nsId
-    , nsType
+    NamespaceSummary (..),
+    newNamespaceSummary,
+    namespaceSummary_createDate,
+    namespaceSummary_arn,
+    namespaceSummary_id,
+    namespaceSummary_name,
+    namespaceSummary_properties,
+    namespaceSummary_serviceCount,
+    namespaceSummary_description,
+    namespaceSummary_type,
 
     -- * Operation
-    , Operation
-    , operation
-    , oStatus
-    , oUpdateDate
-    , oCreateDate
-    , oTargets
-    , oErrorCode
-    , oId
-    , oType
-    , oErrorMessage
+    Operation (..),
+    newOperation,
+    operation_status,
+    operation_createDate,
+    operation_id,
+    operation_targets,
+    operation_errorMessage,
+    operation_type,
+    operation_errorCode,
+    operation_updateDate,
 
     -- * OperationFilter
-    , OperationFilter
-    , operationFilter
-    , ofCondition
-    , ofName
-    , ofValues
+    OperationFilter (..),
+    newOperationFilter,
+    operationFilter_condition,
+    operationFilter_name,
+    operationFilter_values,
 
     -- * OperationSummary
-    , OperationSummary
-    , operationSummary
-    , osStatus
-    , osId
+    OperationSummary (..),
+    newOperationSummary,
+    operationSummary_status,
+    operationSummary_id,
 
     -- * ServiceChange
-    , ServiceChange
-    , serviceChange
-    , scHealthCheckConfig
-    , scDescription
-    , scDNSConfig
+    ServiceChange (..),
+    newServiceChange,
+    serviceChange_dnsConfig,
+    serviceChange_description,
+    serviceChange_healthCheckConfig,
 
     -- * ServiceFilter
-    , ServiceFilter
-    , serviceFilter
-    , sfCondition
-    , sfName
-    , sfValues
+    ServiceFilter (..),
+    newServiceFilter,
+    serviceFilter_condition,
+    serviceFilter_name,
+    serviceFilter_values,
 
     -- * ServiceInfo
-    , ServiceInfo
-    , serviceInfo
-    , siInstanceCount
-    , siARN
-    , siHealthCheckConfig
-    , siCreatorRequestId
-    , siCreateDate
-    , siHealthCheckCustomConfig
-    , siName
-    , siId
-    , siDNSConfig
-    , siDescription
+    ServiceInfo (..),
+    newServiceInfo,
+    serviceInfo_namespaceId,
+    serviceInfo_dnsConfig,
+    serviceInfo_createDate,
+    serviceInfo_creatorRequestId,
+    serviceInfo_arn,
+    serviceInfo_id,
+    serviceInfo_name,
+    serviceInfo_description,
+    serviceInfo_healthCheckCustomConfig,
+    serviceInfo_type,
+    serviceInfo_healthCheckConfig,
+    serviceInfo_instanceCount,
 
     -- * ServiceSummary
-    , ServiceSummary
-    , serviceSummary
-    , ssInstanceCount
-    , ssARN
-    , ssName
-    , ssId
-    , ssDescription
-    ) where
+    ServiceSummary (..),
+    newServiceSummary,
+    serviceSummary_dnsConfig,
+    serviceSummary_createDate,
+    serviceSummary_arn,
+    serviceSummary_id,
+    serviceSummary_name,
+    serviceSummary_description,
+    serviceSummary_healthCheckCustomConfig,
+    serviceSummary_type,
+    serviceSummary_healthCheckConfig,
+    serviceSummary_instanceCount,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Route53AutoNaming.Types.Product
-import Network.AWS.Route53AutoNaming.Types.Sum
-import Network.AWS.Sign.V4
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
 
--- | API version @2017-03-14@ of the Amazon Route 53 Auto Naming SDK configuration.
-route53AutoNaming :: Service
-route53AutoNaming =
-  Service
-    { _svcAbbrev = "Route53AutoNaming"
-    , _svcSigner = v4
-    , _svcPrefix = "servicediscovery"
-    , _svcVersion = "2017-03-14"
-    , _svcEndpoint = defaultEndpoint route53AutoNaming
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Route53AutoNaming"
-    , _svcRetry = retry
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
+import Network.AWS.Route53AutoNaming.Types.DnsConfig
+import Network.AWS.Route53AutoNaming.Types.DnsConfigChange
+import Network.AWS.Route53AutoNaming.Types.DnsProperties
+import Network.AWS.Route53AutoNaming.Types.DnsRecord
+import Network.AWS.Route53AutoNaming.Types.FilterCondition
+import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
+import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
+import Network.AWS.Route53AutoNaming.Types.HealthCheckType
+import Network.AWS.Route53AutoNaming.Types.HealthStatus
+import Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
+import Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+import Network.AWS.Route53AutoNaming.Types.HttpProperties
+import Network.AWS.Route53AutoNaming.Types.Instance
+import Network.AWS.Route53AutoNaming.Types.InstanceSummary
+import Network.AWS.Route53AutoNaming.Types.Namespace
+import Network.AWS.Route53AutoNaming.Types.NamespaceFilter
+import Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
+import Network.AWS.Route53AutoNaming.Types.NamespaceProperties
+import Network.AWS.Route53AutoNaming.Types.NamespaceSummary
+import Network.AWS.Route53AutoNaming.Types.NamespaceType
+import Network.AWS.Route53AutoNaming.Types.Operation
+import Network.AWS.Route53AutoNaming.Types.OperationFilter
+import Network.AWS.Route53AutoNaming.Types.OperationFilterName
+import Network.AWS.Route53AutoNaming.Types.OperationStatus
+import Network.AWS.Route53AutoNaming.Types.OperationSummary
+import Network.AWS.Route53AutoNaming.Types.OperationTargetType
+import Network.AWS.Route53AutoNaming.Types.OperationType
+import Network.AWS.Route53AutoNaming.Types.RecordType
+import Network.AWS.Route53AutoNaming.Types.RoutingPolicy
+import Network.AWS.Route53AutoNaming.Types.ServiceChange
+import Network.AWS.Route53AutoNaming.Types.ServiceFilter
+import Network.AWS.Route53AutoNaming.Types.ServiceFilterName
+import Network.AWS.Route53AutoNaming.Types.ServiceInfo
+import Network.AWS.Route53AutoNaming.Types.ServiceSummary
+import Network.AWS.Route53AutoNaming.Types.ServiceType
+import Network.AWS.Route53AutoNaming.Types.ServiceTypeOption
+import Network.AWS.Route53AutoNaming.Types.Tag
+import qualified Network.AWS.Sign.V4 as Sign
+
+-- | API version @2017-03-14@ of the Amazon Cloud Map SDK configuration.
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "Route53AutoNaming",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "servicediscovery",
+      Core._serviceSigningName = "servicediscovery",
+      Core._serviceVersion = "2017-03-14",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Route53AutoNaming",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | One or more specified values aren\'t valid. For example, a required
+-- value might be missing, a numeric value might be outside the allowed
+-- range, or a string value might exceed length constraints.
+_InvalidInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInput =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInput"
 
--- | The resource can't be created because you've reached the limit on the number of resources.
---
---
-_ResourceLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceLimitExceeded =
-  _MatchServiceError route53AutoNaming "ResourceLimitExceeded"
-
-
--- | One or more specified values aren't valid. For example, when you're creating a namespace, the value of @Name@ might not be a valid DNS name.
---
---
-_InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInput = _MatchServiceError route53AutoNaming "InvalidInput"
-
-
--- | The namespace that you're trying to create already exists.
---
---
-_NamespaceAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_NamespaceAlreadyExists =
-  _MatchServiceError route53AutoNaming "NamespaceAlreadyExists"
-
-
--- | No namespace exists with the specified ID.
---
---
-_NamespaceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_NamespaceNotFound = _MatchServiceError route53AutoNaming "NamespaceNotFound"
-
-
--- | The service can't be created because a service with the same name already exists.
---
---
-_ServiceAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceAlreadyExists =
-  _MatchServiceError route53AutoNaming "ServiceAlreadyExists"
-
-
--- | The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.
---
---
-_ResourceInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUse = _MatchServiceError route53AutoNaming "ResourceInUse"
-
-
--- | Prism for CustomHealthNotFound' errors.
-_CustomHealthNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_CustomHealthNotFound =
-  _MatchServiceError route53AutoNaming "CustomHealthNotFound"
-
-
--- | No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.
---
---
-_InstanceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_InstanceNotFound = _MatchServiceError route53AutoNaming "InstanceNotFound"
-
+-- | The list of tags on the resource is over the quota. The maximum number
+-- of tags that can be applied to a resource is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | The operation is already in progress.
---
---
-_DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRequest = _MatchServiceError route53AutoNaming "DuplicateRequest"
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequest"
 
+-- | The specified resource can\'t be deleted because it contains other
+-- resources. For example, you can\'t delete a service that contains any
+-- instances.
+_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUse =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
 
--- | No service exists with the specified ID.
---
---
-_ServiceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceNotFound = _MatchServiceError route53AutoNaming "ServiceNotFound"
+-- | The service can\'t be created because a service with the same name
+-- already exists.
+_ServiceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "ServiceAlreadyExists"
 
+-- | The operation can\'t be completed because you\'ve reached the quota for
+-- the number of requests. For more information, see
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html AWS Cloud Map API request throttling quota>
+-- in the /AWS Cloud Map Developer Guide/.
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "RequestLimitExceeded"
+
+-- | The resource can\'t be created because you\'ve reached the quota on the
+-- number of resources.
+_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceeded"
+
+-- | The health check for the instance that is specified by @ServiceId@ and
+-- @InstanceId@ is not a custom health check.
+_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomHealthNotFound =
+  Core._MatchServiceError
+    defaultService
+    "CustomHealthNotFound"
 
 -- | No operation exists with the specified ID.
---
---
-_OperationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationNotFound = _MatchServiceError route53AutoNaming "OperationNotFound"
+_OperationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotFound =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotFound"
 
+-- | No service exists with the specified ID.
+_ServiceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ServiceNotFound"
+
+-- | The operation can\'t be completed because the resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | No namespace exists with the specified ID.
+_NamespaceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "NamespaceNotFound"
+
+-- | The namespace that you\'re trying to create already exists.
+_NamespaceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "NamespaceAlreadyExists"
+
+-- | No instance exists with the specified ID, or the instance was recently
+-- registered, and information about the instance hasn\'t propagated yet.
+_InstanceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InstanceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "InstanceNotFound"

@@ -1,157 +1,189 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachObject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches a given object from the parent object. The object that is to be detached from the parent is specified by the link name.
---
---
+-- Detaches a given object from the parent object. The object that is to be
+-- detached from the parent is specified by the link name.
 module Network.AWS.CloudDirectory.DetachObject
-    (
-    -- * Creating a Request
-      detachObject
-    , DetachObject
+  ( -- * Creating a Request
+    DetachObject (..),
+    newDetachObject,
+
     -- * Request Lenses
-    , detDirectoryARN
-    , detParentReference
-    , detLinkName
+    detachObject_directoryArn,
+    detachObject_parentReference,
+    detachObject_linkName,
 
     -- * Destructuring the Response
-    , detachObjectResponse
-    , DetachObjectResponse
+    DetachObjectResponse (..),
+    newDetachObjectResponse,
+
     -- * Response Lenses
-    , detrsDetachedObjectIdentifier
-    , detrsResponseStatus
-    ) where
+    detachObjectResponse_detachedObjectIdentifier,
+    detachObjectResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detachObject' smart constructor.
+-- | /See:/ 'newDetachObject' smart constructor.
 data DetachObject = DetachObject'
-  { _detDirectoryARN    :: !Text
-  , _detParentReference :: !ObjectReference
-  , _detLinkName        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that is associated with the Directory
+    -- where objects reside. For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | The parent reference from which the object with the specified link name
+    -- is detached.
+    parentReference :: ObjectReference,
+    -- | The link name associated with the object that needs to be detached.
+    linkName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachObject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachObject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detParentReference' - The parent reference from which the object with the specified link name is detached.
+-- 'directoryArn', 'detachObject_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
+-- where objects reside. For more information, see arns.
 --
--- * 'detLinkName' - The link name associated with the object that needs to be detached.
-detachObject
-    :: Text -- ^ 'detDirectoryARN'
-    -> ObjectReference -- ^ 'detParentReference'
-    -> Text -- ^ 'detLinkName'
-    -> DetachObject
-detachObject pDirectoryARN_ pParentReference_ pLinkName_ =
-  DetachObject'
-    { _detDirectoryARN = pDirectoryARN_
-    , _detParentReference = pParentReference_
-    , _detLinkName = pLinkName_
-    }
+-- 'parentReference', 'detachObject_parentReference' - The parent reference from which the object with the specified link name
+-- is detached.
+--
+-- 'linkName', 'detachObject_linkName' - The link name associated with the object that needs to be detached.
+newDetachObject ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'parentReference'
+  ObjectReference ->
+  -- | 'linkName'
+  Prelude.Text ->
+  DetachObject
+newDetachObject
+  pDirectoryArn_
+  pParentReference_
+  pLinkName_ =
+    DetachObject'
+      { directoryArn = pDirectoryArn_,
+        parentReference = pParentReference_,
+        linkName = pLinkName_
+      }
 
+-- | The Amazon Resource Name (ARN) that is associated with the Directory
+-- where objects reside. For more information, see arns.
+detachObject_directoryArn :: Lens.Lens' DetachObject Prelude.Text
+detachObject_directoryArn = Lens.lens (\DetachObject' {directoryArn} -> directoryArn) (\s@DetachObject' {} a -> s {directoryArn = a} :: DetachObject)
 
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
-detDirectoryARN :: Lens' DetachObject Text
-detDirectoryARN = lens _detDirectoryARN (\ s a -> s{_detDirectoryARN = a})
-
--- | The parent reference from which the object with the specified link name is detached.
-detParentReference :: Lens' DetachObject ObjectReference
-detParentReference = lens _detParentReference (\ s a -> s{_detParentReference = a})
+-- | The parent reference from which the object with the specified link name
+-- is detached.
+detachObject_parentReference :: Lens.Lens' DetachObject ObjectReference
+detachObject_parentReference = Lens.lens (\DetachObject' {parentReference} -> parentReference) (\s@DetachObject' {} a -> s {parentReference = a} :: DetachObject)
 
 -- | The link name associated with the object that needs to be detached.
-detLinkName :: Lens' DetachObject Text
-detLinkName = lens _detLinkName (\ s a -> s{_detLinkName = a})
+detachObject_linkName :: Lens.Lens' DetachObject Prelude.Text
+detachObject_linkName = Lens.lens (\DetachObject' {linkName} -> linkName) (\s@DetachObject' {} a -> s {linkName = a} :: DetachObject)
 
-instance AWSRequest DetachObject where
-        type Rs DetachObject = DetachObjectResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DetachObjectResponse' <$>
-                   (x .?> "DetachedObjectIdentifier") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest DetachObject where
+  type AWSResponse DetachObject = DetachObjectResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DetachObjectResponse'
+            Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DetachObject where
+instance Prelude.Hashable DetachObject
 
-instance NFData DetachObject where
+instance Prelude.NFData DetachObject
 
-instance ToHeaders DetachObject where
-        toHeaders DetachObject'{..}
-          = mconcat
-              ["x-amz-data-partition" =# _detDirectoryARN]
+instance Core.ToHeaders DetachObject where
+  toHeaders DetachObject' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON DetachObject where
-        toJSON DetachObject'{..}
-          = object
-              (catMaybes
-                 [Just ("ParentReference" .= _detParentReference),
-                  Just ("LinkName" .= _detLinkName)])
+instance Core.ToJSON DetachObject where
+  toJSON DetachObject' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ParentReference" Core..= parentReference),
+            Prelude.Just ("LinkName" Core..= linkName)
+          ]
+      )
 
-instance ToPath DetachObject where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/object/detach"
+instance Core.ToPath DetachObject where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/object/detach"
 
-instance ToQuery DetachObject where
-        toQuery = const mempty
+instance Core.ToQuery DetachObject where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'detachObjectResponse' smart constructor.
+-- | /See:/ 'newDetachObjectResponse' smart constructor.
 data DetachObjectResponse = DetachObjectResponse'
-  { _detrsDetachedObjectIdentifier :: !(Maybe Text)
-  , _detrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ObjectIdentifier@ that was detached from the object.
+    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachObjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachObjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detrsDetachedObjectIdentifier' - The @ObjectIdentifier@ that was detached from the object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detrsResponseStatus' - -- | The response status code.
-detachObjectResponse
-    :: Int -- ^ 'detrsResponseStatus'
-    -> DetachObjectResponse
-detachObjectResponse pResponseStatus_ =
+-- 'detachedObjectIdentifier', 'detachObjectResponse_detachedObjectIdentifier' - The @ObjectIdentifier@ that was detached from the object.
+--
+-- 'httpStatus', 'detachObjectResponse_httpStatus' - The response's http status code.
+newDetachObjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DetachObjectResponse
+newDetachObjectResponse pHttpStatus_ =
   DetachObjectResponse'
-    { _detrsDetachedObjectIdentifier = Nothing
-    , _detrsResponseStatus = pResponseStatus_
+    { detachedObjectIdentifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The @ObjectIdentifier@ that was detached from the object.
-detrsDetachedObjectIdentifier :: Lens' DetachObjectResponse (Maybe Text)
-detrsDetachedObjectIdentifier = lens _detrsDetachedObjectIdentifier (\ s a -> s{_detrsDetachedObjectIdentifier = a})
+detachObjectResponse_detachedObjectIdentifier :: Lens.Lens' DetachObjectResponse (Prelude.Maybe Prelude.Text)
+detachObjectResponse_detachedObjectIdentifier = Lens.lens (\DetachObjectResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@DetachObjectResponse' {} a -> s {detachedObjectIdentifier = a} :: DetachObjectResponse)
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DetachObjectResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
+-- | The response's http status code.
+detachObjectResponse_httpStatus :: Lens.Lens' DetachObjectResponse Prelude.Int
+detachObjectResponse_httpStatus = Lens.lens (\DetachObjectResponse' {httpStatus} -> httpStatus) (\s@DetachObjectResponse' {} a -> s {httpStatus = a} :: DetachObjectResponse)
 
-instance NFData DetachObjectResponse where
+instance Prelude.NFData DetachObjectResponse

@@ -1,132 +1,164 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeCluster
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a specific cluster including shipping information, cluster status, and other important metadata.
---
---
+-- Returns information about a specific cluster including shipping
+-- information, cluster status, and other important metadata.
 module Network.AWS.Snowball.DescribeCluster
-    (
-    -- * Creating a Request
-      describeCluster
-    , DescribeCluster
+  ( -- * Creating a Request
+    DescribeCluster (..),
+    newDescribeCluster,
+
     -- * Request Lenses
-    , dcClusterId
+    describeCluster_clusterId,
 
     -- * Destructuring the Response
-    , describeClusterResponse
-    , DescribeClusterResponse
+    DescribeClusterResponse (..),
+    newDescribeClusterResponse,
+
     -- * Response Lenses
-    , dcrsClusterMetadata
-    , dcrsResponseStatus
-    ) where
+    describeClusterResponse_clusterMetadata,
+    describeClusterResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
-import Network.AWS.Snowball.Types.Product
 
--- | /See:/ 'describeCluster' smart constructor.
-newtype DescribeCluster = DescribeCluster'
-  { _dcClusterId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeCluster' smart constructor.
+data DescribeCluster = DescribeCluster'
+  { -- | The automatically generated ID for a cluster.
+    clusterId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeCluster' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcClusterId' - The automatically generated ID for a cluster.
-describeCluster
-    :: Text -- ^ 'dcClusterId'
-    -> DescribeCluster
-describeCluster pClusterId_ = DescribeCluster' {_dcClusterId = pClusterId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clusterId', 'describeCluster_clusterId' - The automatically generated ID for a cluster.
+newDescribeCluster ::
+  -- | 'clusterId'
+  Prelude.Text ->
+  DescribeCluster
+newDescribeCluster pClusterId_ =
+  DescribeCluster' {clusterId = pClusterId_}
 
 -- | The automatically generated ID for a cluster.
-dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a})
+describeCluster_clusterId :: Lens.Lens' DescribeCluster Prelude.Text
+describeCluster_clusterId = Lens.lens (\DescribeCluster' {clusterId} -> clusterId) (\s@DescribeCluster' {} a -> s {clusterId = a} :: DescribeCluster)
 
-instance AWSRequest DescribeCluster where
-        type Rs DescribeCluster = DescribeClusterResponse
-        request = postJSON snowball
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeClusterResponse' <$>
-                   (x .?> "ClusterMetadata") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeCluster where
+  type
+    AWSResponse DescribeCluster =
+      DescribeClusterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeClusterResponse'
+            Prelude.<$> (x Core..?> "ClusterMetadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeCluster where
+instance Prelude.Hashable DescribeCluster
 
-instance NFData DescribeCluster where
+instance Prelude.NFData DescribeCluster
 
-instance ToHeaders DescribeCluster where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSIESnowballJobManagementService.DescribeCluster"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeCluster where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeCluster where
-        toJSON DescribeCluster'{..}
-          = object
-              (catMaybes [Just ("ClusterId" .= _dcClusterId)])
+instance Core.ToJSON DescribeCluster where
+  toJSON DescribeCluster' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ClusterId" Core..= clusterId)]
+      )
 
-instance ToPath DescribeCluster where
-        toPath = const "/"
+instance Core.ToPath DescribeCluster where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeCluster where
-        toQuery = const mempty
+instance Core.ToQuery DescribeCluster where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeClusterResponse' smart constructor.
+-- | /See:/ 'newDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-  { _dcrsClusterMetadata :: !(Maybe ClusterMetadata)
-  , _dcrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about a specific cluster, including shipping information,
+    -- cluster status, and other important metadata.
+    clusterMetadata :: Prelude.Maybe ClusterMetadata,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClusterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcrsClusterMetadata' - Information about a specific cluster, including shipping information, cluster status, and other important metadata.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeClusterResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DescribeClusterResponse
-describeClusterResponse pResponseStatus_ =
+-- 'clusterMetadata', 'describeClusterResponse_clusterMetadata' - Information about a specific cluster, including shipping information,
+-- cluster status, and other important metadata.
+--
+-- 'httpStatus', 'describeClusterResponse_httpStatus' - The response's http status code.
+newDescribeClusterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeClusterResponse
+newDescribeClusterResponse pHttpStatus_ =
   DescribeClusterResponse'
-    {_dcrsClusterMetadata = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    { clusterMetadata =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about a specific cluster, including shipping information,
+-- cluster status, and other important metadata.
+describeClusterResponse_clusterMetadata :: Lens.Lens' DescribeClusterResponse (Prelude.Maybe ClusterMetadata)
+describeClusterResponse_clusterMetadata = Lens.lens (\DescribeClusterResponse' {clusterMetadata} -> clusterMetadata) (\s@DescribeClusterResponse' {} a -> s {clusterMetadata = a} :: DescribeClusterResponse)
 
--- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
-dcrsClusterMetadata :: Lens' DescribeClusterResponse (Maybe ClusterMetadata)
-dcrsClusterMetadata = lens _dcrsClusterMetadata (\ s a -> s{_dcrsClusterMetadata = a})
+-- | The response's http status code.
+describeClusterResponse_httpStatus :: Lens.Lens' DescribeClusterResponse Prelude.Int
+describeClusterResponse_httpStatus = Lens.lens (\DescribeClusterResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterResponse' {} a -> s {httpStatus = a} :: DescribeClusterResponse)
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeClusterResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
-
-instance NFData DescribeClusterResponse where
+instance Prelude.NFData DescribeClusterResponse

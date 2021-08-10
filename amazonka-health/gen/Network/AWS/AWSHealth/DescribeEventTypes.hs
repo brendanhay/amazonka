@@ -1,189 +1,282 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventTypes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.
+-- Returns the event types that meet the specified filter criteria. You can
+-- use this API operation to find information about the AWS Health event,
+-- such as the category, AWS service, and event code. The metadata for each
+-- event appears in the
+-- <https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html EventType>
+-- object.
 --
+-- If you don\'t specify a filter criteria, the API operation returns all
+-- event types, in no particular order.
 --
+-- This API operation uses pagination. Specify the @nextToken@ parameter in
+-- the next request to return more results.
 --
 -- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEventTypes
-    (
-    -- * Creating a Request
-      describeEventTypes
-    , DescribeEventTypes
+  ( -- * Creating a Request
+    DescribeEventTypes (..),
+    newDescribeEventTypes,
+
     -- * Request Lenses
-    , detLocale
-    , detNextToken
-    , detFilter
-    , detMaxResults
+    describeEventTypes_nextToken,
+    describeEventTypes_maxResults,
+    describeEventTypes_locale,
+    describeEventTypes_filter,
 
     -- * Destructuring the Response
-    , describeEventTypesResponse
-    , DescribeEventTypesResponse
+    DescribeEventTypesResponse (..),
+    newDescribeEventTypesResponse,
+
     -- * Response Lenses
-    , detrsEventTypes
-    , detrsNextToken
-    , detrsResponseStatus
-    ) where
+    describeEventTypesResponse_eventTypes,
+    describeEventTypesResponse_nextToken,
+    describeEventTypesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.AWSHealth.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeEventTypes' smart constructor.
+-- | /See:/ 'newDescribeEventTypes' smart constructor.
 data DescribeEventTypes = DescribeEventTypes'
-  { _detLocale     :: !(Maybe Text)
-  , _detNextToken  :: !(Maybe Text)
-  , _detFilter     :: !(Maybe EventTypeFilter)
-  , _detMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return in one batch, between 10 and 100,
+    -- inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The locale (language) to return information in. English (en) is the
+    -- default and the only supported value at this time.
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | Values to narrow the results returned.
+    filter' :: Prelude.Maybe EventTypeFilter
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEventTypes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEventTypes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- 'nextToken', 'describeEventTypes_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
--- * 'detFilter' - Values to narrow the results returned.
+-- 'maxResults', 'describeEventTypes_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
 --
--- * 'detMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
-describeEventTypes
-    :: DescribeEventTypes
-describeEventTypes =
+-- 'locale', 'describeEventTypes_locale' - The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+--
+-- 'filter'', 'describeEventTypes_filter' - Values to narrow the results returned.
+newDescribeEventTypes ::
+  DescribeEventTypes
+newDescribeEventTypes =
   DescribeEventTypes'
-    { _detLocale = Nothing
-    , _detNextToken = Nothing
-    , _detFilter = Nothing
-    , _detMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeEventTypes_nextToken :: Lens.Lens' DescribeEventTypes (Prelude.Maybe Prelude.Text)
+describeEventTypes_nextToken = Lens.lens (\DescribeEventTypes' {nextToken} -> nextToken) (\s@DescribeEventTypes' {} a -> s {nextToken = a} :: DescribeEventTypes)
 
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-detLocale :: Lens' DescribeEventTypes (Maybe Text)
-detLocale = lens _detLocale (\ s a -> s{_detLocale = a})
+-- | The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+describeEventTypes_maxResults :: Lens.Lens' DescribeEventTypes (Prelude.Maybe Prelude.Natural)
+describeEventTypes_maxResults = Lens.lens (\DescribeEventTypes' {maxResults} -> maxResults) (\s@DescribeEventTypes' {} a -> s {maxResults = a} :: DescribeEventTypes)
 
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-detNextToken :: Lens' DescribeEventTypes (Maybe Text)
-detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a})
+-- | The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+describeEventTypes_locale :: Lens.Lens' DescribeEventTypes (Prelude.Maybe Prelude.Text)
+describeEventTypes_locale = Lens.lens (\DescribeEventTypes' {locale} -> locale) (\s@DescribeEventTypes' {} a -> s {locale = a} :: DescribeEventTypes)
 
 -- | Values to narrow the results returned.
-detFilter :: Lens' DescribeEventTypes (Maybe EventTypeFilter)
-detFilter = lens _detFilter (\ s a -> s{_detFilter = a})
+describeEventTypes_filter :: Lens.Lens' DescribeEventTypes (Prelude.Maybe EventTypeFilter)
+describeEventTypes_filter = Lens.lens (\DescribeEventTypes' {filter'} -> filter') (\s@DescribeEventTypes' {} a -> s {filter' = a} :: DescribeEventTypes)
 
--- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-detMaxResults :: Lens' DescribeEventTypes (Maybe Natural)
-detMaxResults = lens _detMaxResults (\ s a -> s{_detMaxResults = a}) . mapping _Nat
+instance Core.AWSPager DescribeEventTypes where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEventTypesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEventTypesResponse_eventTypes
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEventTypes_nextToken
+          Lens..~ rs
+          Lens.^? describeEventTypesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeEventTypes where
-        page rq rs
-          | stop (rs ^. detrsNextToken) = Nothing
-          | stop (rs ^. detrsEventTypes) = Nothing
-          | otherwise =
-            Just $ rq & detNextToken .~ rs ^. detrsNextToken
+instance Core.AWSRequest DescribeEventTypes where
+  type
+    AWSResponse DescribeEventTypes =
+      DescribeEventTypesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeEventTypesResponse'
+            Prelude.<$> (x Core..?> "eventTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeEventTypes where
-        type Rs DescribeEventTypes =
-             DescribeEventTypesResponse
-        request = postJSON awsHealth
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeEventTypesResponse' <$>
-                   (x .?> "eventTypes" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeEventTypes
 
-instance Hashable DescribeEventTypes where
+instance Prelude.NFData DescribeEventTypes
 
-instance NFData DescribeEventTypes where
+instance Core.ToHeaders DescribeEventTypes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSHealth_20160804.DescribeEventTypes" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeEventTypes where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSHealth_20160804.DescribeEventTypes" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeEventTypes where
+  toJSON DescribeEventTypes' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("locale" Core..=) Prelude.<$> locale,
+            ("filter" Core..=) Prelude.<$> filter'
+          ]
+      )
 
-instance ToJSON DescribeEventTypes where
-        toJSON DescribeEventTypes'{..}
-          = object
-              (catMaybes
-                 [("locale" .=) <$> _detLocale,
-                  ("nextToken" .=) <$> _detNextToken,
-                  ("filter" .=) <$> _detFilter,
-                  ("maxResults" .=) <$> _detMaxResults])
+instance Core.ToPath DescribeEventTypes where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeEventTypes where
-        toPath = const "/"
+instance Core.ToQuery DescribeEventTypes where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeEventTypes where
-        toQuery = const mempty
-
--- | /See:/ 'describeEventTypesResponse' smart constructor.
+-- | /See:/ 'newDescribeEventTypesResponse' smart constructor.
 data DescribeEventTypesResponse = DescribeEventTypesResponse'
-  { _detrsEventTypes     :: !(Maybe [EventType])
-  , _detrsNextToken      :: !(Maybe Text)
-  , _detrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of event types that match the filter criteria. Event types have a
+    -- category (@issue@, @accountNotification@, or @scheduledChange@), a
+    -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
+    -- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+    -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
+    eventTypes :: Prelude.Maybe [EventType],
+    -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEventTypesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEventTypesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detrsEventTypes' - A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detrsNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- 'eventTypes', 'describeEventTypesResponse_eventTypes' - A list of event types that match the filter criteria. Event types have a
+-- category (@issue@, @accountNotification@, or @scheduledChange@), a
+-- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
+-- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
 --
--- * 'detrsResponseStatus' - -- | The response status code.
-describeEventTypesResponse
-    :: Int -- ^ 'detrsResponseStatus'
-    -> DescribeEventTypesResponse
-describeEventTypesResponse pResponseStatus_ =
+-- 'nextToken', 'describeEventTypesResponse_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+--
+-- 'httpStatus', 'describeEventTypesResponse_httpStatus' - The response's http status code.
+newDescribeEventTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEventTypesResponse
+newDescribeEventTypesResponse pHttpStatus_ =
   DescribeEventTypesResponse'
-    { _detrsEventTypes = Nothing
-    , _detrsNextToken = Nothing
-    , _detrsResponseStatus = pResponseStatus_
+    { eventTypes =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of event types that match the filter criteria. Event types have a
+-- category (@issue@, @accountNotification@, or @scheduledChange@), a
+-- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
+-- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
+describeEventTypesResponse_eventTypes :: Lens.Lens' DescribeEventTypesResponse (Prelude.Maybe [EventType])
+describeEventTypesResponse_eventTypes = Lens.lens (\DescribeEventTypesResponse' {eventTypes} -> eventTypes) (\s@DescribeEventTypesResponse' {} a -> s {eventTypes = a} :: DescribeEventTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
-detrsEventTypes :: Lens' DescribeEventTypesResponse [EventType]
-detrsEventTypes = lens _detrsEventTypes (\ s a -> s{_detrsEventTypes = a}) . _Default . _Coerce
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeEventTypesResponse_nextToken :: Lens.Lens' DescribeEventTypesResponse (Prelude.Maybe Prelude.Text)
+describeEventTypesResponse_nextToken = Lens.lens (\DescribeEventTypesResponse' {nextToken} -> nextToken) (\s@DescribeEventTypesResponse' {} a -> s {nextToken = a} :: DescribeEventTypesResponse)
 
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-detrsNextToken :: Lens' DescribeEventTypesResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a})
+-- | The response's http status code.
+describeEventTypesResponse_httpStatus :: Lens.Lens' DescribeEventTypesResponse Prelude.Int
+describeEventTypesResponse_httpStatus = Lens.lens (\DescribeEventTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventTypesResponse' {} a -> s {httpStatus = a} :: DescribeEventTypesResponse)
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeEventTypesResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
-
-instance NFData DescribeEventTypesResponse where
+instance Prelude.NFData DescribeEventTypesResponse

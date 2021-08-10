@@ -1,141 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeStar.UpdateProject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a project in AWS CodeStar.
---
---
 module Network.AWS.CodeStar.UpdateProject
-    (
-    -- * Creating a Request
-      updateProject
-    , UpdateProject
+  ( -- * Creating a Request
+    UpdateProject (..),
+    newUpdateProject,
+
     -- * Request Lenses
-    , upName
-    , upDescription
-    , upId
+    updateProject_name,
+    updateProject_description,
+    updateProject_id,
 
     -- * Destructuring the Response
-    , updateProjectResponse
-    , UpdateProjectResponse
+    UpdateProjectResponse (..),
+    newUpdateProjectResponse,
+
     -- * Response Lenses
-    , uprsResponseStatus
-    ) where
+    updateProjectResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.CodeStar.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateProject' smart constructor.
+-- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upName        :: !(Maybe (Sensitive Text))
-  , _upDescription :: !(Maybe (Sensitive Text))
-  , _upId          :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The name of the project you want to update.
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The description of the project, if any.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the project you want to update.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateProject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upName' - The name of the project you want to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upDescription' - The description of the project, if any.
+-- 'name', 'updateProject_name' - The name of the project you want to update.
 --
--- * 'upId' - The ID of the project you want to update.
-updateProject
-    :: Text -- ^ 'upId'
-    -> UpdateProject
-updateProject pId_ =
-  UpdateProject' {_upName = Nothing, _upDescription = Nothing, _upId = pId_}
-
+-- 'description', 'updateProject_description' - The description of the project, if any.
+--
+-- 'id', 'updateProject_id' - The ID of the project you want to update.
+newUpdateProject ::
+  -- | 'id'
+  Prelude.Text ->
+  UpdateProject
+newUpdateProject pId_ =
+  UpdateProject'
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      id = pId_
+    }
 
 -- | The name of the project you want to update.
-upName :: Lens' UpdateProject (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a}) . mapping _Sensitive
+updateProject_name :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The description of the project, if any.
-upDescription :: Lens' UpdateProject (Maybe Text)
-upDescription = lens _upDescription (\ s a -> s{_upDescription = a}) . mapping _Sensitive
+updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the project you want to update.
-upId :: Lens' UpdateProject Text
-upId = lens _upId (\ s a -> s{_upId = a})
+updateProject_id :: Lens.Lens' UpdateProject Prelude.Text
+updateProject_id = Lens.lens (\UpdateProject' {id} -> id) (\s@UpdateProject' {} a -> s {id = a} :: UpdateProject)
 
-instance AWSRequest UpdateProject where
-        type Rs UpdateProject = UpdateProjectResponse
-        request = postJSON codeStar
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateProjectResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateProject where
+  type
+    AWSResponse UpdateProject =
+      UpdateProjectResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateProjectResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateProject where
+instance Prelude.Hashable UpdateProject
 
-instance NFData UpdateProject where
+instance Prelude.NFData UpdateProject
 
-instance ToHeaders UpdateProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeStar_20170419.UpdateProject" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeStar_20170419.UpdateProject" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateProject where
-        toJSON UpdateProject'{..}
-          = object
-              (catMaybes
-                 [("name" .=) <$> _upName,
-                  ("description" .=) <$> _upDescription,
-                  Just ("id" .= _upId)])
+instance Core.ToJSON UpdateProject where
+  toJSON UpdateProject' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("name" Core..=) Prelude.<$> name,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("id" Core..= id)
+          ]
+      )
 
-instance ToPath UpdateProject where
-        toPath = const "/"
+instance Core.ToPath UpdateProject where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateProject where
-        toQuery = const mempty
+instance Core.ToQuery UpdateProject where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateProjectResponse' smart constructor.
-newtype UpdateProjectResponse = UpdateProjectResponse'
-  { _uprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateProjectResponse' smart constructor.
+data UpdateProjectResponse = UpdateProjectResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateProjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uprsResponseStatus' - -- | The response status code.
-updateProjectResponse
-    :: Int -- ^ 'uprsResponseStatus'
-    -> UpdateProjectResponse
-updateProjectResponse pResponseStatus_ =
-  UpdateProjectResponse' {_uprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateProjectResponse_httpStatus' - The response's http status code.
+newUpdateProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateProjectResponse
+newUpdateProjectResponse pHttpStatus_ =
+  UpdateProjectResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int
+updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateProjectResponse' {} a -> s {httpStatus = a} :: UpdateProjectResponse)
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdateProjectResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
-
-instance NFData UpdateProjectResponse where
+instance Prelude.NFData UpdateProjectResponse

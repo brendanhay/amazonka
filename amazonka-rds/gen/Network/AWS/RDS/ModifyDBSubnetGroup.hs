@@ -1,154 +1,196 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.
---
---
+-- Modifies an existing DB subnet group. DB subnet groups must contain at
+-- least one subnet in at least two AZs in the AWS Region.
 module Network.AWS.RDS.ModifyDBSubnetGroup
-    (
-    -- * Creating a Request
-      modifyDBSubnetGroup
-    , ModifyDBSubnetGroup
+  ( -- * Creating a Request
+    ModifyDBSubnetGroup (..),
+    newModifyDBSubnetGroup,
+
     -- * Request Lenses
-    , mdsgDBSubnetGroupDescription
-    , mdsgDBSubnetGroupName
-    , mdsgSubnetIds
+    modifyDBSubnetGroup_dbSubnetGroupDescription,
+    modifyDBSubnetGroup_dbSubnetGroupName,
+    modifyDBSubnetGroup_subnetIds,
 
     -- * Destructuring the Response
-    , modifyDBSubnetGroupResponse
-    , ModifyDBSubnetGroupResponse
-    -- * Response Lenses
-    , mdsgrsDBSubnetGroup
-    , mdsgrsResponseStatus
-    ) where
+    ModifyDBSubnetGroupResponse (..),
+    newModifyDBSubnetGroupResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    modifyDBSubnetGroupResponse_dbSubnetGroup,
+    modifyDBSubnetGroupResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'modifyDBSubnetGroup' smart constructor.
+-- /See:/ 'newModifyDBSubnetGroup' smart constructor.
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
-  { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
-  , _mdsgDBSubnetGroupName        :: !Text
-  , _mdsgSubnetIds                :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The description for the DB subnet group.
+    dbSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name for the DB subnet group. This value is stored as a lowercase
+    -- string. You can\'t modify the default subnet group.
+    --
+    -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
+    -- be default.
+    --
+    -- Example: @mySubnetgroup@
+    dbSubnetGroupName :: Prelude.Text,
+    -- | The EC2 subnet IDs for the DB subnet group.
+    subnetIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyDBSubnetGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyDBSubnetGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mdsgDBSubnetGroupDescription' - The description for the DB subnet group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mdsgDBSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.  Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
+-- 'dbSubnetGroupDescription', 'modifyDBSubnetGroup_dbSubnetGroupDescription' - The description for the DB subnet group.
 --
--- * 'mdsgSubnetIds' - The EC2 subnet IDs for the DB subnet group.
-modifyDBSubnetGroup
-    :: Text -- ^ 'mdsgDBSubnetGroupName'
-    -> ModifyDBSubnetGroup
-modifyDBSubnetGroup pDBSubnetGroupName_ =
+-- 'dbSubnetGroupName', 'modifyDBSubnetGroup_dbSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase
+-- string. You can\'t modify the default subnet group.
+--
+-- Constraints: Must match the name of an existing DBSubnetGroup. Must not
+-- be default.
+--
+-- Example: @mySubnetgroup@
+--
+-- 'subnetIds', 'modifyDBSubnetGroup_subnetIds' - The EC2 subnet IDs for the DB subnet group.
+newModifyDBSubnetGroup ::
+  -- | 'dbSubnetGroupName'
+  Prelude.Text ->
+  ModifyDBSubnetGroup
+newModifyDBSubnetGroup pDBSubnetGroupName_ =
   ModifyDBSubnetGroup'
-    { _mdsgDBSubnetGroupDescription = Nothing
-    , _mdsgDBSubnetGroupName = pDBSubnetGroupName_
-    , _mdsgSubnetIds = mempty
+    { dbSubnetGroupDescription =
+        Prelude.Nothing,
+      dbSubnetGroupName = pDBSubnetGroupName_,
+      subnetIds = Prelude.mempty
     }
 
-
 -- | The description for the DB subnet group.
-mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
-mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a})
+modifyDBSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' ModifyDBSubnetGroup (Prelude.Maybe Prelude.Text)
+modifyDBSubnetGroup_dbSubnetGroupDescription = Lens.lens (\ModifyDBSubnetGroup' {dbSubnetGroupDescription} -> dbSubnetGroupDescription) (\s@ModifyDBSubnetGroup' {} a -> s {dbSubnetGroupDescription = a} :: ModifyDBSubnetGroup)
 
--- | The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.  Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
-mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
-mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a})
+-- | The name for the DB subnet group. This value is stored as a lowercase
+-- string. You can\'t modify the default subnet group.
+--
+-- Constraints: Must match the name of an existing DBSubnetGroup. Must not
+-- be default.
+--
+-- Example: @mySubnetgroup@
+modifyDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' ModifyDBSubnetGroup Prelude.Text
+modifyDBSubnetGroup_dbSubnetGroupName = Lens.lens (\ModifyDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@ModifyDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: ModifyDBSubnetGroup)
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a}) . _Coerce
+modifyDBSubnetGroup_subnetIds :: Lens.Lens' ModifyDBSubnetGroup [Prelude.Text]
+modifyDBSubnetGroup_subnetIds = Lens.lens (\ModifyDBSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyDBSubnetGroup' {} a -> s {subnetIds = a} :: ModifyDBSubnetGroup) Prelude.. Lens._Coerce
 
-instance AWSRequest ModifyDBSubnetGroup where
-        type Rs ModifyDBSubnetGroup =
-             ModifyDBSubnetGroupResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "ModifyDBSubnetGroupResult"
-              (\ s h x ->
-                 ModifyDBSubnetGroupResponse' <$>
-                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ModifyDBSubnetGroup where
+  type
+    AWSResponse ModifyDBSubnetGroup =
+      ModifyDBSubnetGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyDBSubnetGroupResult"
+      ( \s h x ->
+          ModifyDBSubnetGroupResponse'
+            Prelude.<$> (x Core..@? "DBSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyDBSubnetGroup where
+instance Prelude.Hashable ModifyDBSubnetGroup
 
-instance NFData ModifyDBSubnetGroup where
+instance Prelude.NFData ModifyDBSubnetGroup
 
-instance ToHeaders ModifyDBSubnetGroup where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyDBSubnetGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyDBSubnetGroup where
-        toPath = const "/"
+instance Core.ToPath ModifyDBSubnetGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyDBSubnetGroup where
-        toQuery ModifyDBSubnetGroup'{..}
-          = mconcat
-              ["Action" =: ("ModifyDBSubnetGroup" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "DBSubnetGroupDescription" =:
-                 _mdsgDBSubnetGroupDescription,
-               "DBSubnetGroupName" =: _mdsgDBSubnetGroupName,
-               "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _mdsgSubnetIds]
+instance Core.ToQuery ModifyDBSubnetGroup where
+  toQuery ModifyDBSubnetGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyDBSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSubnetGroupDescription"
+          Core.=: dbSubnetGroupDescription,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "SubnetIds"
+          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
+      ]
 
--- | /See:/ 'modifyDBSubnetGroupResponse' smart constructor.
+-- | /See:/ 'newModifyDBSubnetGroupResponse' smart constructor.
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
-  { _mdsgrsDBSubnetGroup  :: !(Maybe DBSubnetGroup)
-  , _mdsgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dbSubnetGroup :: Prelude.Maybe DBSubnetGroup,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyDBSubnetGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyDBSubnetGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mdsgrsDBSubnetGroup' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mdsgrsResponseStatus' - -- | The response status code.
-modifyDBSubnetGroupResponse
-    :: Int -- ^ 'mdsgrsResponseStatus'
-    -> ModifyDBSubnetGroupResponse
-modifyDBSubnetGroupResponse pResponseStatus_ =
+-- 'dbSubnetGroup', 'modifyDBSubnetGroupResponse_dbSubnetGroup' - Undocumented member.
+--
+-- 'httpStatus', 'modifyDBSubnetGroupResponse_httpStatus' - The response's http status code.
+newModifyDBSubnetGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyDBSubnetGroupResponse
+newModifyDBSubnetGroupResponse pHttpStatus_ =
   ModifyDBSubnetGroupResponse'
-    {_mdsgrsDBSubnetGroup = Nothing, _mdsgrsResponseStatus = pResponseStatus_}
-
+    { dbSubnetGroup =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
-mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a})
+modifyDBSubnetGroupResponse_dbSubnetGroup :: Lens.Lens' ModifyDBSubnetGroupResponse (Prelude.Maybe DBSubnetGroup)
+modifyDBSubnetGroupResponse_dbSubnetGroup = Lens.lens (\ModifyDBSubnetGroupResponse' {dbSubnetGroup} -> dbSubnetGroup) (\s@ModifyDBSubnetGroupResponse' {} a -> s {dbSubnetGroup = a} :: ModifyDBSubnetGroupResponse)
 
--- | -- | The response status code.
-mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
-mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a})
+-- | The response's http status code.
+modifyDBSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyDBSubnetGroupResponse Prelude.Int
+modifyDBSubnetGroupResponse_httpStatus = Lens.lens (\ModifyDBSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyDBSubnetGroupResponse' {} a -> s {httpStatus = a} :: ModifyDBSubnetGroupResponse)
 
-instance NFData ModifyDBSubnetGroupResponse where
+instance Prelude.NFData ModifyDBSubnetGroupResponse

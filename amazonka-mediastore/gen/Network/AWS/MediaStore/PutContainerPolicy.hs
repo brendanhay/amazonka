@@ -1,137 +1,186 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStore.PutContainerPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the <https://aws.amazon.com/documentation/iam/ AWS Identity and Access Management User Guide> .
+-- Creates an access policy for the specified container to restrict the
+-- users and clients that can access it. For information about the data
+-- that is included in an access policy, see the
+-- <https://aws.amazon.com/documentation/iam/ AWS Identity and Access Management User Guide>.
 --
---
--- For this release of the REST API, you can create only one policy for a container. If you enter @PutContainerPolicy@ twice, the second command modifies the existing policy.
---
+-- For this release of the REST API, you can create only one policy for a
+-- container. If you enter @PutContainerPolicy@ twice, the second command
+-- modifies the existing policy.
 module Network.AWS.MediaStore.PutContainerPolicy
-    (
-    -- * Creating a Request
-      putContainerPolicy
-    , PutContainerPolicy
+  ( -- * Creating a Request
+    PutContainerPolicy (..),
+    newPutContainerPolicy,
+
     -- * Request Lenses
-    , pContainerName
-    , pPolicy
+    putContainerPolicy_containerName,
+    putContainerPolicy_policy,
 
     -- * Destructuring the Response
-    , putContainerPolicyResponse
-    , PutContainerPolicyResponse
+    PutContainerPolicyResponse (..),
+    newPutContainerPolicyResponse,
+
     -- * Response Lenses
-    , pcprsResponseStatus
-    ) where
+    putContainerPolicyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.MediaStore.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putContainerPolicy' smart constructor.
+-- | /See:/ 'newPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'
-  { _pContainerName :: !Text
-  , _pPolicy        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the container.
+    containerName :: Prelude.Text,
+    -- | The contents of the policy, which includes the following:
+    --
+    -- -   One @Version@ tag
+    --
+    -- -   One @Statement@ tag that contains the standard tags for the policy.
+    policy :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PutContainerPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutContainerPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pContainerName' - The name of the container.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pPolicy' - The contents of the policy, which includes the following:      * One @Version@ tag     * One @Statement@ tag that contains the standard tags for the policy.
-putContainerPolicy
-    :: Text -- ^ 'pContainerName'
-    -> Text -- ^ 'pPolicy'
-    -> PutContainerPolicy
-putContainerPolicy pContainerName_ pPolicy_ =
-  PutContainerPolicy' {_pContainerName = pContainerName_, _pPolicy = pPolicy_}
-
+-- 'containerName', 'putContainerPolicy_containerName' - The name of the container.
+--
+-- 'policy', 'putContainerPolicy_policy' - The contents of the policy, which includes the following:
+--
+-- -   One @Version@ tag
+--
+-- -   One @Statement@ tag that contains the standard tags for the policy.
+newPutContainerPolicy ::
+  -- | 'containerName'
+  Prelude.Text ->
+  -- | 'policy'
+  Prelude.Text ->
+  PutContainerPolicy
+newPutContainerPolicy pContainerName_ pPolicy_ =
+  PutContainerPolicy'
+    { containerName =
+        pContainerName_,
+      policy = pPolicy_
+    }
 
 -- | The name of the container.
-pContainerName :: Lens' PutContainerPolicy Text
-pContainerName = lens _pContainerName (\ s a -> s{_pContainerName = a})
+putContainerPolicy_containerName :: Lens.Lens' PutContainerPolicy Prelude.Text
+putContainerPolicy_containerName = Lens.lens (\PutContainerPolicy' {containerName} -> containerName) (\s@PutContainerPolicy' {} a -> s {containerName = a} :: PutContainerPolicy)
 
--- | The contents of the policy, which includes the following:      * One @Version@ tag     * One @Statement@ tag that contains the standard tags for the policy.
-pPolicy :: Lens' PutContainerPolicy Text
-pPolicy = lens _pPolicy (\ s a -> s{_pPolicy = a})
-
-instance AWSRequest PutContainerPolicy where
-        type Rs PutContainerPolicy =
-             PutContainerPolicyResponse
-        request = postJSON mediaStore
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 PutContainerPolicyResponse' <$> (pure (fromEnum s)))
-
-instance Hashable PutContainerPolicy where
-
-instance NFData PutContainerPolicy where
-
-instance ToHeaders PutContainerPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MediaStore_20170901.PutContainerPolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON PutContainerPolicy where
-        toJSON PutContainerPolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("ContainerName" .= _pContainerName),
-                  Just ("Policy" .= _pPolicy)])
-
-instance ToPath PutContainerPolicy where
-        toPath = const "/"
-
-instance ToQuery PutContainerPolicy where
-        toQuery = const mempty
-
--- | /See:/ 'putContainerPolicyResponse' smart constructor.
-newtype PutContainerPolicyResponse = PutContainerPolicyResponse'
-  { _pcprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutContainerPolicyResponse' with the minimum fields required to make a request.
+-- | The contents of the policy, which includes the following:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   One @Version@ tag
 --
--- * 'pcprsResponseStatus' - -- | The response status code.
-putContainerPolicyResponse
-    :: Int -- ^ 'pcprsResponseStatus'
-    -> PutContainerPolicyResponse
-putContainerPolicyResponse pResponseStatus_ =
-  PutContainerPolicyResponse' {_pcprsResponseStatus = pResponseStatus_}
+-- -   One @Statement@ tag that contains the standard tags for the policy.
+putContainerPolicy_policy :: Lens.Lens' PutContainerPolicy Prelude.Text
+putContainerPolicy_policy = Lens.lens (\PutContainerPolicy' {policy} -> policy) (\s@PutContainerPolicy' {} a -> s {policy = a} :: PutContainerPolicy)
 
+instance Core.AWSRequest PutContainerPolicy where
+  type
+    AWSResponse PutContainerPolicy =
+      PutContainerPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          PutContainerPolicyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | -- | The response status code.
-pcprsResponseStatus :: Lens' PutContainerPolicyResponse Int
-pcprsResponseStatus = lens _pcprsResponseStatus (\ s a -> s{_pcprsResponseStatus = a})
+instance Prelude.Hashable PutContainerPolicy
 
-instance NFData PutContainerPolicyResponse where
+instance Prelude.NFData PutContainerPolicy
+
+instance Core.ToHeaders PutContainerPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MediaStore_20170901.PutContainerPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON PutContainerPolicy where
+  toJSON PutContainerPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName),
+            Prelude.Just ("Policy" Core..= policy)
+          ]
+      )
+
+instance Core.ToPath PutContainerPolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery PutContainerPolicy where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newPutContainerPolicyResponse' smart constructor.
+data PutContainerPolicyResponse = PutContainerPolicyResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutContainerPolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'putContainerPolicyResponse_httpStatus' - The response's http status code.
+newPutContainerPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutContainerPolicyResponse
+newPutContainerPolicyResponse pHttpStatus_ =
+  PutContainerPolicyResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+putContainerPolicyResponse_httpStatus :: Lens.Lens' PutContainerPolicyResponse Prelude.Int
+putContainerPolicyResponse_httpStatus = Lens.lens (\PutContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@PutContainerPolicyResponse' {} a -> s {httpStatus = a} :: PutContainerPolicyResponse)
+
+instance Prelude.NFData PutContainerPolicyResponse

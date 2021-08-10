@@ -1,230 +1,462 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an application version.
---
---
 module Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
-    (
-    -- * Creating a Request
-      createApplicationVersion
-    , CreateApplicationVersion
+  ( -- * Creating a Request
+    CreateApplicationVersion (..),
+    newCreateApplicationVersion,
+
     -- * Request Lenses
-    , cavSourceCodeURL
-    , cavTemplateBody
-    , cavTemplateURL
-    , cavApplicationId
-    , cavSemanticVersion
+    createApplicationVersion_templateUrl,
+    createApplicationVersion_sourceCodeArchiveUrl,
+    createApplicationVersion_sourceCodeUrl,
+    createApplicationVersion_templateBody,
+    createApplicationVersion_applicationId,
+    createApplicationVersion_semanticVersion,
 
     -- * Destructuring the Response
-    , createApplicationVersionResponse
-    , CreateApplicationVersionResponse
+    CreateApplicationVersionResponse (..),
+    newCreateApplicationVersionResponse,
+
     -- * Response Lenses
-    , cavrsCreationTime
-    , cavrsParameterDefinitions
-    , cavrsSemanticVersion
-    , cavrsSourceCodeURL
-    , cavrsApplicationId
-    , cavrsTemplateURL
-    , cavrsResponseStatus
-    ) where
+    createApplicationVersionResponse_parameterDefinitions,
+    createApplicationVersionResponse_applicationId,
+    createApplicationVersionResponse_requiredCapabilities,
+    createApplicationVersionResponse_resourcesSupported,
+    createApplicationVersionResponse_creationTime,
+    createApplicationVersionResponse_templateUrl,
+    createApplicationVersionResponse_sourceCodeArchiveUrl,
+    createApplicationVersionResponse_sourceCodeUrl,
+    createApplicationVersionResponse_semanticVersion,
+    createApplicationVersionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
-import Network.AWS.ServerlessApplicationRepository.Types.Product
 
--- | /See:/ 'createApplicationVersion' smart constructor.
+-- | /See:/ 'newCreateApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-  { _cavSourceCodeURL   :: !(Maybe Text)
-  , _cavTemplateBody    :: !(Maybe Text)
-  , _cavTemplateURL     :: !(Maybe Text)
-  , _cavApplicationId   :: !Text
-  , _cavSemanticVersion :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A link to the packaged AWS SAM template of your application.
+    templateUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code
+    -- for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    -- | The raw packaged AWS SAM template of your application.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Prelude.Text,
+    -- | The semantic version of the new version.
+    semanticVersion :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateApplicationVersion' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'templateUrl', 'createApplicationVersion_templateUrl' - A link to the packaged AWS SAM template of your application.
+--
+-- 'sourceCodeArchiveUrl', 'createApplicationVersion_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+--
+-- 'sourceCodeUrl', 'createApplicationVersion_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+--
+-- 'templateBody', 'createApplicationVersion_templateBody' - The raw packaged AWS SAM template of your application.
+--
+-- 'applicationId', 'createApplicationVersion_applicationId' - The Amazon Resource Name (ARN) of the application.
+--
+-- 'semanticVersion', 'createApplicationVersion_semanticVersion' - The semantic version of the new version.
+newCreateApplicationVersion ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  -- | 'semanticVersion'
+  Prelude.Text ->
+  CreateApplicationVersion
+newCreateApplicationVersion
+  pApplicationId_
+  pSemanticVersion_ =
+    CreateApplicationVersion'
+      { templateUrl =
+          Prelude.Nothing,
+        sourceCodeArchiveUrl = Prelude.Nothing,
+        sourceCodeUrl = Prelude.Nothing,
+        templateBody = Prelude.Nothing,
+        applicationId = pApplicationId_,
+        semanticVersion = pSemanticVersion_
+      }
 
--- | Creates a value of 'CreateApplicationVersion' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cavSourceCodeURL' - A link to a public repository for the source code of your application.
---
--- * 'cavTemplateBody' - The raw packaged AWS SAM template of your application.
---
--- * 'cavTemplateURL' - A link to the packaged AWS SAM template of your application.
---
--- * 'cavApplicationId' - The ID of the application to get.
---
--- * 'cavSemanticVersion' - The semantic version of the new version.
-createApplicationVersion
-    :: Text -- ^ 'cavApplicationId'
-    -> Text -- ^ 'cavSemanticVersion'
-    -> CreateApplicationVersion
-createApplicationVersion pApplicationId_ pSemanticVersion_ =
-  CreateApplicationVersion'
-    { _cavSourceCodeURL = Nothing
-    , _cavTemplateBody = Nothing
-    , _cavTemplateURL = Nothing
-    , _cavApplicationId = pApplicationId_
-    , _cavSemanticVersion = pSemanticVersion_
-    }
+-- | A link to the packaged AWS SAM template of your application.
+createApplicationVersion_templateUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
+createApplicationVersion_templateUrl = Lens.lens (\CreateApplicationVersion' {templateUrl} -> templateUrl) (\s@CreateApplicationVersion' {} a -> s {templateUrl = a} :: CreateApplicationVersion)
 
+-- | A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+createApplicationVersion_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
+createApplicationVersion_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersion' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersion' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersion)
 
--- | A link to a public repository for the source code of your application.
-cavSourceCodeURL :: Lens' CreateApplicationVersion (Maybe Text)
-cavSourceCodeURL = lens _cavSourceCodeURL (\ s a -> s{_cavSourceCodeURL = a})
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+createApplicationVersion_sourceCodeUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
+createApplicationVersion_sourceCodeUrl = Lens.lens (\CreateApplicationVersion' {sourceCodeUrl} -> sourceCodeUrl) (\s@CreateApplicationVersion' {} a -> s {sourceCodeUrl = a} :: CreateApplicationVersion)
 
 -- | The raw packaged AWS SAM template of your application.
-cavTemplateBody :: Lens' CreateApplicationVersion (Maybe Text)
-cavTemplateBody = lens _cavTemplateBody (\ s a -> s{_cavTemplateBody = a})
+createApplicationVersion_templateBody :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
+createApplicationVersion_templateBody = Lens.lens (\CreateApplicationVersion' {templateBody} -> templateBody) (\s@CreateApplicationVersion' {} a -> s {templateBody = a} :: CreateApplicationVersion)
 
--- | A link to the packaged AWS SAM template of your application.
-cavTemplateURL :: Lens' CreateApplicationVersion (Maybe Text)
-cavTemplateURL = lens _cavTemplateURL (\ s a -> s{_cavTemplateURL = a})
-
--- | The ID of the application to get.
-cavApplicationId :: Lens' CreateApplicationVersion Text
-cavApplicationId = lens _cavApplicationId (\ s a -> s{_cavApplicationId = a})
+-- | The Amazon Resource Name (ARN) of the application.
+createApplicationVersion_applicationId :: Lens.Lens' CreateApplicationVersion Prelude.Text
+createApplicationVersion_applicationId = Lens.lens (\CreateApplicationVersion' {applicationId} -> applicationId) (\s@CreateApplicationVersion' {} a -> s {applicationId = a} :: CreateApplicationVersion)
 
 -- | The semantic version of the new version.
-cavSemanticVersion :: Lens' CreateApplicationVersion Text
-cavSemanticVersion = lens _cavSemanticVersion (\ s a -> s{_cavSemanticVersion = a})
+createApplicationVersion_semanticVersion :: Lens.Lens' CreateApplicationVersion Prelude.Text
+createApplicationVersion_semanticVersion = Lens.lens (\CreateApplicationVersion' {semanticVersion} -> semanticVersion) (\s@CreateApplicationVersion' {} a -> s {semanticVersion = a} :: CreateApplicationVersion)
 
-instance AWSRequest CreateApplicationVersion where
-        type Rs CreateApplicationVersion =
-             CreateApplicationVersionResponse
-        request = putJSON serverlessApplicationRepository
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateApplicationVersionResponse' <$>
-                   (x .?> "creationTime") <*>
-                     (x .?> "parameterDefinitions" .!@ mempty)
-                     <*> (x .?> "semanticVersion")
-                     <*> (x .?> "sourceCodeUrl")
-                     <*> (x .?> "applicationId")
-                     <*> (x .?> "templateUrl")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateApplicationVersion where
+  type
+    AWSResponse CreateApplicationVersion =
+      CreateApplicationVersionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateApplicationVersionResponse'
+            Prelude.<$> ( x Core..?> "parameterDefinitions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "applicationId")
+            Prelude.<*> ( x Core..?> "requiredCapabilities"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "resourcesSupported")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "templateUrl")
+            Prelude.<*> (x Core..?> "sourceCodeArchiveUrl")
+            Prelude.<*> (x Core..?> "sourceCodeUrl")
+            Prelude.<*> (x Core..?> "semanticVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateApplicationVersion where
+instance Prelude.Hashable CreateApplicationVersion
 
-instance NFData CreateApplicationVersion where
+instance Prelude.NFData CreateApplicationVersion
 
-instance ToHeaders CreateApplicationVersion where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateApplicationVersion where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateApplicationVersion where
-        toJSON CreateApplicationVersion'{..}
-          = object
-              (catMaybes
-                 [("sourceCodeUrl" .=) <$> _cavSourceCodeURL,
-                  ("templateBody" .=) <$> _cavTemplateBody,
-                  ("templateUrl" .=) <$> _cavTemplateURL])
+instance Core.ToJSON CreateApplicationVersion where
+  toJSON CreateApplicationVersion' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("templateUrl" Core..=) Prelude.<$> templateUrl,
+            ("sourceCodeArchiveUrl" Core..=)
+              Prelude.<$> sourceCodeArchiveUrl,
+            ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
+            ("templateBody" Core..=) Prelude.<$> templateBody
+          ]
+      )
 
-instance ToPath CreateApplicationVersion where
-        toPath CreateApplicationVersion'{..}
-          = mconcat
-              ["/applications/", toBS _cavApplicationId,
-               "/versions/", toBS _cavSemanticVersion]
+instance Core.ToPath CreateApplicationVersion where
+  toPath CreateApplicationVersion' {..} =
+    Prelude.mconcat
+      [ "/applications/",
+        Core.toBS applicationId,
+        "/versions/",
+        Core.toBS semanticVersion
+      ]
 
-instance ToQuery CreateApplicationVersion where
-        toQuery = const mempty
+instance Core.ToQuery CreateApplicationVersion where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createApplicationVersionResponse' smart constructor.
+-- | /See:/ 'newCreateApplicationVersionResponse' smart constructor.
 data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
-  { _cavrsCreationTime         :: !(Maybe Text)
-  , _cavrsParameterDefinitions :: !(Maybe [ParameterDefinition])
-  , _cavrsSemanticVersion      :: !(Maybe Text)
-  , _cavrsSourceCodeURL        :: !(Maybe Text)
-  , _cavrsApplicationId        :: !(Maybe Text)
-  , _cavrsTemplateURL          :: !(Maybe Text)
-  , _cavrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of parameter types supported by the application.
+    parameterDefinitions :: Prelude.Maybe [ParameterDefinition],
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | A list of values that you must specify before you can deploy certain
+    -- applications. Some applications might include resources that can affect
+    -- permissions in your AWS account, for example, by creating new AWS
+    -- Identity and Access Management (IAM) users. For those applications, you
+    -- must explicitly acknowledge their capabilities by specifying this
+    -- parameter.
+    --
+    -- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
+    -- CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
+    --
+    -- The following resources require you to specify CAPABILITY_IAM or
+    -- CAPABILITY_NAMED_IAM:
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy>,
+    -- and
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>.
+    -- If the application contains IAM resources, you can specify either
+    -- CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM
+    -- resources with custom names, you must specify CAPABILITY_NAMED_IAM.
+    --
+    -- The following resources require you to specify
+    -- CAPABILITY_RESOURCE_POLICY:
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy>,
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy>,
+    -- and
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS::TopicPolicy>.
+    --
+    -- Applications that contain one or more nested applications require you to
+    -- specify CAPABILITY_AUTO_EXPAND.
+    --
+    -- If your application template contains any of the above resources, we
+    -- recommend that you review all permissions associated with the
+    -- application before deploying. If you don\'t specify this parameter for
+    -- an application that requires capabilities, the call will fail.
+    requiredCapabilities :: Prelude.Maybe [Capability],
+    -- | Whether all of the AWS resources contained in this application are
+    -- supported in the region in which it is being retrieved.
+    resourcesSupported :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
+    -- | A link to the packaged AWS SAM template of your application.
+    templateUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code
+    -- for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/>
+    semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApplicationVersionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApplicationVersionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cavrsCreationTime' - The date/time this resource was created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cavrsParameterDefinitions' - Array of parameter types supported by the application.
+-- 'parameterDefinitions', 'createApplicationVersionResponse_parameterDefinitions' - An array of parameter types supported by the application.
 --
--- * 'cavrsSemanticVersion' - The semantic version of the application: <https://semver.org/ https://semver.org/>
+-- 'applicationId', 'createApplicationVersionResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
--- * 'cavrsSourceCodeURL' - A link to a public repository for the source code of your application.
+-- 'requiredCapabilities', 'createApplicationVersionResponse_requiredCapabilities' - A list of values that you must specify before you can deploy certain
+-- applications. Some applications might include resources that can affect
+-- permissions in your AWS account, for example, by creating new AWS
+-- Identity and Access Management (IAM) users. For those applications, you
+-- must explicitly acknowledge their capabilities by specifying this
+-- parameter.
 --
--- * 'cavrsApplicationId' - The application Amazon Resource Name (ARN).
+-- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
+-- CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
 --
--- * 'cavrsTemplateURL' - A link to the packaged AWS SAM template of your application.
+-- The following resources require you to specify CAPABILITY_IAM or
+-- CAPABILITY_NAMED_IAM:
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy>,
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>.
+-- If the application contains IAM resources, you can specify either
+-- CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM
+-- resources with custom names, you must specify CAPABILITY_NAMED_IAM.
 --
--- * 'cavrsResponseStatus' - -- | The response status code.
-createApplicationVersionResponse
-    :: Int -- ^ 'cavrsResponseStatus'
-    -> CreateApplicationVersionResponse
-createApplicationVersionResponse pResponseStatus_ =
+-- The following resources require you to specify
+-- CAPABILITY_RESOURCE_POLICY:
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy>,
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS::TopicPolicy>.
+--
+-- Applications that contain one or more nested applications require you to
+-- specify CAPABILITY_AUTO_EXPAND.
+--
+-- If your application template contains any of the above resources, we
+-- recommend that you review all permissions associated with the
+-- application before deploying. If you don\'t specify this parameter for
+-- an application that requires capabilities, the call will fail.
+--
+-- 'resourcesSupported', 'createApplicationVersionResponse_resourcesSupported' - Whether all of the AWS resources contained in this application are
+-- supported in the region in which it is being retrieved.
+--
+-- 'creationTime', 'createApplicationVersionResponse_creationTime' - The date and time this resource was created.
+--
+-- 'templateUrl', 'createApplicationVersionResponse_templateUrl' - A link to the packaged AWS SAM template of your application.
+--
+-- 'sourceCodeArchiveUrl', 'createApplicationVersionResponse_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+--
+-- 'sourceCodeUrl', 'createApplicationVersionResponse_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+--
+-- 'semanticVersion', 'createApplicationVersionResponse_semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/>
+--
+-- 'httpStatus', 'createApplicationVersionResponse_httpStatus' - The response's http status code.
+newCreateApplicationVersionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateApplicationVersionResponse
+newCreateApplicationVersionResponse pHttpStatus_ =
   CreateApplicationVersionResponse'
-    { _cavrsCreationTime = Nothing
-    , _cavrsParameterDefinitions = Nothing
-    , _cavrsSemanticVersion = Nothing
-    , _cavrsSourceCodeURL = Nothing
-    , _cavrsApplicationId = Nothing
-    , _cavrsTemplateURL = Nothing
-    , _cavrsResponseStatus = pResponseStatus_
+    { parameterDefinitions =
+        Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      requiredCapabilities = Prelude.Nothing,
+      resourcesSupported = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      templateUrl = Prelude.Nothing,
+      sourceCodeArchiveUrl = Prelude.Nothing,
+      sourceCodeUrl = Prelude.Nothing,
+      semanticVersion = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The date/time this resource was created.
-cavrsCreationTime :: Lens' CreateApplicationVersionResponse (Maybe Text)
-cavrsCreationTime = lens _cavrsCreationTime (\ s a -> s{_cavrsCreationTime = a})
-
--- | Array of parameter types supported by the application.
-cavrsParameterDefinitions :: Lens' CreateApplicationVersionResponse [ParameterDefinition]
-cavrsParameterDefinitions = lens _cavrsParameterDefinitions (\ s a -> s{_cavrsParameterDefinitions = a}) . _Default . _Coerce
-
--- | The semantic version of the application: <https://semver.org/ https://semver.org/>
-cavrsSemanticVersion :: Lens' CreateApplicationVersionResponse (Maybe Text)
-cavrsSemanticVersion = lens _cavrsSemanticVersion (\ s a -> s{_cavrsSemanticVersion = a})
-
--- | A link to a public repository for the source code of your application.
-cavrsSourceCodeURL :: Lens' CreateApplicationVersionResponse (Maybe Text)
-cavrsSourceCodeURL = lens _cavrsSourceCodeURL (\ s a -> s{_cavrsSourceCodeURL = a})
+-- | An array of parameter types supported by the application.
+createApplicationVersionResponse_parameterDefinitions :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe [ParameterDefinition])
+createApplicationVersionResponse_parameterDefinitions = Lens.lens (\CreateApplicationVersionResponse' {parameterDefinitions} -> parameterDefinitions) (\s@CreateApplicationVersionResponse' {} a -> s {parameterDefinitions = a} :: CreateApplicationVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The application Amazon Resource Name (ARN).
-cavrsApplicationId :: Lens' CreateApplicationVersionResponse (Maybe Text)
-cavrsApplicationId = lens _cavrsApplicationId (\ s a -> s{_cavrsApplicationId = a})
+createApplicationVersionResponse_applicationId :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_applicationId = Lens.lens (\CreateApplicationVersionResponse' {applicationId} -> applicationId) (\s@CreateApplicationVersionResponse' {} a -> s {applicationId = a} :: CreateApplicationVersionResponse)
+
+-- | A list of values that you must specify before you can deploy certain
+-- applications. Some applications might include resources that can affect
+-- permissions in your AWS account, for example, by creating new AWS
+-- Identity and Access Management (IAM) users. For those applications, you
+-- must explicitly acknowledge their capabilities by specifying this
+-- parameter.
+--
+-- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
+-- CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
+--
+-- The following resources require you to specify CAPABILITY_IAM or
+-- CAPABILITY_NAMED_IAM:
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy>,
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>.
+-- If the application contains IAM resources, you can specify either
+-- CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM
+-- resources with custom names, you must specify CAPABILITY_NAMED_IAM.
+--
+-- The following resources require you to specify
+-- CAPABILITY_RESOURCE_POLICY:
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy>,
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy>,
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS::TopicPolicy>.
+--
+-- Applications that contain one or more nested applications require you to
+-- specify CAPABILITY_AUTO_EXPAND.
+--
+-- If your application template contains any of the above resources, we
+-- recommend that you review all permissions associated with the
+-- application before deploying. If you don\'t specify this parameter for
+-- an application that requires capabilities, the call will fail.
+createApplicationVersionResponse_requiredCapabilities :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe [Capability])
+createApplicationVersionResponse_requiredCapabilities = Lens.lens (\CreateApplicationVersionResponse' {requiredCapabilities} -> requiredCapabilities) (\s@CreateApplicationVersionResponse' {} a -> s {requiredCapabilities = a} :: CreateApplicationVersionResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Whether all of the AWS resources contained in this application are
+-- supported in the region in which it is being retrieved.
+createApplicationVersionResponse_resourcesSupported :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Bool)
+createApplicationVersionResponse_resourcesSupported = Lens.lens (\CreateApplicationVersionResponse' {resourcesSupported} -> resourcesSupported) (\s@CreateApplicationVersionResponse' {} a -> s {resourcesSupported = a} :: CreateApplicationVersionResponse)
+
+-- | The date and time this resource was created.
+createApplicationVersionResponse_creationTime :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_creationTime = Lens.lens (\CreateApplicationVersionResponse' {creationTime} -> creationTime) (\s@CreateApplicationVersionResponse' {} a -> s {creationTime = a} :: CreateApplicationVersionResponse)
 
 -- | A link to the packaged AWS SAM template of your application.
-cavrsTemplateURL :: Lens' CreateApplicationVersionResponse (Maybe Text)
-cavrsTemplateURL = lens _cavrsTemplateURL (\ s a -> s{_cavrsTemplateURL = a})
+createApplicationVersionResponse_templateUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_templateUrl = Lens.lens (\CreateApplicationVersionResponse' {templateUrl} -> templateUrl) (\s@CreateApplicationVersionResponse' {} a -> s {templateUrl = a} :: CreateApplicationVersionResponse)
 
--- | -- | The response status code.
-cavrsResponseStatus :: Lens' CreateApplicationVersionResponse Int
-cavrsResponseStatus = lens _cavrsResponseStatus (\ s a -> s{_cavrsResponseStatus = a})
+-- | A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+createApplicationVersionResponse_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersionResponse)
 
-instance NFData CreateApplicationVersionResponse
-         where
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+createApplicationVersionResponse_sourceCodeUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_sourceCodeUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeUrl} -> sourceCodeUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeUrl = a} :: CreateApplicationVersionResponse)
+
+-- | The semantic version of the application:
+--
+-- <https://semver.org/>
+createApplicationVersionResponse_semanticVersion :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_semanticVersion = Lens.lens (\CreateApplicationVersionResponse' {semanticVersion} -> semanticVersion) (\s@CreateApplicationVersionResponse' {} a -> s {semanticVersion = a} :: CreateApplicationVersionResponse)
+
+-- | The response's http status code.
+createApplicationVersionResponse_httpStatus :: Lens.Lens' CreateApplicationVersionResponse Prelude.Int
+createApplicationVersionResponse_httpStatus = Lens.lens (\CreateApplicationVersionResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationVersionResponse' {} a -> s {httpStatus = a} :: CreateApplicationVersionResponse)
+
+instance
+  Prelude.NFData
+    CreateApplicationVersionResponse

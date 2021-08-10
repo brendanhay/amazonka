@@ -1,137 +1,158 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a job.
---
---
 module Network.AWS.DeviceFarm.GetJob
-    (
-    -- * Creating a Request
-      getJob
-    , GetJob
+  ( -- * Creating a Request
+    GetJob (..),
+    newGetJob,
+
     -- * Request Lenses
-    , gjArn
+    getJob_arn,
 
     -- * Destructuring the Response
-    , getJobResponse
-    , GetJobResponse
-    -- * Response Lenses
-    , gjrsJob
-    , gjrsResponseStatus
-    ) where
+    GetJobResponse (..),
+    newGetJobResponse,
 
+    -- * Response Lenses
+    getJobResponse_job,
+    getJobResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the get job operation.
 --
+-- /See:/ 'newGetJob' smart constructor.
+data GetJob = GetJob'
+  { -- | The job\'s ARN.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetJob' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getJob' smart constructor.
-newtype GetJob = GetJob'
-  { _gjArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetJob' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjArn' - The job's ARN.
-getJob
-    :: Text -- ^ 'gjArn'
-    -> GetJob
-getJob pArn_ = GetJob' {_gjArn = pArn_}
+-- 'arn', 'getJob_arn' - The job\'s ARN.
+newGetJob ::
+  -- | 'arn'
+  Prelude.Text ->
+  GetJob
+newGetJob pArn_ = GetJob' {arn = pArn_}
 
+-- | The job\'s ARN.
+getJob_arn :: Lens.Lens' GetJob Prelude.Text
+getJob_arn = Lens.lens (\GetJob' {arn} -> arn) (\s@GetJob' {} a -> s {arn = a} :: GetJob)
 
--- | The job's ARN.
-gjArn :: Lens' GetJob Text
-gjArn = lens _gjArn (\ s a -> s{_gjArn = a})
+instance Core.AWSRequest GetJob where
+  type AWSResponse GetJob = GetJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetJobResponse'
+            Prelude.<$> (x Core..?> "job")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetJob where
-        type Rs GetJob = GetJobResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetJobResponse' <$>
-                   (x .?> "job") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetJob
 
-instance Hashable GetJob where
+instance Prelude.NFData GetJob
 
-instance NFData GetJob where
+instance Core.ToHeaders GetJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("DeviceFarm_20150623.GetJob" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.GetJob" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetJob where
+  toJSON GetJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
-instance ToJSON GetJob where
-        toJSON GetJob'{..}
-          = object (catMaybes [Just ("arn" .= _gjArn)])
+instance Core.ToPath GetJob where
+  toPath = Prelude.const "/"
 
-instance ToPath GetJob where
-        toPath = const "/"
-
-instance ToQuery GetJob where
-        toQuery = const mempty
+instance Core.ToQuery GetJob where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get job request.
 --
---
---
--- /See:/ 'getJobResponse' smart constructor.
+-- /See:/ 'newGetJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
-  { _gjrsJob            :: !(Maybe Job)
-  , _gjrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object that contains information about the requested job.
+    job :: Prelude.Maybe Job,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjrsJob' - An object containing information about the requested job.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gjrsResponseStatus' - -- | The response status code.
-getJobResponse
-    :: Int -- ^ 'gjrsResponseStatus'
-    -> GetJobResponse
-getJobResponse pResponseStatus_ =
-  GetJobResponse' {_gjrsJob = Nothing, _gjrsResponseStatus = pResponseStatus_}
+-- 'job', 'getJobResponse_job' - An object that contains information about the requested job.
+--
+-- 'httpStatus', 'getJobResponse_httpStatus' - The response's http status code.
+newGetJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetJobResponse
+newGetJobResponse pHttpStatus_ =
+  GetJobResponse'
+    { job = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An object that contains information about the requested job.
+getJobResponse_job :: Lens.Lens' GetJobResponse (Prelude.Maybe Job)
+getJobResponse_job = Lens.lens (\GetJobResponse' {job} -> job) (\s@GetJobResponse' {} a -> s {job = a} :: GetJobResponse)
 
--- | An object containing information about the requested job.
-gjrsJob :: Lens' GetJobResponse (Maybe Job)
-gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a})
+-- | The response's http status code.
+getJobResponse_httpStatus :: Lens.Lens' GetJobResponse Prelude.Int
+getJobResponse_httpStatus = Lens.lens (\GetJobResponse' {httpStatus} -> httpStatus) (\s@GetJobResponse' {} a -> s {httpStatus = a} :: GetJobResponse)
 
--- | -- | The response status code.
-gjrsResponseStatus :: Lens' GetJobResponse Int
-gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a})
-
-instance NFData GetJobResponse where
+instance Prelude.NFData GetJobResponse

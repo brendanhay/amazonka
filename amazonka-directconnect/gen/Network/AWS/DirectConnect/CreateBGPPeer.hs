@@ -1,156 +1,189 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateBGPPeer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new BGP peer on a specified virtual interface. The BGP peer cannot be in the same address family (IPv4/IPv6) of an existing BGP peer on the virtual interface.
+-- Creates a BGP peer on the specified virtual interface.
 --
+-- You must create a BGP peer for the corresponding address family
+-- (IPv4\/IPv6) in order to access AWS resources that also use that address
+-- family.
 --
--- You must create a BGP peer for the corresponding address family in order to access AWS resources that also use that address family.
+-- If logical redundancy is not supported by the connection, interconnect,
+-- or LAG, the BGP peer cannot be in the same address family as an existing
+-- BGP peer on the virtual interface.
 --
--- When creating a IPv6 BGP peer, the Amazon address and customer address fields must be left blank. IPv6 addresses are automatically assigned from Amazon's pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
+-- When creating a IPv6 BGP peer, omit the Amazon address and customer
+-- address. IPv6 addresses are automatically assigned from the Amazon pool
+-- of IPv6 addresses; you cannot specify custom IPv6 addresses.
 --
--- For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.
---
+-- For a public virtual interface, the Autonomous System Number (ASN) must
+-- be private or already on the allow list for the virtual interface.
 module Network.AWS.DirectConnect.CreateBGPPeer
-    (
-    -- * Creating a Request
-      createBGPPeer
-    , CreateBGPPeer
+  ( -- * Creating a Request
+    CreateBGPPeer (..),
+    newCreateBGPPeer,
+
     -- * Request Lenses
-    , cbpNewBGPPeer
-    , cbpVirtualInterfaceId
+    createBGPPeer_virtualInterfaceId,
+    createBGPPeer_newBGPPeer,
 
     -- * Destructuring the Response
-    , createBGPPeerResponse
-    , CreateBGPPeerResponse
+    CreateBGPPeerResponse (..),
+    newCreateBGPPeerResponse,
+
     -- * Response Lenses
-    , cbprsVirtualInterface
-    , cbprsResponseStatus
-    ) where
+    createBGPPeerResponse_virtualInterface,
+    createBGPPeerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the CreateBGPPeer operation.
---
---
---
--- /See:/ 'createBGPPeer' smart constructor.
+-- | /See:/ 'newCreateBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-  { _cbpNewBGPPeer         :: !(Maybe NewBGPPeer)
-  , _cbpVirtualInterfaceId :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the virtual interface.
+    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the BGP peer.
+    newBGPPeer' :: Prelude.Maybe NewBGPPeer
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateBGPPeer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateBGPPeer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cbpNewBGPPeer' - Detailed information for the BGP peer to be created. Default: None
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cbpVirtualInterfaceId' - The ID of the virtual interface on which the BGP peer will be provisioned. Example: dxvif-456abc78 Default: None
-createBGPPeer
-    :: CreateBGPPeer
-createBGPPeer =
-  CreateBGPPeer' {_cbpNewBGPPeer = Nothing, _cbpVirtualInterfaceId = Nothing}
-
-
--- | Detailed information for the BGP peer to be created. Default: None
-cbpNewBGPPeer :: Lens' CreateBGPPeer (Maybe NewBGPPeer)
-cbpNewBGPPeer = lens _cbpNewBGPPeer (\ s a -> s{_cbpNewBGPPeer = a})
-
--- | The ID of the virtual interface on which the BGP peer will be provisioned. Example: dxvif-456abc78 Default: None
-cbpVirtualInterfaceId :: Lens' CreateBGPPeer (Maybe Text)
-cbpVirtualInterfaceId = lens _cbpVirtualInterfaceId (\ s a -> s{_cbpVirtualInterfaceId = a})
-
-instance AWSRequest CreateBGPPeer where
-        type Rs CreateBGPPeer = CreateBGPPeerResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateBGPPeerResponse' <$>
-                   (x .?> "virtualInterface") <*> (pure (fromEnum s)))
-
-instance Hashable CreateBGPPeer where
-
-instance NFData CreateBGPPeer where
-
-instance ToHeaders CreateBGPPeer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.CreateBGPPeer" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateBGPPeer where
-        toJSON CreateBGPPeer'{..}
-          = object
-              (catMaybes
-                 [("newBGPPeer" .=) <$> _cbpNewBGPPeer,
-                  ("virtualInterfaceId" .=) <$>
-                    _cbpVirtualInterfaceId])
-
-instance ToPath CreateBGPPeer where
-        toPath = const "/"
-
-instance ToQuery CreateBGPPeer where
-        toQuery = const mempty
-
--- | The response received when CreateBGPPeer is called.
+-- 'virtualInterfaceId', 'createBGPPeer_virtualInterfaceId' - The ID of the virtual interface.
 --
---
---
--- /See:/ 'createBGPPeerResponse' smart constructor.
+-- 'newBGPPeer'', 'createBGPPeer_newBGPPeer' - Information about the BGP peer.
+newCreateBGPPeer ::
+  CreateBGPPeer
+newCreateBGPPeer =
+  CreateBGPPeer'
+    { virtualInterfaceId =
+        Prelude.Nothing,
+      newBGPPeer' = Prelude.Nothing
+    }
+
+-- | The ID of the virtual interface.
+createBGPPeer_virtualInterfaceId :: Lens.Lens' CreateBGPPeer (Prelude.Maybe Prelude.Text)
+createBGPPeer_virtualInterfaceId = Lens.lens (\CreateBGPPeer' {virtualInterfaceId} -> virtualInterfaceId) (\s@CreateBGPPeer' {} a -> s {virtualInterfaceId = a} :: CreateBGPPeer)
+
+-- | Information about the BGP peer.
+createBGPPeer_newBGPPeer :: Lens.Lens' CreateBGPPeer (Prelude.Maybe NewBGPPeer)
+createBGPPeer_newBGPPeer = Lens.lens (\CreateBGPPeer' {newBGPPeer'} -> newBGPPeer') (\s@CreateBGPPeer' {} a -> s {newBGPPeer' = a} :: CreateBGPPeer)
+
+instance Core.AWSRequest CreateBGPPeer where
+  type
+    AWSResponse CreateBGPPeer =
+      CreateBGPPeerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateBGPPeerResponse'
+            Prelude.<$> (x Core..?> "virtualInterface")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateBGPPeer
+
+instance Prelude.NFData CreateBGPPeer
+
+instance Core.ToHeaders CreateBGPPeer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.CreateBGPPeer" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateBGPPeer where
+  toJSON CreateBGPPeer' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("virtualInterfaceId" Core..=)
+              Prelude.<$> virtualInterfaceId,
+            ("newBGPPeer" Core..=) Prelude.<$> newBGPPeer'
+          ]
+      )
+
+instance Core.ToPath CreateBGPPeer where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateBGPPeer where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
-  { _cbprsVirtualInterface :: !(Maybe VirtualInterface)
-  , _cbprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The virtual interface.
+    virtualInterface :: Prelude.Maybe VirtualInterface,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateBGPPeerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateBGPPeerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cbprsVirtualInterface' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cbprsResponseStatus' - -- | The response status code.
-createBGPPeerResponse
-    :: Int -- ^ 'cbprsResponseStatus'
-    -> CreateBGPPeerResponse
-createBGPPeerResponse pResponseStatus_ =
+-- 'virtualInterface', 'createBGPPeerResponse_virtualInterface' - The virtual interface.
+--
+-- 'httpStatus', 'createBGPPeerResponse_httpStatus' - The response's http status code.
+newCreateBGPPeerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateBGPPeerResponse
+newCreateBGPPeerResponse pHttpStatus_ =
   CreateBGPPeerResponse'
-    {_cbprsVirtualInterface = Nothing, _cbprsResponseStatus = pResponseStatus_}
+    { virtualInterface =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The virtual interface.
+createBGPPeerResponse_virtualInterface :: Lens.Lens' CreateBGPPeerResponse (Prelude.Maybe VirtualInterface)
+createBGPPeerResponse_virtualInterface = Lens.lens (\CreateBGPPeerResponse' {virtualInterface} -> virtualInterface) (\s@CreateBGPPeerResponse' {} a -> s {virtualInterface = a} :: CreateBGPPeerResponse)
 
--- | Undocumented member.
-cbprsVirtualInterface :: Lens' CreateBGPPeerResponse (Maybe VirtualInterface)
-cbprsVirtualInterface = lens _cbprsVirtualInterface (\ s a -> s{_cbprsVirtualInterface = a})
+-- | The response's http status code.
+createBGPPeerResponse_httpStatus :: Lens.Lens' CreateBGPPeerResponse Prelude.Int
+createBGPPeerResponse_httpStatus = Lens.lens (\CreateBGPPeerResponse' {httpStatus} -> httpStatus) (\s@CreateBGPPeerResponse' {} a -> s {httpStatus = a} :: CreateBGPPeerResponse)
 
--- | -- | The response status code.
-cbprsResponseStatus :: Lens' CreateBGPPeerResponse Int
-cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a})
-
-instance NFData CreateBGPPeerResponse where
+instance Prelude.NFData CreateBGPPeerResponse

@@ -1,159 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information> in the /Amazon CloudSearch Developer Guide/ .
---
---
+-- Gets information about the index fields configured for the search
+-- domain. Can be limited to specific fields by name. By default, shows all
+-- fields and includes any pending changes to the configuration. Set the
+-- @Deployed@ option to @true@ to show the active configuration and exclude
+-- pending changes. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information>
+-- in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeIndexFields
-    (
-    -- * Creating a Request
-      describeIndexFields
-    , DescribeIndexFields
+  ( -- * Creating a Request
+    DescribeIndexFields (..),
+    newDescribeIndexFields,
+
     -- * Request Lenses
-    , difDeployed
-    , difFieldNames
-    , difDomainName
+    describeIndexFields_deployed,
+    describeIndexFields_fieldNames,
+    describeIndexFields_domainName,
 
     -- * Destructuring the Response
-    , describeIndexFieldsResponse
-    , DescribeIndexFieldsResponse
+    DescribeIndexFieldsResponse (..),
+    newDescribeIndexFieldsResponse,
+
     -- * Response Lenses
-    , difsrsResponseStatus
-    , difsrsIndexFields
-    ) where
+    describeIndexFieldsResponse_httpStatus,
+    describeIndexFieldsResponse_indexFields,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DescribeIndexFields' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
+-- | Container for the parameters to the @DescribeIndexFields@ operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular index fields, specify the names of the index
+-- fields you want to describe. To show the active configuration and
+-- exclude any pending changes, set the @Deployed@ option to @true@.
 --
---
---
--- /See:/ 'describeIndexFields' smart constructor.
+-- /See:/ 'newDescribeIndexFields' smart constructor.
 data DescribeIndexFields = DescribeIndexFields'
-  { _difDeployed   :: !(Maybe Bool)
-  , _difFieldNames :: !(Maybe [Text])
-  , _difDomainName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Whether to display the deployed configuration (@true@) or include any
+    -- pending changes (@false@). Defaults to @false@.
+    deployed :: Prelude.Maybe Prelude.Bool,
+    -- | A list of the index fields you want to describe. If not specified,
+    -- information is returned for all configured index fields.
+    fieldNames :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the domain you want to describe.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeIndexFields' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeIndexFields' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'difDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'difFieldNames' - A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
+-- 'deployed', 'describeIndexFields_deployed' - Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
 --
--- * 'difDomainName' - The name of the domain you want to describe.
-describeIndexFields
-    :: Text -- ^ 'difDomainName'
-    -> DescribeIndexFields
-describeIndexFields pDomainName_ =
+-- 'fieldNames', 'describeIndexFields_fieldNames' - A list of the index fields you want to describe. If not specified,
+-- information is returned for all configured index fields.
+--
+-- 'domainName', 'describeIndexFields_domainName' - The name of the domain you want to describe.
+newDescribeIndexFields ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DescribeIndexFields
+newDescribeIndexFields pDomainName_ =
   DescribeIndexFields'
-    { _difDeployed = Nothing
-    , _difFieldNames = Nothing
-    , _difDomainName = pDomainName_
+    { deployed = Prelude.Nothing,
+      fieldNames = Prelude.Nothing,
+      domainName = pDomainName_
     }
 
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
+describeIndexFields_deployed :: Lens.Lens' DescribeIndexFields (Prelude.Maybe Prelude.Bool)
+describeIndexFields_deployed = Lens.lens (\DescribeIndexFields' {deployed} -> deployed) (\s@DescribeIndexFields' {} a -> s {deployed = a} :: DescribeIndexFields)
 
--- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
-difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a})
-
--- | A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
-difFieldNames :: Lens' DescribeIndexFields [Text]
-difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default . _Coerce
+-- | A list of the index fields you want to describe. If not specified,
+-- information is returned for all configured index fields.
+describeIndexFields_fieldNames :: Lens.Lens' DescribeIndexFields (Prelude.Maybe [Prelude.Text])
+describeIndexFields_fieldNames = Lens.lens (\DescribeIndexFields' {fieldNames} -> fieldNames) (\s@DescribeIndexFields' {} a -> s {fieldNames = a} :: DescribeIndexFields) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain you want to describe.
-difDomainName :: Lens' DescribeIndexFields Text
-difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a})
+describeIndexFields_domainName :: Lens.Lens' DescribeIndexFields Prelude.Text
+describeIndexFields_domainName = Lens.lens (\DescribeIndexFields' {domainName} -> domainName) (\s@DescribeIndexFields' {} a -> s {domainName = a} :: DescribeIndexFields)
 
-instance AWSRequest DescribeIndexFields where
-        type Rs DescribeIndexFields =
-             DescribeIndexFieldsResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "DescribeIndexFieldsResult"
-              (\ s h x ->
-                 DescribeIndexFieldsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@? "IndexFields" .!@ mempty >>=
-                        parseXMLList "member"))
+instance Core.AWSRequest DescribeIndexFields where
+  type
+    AWSResponse DescribeIndexFields =
+      DescribeIndexFieldsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeIndexFieldsResult"
+      ( \s h x ->
+          DescribeIndexFieldsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "IndexFields" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
+      )
 
-instance Hashable DescribeIndexFields where
+instance Prelude.Hashable DescribeIndexFields
 
-instance NFData DescribeIndexFields where
+instance Prelude.NFData DescribeIndexFields
 
-instance ToHeaders DescribeIndexFields where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeIndexFields where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeIndexFields where
-        toPath = const "/"
+instance Core.ToPath DescribeIndexFields where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeIndexFields where
-        toQuery DescribeIndexFields'{..}
-          = mconcat
-              ["Action" =: ("DescribeIndexFields" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _difDeployed,
-               "FieldNames" =:
-                 toQuery (toQueryList "member" <$> _difFieldNames),
-               "DomainName" =: _difDomainName]
+instance Core.ToQuery DescribeIndexFields where
+  toQuery DescribeIndexFields' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeIndexFields" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Core.=: deployed,
+        "FieldNames"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> fieldNames),
+        "DomainName" Core.=: domainName
+      ]
 
--- | The result of a @DescribeIndexFields@ request. Contains the index fields configured for the domain specified in the request.
+-- | The result of a @DescribeIndexFields@ request. Contains the index fields
+-- configured for the domain specified in the request.
 --
---
---
--- /See:/ 'describeIndexFieldsResponse' smart constructor.
+-- /See:/ 'newDescribeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-  { _difsrsResponseStatus :: !Int
-  , _difsrsIndexFields    :: ![IndexFieldStatus]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The index fields configured for the domain.
+    indexFields :: [IndexFieldStatus]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeIndexFieldsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeIndexFieldsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'difsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'difsrsIndexFields' - The index fields configured for the domain.
-describeIndexFieldsResponse
-    :: Int -- ^ 'difsrsResponseStatus'
-    -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pResponseStatus_ =
+-- 'httpStatus', 'describeIndexFieldsResponse_httpStatus' - The response's http status code.
+--
+-- 'indexFields', 'describeIndexFieldsResponse_indexFields' - The index fields configured for the domain.
+newDescribeIndexFieldsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeIndexFieldsResponse
+newDescribeIndexFieldsResponse pHttpStatus_ =
   DescribeIndexFieldsResponse'
-    {_difsrsResponseStatus = pResponseStatus_, _difsrsIndexFields = mempty}
+    { httpStatus =
+        pHttpStatus_,
+      indexFields = Prelude.mempty
+    }
 
-
--- | -- | The response status code.
-difsrsResponseStatus :: Lens' DescribeIndexFieldsResponse Int
-difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseStatus = a})
+-- | The response's http status code.
+describeIndexFieldsResponse_httpStatus :: Lens.Lens' DescribeIndexFieldsResponse Prelude.Int
+describeIndexFieldsResponse_httpStatus = Lens.lens (\DescribeIndexFieldsResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexFieldsResponse' {} a -> s {httpStatus = a} :: DescribeIndexFieldsResponse)
 
 -- | The index fields configured for the domain.
-difsrsIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difsrsIndexFields = lens _difsrsIndexFields (\ s a -> s{_difsrsIndexFields = a}) . _Coerce
+describeIndexFieldsResponse_indexFields :: Lens.Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsResponse' {indexFields} -> indexFields) (\s@DescribeIndexFieldsResponse' {} a -> s {indexFields = a} :: DescribeIndexFieldsResponse) Prelude.. Lens._Coerce
 
-instance NFData DescribeIndexFieldsResponse where
+instance Prelude.NFData DescribeIndexFieldsResponse

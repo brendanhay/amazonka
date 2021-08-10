@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,117 +22,141 @@
 --
 -- Restores a directory using an existing directory snapshot.
 --
+-- When you restore a directory from a snapshot, any changes made to the
+-- directory after the snapshot date are overwritten.
 --
--- When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
---
--- This action returns as soon as the restore operation is initiated. You can monitor the progress of the restore operation by calling the 'DescribeDirectories' operation with the directory identifier. When the __DirectoryDescription.Stage__ value changes to @Active@ , the restore operation is complete.
---
+-- This action returns as soon as the restore operation is initiated. You
+-- can monitor the progress of the restore operation by calling the
+-- DescribeDirectories operation with the directory identifier. When the
+-- __DirectoryDescription.Stage__ value changes to @Active@, the restore
+-- operation is complete.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
-    (
-    -- * Creating a Request
-      restoreFromSnapshot
-    , RestoreFromSnapshot
+  ( -- * Creating a Request
+    RestoreFromSnapshot (..),
+    newRestoreFromSnapshot,
+
     -- * Request Lenses
-    , rfsSnapshotId
+    restoreFromSnapshot_snapshotId,
 
     -- * Destructuring the Response
-    , restoreFromSnapshotResponse
-    , RestoreFromSnapshotResponse
+    RestoreFromSnapshotResponse (..),
+    newRestoreFromSnapshotResponse,
+
     -- * Response Lenses
-    , rfsrsResponseStatus
-    ) where
+    restoreFromSnapshotResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | An object representing the inputs for the 'RestoreFromSnapshot' operation.
+-- | An object representing the inputs for the RestoreFromSnapshot operation.
 --
---
---
--- /See:/ 'restoreFromSnapshot' smart constructor.
-newtype RestoreFromSnapshot = RestoreFromSnapshot'
-  { _rfsSnapshotId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newRestoreFromSnapshot' smart constructor.
+data RestoreFromSnapshot = RestoreFromSnapshot'
+  { -- | The identifier of the snapshot to restore from.
+    snapshotId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RestoreFromSnapshot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RestoreFromSnapshot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rfsSnapshotId' - The identifier of the snapshot to restore from.
-restoreFromSnapshot
-    :: Text -- ^ 'rfsSnapshotId'
-    -> RestoreFromSnapshot
-restoreFromSnapshot pSnapshotId_ =
-  RestoreFromSnapshot' {_rfsSnapshotId = pSnapshotId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'snapshotId', 'restoreFromSnapshot_snapshotId' - The identifier of the snapshot to restore from.
+newRestoreFromSnapshot ::
+  -- | 'snapshotId'
+  Prelude.Text ->
+  RestoreFromSnapshot
+newRestoreFromSnapshot pSnapshotId_ =
+  RestoreFromSnapshot' {snapshotId = pSnapshotId_}
 
 -- | The identifier of the snapshot to restore from.
-rfsSnapshotId :: Lens' RestoreFromSnapshot Text
-rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a})
+restoreFromSnapshot_snapshotId :: Lens.Lens' RestoreFromSnapshot Prelude.Text
+restoreFromSnapshot_snapshotId = Lens.lens (\RestoreFromSnapshot' {snapshotId} -> snapshotId) (\s@RestoreFromSnapshot' {} a -> s {snapshotId = a} :: RestoreFromSnapshot)
 
-instance AWSRequest RestoreFromSnapshot where
-        type Rs RestoreFromSnapshot =
-             RestoreFromSnapshotResponse
-        request = postJSON directoryService
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest RestoreFromSnapshot where
+  type
+    AWSResponse RestoreFromSnapshot =
+      RestoreFromSnapshotResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          RestoreFromSnapshotResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RestoreFromSnapshot where
+instance Prelude.Hashable RestoreFromSnapshot
 
-instance NFData RestoreFromSnapshot where
+instance Prelude.NFData RestoreFromSnapshot
 
-instance ToHeaders RestoreFromSnapshot where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.RestoreFromSnapshot" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RestoreFromSnapshot where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.RestoreFromSnapshot" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RestoreFromSnapshot where
-        toJSON RestoreFromSnapshot'{..}
-          = object
-              (catMaybes [Just ("SnapshotId" .= _rfsSnapshotId)])
+instance Core.ToJSON RestoreFromSnapshot where
+  toJSON RestoreFromSnapshot' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("SnapshotId" Core..= snapshotId)]
+      )
 
-instance ToPath RestoreFromSnapshot where
-        toPath = const "/"
+instance Core.ToPath RestoreFromSnapshot where
+  toPath = Prelude.const "/"
 
-instance ToQuery RestoreFromSnapshot where
-        toQuery = const mempty
+instance Core.ToQuery RestoreFromSnapshot where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results of the 'RestoreFromSnapshot' operation.
+-- | Contains the results of the RestoreFromSnapshot operation.
 --
+-- /See:/ 'newRestoreFromSnapshotResponse' smart constructor.
+data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RestoreFromSnapshotResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'restoreFromSnapshotResponse' smart constructor.
-newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-  { _rfsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RestoreFromSnapshotResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfsrsResponseStatus' - -- | The response status code.
-restoreFromSnapshotResponse
-    :: Int -- ^ 'rfsrsResponseStatus'
-    -> RestoreFromSnapshotResponse
-restoreFromSnapshotResponse pResponseStatus_ =
-  RestoreFromSnapshotResponse' {_rfsrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'restoreFromSnapshotResponse_httpStatus' - The response's http status code.
+newRestoreFromSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RestoreFromSnapshotResponse
+newRestoreFromSnapshotResponse pHttpStatus_ =
+  RestoreFromSnapshotResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+restoreFromSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromSnapshotResponse Prelude.Int
+restoreFromSnapshotResponse_httpStatus = Lens.lens (\RestoreFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@RestoreFromSnapshotResponse' {} a -> s {httpStatus = a} :: RestoreFromSnapshotResponse)
 
--- | -- | The response status code.
-rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
-rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a})
-
-instance NFData RestoreFromSnapshotResponse where
+instance Prelude.NFData RestoreFromSnapshotResponse

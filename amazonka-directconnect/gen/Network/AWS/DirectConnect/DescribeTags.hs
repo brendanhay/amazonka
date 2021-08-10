@@ -1,140 +1,157 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the tags associated with the specified Direct Connect resources.
---
---
+-- Describes the tags associated with the specified AWS Direct Connect
+-- resources.
 module Network.AWS.DirectConnect.DescribeTags
-    (
-    -- * Creating a Request
-      describeTags
-    , DescribeTags
+  ( -- * Creating a Request
+    DescribeTags (..),
+    newDescribeTags,
+
     -- * Request Lenses
-    , dtResourceARNs
+    describeTags_resourceArns,
 
     -- * Destructuring the Response
-    , describeTagsResponse
-    , DescribeTagsResponse
+    DescribeTagsResponse (..),
+    newDescribeTagsResponse,
+
     -- * Response Lenses
-    , dtrsResourceTags
-    , dtrsResponseStatus
-    ) where
+    describeTagsResponse_resourceTags,
+    describeTagsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the DescribeTags operation.
+-- | /See:/ 'newDescribeTags' smart constructor.
+data DescribeTags = DescribeTags'
+  { -- | The Amazon Resource Names (ARNs) of the resources.
+    resourceArns :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeTags' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeTags' smart constructor.
-newtype DescribeTags = DescribeTags'
-  { _dtResourceARNs :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'resourceArns', 'describeTags_resourceArns' - The Amazon Resource Names (ARNs) of the resources.
+newDescribeTags ::
+  DescribeTags
+newDescribeTags =
+  DescribeTags' {resourceArns = Prelude.mempty}
 
+-- | The Amazon Resource Names (ARNs) of the resources.
+describeTags_resourceArns :: Lens.Lens' DescribeTags [Prelude.Text]
+describeTags_resourceArns = Lens.lens (\DescribeTags' {resourceArns} -> resourceArns) (\s@DescribeTags' {} a -> s {resourceArns = a} :: DescribeTags) Prelude.. Lens._Coerce
 
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtResourceARNs' - The Amazon Resource Names (ARNs) of the Direct Connect resources.
-describeTags
-    :: DescribeTags
-describeTags = DescribeTags' {_dtResourceARNs = mempty}
+instance Core.AWSRequest DescribeTags where
+  type AWSResponse DescribeTags = DescribeTagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTagsResponse'
+            Prelude.<$> (x Core..?> "resourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
+instance Prelude.Hashable DescribeTags
 
--- | The Amazon Resource Names (ARNs) of the Direct Connect resources.
-dtResourceARNs :: Lens' DescribeTags [Text]
-dtResourceARNs = lens _dtResourceARNs (\ s a -> s{_dtResourceARNs = a}) . _Coerce
+instance Prelude.NFData DescribeTags
 
-instance AWSRequest DescribeTags where
-        type Rs DescribeTags = DescribeTagsResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTagsResponse' <$>
-                   (x .?> "resourceTags" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Core.ToHeaders DescribeTags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.DescribeTags" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance Hashable DescribeTags where
+instance Core.ToJSON DescribeTags where
+  toJSON DescribeTags' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("resourceArns" Core..= resourceArns)]
+      )
 
-instance NFData DescribeTags where
+instance Core.ToPath DescribeTags where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DescribeTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DescribeTags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToQuery DescribeTags where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToJSON DescribeTags where
-        toJSON DescribeTags'{..}
-          = object
-              (catMaybes
-                 [Just ("resourceArns" .= _dtResourceARNs)])
-
-instance ToPath DescribeTags where
-        toPath = const "/"
-
-instance ToQuery DescribeTags where
-        toQuery = const mempty
-
--- | The response received when DescribeTags is called.
---
---
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsResourceTags   :: !(Maybe [ResourceTag])
-  , _dtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the tags.
+    resourceTags :: Prelude.Maybe [ResourceTag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsResourceTags' - Information about the tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTagsResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DescribeTagsResponse
-describeTagsResponse pResponseStatus_ =
+-- 'resourceTags', 'describeTagsResponse_resourceTags' - Information about the tags.
+--
+-- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
+newDescribeTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTagsResponse
+newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    {_dtrsResourceTags = Nothing, _dtrsResponseStatus = pResponseStatus_}
-
+    { resourceTags =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the tags.
-dtrsResourceTags :: Lens' DescribeTagsResponse [ResourceTag]
-dtrsResourceTags = lens _dtrsResourceTags (\ s a -> s{_dtrsResourceTags = a}) . _Default . _Coerce
+describeTagsResponse_resourceTags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [ResourceTag])
+describeTagsResponse_resourceTags = Lens.lens (\DescribeTagsResponse' {resourceTags} -> resourceTags) (\s@DescribeTagsResponse' {} a -> s {resourceTags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
+-- | The response's http status code.
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
+describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance NFData DescribeTagsResponse where
+instance Prelude.NFData DescribeTagsResponse

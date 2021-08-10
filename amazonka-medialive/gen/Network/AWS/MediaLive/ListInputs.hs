@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.ListInputs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,137 +24,169 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaLive.ListInputs
-    (
-    -- * Creating a Request
-      listInputs
-    , ListInputs
+  ( -- * Creating a Request
+    ListInputs (..),
+    newListInputs,
+
     -- * Request Lenses
-    , liNextToken
-    , liMaxResults
+    listInputs_nextToken,
+    listInputs_maxResults,
 
     -- * Destructuring the Response
-    , listInputsResponse
-    , ListInputsResponse
-    -- * Response Lenses
-    , lirsInputs
-    , lirsNextToken
-    , lirsResponseStatus
-    ) where
+    ListInputsResponse (..),
+    newListInputsResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    listInputsResponse_nextToken,
+    listInputsResponse_inputs,
+    listInputsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for ListInputsRequest
 --
--- /See:/ 'listInputs' smart constructor.
+-- /See:/ 'newListInputs' smart constructor.
 data ListInputs = ListInputs'
-  { _liNextToken  :: !(Maybe Text)
-  , _liMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListInputs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListInputs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'liNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'liMaxResults' - Undocumented member.
-listInputs
-    :: ListInputs
-listInputs = ListInputs' {_liNextToken = Nothing, _liMaxResults = Nothing}
-
+-- 'nextToken', 'listInputs_nextToken' - Undocumented member.
+--
+-- 'maxResults', 'listInputs_maxResults' - Undocumented member.
+newListInputs ::
+  ListInputs
+newListInputs =
+  ListInputs'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | Undocumented member.
-liNextToken :: Lens' ListInputs (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
+listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
+listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 -- | Undocumented member.
-liMaxResults :: Lens' ListInputs (Maybe Natural)
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
+listInputs_maxResults :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Natural)
+listInputs_maxResults = Lens.lens (\ListInputs' {maxResults} -> maxResults) (\s@ListInputs' {} a -> s {maxResults = a} :: ListInputs)
 
-instance AWSPager ListInputs where
-        page rq rs
-          | stop (rs ^. lirsNextToken) = Nothing
-          | stop (rs ^. lirsInputs) = Nothing
-          | otherwise =
-            Just $ rq & liNextToken .~ rs ^. lirsNextToken
+instance Core.AWSPager ListInputs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listInputsResponse_inputs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listInputs_nextToken
+          Lens..~ rs
+          Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListInputs where
-        type Rs ListInputs = ListInputsResponse
-        request = get mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListInputsResponse' <$>
-                   (x .?> "inputs" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListInputs where
+  type AWSResponse ListInputs = ListInputsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListInputsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListInputs where
+instance Prelude.Hashable ListInputs
 
-instance NFData ListInputs where
+instance Prelude.NFData ListInputs
 
-instance ToHeaders ListInputs where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListInputs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ListInputs where
-        toPath = const "/prod/inputs"
+instance Core.ToPath ListInputs where
+  toPath = Prelude.const "/prod/inputs"
 
-instance ToQuery ListInputs where
-        toQuery ListInputs'{..}
-          = mconcat
-              ["nextToken" =: _liNextToken,
-               "maxResults" =: _liMaxResults]
+instance Core.ToQuery ListInputs where
+  toQuery ListInputs' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
 
 -- | Placeholder documentation for ListInputsResponse
 --
--- /See:/ 'listInputsResponse' smart constructor.
+-- /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { _lirsInputs         :: !(Maybe [Input])
-  , _lirsNextToken      :: !(Maybe Text)
-  , _lirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    inputs :: Prelude.Maybe [Input],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListInputsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListInputsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lirsInputs' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lirsNextToken' - Undocumented member.
+-- 'nextToken', 'listInputsResponse_nextToken' - Undocumented member.
 --
--- * 'lirsResponseStatus' - -- | The response status code.
-listInputsResponse
-    :: Int -- ^ 'lirsResponseStatus'
-    -> ListInputsResponse
-listInputsResponse pResponseStatus_ =
+-- 'inputs', 'listInputsResponse_inputs' - Undocumented member.
+--
+-- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
+newListInputsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListInputsResponse
+newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { _lirsInputs = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Undocumented member.
+listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
+listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
 
 -- | Undocumented member.
-lirsInputs :: Lens' ListInputsResponse [Input]
-lirsInputs = lens _lirsInputs (\ s a -> s{_lirsInputs = a}) . _Default . _Coerce
+listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Prelude.Maybe [Input])
+listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
-lirsNextToken :: Lens' ListInputsResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
+-- | The response's http status code.
+listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
+listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> httpStatus) (\s@ListInputsResponse' {} a -> s {httpStatus = a} :: ListInputsResponse)
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListInputsResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
-
-instance NFData ListInputsResponse where
+instance Prelude.NFData ListInputsResponse

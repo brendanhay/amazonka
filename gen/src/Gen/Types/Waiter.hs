@@ -1,11 +1,7 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.Types.Waiter
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -17,76 +13,77 @@
 module Gen.Types.Waiter where
 
 import Control.Lens
-
 import Data.Aeson
-import Data.Text  (Text)
-
+import Data.Text (Text)
+import GHC.Generics
 import Gen.TH
 import Gen.Types.Id
 import Gen.Types.Notation
 
-import GHC.Generics
-
 data Match
-    = Path
-    | PathAll
-    | PathAny
-    | Status
-    | Error
-      deriving (Eq, Show, Generic)
+  = Path
+  | PathAll
+  | PathAny
+  | Status
+  | Error
+  deriving (Eq, Show, Generic)
 
 instance FromJSON Match where
-    parseJSON = gParseJSON' camel
+  parseJSON = gParseJSON' camel
 
 data Criteria
-    = Retry
-    | Success
-    | Failure
-      deriving (Eq, Show, Generic)
+  = Retry
+  | Success
+  | Failure
+  deriving (Eq, Show, Generic)
 
 instance FromJSON Criteria where
-    parseJSON = gParseJSON' lower
+  parseJSON = gParseJSON' lower
 
 data Expect
-    = Status' !Integer
-    | Textual !Text
-    | Boolean !Bool
-      deriving (Eq, Show)
+  = Status' !Integer
+  | Textual !Text
+  | Boolean !Bool
+  deriving (Eq, Show)
 
 instance FromJSON Expect where
-    parseJSON = \case
-        String s -> pure (Textual s)
-        Bool   b -> pure (Boolean b)
-        o        -> Status' <$> parseJSON o
+  parseJSON = \case
+    String s -> pure (Textual s)
+    Bool b -> pure (Boolean b)
+    o -> Status' <$> parseJSON o
 
 data Accept a = Accept
-    { _acceptExpect   :: Expect
-    , _acceptMatch    :: Match
-    , _acceptCriteria :: Criteria
-    , _acceptArgument :: Maybe (Notation a)
-    } deriving (Eq, Show)
+  { _acceptExpect :: Expect,
+    _acceptMatch :: Match,
+    _acceptCriteria :: Criteria,
+    _acceptArgument :: Maybe (Notation a)
+  }
+  deriving (Eq, Show)
 
 makeLenses ''Accept
 
 instance FromJSON (Accept Id) where
-    parseJSON = withObject "acceptor" $ \o -> Accept
-        <$> o .:  "expected"
-        <*> o .:  "matcher"
-        <*> o .:  "state"
-        <*> o .:? "argument"
+  parseJSON = withObject "acceptor" $ \o ->
+    Accept
+      <$> o .: "expected"
+      <*> o .: "matcher"
+      <*> o .: "state"
+      <*> o .:? "argument"
 
 data Waiter a = Waiter
-    { _waitDelay     :: !Integer
-    , _waitAttempts  :: !Integer
-    , _waitOperation :: Id
-    , _waitAcceptors :: [Accept a]
-    } deriving (Show, Eq)
+  { _waitDelay :: !Integer,
+    _waitAttempts :: !Integer,
+    _waitOperation :: Id,
+    _waitAcceptors :: [Accept a]
+  }
+  deriving (Show, Eq)
 
 makeLenses ''Waiter
 
 instance FromJSON (Waiter Id) where
-    parseJSON = withObject "waiter" $ \o -> Waiter
-        <$> o .: "delay"
-        <*> o .: "maxAttempts"
-        <*> o .: "operation"
-        <*> o .: "acceptors"
+  parseJSON = withObject "waiter" $ \o ->
+    Waiter
+      <$> o .: "delay"
+      <*> o .: "maxAttempts"
+      <*> o .: "operation"
+      <*> o .: "acceptors"

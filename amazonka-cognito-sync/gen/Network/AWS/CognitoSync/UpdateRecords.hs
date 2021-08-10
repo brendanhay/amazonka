@@ -1,206 +1,282 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Posts updates to records and adds and deletes records for a dataset and user.
+-- Posts updates to records and adds and deletes records for a dataset and
+-- user.
 --
+-- The sync count in the record patch is your last known sync count for
+-- that record. The server will reject an UpdateRecords request with a
+-- ResourceConflictException if you try to patch a record with a new value
+-- but a stale sync count.
 --
--- The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.
+-- For example, if the sync count on the server is 5 for a key called
+-- highScore and you try and submit a new highScore with sync count of 4,
+-- the request will be rejected. To obtain the current sync count for a
+-- record, call ListRecords. On a successful update of the record, the
+-- response returns the new sync count for that record. You should present
+-- that sync count the next time you try to update that same record. When
+-- the record does not exist, specify the sync count as 0.
 --
--- For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.
---
--- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
---
+-- This API can be called with temporary user credentials provided by
+-- Cognito Identity or with developer credentials.
 module Network.AWS.CognitoSync.UpdateRecords
-    (
-    -- * Creating a Request
-      updateRecords
-    , UpdateRecords
+  ( -- * Creating a Request
+    UpdateRecords (..),
+    newUpdateRecords,
+
     -- * Request Lenses
-    , urRecordPatches
-    , urDeviceId
-    , urClientContext
-    , urIdentityPoolId
-    , urIdentityId
-    , urDatasetName
-    , urSyncSessionToken
+    updateRecords_recordPatches,
+    updateRecords_deviceId,
+    updateRecords_clientContext,
+    updateRecords_identityPoolId,
+    updateRecords_identityId,
+    updateRecords_datasetName,
+    updateRecords_syncSessionToken,
 
     -- * Destructuring the Response
-    , updateRecordsResponse
-    , UpdateRecordsResponse
+    UpdateRecordsResponse (..),
+    newUpdateRecordsResponse,
+
     -- * Response Lenses
-    , urrsRecords
-    , urrsResponseStatus
-    ) where
+    updateRecordsResponse_records,
+    updateRecordsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | A request to post updates to records or add and delete records for a dataset and user.
+-- | A request to post updates to records or add and delete records for a
+-- dataset and user.
 --
--- /See:/ 'updateRecords' smart constructor.
+-- /See:/ 'newUpdateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
-  { _urRecordPatches    :: !(Maybe [RecordPatch])
-  , _urDeviceId         :: !(Maybe Text)
-  , _urClientContext    :: !(Maybe Text)
-  , _urIdentityPoolId   :: !Text
-  , _urIdentityId       :: !Text
-  , _urDatasetName      :: !Text
-  , _urSyncSessionToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of patch operations.
+    recordPatches :: Prelude.Maybe [RecordPatch],
+    -- | The unique ID generated for this device by Cognito.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | Intended to supply a device ID that will populate the lastModifiedBy
+    -- field referenced in other methods. The ClientContext field is not yet
+    -- implemented.
+    clientContext :: Prelude.Maybe Prelude.Text,
+    -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Text,
+    -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityId :: Prelude.Text,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+    -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+    datasetName :: Prelude.Text,
+    -- | The SyncSessionToken returned by a previous call to ListRecords for this
+    -- dataset and identity.
+    syncSessionToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateRecords' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateRecords' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urRecordPatches' - A list of patch operations.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urDeviceId' - The unique ID generated for this device by Cognito.
+-- 'recordPatches', 'updateRecords_recordPatches' - A list of patch operations.
 --
--- * 'urClientContext' - Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
+-- 'deviceId', 'updateRecords_deviceId' - The unique ID generated for this device by Cognito.
 --
--- * 'urIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- 'clientContext', 'updateRecords_clientContext' - Intended to supply a device ID that will populate the lastModifiedBy
+-- field referenced in other methods. The ClientContext field is not yet
+-- implemented.
 --
--- * 'urIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- 'identityPoolId', 'updateRecords_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 --
--- * 'urDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- 'identityId', 'updateRecords_identityId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 --
--- * 'urSyncSessionToken' - The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
-updateRecords
-    :: Text -- ^ 'urIdentityPoolId'
-    -> Text -- ^ 'urIdentityId'
-    -> Text -- ^ 'urDatasetName'
-    -> Text -- ^ 'urSyncSessionToken'
-    -> UpdateRecords
-updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
-  UpdateRecords'
-    { _urRecordPatches = Nothing
-    , _urDeviceId = Nothing
-    , _urClientContext = Nothing
-    , _urIdentityPoolId = pIdentityPoolId_
-    , _urIdentityId = pIdentityId_
-    , _urDatasetName = pDatasetName_
-    , _urSyncSessionToken = pSyncSessionToken_
-    }
-
+-- 'datasetName', 'updateRecords_datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+--
+-- 'syncSessionToken', 'updateRecords_syncSessionToken' - The SyncSessionToken returned by a previous call to ListRecords for this
+-- dataset and identity.
+newUpdateRecords ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  -- | 'identityId'
+  Prelude.Text ->
+  -- | 'datasetName'
+  Prelude.Text ->
+  -- | 'syncSessionToken'
+  Prelude.Text ->
+  UpdateRecords
+newUpdateRecords
+  pIdentityPoolId_
+  pIdentityId_
+  pDatasetName_
+  pSyncSessionToken_ =
+    UpdateRecords'
+      { recordPatches = Prelude.Nothing,
+        deviceId = Prelude.Nothing,
+        clientContext = Prelude.Nothing,
+        identityPoolId = pIdentityPoolId_,
+        identityId = pIdentityId_,
+        datasetName = pDatasetName_,
+        syncSessionToken = pSyncSessionToken_
+      }
 
 -- | A list of patch operations.
-urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default . _Coerce
+updateRecords_recordPatches :: Lens.Lens' UpdateRecords (Prelude.Maybe [RecordPatch])
+updateRecords_recordPatches = Lens.lens (\UpdateRecords' {recordPatches} -> recordPatches) (\s@UpdateRecords' {} a -> s {recordPatches = a} :: UpdateRecords) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique ID generated for this device by Cognito.
-urDeviceId :: Lens' UpdateRecords (Maybe Text)
-urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a})
+updateRecords_deviceId :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
+updateRecords_deviceId = Lens.lens (\UpdateRecords' {deviceId} -> deviceId) (\s@UpdateRecords' {} a -> s {deviceId = a} :: UpdateRecords)
 
--- | Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
-urClientContext :: Lens' UpdateRecords (Maybe Text)
-urClientContext = lens _urClientContext (\ s a -> s{_urClientContext = a})
+-- | Intended to supply a device ID that will populate the lastModifiedBy
+-- field referenced in other methods. The ClientContext field is not yet
+-- implemented.
+updateRecords_clientContext :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
+updateRecords_clientContext = Lens.lens (\UpdateRecords' {clientContext} -> clientContext) (\s@UpdateRecords' {} a -> s {clientContext = a} :: UpdateRecords)
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-urIdentityPoolId :: Lens' UpdateRecords Text
-urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a})
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+updateRecords_identityPoolId :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_identityPoolId = Lens.lens (\UpdateRecords' {identityPoolId} -> identityPoolId) (\s@UpdateRecords' {} a -> s {identityPoolId = a} :: UpdateRecords)
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-urIdentityId :: Lens' UpdateRecords Text
-urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a})
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+updateRecords_identityId :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_identityId = Lens.lens (\UpdateRecords' {identityId} -> identityId) (\s@UpdateRecords' {} a -> s {identityId = a} :: UpdateRecords)
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-urDatasetName :: Lens' UpdateRecords Text
-urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a})
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+updateRecords_datasetName :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_datasetName = Lens.lens (\UpdateRecords' {datasetName} -> datasetName) (\s@UpdateRecords' {} a -> s {datasetName = a} :: UpdateRecords)
 
--- | The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
-urSyncSessionToken :: Lens' UpdateRecords Text
-urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a})
+-- | The SyncSessionToken returned by a previous call to ListRecords for this
+-- dataset and identity.
+updateRecords_syncSessionToken :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_syncSessionToken = Lens.lens (\UpdateRecords' {syncSessionToken} -> syncSessionToken) (\s@UpdateRecords' {} a -> s {syncSessionToken = a} :: UpdateRecords)
 
-instance AWSRequest UpdateRecords where
-        type Rs UpdateRecords = UpdateRecordsResponse
-        request = postJSON cognitoSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateRecordsResponse' <$>
-                   (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateRecords where
+  type
+    AWSResponse UpdateRecords =
+      UpdateRecordsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateRecordsResponse'
+            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateRecords where
+instance Prelude.Hashable UpdateRecords
 
-instance NFData UpdateRecords where
+instance Prelude.NFData UpdateRecords
 
-instance ToHeaders UpdateRecords where
-        toHeaders UpdateRecords'{..}
-          = mconcat
-              ["x-amz-Client-Context" =# _urClientContext,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Core.ToHeaders UpdateRecords where
+  toHeaders UpdateRecords' {..} =
+    Prelude.mconcat
+      [ "x-amz-Client-Context" Core.=# clientContext,
+        "Content-Type"
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToJSON UpdateRecords where
-        toJSON UpdateRecords'{..}
-          = object
-              (catMaybes
-                 [("RecordPatches" .=) <$> _urRecordPatches,
-                  ("DeviceId" .=) <$> _urDeviceId,
-                  Just ("SyncSessionToken" .= _urSyncSessionToken)])
+instance Core.ToJSON UpdateRecords where
+  toJSON UpdateRecords' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RecordPatches" Core..=) Prelude.<$> recordPatches,
+            ("DeviceId" Core..=) Prelude.<$> deviceId,
+            Prelude.Just
+              ("SyncSessionToken" Core..= syncSessionToken)
+          ]
+      )
 
-instance ToPath UpdateRecords where
-        toPath UpdateRecords'{..}
-          = mconcat
-              ["/identitypools/", toBS _urIdentityPoolId,
-               "/identities/", toBS _urIdentityId, "/datasets/",
-               toBS _urDatasetName]
+instance Core.ToPath UpdateRecords where
+  toPath UpdateRecords' {..} =
+    Prelude.mconcat
+      [ "/identitypools/",
+        Core.toBS identityPoolId,
+        "/identities/",
+        Core.toBS identityId,
+        "/datasets/",
+        Core.toBS datasetName
+      ]
 
-instance ToQuery UpdateRecords where
-        toQuery = const mempty
+instance Core.ToQuery UpdateRecords where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned for a successful UpdateRecordsRequest.
 --
--- /See:/ 'updateRecordsResponse' smart constructor.
+-- /See:/ 'newUpdateRecordsResponse' smart constructor.
 data UpdateRecordsResponse = UpdateRecordsResponse'
-  { _urrsRecords        :: !(Maybe [Record])
-  , _urrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of records that have been updated.
+    records :: Prelude.Maybe [Record],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateRecordsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateRecordsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsRecords' - A list of records that have been updated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRecordsResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UpdateRecordsResponse
-updateRecordsResponse pResponseStatus_ =
+-- 'records', 'updateRecordsResponse_records' - A list of records that have been updated.
+--
+-- 'httpStatus', 'updateRecordsResponse_httpStatus' - The response's http status code.
+newUpdateRecordsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateRecordsResponse
+newUpdateRecordsResponse pHttpStatus_ =
   UpdateRecordsResponse'
-    {_urrsRecords = Nothing, _urrsResponseStatus = pResponseStatus_}
-
+    { records = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A list of records that have been updated.
-urrsRecords :: Lens' UpdateRecordsResponse [Record]
-urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce
+updateRecordsResponse_records :: Lens.Lens' UpdateRecordsResponse (Prelude.Maybe [Record])
+updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> records) (\s@UpdateRecordsResponse' {} a -> s {records = a} :: UpdateRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRecordsResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
+-- | The response's http status code.
+updateRecordsResponse_httpStatus :: Lens.Lens' UpdateRecordsResponse Prelude.Int
+updateRecordsResponse_httpStatus = Lens.lens (\UpdateRecordsResponse' {httpStatus} -> httpStatus) (\s@UpdateRecordsResponse' {} a -> s {httpStatus = a} :: UpdateRecordsResponse)
 
-instance NFData UpdateRecordsResponse where
+instance Prelude.NFData UpdateRecordsResponse

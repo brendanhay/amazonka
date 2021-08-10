@@ -1,131 +1,155 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetDisk
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a specific block storage disk.
---
---
 module Network.AWS.Lightsail.GetDisk
-    (
-    -- * Creating a Request
-      getDisk
-    , GetDisk
+  ( -- * Creating a Request
+    GetDisk (..),
+    newGetDisk,
+
     -- * Request Lenses
-    , gdDiskName
+    getDisk_diskName,
 
     -- * Destructuring the Response
-    , getDiskResponse
-    , GetDiskResponse
+    GetDiskResponse (..),
+    newGetDiskResponse,
+
     -- * Response Lenses
-    , getrsDisk
-    , getrsResponseStatus
-    ) where
+    getDiskResponse_disk,
+    getDiskResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDisk' smart constructor.
-newtype GetDisk = GetDisk'
-  { _gdDiskName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetDisk' smart constructor.
+data GetDisk = GetDisk'
+  { -- | The name of the disk (e.g., @my-disk@).
+    diskName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDisk' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDisk' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdDiskName' - The name of the disk (e.g., @my-disk@ ).
-getDisk
-    :: Text -- ^ 'gdDiskName'
-    -> GetDisk
-getDisk pDiskName_ = GetDisk' {_gdDiskName = pDiskName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'diskName', 'getDisk_diskName' - The name of the disk (e.g., @my-disk@).
+newGetDisk ::
+  -- | 'diskName'
+  Prelude.Text ->
+  GetDisk
+newGetDisk pDiskName_ =
+  GetDisk' {diskName = pDiskName_}
 
+-- | The name of the disk (e.g., @my-disk@).
+getDisk_diskName :: Lens.Lens' GetDisk Prelude.Text
+getDisk_diskName = Lens.lens (\GetDisk' {diskName} -> diskName) (\s@GetDisk' {} a -> s {diskName = a} :: GetDisk)
 
--- | The name of the disk (e.g., @my-disk@ ).
-gdDiskName :: Lens' GetDisk Text
-gdDiskName = lens _gdDiskName (\ s a -> s{_gdDiskName = a})
+instance Core.AWSRequest GetDisk where
+  type AWSResponse GetDisk = GetDiskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDiskResponse'
+            Prelude.<$> (x Core..?> "disk")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetDisk where
-        type Rs GetDisk = GetDiskResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDiskResponse' <$>
-                   (x .?> "disk") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetDisk
 
-instance Hashable GetDisk where
+instance Prelude.NFData GetDisk
 
-instance NFData GetDisk where
+instance Core.ToHeaders GetDisk where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("Lightsail_20161128.GetDisk" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetDisk where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetDisk" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetDisk where
+  toJSON GetDisk' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("diskName" Core..= diskName)]
+      )
 
-instance ToJSON GetDisk where
-        toJSON GetDisk'{..}
-          = object
-              (catMaybes [Just ("diskName" .= _gdDiskName)])
+instance Core.ToPath GetDisk where
+  toPath = Prelude.const "/"
 
-instance ToPath GetDisk where
-        toPath = const "/"
+instance Core.ToQuery GetDisk where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetDisk where
-        toQuery = const mempty
-
--- | /See:/ 'getDiskResponse' smart constructor.
+-- | /See:/ 'newGetDiskResponse' smart constructor.
 data GetDiskResponse = GetDiskResponse'
-  { _getrsDisk           :: !(Maybe Disk)
-  , _getrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object containing information about the disk.
+    disk :: Prelude.Maybe Disk,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDiskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDiskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'getrsDisk' - An object containing information about the disk.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'getrsResponseStatus' - -- | The response status code.
-getDiskResponse
-    :: Int -- ^ 'getrsResponseStatus'
-    -> GetDiskResponse
-getDiskResponse pResponseStatus_ =
+-- 'disk', 'getDiskResponse_disk' - An object containing information about the disk.
+--
+-- 'httpStatus', 'getDiskResponse_httpStatus' - The response's http status code.
+newGetDiskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDiskResponse
+newGetDiskResponse pHttpStatus_ =
   GetDiskResponse'
-    {_getrsDisk = Nothing, _getrsResponseStatus = pResponseStatus_}
-
+    { disk = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An object containing information about the disk.
-getrsDisk :: Lens' GetDiskResponse (Maybe Disk)
-getrsDisk = lens _getrsDisk (\ s a -> s{_getrsDisk = a})
+getDiskResponse_disk :: Lens.Lens' GetDiskResponse (Prelude.Maybe Disk)
+getDiskResponse_disk = Lens.lens (\GetDiskResponse' {disk} -> disk) (\s@GetDiskResponse' {} a -> s {disk = a} :: GetDiskResponse)
 
--- | -- | The response status code.
-getrsResponseStatus :: Lens' GetDiskResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+-- | The response's http status code.
+getDiskResponse_httpStatus :: Lens.Lens' GetDiskResponse Prelude.Int
+getDiskResponse_httpStatus = Lens.lens (\GetDiskResponse' {httpStatus} -> httpStatus) (\s@GetDiskResponse' {} a -> s {httpStatus = a} :: GetDiskResponse)
 
-instance NFData GetDiskResponse where
+instance Prelude.NFData GetDiskResponse

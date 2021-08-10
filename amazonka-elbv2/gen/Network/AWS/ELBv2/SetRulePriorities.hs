@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetRulePriorities
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,109 +22,132 @@
 --
 -- Sets the priorities of the specified rules.
 --
---
--- You can reorder the rules as long as there are no priority conflicts in the new order. Any existing rules that you do not specify retain their current priority.
---
+-- You can reorder the rules as long as there are no priority conflicts in
+-- the new order. Any existing rules that you do not specify retain their
+-- current priority.
 module Network.AWS.ELBv2.SetRulePriorities
-    (
-    -- * Creating a Request
-      setRulePriorities
-    , SetRulePriorities
+  ( -- * Creating a Request
+    SetRulePriorities (..),
+    newSetRulePriorities,
+
     -- * Request Lenses
-    , srpRulePriorities
+    setRulePriorities_rulePriorities,
 
     -- * Destructuring the Response
-    , setRulePrioritiesResponse
-    , SetRulePrioritiesResponse
+    SetRulePrioritiesResponse (..),
+    newSetRulePrioritiesResponse,
+
     -- * Response Lenses
-    , srprsRules
-    , srprsResponseStatus
-    ) where
+    setRulePrioritiesResponse_rules,
+    setRulePrioritiesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'setRulePriorities' smart constructor.
-newtype SetRulePriorities = SetRulePriorities'
-  { _srpRulePriorities :: [RulePriorityPair]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSetRulePriorities' smart constructor.
+data SetRulePriorities = SetRulePriorities'
+  { -- | The rule priorities.
+    rulePriorities :: [RulePriorityPair]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetRulePriorities' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetRulePriorities' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srpRulePriorities' - The rule priorities.
-setRulePriorities
-    :: SetRulePriorities
-setRulePriorities = SetRulePriorities' {_srpRulePriorities = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'rulePriorities', 'setRulePriorities_rulePriorities' - The rule priorities.
+newSetRulePriorities ::
+  SetRulePriorities
+newSetRulePriorities =
+  SetRulePriorities' {rulePriorities = Prelude.mempty}
 
 -- | The rule priorities.
-srpRulePriorities :: Lens' SetRulePriorities [RulePriorityPair]
-srpRulePriorities = lens _srpRulePriorities (\ s a -> s{_srpRulePriorities = a}) . _Coerce
+setRulePriorities_rulePriorities :: Lens.Lens' SetRulePriorities [RulePriorityPair]
+setRulePriorities_rulePriorities = Lens.lens (\SetRulePriorities' {rulePriorities} -> rulePriorities) (\s@SetRulePriorities' {} a -> s {rulePriorities = a} :: SetRulePriorities) Prelude.. Lens._Coerce
 
-instance AWSRequest SetRulePriorities where
-        type Rs SetRulePriorities = SetRulePrioritiesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "SetRulePrioritiesResult"
-              (\ s h x ->
-                 SetRulePrioritiesResponse' <$>
-                   (x .@? "Rules" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest SetRulePriorities where
+  type
+    AWSResponse SetRulePriorities =
+      SetRulePrioritiesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "SetRulePrioritiesResult"
+      ( \s h x ->
+          SetRulePrioritiesResponse'
+            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable SetRulePriorities where
+instance Prelude.Hashable SetRulePriorities
 
-instance NFData SetRulePriorities where
+instance Prelude.NFData SetRulePriorities
 
-instance ToHeaders SetRulePriorities where
-        toHeaders = const mempty
+instance Core.ToHeaders SetRulePriorities where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath SetRulePriorities where
-        toPath = const "/"
+instance Core.ToPath SetRulePriorities where
+  toPath = Prelude.const "/"
 
-instance ToQuery SetRulePriorities where
-        toQuery SetRulePriorities'{..}
-          = mconcat
-              ["Action" =: ("SetRulePriorities" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "RulePriorities" =:
-                 toQueryList "member" _srpRulePriorities]
+instance Core.ToQuery SetRulePriorities where
+  toQuery SetRulePriorities' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("SetRulePriorities" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "RulePriorities"
+          Core.=: Core.toQueryList "member" rulePriorities
+      ]
 
--- | /See:/ 'setRulePrioritiesResponse' smart constructor.
+-- | /See:/ 'newSetRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
-  { _srprsRules          :: !(Maybe [Rule])
-  , _srprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the rules.
+    rules :: Prelude.Maybe [Rule],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetRulePrioritiesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetRulePrioritiesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srprsRules' - Information about the rules.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srprsResponseStatus' - -- | The response status code.
-setRulePrioritiesResponse
-    :: Int -- ^ 'srprsResponseStatus'
-    -> SetRulePrioritiesResponse
-setRulePrioritiesResponse pResponseStatus_ =
+-- 'rules', 'setRulePrioritiesResponse_rules' - Information about the rules.
+--
+-- 'httpStatus', 'setRulePrioritiesResponse_httpStatus' - The response's http status code.
+newSetRulePrioritiesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SetRulePrioritiesResponse
+newSetRulePrioritiesResponse pHttpStatus_ =
   SetRulePrioritiesResponse'
-    {_srprsRules = Nothing, _srprsResponseStatus = pResponseStatus_}
-
+    { rules = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the rules.
-srprsRules :: Lens' SetRulePrioritiesResponse [Rule]
-srprsRules = lens _srprsRules (\ s a -> s{_srprsRules = a}) . _Default . _Coerce
+setRulePrioritiesResponse_rules :: Lens.Lens' SetRulePrioritiesResponse (Prelude.Maybe [Rule])
+setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules} -> rules) (\s@SetRulePrioritiesResponse' {} a -> s {rules = a} :: SetRulePrioritiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-srprsResponseStatus :: Lens' SetRulePrioritiesResponse Int
-srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a})
+-- | The response's http status code.
+setRulePrioritiesResponse_httpStatus :: Lens.Lens' SetRulePrioritiesResponse Prelude.Int
+setRulePrioritiesResponse_httpStatus = Lens.lens (\SetRulePrioritiesResponse' {httpStatus} -> httpStatus) (\s@SetRulePrioritiesResponse' {} a -> s {httpStatus = a} :: SetRulePrioritiesResponse)
 
-instance NFData SetRulePrioritiesResponse where
+instance Prelude.NFData SetRulePrioritiesResponse

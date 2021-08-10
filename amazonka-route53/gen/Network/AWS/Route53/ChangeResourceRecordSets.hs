@@ -1,194 +1,292 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified domain name or subdomain name. For example, you can use @ChangeResourceRecordSets@ to create a resource record set that routes traffic for test.example.com to a web server that has an IP address of 192.0.2.44.
+-- Creates, changes, or deletes a resource record set, which contains
+-- authoritative DNS information for a specified domain name or subdomain
+-- name. For example, you can use @ChangeResourceRecordSets@ to create a
+-- resource record set that routes traffic for test.example.com to a web
+-- server that has an IP address of 192.0.2.44.
 --
+-- __Deleting Resource Record Sets__
+--
+-- To delete a resource record set, you must specify all the same values
+-- that you specified when you created it.
 --
 -- __Change Batches and Transactional Changes__
 --
--- The request body must include a document with a @ChangeResourceRecordSetsRequest@ element. The request body contains a list of change items, known as a change batch. Change batches are considered transactional changes. When using the Amazon Route 53 API to change resource record sets, Amazon Route 53 either makes all or none of the changes in a change batch request. This ensures that Amazon Route 53 never partially implements the intended changes to the resource record sets in a hosted zone.
+-- The request body must include a document with a
+-- @ChangeResourceRecordSetsRequest@ element. The request body contains a
+-- list of change items, known as a change batch. Change batches are
+-- considered transactional changes. Route 53 validates the changes in the
+-- request and then either makes all or none of the changes in the change
+-- batch request. This ensures that DNS routing isn\'t adversely affected
+-- by partial changes to the resource record sets in a hosted zone.
 --
--- For example, a change batch request that deletes the @CNAME@ record for www.example.com and creates an alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates the second resource record set in a single operation. If either the @DELETE@ or the @CREATE@ action fails, then both changes (plus any other changes in the batch) fail, and the original @CNAME@ record continues to exist.
+-- For example, suppose a change batch request contains two changes: it
+-- deletes the @CNAME@ resource record set for www.example.com and creates
+-- an alias resource record set for www.example.com. If validation for both
+-- records succeeds, Route 53 deletes the first resource record set and
+-- creates the second resource record set in a single operation. If
+-- validation for either the @DELETE@ or the @CREATE@ action fails, then
+-- the request is canceled, and the original @CNAME@ record continues to
+-- exist.
 --
--- /Important:/ Due to the nature of transactional changes, you can't delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an @InvalidChangeBatch@ error.
+-- If you try to delete the same resource record set more than once in a
+-- single change batch, Route 53 returns an @InvalidChangeBatch@ error.
 --
 -- __Traffic Flow__
 --
--- To create resource record sets for complex routing configurations, use either the traffic flow visual editor in the Amazon Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn't performing as expected. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html Using Traffic Flow to Route DNS Traffic> in the /Amazon Route 53 Developer Guide/ .
+-- To create resource record sets for complex routing configurations, use
+-- either the traffic flow visual editor in the Route 53 console or the API
+-- actions for traffic policies and traffic policy instances. Save the
+-- configuration as a traffic policy, then associate the traffic policy
+-- with one or more domain names (such as example.com) or subdomain names
+-- (such as www.example.com), in the same hosted zone or in multiple hosted
+-- zones. You can roll back the updates if the new configuration isn\'t
+-- performing as expected. For more information, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html Using Traffic Flow to Route DNS Traffic>
+-- in the /Amazon Route 53 Developer Guide/.
 --
 -- __Create, Delete, and Upsert__
 --
 -- Use @ChangeResourceRecordsSetsRequest@ to perform the following actions:
 --
---     * @CREATE@ : Creates a resource record set that has the specified values.
+-- -   @CREATE@: Creates a resource record set that has the specified
+--     values.
 --
---     * @DELETE@ : Deletes an existing resource record set that has the specified values.
+-- -   @DELETE@: Deletes an existing resource record set that has the
+--     specified values.
 --
---     * @UPSERT@ : If a resource record set does not already exist, AWS creates it. If a resource set does exist, Amazon Route 53 updates it with the values in the request.
---
---
+-- -   @UPSERT@: If a resource record set does not already exist, AWS
+--     creates it. If a resource set does exist, Route 53 updates it with
+--     the values in the request.
 --
 -- __Syntaxes for Creating, Updating, and Deleting Resource Record Sets__
 --
--- The syntax for a request depends on the type of resource record set that you want to create, delete, or update, such as weighted, alias, or failover. The XML elements in your request must appear in the order listed in the syntax.
+-- The syntax for a request depends on the type of resource record set that
+-- you want to create, delete, or update, such as weighted, alias, or
+-- failover. The XML elements in your request must appear in the order
+-- listed in the syntax.
 --
--- For an example for each type of resource record set, see "Examples."
+-- For an example for each type of resource record set, see \"Examples.\"
 --
--- Don't refer to the syntax in the "Parameter Syntax" section, which includes all of the elements for every kind of resource record set that you can create, delete, or update by using @ChangeResourceRecordSets@ .
+-- Don\'t refer to the syntax in the \"Parameter Syntax\" section, which
+-- includes all of the elements for every kind of resource record set that
+-- you can create, delete, or update by using @ChangeResourceRecordSets@.
 --
--- __Change Propagation to Amazon Route 53 DNS Servers__
+-- __Change Propagation to Route 53 DNS Servers__
 --
--- When you submit a @ChangeResourceRecordSets@ request, Amazon Route 53 propagates your changes to all of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, @GetChange@ returns a status of @PENDING@ . When propagation is complete, @GetChange@ returns a status of @INSYNC@ . Changes generally propagate to all Amazon Route 53 name servers within 60 seconds. For more information, see 'GetChange' .
+-- When you submit a @ChangeResourceRecordSets@ request, Route 53
+-- propagates your changes to all of the Route 53 authoritative DNS
+-- servers. While your changes are propagating, @GetChange@ returns a
+-- status of @PENDING@. When propagation is complete, @GetChange@ returns a
+-- status of @INSYNC@. Changes generally propagate to all Route 53 name
+-- servers within 60 seconds. For more information, see
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>.
 --
 -- __Limits on ChangeResourceRecordSets Requests__
 --
--- For information about the limits on a @ChangeResourceRecordSets@ request, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
---
+-- For information about the limits on a @ChangeResourceRecordSets@
+-- request, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits>
+-- in the /Amazon Route 53 Developer Guide/.
 module Network.AWS.Route53.ChangeResourceRecordSets
-    (
-    -- * Creating a Request
-      changeResourceRecordSets
-    , ChangeResourceRecordSets
+  ( -- * Creating a Request
+    ChangeResourceRecordSets (..),
+    newChangeResourceRecordSets,
+
     -- * Request Lenses
-    , crrsHostedZoneId
-    , crrsChangeBatch
+    changeResourceRecordSets_hostedZoneId,
+    changeResourceRecordSets_changeBatch,
 
     -- * Destructuring the Response
-    , changeResourceRecordSetsResponse
-    , ChangeResourceRecordSetsResponse
+    ChangeResourceRecordSetsResponse (..),
+    newChangeResourceRecordSetsResponse,
+
     -- * Response Lenses
-    , crrsrsResponseStatus
-    , crrsrsChangeInfo
-    ) where
+    changeResourceRecordSetsResponse_httpStatus,
+    changeResourceRecordSetsResponse_changeInfo,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | A complex type that contains change information for the resource record set.
+-- | A complex type that contains change information for the resource record
+-- set.
 --
---
---
--- /See:/ 'changeResourceRecordSets' smart constructor.
+-- /See:/ 'newChangeResourceRecordSets' smart constructor.
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-  { _crrsHostedZoneId :: !ResourceId
-  , _crrsChangeBatch  :: !ChangeBatch
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the hosted zone that contains the resource record sets that
+    -- you want to change.
+    hostedZoneId :: ResourceId,
+    -- | A complex type that contains an optional comment and the @Changes@
+    -- element.
+    changeBatch :: ChangeBatch
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ChangeResourceRecordSets' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ChangeResourceRecordSets' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crrsHostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to change.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crrsChangeBatch' - A complex type that contains an optional comment and the @Changes@ element.
-changeResourceRecordSets
-    :: ResourceId -- ^ 'crrsHostedZoneId'
-    -> ChangeBatch -- ^ 'crrsChangeBatch'
-    -> ChangeResourceRecordSets
-changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
-  ChangeResourceRecordSets'
-    {_crrsHostedZoneId = pHostedZoneId_, _crrsChangeBatch = pChangeBatch_}
+-- 'hostedZoneId', 'changeResourceRecordSets_hostedZoneId' - The ID of the hosted zone that contains the resource record sets that
+-- you want to change.
+--
+-- 'changeBatch', 'changeResourceRecordSets_changeBatch' - A complex type that contains an optional comment and the @Changes@
+-- element.
+newChangeResourceRecordSets ::
+  -- | 'hostedZoneId'
+  ResourceId ->
+  -- | 'changeBatch'
+  ChangeBatch ->
+  ChangeResourceRecordSets
+newChangeResourceRecordSets
+  pHostedZoneId_
+  pChangeBatch_ =
+    ChangeResourceRecordSets'
+      { hostedZoneId =
+          pHostedZoneId_,
+        changeBatch = pChangeBatch_
+      }
 
+-- | The ID of the hosted zone that contains the resource record sets that
+-- you want to change.
+changeResourceRecordSets_hostedZoneId :: Lens.Lens' ChangeResourceRecordSets ResourceId
+changeResourceRecordSets_hostedZoneId = Lens.lens (\ChangeResourceRecordSets' {hostedZoneId} -> hostedZoneId) (\s@ChangeResourceRecordSets' {} a -> s {hostedZoneId = a} :: ChangeResourceRecordSets)
 
--- | The ID of the hosted zone that contains the resource record sets that you want to change.
-crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
-crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a})
+-- | A complex type that contains an optional comment and the @Changes@
+-- element.
+changeResourceRecordSets_changeBatch :: Lens.Lens' ChangeResourceRecordSets ChangeBatch
+changeResourceRecordSets_changeBatch = Lens.lens (\ChangeResourceRecordSets' {changeBatch} -> changeBatch) (\s@ChangeResourceRecordSets' {} a -> s {changeBatch = a} :: ChangeResourceRecordSets)
 
--- | A complex type that contains an optional comment and the @Changes@ element.
-crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
-crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a})
+instance Core.AWSRequest ChangeResourceRecordSets where
+  type
+    AWSResponse ChangeResourceRecordSets =
+      ChangeResourceRecordSetsResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ChangeResourceRecordSetsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ChangeInfo")
+      )
 
-instance AWSRequest ChangeResourceRecordSets where
-        type Rs ChangeResourceRecordSets =
-             ChangeResourceRecordSetsResponse
-        request = postXML route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 ChangeResourceRecordSetsResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
+instance Prelude.Hashable ChangeResourceRecordSets
 
-instance Hashable ChangeResourceRecordSets where
+instance Prelude.NFData ChangeResourceRecordSets
 
-instance NFData ChangeResourceRecordSets where
+instance Core.ToElement ChangeResourceRecordSets where
+  toElement =
+    Core.mkElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest"
 
-instance ToElement ChangeResourceRecordSets where
-        toElement
-          = mkElement
-              "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest"
+instance Core.ToHeaders ChangeResourceRecordSets where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ChangeResourceRecordSets where
-        toHeaders = const mempty
+instance Core.ToPath ChangeResourceRecordSets where
+  toPath ChangeResourceRecordSets' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/hostedzone/",
+        Core.toBS hostedZoneId,
+        "/rrset/"
+      ]
 
-instance ToPath ChangeResourceRecordSets where
-        toPath ChangeResourceRecordSets'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toBS _crrsHostedZoneId,
-               "/rrset/"]
+instance Core.ToQuery ChangeResourceRecordSets where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ChangeResourceRecordSets where
-        toQuery = const mempty
-
-instance ToXML ChangeResourceRecordSets where
-        toXML ChangeResourceRecordSets'{..}
-          = mconcat ["ChangeBatch" @= _crrsChangeBatch]
+instance Core.ToXML ChangeResourceRecordSets where
+  toXML ChangeResourceRecordSets' {..} =
+    Prelude.mconcat ["ChangeBatch" Core.@= changeBatch]
 
 -- | A complex type containing the response for the request.
 --
---
---
--- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
+-- /See:/ 'newChangeResourceRecordSetsResponse' smart constructor.
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-  { _crrsrsResponseStatus :: !Int
-  , _crrsrsChangeInfo     :: !ChangeInfo
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A complex type that contains information about changes made to your
+    -- hosted zone.
+    --
+    -- This element contains an ID that you use when performing a
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
+    -- action to get detailed information about the change.
+    changeInfo :: ChangeInfo
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ChangeResourceRecordSetsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ChangeResourceRecordSetsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crrsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crrsrsChangeInfo' - A complex type that contains information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
-changeResourceRecordSetsResponse
-    :: Int -- ^ 'crrsrsResponseStatus'
-    -> ChangeInfo -- ^ 'crrsrsChangeInfo'
-    -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pResponseStatus_ pChangeInfo_ =
-  ChangeResourceRecordSetsResponse'
-    {_crrsrsResponseStatus = pResponseStatus_, _crrsrsChangeInfo = pChangeInfo_}
+-- 'httpStatus', 'changeResourceRecordSetsResponse_httpStatus' - The response's http status code.
+--
+-- 'changeInfo', 'changeResourceRecordSetsResponse_changeInfo' - A complex type that contains information about changes made to your
+-- hosted zone.
+--
+-- This element contains an ID that you use when performing a
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
+-- action to get detailed information about the change.
+newChangeResourceRecordSetsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'changeInfo'
+  ChangeInfo ->
+  ChangeResourceRecordSetsResponse
+newChangeResourceRecordSetsResponse
+  pHttpStatus_
+  pChangeInfo_ =
+    ChangeResourceRecordSetsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        changeInfo = pChangeInfo_
+      }
 
+-- | The response's http status code.
+changeResourceRecordSetsResponse_httpStatus :: Lens.Lens' ChangeResourceRecordSetsResponse Prelude.Int
+changeResourceRecordSetsResponse_httpStatus = Lens.lens (\ChangeResourceRecordSetsResponse' {httpStatus} -> httpStatus) (\s@ChangeResourceRecordSetsResponse' {} a -> s {httpStatus = a} :: ChangeResourceRecordSetsResponse)
 
--- | -- | The response status code.
-crrsrsResponseStatus :: Lens' ChangeResourceRecordSetsResponse Int
-crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a})
+-- | A complex type that contains information about changes made to your
+-- hosted zone.
+--
+-- This element contains an ID that you use when performing a
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
+-- action to get detailed information about the change.
+changeResourceRecordSetsResponse_changeInfo :: Lens.Lens' ChangeResourceRecordSetsResponse ChangeInfo
+changeResourceRecordSetsResponse_changeInfo = Lens.lens (\ChangeResourceRecordSetsResponse' {changeInfo} -> changeInfo) (\s@ChangeResourceRecordSetsResponse' {} a -> s {changeInfo = a} :: ChangeResourceRecordSetsResponse)
 
--- | A complex type that contains information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
-crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
-crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a})
-
-instance NFData ChangeResourceRecordSetsResponse
-         where
+instance
+  Prelude.NFData
+    ChangeResourceRecordSetsResponse

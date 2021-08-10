@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.ListRoots
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,146 +22,248 @@
 --
 -- Lists the roots that are defined in the current organization.
 --
+-- Always check the @NextToken@ response parameter for a @null@ value when
+-- calling a @List*@ operation. These operations can occasionally return an
+-- empty set of results even when there are more results available. The
+-- @NextToken@ response parameter value is @null@ /only/ when there are no
+-- more results to display.
 --
--- This operation can be called only from the organization's master account.
+-- This operation can be called only from the organization\'s management
+-- account or by a member account that is a delegated administrator for an
+-- AWS service.
 --
+-- Policy types can be enabled and disabled in roots. This is distinct from
+-- whether they\'re available in the organization. When you enable all
+-- features, you make policy types available for use in that organization.
+-- Individual policy types can then be enabled and disabled in a root. To
+-- see the availability of a policy type in an organization, use
+-- DescribeOrganization.
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListRoots
-    (
-    -- * Creating a Request
-      listRoots
-    , ListRoots
+  ( -- * Creating a Request
+    ListRoots (..),
+    newListRoots,
+
     -- * Request Lenses
-    , lrNextToken
-    , lrMaxResults
+    listRoots_nextToken,
+    listRoots_maxResults,
 
     -- * Destructuring the Response
-    , listRootsResponse
-    , ListRootsResponse
+    ListRootsResponse (..),
+    newListRootsResponse,
+
     -- * Response Lenses
-    , lrrsRoots
-    , lrrsNextToken
-    , lrrsResponseStatus
-    ) where
+    listRootsResponse_nextToken,
+    listRootsResponse_roots,
+    listRootsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listRoots' smart constructor.
+-- | /See:/ 'newListRoots' smart constructor.
 data ListRoots = ListRoots'
-  { _lrNextToken  :: !(Maybe Text)
-  , _lrMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of results that you want included on each page of the
+    -- response. If you do not include this parameter, it defaults to a value
+    -- that is specific to the operation. If additional items exist beyond the
+    -- maximum you specify, the @NextToken@ response element is present and has
+    -- a value (is not null). Include that value as the @NextToken@ request
+    -- parameter in the next call to the operation to get the next part of the
+    -- results. Note that Organizations might return fewer results than the
+    -- maximum even when there are more results available. You should check
+    -- @NextToken@ after every operation to ensure that you receive all of the
+    -- results.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListRoots' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListRoots' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrNextToken' - Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrMaxResults' - (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-listRoots
-    :: ListRoots
-listRoots = ListRoots' {_lrNextToken = Nothing, _lrMaxResults = Nothing}
-
-
--- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-lrNextToken :: Lens' ListRoots (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
-
--- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-lrMaxResults :: Lens' ListRoots (Maybe Natural)
-lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListRoots where
-        page rq rs
-          | stop (rs ^. lrrsNextToken) = Nothing
-          | stop (rs ^. lrrsRoots) = Nothing
-          | otherwise =
-            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
-
-instance AWSRequest ListRoots where
-        type Rs ListRoots = ListRootsResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListRootsResponse' <$>
-                   (x .?> "Roots" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListRoots where
-
-instance NFData ListRoots where
-
-instance ToHeaders ListRoots where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.ListRoots" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListRoots where
-        toJSON ListRoots'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lrNextToken,
-                  ("MaxResults" .=) <$> _lrMaxResults])
-
-instance ToPath ListRoots where
-        toPath = const "/"
-
-instance ToQuery ListRoots where
-        toQuery = const mempty
-
--- | /See:/ 'listRootsResponse' smart constructor.
-data ListRootsResponse = ListRootsResponse'
-  { _lrrsRoots          :: !(Maybe [Root])
-  , _lrrsNextToken      :: !(Maybe Text)
-  , _lrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListRootsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listRoots_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsRoots' - A list of roots that are defined in an organization.
---
--- * 'lrrsNextToken' - If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listRootsResponse
-    :: Int -- ^ 'lrrsResponseStatus'
-    -> ListRootsResponse
-listRootsResponse pResponseStatus_ =
-  ListRootsResponse'
-    { _lrrsRoots = Nothing
-    , _lrrsNextToken = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'listRoots_maxResults' - The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+newListRoots ::
+  ListRoots
+newListRoots =
+  ListRoots'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listRoots_nextToken :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Text)
+listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListRoots' {} a -> s {nextToken = a} :: ListRoots)
+
+-- | The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+listRoots_maxResults :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Natural)
+listRoots_maxResults = Lens.lens (\ListRoots' {maxResults} -> maxResults) (\s@ListRoots' {} a -> s {maxResults = a} :: ListRoots)
+
+instance Core.AWSPager ListRoots where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRootsResponse_roots Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRoots_nextToken
+          Lens..~ rs
+          Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
+
+instance Core.AWSRequest ListRoots where
+  type AWSResponse ListRoots = ListRootsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListRootsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Roots" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListRoots
+
+instance Prelude.NFData ListRoots
+
+instance Core.ToHeaders ListRoots where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrganizationsV20161128.ListRoots" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListRoots where
+  toJSON ListRoots' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Core.ToPath ListRoots where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListRoots where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListRootsResponse' smart constructor.
+data ListRootsResponse = ListRootsResponse'
+  { -- | If present, indicates that more output is available than is included in
+    -- the current response. Use this value in the @NextToken@ request
+    -- parameter in a subsequent call to the operation to get the next part of
+    -- the output. You should repeat this until the @NextToken@ response
+    -- element comes back as @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of roots that are defined in an organization.
+    roots :: Prelude.Maybe [Root],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListRootsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listRootsResponse_nextToken' - If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+--
+-- 'roots', 'listRootsResponse_roots' - A list of roots that are defined in an organization.
+--
+-- 'httpStatus', 'listRootsResponse_httpStatus' - The response's http status code.
+newListRootsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListRootsResponse
+newListRootsResponse pHttpStatus_ =
+  ListRootsResponse'
+    { nextToken = Prelude.Nothing,
+      roots = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+listRootsResponse_nextToken :: Lens.Lens' ListRootsResponse (Prelude.Maybe Prelude.Text)
+listRootsResponse_nextToken = Lens.lens (\ListRootsResponse' {nextToken} -> nextToken) (\s@ListRootsResponse' {} a -> s {nextToken = a} :: ListRootsResponse)
 
 -- | A list of roots that are defined in an organization.
-lrrsRoots :: Lens' ListRootsResponse [Root]
-lrrsRoots = lens _lrrsRoots (\ s a -> s{_lrrsRoots = a}) . _Default . _Coerce
+listRootsResponse_roots :: Lens.Lens' ListRootsResponse (Prelude.Maybe [Root])
+listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@ListRootsResponse' {} a -> s {roots = a} :: ListRootsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-lrrsNextToken :: Lens' ListRootsResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
+-- | The response's http status code.
+listRootsResponse_httpStatus :: Lens.Lens' ListRootsResponse Prelude.Int
+listRootsResponse_httpStatus = Lens.lens (\ListRootsResponse' {httpStatus} -> httpStatus) (\s@ListRootsResponse' {} a -> s {httpStatus = a} :: ListRootsResponse)
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListRootsResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
-
-instance NFData ListRootsResponse where
+instance Prelude.NFData ListRootsResponse

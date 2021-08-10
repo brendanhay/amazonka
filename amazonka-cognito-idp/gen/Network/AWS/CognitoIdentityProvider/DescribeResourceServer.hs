@@ -1,149 +1,182 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeResourceServer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a resource server.
---
---
 module Network.AWS.CognitoIdentityProvider.DescribeResourceServer
-    (
-    -- * Creating a Request
-      describeResourceServer
-    , DescribeResourceServer
+  ( -- * Creating a Request
+    DescribeResourceServer (..),
+    newDescribeResourceServer,
+
     -- * Request Lenses
-    , desUserPoolId
-    , desIdentifier
+    describeResourceServer_userPoolId,
+    describeResourceServer_identifier,
 
     -- * Destructuring the Response
-    , describeResourceServerResponse
-    , DescribeResourceServerResponse
+    DescribeResourceServerResponse (..),
+    newDescribeResourceServerResponse,
+
     -- * Response Lenses
-    , drsrsResponseStatus
-    , drsrsResourceServer
-    ) where
+    describeResourceServerResponse_httpStatus,
+    describeResourceServerResponse_resourceServer,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeResourceServer' smart constructor.
+-- | /See:/ 'newDescribeResourceServer' smart constructor.
 data DescribeResourceServer = DescribeResourceServer'
-  { _desUserPoolId :: !Text
-  , _desIdentifier :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The user pool ID for the user pool that hosts the resource server.
+    userPoolId :: Prelude.Text,
+    -- | The identifier for the resource server
+    identifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeResourceServer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeResourceServer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desUserPoolId' - The user pool ID for the user pool that hosts the resource server.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desIdentifier' - The identifier for the resource server
-describeResourceServer
-    :: Text -- ^ 'desUserPoolId'
-    -> Text -- ^ 'desIdentifier'
-    -> DescribeResourceServer
-describeResourceServer pUserPoolId_ pIdentifier_ =
+-- 'userPoolId', 'describeResourceServer_userPoolId' - The user pool ID for the user pool that hosts the resource server.
+--
+-- 'identifier', 'describeResourceServer_identifier' - The identifier for the resource server
+newDescribeResourceServer ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'identifier'
+  Prelude.Text ->
+  DescribeResourceServer
+newDescribeResourceServer pUserPoolId_ pIdentifier_ =
   DescribeResourceServer'
-    {_desUserPoolId = pUserPoolId_, _desIdentifier = pIdentifier_}
-
-
--- | The user pool ID for the user pool that hosts the resource server.
-desUserPoolId :: Lens' DescribeResourceServer Text
-desUserPoolId = lens _desUserPoolId (\ s a -> s{_desUserPoolId = a})
-
--- | The identifier for the resource server
-desIdentifier :: Lens' DescribeResourceServer Text
-desIdentifier = lens _desIdentifier (\ s a -> s{_desIdentifier = a})
-
-instance AWSRequest DescribeResourceServer where
-        type Rs DescribeResourceServer =
-             DescribeResourceServerResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeResourceServerResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "ResourceServer"))
-
-instance Hashable DescribeResourceServer where
-
-instance NFData DescribeResourceServer where
-
-instance ToHeaders DescribeResourceServer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.DescribeResourceServer"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeResourceServer where
-        toJSON DescribeResourceServer'{..}
-          = object
-              (catMaybes
-                 [Just ("UserPoolId" .= _desUserPoolId),
-                  Just ("Identifier" .= _desIdentifier)])
-
-instance ToPath DescribeResourceServer where
-        toPath = const "/"
-
-instance ToQuery DescribeResourceServer where
-        toQuery = const mempty
-
--- | /See:/ 'describeResourceServerResponse' smart constructor.
-data DescribeResourceServerResponse = DescribeResourceServerResponse'
-  { _drsrsResponseStatus :: !Int
-  , _drsrsResourceServer :: !ResourceServerType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeResourceServerResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsrsResponseStatus' - -- | The response status code.
---
--- * 'drsrsResourceServer' - The resource server.
-describeResourceServerResponse
-    :: Int -- ^ 'drsrsResponseStatus'
-    -> ResourceServerType -- ^ 'drsrsResourceServer'
-    -> DescribeResourceServerResponse
-describeResourceServerResponse pResponseStatus_ pResourceServer_ =
-  DescribeResourceServerResponse'
-    { _drsrsResponseStatus = pResponseStatus_
-    , _drsrsResourceServer = pResourceServer_
+    { userPoolId = pUserPoolId_,
+      identifier = pIdentifier_
     }
 
+-- | The user pool ID for the user pool that hosts the resource server.
+describeResourceServer_userPoolId :: Lens.Lens' DescribeResourceServer Prelude.Text
+describeResourceServer_userPoolId = Lens.lens (\DescribeResourceServer' {userPoolId} -> userPoolId) (\s@DescribeResourceServer' {} a -> s {userPoolId = a} :: DescribeResourceServer)
 
--- | -- | The response status code.
-drsrsResponseStatus :: Lens' DescribeResourceServerResponse Int
-drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a})
+-- | The identifier for the resource server
+describeResourceServer_identifier :: Lens.Lens' DescribeResourceServer Prelude.Text
+describeResourceServer_identifier = Lens.lens (\DescribeResourceServer' {identifier} -> identifier) (\s@DescribeResourceServer' {} a -> s {identifier = a} :: DescribeResourceServer)
+
+instance Core.AWSRequest DescribeResourceServer where
+  type
+    AWSResponse DescribeResourceServer =
+      DescribeResourceServerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeResourceServerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ResourceServer")
+      )
+
+instance Prelude.Hashable DescribeResourceServer
+
+instance Prelude.NFData DescribeResourceServer
+
+instance Core.ToHeaders DescribeResourceServer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.DescribeResourceServer" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeResourceServer where
+  toJSON DescribeResourceServer' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Identifier" Core..= identifier)
+          ]
+      )
+
+instance Core.ToPath DescribeResourceServer where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeResourceServer where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeResourceServerResponse' smart constructor.
+data DescribeResourceServerResponse = DescribeResourceServerResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The resource server.
+    resourceServer :: ResourceServerType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeResourceServerResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'describeResourceServerResponse_httpStatus' - The response's http status code.
+--
+-- 'resourceServer', 'describeResourceServerResponse_resourceServer' - The resource server.
+newDescribeResourceServerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'resourceServer'
+  ResourceServerType ->
+  DescribeResourceServerResponse
+newDescribeResourceServerResponse
+  pHttpStatus_
+  pResourceServer_ =
+    DescribeResourceServerResponse'
+      { httpStatus =
+          pHttpStatus_,
+        resourceServer = pResourceServer_
+      }
+
+-- | The response's http status code.
+describeResourceServerResponse_httpStatus :: Lens.Lens' DescribeResourceServerResponse Prelude.Int
+describeResourceServerResponse_httpStatus = Lens.lens (\DescribeResourceServerResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceServerResponse' {} a -> s {httpStatus = a} :: DescribeResourceServerResponse)
 
 -- | The resource server.
-drsrsResourceServer :: Lens' DescribeResourceServerResponse ResourceServerType
-drsrsResourceServer = lens _drsrsResourceServer (\ s a -> s{_drsrsResourceServer = a})
+describeResourceServerResponse_resourceServer :: Lens.Lens' DescribeResourceServerResponse ResourceServerType
+describeResourceServerResponse_resourceServer = Lens.lens (\DescribeResourceServerResponse' {resourceServer} -> resourceServer) (\s@DescribeResourceServerResponse' {} a -> s {resourceServer = a} :: DescribeResourceServerResponse)
 
-instance NFData DescribeResourceServerResponse where
+instance
+  Prelude.NFData
+    DescribeResourceServerResponse

@@ -1,124 +1,150 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDeployment
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a 'Deployment' resource.
---
---
+-- Changes information about a Deployment resource.
 module Network.AWS.APIGateway.UpdateDeployment
-    (
-    -- * Creating a Request
-      updateDeployment
-    , UpdateDeployment
+  ( -- * Creating a Request
+    UpdateDeployment (..),
+    newUpdateDeployment,
+
     -- * Request Lenses
-    , udPatchOperations
-    , udRestAPIId
-    , udDeploymentId
+    updateDeployment_patchOperations,
+    updateDeployment_restApiId,
+    updateDeployment_deploymentId,
 
     -- * Destructuring the Response
-    , deployment
-    , Deployment
+    Deployment (..),
+    newDeployment,
+
     -- * Response Lenses
-    , dApiSummary
-    , dCreatedDate
-    , dId
-    , dDescription
-    ) where
+    deployment_createdDate,
+    deployment_id,
+    deployment_apiSummary,
+    deployment_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests API Gateway to change information about a 'Deployment' resource.
+-- | Requests API Gateway to change information about a Deployment resource.
 --
---
---
--- /See:/ 'updateDeployment' smart constructor.
+-- /See:/ 'newUpdateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
-  { _udPatchOperations :: !(Maybe [PatchOperation])
-  , _udRestAPIId       :: !Text
-  , _udDeploymentId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | The replacement identifier for the Deployment resource to change
+    -- information about.
+    deploymentId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDeployment' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDeployment' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- 'patchOperations', 'updateDeployment_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
 --
--- * 'udDeploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
-updateDeployment
-    :: Text -- ^ 'udRestAPIId'
-    -> Text -- ^ 'udDeploymentId'
-    -> UpdateDeployment
-updateDeployment pRestAPIId_ pDeploymentId_ =
+-- 'restApiId', 'updateDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'deploymentId', 'updateDeployment_deploymentId' - The replacement identifier for the Deployment resource to change
+-- information about.
+newUpdateDeployment ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'deploymentId'
+  Prelude.Text ->
+  UpdateDeployment
+newUpdateDeployment pRestApiId_ pDeploymentId_ =
   UpdateDeployment'
-    { _udPatchOperations = Nothing
-    , _udRestAPIId = pRestAPIId_
-    , _udDeploymentId = pDeploymentId_
+    { patchOperations =
+        Prelude.Nothing,
+      restApiId = pRestApiId_,
+      deploymentId = pDeploymentId_
     }
 
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateDeployment_patchOperations :: Lens.Lens' UpdateDeployment (Prelude.Maybe [PatchOperation])
+updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
-udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce
+-- | [Required] The string identifier of the associated RestApi.
+updateDeployment_restApiId :: Lens.Lens' UpdateDeployment Prelude.Text
+updateDeployment_restApiId = Lens.lens (\UpdateDeployment' {restApiId} -> restApiId) (\s@UpdateDeployment' {} a -> s {restApiId = a} :: UpdateDeployment)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-udRestAPIId :: Lens' UpdateDeployment Text
-udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a})
+-- | The replacement identifier for the Deployment resource to change
+-- information about.
+updateDeployment_deploymentId :: Lens.Lens' UpdateDeployment Prelude.Text
+updateDeployment_deploymentId = Lens.lens (\UpdateDeployment' {deploymentId} -> deploymentId) (\s@UpdateDeployment' {} a -> s {deploymentId = a} :: UpdateDeployment)
 
--- | The replacement identifier for the 'Deployment' resource to change information about.
-udDeploymentId :: Lens' UpdateDeployment Text
-udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a})
+instance Core.AWSRequest UpdateDeployment where
+  type AWSResponse UpdateDeployment = Deployment
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest UpdateDeployment where
-        type Rs UpdateDeployment = Deployment
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable UpdateDeployment
 
-instance Hashable UpdateDeployment where
+instance Prelude.NFData UpdateDeployment
 
-instance NFData UpdateDeployment where
+instance Core.ToHeaders UpdateDeployment where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders UpdateDeployment where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToJSON UpdateDeployment where
+  toJSON UpdateDeployment' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Core..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToJSON UpdateDeployment where
-        toJSON UpdateDeployment'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _udPatchOperations])
+instance Core.ToPath UpdateDeployment where
+  toPath UpdateDeployment' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/deployments/",
+        Core.toBS deploymentId
+      ]
 
-instance ToPath UpdateDeployment where
-        toPath UpdateDeployment'{..}
-          = mconcat
-              ["/restapis/", toBS _udRestAPIId, "/deployments/",
-               toBS _udDeploymentId]
-
-instance ToQuery UpdateDeployment where
-        toQuery = const mempty
+instance Core.ToQuery UpdateDeployment where
+  toQuery = Prelude.const Prelude.mempty

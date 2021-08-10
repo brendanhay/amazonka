@@ -1,143 +1,164 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the configuration information about a distribution.
---
---
 module Network.AWS.CloudFront.GetDistributionConfig
-    (
-    -- * Creating a Request
-      getDistributionConfig
-    , GetDistributionConfig
+  ( -- * Creating a Request
+    GetDistributionConfig (..),
+    newGetDistributionConfig,
+
     -- * Request Lenses
-    , gdcId
+    getDistributionConfig_id,
 
     -- * Destructuring the Response
-    , getDistributionConfigResponse
-    , GetDistributionConfigResponse
+    GetDistributionConfigResponse (..),
+    newGetDistributionConfigResponse,
+
     -- * Response Lenses
-    , gdcrsETag
-    , gdcrsDistributionConfig
-    , gdcrsResponseStatus
-    ) where
+    getDistributionConfigResponse_eTag,
+    getDistributionConfigResponse_distributionConfig,
+    getDistributionConfigResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to get a distribution configuration.
 --
+-- /See:/ 'newGetDistributionConfig' smart constructor.
+data GetDistributionConfig = GetDistributionConfig'
+  { -- | The distribution\'s ID. If the ID is empty, an empty distribution
+    -- configuration is returned.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDistributionConfig' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getDistributionConfig' smart constructor.
-newtype GetDistributionConfig = GetDistributionConfig'
-  { _gdcId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcId' - The distribution's ID.
-getDistributionConfig
-    :: Text -- ^ 'gdcId'
-    -> GetDistributionConfig
-getDistributionConfig pId_ = GetDistributionConfig' {_gdcId = pId_}
+-- 'id', 'getDistributionConfig_id' - The distribution\'s ID. If the ID is empty, an empty distribution
+-- configuration is returned.
+newGetDistributionConfig ::
+  -- | 'id'
+  Prelude.Text ->
+  GetDistributionConfig
+newGetDistributionConfig pId_ =
+  GetDistributionConfig' {id = pId_}
 
+-- | The distribution\'s ID. If the ID is empty, an empty distribution
+-- configuration is returned.
+getDistributionConfig_id :: Lens.Lens' GetDistributionConfig Prelude.Text
+getDistributionConfig_id = Lens.lens (\GetDistributionConfig' {id} -> id) (\s@GetDistributionConfig' {} a -> s {id = a} :: GetDistributionConfig)
 
--- | The distribution's ID.
-gdcId :: Lens' GetDistributionConfig Text
-gdcId = lens _gdcId (\ s a -> s{_gdcId = a})
+instance Core.AWSRequest GetDistributionConfig where
+  type
+    AWSResponse GetDistributionConfig =
+      GetDistributionConfigResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetDistributionConfigResponse'
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetDistributionConfig where
-        type Rs GetDistributionConfig =
-             GetDistributionConfigResponse
-        request = get cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetDistributionConfigResponse' <$>
-                   (h .#? "ETag") <*> (parseXML x) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable GetDistributionConfig
 
-instance Hashable GetDistributionConfig where
+instance Prelude.NFData GetDistributionConfig
 
-instance NFData GetDistributionConfig where
+instance Core.ToHeaders GetDistributionConfig where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetDistributionConfig where
-        toHeaders = const mempty
+instance Core.ToPath GetDistributionConfig where
+  toPath GetDistributionConfig' {..} =
+    Prelude.mconcat
+      [ "/2020-05-31/distribution/",
+        Core.toBS id,
+        "/config"
+      ]
 
-instance ToPath GetDistributionConfig where
-        toPath GetDistributionConfig'{..}
-          = mconcat
-              ["/2017-10-30/distribution/", toBS _gdcId, "/config"]
-
-instance ToQuery GetDistributionConfig where
-        toQuery = const mempty
+instance Core.ToQuery GetDistributionConfig where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'getDistributionConfigResponse' smart constructor.
+-- /See:/ 'newGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-  { _gdcrsETag               :: !(Maybe Text)
-  , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
-  , _gdcrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The distribution\'s configuration information.
+    distributionConfig :: Prelude.Maybe DistributionConfig,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDistributionConfigResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdcrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdcrsDistributionConfig' - The distribution's configuration information.
+-- 'eTag', 'getDistributionConfigResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
--- * 'gdcrsResponseStatus' - -- | The response status code.
-getDistributionConfigResponse
-    :: Int -- ^ 'gdcrsResponseStatus'
-    -> GetDistributionConfigResponse
-getDistributionConfigResponse pResponseStatus_ =
+-- 'distributionConfig', 'getDistributionConfigResponse_distributionConfig' - The distribution\'s configuration information.
+--
+-- 'httpStatus', 'getDistributionConfigResponse_httpStatus' - The response's http status code.
+newGetDistributionConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDistributionConfigResponse
+newGetDistributionConfigResponse pHttpStatus_ =
   GetDistributionConfigResponse'
-    { _gdcrsETag = Nothing
-    , _gdcrsDistributionConfig = Nothing
-    , _gdcrsResponseStatus = pResponseStatus_
+    { eTag =
+        Prelude.Nothing,
+      distributionConfig = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe Prelude.Text)
+getDistributionConfigResponse_eTag = Lens.lens (\GetDistributionConfigResponse' {eTag} -> eTag) (\s@GetDistributionConfigResponse' {} a -> s {eTag = a} :: GetDistributionConfigResponse)
 
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a})
+-- | The distribution\'s configuration information.
+getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe DistributionConfig)
+getDistributionConfigResponse_distributionConfig = Lens.lens (\GetDistributionConfigResponse' {distributionConfig} -> distributionConfig) (\s@GetDistributionConfigResponse' {} a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
 
--- | The distribution's configuration information.
-gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a})
+-- | The response's http status code.
+getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Prelude.Int
+getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResponse' {httpStatus} -> httpStatus) (\s@GetDistributionConfigResponse' {} a -> s {httpStatus = a} :: GetDistributionConfigResponse)
 
--- | -- | The response status code.
-gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a})
-
-instance NFData GetDistributionConfigResponse where
+instance Prelude.NFData GetDistributionConfigResponse

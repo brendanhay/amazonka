@@ -1,193 +1,330 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeClassicLinkInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink; you cannot use this request to return information about other instances.
+-- Describes one or more of your linked EC2-Classic instances. This request
+-- only returns information about EC2-Classic instances linked to a VPC
+-- through ClassicLink. You cannot use this request to return information
+-- about other instances.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeClassicLinkInstances
-    (
-    -- * Creating a Request
-      describeClassicLinkInstances
-    , DescribeClassicLinkInstances
+  ( -- * Creating a Request
+    DescribeClassicLinkInstances (..),
+    newDescribeClassicLinkInstances,
+
     -- * Request Lenses
-    , dcliFilters
-    , dcliNextToken
-    , dcliInstanceIds
-    , dcliDryRun
-    , dcliMaxResults
+    describeClassicLinkInstances_instanceIds,
+    describeClassicLinkInstances_nextToken,
+    describeClassicLinkInstances_dryRun,
+    describeClassicLinkInstances_maxResults,
+    describeClassicLinkInstances_filters,
 
     -- * Destructuring the Response
-    , describeClassicLinkInstancesResponse
-    , DescribeClassicLinkInstancesResponse
+    DescribeClassicLinkInstancesResponse (..),
+    newDescribeClassicLinkInstancesResponse,
+
     -- * Response Lenses
-    , dclirsNextToken
-    , dclirsInstances
-    , dclirsResponseStatus
-    ) where
+    describeClassicLinkInstancesResponse_nextToken,
+    describeClassicLinkInstancesResponse_instances,
+    describeClassicLinkInstancesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DescribeClassicLinkInstances.
---
---
---
--- /See:/ 'describeClassicLinkInstances' smart constructor.
+-- | /See:/ 'newDescribeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-  { _dcliFilters     :: !(Maybe [Filter])
-  , _dcliNextToken   :: !(Maybe Text)
-  , _dcliInstanceIds :: !(Maybe [Text])
-  , _dcliDryRun      :: !(Maybe Bool)
-  , _dcliMaxResults  :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | One or more instance IDs. Must be instances linked to a VPC through
+    -- ClassicLink.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    --
+    -- Constraint: If the value is greater than 1000, we return only 1000
+    -- items.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more filters.
+    --
+    -- -   @group-id@ - The ID of a VPC security group that\'s associated with
+    --     the instance.
+    --
+    -- -   @instance-id@ - The ID of the instance.
+    --
+    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    --     resource. Use the tag key in the filter name and the tag value as
+    --     the filter value. For example, to find all resources that have a tag
+    --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+    --     the filter name and @TeamA@ for the filter value.
+    --
+    -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+    --     filter to find all resources assigned a tag with a specific key,
+    --     regardless of the tag value.
+    --
+    -- -   @vpc-id@ - The ID of the VPC to which the instance is linked.
+    --
+    --     @vpc-id@ - The ID of the VPC that the instance is linked to.
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClassicLinkInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClassicLinkInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcliFilters' - One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC that the instance is linked to.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcliNextToken' - The token to retrieve the next page of results.
+-- 'instanceIds', 'describeClassicLinkInstances_instanceIds' - One or more instance IDs. Must be instances linked to a VPC through
+-- ClassicLink.
 --
--- * 'dcliInstanceIds' - One or more instance IDs. Must be instances linked to a VPC through ClassicLink.
+-- 'nextToken', 'describeClassicLinkInstances_nextToken' - The token for the next page of results.
 --
--- * 'dcliDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dcliMaxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request. Constraint: If the value is greater than 1000, we return only 1000 items.
-describeClassicLinkInstances
-    :: DescribeClassicLinkInstances
-describeClassicLinkInstances =
+-- 'maxResults', 'describeClassicLinkInstances_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- Constraint: If the value is greater than 1000, we return only 1000
+-- items.
+--
+-- 'filters', 'describeClassicLinkInstances_filters' - One or more filters.
+--
+-- -   @group-id@ - The ID of a VPC security group that\'s associated with
+--     the instance.
+--
+-- -   @instance-id@ - The ID of the instance.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+--
+-- -   @vpc-id@ - The ID of the VPC to which the instance is linked.
+--
+--     @vpc-id@ - The ID of the VPC that the instance is linked to.
+newDescribeClassicLinkInstances ::
+  DescribeClassicLinkInstances
+newDescribeClassicLinkInstances =
   DescribeClassicLinkInstances'
-    { _dcliFilters = Nothing
-    , _dcliNextToken = Nothing
-    , _dcliInstanceIds = Nothing
-    , _dcliDryRun = Nothing
-    , _dcliMaxResults = Nothing
+    { instanceIds =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | One or more instance IDs. Must be instances linked to a VPC through
+-- ClassicLink.
+describeClassicLinkInstances_instanceIds :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Prelude.Text])
+describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstances' {instanceIds} -> instanceIds) (\s@DescribeClassicLinkInstances' {} a -> s {instanceIds = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC that the instance is linked to.
-dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
-dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default . _Coerce
+-- | The token for the next page of results.
+describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Text)
+describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstances' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstances' {} a -> s {nextToken = a} :: DescribeClassicLinkInstances)
 
--- | The token to retrieve the next page of results.
-dcliNextToken :: Lens' DescribeClassicLinkInstances (Maybe Text)
-dcliNextToken = lens _dcliNextToken (\ s a -> s{_dcliNextToken = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
+describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
 
--- | One or more instance IDs. Must be instances linked to a VPC through ClassicLink.
-dcliInstanceIds :: Lens' DescribeClassicLinkInstances [Text]
-dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _Default . _Coerce
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dcliDryRun :: Lens' DescribeClassicLinkInstances (Maybe Bool)
-dcliDryRun = lens _dcliDryRun (\ s a -> s{_dcliDryRun = a})
-
--- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request. Constraint: If the value is greater than 1000, we return only 1000 items.
-dcliMaxResults :: Lens' DescribeClassicLinkInstances (Maybe Int)
-dcliMaxResults = lens _dcliMaxResults (\ s a -> s{_dcliMaxResults = a})
-
-instance AWSRequest DescribeClassicLinkInstances
-         where
-        type Rs DescribeClassicLinkInstances =
-             DescribeClassicLinkInstancesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeClassicLinkInstancesResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (x .@? "instancesSet" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeClassicLinkInstances where
-
-instance NFData DescribeClassicLinkInstances where
-
-instance ToHeaders DescribeClassicLinkInstances where
-        toHeaders = const mempty
-
-instance ToPath DescribeClassicLinkInstances where
-        toPath = const "/"
-
-instance ToQuery DescribeClassicLinkInstances where
-        toQuery DescribeClassicLinkInstances'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeClassicLinkInstances" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dcliFilters),
-               "NextToken" =: _dcliNextToken,
-               toQuery
-                 (toQueryList "InstanceId" <$> _dcliInstanceIds),
-               "DryRun" =: _dcliDryRun,
-               "MaxResults" =: _dcliMaxResults]
-
--- | Contains the output of DescribeClassicLinkInstances.
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 --
+-- Constraint: If the value is greater than 1000, we return only 1000
+-- items.
+describeClassicLinkInstances_maxResults :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Natural)
+describeClassicLinkInstances_maxResults = Lens.lens (\DescribeClassicLinkInstances' {maxResults} -> maxResults) (\s@DescribeClassicLinkInstances' {} a -> s {maxResults = a} :: DescribeClassicLinkInstances)
+
+-- | One or more filters.
 --
+-- -   @group-id@ - The ID of a VPC security group that\'s associated with
+--     the instance.
 --
--- /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
+-- -   @instance-id@ - The ID of the instance.
+--
+-- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+--     resource. Use the tag key in the filter name and the tag value as
+--     the filter value. For example, to find all resources that have a tag
+--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
+--     the filter name and @TeamA@ for the filter value.
+--
+-- -   @tag-key@ - The key of a tag assigned to the resource. Use this
+--     filter to find all resources assigned a tag with a specific key,
+--     regardless of the tag value.
+--
+-- -   @vpc-id@ - The ID of the VPC to which the instance is linked.
+--
+--     @vpc-id@ - The ID of the VPC that the instance is linked to.
+describeClassicLinkInstances_filters :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Filter])
+describeClassicLinkInstances_filters = Lens.lens (\DescribeClassicLinkInstances' {filters} -> filters) (\s@DescribeClassicLinkInstances' {} a -> s {filters = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens._Coerce
+
+instance Core.AWSPager DescribeClassicLinkInstances where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeClassicLinkInstancesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeClassicLinkInstancesResponse_instances
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeClassicLinkInstances_nextToken
+          Lens..~ rs
+          Lens.^? describeClassicLinkInstancesResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeClassicLinkInstances where
+  type
+    AWSResponse DescribeClassicLinkInstances =
+      DescribeClassicLinkInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeClassicLinkInstancesResponse'
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeClassicLinkInstances
+
+instance Prelude.NFData DescribeClassicLinkInstances
+
+instance Core.ToHeaders DescribeClassicLinkInstances where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeClassicLinkInstances where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeClassicLinkInstances where
+  toQuery DescribeClassicLinkInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeClassicLinkInstances" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "InstanceId"
+              Prelude.<$> instanceIds
+          ),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
+      ]
+
+-- | /See:/ 'newDescribeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-  { _dclirsNextToken      :: !(Maybe Text)
-  , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])
-  , _dclirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about one or more linked EC2-Classic instances.
+    instances :: Prelude.Maybe [ClassicLinkInstance],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClassicLinkInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClassicLinkInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dclirsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dclirsInstances' - Information about one or more linked EC2-Classic instances.
+-- 'nextToken', 'describeClassicLinkInstancesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
--- * 'dclirsResponseStatus' - -- | The response status code.
-describeClassicLinkInstancesResponse
-    :: Int -- ^ 'dclirsResponseStatus'
-    -> DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse pResponseStatus_ =
+-- 'instances', 'describeClassicLinkInstancesResponse_instances' - Information about one or more linked EC2-Classic instances.
+--
+-- 'httpStatus', 'describeClassicLinkInstancesResponse_httpStatus' - The response's http status code.
+newDescribeClassicLinkInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeClassicLinkInstancesResponse
+newDescribeClassicLinkInstancesResponse pHttpStatus_ =
   DescribeClassicLinkInstancesResponse'
-    { _dclirsNextToken = Nothing
-    , _dclirsInstances = Nothing
-    , _dclirsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      instances = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dclirsNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
-dclirsNextToken = lens _dclirsNextToken (\ s a -> s{_dclirsNextToken = a})
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeClassicLinkInstancesResponse_nextToken :: Lens.Lens' DescribeClassicLinkInstancesResponse (Prelude.Maybe Prelude.Text)
+describeClassicLinkInstancesResponse_nextToken = Lens.lens (\DescribeClassicLinkInstancesResponse' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {nextToken = a} :: DescribeClassicLinkInstancesResponse)
 
 -- | Information about one or more linked EC2-Classic instances.
-dclirsInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
-dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default . _Coerce
+describeClassicLinkInstancesResponse_instances :: Lens.Lens' DescribeClassicLinkInstancesResponse (Prelude.Maybe [ClassicLinkInstance])
+describeClassicLinkInstancesResponse_instances = Lens.lens (\DescribeClassicLinkInstancesResponse' {instances} -> instances) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {instances = a} :: DescribeClassicLinkInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dclirsResponseStatus :: Lens' DescribeClassicLinkInstancesResponse Int
-dclirsResponseStatus = lens _dclirsResponseStatus (\ s a -> s{_dclirsResponseStatus = a})
+-- | The response's http status code.
+describeClassicLinkInstancesResponse_httpStatus :: Lens.Lens' DescribeClassicLinkInstancesResponse Prelude.Int
+describeClassicLinkInstancesResponse_httpStatus = Lens.lens (\DescribeClassicLinkInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {httpStatus = a} :: DescribeClassicLinkInstancesResponse)
 
-instance NFData DescribeClassicLinkInstancesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeClassicLinkInstancesResponse

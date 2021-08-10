@@ -1,129 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteThing
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified thing.
---
---
+-- Deletes the specified thing. Returns successfully with no error if the
+-- deletion is successful or you specify a thing that doesn\'t exist.
 module Network.AWS.IoT.DeleteThing
-    (
-    -- * Creating a Request
-      deleteThing
-    , DeleteThing
+  ( -- * Creating a Request
+    DeleteThing (..),
+    newDeleteThing,
+
     -- * Request Lenses
-    , dtExpectedVersion
-    , dtThingName
+    deleteThing_expectedVersion,
+    deleteThing_thingName,
 
     -- * Destructuring the Response
-    , deleteThingResponse
-    , DeleteThingResponse
-    -- * Response Lenses
-    , ddrsResponseStatus
-    ) where
+    DeleteThingResponse (..),
+    newDeleteThingResponse,
 
+    -- * Response Lenses
+    deleteThingResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeleteThing operation.
 --
---
---
--- /See:/ 'deleteThing' smart constructor.
+-- /See:/ 'newDeleteThing' smart constructor.
 data DeleteThing = DeleteThing'
-  { _dtExpectedVersion :: !(Maybe Integer)
-  , _dtThingName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The expected version of the thing record in the registry. If the version
+    -- of the record in the registry does not match the expected version
+    -- specified in the request, the @DeleteThing@ request is rejected with a
+    -- @VersionConflictException@.
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the thing to delete.
+    thingName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteThing' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteThing' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtExpectedVersion' - The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @DeleteThing@ request is rejected with a @VersionConflictException@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtThingName' - The name of the thing to delete.
-deleteThing
-    :: Text -- ^ 'dtThingName'
-    -> DeleteThing
-deleteThing pThingName_ =
-  DeleteThing' {_dtExpectedVersion = Nothing, _dtThingName = pThingName_}
+-- 'expectedVersion', 'deleteThing_expectedVersion' - The expected version of the thing record in the registry. If the version
+-- of the record in the registry does not match the expected version
+-- specified in the request, the @DeleteThing@ request is rejected with a
+-- @VersionConflictException@.
+--
+-- 'thingName', 'deleteThing_thingName' - The name of the thing to delete.
+newDeleteThing ::
+  -- | 'thingName'
+  Prelude.Text ->
+  DeleteThing
+newDeleteThing pThingName_ =
+  DeleteThing'
+    { expectedVersion = Prelude.Nothing,
+      thingName = pThingName_
+    }
 
-
--- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @DeleteThing@ request is rejected with a @VersionConflictException@ .
-dtExpectedVersion :: Lens' DeleteThing (Maybe Integer)
-dtExpectedVersion = lens _dtExpectedVersion (\ s a -> s{_dtExpectedVersion = a})
+-- | The expected version of the thing record in the registry. If the version
+-- of the record in the registry does not match the expected version
+-- specified in the request, the @DeleteThing@ request is rejected with a
+-- @VersionConflictException@.
+deleteThing_expectedVersion :: Lens.Lens' DeleteThing (Prelude.Maybe Prelude.Integer)
+deleteThing_expectedVersion = Lens.lens (\DeleteThing' {expectedVersion} -> expectedVersion) (\s@DeleteThing' {} a -> s {expectedVersion = a} :: DeleteThing)
 
 -- | The name of the thing to delete.
-dtThingName :: Lens' DeleteThing Text
-dtThingName = lens _dtThingName (\ s a -> s{_dtThingName = a})
+deleteThing_thingName :: Lens.Lens' DeleteThing Prelude.Text
+deleteThing_thingName = Lens.lens (\DeleteThing' {thingName} -> thingName) (\s@DeleteThing' {} a -> s {thingName = a} :: DeleteThing)
 
-instance AWSRequest DeleteThing where
-        type Rs DeleteThing = DeleteThingResponse
-        request = delete ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteThingResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteThing where
+  type AWSResponse DeleteThing = DeleteThingResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteThingResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteThing where
+instance Prelude.Hashable DeleteThing
 
-instance NFData DeleteThing where
+instance Prelude.NFData DeleteThing
 
-instance ToHeaders DeleteThing where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteThing where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteThing where
-        toPath DeleteThing'{..}
-          = mconcat ["/things/", toBS _dtThingName]
+instance Core.ToPath DeleteThing where
+  toPath DeleteThing' {..} =
+    Prelude.mconcat ["/things/", Core.toBS thingName]
 
-instance ToQuery DeleteThing where
-        toQuery DeleteThing'{..}
-          = mconcat ["expectedVersion" =: _dtExpectedVersion]
+instance Core.ToQuery DeleteThing where
+  toQuery DeleteThing' {..} =
+    Prelude.mconcat
+      ["expectedVersion" Core.=: expectedVersion]
 
 -- | The output of the DeleteThing operation.
 --
+-- /See:/ 'newDeleteThingResponse' smart constructor.
+data DeleteThingResponse = DeleteThingResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteThingResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteThingResponse' smart constructor.
-newtype DeleteThingResponse = DeleteThingResponse'
-  { _ddrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteThingResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteThingResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DeleteThingResponse
-deleteThingResponse pResponseStatus_ =
-  DeleteThingResponse' {_ddrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteThingResponse_httpStatus' - The response's http status code.
+newDeleteThingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteThingResponse
+newDeleteThingResponse pHttpStatus_ =
+  DeleteThingResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteThingResponse_httpStatus :: Lens.Lens' DeleteThingResponse Prelude.Int
+deleteThingResponse_httpStatus = Lens.lens (\DeleteThingResponse' {httpStatus} -> httpStatus) (\s@DeleteThingResponse' {} a -> s {httpStatus = a} :: DeleteThingResponse)
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteThingResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
-
-instance NFData DeleteThingResponse where
+instance Prelude.NFData DeleteThingResponse

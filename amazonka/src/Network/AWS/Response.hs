@@ -138,7 +138,7 @@ deserialise reader parser logger Service {..} _ rs =
     unless (_serviceCheck status) $
       Except.throwError (_serviceError status headers body)
 
-    liftIO . logger Debug $
+    liftIO . logger Trace $
       build ("[Raw Response Body] {\n" <> body <> "\n}")
 
     case reader body >>= parser (fromEnum status) headers of

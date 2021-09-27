@@ -28,6 +28,10 @@ module Network.AWS.Auth
     envSecretKey,
     envSessionToken,
 
+    -- ** Configuration
+    confRegion,
+    confFile,
+
     -- *** Credentials File
     credAccessKey,
     credSecretKey,
@@ -59,6 +63,7 @@ module Network.AWS.Auth
   )
 where
 
+import Control.Applicative (empty)
 import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception
@@ -157,11 +162,34 @@ credProfile = "default"
 credFile :: MonadIO m => m FilePath
 credFile = liftIO (catching_ _IOException dir err)
   where
-    dir = (++ p) <$> Directory.getHomeDirectory
-    err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
+    dir = (++ path) <$> Directory.getHomeDirectory
+    err = Exception.throwIO $ MissingFileError ("$HOME" ++ path)
 
-    -- TODO: probably should be using System.FilePath above.
-    p = "/.aws/credentials"
+    path = "/.aws/credentials"
+
+-- | Credentials INI default profile section variable.
+confRegion ::
+  -- | default
+  Text
+confRegion = "region"
+
+-- | Default path for the configuration file. This looks in in the @HOME@ directory
+-- as determined by the <http://hackage.haskell.org/package/directory directory>
+-- library.
+--
+-- * UNIX/OSX: @$HOME/.aws/config@
+--
+-- * Windows: @C:\/Users\//\<user\>\.aws\config@
+--
+-- /Note:/ This does not match the default AWS SDK location of
+-- @%USERPROFILE%\.aws\config@ on Windows. (Sorry.)
+confFile :: MonadIO m => m FilePath
+confFile = liftIO (catching_ _IOException dir err)
+  where
+    dir = (++ path) <$> liftIO Directory.getHomeDirectory
+    err = Exception.throwIO $ MissingFileError ("$HOME" ++ path)
+
+    path = "/.aws/config"
 
 -- $credentials
 -- 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -206,9 +234,10 @@ data Credentials
     -- Environment variables to lookup for the access key, secret key and
     -- optional session token.
     FromProfile Text
-  | -- | A credentials profile name (the INI section) and the path to the AWS
-    -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file.
-    FromFile Text FilePath
+  | -- | A credentials profile name (the INI section), the path to the AWS
+    -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file,
+    -- and the path to the @~/.aws/config@ file.
+    FromFile Text FilePath FilePath
   | -- | Obtain credentials by attempting to contact the ECS container agent
     -- at <http://169.254.170.2> using the path in 'envContainerCredentialsURI'.
     -- See <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
@@ -243,8 +272,8 @@ instance ToLog Credentials where
       "FromEnv " <> build a <> " " <> build s <> " " <> m t <> " " <> m r
     FromProfile n ->
       "FromProfile " <> build n
-    FromFile n f ->
-      "FromFile " <> build n <> " " <> build f
+    FromFile n f g ->
+      "FromFile " <> build n <> " " <> build f <> " " <> build g
     FromContainer ->
       "FromContainer"
     Discover ->
@@ -354,7 +383,7 @@ getAuth m =
     FromSession a s t -> return (fromSession a s t, Nothing)
     FromEnv a s t r -> fromEnvKeys a s t r
     FromProfile n -> fromProfileName m n
-    FromFile n f -> fromFilePath n f
+    FromFile n cred conf -> fromFilePath n cred conf
     FromContainer -> fromContainer m
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
@@ -445,63 +474,75 @@ fromEnvKeys access secret session region' =
 -- /See:/ 'credProfile', 'credFile', and 'envProfile'
 fromFile :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
 fromFile = do
-  exists <- liftIO (Environment.lookupEnv (Text.unpack envProfile))
+  mprofile <- liftIO (Environment.lookupEnv (Text.unpack envProfile))
+  cred <- credFile
+  conf <- confFile
 
-  fromFilePath (maybe credProfile Text.pack exists)
-    =<< credFile
+  fromFilePath (maybe credProfile Text.pack mprofile) cred conf
 
--- | Retrieve the access, secret and session token from the specified section
--- (profile) in a valid INI @credentials@ file.
---
--- Throws 'MissingFileError' if the specified file is missing, or 'InvalidFileError'
--- if an error occurs during parsing.
 fromFilePath ::
-  (Applicative m, MonadIO m) =>
+  MonadIO m =>
   Text ->
   FilePath ->
+  FilePath ->
   m (Auth, Maybe Region)
-fromFilePath n f =
-  liftIO $ do
-    exists <- Directory.doesFileExist f
-
-    unless exists $
-      Exception.throwIO (MissingFileError f)
-
-    ini <-
-      INI.readIniFile f
-        >>= either (throwInvalid Nothing) pure
-
-    env <-
-      AuthEnv
-        <$> (req credAccessKey ini <&> AccessKey)
-        <*> (req credSecretKey ini <&> Sensitive . SecretKey)
-        <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
-        <*> return Nothing
-
-    return (Auth env, Nothing)
+fromFilePath profile cred conf =
+  liftIO ((,) <$> lookupCredentials cred <*> lookupRegion conf)
   where
-    req key ini =
-      case INI.lookupValue n key ini of
-        Left e -> throwInvalid (Just key) e
-        Right x
-          | blank x -> throwInvalid (Just key) "cannot be a blank string."
-          | otherwise -> return (Text.encodeUtf8 x)
+    lookupCredentials path = do
+      exists <- Directory.doesFileExist path
 
-    opt key ini =
-      return $
-        case INI.lookupValue n key ini of
+      unless exists $
+        Exception.throwIO (MissingFileError path)
+
+      ini <- INI.readIniFile path >>= either (throwInvalid path Nothing) pure
+
+      env <-
+        AuthEnv
+          <$> (required path credAccessKey ini <&> AccessKey)
+          <*> (required path credSecretKey ini <&> Sensitive . SecretKey)
+          <*> (optional credSessionToken ini <&> fmap (Sensitive . SessionToken))
+          <*> return Nothing
+
+      pure (Auth env)
+
+    lookupRegion path = do
+      exists <- Directory.doesFileExist path
+
+      if not exists
+        then pure Nothing
+        else do
+          ini <- INI.readIniFile path >>= either (throwInvalid path Nothing) pure
+
+          case INI.lookupValue profile confRegion ini of
+            Left _ -> empty
+            Right value ->
+              case fromText value of
+                Left err -> liftIO (throwInvalid path (Just confRegion) err)
+                Right ok -> pure (Just ok)
+
+    required path key ini =
+      case INI.lookupValue profile key ini of
+        Left err -> throwInvalid path (Just key) err
+        Right x
+          | blank x -> throwInvalid path (Just key) "cannot be a blank string."
+          | otherwise -> pure (Text.encodeUtf8 x)
+      where
+        blank x = Text.null x || Text.all Char.isSpace x
+
+    optional key ini =
+      pure $
+        case INI.lookupValue profile key ini of
           Left _ -> Nothing
           Right x -> Just (Text.encodeUtf8 x)
 
-    throwInvalid :: Maybe Text -> String -> IO a
-    throwInvalid Nothing e =
-      Exception.throwIO $ InvalidFileError (Text.pack e)
-    throwInvalid (Just key) e =
-      Exception.throwIO $
-        InvalidFileError
-          (Text.pack f <> ", key " <> key <> " " <> Text.pack e)
-
-    blank x = Text.null x || Text.all Char.isSpace x
+    throwInvalid :: FilePath -> Maybe Text -> String -> IO a
+    throwInvalid path mkey err =
+      Exception.throwIO . InvalidFileError $
+        Text.pack path
+          <> maybe mempty (", key " <>) mkey
+          <> ", "
+          <> Text.pack err
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --

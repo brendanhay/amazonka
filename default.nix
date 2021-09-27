@@ -35,6 +35,7 @@ in project // {
       cabal = "3.2.0.0";
       cabal-fmt = "0.1.5.1";
       shellcheck = "0.7.1";
+      ormolu = "0.3.0.1";
     };
 
     buildInputs = [

@@ -7,7 +7,7 @@
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
-, ghcVersion ? "ghc8104"
+, ghcVersion ? "ghc8107"
   # The names of the models to generate - ie. [ "ec2", "s3" ]
   # Setting to an empty list will use file names from ./config
 , models ? [ ]

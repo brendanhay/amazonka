@@ -7,7 +7,7 @@
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
-, ghcVersion ? "ghc8104" }:
+, ghcVersion ? "ghc8107" }:
 
 let
 

@@ -7,7 +7,7 @@
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
-, ghcVersion ? "ghc8104" }:
+, ghcVersion ? "ghc8107" }:
 
 let
 
@@ -25,7 +25,7 @@ let
     (import ./overlays/cabal-project.nix { inherit ghcVersion; })
   ] ++ overlays;
 
-  pkgs = import haskellNix.sources.nixpkgs-2009 (haskellNix.nixpkgsArgs // {
+  pkgs = import haskellNix.sources.nixpkgs-2105 (haskellNix.nixpkgsArgs // {
     inherit system;
 
     config = haskellNix.config // config;

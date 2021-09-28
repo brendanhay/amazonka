@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "boto",
         "repo": "botocore",
-        "rev": "d87de3f166e902ecde19033723d26851d86d4fa9",
-        "sha256": "1z03dnpdwdqfmwjxmjva5z2y3z9l8rapj2vrc59ii34a3rvhfbjr",
+        "rev": "f1d41183e0fad31301ad7331a8962e3af6359a22",
+        "sha256": "1xz6bysc70642bnw59bfh5cgdywa6hj147ra1n9lrl2vkvpf4fwj",
         "type": "tarball",
-        "url": "https://github.com/boto/botocore/archive/d87de3f166e902ecde19033723d26851d86d4fa9.tar.gz",
+        "url": "https://github.com/boto/botocore/archive/f1d41183e0fad31301ad7331a8962e3af6359a22.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "hackage.nix": {

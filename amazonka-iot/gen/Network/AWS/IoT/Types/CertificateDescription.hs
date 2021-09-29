@@ -39,11 +39,12 @@ data CertificateDescription = CertificateDescription'
     certificateMode :: Prelude.Maybe CertificateMode,
     -- | The ARN of the certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account of the previous owner of the certificate.
-    previousOwnedBy :: Prelude.Maybe Prelude.Text,
     -- | The date and time the certificate was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the AWS account that owns the certificate.
+    -- | The ID of the Amazon Web Services account of the previous owner of the
+    -- certificate.
+    previousOwnedBy :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the certificate.
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The customer version of the certificate.
     customerVersion :: Prelude.Maybe Prelude.Natural,
@@ -55,10 +56,10 @@ data CertificateDescription = CertificateDescription'
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Maybe Prelude.Text,
-    -- | When the certificate is valid.
-    validity :: Prelude.Maybe CertificateValidity,
     -- | The certificate ID of the CA certificate used to sign this certificate.
-    caCertificateId :: Prelude.Maybe Prelude.Text
+    caCertificateId :: Prelude.Maybe Prelude.Text,
+    -- | When the certificate is valid.
+    validity :: Prelude.Maybe CertificateValidity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,11 +79,12 @@ data CertificateDescription = CertificateDescription'
 --
 -- 'certificateArn', 'certificateDescription_certificateArn' - The ARN of the certificate.
 --
--- 'previousOwnedBy', 'certificateDescription_previousOwnedBy' - The ID of the AWS account of the previous owner of the certificate.
---
 -- 'creationDate', 'certificateDescription_creationDate' - The date and time the certificate was created.
 --
--- 'ownedBy', 'certificateDescription_ownedBy' - The ID of the AWS account that owns the certificate.
+-- 'previousOwnedBy', 'certificateDescription_previousOwnedBy' - The ID of the Amazon Web Services account of the previous owner of the
+-- certificate.
+--
+-- 'ownedBy', 'certificateDescription_ownedBy' - The ID of the Amazon Web Services account that owns the certificate.
 --
 -- 'customerVersion', 'certificateDescription_customerVersion' - The customer version of the certificate.
 --
@@ -94,9 +96,9 @@ data CertificateDescription = CertificateDescription'
 --
 -- 'certificatePem', 'certificateDescription_certificatePem' - The certificate data, in PEM format.
 --
--- 'validity', 'certificateDescription_validity' - When the certificate is valid.
---
 -- 'caCertificateId', 'certificateDescription_caCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
+--
+-- 'validity', 'certificateDescription_validity' - When the certificate is valid.
 newCertificateDescription ::
   CertificateDescription
 newCertificateDescription =
@@ -106,16 +108,16 @@ newCertificateDescription =
       status = Prelude.Nothing,
       certificateMode = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
-      previousOwnedBy = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      previousOwnedBy = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
       customerVersion = Prelude.Nothing,
       generationId = Prelude.Nothing,
       transferData = Prelude.Nothing,
       certificateId = Prelude.Nothing,
       certificatePem = Prelude.Nothing,
-      validity = Prelude.Nothing,
-      caCertificateId = Prelude.Nothing
+      caCertificateId = Prelude.Nothing,
+      validity = Prelude.Nothing
     }
 
 -- | The date and time the certificate was last modified.
@@ -134,15 +136,16 @@ certificateDescription_certificateMode = Lens.lens (\CertificateDescription' {ce
 certificateDescription_certificateArn :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
 certificateDescription_certificateArn = Lens.lens (\CertificateDescription' {certificateArn} -> certificateArn) (\s@CertificateDescription' {} a -> s {certificateArn = a} :: CertificateDescription)
 
--- | The ID of the AWS account of the previous owner of the certificate.
-certificateDescription_previousOwnedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_previousOwnedBy = Lens.lens (\CertificateDescription' {previousOwnedBy} -> previousOwnedBy) (\s@CertificateDescription' {} a -> s {previousOwnedBy = a} :: CertificateDescription)
-
 -- | The date and time the certificate was created.
 certificateDescription_creationDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
 certificateDescription_creationDate = Lens.lens (\CertificateDescription' {creationDate} -> creationDate) (\s@CertificateDescription' {} a -> s {creationDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the AWS account that owns the certificate.
+-- | The ID of the Amazon Web Services account of the previous owner of the
+-- certificate.
+certificateDescription_previousOwnedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_previousOwnedBy = Lens.lens (\CertificateDescription' {previousOwnedBy} -> previousOwnedBy) (\s@CertificateDescription' {} a -> s {previousOwnedBy = a} :: CertificateDescription)
+
+-- | The ID of the Amazon Web Services account that owns the certificate.
 certificateDescription_ownedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
 certificateDescription_ownedBy = Lens.lens (\CertificateDescription' {ownedBy} -> ownedBy) (\s@CertificateDescription' {} a -> s {ownedBy = a} :: CertificateDescription)
 
@@ -166,13 +169,13 @@ certificateDescription_certificateId = Lens.lens (\CertificateDescription' {cert
 certificateDescription_certificatePem :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
 certificateDescription_certificatePem = Lens.lens (\CertificateDescription' {certificatePem} -> certificatePem) (\s@CertificateDescription' {} a -> s {certificatePem = a} :: CertificateDescription)
 
--- | When the certificate is valid.
-certificateDescription_validity :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateValidity)
-certificateDescription_validity = Lens.lens (\CertificateDescription' {validity} -> validity) (\s@CertificateDescription' {} a -> s {validity = a} :: CertificateDescription)
-
 -- | The certificate ID of the CA certificate used to sign this certificate.
 certificateDescription_caCertificateId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
 certificateDescription_caCertificateId = Lens.lens (\CertificateDescription' {caCertificateId} -> caCertificateId) (\s@CertificateDescription' {} a -> s {caCertificateId = a} :: CertificateDescription)
+
+-- | When the certificate is valid.
+certificateDescription_validity :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateValidity)
+certificateDescription_validity = Lens.lens (\CertificateDescription' {validity} -> validity) (\s@CertificateDescription' {} a -> s {validity = a} :: CertificateDescription)
 
 instance Core.FromJSON CertificateDescription where
   parseJSON =
@@ -184,16 +187,16 @@ instance Core.FromJSON CertificateDescription where
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "certificateMode")
             Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "previousOwnedBy")
             Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "previousOwnedBy")
             Prelude.<*> (x Core..:? "ownedBy")
             Prelude.<*> (x Core..:? "customerVersion")
             Prelude.<*> (x Core..:? "generationId")
             Prelude.<*> (x Core..:? "transferData")
             Prelude.<*> (x Core..:? "certificateId")
             Prelude.<*> (x Core..:? "certificatePem")
-            Prelude.<*> (x Core..:? "validity")
             Prelude.<*> (x Core..:? "caCertificateId")
+            Prelude.<*> (x Core..:? "validity")
       )
 
 instance Prelude.Hashable CertificateDescription

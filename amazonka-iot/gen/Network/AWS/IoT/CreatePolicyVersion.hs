@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified AWS IoT policy. To update a
--- policy, create a new policy version. A managed policy can have up to
--- five versions. If the policy has five versions, you must use
+-- Creates a new version of the specified IoT policy. To update a policy,
+-- create a new policy version. A managed policy can have up to five
+-- versions. If the policy has five versions, you must use
 -- DeletePolicyVersion to delete an existing version before you create a
 -- new one.
 --
@@ -30,6 +30,10 @@
 -- version. The default version is the operative version (that is, the
 -- version that is in effect for the certificates to which the policy is
 -- attached).
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreatePolicyVersion>
+-- action.
 module Network.AWS.IoT.CreatePolicyVersion
   ( -- * Creating a Request
     CreatePolicyVersion (..),
@@ -45,8 +49,8 @@ module Network.AWS.IoT.CreatePolicyVersion
     newCreatePolicyVersionResponse,
 
     -- * Response Lenses
-    createPolicyVersionResponse_policyVersionId,
     createPolicyVersionResponse_policyDocument,
+    createPolicyVersionResponse_policyVersionId,
     createPolicyVersionResponse_isDefaultVersion,
     createPolicyVersionResponse_policyArn,
     createPolicyVersionResponse_httpStatus,
@@ -133,8 +137,8 @@ instance Core.AWSRequest CreatePolicyVersion where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyVersionResponse'
-            Prelude.<$> (x Core..?> "policyVersionId")
-            Prelude.<*> (x Core..?> "policyDocument")
+            Prelude.<$> (x Core..?> "policyDocument")
+            Prelude.<*> (x Core..?> "policyVersionId")
             Prelude.<*> (x Core..?> "isDefaultVersion")
             Prelude.<*> (x Core..?> "policyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,10 +174,10 @@ instance Core.ToQuery CreatePolicyVersion where
 --
 -- /See:/ 'newCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { -- | The policy version ID.
-    policyVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON document that describes the policy.
+  { -- | The JSON document that describes the policy.
     policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | The policy version ID.
+    policyVersionId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The policy ARN.
@@ -191,9 +195,9 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyVersionId', 'createPolicyVersionResponse_policyVersionId' - The policy version ID.
---
 -- 'policyDocument', 'createPolicyVersionResponse_policyDocument' - The JSON document that describes the policy.
+--
+-- 'policyVersionId', 'createPolicyVersionResponse_policyVersionId' - The policy version ID.
 --
 -- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.
 --
@@ -206,21 +210,21 @@ newCreatePolicyVersionResponse ::
   CreatePolicyVersionResponse
 newCreatePolicyVersionResponse pHttpStatus_ =
   CreatePolicyVersionResponse'
-    { policyVersionId =
+    { policyDocument =
         Prelude.Nothing,
-      policyDocument = Prelude.Nothing,
+      policyVersionId = Prelude.Nothing,
       isDefaultVersion = Prelude.Nothing,
       policyArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The policy version ID.
-createPolicyVersionResponse_policyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
-createPolicyVersionResponse_policyVersionId = Lens.lens (\CreatePolicyVersionResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyVersionResponse' {} a -> s {policyVersionId = a} :: CreatePolicyVersionResponse)
-
 -- | The JSON document that describes the policy.
 createPolicyVersionResponse_policyDocument :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
 createPolicyVersionResponse_policyDocument = Lens.lens (\CreatePolicyVersionResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyVersionResponse' {} a -> s {policyDocument = a} :: CreatePolicyVersionResponse)
+
+-- | The policy version ID.
+createPolicyVersionResponse_policyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
+createPolicyVersionResponse_policyVersionId = Lens.lens (\CreatePolicyVersionResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyVersionResponse' {} a -> s {policyVersionId = a} :: CreatePolicyVersionResponse)
 
 -- | Specifies whether the policy version is the default.
 createPolicyVersionResponse_isDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Bool)

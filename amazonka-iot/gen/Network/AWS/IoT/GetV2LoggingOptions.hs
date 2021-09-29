@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the fine grained logging options.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetV2LoggingOptions>
+-- action.
 module Network.AWS.IoT.GetV2LoggingOptions
   ( -- * Creating a Request
     GetV2LoggingOptions (..),
@@ -89,7 +93,7 @@ instance Core.ToQuery GetV2LoggingOptions where
 
 -- | /See:/ 'newGetV2LoggingOptionsResponse' smart constructor.
 data GetV2LoggingOptionsResponse = GetV2LoggingOptionsResponse'
-  { -- | The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
+  { -- | The IAM role ARN IoT uses to write to your CloudWatch logs.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Disables all logs.
     disableAllLogs :: Prelude.Maybe Prelude.Bool,
@@ -108,7 +112,7 @@ data GetV2LoggingOptionsResponse = GetV2LoggingOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
+-- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN IoT uses to write to your CloudWatch logs.
 --
 -- 'disableAllLogs', 'getV2LoggingOptionsResponse_disableAllLogs' - Disables all logs.
 --
@@ -128,7 +132,7 @@ newGetV2LoggingOptionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
+-- | The IAM role ARN IoT uses to write to your CloudWatch logs.
 getV2LoggingOptionsResponse_roleArn :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe Prelude.Text)
 getV2LoggingOptionsResponse_roleArn = Lens.lens (\GetV2LoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetV2LoggingOptionsResponse' {} a -> s {roleArn = a} :: GetV2LoggingOptionsResponse)
 

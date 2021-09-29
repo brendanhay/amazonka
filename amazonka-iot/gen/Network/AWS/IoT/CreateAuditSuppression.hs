@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Device Defender audit suppression.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateAuditSuppression>
+-- action.
 module Network.AWS.IoT.CreateAuditSuppression
   ( -- * Creating a Request
     CreateAuditSuppression (..),
@@ -60,7 +64,10 @@ data CreateAuditSuppression = CreateAuditSuppression'
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
     checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier,
-    -- | The epoch timestamp in seconds at which this suppression expires.
+    -- | Each audit supression must have a unique client request token. If you
+    -- try to create a new audit suppression with the same token as one that
+    -- already exists, an exception occurs. If you omit this value, Amazon Web
+    -- Services SDKs will automatically generate a unique client request.
     clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +90,10 @@ data CreateAuditSuppression = CreateAuditSuppression'
 --
 -- 'resourceIdentifier', 'createAuditSuppression_resourceIdentifier' - Undocumented member.
 --
--- 'clientRequestToken', 'createAuditSuppression_clientRequestToken' - The epoch timestamp in seconds at which this suppression expires.
+-- 'clientRequestToken', 'createAuditSuppression_clientRequestToken' - Each audit supression must have a unique client request token. If you
+-- try to create a new audit suppression with the same token as one that
+-- already exists, an exception occurs. If you omit this value, Amazon Web
+-- Services SDKs will automatically generate a unique client request.
 newCreateAuditSuppression ::
   -- | 'checkName'
   Prelude.Text ->
@@ -126,7 +136,10 @@ createAuditSuppression_checkName = Lens.lens (\CreateAuditSuppression' {checkNam
 createAuditSuppression_resourceIdentifier :: Lens.Lens' CreateAuditSuppression ResourceIdentifier
 createAuditSuppression_resourceIdentifier = Lens.lens (\CreateAuditSuppression' {resourceIdentifier} -> resourceIdentifier) (\s@CreateAuditSuppression' {} a -> s {resourceIdentifier = a} :: CreateAuditSuppression)
 
--- | The epoch timestamp in seconds at which this suppression expires.
+-- | Each audit supression must have a unique client request token. If you
+-- try to create a new audit suppression with the same token as one that
+-- already exists, an exception occurs. If you omit this value, Amazon Web
+-- Services SDKs will automatically generate a unique client request.
 createAuditSuppression_clientRequestToken :: Lens.Lens' CreateAuditSuppression Prelude.Text
 createAuditSuppression_clientRequestToken = Lens.lens (\CreateAuditSuppression' {clientRequestToken} -> clientRequestToken) (\s@CreateAuditSuppression' {} a -> s {clientRequestToken = a} :: CreateAuditSuppression)
 

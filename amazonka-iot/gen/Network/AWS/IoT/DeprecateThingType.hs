@@ -22,6 +22,10 @@
 --
 -- Deprecates a thing type. You can not associate new things with
 -- deprecated thing type.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeprecateThingType>
+-- action.
 module Network.AWS.IoT.DeprecateThingType
   ( -- * Creating a Request
     DeprecateThingType (..),

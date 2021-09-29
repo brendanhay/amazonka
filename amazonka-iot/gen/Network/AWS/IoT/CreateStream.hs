@@ -24,6 +24,10 @@
 -- MQTT. A stream transports data bytes in chunks or blocks packaged as
 -- MQTT messages from a source like S3. You can have one or more files
 -- associated with a stream.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateStream>
+-- action.
 module Network.AWS.IoT.CreateStream
   ( -- * Creating a Request
     CreateStream (..),
@@ -42,8 +46,8 @@ module Network.AWS.IoT.CreateStream
 
     -- * Response Lenses
     createStreamResponse_streamVersion,
-    createStreamResponse_streamId,
     createStreamResponse_streamArn,
+    createStreamResponse_streamId,
     createStreamResponse_description,
     createStreamResponse_httpStatus,
   )
@@ -136,8 +140,8 @@ instance Core.AWSRequest CreateStream where
       ( \s h x ->
           CreateStreamResponse'
             Prelude.<$> (x Core..?> "streamVersion")
-            Prelude.<*> (x Core..?> "streamId")
             Prelude.<*> (x Core..?> "streamArn")
+            Prelude.<*> (x Core..?> "streamId")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -171,10 +175,10 @@ instance Core.ToQuery CreateStream where
 data CreateStreamResponse = CreateStreamResponse'
   { -- | The version of the stream.
     streamVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The stream ARN.
     streamArn :: Prelude.Maybe Prelude.Text,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | A description of the stream.
     description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -192,9 +196,9 @@ data CreateStreamResponse = CreateStreamResponse'
 --
 -- 'streamVersion', 'createStreamResponse_streamVersion' - The version of the stream.
 --
--- 'streamId', 'createStreamResponse_streamId' - The stream ID.
---
 -- 'streamArn', 'createStreamResponse_streamArn' - The stream ARN.
+--
+-- 'streamId', 'createStreamResponse_streamId' - The stream ID.
 --
 -- 'description', 'createStreamResponse_description' - A description of the stream.
 --
@@ -207,8 +211,8 @@ newCreateStreamResponse pHttpStatus_ =
   CreateStreamResponse'
     { streamVersion =
         Prelude.Nothing,
-      streamId = Prelude.Nothing,
       streamArn = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -217,13 +221,13 @@ newCreateStreamResponse pHttpStatus_ =
 createStreamResponse_streamVersion :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Natural)
 createStreamResponse_streamVersion = Lens.lens (\CreateStreamResponse' {streamVersion} -> streamVersion) (\s@CreateStreamResponse' {} a -> s {streamVersion = a} :: CreateStreamResponse)
 
--- | The stream ID.
-createStreamResponse_streamId :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
-createStreamResponse_streamId = Lens.lens (\CreateStreamResponse' {streamId} -> streamId) (\s@CreateStreamResponse' {} a -> s {streamId = a} :: CreateStreamResponse)
-
 -- | The stream ARN.
 createStreamResponse_streamArn :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
 createStreamResponse_streamArn = Lens.lens (\CreateStreamResponse' {streamArn} -> streamArn) (\s@CreateStreamResponse' {} a -> s {streamArn = a} :: CreateStreamResponse)
+
+-- | The stream ID.
+createStreamResponse_streamId :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
+createStreamResponse_streamId = Lens.lens (\CreateStreamResponse' {streamId} -> streamId) (\s@CreateStreamResponse' {} a -> s {streamId = a} :: CreateStreamResponse)
 
 -- | A description of the stream.
 createStreamResponse_description :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)

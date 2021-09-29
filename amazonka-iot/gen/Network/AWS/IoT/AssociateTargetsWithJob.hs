@@ -30,6 +30,10 @@
 --
 -- -   The total number of targets associated with a job must not exceed
 --     100.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AssociateTargetsWithJob>
+-- action.
 module Network.AWS.IoT.AssociateTargetsWithJob
   ( -- * Creating a Request
     AssociateTargetsWithJob (..),
@@ -64,9 +68,9 @@ import qualified Network.AWS.Response as Response
 data AssociateTargetsWithJob = AssociateTargetsWithJob'
   { -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
@@ -92,9 +96,9 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
 --
 -- 'namespaceId', 'associateTargetsWithJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
@@ -123,9 +127,9 @@ newAssociateTargetsWithJob pTargets_ pJobId_ =
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --

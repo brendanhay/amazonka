@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides details about a dimension that is defined in your AWS account.
+-- Provides details about a dimension that is defined in your Amazon Web
+-- Services accounts.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeDimension>
+-- action.
 module Network.AWS.IoT.DescribeDimension
   ( -- * Creating a Request
     DescribeDimension (..),

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a job.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CancelJob>
+-- action.
 module Network.AWS.IoT.CancelJob
   ( -- * Creating a Request
     CancelJob (..),

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the data for a thing.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateThing>
+-- action.
 module Network.AWS.IoT.UpdateThing
   ( -- * Creating a Request
     UpdateThing (..),
@@ -29,8 +33,8 @@ module Network.AWS.IoT.UpdateThing
     -- * Request Lenses
     updateThing_expectedVersion,
     updateThing_thingTypeName,
-    updateThing_removeThingType,
     updateThing_attributePayload,
+    updateThing_removeThingType,
     updateThing_thingName,
 
     -- * Destructuring the Response
@@ -60,9 +64,6 @@ data UpdateThing = UpdateThing'
     expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the thing type.
     thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | Remove a thing type association. If __true__, the association is
-    -- removed.
-    removeThingType :: Prelude.Maybe Prelude.Bool,
     -- | A list of thing attributes, a JSON string containing name-value pairs.
     -- For example:
     --
@@ -70,6 +71,9 @@ data UpdateThing = UpdateThing'
     --
     -- This data is used to add new attributes or update existing attributes.
     attributePayload :: Prelude.Maybe AttributePayload,
+    -- | Remove a thing type association. If __true__, the association is
+    -- removed.
+    removeThingType :: Prelude.Maybe Prelude.Bool,
     -- | The name of the thing to update.
     --
     -- You can\'t change a thing\'s name. To change a thing\'s name, you must
@@ -93,15 +97,15 @@ data UpdateThing = UpdateThing'
 --
 -- 'thingTypeName', 'updateThing_thingTypeName' - The name of the thing type.
 --
--- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
--- removed.
---
 -- 'attributePayload', 'updateThing_attributePayload' - A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
 --
 -- @{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}@
 --
 -- This data is used to add new attributes or update existing attributes.
+--
+-- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
+-- removed.
 --
 -- 'thingName', 'updateThing_thingName' - The name of the thing to update.
 --
@@ -115,8 +119,8 @@ newUpdateThing pThingName_ =
   UpdateThing'
     { expectedVersion = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
-      removeThingType = Prelude.Nothing,
       attributePayload = Prelude.Nothing,
+      removeThingType = Prelude.Nothing,
       thingName = pThingName_
     }
 
@@ -131,11 +135,6 @@ updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expe
 updateThing_thingTypeName :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Text)
 updateThing_thingTypeName = Lens.lens (\UpdateThing' {thingTypeName} -> thingTypeName) (\s@UpdateThing' {} a -> s {thingTypeName = a} :: UpdateThing)
 
--- | Remove a thing type association. If __true__, the association is
--- removed.
-updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
-updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
-
 -- | A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
 --
@@ -144,6 +143,11 @@ updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> remo
 -- This data is used to add new attributes or update existing attributes.
 updateThing_attributePayload :: Lens.Lens' UpdateThing (Prelude.Maybe AttributePayload)
 updateThing_attributePayload = Lens.lens (\UpdateThing' {attributePayload} -> attributePayload) (\s@UpdateThing' {} a -> s {attributePayload = a} :: UpdateThing)
+
+-- | Remove a thing type association. If __true__, the association is
+-- removed.
+updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
+updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
 
 -- | The name of the thing to update.
 --
@@ -176,10 +180,10 @@ instance Core.ToJSON UpdateThing where
           [ ("expectedVersion" Core..=)
               Prelude.<$> expectedVersion,
             ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
-            ("removeThingType" Core..=)
-              Prelude.<$> removeThingType,
             ("attributePayload" Core..=)
-              Prelude.<$> attributePayload
+              Prelude.<$> attributePayload,
+            ("removeThingType" Core..=)
+              Prelude.<$> removeThingType
           ]
       )
 

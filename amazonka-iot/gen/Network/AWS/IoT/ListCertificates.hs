@@ -20,10 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the certificates registered in your AWS account.
+-- Lists the certificates registered in your Amazon Web Services account.
 --
 -- The results are paginated with a default page size of 25. You can use
 -- the returned marker to retrieve additional results.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListCertificates>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificates

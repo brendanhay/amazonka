@@ -32,7 +32,8 @@ data ThingDocument = ThingDocument'
     thingId :: Prelude.Maybe Prelude.Text,
     -- | The thing name.
     thingName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the thing is connected to the AWS IoT service.
+    -- | Indicates whether the thing is connected to the Amazon Web Services IoT
+    -- Core service.
     connectivity :: Prelude.Maybe ThingConnectivity,
     -- | The attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -57,7 +58,8 @@ data ThingDocument = ThingDocument'
 --
 -- 'thingName', 'thingDocument_thingName' - The thing name.
 --
--- 'connectivity', 'thingDocument_connectivity' - Indicates whether the thing is connected to the AWS IoT service.
+-- 'connectivity', 'thingDocument_connectivity' - Indicates whether the thing is connected to the Amazon Web Services IoT
+-- Core service.
 --
 -- 'attributes', 'thingDocument_attributes' - The attributes.
 --
@@ -87,7 +89,8 @@ thingDocument_thingId = Lens.lens (\ThingDocument' {thingId} -> thingId) (\s@Thi
 thingDocument_thingName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_thingName = Lens.lens (\ThingDocument' {thingName} -> thingName) (\s@ThingDocument' {} a -> s {thingName = a} :: ThingDocument)
 
--- | Indicates whether the thing is connected to the AWS IoT service.
+-- | Indicates whether the thing is connected to the Amazon Web Services IoT
+-- Core service.
 thingDocument_connectivity :: Lens.Lens' ThingDocument (Prelude.Maybe ThingConnectivity)
 thingDocument_connectivity = Lens.lens (\ThingDocument' {connectivity} -> connectivity) (\s@ThingDocument' {} a -> s {connectivity = a} :: ThingDocument)
 

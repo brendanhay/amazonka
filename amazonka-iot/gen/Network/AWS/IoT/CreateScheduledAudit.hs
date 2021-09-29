@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a scheduled audit that is run at a specified time interval.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateScheduledAudit>
+-- action.
 module Network.AWS.IoT.CreateScheduledAudit
   ( -- * Creating a Request
     CreateScheduledAudit (..),

@@ -22,6 +22,10 @@
 --
 -- Lists logging levels.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListV2LoggingLevels>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListV2LoggingLevels
   ( -- * Creating a Request

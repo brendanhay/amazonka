@@ -23,16 +23,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes an action that writes data to an Amazon Elasticsearch Service
+-- | Describes an action that writes data to an Amazon OpenSearch Service
 -- domain.
+--
+-- The @Elasticsearch@ action can only be used by existing rule actions. To
+-- create a new rule action or to update an existing rule action, use the
+-- @OpenSearch@ rule action instead. For more information, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html OpenSearchAction>.
 --
 -- /See:/ 'newElasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
-  { -- | The IAM role ARN that has access to Elasticsearch.
+  { -- | The IAM role ARN that has access to OpenSearch.
     roleArn :: Prelude.Text,
-    -- | The endpoint of your Elasticsearch domain.
+    -- | The endpoint of your OpenSearch domain.
     endpoint :: Prelude.Text,
-    -- | The Elasticsearch index where you want to store your data.
+    -- | The index where you want to store your data.
     index :: Prelude.Text,
     -- | The type of document you are storing.
     type' :: Prelude.Text,
@@ -49,11 +54,11 @@ data ElasticsearchAction = ElasticsearchAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'elasticsearchAction_roleArn' - The IAM role ARN that has access to Elasticsearch.
+-- 'roleArn', 'elasticsearchAction_roleArn' - The IAM role ARN that has access to OpenSearch.
 --
--- 'endpoint', 'elasticsearchAction_endpoint' - The endpoint of your Elasticsearch domain.
+-- 'endpoint', 'elasticsearchAction_endpoint' - The endpoint of your OpenSearch domain.
 --
--- 'index', 'elasticsearchAction_index' - The Elasticsearch index where you want to store your data.
+-- 'index', 'elasticsearchAction_index' - The index where you want to store your data.
 --
 -- 'type'', 'elasticsearchAction_type' - The type of document you are storing.
 --
@@ -84,15 +89,15 @@ newElasticsearchAction
         id = pId_
       }
 
--- | The IAM role ARN that has access to Elasticsearch.
+-- | The IAM role ARN that has access to OpenSearch.
 elasticsearchAction_roleArn :: Lens.Lens' ElasticsearchAction Prelude.Text
 elasticsearchAction_roleArn = Lens.lens (\ElasticsearchAction' {roleArn} -> roleArn) (\s@ElasticsearchAction' {} a -> s {roleArn = a} :: ElasticsearchAction)
 
--- | The endpoint of your Elasticsearch domain.
+-- | The endpoint of your OpenSearch domain.
 elasticsearchAction_endpoint :: Lens.Lens' ElasticsearchAction Prelude.Text
 elasticsearchAction_endpoint = Lens.lens (\ElasticsearchAction' {endpoint} -> endpoint) (\s@ElasticsearchAction' {} a -> s {endpoint = a} :: ElasticsearchAction)
 
--- | The Elasticsearch index where you want to store your data.
+-- | The index where you want to store your data.
 elasticsearchAction_index :: Lens.Lens' ElasticsearchAction Prelude.Text
 elasticsearchAction_index = Lens.lens (\ElasticsearchAction' {index} -> index) (\s@ElasticsearchAction' {} a -> s {index = a} :: ElasticsearchAction)
 

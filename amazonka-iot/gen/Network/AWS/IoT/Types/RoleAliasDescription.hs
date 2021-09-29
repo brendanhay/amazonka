@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRoleAliasDescription' smart constructor.
 data RoleAliasDescription = RoleAliasDescription'
-  { -- | The ARN of the role alias.
-    roleAliasArn :: Prelude.Maybe Prelude.Text,
-    -- | The UNIX timestamp of when the role alias was last modified.
+  { -- | The UNIX timestamp of when the role alias was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the role alias.
+    roleAliasArn :: Prelude.Maybe Prelude.Text,
     -- | The role ARN.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The UNIX timestamp of when the role alias was created.
@@ -52,9 +52,9 @@ data RoleAliasDescription = RoleAliasDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleAliasArn', 'roleAliasDescription_roleAliasArn' - The ARN of the role alias.
---
 -- 'lastModifiedDate', 'roleAliasDescription_lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
+--
+-- 'roleAliasArn', 'roleAliasDescription_roleAliasArn' - The ARN of the role alias.
 --
 -- 'roleArn', 'roleAliasDescription_roleArn' - The role ARN.
 --
@@ -69,9 +69,9 @@ newRoleAliasDescription ::
   RoleAliasDescription
 newRoleAliasDescription =
   RoleAliasDescription'
-    { roleAliasArn =
+    { lastModifiedDate =
         Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
+      roleAliasArn = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       owner = Prelude.Nothing,
@@ -79,13 +79,13 @@ newRoleAliasDescription =
       roleAlias = Prelude.Nothing
     }
 
--- | The ARN of the role alias.
-roleAliasDescription_roleAliasArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
-roleAliasDescription_roleAliasArn = Lens.lens (\RoleAliasDescription' {roleAliasArn} -> roleAliasArn) (\s@RoleAliasDescription' {} a -> s {roleAliasArn = a} :: RoleAliasDescription)
-
 -- | The UNIX timestamp of when the role alias was last modified.
 roleAliasDescription_lastModifiedDate :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.UTCTime)
 roleAliasDescription_lastModifiedDate = Lens.lens (\RoleAliasDescription' {lastModifiedDate} -> lastModifiedDate) (\s@RoleAliasDescription' {} a -> s {lastModifiedDate = a} :: RoleAliasDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the role alias.
+roleAliasDescription_roleAliasArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
+roleAliasDescription_roleAliasArn = Lens.lens (\RoleAliasDescription' {roleAliasArn} -> roleAliasArn) (\s@RoleAliasDescription' {} a -> s {roleAliasArn = a} :: RoleAliasDescription)
 
 -- | The role ARN.
 roleAliasDescription_roleArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
@@ -113,8 +113,8 @@ instance Core.FromJSON RoleAliasDescription where
       "RoleAliasDescription"
       ( \x ->
           RoleAliasDescription'
-            Prelude.<$> (x Core..:? "roleAliasArn")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
+            Prelude.<$> (x Core..:? "lastModifiedDate")
+            Prelude.<*> (x Core..:? "roleAliasArn")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "owner")

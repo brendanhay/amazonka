@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a Device Defender ML Detect mitigation action.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CancelDetectMitigationActionsTask>
+-- action.
 module Network.AWS.IoT.CancelDetectMitigationActionsTask
   ( -- * Creating a Request
     CancelDetectMitigationActionsTask (..),

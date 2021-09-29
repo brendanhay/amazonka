@@ -23,6 +23,10 @@
 -- Restores the default settings for Device Defender audits for this
 -- account. Any configuration data you entered is deleted and all audit
 -- checks are reset to disabled.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteAccountAuditConfiguration>
+-- action.
 module Network.AWS.IoT.DeleteAccountAuditConfiguration
   ( -- * Creating a Request
     DeleteAccountAuditConfiguration (..),

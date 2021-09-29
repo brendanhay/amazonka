@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the fleet provisioning templates in your AWS account.
+-- Lists the fleet provisioning templates in your Amazon Web Services
+-- account.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListProvisioningTemplates>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListProvisioningTemplates

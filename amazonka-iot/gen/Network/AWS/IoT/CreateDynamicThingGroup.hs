@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a dynamic thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateDynamicThingGroup>
+-- action.
 module Network.AWS.IoT.CreateDynamicThingGroup
   ( -- * Creating a Request
     CreateDynamicThingGroup (..),
@@ -60,7 +64,7 @@ import qualified Network.AWS.Response as Response
 data CreateDynamicThingGroup = CreateDynamicThingGroup'
   { -- | The dynamic thing group index name.
     --
-    -- Currently one index is supported: \"AWS_Things\".
+    -- Currently one index is supported: @AWS_Things@.
     indexName :: Prelude.Maybe Prelude.Text,
     -- | The dynamic thing group query version.
     --
@@ -92,7 +96,7 @@ data CreateDynamicThingGroup = CreateDynamicThingGroup'
 --
 -- 'indexName', 'createDynamicThingGroup_indexName' - The dynamic thing group index name.
 --
--- Currently one index is supported: \"AWS_Things\".
+-- Currently one index is supported: @AWS_Things@.
 --
 -- 'queryVersion', 'createDynamicThingGroup_queryVersion' - The dynamic thing group query version.
 --
@@ -131,7 +135,7 @@ newCreateDynamicThingGroup
 
 -- | The dynamic thing group index name.
 --
--- Currently one index is supported: \"AWS_Things\".
+-- Currently one index is supported: @AWS_Things@.
 createDynamicThingGroup_indexName :: Lens.Lens' CreateDynamicThingGroup (Prelude.Maybe Prelude.Text)
 createDynamicThingGroup_indexName = Lens.lens (\CreateDynamicThingGroup' {indexName} -> indexName) (\s@CreateDynamicThingGroup' {} a -> s {indexName = a} :: CreateDynamicThingGroup)
 

@@ -37,11 +37,11 @@ data OTAUpdateFile = OTAUpdateFile'
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the file.
     fileName :: Prelude.Maybe Prelude.Text,
+    -- | The code signing method of the file.
+    codeSigning :: Prelude.Maybe CodeSigning,
     -- | An integer value you can include in the job document to allow your
     -- devices to identify the type of file received from the cloud.
-    fileType :: Prelude.Maybe Prelude.Natural,
-    -- | The code signing method of the file.
-    codeSigning :: Prelude.Maybe CodeSigning
+    fileType :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,10 +61,10 @@ data OTAUpdateFile = OTAUpdateFile'
 --
 -- 'fileName', 'oTAUpdateFile_fileName' - The name of the file.
 --
+-- 'codeSigning', 'oTAUpdateFile_codeSigning' - The code signing method of the file.
+--
 -- 'fileType', 'oTAUpdateFile_fileType' - An integer value you can include in the job document to allow your
 -- devices to identify the type of file received from the cloud.
---
--- 'codeSigning', 'oTAUpdateFile_codeSigning' - The code signing method of the file.
 newOTAUpdateFile ::
   OTAUpdateFile
 newOTAUpdateFile =
@@ -73,8 +73,8 @@ newOTAUpdateFile =
       fileLocation = Prelude.Nothing,
       attributes = Prelude.Nothing,
       fileName = Prelude.Nothing,
-      fileType = Prelude.Nothing,
-      codeSigning = Prelude.Nothing
+      codeSigning = Prelude.Nothing,
+      fileType = Prelude.Nothing
     }
 
 -- | The file version.
@@ -93,14 +93,14 @@ oTAUpdateFile_attributes = Lens.lens (\OTAUpdateFile' {attributes} -> attributes
 oTAUpdateFile_fileName :: Lens.Lens' OTAUpdateFile (Prelude.Maybe Prelude.Text)
 oTAUpdateFile_fileName = Lens.lens (\OTAUpdateFile' {fileName} -> fileName) (\s@OTAUpdateFile' {} a -> s {fileName = a} :: OTAUpdateFile)
 
+-- | The code signing method of the file.
+oTAUpdateFile_codeSigning :: Lens.Lens' OTAUpdateFile (Prelude.Maybe CodeSigning)
+oTAUpdateFile_codeSigning = Lens.lens (\OTAUpdateFile' {codeSigning} -> codeSigning) (\s@OTAUpdateFile' {} a -> s {codeSigning = a} :: OTAUpdateFile)
+
 -- | An integer value you can include in the job document to allow your
 -- devices to identify the type of file received from the cloud.
 oTAUpdateFile_fileType :: Lens.Lens' OTAUpdateFile (Prelude.Maybe Prelude.Natural)
 oTAUpdateFile_fileType = Lens.lens (\OTAUpdateFile' {fileType} -> fileType) (\s@OTAUpdateFile' {} a -> s {fileType = a} :: OTAUpdateFile)
-
--- | The code signing method of the file.
-oTAUpdateFile_codeSigning :: Lens.Lens' OTAUpdateFile (Prelude.Maybe CodeSigning)
-oTAUpdateFile_codeSigning = Lens.lens (\OTAUpdateFile' {codeSigning} -> codeSigning) (\s@OTAUpdateFile' {} a -> s {codeSigning = a} :: OTAUpdateFile)
 
 instance Core.FromJSON OTAUpdateFile where
   parseJSON =
@@ -112,8 +112,8 @@ instance Core.FromJSON OTAUpdateFile where
             Prelude.<*> (x Core..:? "fileLocation")
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fileName")
-            Prelude.<*> (x Core..:? "fileType")
             Prelude.<*> (x Core..:? "codeSigning")
+            Prelude.<*> (x Core..:? "fileType")
       )
 
 instance Prelude.Hashable OTAUpdateFile
@@ -128,7 +128,7 @@ instance Core.ToJSON OTAUpdateFile where
             ("fileLocation" Core..=) Prelude.<$> fileLocation,
             ("attributes" Core..=) Prelude.<$> attributes,
             ("fileName" Core..=) Prelude.<$> fileName,
-            ("fileType" Core..=) Prelude.<$> fileType,
-            ("codeSigning" Core..=) Prelude.<$> codeSigning
+            ("codeSigning" Core..=) Prelude.<$> codeSigning,
+            ("fileType" Core..=) Prelude.<$> fileType
           ]
       )

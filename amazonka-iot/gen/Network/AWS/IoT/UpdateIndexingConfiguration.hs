@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the search configuration.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateIndexingConfiguration>
+-- action.
 module Network.AWS.IoT.UpdateIndexingConfiguration
   ( -- * Creating a Request
     UpdateIndexingConfiguration (..),

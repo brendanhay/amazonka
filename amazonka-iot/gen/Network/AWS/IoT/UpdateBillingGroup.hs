@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates information about the billing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateBillingGroup>
+-- action.
 module Network.AWS.IoT.UpdateBillingGroup
   ( -- * Creating a Request
     UpdateBillingGroup (..),

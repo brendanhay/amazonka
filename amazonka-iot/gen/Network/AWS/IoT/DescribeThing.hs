@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeThing>
+-- action.
 module Network.AWS.IoT.DescribeThing
   ( -- * Creating a Request
     DescribeThing (..),
@@ -34,14 +38,14 @@ module Network.AWS.IoT.DescribeThing
     newDescribeThingResponse,
 
     -- * Response Lenses
-    describeThingResponse_thingArn,
     describeThingResponse_thingId,
+    describeThingResponse_thingArn,
     describeThingResponse_thingName,
     describeThingResponse_version,
-    describeThingResponse_attributes,
     describeThingResponse_defaultClientId,
-    describeThingResponse_billingGroupName,
+    describeThingResponse_attributes,
     describeThingResponse_thingTypeName,
+    describeThingResponse_billingGroupName,
     describeThingResponse_httpStatus,
   )
 where
@@ -91,14 +95,14 @@ instance Core.AWSRequest DescribeThing where
     Response.receiveJSON
       ( \s h x ->
           DescribeThingResponse'
-            Prelude.<$> (x Core..?> "thingArn")
-            Prelude.<*> (x Core..?> "thingId")
+            Prelude.<$> (x Core..?> "thingId")
+            Prelude.<*> (x Core..?> "thingArn")
             Prelude.<*> (x Core..?> "thingName")
             Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "defaultClientId")
-            Prelude.<*> (x Core..?> "billingGroupName")
+            Prelude.<*> (x Core..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "thingTypeName")
+            Prelude.<*> (x Core..?> "billingGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +124,10 @@ instance Core.ToQuery DescribeThing where
 --
 -- /See:/ 'newDescribeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-  { -- | The ARN of the thing to describe.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the thing to describe.
+  { -- | The ID of the thing to describe.
     thingId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the thing to describe.
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing.
     thingName :: Prelude.Maybe Prelude.Text,
     -- | The current version of the thing record in the registry.
@@ -132,8 +136,6 @@ data DescribeThingResponse = DescribeThingResponse'
     -- can pass the version information in the @expectedVersion@ parameter of
     -- the @UpdateThing@ and @DeleteThing@ calls.
     version :: Prelude.Maybe Prelude.Integer,
-    -- | The thing attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The default MQTT client ID. For a typical device, the thing name is also
     -- used as the default MQTT client ID. Although we don’t require a mapping
     -- between a thing\'s registry name and its use of MQTT client IDs,
@@ -141,13 +143,15 @@ data DescribeThingResponse = DescribeThingResponse'
     -- and use it as the MQTT client ID for the registry and the Device Shadow
     -- service.
     --
-    -- This lets you better organize your AWS IoT fleet without removing the
+    -- This lets you better organize your IoT fleet without removing the
     -- flexibility of the underlying device certificate model or shadows.
     defaultClientId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the billing group the thing belongs to.
-    billingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The thing attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The thing type name.
     thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the billing group the thing belongs to.
+    billingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +165,9 @@ data DescribeThingResponse = DescribeThingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'describeThingResponse_thingArn' - The ARN of the thing to describe.
---
 -- 'thingId', 'describeThingResponse_thingId' - The ID of the thing to describe.
+--
+-- 'thingArn', 'describeThingResponse_thingArn' - The ARN of the thing to describe.
 --
 -- 'thingName', 'describeThingResponse_thingName' - The name of the thing.
 --
@@ -173,8 +177,6 @@ data DescribeThingResponse = DescribeThingResponse'
 -- can pass the version information in the @expectedVersion@ parameter of
 -- the @UpdateThing@ and @DeleteThing@ calls.
 --
--- 'attributes', 'describeThingResponse_attributes' - The thing attributes.
---
 -- 'defaultClientId', 'describeThingResponse_defaultClientId' - The default MQTT client ID. For a typical device, the thing name is also
 -- used as the default MQTT client ID. Although we don’t require a mapping
 -- between a thing\'s registry name and its use of MQTT client IDs,
@@ -182,12 +184,14 @@ data DescribeThingResponse = DescribeThingResponse'
 -- and use it as the MQTT client ID for the registry and the Device Shadow
 -- service.
 --
--- This lets you better organize your AWS IoT fleet without removing the
+-- This lets you better organize your IoT fleet without removing the
 -- flexibility of the underlying device certificate model or shadows.
 --
--- 'billingGroupName', 'describeThingResponse_billingGroupName' - The name of the billing group the thing belongs to.
+-- 'attributes', 'describeThingResponse_attributes' - The thing attributes.
 --
 -- 'thingTypeName', 'describeThingResponse_thingTypeName' - The thing type name.
+--
+-- 'billingGroupName', 'describeThingResponse_billingGroupName' - The name of the billing group the thing belongs to.
 --
 -- 'httpStatus', 'describeThingResponse_httpStatus' - The response's http status code.
 newDescribeThingResponse ::
@@ -196,24 +200,24 @@ newDescribeThingResponse ::
   DescribeThingResponse
 newDescribeThingResponse pHttpStatus_ =
   DescribeThingResponse'
-    { thingArn = Prelude.Nothing,
-      thingId = Prelude.Nothing,
+    { thingId = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
       thingName = Prelude.Nothing,
       version = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       defaultClientId = Prelude.Nothing,
-      billingGroupName = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
+      billingGroupName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the thing to describe.
-describeThingResponse_thingArn :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
-describeThingResponse_thingArn = Lens.lens (\DescribeThingResponse' {thingArn} -> thingArn) (\s@DescribeThingResponse' {} a -> s {thingArn = a} :: DescribeThingResponse)
 
 -- | The ID of the thing to describe.
 describeThingResponse_thingId :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
 describeThingResponse_thingId = Lens.lens (\DescribeThingResponse' {thingId} -> thingId) (\s@DescribeThingResponse' {} a -> s {thingId = a} :: DescribeThingResponse)
+
+-- | The ARN of the thing to describe.
+describeThingResponse_thingArn :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
+describeThingResponse_thingArn = Lens.lens (\DescribeThingResponse' {thingArn} -> thingArn) (\s@DescribeThingResponse' {} a -> s {thingArn = a} :: DescribeThingResponse)
 
 -- | The name of the thing.
 describeThingResponse_thingName :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
@@ -227,10 +231,6 @@ describeThingResponse_thingName = Lens.lens (\DescribeThingResponse' {thingName}
 describeThingResponse_version :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Integer)
 describeThingResponse_version = Lens.lens (\DescribeThingResponse' {version} -> version) (\s@DescribeThingResponse' {} a -> s {version = a} :: DescribeThingResponse)
 
--- | The thing attributes.
-describeThingResponse_attributes :: Lens.Lens' DescribeThingResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeThingResponse_attributes = Lens.lens (\DescribeThingResponse' {attributes} -> attributes) (\s@DescribeThingResponse' {} a -> s {attributes = a} :: DescribeThingResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The default MQTT client ID. For a typical device, the thing name is also
 -- used as the default MQTT client ID. Although we don’t require a mapping
 -- between a thing\'s registry name and its use of MQTT client IDs,
@@ -238,18 +238,22 @@ describeThingResponse_attributes = Lens.lens (\DescribeThingResponse' {attribute
 -- and use it as the MQTT client ID for the registry and the Device Shadow
 -- service.
 --
--- This lets you better organize your AWS IoT fleet without removing the
+-- This lets you better organize your IoT fleet without removing the
 -- flexibility of the underlying device certificate model or shadows.
 describeThingResponse_defaultClientId :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
 describeThingResponse_defaultClientId = Lens.lens (\DescribeThingResponse' {defaultClientId} -> defaultClientId) (\s@DescribeThingResponse' {} a -> s {defaultClientId = a} :: DescribeThingResponse)
 
--- | The name of the billing group the thing belongs to.
-describeThingResponse_billingGroupName :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
-describeThingResponse_billingGroupName = Lens.lens (\DescribeThingResponse' {billingGroupName} -> billingGroupName) (\s@DescribeThingResponse' {} a -> s {billingGroupName = a} :: DescribeThingResponse)
+-- | The thing attributes.
+describeThingResponse_attributes :: Lens.Lens' DescribeThingResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeThingResponse_attributes = Lens.lens (\DescribeThingResponse' {attributes} -> attributes) (\s@DescribeThingResponse' {} a -> s {attributes = a} :: DescribeThingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The thing type name.
 describeThingResponse_thingTypeName :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
 describeThingResponse_thingTypeName = Lens.lens (\DescribeThingResponse' {thingTypeName} -> thingTypeName) (\s@DescribeThingResponse' {} a -> s {thingTypeName = a} :: DescribeThingResponse)
+
+-- | The name of the billing group the thing belongs to.
+describeThingResponse_billingGroupName :: Lens.Lens' DescribeThingResponse (Prelude.Maybe Prelude.Text)
+describeThingResponse_billingGroupName = Lens.lens (\DescribeThingResponse' {billingGroupName} -> billingGroupName) (\s@DescribeThingResponse' {} a -> s {billingGroupName = a} :: DescribeThingResponse)
 
 -- | The response's http status code.
 describeThingResponse_httpStatus :: Lens.Lens' DescribeThingResponse Prelude.Int

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts an on-demand Device Defender audit.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StartOnDemandAuditTask>
+-- action.
 module Network.AWS.IoT.StartOnDemandAuditTask
   ( -- * Creating a Request
     StartOnDemandAuditTask (..),

@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a defined mitigation action from your AWS account.
+-- Deletes a defined mitigation action from your Amazon Web Services
+-- accounts.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteMitigationAction>
+-- action.
 module Network.AWS.IoT.DeleteMitigationAction
   ( -- * Creating a Request
     DeleteMitigationAction (..),

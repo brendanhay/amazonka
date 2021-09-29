@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a dynamic thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateDynamicThingGroup>
+-- action.
 module Network.AWS.IoT.UpdateDynamicThingGroup
   ( -- * Creating a Request
     UpdateDynamicThingGroup (..),
@@ -59,7 +63,7 @@ data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
     expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The dynamic thing group index to update.
     --
-    -- Currently one index is supported: \'AWS_Things\'.
+    -- Currently one index is supported: @AWS_Things@.
     indexName :: Prelude.Maybe Prelude.Text,
     -- | The dynamic thing group query version to update.
     --
@@ -87,7 +91,7 @@ data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
 --
 -- 'indexName', 'updateDynamicThingGroup_indexName' - The dynamic thing group index to update.
 --
--- Currently one index is supported: \'AWS_Things\'.
+-- Currently one index is supported: @AWS_Things@.
 --
 -- 'queryVersion', 'updateDynamicThingGroup_queryVersion' - The dynamic thing group query version to update.
 --
@@ -126,7 +130,7 @@ updateDynamicThingGroup_expectedVersion = Lens.lens (\UpdateDynamicThingGroup' {
 
 -- | The dynamic thing group index to update.
 --
--- Currently one index is supported: \'AWS_Things\'.
+-- Currently one index is supported: @AWS_Things@.
 updateDynamicThingGroup_indexName :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
 updateDynamicThingGroup_indexName = Lens.lens (\UpdateDynamicThingGroup' {indexName} -> indexName) (\s@UpdateDynamicThingGroup' {} a -> s {indexName = a} :: UpdateDynamicThingGroup)
 

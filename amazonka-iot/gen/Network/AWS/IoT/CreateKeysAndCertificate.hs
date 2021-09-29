@@ -25,8 +25,12 @@
 -- MQTT from a device, for more information, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api Provisioning MQTT API>.
 --
--- __Note__ This is the only time AWS IoT issues the private key for this
+-- __Note__ This is the only time IoT issues the private key for this
 -- certificate, so it is important to keep it in a secure location.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateKeysAndCertificate>
+-- action.
 module Network.AWS.IoT.CreateKeysAndCertificate
   ( -- * Creating a Request
     CreateKeysAndCertificate (..),
@@ -56,6 +60,10 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | The input for the CreateKeysAndCertificate operation.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateKeysAndCertificateRequest>
+-- action.
 --
 -- /See:/ 'newCreateKeysAndCertificate' smart constructor.
 data CreateKeysAndCertificate = CreateKeysAndCertificate'
@@ -126,8 +134,8 @@ data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The generated key pair.
     keyPair :: Prelude.Maybe KeyPair,
-    -- | The ID of the certificate. AWS IoT issues a default subject name for the
-    -- certificate (for example, AWS IoT Certificate).
+    -- | The ID of the certificate. IoT issues a default subject name for the
+    -- certificate (for example, IoT Certificate).
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Maybe Prelude.Text,
@@ -148,8 +156,8 @@ data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
 --
 -- 'keyPair', 'createKeysAndCertificateResponse_keyPair' - The generated key pair.
 --
--- 'certificateId', 'createKeysAndCertificateResponse_certificateId' - The ID of the certificate. AWS IoT issues a default subject name for the
--- certificate (for example, AWS IoT Certificate).
+-- 'certificateId', 'createKeysAndCertificateResponse_certificateId' - The ID of the certificate. IoT issues a default subject name for the
+-- certificate (for example, IoT Certificate).
 --
 -- 'certificatePem', 'createKeysAndCertificateResponse_certificatePem' - The certificate data, in PEM format.
 --
@@ -176,8 +184,8 @@ createKeysAndCertificateResponse_certificateArn = Lens.lens (\CreateKeysAndCerti
 createKeysAndCertificateResponse_keyPair :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe KeyPair)
 createKeysAndCertificateResponse_keyPair = Lens.lens (\CreateKeysAndCertificateResponse' {keyPair} -> keyPair) (\s@CreateKeysAndCertificateResponse' {} a -> s {keyPair = a} :: CreateKeysAndCertificateResponse)
 
--- | The ID of the certificate. AWS IoT issues a default subject name for the
--- certificate (for example, AWS IoT Certificate).
+-- | The ID of the certificate. IoT issues a default subject name for the
+-- certificate (for example, IoT Certificate).
 createKeysAndCertificateResponse_certificateId :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
 createKeysAndCertificateResponse_certificateId = Lens.lens (\CreateKeysAndCertificateResponse' {certificateId} -> certificateId) (\s@CreateKeysAndCertificateResponse' {} a -> s {certificateId = a} :: CreateKeysAndCertificateResponse)
 

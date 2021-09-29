@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an authorizer.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateAuthorizer>
+-- action.
 module Network.AWS.IoT.UpdateAuthorizer
   ( -- * Creating a Request
     UpdateAuthorizer (..),

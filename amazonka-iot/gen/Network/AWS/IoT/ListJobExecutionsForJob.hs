@@ -22,6 +22,10 @@
 --
 -- Lists the job executions for a job.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListJobExecutionsForJob>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListJobExecutionsForJob
   ( -- * Creating a Request

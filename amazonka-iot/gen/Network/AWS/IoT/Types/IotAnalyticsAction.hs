@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Sends message data to an AWS IoT Analytics channel.
+-- | Sends message data to an IoT Analytics channel.
 --
 -- /See:/ 'newIotAnalyticsAction' smart constructor.
 data IotAnalyticsAction = IotAnalyticsAction'
@@ -40,8 +40,8 @@ data IotAnalyticsAction = IotAnalyticsAction'
     -- Array, each Array element is delivered as a separate message when passed
     -- by
     -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html BatchPutMessage>
-    -- to the AWS IoT Analytics channel. The resulting array can\'t have more
-    -- than 100 messages.
+    -- to the IoT Analytics channel. The resulting array can\'t have more than
+    -- 100 messages.
     batchMode :: Prelude.Maybe Prelude.Bool,
     -- | (deprecated) The ARN of the IoT Analytics channel to which message data
     -- will be sent.
@@ -70,8 +70,8 @@ data IotAnalyticsAction = IotAnalyticsAction'
 -- Array, each Array element is delivered as a separate message when passed
 -- by
 -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html BatchPutMessage>
--- to the AWS IoT Analytics channel. The resulting array can\'t have more
--- than 100 messages.
+-- to the IoT Analytics channel. The resulting array can\'t have more than
+-- 100 messages.
 --
 -- 'channelArn', 'iotAnalyticsAction_channelArn' - (deprecated) The ARN of the IoT Analytics channel to which message data
 -- will be sent.
@@ -102,8 +102,8 @@ iotAnalyticsAction_roleArn = Lens.lens (\IotAnalyticsAction' {roleArn} -> roleAr
 -- Array, each Array element is delivered as a separate message when passed
 -- by
 -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html BatchPutMessage>
--- to the AWS IoT Analytics channel. The resulting array can\'t have more
--- than 100 messages.
+-- to the IoT Analytics channel. The resulting array can\'t have more than
+-- 100 messages.
 iotAnalyticsAction_batchMode :: Lens.Lens' IotAnalyticsAction (Prelude.Maybe Prelude.Bool)
 iotAnalyticsAction_batchMode = Lens.lens (\IotAnalyticsAction' {batchMode} -> batchMode) (\s@IotAnalyticsAction' {} a -> s {batchMode = a} :: IotAnalyticsAction)
 

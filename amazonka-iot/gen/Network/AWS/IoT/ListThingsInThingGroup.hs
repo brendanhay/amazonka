@@ -22,6 +22,10 @@
 --
 -- Lists the things in the specified group.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingsInThingGroup>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingsInThingGroup
   ( -- * Creating a Request

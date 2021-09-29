@@ -22,8 +22,9 @@
 --
 -- Creates a domain configuration.
 --
--- The domain configuration feature is in public preview and is subject to
--- change.
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateDomainConfiguration>
+-- action.
 module Network.AWS.IoT.CreateDomainConfiguration
   ( -- * Creating a Request
     CreateDomainConfiguration (..),
@@ -58,9 +59,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDomainConfiguration' smart constructor.
 data CreateDomainConfiguration = CreateDomainConfiguration'
-  { -- | The ARNs of the certificates that AWS IoT passes to the device during
-    -- the TLS handshake. Currently you can specify only one certificate ARN.
-    -- This value is not required for AWS-managed domains.
+  { -- | The ARNs of the certificates that IoT passes to the device during the
+    -- TLS handshake. Currently you can specify only one certificate ARN. This
+    -- value is not required for Amazon Web Services-managed domains.
     serverCertificateArns :: Prelude.Maybe [Prelude.Text],
     -- | An object that specifies the authorization service for a domain.
     authorizerConfig :: Prelude.Maybe AuthorizerConfig,
@@ -78,11 +79,13 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
     tags :: Prelude.Maybe [Tag],
     -- | The certificate used to validate the server certificate and prove domain
     -- name ownership. This certificate must be signed by a public certificate
-    -- authority. This value is not required for AWS-managed domains.
+    -- authority. This value is not required for Amazon Web Services-managed
+    -- domains.
     validationCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The type of service delivered by the endpoint.
     --
-    -- AWS IoT Core currently supports only the @DATA@ service type.
+    -- Amazon Web Services IoT Core currently supports only the @DATA@ service
+    -- type.
     serviceType :: Prelude.Maybe ServiceType,
     -- | The name of the domain configuration. This value must be unique to a
     -- region.
@@ -98,9 +101,9 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverCertificateArns', 'createDomainConfiguration_serverCertificateArns' - The ARNs of the certificates that AWS IoT passes to the device during
--- the TLS handshake. Currently you can specify only one certificate ARN.
--- This value is not required for AWS-managed domains.
+-- 'serverCertificateArns', 'createDomainConfiguration_serverCertificateArns' - The ARNs of the certificates that IoT passes to the device during the
+-- TLS handshake. Currently you can specify only one certificate ARN. This
+-- value is not required for Amazon Web Services-managed domains.
 --
 -- 'authorizerConfig', 'createDomainConfiguration_authorizerConfig' - An object that specifies the authorization service for a domain.
 --
@@ -118,11 +121,13 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
 --
 -- 'validationCertificateArn', 'createDomainConfiguration_validationCertificateArn' - The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
--- authority. This value is not required for AWS-managed domains.
+-- authority. This value is not required for Amazon Web Services-managed
+-- domains.
 --
 -- 'serviceType', 'createDomainConfiguration_serviceType' - The type of service delivered by the endpoint.
 --
--- AWS IoT Core currently supports only the @DATA@ service type.
+-- Amazon Web Services IoT Core currently supports only the @DATA@ service
+-- type.
 --
 -- 'domainConfigurationName', 'createDomainConfiguration_domainConfigurationName' - The name of the domain configuration. This value must be unique to a
 -- region.
@@ -144,9 +149,9 @@ newCreateDomainConfiguration
           pDomainConfigurationName_
       }
 
--- | The ARNs of the certificates that AWS IoT passes to the device during
--- the TLS handshake. Currently you can specify only one certificate ARN.
--- This value is not required for AWS-managed domains.
+-- | The ARNs of the certificates that IoT passes to the device during the
+-- TLS handshake. Currently you can specify only one certificate ARN. This
+-- value is not required for Amazon Web Services-managed domains.
 createDomainConfiguration_serverCertificateArns :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe [Prelude.Text])
 createDomainConfiguration_serverCertificateArns = Lens.lens (\CreateDomainConfiguration' {serverCertificateArns} -> serverCertificateArns) (\s@CreateDomainConfiguration' {} a -> s {serverCertificateArns = a} :: CreateDomainConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
@@ -172,13 +177,15 @@ createDomainConfiguration_tags = Lens.lens (\CreateDomainConfiguration' {tags} -
 
 -- | The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
--- authority. This value is not required for AWS-managed domains.
+-- authority. This value is not required for Amazon Web Services-managed
+-- domains.
 createDomainConfiguration_validationCertificateArn :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe Prelude.Text)
 createDomainConfiguration_validationCertificateArn = Lens.lens (\CreateDomainConfiguration' {validationCertificateArn} -> validationCertificateArn) (\s@CreateDomainConfiguration' {} a -> s {validationCertificateArn = a} :: CreateDomainConfiguration)
 
 -- | The type of service delivered by the endpoint.
 --
--- AWS IoT Core currently supports only the @DATA@ service type.
+-- Amazon Web Services IoT Core currently supports only the @DATA@ service
+-- type.
 createDomainConfiguration_serviceType :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe ServiceType)
 createDomainConfiguration_serviceType = Lens.lens (\CreateDomainConfiguration' {serviceType} -> serviceType) (\s@CreateDomainConfiguration' {} a -> s {serviceType = a} :: CreateDomainConfiguration)
 

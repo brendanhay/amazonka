@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 data ResourceIdentifier = ResourceIdentifier'
   { -- | The ARN of the role alias that has overly permissive actions.
     roleAliasArn :: Prelude.Maybe Prelude.Text,
-    -- | The client ID.
-    clientId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that has overly permissive actions.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The client ID.
+    clientId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Cognito identity pool.
     cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The account with which the resource is associated.
-    account :: Prelude.Maybe Prelude.Text,
     -- | The version of the policy associated with the resource.
     policyVersionIdentifier :: Prelude.Maybe PolicyVersionIdentifier,
+    -- | The account with which the resource is associated.
+    account :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate attached to the resource.
     deviceCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the CA certificate used to authorize the certificate.
@@ -57,15 +57,15 @@ data ResourceIdentifier = ResourceIdentifier'
 --
 -- 'roleAliasArn', 'resourceIdentifier_roleAliasArn' - The ARN of the role alias that has overly permissive actions.
 --
--- 'clientId', 'resourceIdentifier_clientId' - The client ID.
---
 -- 'iamRoleArn', 'resourceIdentifier_iamRoleArn' - The ARN of the IAM role that has overly permissive actions.
+--
+-- 'clientId', 'resourceIdentifier_clientId' - The client ID.
 --
 -- 'cognitoIdentityPoolId', 'resourceIdentifier_cognitoIdentityPoolId' - The ID of the Amazon Cognito identity pool.
 --
--- 'account', 'resourceIdentifier_account' - The account with which the resource is associated.
---
 -- 'policyVersionIdentifier', 'resourceIdentifier_policyVersionIdentifier' - The version of the policy associated with the resource.
+--
+-- 'account', 'resourceIdentifier_account' - The account with which the resource is associated.
 --
 -- 'deviceCertificateId', 'resourceIdentifier_deviceCertificateId' - The ID of the certificate attached to the resource.
 --
@@ -75,11 +75,11 @@ newResourceIdentifier ::
 newResourceIdentifier =
   ResourceIdentifier'
     { roleAliasArn = Prelude.Nothing,
-      clientId = Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
+      clientId = Prelude.Nothing,
       cognitoIdentityPoolId = Prelude.Nothing,
-      account = Prelude.Nothing,
       policyVersionIdentifier = Prelude.Nothing,
+      account = Prelude.Nothing,
       deviceCertificateId = Prelude.Nothing,
       caCertificateId = Prelude.Nothing
     }
@@ -88,25 +88,25 @@ newResourceIdentifier =
 resourceIdentifier_roleAliasArn :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_roleAliasArn = Lens.lens (\ResourceIdentifier' {roleAliasArn} -> roleAliasArn) (\s@ResourceIdentifier' {} a -> s {roleAliasArn = a} :: ResourceIdentifier)
 
--- | The client ID.
-resourceIdentifier_clientId :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
-resourceIdentifier_clientId = Lens.lens (\ResourceIdentifier' {clientId} -> clientId) (\s@ResourceIdentifier' {} a -> s {clientId = a} :: ResourceIdentifier)
-
 -- | The ARN of the IAM role that has overly permissive actions.
 resourceIdentifier_iamRoleArn :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_iamRoleArn = Lens.lens (\ResourceIdentifier' {iamRoleArn} -> iamRoleArn) (\s@ResourceIdentifier' {} a -> s {iamRoleArn = a} :: ResourceIdentifier)
+
+-- | The client ID.
+resourceIdentifier_clientId :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
+resourceIdentifier_clientId = Lens.lens (\ResourceIdentifier' {clientId} -> clientId) (\s@ResourceIdentifier' {} a -> s {clientId = a} :: ResourceIdentifier)
 
 -- | The ID of the Amazon Cognito identity pool.
 resourceIdentifier_cognitoIdentityPoolId :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_cognitoIdentityPoolId = Lens.lens (\ResourceIdentifier' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@ResourceIdentifier' {} a -> s {cognitoIdentityPoolId = a} :: ResourceIdentifier)
 
--- | The account with which the resource is associated.
-resourceIdentifier_account :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
-resourceIdentifier_account = Lens.lens (\ResourceIdentifier' {account} -> account) (\s@ResourceIdentifier' {} a -> s {account = a} :: ResourceIdentifier)
-
 -- | The version of the policy associated with the resource.
 resourceIdentifier_policyVersionIdentifier :: Lens.Lens' ResourceIdentifier (Prelude.Maybe PolicyVersionIdentifier)
 resourceIdentifier_policyVersionIdentifier = Lens.lens (\ResourceIdentifier' {policyVersionIdentifier} -> policyVersionIdentifier) (\s@ResourceIdentifier' {} a -> s {policyVersionIdentifier = a} :: ResourceIdentifier)
+
+-- | The account with which the resource is associated.
+resourceIdentifier_account :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
+resourceIdentifier_account = Lens.lens (\ResourceIdentifier' {account} -> account) (\s@ResourceIdentifier' {} a -> s {account = a} :: ResourceIdentifier)
 
 -- | The ID of the certificate attached to the resource.
 resourceIdentifier_deviceCertificateId :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
@@ -123,11 +123,11 @@ instance Core.FromJSON ResourceIdentifier where
       ( \x ->
           ResourceIdentifier'
             Prelude.<$> (x Core..:? "roleAliasArn")
-            Prelude.<*> (x Core..:? "clientId")
             Prelude.<*> (x Core..:? "iamRoleArn")
+            Prelude.<*> (x Core..:? "clientId")
             Prelude.<*> (x Core..:? "cognitoIdentityPoolId")
-            Prelude.<*> (x Core..:? "account")
             Prelude.<*> (x Core..:? "policyVersionIdentifier")
+            Prelude.<*> (x Core..:? "account")
             Prelude.<*> (x Core..:? "deviceCertificateId")
             Prelude.<*> (x Core..:? "caCertificateId")
       )
@@ -141,13 +141,13 @@ instance Core.ToJSON ResourceIdentifier where
     Core.object
       ( Prelude.catMaybes
           [ ("roleAliasArn" Core..=) Prelude.<$> roleAliasArn,
-            ("clientId" Core..=) Prelude.<$> clientId,
             ("iamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("clientId" Core..=) Prelude.<$> clientId,
             ("cognitoIdentityPoolId" Core..=)
               Prelude.<$> cognitoIdentityPoolId,
-            ("account" Core..=) Prelude.<$> account,
             ("policyVersionIdentifier" Core..=)
               Prelude.<$> policyVersionIdentifier,
+            ("account" Core..=) Prelude.<$> account,
             ("deviceCertificateId" Core..=)
               Prelude.<$> deviceCertificateId,
             ("caCertificateId" Core..=)

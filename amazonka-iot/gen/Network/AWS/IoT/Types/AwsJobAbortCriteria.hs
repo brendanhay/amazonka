@@ -36,8 +36,8 @@ data AwsJobAbortCriteria = AwsJobAbortCriteria'
     -- | The minimum percentage of job execution failures that must occur to
     -- initiate the job abort.
     --
-    -- AWS IoT supports up to two digits after the decimal (for example, 10.9
-    -- and 10.99, but not 10.999).
+    -- Amazon Web Services IoT Core supports up to two digits after the decimal
+    -- (for example, 10.9 and 10.99, but not 10.999).
     thresholdPercentage :: Prelude.Double,
     -- | The minimum number of things which must receive job execution
     -- notifications before the job can be aborted.
@@ -60,8 +60,8 @@ data AwsJobAbortCriteria = AwsJobAbortCriteria'
 -- 'thresholdPercentage', 'awsJobAbortCriteria_thresholdPercentage' - The minimum percentage of job execution failures that must occur to
 -- initiate the job abort.
 --
--- AWS IoT supports up to two digits after the decimal (for example, 10.9
--- and 10.99, but not 10.999).
+-- Amazon Web Services IoT Core supports up to two digits after the decimal
+-- (for example, 10.9 and 10.99, but not 10.999).
 --
 -- 'minNumberOfExecutedThings', 'awsJobAbortCriteria_minNumberOfExecutedThings' - The minimum number of things which must receive job execution
 -- notifications before the job can be aborted.
@@ -99,8 +99,8 @@ awsJobAbortCriteria_action = Lens.lens (\AwsJobAbortCriteria' {action} -> action
 -- | The minimum percentage of job execution failures that must occur to
 -- initiate the job abort.
 --
--- AWS IoT supports up to two digits after the decimal (for example, 10.9
--- and 10.99, but not 10.999).
+-- Amazon Web Services IoT Core supports up to two digits after the decimal
+-- (for example, 10.9 and 10.99, but not 10.999).
 awsJobAbortCriteria_thresholdPercentage :: Lens.Lens' AwsJobAbortCriteria Prelude.Double
 awsJobAbortCriteria_thresholdPercentage = Lens.lens (\AwsJobAbortCriteria' {thresholdPercentage} -> thresholdPercentage) (\s@AwsJobAbortCriteria' {} a -> s {thresholdPercentage = a} :: AwsJobAbortCriteria)
 

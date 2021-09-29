@@ -23,6 +23,10 @@
 -- Gets a list of audit mitigation action tasks that match the specified
 -- filters.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListAuditMitigationActionsTasks>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditMitigationActionsTasks
   ( -- * Creating a Request

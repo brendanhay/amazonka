@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Data used to transfer a certificate to an AWS account.
+-- | Data used to transfer a certificate to an Amazon Web Services account.
 --
 -- /See:/ 'newTransferData' smart constructor.
 data TransferData = TransferData'
@@ -33,10 +33,10 @@ data TransferData = TransferData'
     transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The date the transfer was accepted.
     acceptDate :: Prelude.Maybe Core.POSIX,
-    -- | The date the transfer was rejected.
-    rejectDate :: Prelude.Maybe Core.POSIX,
     -- | The reason why the transfer was rejected.
-    rejectReason :: Prelude.Maybe Prelude.Text
+    rejectReason :: Prelude.Maybe Prelude.Text,
+    -- | The date the transfer was rejected.
+    rejectDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data TransferData = TransferData'
 --
 -- 'acceptDate', 'transferData_acceptDate' - The date the transfer was accepted.
 --
--- 'rejectDate', 'transferData_rejectDate' - The date the transfer was rejected.
---
 -- 'rejectReason', 'transferData_rejectReason' - The reason why the transfer was rejected.
+--
+-- 'rejectDate', 'transferData_rejectDate' - The date the transfer was rejected.
 newTransferData ::
   TransferData
 newTransferData =
@@ -64,8 +64,8 @@ newTransferData =
     { transferDate = Prelude.Nothing,
       transferMessage = Prelude.Nothing,
       acceptDate = Prelude.Nothing,
-      rejectDate = Prelude.Nothing,
-      rejectReason = Prelude.Nothing
+      rejectReason = Prelude.Nothing,
+      rejectDate = Prelude.Nothing
     }
 
 -- | The date the transfer took place.
@@ -80,13 +80,13 @@ transferData_transferMessage = Lens.lens (\TransferData' {transferMessage} -> tr
 transferData_acceptDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
 transferData_acceptDate = Lens.lens (\TransferData' {acceptDate} -> acceptDate) (\s@TransferData' {} a -> s {acceptDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
 
--- | The date the transfer was rejected.
-transferData_rejectDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
-transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
-
 -- | The reason why the transfer was rejected.
 transferData_rejectReason :: Lens.Lens' TransferData (Prelude.Maybe Prelude.Text)
 transferData_rejectReason = Lens.lens (\TransferData' {rejectReason} -> rejectReason) (\s@TransferData' {} a -> s {rejectReason = a} :: TransferData)
+
+-- | The date the transfer was rejected.
+transferData_rejectDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
+transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TransferData where
   parseJSON =
@@ -97,8 +97,8 @@ instance Core.FromJSON TransferData where
             Prelude.<$> (x Core..:? "transferDate")
             Prelude.<*> (x Core..:? "transferMessage")
             Prelude.<*> (x Core..:? "acceptDate")
-            Prelude.<*> (x Core..:? "rejectDate")
             Prelude.<*> (x Core..:? "rejectReason")
+            Prelude.<*> (x Core..:? "rejectDate")
       )
 
 instance Prelude.Hashable TransferData

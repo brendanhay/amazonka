@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a bulk thing provisioning task.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StopThingRegistrationTask>
+-- action.
 module Network.AWS.IoT.StopThingRegistrationTask
   ( -- * Creating a Request
     StopThingRegistrationTask (..),

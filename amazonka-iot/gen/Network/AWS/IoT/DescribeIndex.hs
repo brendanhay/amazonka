@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a search index.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeIndex>
+-- action.
 module Network.AWS.IoT.DescribeIndex
   ( -- * Creating a Request
     DescribeIndex (..),
@@ -34,8 +38,8 @@ module Network.AWS.IoT.DescribeIndex
     newDescribeIndexResponse,
 
     -- * Response Lenses
-    describeIndexResponse_indexName,
     describeIndexResponse_schema,
+    describeIndexResponse_indexName,
     describeIndexResponse_indexStatus,
     describeIndexResponse_httpStatus,
   )
@@ -84,8 +88,8 @@ instance Core.AWSRequest DescribeIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Core..?> "indexName")
-            Prelude.<*> (x Core..?> "schema")
+            Prelude.<$> (x Core..?> "schema")
+            Prelude.<*> (x Core..?> "indexName")
             Prelude.<*> (x Core..?> "indexStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -106,9 +110,7 @@ instance Core.ToQuery DescribeIndex where
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
-  { -- | The index name.
-    indexName :: Prelude.Maybe Prelude.Text,
-    -- | Contains a value that specifies the type of indexing performed. Valid
+  { -- | Contains a value that specifies the type of indexing performed. Valid
     -- values are:
     --
     -- -   REGISTRY – Your thing index contains only registry data.
@@ -123,6 +125,8 @@ data DescribeIndexResponse = DescribeIndexResponse'
     --     contains registry data, shadow data, and thing connectivity status
     --     data.
     schema :: Prelude.Maybe Prelude.Text,
+    -- | The index name.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The index status.
     indexStatus :: Prelude.Maybe IndexStatus,
     -- | The response's http status code.
@@ -137,8 +141,6 @@ data DescribeIndexResponse = DescribeIndexResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'indexName', 'describeIndexResponse_indexName' - The index name.
 --
 -- 'schema', 'describeIndexResponse_schema' - Contains a value that specifies the type of indexing performed. Valid
 -- values are:
@@ -155,6 +157,8 @@ data DescribeIndexResponse = DescribeIndexResponse'
 --     contains registry data, shadow data, and thing connectivity status
 --     data.
 --
+-- 'indexName', 'describeIndexResponse_indexName' - The index name.
+--
 -- 'indexStatus', 'describeIndexResponse_indexStatus' - The index status.
 --
 -- 'httpStatus', 'describeIndexResponse_httpStatus' - The response's http status code.
@@ -164,15 +168,11 @@ newDescribeIndexResponse ::
   DescribeIndexResponse
 newDescribeIndexResponse pHttpStatus_ =
   DescribeIndexResponse'
-    { indexName = Prelude.Nothing,
-      schema = Prelude.Nothing,
+    { schema = Prelude.Nothing,
+      indexName = Prelude.Nothing,
       indexStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The index name.
-describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName} -> indexName) (\s@DescribeIndexResponse' {} a -> s {indexName = a} :: DescribeIndexResponse)
 
 -- | Contains a value that specifies the type of indexing performed. Valid
 -- values are:
@@ -190,6 +190,10 @@ describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName}
 --     data.
 describeIndexResponse_schema :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
 describeIndexResponse_schema = Lens.lens (\DescribeIndexResponse' {schema} -> schema) (\s@DescribeIndexResponse' {} a -> s {schema = a} :: DescribeIndexResponse)
+
+-- | The index name.
+describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName} -> indexName) (\s@DescribeIndexResponse' {} a -> s {indexName = a} :: DescribeIndexResponse)
 
 -- | The index status.
 describeIndexResponse_indexStatus :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)

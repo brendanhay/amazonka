@@ -25,14 +25,14 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to send data from an MQTT message that triggered the
--- rule to AWS IoT SiteWise asset properties.
+-- rule to IoT SiteWise asset properties.
 --
 -- /See:/ 'newIotSiteWiseAction' smart constructor.
 data IotSiteWiseAction = IotSiteWiseAction'
   { -- | A list of asset property value entries.
     putAssetPropertyValueEntries :: Prelude.NonEmpty PutAssetPropertyValueEntry,
-    -- | The ARN of the role that grants AWS IoT permission to send an asset
-    -- property value to AWS IoTSiteWise.
+    -- | The ARN of the role that grants IoT permission to send an asset property
+    -- value to IoT SiteWise.
     -- (@\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"@). The trust
     -- policy can restrict access to specific asset hierarchy paths.
     roleArn :: Prelude.Text
@@ -49,8 +49,8 @@ data IotSiteWiseAction = IotSiteWiseAction'
 --
 -- 'putAssetPropertyValueEntries', 'iotSiteWiseAction_putAssetPropertyValueEntries' - A list of asset property value entries.
 --
--- 'roleArn', 'iotSiteWiseAction_roleArn' - The ARN of the role that grants AWS IoT permission to send an asset
--- property value to AWS IoTSiteWise.
+-- 'roleArn', 'iotSiteWiseAction_roleArn' - The ARN of the role that grants IoT permission to send an asset property
+-- value to IoT SiteWise.
 -- (@\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"@). The trust
 -- policy can restrict access to specific asset hierarchy paths.
 newIotSiteWiseAction ::
@@ -72,8 +72,8 @@ newIotSiteWiseAction
 iotSiteWiseAction_putAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Prelude.NonEmpty PutAssetPropertyValueEntry)
 iotSiteWiseAction_putAssetPropertyValueEntries = Lens.lens (\IotSiteWiseAction' {putAssetPropertyValueEntries} -> putAssetPropertyValueEntries) (\s@IotSiteWiseAction' {} a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction) Prelude.. Lens._Coerce
 
--- | The ARN of the role that grants AWS IoT permission to send an asset
--- property value to AWS IoTSiteWise.
+-- | The ARN of the role that grants IoT permission to send an asset property
+-- value to IoT SiteWise.
 -- (@\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"@). The trust
 -- policy can restrict access to specific asset hierarchy paths.
 iotSiteWiseAction_roleArn :: Lens.Lens' IotSiteWiseAction Prelude.Text

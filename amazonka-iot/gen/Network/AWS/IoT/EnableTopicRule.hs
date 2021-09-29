@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the rule.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions EnableTopicRule>
+-- action.
 module Network.AWS.IoT.EnableTopicRule
   ( -- * Creating a Request
     EnableTopicRule (..),

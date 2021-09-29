@@ -21,14 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a registered CA certificate.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateCACertificate>
+-- action.
 module Network.AWS.IoT.UpdateCACertificate
   ( -- * Creating a Request
     UpdateCACertificate (..),
     newUpdateCACertificate,
 
     -- * Request Lenses
-    updateCACertificate_removeAutoRegistration,
     updateCACertificate_newStatus,
+    updateCACertificate_removeAutoRegistration,
     updateCACertificate_newAutoRegistrationStatus,
     updateCACertificate_registrationConfig,
     updateCACertificate_certificateId,
@@ -50,13 +54,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateCACertificate' smart constructor.
 data UpdateCACertificate = UpdateCACertificate'
-  { -- | If true, removes auto registration.
-    removeAutoRegistration :: Prelude.Maybe Prelude.Bool,
-    -- | The updated status of the CA certificate.
+  { -- | The updated status of the CA certificate.
     --
     -- __Note:__ The status value REGISTER_INACTIVE is deprecated and should
     -- not be used.
     newStatus' :: Prelude.Maybe CACertificateStatus,
+    -- | If true, removes auto registration.
+    removeAutoRegistration :: Prelude.Maybe Prelude.Bool,
     -- | The new value for the auto registration status. Valid values are:
     -- \"ENABLE\" or \"DISABLE\".
     newAutoRegistrationStatus' :: Prelude.Maybe AutoRegistrationStatus,
@@ -75,12 +79,12 @@ data UpdateCACertificate = UpdateCACertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeAutoRegistration', 'updateCACertificate_removeAutoRegistration' - If true, removes auto registration.
---
 -- 'newStatus'', 'updateCACertificate_newStatus' - The updated status of the CA certificate.
 --
 -- __Note:__ The status value REGISTER_INACTIVE is deprecated and should
 -- not be used.
+--
+-- 'removeAutoRegistration', 'updateCACertificate_removeAutoRegistration' - If true, removes auto registration.
 --
 -- 'newAutoRegistrationStatus'', 'updateCACertificate_newAutoRegistrationStatus' - The new value for the auto registration status. Valid values are:
 -- \"ENABLE\" or \"DISABLE\".
@@ -94,17 +98,12 @@ newUpdateCACertificate ::
   UpdateCACertificate
 newUpdateCACertificate pCertificateId_ =
   UpdateCACertificate'
-    { removeAutoRegistration =
-        Prelude.Nothing,
-      newStatus' = Prelude.Nothing,
+    { newStatus' = Prelude.Nothing,
+      removeAutoRegistration = Prelude.Nothing,
       newAutoRegistrationStatus' = Prelude.Nothing,
       registrationConfig = Prelude.Nothing,
       certificateId = pCertificateId_
     }
-
--- | If true, removes auto registration.
-updateCACertificate_removeAutoRegistration :: Lens.Lens' UpdateCACertificate (Prelude.Maybe Prelude.Bool)
-updateCACertificate_removeAutoRegistration = Lens.lens (\UpdateCACertificate' {removeAutoRegistration} -> removeAutoRegistration) (\s@UpdateCACertificate' {} a -> s {removeAutoRegistration = a} :: UpdateCACertificate)
 
 -- | The updated status of the CA certificate.
 --
@@ -112,6 +111,10 @@ updateCACertificate_removeAutoRegistration = Lens.lens (\UpdateCACertificate' {r
 -- not be used.
 updateCACertificate_newStatus :: Lens.Lens' UpdateCACertificate (Prelude.Maybe CACertificateStatus)
 updateCACertificate_newStatus = Lens.lens (\UpdateCACertificate' {newStatus'} -> newStatus') (\s@UpdateCACertificate' {} a -> s {newStatus' = a} :: UpdateCACertificate)
+
+-- | If true, removes auto registration.
+updateCACertificate_removeAutoRegistration :: Lens.Lens' UpdateCACertificate (Prelude.Maybe Prelude.Bool)
+updateCACertificate_removeAutoRegistration = Lens.lens (\UpdateCACertificate' {removeAutoRegistration} -> removeAutoRegistration) (\s@UpdateCACertificate' {} a -> s {removeAutoRegistration = a} :: UpdateCACertificate)
 
 -- | The new value for the auto registration status. Valid values are:
 -- \"ENABLE\" or \"DISABLE\".

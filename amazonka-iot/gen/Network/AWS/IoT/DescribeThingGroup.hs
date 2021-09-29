@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe a thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeThingGroup>
+-- action.
 module Network.AWS.IoT.DescribeThingGroup
   ( -- * Creating a Request
     DescribeThingGroup (..),

@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Sends an input to an AWS IoT Events detector.
+-- | Sends an input to an IoT Events detector.
 --
 -- /See:/ 'newIotEventsAction' smart constructor.
 data IotEventsAction = IotEventsAction'
@@ -34,7 +34,7 @@ data IotEventsAction = IotEventsAction'
     --
     -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an
     -- Array, each Array element is treated as a separate message when it\'s
-    -- sent to AWS IoT Events by calling
+    -- sent to IoT Events by calling
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html BatchPutMessage>
     -- . The resulting array can\'t have more than 10 messages.
     batchMode :: Prelude.Maybe Prelude.Bool,
@@ -44,13 +44,12 @@ data IotEventsAction = IotEventsAction'
     -- value will be assigned.
     --
     -- Assign a value to this property to ensure that only one input (message)
-    -- with a given @messageId@ will be processed by an AWS IoT Events
-    -- detector.
+    -- with a given @messageId@ will be processed by an IoT Events detector.
     messageId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS IoT Events input.
+    -- | The name of the IoT Events input.
     inputName :: Prelude.Text,
-    -- | The ARN of the role that grants AWS IoT permission to send an input to
-    -- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
+    -- | The ARN of the role that grants IoT permission to send an input to an
+    -- IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +69,7 @@ data IotEventsAction = IotEventsAction'
 --
 -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an
 -- Array, each Array element is treated as a separate message when it\'s
--- sent to AWS IoT Events by calling
+-- sent to IoT Events by calling
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html BatchPutMessage>
 -- . The resulting array can\'t have more than 10 messages.
 --
@@ -80,13 +79,12 @@ data IotEventsAction = IotEventsAction'
 -- value will be assigned.
 --
 -- Assign a value to this property to ensure that only one input (message)
--- with a given @messageId@ will be processed by an AWS IoT Events
--- detector.
+-- with a given @messageId@ will be processed by an IoT Events detector.
 --
--- 'inputName', 'iotEventsAction_inputName' - The name of the AWS IoT Events input.
+-- 'inputName', 'iotEventsAction_inputName' - The name of the IoT Events input.
 --
--- 'roleArn', 'iotEventsAction_roleArn' - The ARN of the role that grants AWS IoT permission to send an input to
--- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
+-- 'roleArn', 'iotEventsAction_roleArn' - The ARN of the role that grants IoT permission to send an input to an
+-- IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
 newIotEventsAction ::
   -- | 'inputName'
   Prelude.Text ->
@@ -108,7 +106,7 @@ newIotEventsAction pInputName_ pRoleArn_ =
 --
 -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an
 -- Array, each Array element is treated as a separate message when it\'s
--- sent to AWS IoT Events by calling
+-- sent to IoT Events by calling
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html BatchPutMessage>
 -- . The resulting array can\'t have more than 10 messages.
 iotEventsAction_batchMode :: Lens.Lens' IotEventsAction (Prelude.Maybe Prelude.Bool)
@@ -120,17 +118,16 @@ iotEventsAction_batchMode = Lens.lens (\IotEventsAction' {batchMode} -> batchMod
 -- value will be assigned.
 --
 -- Assign a value to this property to ensure that only one input (message)
--- with a given @messageId@ will be processed by an AWS IoT Events
--- detector.
+-- with a given @messageId@ will be processed by an IoT Events detector.
 iotEventsAction_messageId :: Lens.Lens' IotEventsAction (Prelude.Maybe Prelude.Text)
 iotEventsAction_messageId = Lens.lens (\IotEventsAction' {messageId} -> messageId) (\s@IotEventsAction' {} a -> s {messageId = a} :: IotEventsAction)
 
--- | The name of the AWS IoT Events input.
+-- | The name of the IoT Events input.
 iotEventsAction_inputName :: Lens.Lens' IotEventsAction Prelude.Text
 iotEventsAction_inputName = Lens.lens (\IotEventsAction' {inputName} -> inputName) (\s@IotEventsAction' {} a -> s {inputName = a} :: IotEventsAction)
 
--- | The ARN of the role that grants AWS IoT permission to send an input to
--- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
+-- | The ARN of the role that grants IoT permission to send an input to an
+-- IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
 iotEventsAction_roleArn :: Lens.Lens' IotEventsAction Prelude.Text
 iotEventsAction_roleArn = Lens.lens (\IotEventsAction' {roleArn} -> roleArn) (\s@IotEventsAction' {} a -> s {roleArn = a} :: IotEventsAction)
 

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a Device Defender security profile.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeSecurityProfile>
+-- action.
 module Network.AWS.IoT.DescribeSecurityProfile
   ( -- * Creating a Request
     DescribeSecurityProfile (..),
@@ -38,8 +42,8 @@ module Network.AWS.IoT.DescribeSecurityProfile
     describeSecurityProfileResponse_alertTargets,
     describeSecurityProfileResponse_additionalMetricsToRetain,
     describeSecurityProfileResponse_creationDate,
-    describeSecurityProfileResponse_version,
     describeSecurityProfileResponse_securityProfileName,
+    describeSecurityProfileResponse_version,
     describeSecurityProfileResponse_behaviors,
     describeSecurityProfileResponse_additionalMetricsToRetainV2,
     describeSecurityProfileResponse_securityProfileDescription,
@@ -100,8 +104,8 @@ instance Core.AWSRequest DescribeSecurityProfile where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "securityProfileName")
+            Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "behaviors" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "additionalMetricsToRetainV2"
                             Core..!@ Prelude.mempty
@@ -143,11 +147,11 @@ data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
     additionalMetricsToRetain :: Prelude.Maybe [Prelude.Text],
     -- | The time the security profile was created.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the security profile.
+    securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The version of the security profile. A new version is generated whenever
     -- the security profile is updated.
     version :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the security profile.
-    securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the behaviors that, when violated by a device (thing), cause
     -- an alert.
     behaviors :: Prelude.Maybe [Behavior],
@@ -186,10 +190,10 @@ data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
 --
 -- 'creationDate', 'describeSecurityProfileResponse_creationDate' - The time the security profile was created.
 --
+-- 'securityProfileName', 'describeSecurityProfileResponse_securityProfileName' - The name of the security profile.
+--
 -- 'version', 'describeSecurityProfileResponse_version' - The version of the security profile. A new version is generated whenever
 -- the security profile is updated.
---
--- 'securityProfileName', 'describeSecurityProfileResponse_securityProfileName' - The name of the security profile.
 --
 -- 'behaviors', 'describeSecurityProfileResponse_behaviors' - Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
@@ -216,8 +220,8 @@ newDescribeSecurityProfileResponse pHttpStatus_ =
       additionalMetricsToRetain =
         Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      version = Prelude.Nothing,
       securityProfileName = Prelude.Nothing,
+      version = Prelude.Nothing,
       behaviors = Prelude.Nothing,
       additionalMetricsToRetainV2 =
         Prelude.Nothing,
@@ -248,14 +252,14 @@ describeSecurityProfileResponse_additionalMetricsToRetain = Lens.lens (\Describe
 describeSecurityProfileResponse_creationDate :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
 describeSecurityProfileResponse_creationDate = Lens.lens (\DescribeSecurityProfileResponse' {creationDate} -> creationDate) (\s@DescribeSecurityProfileResponse' {} a -> s {creationDate = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the security profile.
+describeSecurityProfileResponse_securityProfileName :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+describeSecurityProfileResponse_securityProfileName = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileName} -> securityProfileName) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileName = a} :: DescribeSecurityProfileResponse)
+
 -- | The version of the security profile. A new version is generated whenever
 -- the security profile is updated.
 describeSecurityProfileResponse_version :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Integer)
 describeSecurityProfileResponse_version = Lens.lens (\DescribeSecurityProfileResponse' {version} -> version) (\s@DescribeSecurityProfileResponse' {} a -> s {version = a} :: DescribeSecurityProfileResponse)
-
--- | The name of the security profile.
-describeSecurityProfileResponse_securityProfileName :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
-describeSecurityProfileResponse_securityProfileName = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileName} -> securityProfileName) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileName = a} :: DescribeSecurityProfileResponse)
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.

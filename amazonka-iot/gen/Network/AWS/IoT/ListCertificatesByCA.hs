@@ -22,6 +22,10 @@
 --
 -- List the device certificates signed by the specified CA certificate.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListCertificatesByCA>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificatesByCA
   ( -- * Creating a Request

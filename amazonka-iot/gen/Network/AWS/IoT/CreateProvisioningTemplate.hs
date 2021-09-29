@@ -21,14 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a fleet provisioning template.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateProvisioningTemplate>
+-- action.
 module Network.AWS.IoT.CreateProvisioningTemplate
   ( -- * Creating a Request
     CreateProvisioningTemplate (..),
     newCreateProvisioningTemplate,
 
     -- * Request Lenses
-    createProvisioningTemplate_enabled,
     createProvisioningTemplate_preProvisioningHook,
+    createProvisioningTemplate_enabled,
     createProvisioningTemplate_tags,
     createProvisioningTemplate_description,
     createProvisioningTemplate_templateName,
@@ -56,10 +60,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateProvisioningTemplate' smart constructor.
 data CreateProvisioningTemplate = CreateProvisioningTemplate'
-  { -- | True to enable the fleet provisioning template, otherwise false.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Creates a pre-provisioning hook template.
+  { -- | Creates a pre-provisioning hook template.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
+    -- | True to enable the fleet provisioning template, otherwise false.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Metadata which can be used to manage the fleet provisioning template.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -90,9 +94,9 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'createProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
---
 -- 'preProvisioningHook', 'createProvisioningTemplate_preProvisioningHook' - Creates a pre-provisioning hook template.
+--
+-- 'enabled', 'createProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
 --
 -- 'tags', 'createProvisioningTemplate_tags' - Metadata which can be used to manage the fleet provisioning template.
 --
@@ -125,9 +129,9 @@ newCreateProvisioningTemplate
   pTemplateBody_
   pProvisioningRoleArn_ =
     CreateProvisioningTemplate'
-      { enabled =
+      { preProvisioningHook =
           Prelude.Nothing,
-        preProvisioningHook = Prelude.Nothing,
+        enabled = Prelude.Nothing,
         tags = Prelude.Nothing,
         description = Prelude.Nothing,
         templateName = pTemplateName_,
@@ -135,13 +139,13 @@ newCreateProvisioningTemplate
         provisioningRoleArn = pProvisioningRoleArn_
       }
 
--- | True to enable the fleet provisioning template, otherwise false.
-createProvisioningTemplate_enabled :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
-createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {enabled} -> enabled) (\s@CreateProvisioningTemplate' {} a -> s {enabled = a} :: CreateProvisioningTemplate)
-
 -- | Creates a pre-provisioning hook template.
 createProvisioningTemplate_preProvisioningHook :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 createProvisioningTemplate_preProvisioningHook = Lens.lens (\CreateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@CreateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: CreateProvisioningTemplate)
+
+-- | True to enable the fleet provisioning template, otherwise false.
+createProvisioningTemplate_enabled :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {enabled} -> enabled) (\s@CreateProvisioningTemplate' {} a -> s {enabled = a} :: CreateProvisioningTemplate)
 
 -- | Metadata which can be used to manage the fleet provisioning template.
 --
@@ -198,9 +202,9 @@ instance Core.ToJSON CreateProvisioningTemplate where
   toJSON CreateProvisioningTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("enabled" Core..=) Prelude.<$> enabled,
-            ("preProvisioningHook" Core..=)
+          [ ("preProvisioningHook" Core..=)
               Prelude.<$> preProvisioningHook,
+            ("enabled" Core..=) Prelude.<$> enabled,
             ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("templateName" Core..= templateName),

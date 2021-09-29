@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a Device Defender audit suppression.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteAuditSuppression>
+-- action.
 module Network.AWS.IoT.DeleteAuditSuppression
   ( -- * Creating a Request
     DeleteAuditSuppression (..),

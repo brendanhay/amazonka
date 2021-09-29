@@ -25,6 +25,10 @@
 -- alerts issued for a particular security profile, behavior, or thing
 -- (device).
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListViolationEvents>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListViolationEvents
   ( -- * Creating a Request
@@ -38,6 +42,7 @@ module Network.AWS.IoT.ListViolationEvents
     listViolationEvents_securityProfileName,
     listViolationEvents_listSuppressedAlerts,
     listViolationEvents_behaviorCriteriaType,
+    listViolationEvents_verificationState,
     listViolationEvents_startTime,
     listViolationEvents_endTime,
 
@@ -74,6 +79,8 @@ data ListViolationEvents = ListViolationEvents'
     listSuppressedAlerts :: Prelude.Maybe Prelude.Bool,
     -- | The criteria for a behavior.
     behaviorCriteriaType :: Prelude.Maybe BehaviorCriteriaType,
+    -- | The verification state of the violation (detect alarm).
+    verificationState :: Prelude.Maybe VerificationState,
     -- | The start time for the alerts to be listed.
     startTime :: Core.POSIX,
     -- | The end time for the alerts to be listed.
@@ -102,6 +109,8 @@ data ListViolationEvents = ListViolationEvents'
 --
 -- 'behaviorCriteriaType', 'listViolationEvents_behaviorCriteriaType' - The criteria for a behavior.
 --
+-- 'verificationState', 'listViolationEvents_verificationState' - The verification state of the violation (detect alarm).
+--
 -- 'startTime', 'listViolationEvents_startTime' - The start time for the alerts to be listed.
 --
 -- 'endTime', 'listViolationEvents_endTime' - The end time for the alerts to be listed.
@@ -119,6 +128,7 @@ newListViolationEvents pStartTime_ pEndTime_ =
       securityProfileName = Prelude.Nothing,
       listSuppressedAlerts = Prelude.Nothing,
       behaviorCriteriaType = Prelude.Nothing,
+      verificationState = Prelude.Nothing,
       startTime = Core._Time Lens.# pStartTime_,
       endTime = Core._Time Lens.# pEndTime_
     }
@@ -147,6 +157,10 @@ listViolationEvents_listSuppressedAlerts = Lens.lens (\ListViolationEvents' {lis
 -- | The criteria for a behavior.
 listViolationEvents_behaviorCriteriaType :: Lens.Lens' ListViolationEvents (Prelude.Maybe BehaviorCriteriaType)
 listViolationEvents_behaviorCriteriaType = Lens.lens (\ListViolationEvents' {behaviorCriteriaType} -> behaviorCriteriaType) (\s@ListViolationEvents' {} a -> s {behaviorCriteriaType = a} :: ListViolationEvents)
+
+-- | The verification state of the violation (detect alarm).
+listViolationEvents_verificationState :: Lens.Lens' ListViolationEvents (Prelude.Maybe VerificationState)
+listViolationEvents_verificationState = Lens.lens (\ListViolationEvents' {verificationState} -> verificationState) (\s@ListViolationEvents' {} a -> s {verificationState = a} :: ListViolationEvents)
 
 -- | The start time for the alerts to be listed.
 listViolationEvents_startTime :: Lens.Lens' ListViolationEvents Prelude.UTCTime
@@ -213,6 +227,7 @@ instance Core.ToQuery ListViolationEvents where
         "securityProfileName" Core.=: securityProfileName,
         "listSuppressedAlerts" Core.=: listSuppressedAlerts,
         "behaviorCriteriaType" Core.=: behaviorCriteriaType,
+        "verificationState" Core.=: verificationState,
         "startTime" Core.=: startTime,
         "endTime" Core.=: endTime
       ]

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new thing type.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateThingType>
+-- action.
 module Network.AWS.IoT.CreateThingType
   ( -- * Creating a Request
     CreateThingType (..),

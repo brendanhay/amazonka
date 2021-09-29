@@ -23,8 +23,9 @@
 -- Updates values stored in the domain configuration. Domain configurations
 -- for default endpoints can\'t be updated.
 --
--- The domain configuration feature is in public preview and is subject to
--- change.
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateDomainConfiguration>
+-- action.
 module Network.AWS.IoT.UpdateDomainConfiguration
   ( -- * Creating a Request
     UpdateDomainConfiguration (..),

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a fleet provisioning template version.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteProvisioningTemplateVersion>
+-- action.
 module Network.AWS.IoT.DeleteProvisioningTemplateVersion
   ( -- * Creating a Request
     DeleteProvisioningTemplateVersion (..),

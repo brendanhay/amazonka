@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging level.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetV2LoggingLevel>
+-- action.
 module Network.AWS.IoT.SetV2LoggingLevel
   ( -- * Creating a Request
     SetV2LoggingLevel (..),

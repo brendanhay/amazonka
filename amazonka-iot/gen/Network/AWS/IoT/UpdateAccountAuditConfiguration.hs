@@ -23,6 +23,10 @@
 -- Configures or reconfigures the Device Defender audit settings for this
 -- account. Settings include how audit notifications are sent and which
 -- audit checks are enabled or disabled.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateAccountAuditConfiguration>
+-- action.
 module Network.AWS.IoT.UpdateAccountAuditConfiguration
   ( -- * Creating a Request
     UpdateAccountAuditConfiguration (..),
@@ -51,9 +55,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateAccountAuditConfiguration' smart constructor.
 data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the role that grants permission to AWS
-    -- IoT to access information about your devices, policies, certificates,
-    -- and other items as required when performing an audit.
+  { -- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
+    -- to access information about your devices, policies, certificates, and
+    -- other items as required when performing an audit.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies which audit checks are enabled and disabled for this account.
     -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
@@ -83,9 +87,9 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateAccountAuditConfiguration_roleArn' - The Amazon Resource Name (ARN) of the role that grants permission to AWS
--- IoT to access information about your devices, policies, certificates,
--- and other items as required when performing an audit.
+-- 'roleArn', 'updateAccountAuditConfiguration_roleArn' - The Amazon Resource Name (ARN) of the role that grants permission to IoT
+-- to access information about your devices, policies, certificates, and
+-- other items as required when performing an audit.
 --
 -- 'auditCheckConfigurations', 'updateAccountAuditConfiguration_auditCheckConfigurations' - Specifies which audit checks are enabled and disabled for this account.
 -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
@@ -114,9 +118,9 @@ newUpdateAccountAuditConfiguration =
         Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the role that grants permission to AWS
--- IoT to access information about your devices, policies, certificates,
--- and other items as required when performing an audit.
+-- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
+-- to access information about your devices, policies, certificates, and
+-- other items as required when performing an audit.
 updateAccountAuditConfiguration_roleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe Prelude.Text)
 updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfiguration' {roleArn} -> roleArn) (\s@UpdateAccountAuditConfiguration' {} a -> s {roleArn = a} :: UpdateAccountAuditConfiguration)
 

@@ -23,6 +23,10 @@
 -- Lists mitigation actions executions for a Device Defender ML Detect
 -- Security Profile.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListDetectMitigationActionsExecutions>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListDetectMitigationActionsExecutions
   ( -- * Creating a Request

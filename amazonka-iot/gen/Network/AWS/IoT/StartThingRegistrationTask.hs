@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a bulk thing provisioning task.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StartThingRegistrationTask>
+-- action.
 module Network.AWS.IoT.StartThingRegistrationTask
   ( -- * Creating a Request
     StartThingRegistrationTask (..),

@@ -20,10 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the CA certificates registered for your AWS account.
+-- Lists the CA certificates registered for your Amazon Web Services
+-- account.
 --
 -- The results are paginated with a default page size of 25. You can use
 -- the returned marker to retrieve additional results.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListCACertificates>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListCACertificates
@@ -161,7 +166,7 @@ instance Core.ToQuery ListCACertificates where
 data ListCACertificatesResponse = ListCACertificatesResponse'
   { -- | The current position within the list of CA certificates.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The CA certificates registered in your AWS account.
+    -- | The CA certificates registered in your Amazon Web Services account.
     certificates :: Prelude.Maybe [CACertificate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -178,7 +183,7 @@ data ListCACertificatesResponse = ListCACertificatesResponse'
 --
 -- 'nextMarker', 'listCACertificatesResponse_nextMarker' - The current position within the list of CA certificates.
 --
--- 'certificates', 'listCACertificatesResponse_certificates' - The CA certificates registered in your AWS account.
+-- 'certificates', 'listCACertificatesResponse_certificates' - The CA certificates registered in your Amazon Web Services account.
 --
 -- 'httpStatus', 'listCACertificatesResponse_httpStatus' - The response's http status code.
 newListCACertificatesResponse ::
@@ -197,7 +202,7 @@ newListCACertificatesResponse pHttpStatus_ =
 listCACertificatesResponse_nextMarker :: Lens.Lens' ListCACertificatesResponse (Prelude.Maybe Prelude.Text)
 listCACertificatesResponse_nextMarker = Lens.lens (\ListCACertificatesResponse' {nextMarker} -> nextMarker) (\s@ListCACertificatesResponse' {} a -> s {nextMarker = a} :: ListCACertificatesResponse)
 
--- | The CA certificates registered in your AWS account.
+-- | The CA certificates registered in your Amazon Web Services account.
 listCACertificatesResponse_certificates :: Lens.Lens' ListCACertificatesResponse (Prelude.Maybe [CACertificate])
 listCACertificatesResponse_certificates = Lens.lens (\ListCACertificatesResponse' {certificates} -> certificates) (\s@ListCACertificatesResponse' {} a -> s {certificates = a} :: ListCACertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 

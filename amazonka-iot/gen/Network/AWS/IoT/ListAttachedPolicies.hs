@@ -22,6 +22,10 @@
 --
 -- Lists the policies attached to the specified thing group.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListAttachedPolicies>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAttachedPolicies
   ( -- * Creating a Request

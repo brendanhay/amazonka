@@ -14,6 +14,27 @@
 module Network.AWS.IoT.Lens
   ( -- * Operations
 
+    -- ** GetBucketsAggregation
+    getBucketsAggregation_indexName,
+    getBucketsAggregation_queryVersion,
+    getBucketsAggregation_queryString,
+    getBucketsAggregation_aggregationField,
+    getBucketsAggregation_bucketsAggregationType,
+    getBucketsAggregationResponse_buckets,
+    getBucketsAggregationResponse_totalCount,
+    getBucketsAggregationResponse_httpStatus,
+
+    -- ** UpdateIndexingConfiguration
+    updateIndexingConfiguration_thingGroupIndexingConfiguration,
+    updateIndexingConfiguration_thingIndexingConfiguration,
+    updateIndexingConfigurationResponse_httpStatus,
+
+    -- ** PutVerificationStateOnViolation
+    putVerificationStateOnViolation_verificationStateDescription,
+    putVerificationStateOnViolation_violationId,
+    putVerificationStateOnViolation_verificationState,
+    putVerificationStateOnViolationResponse_httpStatus,
+
     -- ** ListThingRegistrationTaskReports
     listThingRegistrationTaskReports_nextToken,
     listThingRegistrationTaskReports_maxResults,
@@ -24,6 +45,23 @@ module Network.AWS.IoT.Lens
     listThingRegistrationTaskReportsResponse_resourceLinks,
     listThingRegistrationTaskReportsResponse_httpStatus,
 
+    -- ** DescribeFleetMetric
+    describeFleetMetric_metricName,
+    describeFleetMetricResponse_lastModifiedDate,
+    describeFleetMetricResponse_queryString,
+    describeFleetMetricResponse_indexName,
+    describeFleetMetricResponse_metricArn,
+    describeFleetMetricResponse_unit,
+    describeFleetMetricResponse_metricName,
+    describeFleetMetricResponse_queryVersion,
+    describeFleetMetricResponse_creationDate,
+    describeFleetMetricResponse_version,
+    describeFleetMetricResponse_aggregationType,
+    describeFleetMetricResponse_aggregationField,
+    describeFleetMetricResponse_description,
+    describeFleetMetricResponse_period,
+    describeFleetMetricResponse_httpStatus,
+
     -- ** CreateProvisioningClaim
     createProvisioningClaim_templateName,
     createProvisioningClaimResponse_expiration,
@@ -32,24 +70,38 @@ module Network.AWS.IoT.Lens
     createProvisioningClaimResponse_certificatePem,
     createProvisioningClaimResponse_httpStatus,
 
-    -- ** UpdateIndexingConfiguration
-    updateIndexingConfiguration_thingGroupIndexingConfiguration,
-    updateIndexingConfiguration_thingIndexingConfiguration,
-    updateIndexingConfigurationResponse_httpStatus,
+    -- ** UpdateCertificate
+    updateCertificate_certificateId,
+    updateCertificate_newStatus,
 
-    -- ** CreatePolicy
-    createPolicy_tags,
-    createPolicy_policyName,
-    createPolicy_policyDocument,
-    createPolicyResponse_policyVersionId,
-    createPolicyResponse_policyName,
-    createPolicyResponse_policyDocument,
-    createPolicyResponse_policyArn,
-    createPolicyResponse_httpStatus,
+    -- ** ListMitigationActions
+    listMitigationActions_nextToken,
+    listMitigationActions_actionType,
+    listMitigationActions_maxResults,
+    listMitigationActionsResponse_nextToken,
+    listMitigationActionsResponse_actionIdentifiers,
+    listMitigationActionsResponse_httpStatus,
 
-    -- ** DeleteCertificate
-    deleteCertificate_forceDelete,
-    deleteCertificate_certificateId,
+    -- ** DescribeProvisioningTemplate
+    describeProvisioningTemplate_templateName,
+    describeProvisioningTemplateResponse_lastModifiedDate,
+    describeProvisioningTemplateResponse_templateName,
+    describeProvisioningTemplateResponse_preProvisioningHook,
+    describeProvisioningTemplateResponse_creationDate,
+    describeProvisioningTemplateResponse_enabled,
+    describeProvisioningTemplateResponse_defaultVersionId,
+    describeProvisioningTemplateResponse_description,
+    describeProvisioningTemplateResponse_provisioningRoleArn,
+    describeProvisioningTemplateResponse_templateBody,
+    describeProvisioningTemplateResponse_templateArn,
+    describeProvisioningTemplateResponse_httpStatus,
+
+    -- ** DeleteJobExecution
+    deleteJobExecution_namespaceId,
+    deleteJobExecution_force,
+    deleteJobExecution_jobId,
+    deleteJobExecution_thingName,
+    deleteJobExecution_executionNumber,
 
     -- ** ListSecurityProfiles
     listSecurityProfiles_dimensionName,
@@ -60,20 +112,25 @@ module Network.AWS.IoT.Lens
     listSecurityProfilesResponse_securityProfileIdentifiers,
     listSecurityProfilesResponse_httpStatus,
 
-    -- ** DeleteJobExecution
-    deleteJobExecution_namespaceId,
-    deleteJobExecution_force,
-    deleteJobExecution_jobId,
-    deleteJobExecution_thingName,
-    deleteJobExecution_executionNumber,
+    -- ** UpdateMitigationAction
+    updateMitigationAction_roleArn,
+    updateMitigationAction_actionParams,
+    updateMitigationAction_actionName,
+    updateMitigationActionResponse_actionArn,
+    updateMitigationActionResponse_actionId,
+    updateMitigationActionResponse_httpStatus,
 
-    -- ** ListMitigationActions
-    listMitigationActions_nextToken,
-    listMitigationActions_maxResults,
-    listMitigationActions_actionType,
-    listMitigationActionsResponse_nextToken,
-    listMitigationActionsResponse_actionIdentifiers,
-    listMitigationActionsResponse_httpStatus,
+    -- ** DeleteMitigationAction
+    deleteMitigationAction_actionName,
+    deleteMitigationActionResponse_httpStatus,
+
+    -- ** ListPolicies
+    listPolicies_pageSize,
+    listPolicies_ascendingOrder,
+    listPolicies_marker,
+    listPoliciesResponse_policies,
+    listPoliciesResponse_nextMarker,
+    listPoliciesResponse_httpStatus,
 
     -- ** StartDetectMitigationActionsTask
     startDetectMitigationActionsTask_includeSuppressedAlerts,
@@ -94,6 +151,20 @@ module Network.AWS.IoT.Lens
     getCardinalityResponse_cardinality,
     getCardinalityResponse_httpStatus,
 
+    -- ** DeleteCertificate
+    deleteCertificate_forceDelete,
+    deleteCertificate_certificateId,
+
+    -- ** CreatePolicy
+    createPolicy_tags,
+    createPolicy_policyName,
+    createPolicy_policyDocument,
+    createPolicyResponse_policyDocument,
+    createPolicyResponse_policyVersionId,
+    createPolicyResponse_policyName,
+    createPolicyResponse_policyArn,
+    createPolicyResponse_httpStatus,
+
     -- ** ListViolationEvents
     listViolationEvents_nextToken,
     listViolationEvents_maxResults,
@@ -101,49 +172,12 @@ module Network.AWS.IoT.Lens
     listViolationEvents_securityProfileName,
     listViolationEvents_listSuppressedAlerts,
     listViolationEvents_behaviorCriteriaType,
+    listViolationEvents_verificationState,
     listViolationEvents_startTime,
     listViolationEvents_endTime,
     listViolationEventsResponse_nextToken,
     listViolationEventsResponse_violationEvents,
     listViolationEventsResponse_httpStatus,
-
-    -- ** UpdateCertificate
-    updateCertificate_certificateId,
-    updateCertificate_newStatus,
-
-    -- ** DeleteMitigationAction
-    deleteMitigationAction_actionName,
-    deleteMitigationActionResponse_httpStatus,
-
-    -- ** UpdateMitigationAction
-    updateMitigationAction_roleArn,
-    updateMitigationAction_actionParams,
-    updateMitigationAction_actionName,
-    updateMitigationActionResponse_actionArn,
-    updateMitigationActionResponse_actionId,
-    updateMitigationActionResponse_httpStatus,
-
-    -- ** DescribeProvisioningTemplate
-    describeProvisioningTemplate_templateName,
-    describeProvisioningTemplateResponse_templateName,
-    describeProvisioningTemplateResponse_lastModifiedDate,
-    describeProvisioningTemplateResponse_enabled,
-    describeProvisioningTemplateResponse_preProvisioningHook,
-    describeProvisioningTemplateResponse_creationDate,
-    describeProvisioningTemplateResponse_defaultVersionId,
-    describeProvisioningTemplateResponse_description,
-    describeProvisioningTemplateResponse_provisioningRoleArn,
-    describeProvisioningTemplateResponse_templateBody,
-    describeProvisioningTemplateResponse_templateArn,
-    describeProvisioningTemplateResponse_httpStatus,
-
-    -- ** ListPolicies
-    listPolicies_pageSize,
-    listPolicies_ascendingOrder,
-    listPolicies_marker,
-    listPoliciesResponse_policies,
-    listPoliciesResponse_nextMarker,
-    listPoliciesResponse_httpStatus,
 
     -- ** CreateDimension
     createDimension_tags,
@@ -154,25 +188,6 @@ module Network.AWS.IoT.Lens
     createDimensionResponse_arn,
     createDimensionResponse_name,
     createDimensionResponse_httpStatus,
-
-    -- ** UpdateDomainConfiguration
-    updateDomainConfiguration_domainConfigurationStatus,
-    updateDomainConfiguration_authorizerConfig,
-    updateDomainConfiguration_removeAuthorizerConfig,
-    updateDomainConfiguration_domainConfigurationName,
-    updateDomainConfigurationResponse_domainConfigurationArn,
-    updateDomainConfigurationResponse_domainConfigurationName,
-    updateDomainConfigurationResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_reasonCode,
-    cancelJob_comment,
-    cancelJob_force,
-    cancelJob_jobId,
-    cancelJobResponse_jobArn,
-    cancelJobResponse_description,
-    cancelJobResponse_jobId,
-    cancelJobResponse_httpStatus,
 
     -- ** ListAuditTasks
     listAuditTasks_nextToken,
@@ -185,15 +200,17 @@ module Network.AWS.IoT.Lens
     listAuditTasksResponse_tasks,
     listAuditTasksResponse_httpStatus,
 
-    -- ** RejectCertificateTransfer
-    rejectCertificateTransfer_rejectReason,
-    rejectCertificateTransfer_certificateId,
+    -- ** DescribeThingType
+    describeThingType_thingTypeName,
+    describeThingTypeResponse_thingTypeProperties,
+    describeThingTypeResponse_thingTypeMetadata,
+    describeThingTypeResponse_thingTypeId,
+    describeThingTypeResponse_thingTypeArn,
+    describeThingTypeResponse_thingTypeName,
+    describeThingTypeResponse_httpStatus,
 
     -- ** DeletePolicy
     deletePolicy_policyName,
-
-    -- ** SetLoggingOptions
-    setLoggingOptions_loggingOptionsPayload,
 
     -- ** CreateMitigationAction
     createMitigationAction_tags,
@@ -204,57 +221,31 @@ module Network.AWS.IoT.Lens
     createMitigationActionResponse_actionId,
     createMitigationActionResponse_httpStatus,
 
+    -- ** DeleteDomainConfiguration
+    deleteDomainConfiguration_domainConfigurationName,
+    deleteDomainConfigurationResponse_httpStatus,
+
     -- ** GetTopicRule
     getTopicRule_ruleName,
     getTopicRuleResponse_ruleArn,
     getTopicRuleResponse_rule,
     getTopicRuleResponse_httpStatus,
 
-    -- ** DescribeThingType
-    describeThingType_thingTypeName,
-    describeThingTypeResponse_thingTypeProperties,
-    describeThingTypeResponse_thingTypeMetadata,
-    describeThingTypeResponse_thingTypeId,
-    describeThingTypeResponse_thingTypeArn,
-    describeThingTypeResponse_thingTypeName,
-    describeThingTypeResponse_httpStatus,
+    -- ** UpdateDomainConfiguration
+    updateDomainConfiguration_domainConfigurationStatus,
+    updateDomainConfiguration_authorizerConfig,
+    updateDomainConfiguration_removeAuthorizerConfig,
+    updateDomainConfiguration_domainConfigurationName,
+    updateDomainConfigurationResponse_domainConfigurationArn,
+    updateDomainConfigurationResponse_domainConfigurationName,
+    updateDomainConfigurationResponse_httpStatus,
 
-    -- ** ListThingsInThingGroup
-    listThingsInThingGroup_nextToken,
-    listThingsInThingGroup_maxResults,
-    listThingsInThingGroup_recursive,
-    listThingsInThingGroup_thingGroupName,
-    listThingsInThingGroupResponse_nextToken,
-    listThingsInThingGroupResponse_things,
-    listThingsInThingGroupResponse_httpStatus,
+    -- ** RejectCertificateTransfer
+    rejectCertificateTransfer_rejectReason,
+    rejectCertificateTransfer_certificateId,
 
-    -- ** DescribeScheduledAudit
-    describeScheduledAudit_scheduledAuditName,
-    describeScheduledAuditResponse_dayOfWeek,
-    describeScheduledAuditResponse_scheduledAuditArn,
-    describeScheduledAuditResponse_scheduledAuditName,
-    describeScheduledAuditResponse_dayOfMonth,
-    describeScheduledAuditResponse_frequency,
-    describeScheduledAuditResponse_targetCheckNames,
-    describeScheduledAuditResponse_httpStatus,
-
-    -- ** ListDomainConfigurations
-    listDomainConfigurations_pageSize,
-    listDomainConfigurations_serviceType,
-    listDomainConfigurations_marker,
-    listDomainConfigurationsResponse_domainConfigurations,
-    listDomainConfigurationsResponse_nextMarker,
-    listDomainConfigurationsResponse_httpStatus,
-
-    -- ** DeleteDomainConfiguration
-    deleteDomainConfiguration_domainConfigurationName,
-    deleteDomainConfigurationResponse_httpStatus,
-
-    -- ** GetV2LoggingOptions
-    getV2LoggingOptionsResponse_roleArn,
-    getV2LoggingOptionsResponse_disableAllLogs,
-    getV2LoggingOptionsResponse_defaultLogLevel,
-    getV2LoggingOptionsResponse_httpStatus,
+    -- ** SetLoggingOptions
+    setLoggingOptions_loggingOptionsPayload,
 
     -- ** CreateSecurityProfile
     createSecurityProfile_alertTargets,
@@ -268,8 +259,74 @@ module Network.AWS.IoT.Lens
     createSecurityProfileResponse_securityProfileArn,
     createSecurityProfileResponse_httpStatus,
 
-    -- ** DeleteTopicRule
-    deleteTopicRule_ruleName,
+    -- ** CancelJob
+    cancelJob_reasonCode,
+    cancelJob_comment,
+    cancelJob_force,
+    cancelJob_jobId,
+    cancelJobResponse_jobArn,
+    cancelJobResponse_description,
+    cancelJobResponse_jobId,
+    cancelJobResponse_httpStatus,
+
+    -- ** ListDomainConfigurations
+    listDomainConfigurations_pageSize,
+    listDomainConfigurations_serviceType,
+    listDomainConfigurations_marker,
+    listDomainConfigurationsResponse_domainConfigurations,
+    listDomainConfigurationsResponse_nextMarker,
+    listDomainConfigurationsResponse_httpStatus,
+
+    -- ** DescribeScheduledAudit
+    describeScheduledAudit_scheduledAuditName,
+    describeScheduledAuditResponse_dayOfWeek,
+    describeScheduledAuditResponse_scheduledAuditArn,
+    describeScheduledAuditResponse_scheduledAuditName,
+    describeScheduledAuditResponse_dayOfMonth,
+    describeScheduledAuditResponse_frequency,
+    describeScheduledAuditResponse_targetCheckNames,
+    describeScheduledAuditResponse_httpStatus,
+
+    -- ** GetV2LoggingOptions
+    getV2LoggingOptionsResponse_roleArn,
+    getV2LoggingOptionsResponse_disableAllLogs,
+    getV2LoggingOptionsResponse_defaultLogLevel,
+    getV2LoggingOptionsResponse_httpStatus,
+
+    -- ** ListThingsInThingGroup
+    listThingsInThingGroup_nextToken,
+    listThingsInThingGroup_maxResults,
+    listThingsInThingGroup_recursive,
+    listThingsInThingGroup_thingGroupName,
+    listThingsInThingGroupResponse_nextToken,
+    listThingsInThingGroupResponse_things,
+    listThingsInThingGroupResponse_httpStatus,
+
+    -- ** ListCustomMetrics
+    listCustomMetrics_nextToken,
+    listCustomMetrics_maxResults,
+    listCustomMetricsResponse_nextToken,
+    listCustomMetricsResponse_metricNames,
+    listCustomMetricsResponse_httpStatus,
+
+    -- ** AttachSecurityProfile
+    attachSecurityProfile_securityProfileName,
+    attachSecurityProfile_securityProfileTargetArn,
+    attachSecurityProfileResponse_httpStatus,
+
+    -- ** UpdateJob
+    updateJob_jobExecutionsRolloutConfig,
+    updateJob_timeoutConfig,
+    updateJob_namespaceId,
+    updateJob_presignedUrlConfig,
+    updateJob_description,
+    updateJob_abortConfig,
+    updateJob_jobId,
+
+    -- ** DeleteJob
+    deleteJob_namespaceId,
+    deleteJob_force,
+    deleteJob_jobId,
 
     -- ** DeleteCACertificate
     deleteCACertificate_certificateId,
@@ -278,6 +335,68 @@ module Network.AWS.IoT.Lens
     -- ** DeleteCustomMetric
     deleteCustomMetric_metricName,
     deleteCustomMetricResponse_httpStatus,
+
+    -- ** CreatePolicyVersion
+    createPolicyVersion_setAsDefault,
+    createPolicyVersion_policyName,
+    createPolicyVersion_policyDocument,
+    createPolicyVersionResponse_policyDocument,
+    createPolicyVersionResponse_policyVersionId,
+    createPolicyVersionResponse_isDefaultVersion,
+    createPolicyVersionResponse_policyArn,
+    createPolicyVersionResponse_httpStatus,
+
+    -- ** ListRoleAliases
+    listRoleAliases_pageSize,
+    listRoleAliases_ascendingOrder,
+    listRoleAliases_marker,
+    listRoleAliasesResponse_roleAliases,
+    listRoleAliasesResponse_nextMarker,
+    listRoleAliasesResponse_httpStatus,
+
+    -- ** CancelAuditTask
+    cancelAuditTask_taskId,
+    cancelAuditTaskResponse_httpStatus,
+
+    -- ** CreateRoleAlias
+    createRoleAlias_tags,
+    createRoleAlias_credentialDurationSeconds,
+    createRoleAlias_roleAlias,
+    createRoleAlias_roleArn,
+    createRoleAliasResponse_roleAliasArn,
+    createRoleAliasResponse_roleAlias,
+    createRoleAliasResponse_httpStatus,
+
+    -- ** ListJobTemplates
+    listJobTemplates_nextToken,
+    listJobTemplates_maxResults,
+    listJobTemplatesResponse_nextToken,
+    listJobTemplatesResponse_jobTemplates,
+    listJobTemplatesResponse_httpStatus,
+
+    -- ** DescribeProvisioningTemplateVersion
+    describeProvisioningTemplateVersion_templateName,
+    describeProvisioningTemplateVersion_versionId,
+    describeProvisioningTemplateVersionResponse_creationDate,
+    describeProvisioningTemplateVersionResponse_versionId,
+    describeProvisioningTemplateVersionResponse_isDefaultVersion,
+    describeProvisioningTemplateVersionResponse_templateBody,
+    describeProvisioningTemplateVersionResponse_httpStatus,
+
+    -- ** CreateKeysAndCertificate
+    createKeysAndCertificate_setAsActive,
+    createKeysAndCertificateResponse_certificateArn,
+    createKeysAndCertificateResponse_keyPair,
+    createKeysAndCertificateResponse_certificateId,
+    createKeysAndCertificateResponse_certificatePem,
+    createKeysAndCertificateResponse_httpStatus,
+
+    -- ** UpdateCACertificate
+    updateCACertificate_newStatus,
+    updateCACertificate_removeAutoRegistration,
+    updateCACertificate_newAutoRegistrationStatus,
+    updateCACertificate_registrationConfig,
+    updateCACertificate_certificateId,
 
     -- ** UpdateCustomMetric
     updateCustomMetric_metricName,
@@ -290,18 +409,6 @@ module Network.AWS.IoT.Lens
     updateCustomMetricResponse_displayName,
     updateCustomMetricResponse_httpStatus,
 
-    -- ** CancelAuditTask
-    cancelAuditTask_taskId,
-    cancelAuditTaskResponse_httpStatus,
-
-    -- ** ListRoleAliases
-    listRoleAliases_pageSize,
-    listRoleAliases_ascendingOrder,
-    listRoleAliases_marker,
-    listRoleAliasesResponse_roleAliases,
-    listRoleAliasesResponse_nextMarker,
-    listRoleAliasesResponse_httpStatus,
-
     -- ** StartAuditMitigationActionsTask
     startAuditMitigationActionsTask_taskId,
     startAuditMitigationActionsTask_target,
@@ -310,16 +417,6 @@ module Network.AWS.IoT.Lens
     startAuditMitigationActionsTaskResponse_taskId,
     startAuditMitigationActionsTaskResponse_httpStatus,
 
-    -- ** AttachSecurityProfile
-    attachSecurityProfile_securityProfileName,
-    attachSecurityProfile_securityProfileTargetArn,
-    attachSecurityProfileResponse_httpStatus,
-
-    -- ** DeleteJob
-    deleteJob_namespaceId,
-    deleteJob_force,
-    deleteJob_jobId,
-
     -- ** TransferCertificate
     transferCertificate_transferMessage,
     transferCertificate_certificateId,
@@ -327,46 +424,17 @@ module Network.AWS.IoT.Lens
     transferCertificateResponse_transferredCertificateArn,
     transferCertificateResponse_httpStatus,
 
-    -- ** CreateKeysAndCertificate
-    createKeysAndCertificate_setAsActive,
-    createKeysAndCertificateResponse_certificateArn,
-    createKeysAndCertificateResponse_keyPair,
-    createKeysAndCertificateResponse_certificateId,
-    createKeysAndCertificateResponse_certificatePem,
-    createKeysAndCertificateResponse_httpStatus,
+    -- ** GetPercentiles
+    getPercentiles_indexName,
+    getPercentiles_percents,
+    getPercentiles_queryVersion,
+    getPercentiles_aggregationField,
+    getPercentiles_queryString,
+    getPercentilesResponse_percentiles,
+    getPercentilesResponse_httpStatus,
 
-    -- ** UpdateCACertificate
-    updateCACertificate_removeAutoRegistration,
-    updateCACertificate_newStatus,
-    updateCACertificate_newAutoRegistrationStatus,
-    updateCACertificate_registrationConfig,
-    updateCACertificate_certificateId,
-
-    -- ** UpdateJob
-    updateJob_jobExecutionsRolloutConfig,
-    updateJob_timeoutConfig,
-    updateJob_namespaceId,
-    updateJob_presignedUrlConfig,
-    updateJob_description,
-    updateJob_abortConfig,
-    updateJob_jobId,
-
-    -- ** CreateRoleAlias
-    createRoleAlias_tags,
-    createRoleAlias_credentialDurationSeconds,
-    createRoleAlias_roleAlias,
-    createRoleAlias_roleArn,
-    createRoleAliasResponse_roleAliasArn,
-    createRoleAliasResponse_roleAlias,
-    createRoleAliasResponse_httpStatus,
-
-    -- ** ListThingsInBillingGroup
-    listThingsInBillingGroup_nextToken,
-    listThingsInBillingGroup_maxResults,
-    listThingsInBillingGroup_billingGroupName,
-    listThingsInBillingGroupResponse_nextToken,
-    listThingsInBillingGroupResponse_things,
-    listThingsInBillingGroupResponse_httpStatus,
+    -- ** DeleteTopicRule
+    deleteTopicRule_ruleName,
 
     -- ** ListTargetsForSecurityProfile
     listTargetsForSecurityProfile_nextToken,
@@ -376,45 +444,37 @@ module Network.AWS.IoT.Lens
     listTargetsForSecurityProfileResponse_nextToken,
     listTargetsForSecurityProfileResponse_httpStatus,
 
-    -- ** ListCustomMetrics
-    listCustomMetrics_nextToken,
-    listCustomMetrics_maxResults,
-    listCustomMetricsResponse_nextToken,
-    listCustomMetricsResponse_metricNames,
-    listCustomMetricsResponse_httpStatus,
-
-    -- ** DescribeProvisioningTemplateVersion
-    describeProvisioningTemplateVersion_templateName,
-    describeProvisioningTemplateVersion_versionId,
-    describeProvisioningTemplateVersionResponse_creationDate,
-    describeProvisioningTemplateVersionResponse_versionId,
-    describeProvisioningTemplateVersionResponse_isDefaultVersion,
-    describeProvisioningTemplateVersionResponse_templateBody,
-    describeProvisioningTemplateVersionResponse_httpStatus,
-
-    -- ** GetPercentiles
-    getPercentiles_indexName,
-    getPercentiles_queryVersion,
-    getPercentiles_percents,
-    getPercentiles_aggregationField,
-    getPercentiles_queryString,
-    getPercentilesResponse_percentiles,
-    getPercentilesResponse_httpStatus,
-
-    -- ** CreatePolicyVersion
-    createPolicyVersion_setAsDefault,
-    createPolicyVersion_policyName,
-    createPolicyVersion_policyDocument,
-    createPolicyVersionResponse_policyVersionId,
-    createPolicyVersionResponse_policyDocument,
-    createPolicyVersionResponse_isDefaultVersion,
-    createPolicyVersionResponse_policyArn,
-    createPolicyVersionResponse_httpStatus,
-
     -- ** DescribeEndpoint
     describeEndpoint_endpointType,
     describeEndpointResponse_endpointAddress,
     describeEndpointResponse_httpStatus,
+
+    -- ** ListThingsInBillingGroup
+    listThingsInBillingGroup_nextToken,
+    listThingsInBillingGroup_maxResults,
+    listThingsInBillingGroup_billingGroupName,
+    listThingsInBillingGroupResponse_nextToken,
+    listThingsInBillingGroupResponse_things,
+    listThingsInBillingGroupResponse_httpStatus,
+
+    -- ** SetV2LoggingLevel
+    setV2LoggingLevel_logTarget,
+    setV2LoggingLevel_logLevel,
+
+    -- ** CreateJobTemplate
+    createJobTemplate_jobExecutionsRolloutConfig,
+    createJobTemplate_timeoutConfig,
+    createJobTemplate_jobArn,
+    createJobTemplate_documentSource,
+    createJobTemplate_document,
+    createJobTemplate_presignedUrlConfig,
+    createJobTemplate_tags,
+    createJobTemplate_abortConfig,
+    createJobTemplate_jobTemplateId,
+    createJobTemplate_description,
+    createJobTemplateResponse_jobTemplateId,
+    createJobTemplateResponse_jobTemplateArn,
+    createJobTemplateResponse_httpStatus,
 
     -- ** SetDefaultPolicyVersion
     setDefaultPolicyVersion_policyName,
@@ -430,13 +490,46 @@ module Network.AWS.IoT.Lens
     createCustomMetricResponse_metricName,
     createCustomMetricResponse_httpStatus,
 
-    -- ** DisableTopicRule
-    disableTopicRule_ruleName,
+    -- ** ListFleetMetrics
+    listFleetMetrics_nextToken,
+    listFleetMetrics_maxResults,
+    listFleetMetricsResponse_nextToken,
+    listFleetMetricsResponse_fleetMetrics,
+    listFleetMetricsResponse_httpStatus,
+
+    -- ** UpdateFleetMetric
+    updateFleetMetric_queryString,
+    updateFleetMetric_expectedVersion,
+    updateFleetMetric_unit,
+    updateFleetMetric_queryVersion,
+    updateFleetMetric_aggregationType,
+    updateFleetMetric_aggregationField,
+    updateFleetMetric_description,
+    updateFleetMetric_period,
+    updateFleetMetric_metricName,
+    updateFleetMetric_indexName,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** ListJobExecutionsForThing
+    listJobExecutionsForThing_nextToken,
+    listJobExecutionsForThing_status,
+    listJobExecutionsForThing_namespaceId,
+    listJobExecutionsForThing_maxResults,
+    listJobExecutionsForThing_thingName,
+    listJobExecutionsForThingResponse_nextToken,
+    listJobExecutionsForThingResponse_executionSummaries,
+    listJobExecutionsForThingResponse_httpStatus,
+
+    -- ** DeleteFleetMetric
+    deleteFleetMetric_expectedVersion,
+    deleteFleetMetric_metricName,
+
+    -- ** DisableTopicRule
+    disableTopicRule_ruleName,
 
     -- ** DescribeAuditMitigationActionsTask
     describeAuditMitigationActionsTask_taskId,
@@ -449,44 +542,40 @@ module Network.AWS.IoT.Lens
     describeAuditMitigationActionsTaskResponse_actionsDefinition,
     describeAuditMitigationActionsTaskResponse_httpStatus,
 
-    -- ** SetV2LoggingLevel
-    setV2LoggingLevel_logTarget,
-    setV2LoggingLevel_logLevel,
-
-    -- ** ListJobExecutionsForThing
-    listJobExecutionsForThing_nextToken,
-    listJobExecutionsForThing_status,
-    listJobExecutionsForThing_maxResults,
-    listJobExecutionsForThing_namespaceId,
-    listJobExecutionsForThing_thingName,
-    listJobExecutionsForThingResponse_nextToken,
-    listJobExecutionsForThingResponse_executionSummaries,
-    listJobExecutionsForThingResponse_httpStatus,
-
     -- ** CreateThing
-    createThing_billingGroupName,
     createThing_thingTypeName,
+    createThing_billingGroupName,
     createThing_attributePayload,
     createThing_thingName,
-    createThingResponse_thingArn,
     createThingResponse_thingId,
+    createThingResponse_thingArn,
     createThingResponse_thingName,
     createThingResponse_httpStatus,
 
-    -- ** DescribeCertificate
-    describeCertificate_certificateId,
-    describeCertificateResponse_certificateDescription,
-    describeCertificateResponse_httpStatus,
+    -- ** ListV2LoggingLevels
+    listV2LoggingLevels_nextToken,
+    listV2LoggingLevels_targetType,
+    listV2LoggingLevels_maxResults,
+    listV2LoggingLevelsResponse_nextToken,
+    listV2LoggingLevelsResponse_logTargetConfigurations,
+    listV2LoggingLevelsResponse_httpStatus,
 
-    -- ** UpdateProvisioningTemplate
-    updateProvisioningTemplate_removePreProvisioningHook,
-    updateProvisioningTemplate_enabled,
-    updateProvisioningTemplate_preProvisioningHook,
-    updateProvisioningTemplate_defaultVersionId,
-    updateProvisioningTemplate_description,
-    updateProvisioningTemplate_provisioningRoleArn,
-    updateProvisioningTemplate_templateName,
-    updateProvisioningTemplateResponse_httpStatus,
+    -- ** ListAuditMitigationActionsExecutions
+    listAuditMitigationActionsExecutions_nextToken,
+    listAuditMitigationActionsExecutions_maxResults,
+    listAuditMitigationActionsExecutions_actionStatus,
+    listAuditMitigationActionsExecutions_taskId,
+    listAuditMitigationActionsExecutions_findingId,
+    listAuditMitigationActionsExecutionsResponse_nextToken,
+    listAuditMitigationActionsExecutionsResponse_actionsExecutions,
+    listAuditMitigationActionsExecutionsResponse_httpStatus,
+
+    -- ** ListProvisioningTemplates
+    listProvisioningTemplates_nextToken,
+    listProvisioningTemplates_maxResults,
+    listProvisioningTemplatesResponse_nextToken,
+    listProvisioningTemplatesResponse_templates,
+    listProvisioningTemplatesResponse_httpStatus,
 
     -- ** StartThingRegistrationTask
     startThingRegistrationTask_templateBody,
@@ -496,38 +585,41 @@ module Network.AWS.IoT.Lens
     startThingRegistrationTaskResponse_taskId,
     startThingRegistrationTaskResponse_httpStatus,
 
-    -- ** SetDefaultAuthorizer
-    setDefaultAuthorizer_authorizerName,
-    setDefaultAuthorizerResponse_authorizerArn,
-    setDefaultAuthorizerResponse_authorizerName,
-    setDefaultAuthorizerResponse_httpStatus,
-
-    -- ** DeleteProvisioningTemplate
-    deleteProvisioningTemplate_templateName,
-    deleteProvisioningTemplateResponse_httpStatus,
-
-    -- ** DescribeMitigationAction
-    describeMitigationAction_actionName,
-    describeMitigationActionResponse_lastModifiedDate,
-    describeMitigationActionResponse_actionName,
-    describeMitigationActionResponse_roleArn,
-    describeMitigationActionResponse_actionType,
-    describeMitigationActionResponse_actionArn,
-    describeMitigationActionResponse_actionId,
-    describeMitigationActionResponse_creationDate,
-    describeMitigationActionResponse_actionParams,
-    describeMitigationActionResponse_httpStatus,
-
-    -- ** DeleteV2LoggingLevel
-    deleteV2LoggingLevel_targetType,
-    deleteV2LoggingLevel_targetName,
-
     -- ** DescribeJobExecution
     describeJobExecution_executionNumber,
     describeJobExecution_jobId,
     describeJobExecution_thingName,
     describeJobExecutionResponse_execution,
     describeJobExecutionResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** DescribeCertificate
+    describeCertificate_certificateId,
+    describeCertificateResponse_certificateDescription,
+    describeCertificateResponse_httpStatus,
+
+    -- ** DeleteProvisioningTemplate
+    deleteProvisioningTemplate_templateName,
+    deleteProvisioningTemplateResponse_httpStatus,
+
+    -- ** UpdateProvisioningTemplate
+    updateProvisioningTemplate_removePreProvisioningHook,
+    updateProvisioningTemplate_preProvisioningHook,
+    updateProvisioningTemplate_enabled,
+    updateProvisioningTemplate_defaultVersionId,
+    updateProvisioningTemplate_description,
+    updateProvisioningTemplate_provisioningRoleArn,
+    updateProvisioningTemplate_templateName,
+    updateProvisioningTemplateResponse_httpStatus,
+
+    -- ** GetIndexingConfiguration
+    getIndexingConfigurationResponse_thingGroupIndexingConfiguration,
+    getIndexingConfigurationResponse_thingIndexingConfiguration,
+    getIndexingConfigurationResponse_httpStatus,
 
     -- ** StopThingRegistrationTask
     stopThingRegistrationTask_taskId,
@@ -543,80 +635,27 @@ module Network.AWS.IoT.Lens
     createScheduledAuditResponse_scheduledAuditArn,
     createScheduledAuditResponse_httpStatus,
 
-    -- ** GetIndexingConfiguration
-    getIndexingConfigurationResponse_thingGroupIndexingConfiguration,
-    getIndexingConfigurationResponse_thingIndexingConfiguration,
-    getIndexingConfigurationResponse_httpStatus,
+    -- ** SetDefaultAuthorizer
+    setDefaultAuthorizer_authorizerName,
+    setDefaultAuthorizerResponse_authorizerArn,
+    setDefaultAuthorizerResponse_authorizerName,
+    setDefaultAuthorizerResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** DeleteV2LoggingLevel
+    deleteV2LoggingLevel_targetType,
+    deleteV2LoggingLevel_targetName,
 
-    -- ** ListV2LoggingLevels
-    listV2LoggingLevels_nextToken,
-    listV2LoggingLevels_targetType,
-    listV2LoggingLevels_maxResults,
-    listV2LoggingLevelsResponse_nextToken,
-    listV2LoggingLevelsResponse_logTargetConfigurations,
-    listV2LoggingLevelsResponse_httpStatus,
-
-    -- ** ListProvisioningTemplates
-    listProvisioningTemplates_nextToken,
-    listProvisioningTemplates_maxResults,
-    listProvisioningTemplatesResponse_nextToken,
-    listProvisioningTemplatesResponse_templates,
-    listProvisioningTemplatesResponse_httpStatus,
-
-    -- ** ListAuditMitigationActionsExecutions
-    listAuditMitigationActionsExecutions_nextToken,
-    listAuditMitigationActionsExecutions_maxResults,
-    listAuditMitigationActionsExecutions_actionStatus,
-    listAuditMitigationActionsExecutions_taskId,
-    listAuditMitigationActionsExecutions_findingId,
-    listAuditMitigationActionsExecutionsResponse_nextToken,
-    listAuditMitigationActionsExecutionsResponse_actionsExecutions,
-    listAuditMitigationActionsExecutionsResponse_httpStatus,
-
-    -- ** DeleteAuditSuppression
-    deleteAuditSuppression_checkName,
-    deleteAuditSuppression_resourceIdentifier,
-    deleteAuditSuppressionResponse_httpStatus,
-
-    -- ** ListDetectMitigationActionsTasks
-    listDetectMitigationActionsTasks_nextToken,
-    listDetectMitigationActionsTasks_maxResults,
-    listDetectMitigationActionsTasks_startTime,
-    listDetectMitigationActionsTasks_endTime,
-    listDetectMitigationActionsTasksResponse_nextToken,
-    listDetectMitigationActionsTasksResponse_tasks,
-    listDetectMitigationActionsTasksResponse_httpStatus,
-
-    -- ** UpdateStream
-    updateStream_roleArn,
-    updateStream_description,
-    updateStream_files,
-    updateStream_streamId,
-    updateStreamResponse_streamVersion,
-    updateStreamResponse_streamId,
-    updateStreamResponse_streamArn,
-    updateStreamResponse_description,
-    updateStreamResponse_httpStatus,
-
-    -- ** DeleteRegistrationCode
-    deleteRegistrationCodeResponse_httpStatus,
-
-    -- ** CreateAuthorizer
-    createAuthorizer_status,
-    createAuthorizer_tokenSigningPublicKeys,
-    createAuthorizer_tags,
-    createAuthorizer_signingDisabled,
-    createAuthorizer_tokenKeyName,
-    createAuthorizer_authorizerName,
-    createAuthorizer_authorizerFunctionArn,
-    createAuthorizerResponse_authorizerArn,
-    createAuthorizerResponse_authorizerName,
-    createAuthorizerResponse_httpStatus,
+    -- ** DescribeMitigationAction
+    describeMitigationAction_actionName,
+    describeMitigationActionResponse_lastModifiedDate,
+    describeMitigationActionResponse_actionName,
+    describeMitigationActionResponse_roleArn,
+    describeMitigationActionResponse_actionType,
+    describeMitigationActionResponse_actionArn,
+    describeMitigationActionResponse_actionId,
+    describeMitigationActionResponse_creationDate,
+    describeMitigationActionResponse_actionParams,
+    describeMitigationActionResponse_httpStatus,
 
     -- ** DescribeDimension
     describeDimension_name,
@@ -628,49 +667,35 @@ module Network.AWS.IoT.Lens
     describeDimensionResponse_stringValues,
     describeDimensionResponse_httpStatus,
 
-    -- ** DeleteStream
-    deleteStream_streamId,
-    deleteStreamResponse_httpStatus,
-
-    -- ** DeleteAccountAuditConfiguration
-    deleteAccountAuditConfiguration_deleteScheduledAudits,
-    deleteAccountAuditConfigurationResponse_httpStatus,
-
-    -- ** ListThings
-    listThings_attributeValue,
-    listThings_nextToken,
-    listThings_maxResults,
-    listThings_attributeName,
-    listThings_thingTypeName,
-    listThingsResponse_nextToken,
-    listThingsResponse_things,
-    listThingsResponse_httpStatus,
+    -- ** CreateAuthorizer
+    createAuthorizer_status,
+    createAuthorizer_tokenSigningPublicKeys,
+    createAuthorizer_tags,
+    createAuthorizer_tokenKeyName,
+    createAuthorizer_signingDisabled,
+    createAuthorizer_authorizerName,
+    createAuthorizer_authorizerFunctionArn,
+    createAuthorizerResponse_authorizerArn,
+    createAuthorizerResponse_authorizerName,
+    createAuthorizerResponse_httpStatus,
 
     -- ** SetV2LoggingOptions
     setV2LoggingOptions_roleArn,
     setV2LoggingOptions_disableAllLogs,
     setV2LoggingOptions_defaultLogLevel,
 
-    -- ** UpdateThing
-    updateThing_expectedVersion,
-    updateThing_thingTypeName,
-    updateThing_removeThingType,
-    updateThing_attributePayload,
-    updateThing_thingName,
-    updateThingResponse_httpStatus,
+    -- ** DeleteStream
+    deleteStream_streamId,
+    deleteStreamResponse_httpStatus,
 
-    -- ** AddThingToThingGroup
-    addThingToThingGroup_thingArn,
-    addThingToThingGroup_thingGroupArn,
-    addThingToThingGroup_thingName,
-    addThingToThingGroup_thingGroupName,
-    addThingToThingGroup_overrideDynamicGroups,
-    addThingToThingGroupResponse_httpStatus,
-
-    -- ** GetLoggingOptions
-    getLoggingOptionsResponse_roleArn,
-    getLoggingOptionsResponse_logLevel,
-    getLoggingOptionsResponse_httpStatus,
+    -- ** ListDetectMitigationActionsTasks
+    listDetectMitigationActionsTasks_nextToken,
+    listDetectMitigationActionsTasks_maxResults,
+    listDetectMitigationActionsTasks_startTime,
+    listDetectMitigationActionsTasks_endTime,
+    listDetectMitigationActionsTasksResponse_nextToken,
+    listDetectMitigationActionsTasksResponse_tasks,
+    listDetectMitigationActionsTasksResponse_httpStatus,
 
     -- ** UpdateAuditSuppression
     updateAuditSuppression_expirationDate,
@@ -680,22 +705,52 @@ module Network.AWS.IoT.Lens
     updateAuditSuppression_resourceIdentifier,
     updateAuditSuppressionResponse_httpStatus,
 
-    -- ** ListScheduledAudits
-    listScheduledAudits_nextToken,
-    listScheduledAudits_maxResults,
-    listScheduledAuditsResponse_nextToken,
-    listScheduledAuditsResponse_scheduledAudits,
-    listScheduledAuditsResponse_httpStatus,
+    -- ** UpdateStream
+    updateStream_roleArn,
+    updateStream_description,
+    updateStream_files,
+    updateStream_streamId,
+    updateStreamResponse_streamVersion,
+    updateStreamResponse_streamArn,
+    updateStreamResponse_streamId,
+    updateStreamResponse_description,
+    updateStreamResponse_httpStatus,
 
-    -- ** AttachThingPrincipal
-    attachThingPrincipal_thingName,
-    attachThingPrincipal_principal,
-    attachThingPrincipalResponse_httpStatus,
+    -- ** UpdateThing
+    updateThing_expectedVersion,
+    updateThing_thingTypeName,
+    updateThing_attributePayload,
+    updateThing_removeThingType,
+    updateThing_thingName,
+    updateThingResponse_httpStatus,
 
-    -- ** DeleteThing
-    deleteThing_expectedVersion,
-    deleteThing_thingName,
-    deleteThingResponse_httpStatus,
+    -- ** DescribeThingRegistrationTask
+    describeThingRegistrationTask_taskId,
+    describeThingRegistrationTaskResponse_inputFileKey,
+    describeThingRegistrationTaskResponse_lastModifiedDate,
+    describeThingRegistrationTaskResponse_status,
+    describeThingRegistrationTaskResponse_roleArn,
+    describeThingRegistrationTaskResponse_message,
+    describeThingRegistrationTaskResponse_taskId,
+    describeThingRegistrationTaskResponse_creationDate,
+    describeThingRegistrationTaskResponse_percentageProgress,
+    describeThingRegistrationTaskResponse_inputFileBucket,
+    describeThingRegistrationTaskResponse_failureCount,
+    describeThingRegistrationTaskResponse_successCount,
+    describeThingRegistrationTaskResponse_templateBody,
+    describeThingRegistrationTaskResponse_httpStatus,
+
+    -- ** DeleteAccountAuditConfiguration
+    deleteAccountAuditConfiguration_deleteScheduledAudits,
+    deleteAccountAuditConfigurationResponse_httpStatus,
+
+    -- ** ListThingGroupsForThing
+    listThingGroupsForThing_nextToken,
+    listThingGroupsForThing_maxResults,
+    listThingGroupsForThing_thingName,
+    listThingGroupsForThingResponse_nextToken,
+    listThingGroupsForThingResponse_thingGroups,
+    listThingGroupsForThingResponse_httpStatus,
 
     -- ** ListCertificatesByCA
     listCertificatesByCA_pageSize,
@@ -706,13 +761,49 @@ module Network.AWS.IoT.Lens
     listCertificatesByCAResponse_certificates,
     listCertificatesByCAResponse_httpStatus,
 
-    -- ** ListThingGroupsForThing
-    listThingGroupsForThing_nextToken,
-    listThingGroupsForThing_maxResults,
-    listThingGroupsForThing_thingName,
-    listThingGroupsForThingResponse_nextToken,
-    listThingGroupsForThingResponse_thingGroups,
-    listThingGroupsForThingResponse_httpStatus,
+    -- ** ListThings
+    listThings_attributeValue,
+    listThings_nextToken,
+    listThings_maxResults,
+    listThings_attributeName,
+    listThings_usePrefixAttributeValue,
+    listThings_thingTypeName,
+    listThingsResponse_nextToken,
+    listThingsResponse_things,
+    listThingsResponse_httpStatus,
+
+    -- ** AddThingToThingGroup
+    addThingToThingGroup_thingArn,
+    addThingToThingGroup_thingGroupArn,
+    addThingToThingGroup_thingName,
+    addThingToThingGroup_thingGroupName,
+    addThingToThingGroup_overrideDynamicGroups,
+    addThingToThingGroupResponse_httpStatus,
+
+    -- ** DeleteBillingGroup
+    deleteBillingGroup_expectedVersion,
+    deleteBillingGroup_billingGroupName,
+    deleteBillingGroupResponse_httpStatus,
+
+    -- ** ListScheduledAudits
+    listScheduledAudits_nextToken,
+    listScheduledAudits_maxResults,
+    listScheduledAuditsResponse_nextToken,
+    listScheduledAuditsResponse_scheduledAudits,
+    listScheduledAuditsResponse_httpStatus,
+
+    -- ** DeleteRegistrationCode
+    deleteRegistrationCodeResponse_httpStatus,
+
+    -- ** DeleteThing
+    deleteThing_expectedVersion,
+    deleteThing_thingName,
+    deleteThingResponse_httpStatus,
+
+    -- ** AttachThingPrincipal
+    attachThingPrincipal_thingName,
+    attachThingPrincipal_principal,
+    attachThingPrincipalResponse_httpStatus,
 
     -- ** UpdateBillingGroup
     updateBillingGroup_expectedVersion,
@@ -721,32 +812,21 @@ module Network.AWS.IoT.Lens
     updateBillingGroupResponse_version,
     updateBillingGroupResponse_httpStatus,
 
-    -- ** DeleteBillingGroup
-    deleteBillingGroup_expectedVersion,
-    deleteBillingGroup_billingGroupName,
-    deleteBillingGroupResponse_httpStatus,
-
     -- ** UpdateAccountAuditConfiguration
     updateAccountAuditConfiguration_roleArn,
     updateAccountAuditConfiguration_auditCheckConfigurations,
     updateAccountAuditConfiguration_auditNotificationTargetConfigurations,
     updateAccountAuditConfigurationResponse_httpStatus,
 
-    -- ** DescribeThingRegistrationTask
-    describeThingRegistrationTask_taskId,
-    describeThingRegistrationTaskResponse_inputFileKey,
-    describeThingRegistrationTaskResponse_lastModifiedDate,
-    describeThingRegistrationTaskResponse_status,
-    describeThingRegistrationTaskResponse_roleArn,
-    describeThingRegistrationTaskResponse_message,
-    describeThingRegistrationTaskResponse_taskId,
-    describeThingRegistrationTaskResponse_percentageProgress,
-    describeThingRegistrationTaskResponse_creationDate,
-    describeThingRegistrationTaskResponse_inputFileBucket,
-    describeThingRegistrationTaskResponse_failureCount,
-    describeThingRegistrationTaskResponse_successCount,
-    describeThingRegistrationTaskResponse_templateBody,
-    describeThingRegistrationTaskResponse_httpStatus,
+    -- ** GetLoggingOptions
+    getLoggingOptionsResponse_roleArn,
+    getLoggingOptionsResponse_logLevel,
+    getLoggingOptionsResponse_httpStatus,
+
+    -- ** DeleteAuditSuppression
+    deleteAuditSuppression_checkName,
+    deleteAuditSuppression_resourceIdentifier,
+    deleteAuditSuppressionResponse_httpStatus,
 
     -- ** DescribeCustomMetric
     describeCustomMetric_metricName,
@@ -758,16 +838,11 @@ module Network.AWS.IoT.Lens
     describeCustomMetricResponse_displayName,
     describeCustomMetricResponse_httpStatus,
 
-    -- ** DescribeCACertificate
-    describeCACertificate_certificateId,
-    describeCACertificateResponse_certificateDescription,
-    describeCACertificateResponse_registrationConfig,
-    describeCACertificateResponse_httpStatus,
-
-    -- ** DeleteProvisioningTemplateVersion
-    deleteProvisioningTemplateVersion_templateName,
-    deleteProvisioningTemplateVersion_versionId,
-    deleteProvisioningTemplateVersionResponse_httpStatus,
+    -- ** DescribeJob
+    describeJob_jobId,
+    describeJobResponse_job,
+    describeJobResponse_documentSource,
+    describeJobResponse_httpStatus,
 
     -- ** DeleteOTAUpdate
     deleteOTAUpdate_forceDeleteAWSJob,
@@ -775,12 +850,9 @@ module Network.AWS.IoT.Lens
     deleteOTAUpdate_otaUpdateId,
     deleteOTAUpdateResponse_httpStatus,
 
-    -- ** RegisterCertificateWithoutCA
-    registerCertificateWithoutCA_status,
-    registerCertificateWithoutCA_certificatePem,
-    registerCertificateWithoutCAResponse_certificateArn,
-    registerCertificateWithoutCAResponse_certificateId,
-    registerCertificateWithoutCAResponse_httpStatus,
+    -- ** GetRegistrationCode
+    getRegistrationCodeResponse_registrationCode,
+    getRegistrationCodeResponse_httpStatus,
 
     -- ** ListDetectMitigationActionsExecutions
     listDetectMitigationActionsExecutions_nextToken,
@@ -793,6 +865,13 @@ module Network.AWS.IoT.Lens
     listDetectMitigationActionsExecutionsResponse_nextToken,
     listDetectMitigationActionsExecutionsResponse_actionsExecutions,
     listDetectMitigationActionsExecutionsResponse_httpStatus,
+
+    -- ** RegisterCertificateWithoutCA
+    registerCertificateWithoutCA_status,
+    registerCertificateWithoutCA_certificatePem,
+    registerCertificateWithoutCAResponse_certificateArn,
+    registerCertificateWithoutCAResponse_certificateId,
+    registerCertificateWithoutCAResponse_httpStatus,
 
     -- ** CreateDynamicThingGroup
     createDynamicThingGroup_indexName,
@@ -809,34 +888,29 @@ module Network.AWS.IoT.Lens
     createDynamicThingGroupResponse_thingGroupId,
     createDynamicThingGroupResponse_httpStatus,
 
-    -- ** GetRegistrationCode
-    getRegistrationCodeResponse_registrationCode,
-    getRegistrationCodeResponse_httpStatus,
+    -- ** DescribeCACertificate
+    describeCACertificate_certificateId,
+    describeCACertificateResponse_certificateDescription,
+    describeCACertificateResponse_registrationConfig,
+    describeCACertificateResponse_httpStatus,
 
-    -- ** DescribeJob
-    describeJob_jobId,
-    describeJobResponse_job,
-    describeJobResponse_documentSource,
-    describeJobResponse_httpStatus,
+    -- ** DeleteProvisioningTemplateVersion
+    deleteProvisioningTemplateVersion_templateName,
+    deleteProvisioningTemplateVersion_versionId,
+    deleteProvisioningTemplateVersionResponse_httpStatus,
 
     -- ** DetachSecurityProfile
     detachSecurityProfile_securityProfileName,
     detachSecurityProfile_securityProfileTargetArn,
     detachSecurityProfileResponse_httpStatus,
 
-    -- ** TestInvokeAuthorizer
-    testInvokeAuthorizer_httpContext,
-    testInvokeAuthorizer_mqttContext,
-    testInvokeAuthorizer_tokenSignature,
-    testInvokeAuthorizer_tlsContext,
-    testInvokeAuthorizer_token,
-    testInvokeAuthorizer_authorizerName,
-    testInvokeAuthorizerResponse_disconnectAfterInSeconds,
-    testInvokeAuthorizerResponse_principalId,
-    testInvokeAuthorizerResponse_policyDocuments,
-    testInvokeAuthorizerResponse_isAuthenticated,
-    testInvokeAuthorizerResponse_refreshAfterInSeconds,
-    testInvokeAuthorizerResponse_httpStatus,
+    -- ** ListThingPrincipals
+    listThingPrincipals_nextToken,
+    listThingPrincipals_maxResults,
+    listThingPrincipals_thingName,
+    listThingPrincipalsResponse_nextToken,
+    listThingPrincipalsResponse_principals,
+    listThingPrincipalsResponse_httpStatus,
 
     -- ** RemoveThingFromThingGroup
     removeThingFromThingGroup_thingArn,
@@ -853,6 +927,29 @@ module Network.AWS.IoT.Lens
     getBehaviorModelTrainingSummariesResponse_summaries,
     getBehaviorModelTrainingSummariesResponse_httpStatus,
 
+    -- ** UpdateDynamicThingGroup
+    updateDynamicThingGroup_queryString,
+    updateDynamicThingGroup_expectedVersion,
+    updateDynamicThingGroup_indexName,
+    updateDynamicThingGroup_queryVersion,
+    updateDynamicThingGroup_thingGroupName,
+    updateDynamicThingGroup_thingGroupProperties,
+    updateDynamicThingGroupResponse_version,
+    updateDynamicThingGroupResponse_httpStatus,
+
+    -- ** CreateTopicRuleDestination
+    createTopicRuleDestination_destinationConfiguration,
+    createTopicRuleDestinationResponse_topicRuleDestination,
+    createTopicRuleDestinationResponse_httpStatus,
+
+    -- ** ListPrincipalThings
+    listPrincipalThings_nextToken,
+    listPrincipalThings_maxResults,
+    listPrincipalThings_principal,
+    listPrincipalThingsResponse_nextToken,
+    listPrincipalThingsResponse_things,
+    listPrincipalThingsResponse_httpStatus,
+
     -- ** CreateProvisioningTemplateVersion
     createProvisioningTemplateVersion_setAsDefault,
     createProvisioningTemplateVersion_templateName,
@@ -863,35 +960,39 @@ module Network.AWS.IoT.Lens
     createProvisioningTemplateVersionResponse_templateArn,
     createProvisioningTemplateVersionResponse_httpStatus,
 
-    -- ** ListPrincipalThings
-    listPrincipalThings_nextToken,
-    listPrincipalThings_maxResults,
-    listPrincipalThings_principal,
-    listPrincipalThingsResponse_nextToken,
-    listPrincipalThingsResponse_things,
-    listPrincipalThingsResponse_httpStatus,
-
-    -- ** ListAuditMitigationActionsTasks
-    listAuditMitigationActionsTasks_nextToken,
-    listAuditMitigationActionsTasks_maxResults,
-    listAuditMitigationActionsTasks_findingId,
-    listAuditMitigationActionsTasks_auditTaskId,
-    listAuditMitigationActionsTasks_taskStatus,
-    listAuditMitigationActionsTasks_startTime,
-    listAuditMitigationActionsTasks_endTime,
-    listAuditMitigationActionsTasksResponse_nextToken,
-    listAuditMitigationActionsTasksResponse_tasks,
-    listAuditMitigationActionsTasksResponse_httpStatus,
-
     -- ** DescribeRoleAlias
     describeRoleAlias_roleAlias,
     describeRoleAliasResponse_roleAliasDescription,
     describeRoleAliasResponse_httpStatus,
 
-    -- ** CreateTopicRuleDestination
-    createTopicRuleDestination_destinationConfiguration,
-    createTopicRuleDestinationResponse_topicRuleDestination,
-    createTopicRuleDestinationResponse_httpStatus,
+    -- ** DeleteDynamicThingGroup
+    deleteDynamicThingGroup_expectedVersion,
+    deleteDynamicThingGroup_thingGroupName,
+    deleteDynamicThingGroupResponse_httpStatus,
+
+    -- ** CreateThingGroup
+    createThingGroup_parentGroupName,
+    createThingGroup_tags,
+    createThingGroup_thingGroupProperties,
+    createThingGroup_thingGroupName,
+    createThingGroupResponse_thingGroupArn,
+    createThingGroupResponse_thingGroupName,
+    createThingGroupResponse_thingGroupId,
+    createThingGroupResponse_httpStatus,
+
+    -- ** TestInvokeAuthorizer
+    testInvokeAuthorizer_httpContext,
+    testInvokeAuthorizer_mqttContext,
+    testInvokeAuthorizer_tokenSignature,
+    testInvokeAuthorizer_tlsContext,
+    testInvokeAuthorizer_token,
+    testInvokeAuthorizer_authorizerName,
+    testInvokeAuthorizerResponse_disconnectAfterInSeconds,
+    testInvokeAuthorizerResponse_principalId,
+    testInvokeAuthorizerResponse_policyDocuments,
+    testInvokeAuthorizerResponse_isAuthenticated,
+    testInvokeAuthorizerResponse_refreshAfterInSeconds,
+    testInvokeAuthorizerResponse_httpStatus,
 
     -- ** CreateOTAUpdate
     createOTAUpdate_targetSelection,
@@ -909,51 +1010,30 @@ module Network.AWS.IoT.Lens
     createOTAUpdate_roleArn,
     createOTAUpdateResponse_otaUpdateStatus,
     createOTAUpdateResponse_otaUpdateArn,
-    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_awsIotJobArn,
+    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_otaUpdateId,
     createOTAUpdateResponse_httpStatus,
-
-    -- ** DeleteDynamicThingGroup
-    deleteDynamicThingGroup_expectedVersion,
-    deleteDynamicThingGroup_thingGroupName,
-    deleteDynamicThingGroupResponse_httpStatus,
-
-    -- ** UpdateDynamicThingGroup
-    updateDynamicThingGroup_queryString,
-    updateDynamicThingGroup_expectedVersion,
-    updateDynamicThingGroup_indexName,
-    updateDynamicThingGroup_queryVersion,
-    updateDynamicThingGroup_thingGroupName,
-    updateDynamicThingGroup_thingGroupProperties,
-    updateDynamicThingGroupResponse_version,
-    updateDynamicThingGroupResponse_httpStatus,
-
-    -- ** DetachPolicy
-    detachPolicy_policyName,
-    detachPolicy_target,
-
-    -- ** ListThingPrincipals
-    listThingPrincipals_nextToken,
-    listThingPrincipals_maxResults,
-    listThingPrincipals_thingName,
-    listThingPrincipalsResponse_nextToken,
-    listThingPrincipalsResponse_principals,
-    listThingPrincipalsResponse_httpStatus,
 
     -- ** DescribeDefaultAuthorizer
     describeDefaultAuthorizerResponse_authorizerDescription,
     describeDefaultAuthorizerResponse_httpStatus,
 
-    -- ** CreateThingGroup
-    createThingGroup_parentGroupName,
-    createThingGroup_tags,
-    createThingGroup_thingGroupProperties,
-    createThingGroup_thingGroupName,
-    createThingGroupResponse_thingGroupArn,
-    createThingGroupResponse_thingGroupName,
-    createThingGroupResponse_thingGroupId,
-    createThingGroupResponse_httpStatus,
+    -- ** DetachPolicy
+    detachPolicy_policyName,
+    detachPolicy_target,
+
+    -- ** ListAuditMitigationActionsTasks
+    listAuditMitigationActionsTasks_nextToken,
+    listAuditMitigationActionsTasks_maxResults,
+    listAuditMitigationActionsTasks_findingId,
+    listAuditMitigationActionsTasks_auditTaskId,
+    listAuditMitigationActionsTasks_taskStatus,
+    listAuditMitigationActionsTasks_startTime,
+    listAuditMitigationActionsTasks_endTime,
+    listAuditMitigationActionsTasksResponse_nextToken,
+    listAuditMitigationActionsTasksResponse_tasks,
+    listAuditMitigationActionsTasksResponse_httpStatus,
 
     -- ** RegisterCertificate
     registerCertificate_caCertificatePem,
@@ -963,6 +1043,55 @@ module Network.AWS.IoT.Lens
     registerCertificateResponse_certificateArn,
     registerCertificateResponse_certificateId,
     registerCertificateResponse_httpStatus,
+
+    -- ** UpdateSecurityProfile
+    updateSecurityProfile_expectedVersion,
+    updateSecurityProfile_alertTargets,
+    updateSecurityProfile_deleteAdditionalMetricsToRetain,
+    updateSecurityProfile_additionalMetricsToRetain,
+    updateSecurityProfile_deleteAlertTargets,
+    updateSecurityProfile_behaviors,
+    updateSecurityProfile_additionalMetricsToRetainV2,
+    updateSecurityProfile_deleteBehaviors,
+    updateSecurityProfile_securityProfileDescription,
+    updateSecurityProfile_securityProfileName,
+    updateSecurityProfileResponse_lastModifiedDate,
+    updateSecurityProfileResponse_alertTargets,
+    updateSecurityProfileResponse_additionalMetricsToRetain,
+    updateSecurityProfileResponse_creationDate,
+    updateSecurityProfileResponse_securityProfileName,
+    updateSecurityProfileResponse_version,
+    updateSecurityProfileResponse_behaviors,
+    updateSecurityProfileResponse_additionalMetricsToRetainV2,
+    updateSecurityProfileResponse_securityProfileDescription,
+    updateSecurityProfileResponse_securityProfileArn,
+    updateSecurityProfileResponse_httpStatus,
+
+    -- ** DescribeAuthorizer
+    describeAuthorizer_authorizerName,
+    describeAuthorizerResponse_authorizerDescription,
+    describeAuthorizerResponse_httpStatus,
+
+    -- ** GetPolicyVersion
+    getPolicyVersion_policyName,
+    getPolicyVersion_policyVersionId,
+    getPolicyVersionResponse_lastModifiedDate,
+    getPolicyVersionResponse_policyDocument,
+    getPolicyVersionResponse_policyVersionId,
+    getPolicyVersionResponse_policyName,
+    getPolicyVersionResponse_creationDate,
+    getPolicyVersionResponse_generationId,
+    getPolicyVersionResponse_isDefaultVersion,
+    getPolicyVersionResponse_policyArn,
+    getPolicyVersionResponse_httpStatus,
+
+    -- ** ListCertificates
+    listCertificates_pageSize,
+    listCertificates_ascendingOrder,
+    listCertificates_marker,
+    listCertificatesResponse_nextMarker,
+    listCertificatesResponse_certificates,
+    listCertificatesResponse_httpStatus,
 
     -- ** DeleteSecurityProfile
     deleteSecurityProfile_expectedVersion,
@@ -987,50 +1116,6 @@ module Network.AWS.IoT.Lens
     createDomainConfigurationResponse_domainConfigurationName,
     createDomainConfigurationResponse_httpStatus,
 
-    -- ** GetPolicyVersion
-    getPolicyVersion_policyName,
-    getPolicyVersion_policyVersionId,
-    getPolicyVersionResponse_policyVersionId,
-    getPolicyVersionResponse_lastModifiedDate,
-    getPolicyVersionResponse_policyName,
-    getPolicyVersionResponse_policyDocument,
-    getPolicyVersionResponse_creationDate,
-    getPolicyVersionResponse_generationId,
-    getPolicyVersionResponse_isDefaultVersion,
-    getPolicyVersionResponse_policyArn,
-    getPolicyVersionResponse_httpStatus,
-
-    -- ** ListCertificates
-    listCertificates_pageSize,
-    listCertificates_ascendingOrder,
-    listCertificates_marker,
-    listCertificatesResponse_nextMarker,
-    listCertificatesResponse_certificates,
-    listCertificatesResponse_httpStatus,
-
-    -- ** UpdateSecurityProfile
-    updateSecurityProfile_expectedVersion,
-    updateSecurityProfile_alertTargets,
-    updateSecurityProfile_deleteAdditionalMetricsToRetain,
-    updateSecurityProfile_additionalMetricsToRetain,
-    updateSecurityProfile_deleteAlertTargets,
-    updateSecurityProfile_behaviors,
-    updateSecurityProfile_additionalMetricsToRetainV2,
-    updateSecurityProfile_deleteBehaviors,
-    updateSecurityProfile_securityProfileDescription,
-    updateSecurityProfile_securityProfileName,
-    updateSecurityProfileResponse_lastModifiedDate,
-    updateSecurityProfileResponse_alertTargets,
-    updateSecurityProfileResponse_additionalMetricsToRetain,
-    updateSecurityProfileResponse_creationDate,
-    updateSecurityProfileResponse_version,
-    updateSecurityProfileResponse_securityProfileName,
-    updateSecurityProfileResponse_behaviors,
-    updateSecurityProfileResponse_additionalMetricsToRetainV2,
-    updateSecurityProfileResponse_securityProfileDescription,
-    updateSecurityProfileResponse_securityProfileArn,
-    updateSecurityProfileResponse_httpStatus,
-
     -- ** ListActiveViolations
     listActiveViolations_nextToken,
     listActiveViolations_maxResults,
@@ -1038,39 +1123,28 @@ module Network.AWS.IoT.Lens
     listActiveViolations_securityProfileName,
     listActiveViolations_listSuppressedAlerts,
     listActiveViolations_behaviorCriteriaType,
+    listActiveViolations_verificationState,
     listActiveViolationsResponse_nextToken,
     listActiveViolationsResponse_activeViolations,
     listActiveViolationsResponse_httpStatus,
-
-    -- ** DescribeAuthorizer
-    describeAuthorizer_authorizerName,
-    describeAuthorizerResponse_authorizerDescription,
-    describeAuthorizerResponse_httpStatus,
-
-    -- ** DescribeAccountAuditConfiguration
-    describeAccountAuditConfigurationResponse_roleArn,
-    describeAccountAuditConfigurationResponse_auditCheckConfigurations,
-    describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations,
-    describeAccountAuditConfigurationResponse_httpStatus,
-
-    -- ** DeprecateThingType
-    deprecateThingType_undoDeprecate,
-    deprecateThingType_thingTypeName,
-    deprecateThingTypeResponse_httpStatus,
-
-    -- ** DeleteDimension
-    deleteDimension_name,
-    deleteDimensionResponse_httpStatus,
 
     -- ** DescribeBillingGroup
     describeBillingGroup_billingGroupName,
     describeBillingGroupResponse_billingGroupProperties,
     describeBillingGroupResponse_version,
-    describeBillingGroupResponse_billingGroupArn,
     describeBillingGroupResponse_billingGroupId,
     describeBillingGroupResponse_billingGroupMetadata,
+    describeBillingGroupResponse_billingGroupArn,
     describeBillingGroupResponse_billingGroupName,
     describeBillingGroupResponse_httpStatus,
+
+    -- ** ListThingRegistrationTasks
+    listThingRegistrationTasks_nextToken,
+    listThingRegistrationTasks_status,
+    listThingRegistrationTasks_maxResults,
+    listThingRegistrationTasksResponse_nextToken,
+    listThingRegistrationTasksResponse_taskIds,
+    listThingRegistrationTasksResponse_httpStatus,
 
     -- ** UpdateDimension
     updateDimension_name,
@@ -1083,30 +1157,6 @@ module Network.AWS.IoT.Lens
     updateDimensionResponse_stringValues,
     updateDimensionResponse_httpStatus,
 
-    -- ** ConfirmTopicRuleDestination
-    confirmTopicRuleDestination_confirmationToken,
-    confirmTopicRuleDestinationResponse_httpStatus,
-
-    -- ** DescribeDetectMitigationActionsTask
-    describeDetectMitigationActionsTask_taskId,
-    describeDetectMitigationActionsTaskResponse_taskSummary,
-    describeDetectMitigationActionsTaskResponse_httpStatus,
-
-    -- ** ListThingRegistrationTasks
-    listThingRegistrationTasks_nextToken,
-    listThingRegistrationTasks_status,
-    listThingRegistrationTasks_maxResults,
-    listThingRegistrationTasksResponse_nextToken,
-    listThingRegistrationTasksResponse_taskIds,
-    listThingRegistrationTasksResponse_httpStatus,
-
-    -- ** ListDimensions
-    listDimensions_nextToken,
-    listDimensions_maxResults,
-    listDimensionsResponse_nextToken,
-    listDimensionsResponse_dimensionNames,
-    listDimensionsResponse_httpStatus,
-
     -- ** DescribeAuditSuppression
     describeAuditSuppression_checkName,
     describeAuditSuppression_resourceIdentifier,
@@ -1116,6 +1166,26 @@ module Network.AWS.IoT.Lens
     describeAuditSuppressionResponse_description,
     describeAuditSuppressionResponse_suppressIndefinitely,
     describeAuditSuppressionResponse_httpStatus,
+
+    -- ** DescribeAccountAuditConfiguration
+    describeAccountAuditConfigurationResponse_roleArn,
+    describeAccountAuditConfigurationResponse_auditCheckConfigurations,
+    describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations,
+    describeAccountAuditConfigurationResponse_httpStatus,
+
+    -- ** DeprecateThingType
+    deprecateThingType_undoDeprecate,
+    deprecateThingType_thingTypeName,
+    deprecateThingTypeResponse_httpStatus,
+
+    -- ** DescribeDetectMitigationActionsTask
+    describeDetectMitigationActionsTask_taskId,
+    describeDetectMitigationActionsTaskResponse_taskSummary,
+    describeDetectMitigationActionsTaskResponse_httpStatus,
+
+    -- ** DeleteDimension
+    deleteDimension_name,
+    deleteDimensionResponse_httpStatus,
 
     -- ** ListAuditFindings
     listAuditFindings_nextToken,
@@ -1132,50 +1202,56 @@ module Network.AWS.IoT.Lens
 
     -- ** DescribeThing
     describeThing_thingName,
-    describeThingResponse_thingArn,
     describeThingResponse_thingId,
+    describeThingResponse_thingArn,
     describeThingResponse_thingName,
     describeThingResponse_version,
-    describeThingResponse_attributes,
     describeThingResponse_defaultClientId,
-    describeThingResponse_billingGroupName,
+    describeThingResponse_attributes,
     describeThingResponse_thingTypeName,
+    describeThingResponse_billingGroupName,
     describeThingResponse_httpStatus,
 
-    -- ** DescribeStream
-    describeStream_streamId,
-    describeStreamResponse_streamInfo,
-    describeStreamResponse_httpStatus,
+    -- ** ListDimensions
+    listDimensions_nextToken,
+    listDimensions_maxResults,
+    listDimensionsResponse_nextToken,
+    listDimensionsResponse_dimensionNames,
+    listDimensionsResponse_httpStatus,
 
     -- ** DetachThingPrincipal
     detachThingPrincipal_thingName,
     detachThingPrincipal_principal,
     detachThingPrincipalResponse_httpStatus,
 
-    -- ** StartOnDemandAuditTask
-    startOnDemandAuditTask_targetCheckNames,
-    startOnDemandAuditTaskResponse_taskId,
-    startOnDemandAuditTaskResponse_httpStatus,
+    -- ** DescribeStream
+    describeStream_streamId,
+    describeStreamResponse_streamInfo,
+    describeStreamResponse_httpStatus,
 
-    -- ** ListAttachedPolicies
-    listAttachedPolicies_pageSize,
-    listAttachedPolicies_recursive,
-    listAttachedPolicies_marker,
-    listAttachedPolicies_target,
-    listAttachedPoliciesResponse_policies,
-    listAttachedPoliciesResponse_nextMarker,
-    listAttachedPoliciesResponse_httpStatus,
+    -- ** ConfirmTopicRuleDestination
+    confirmTopicRuleDestination_confirmationToken,
+    confirmTopicRuleDestinationResponse_httpStatus,
 
     -- ** GetPolicy
     getPolicy_policyName,
     getPolicyResponse_lastModifiedDate,
-    getPolicyResponse_policyName,
     getPolicyResponse_policyDocument,
+    getPolicyResponse_policyName,
     getPolicyResponse_creationDate,
     getPolicyResponse_defaultVersionId,
     getPolicyResponse_generationId,
     getPolicyResponse_policyArn,
     getPolicyResponse_httpStatus,
+
+    -- ** ListTopicRules
+    listTopicRules_nextToken,
+    listTopicRules_maxResults,
+    listTopicRules_topic,
+    listTopicRules_ruleDisabled,
+    listTopicRulesResponse_nextToken,
+    listTopicRulesResponse_rules,
+    listTopicRulesResponse_httpStatus,
 
     -- ** ListCACertificates
     listCACertificates_pageSize,
@@ -1185,31 +1261,21 @@ module Network.AWS.IoT.Lens
     listCACertificatesResponse_certificates,
     listCACertificatesResponse_httpStatus,
 
-    -- ** EnableTopicRule
-    enableTopicRule_ruleName,
+    -- ** StartOnDemandAuditTask
+    startOnDemandAuditTask_targetCheckNames,
+    startOnDemandAuditTaskResponse_taskId,
+    startOnDemandAuditTaskResponse_httpStatus,
 
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_status,
-    listJobs_targetSelection,
-    listJobs_maxResults,
-    listJobs_namespaceId,
-    listJobs_thingGroupName,
-    listJobs_thingGroupId,
-    listJobsResponse_nextToken,
-    listJobsResponse_jobs,
-    listJobsResponse_httpStatus,
+    -- ** UpdateEventConfigurations
+    updateEventConfigurations_eventConfigurations,
+    updateEventConfigurationsResponse_httpStatus,
 
-    -- ** RegisterCACertificate
-    registerCACertificate_allowAutoRegistration,
-    registerCACertificate_setAsActive,
-    registerCACertificate_tags,
-    registerCACertificate_registrationConfig,
-    registerCACertificate_caCertificate,
-    registerCACertificate_verificationCertificate,
-    registerCACertificateResponse_certificateArn,
-    registerCACertificateResponse_certificateId,
-    registerCACertificateResponse_httpStatus,
+    -- ** UpdateThingGroupsForThing
+    updateThingGroupsForThing_thingName,
+    updateThingGroupsForThing_overrideDynamicGroups,
+    updateThingGroupsForThing_thingGroupsToRemove,
+    updateThingGroupsForThing_thingGroupsToAdd,
+    updateThingGroupsForThingResponse_httpStatus,
 
     -- ** ListSecurityProfilesForTarget
     listSecurityProfilesForTarget_nextToken,
@@ -1220,23 +1286,29 @@ module Network.AWS.IoT.Lens
     listSecurityProfilesForTargetResponse_securityProfileTargetMappings,
     listSecurityProfilesForTargetResponse_httpStatus,
 
-    -- ** UpdateEventConfigurations
-    updateEventConfigurations_eventConfigurations,
-    updateEventConfigurationsResponse_httpStatus,
+    -- ** DeleteJobTemplate
+    deleteJobTemplate_jobTemplateId,
+
+    -- ** EnableTopicRule
+    enableTopicRule_ruleName,
+
+    -- ** AcceptCertificateTransfer
+    acceptCertificateTransfer_setAsActive,
+    acceptCertificateTransfer_certificateId,
 
     -- ** GetJobDocument
     getJobDocument_jobId,
     getJobDocumentResponse_document,
     getJobDocumentResponse_httpStatus,
 
-    -- ** ListTopicRules
-    listTopicRules_nextToken,
-    listTopicRules_maxResults,
-    listTopicRules_topic,
-    listTopicRules_ruleDisabled,
-    listTopicRulesResponse_nextToken,
-    listTopicRulesResponse_rules,
-    listTopicRulesResponse_httpStatus,
+    -- ** ListAttachedPolicies
+    listAttachedPolicies_pageSize,
+    listAttachedPolicies_recursive,
+    listAttachedPolicies_marker,
+    listAttachedPolicies_target,
+    listAttachedPoliciesResponse_policies,
+    listAttachedPoliciesResponse_nextMarker,
+    listAttachedPoliciesResponse_httpStatus,
 
     -- ** DescribeThingGroup
     describeThingGroup_thingGroupName,
@@ -1252,69 +1324,66 @@ module Network.AWS.IoT.Lens
     describeThingGroupResponse_thingGroupProperties,
     describeThingGroupResponse_httpStatus,
 
-    -- ** AcceptCertificateTransfer
-    acceptCertificateTransfer_setAsActive,
-    acceptCertificateTransfer_certificateId,
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_status,
+    listJobs_targetSelection,
+    listJobs_namespaceId,
+    listJobs_maxResults,
+    listJobs_thingGroupName,
+    listJobs_thingGroupId,
+    listJobsResponse_nextToken,
+    listJobsResponse_jobs,
+    listJobsResponse_httpStatus,
 
-    -- ** UpdateThingGroupsForThing
-    updateThingGroupsForThing_thingName,
-    updateThingGroupsForThing_overrideDynamicGroups,
-    updateThingGroupsForThing_thingGroupsToRemove,
-    updateThingGroupsForThing_thingGroupsToAdd,
-    updateThingGroupsForThingResponse_httpStatus,
+    -- ** CreateFleetMetric
+    createFleetMetric_indexName,
+    createFleetMetric_unit,
+    createFleetMetric_queryVersion,
+    createFleetMetric_tags,
+    createFleetMetric_description,
+    createFleetMetric_metricName,
+    createFleetMetric_queryString,
+    createFleetMetric_aggregationType,
+    createFleetMetric_period,
+    createFleetMetric_aggregationField,
+    createFleetMetricResponse_metricArn,
+    createFleetMetricResponse_metricName,
+    createFleetMetricResponse_httpStatus,
 
-    -- ** ListTargetsForPolicy
-    listTargetsForPolicy_pageSize,
-    listTargetsForPolicy_marker,
-    listTargetsForPolicy_policyName,
-    listTargetsForPolicyResponse_nextMarker,
-    listTargetsForPolicyResponse_targets,
-    listTargetsForPolicyResponse_httpStatus,
+    -- ** RegisterCACertificate
+    registerCACertificate_allowAutoRegistration,
+    registerCACertificate_setAsActive,
+    registerCACertificate_tags,
+    registerCACertificate_registrationConfig,
+    registerCACertificate_caCertificate,
+    registerCACertificate_verificationCertificate,
+    registerCACertificateResponse_certificateArn,
+    registerCACertificateResponse_certificateId,
+    registerCACertificateResponse_httpStatus,
 
     -- ** ReplaceTopicRule
     replaceTopicRule_ruleName,
     replaceTopicRule_topicRulePayload,
 
+    -- ** GetStatistics
+    getStatistics_indexName,
+    getStatistics_queryVersion,
+    getStatistics_aggregationField,
+    getStatistics_queryString,
+    getStatisticsResponse_statistics,
+    getStatisticsResponse_httpStatus,
+
     -- ** DescribeIndex
     describeIndex_indexName,
-    describeIndexResponse_indexName,
     describeIndexResponse_schema,
+    describeIndexResponse_indexName,
     describeIndexResponse_indexStatus,
     describeIndexResponse_httpStatus,
-
-    -- ** DeletePolicyVersion
-    deletePolicyVersion_policyName,
-    deletePolicyVersion_policyVersionId,
 
     -- ** AttachPolicy
     attachPolicy_policyName,
     attachPolicy_target,
-
-    -- ** ClearDefaultAuthorizer
-    clearDefaultAuthorizerResponse_httpStatus,
-
-    -- ** CreateTopicRule
-    createTopicRule_tags,
-    createTopicRule_ruleName,
-    createTopicRule_topicRulePayload,
-
-    -- ** CreateJob
-    createJob_jobExecutionsRolloutConfig,
-    createJob_targetSelection,
-    createJob_timeoutConfig,
-    createJob_namespaceId,
-    createJob_documentSource,
-    createJob_document,
-    createJob_presignedUrlConfig,
-    createJob_tags,
-    createJob_description,
-    createJob_abortConfig,
-    createJob_jobId,
-    createJob_targets,
-    createJobResponse_jobArn,
-    createJobResponse_description,
-    createJobResponse_jobId,
-    createJobResponse_httpStatus,
 
     -- ** UpdateRoleAlias
     updateRoleAlias_roleArn,
@@ -1324,17 +1393,39 @@ module Network.AWS.IoT.Lens
     updateRoleAliasResponse_roleAlias,
     updateRoleAliasResponse_httpStatus,
 
-    -- ** DeleteRoleAlias
-    deleteRoleAlias_roleAlias,
-    deleteRoleAliasResponse_httpStatus,
+    -- ** ClearDefaultAuthorizer
+    clearDefaultAuthorizerResponse_httpStatus,
 
-    -- ** GetStatistics
-    getStatistics_indexName,
-    getStatistics_queryVersion,
-    getStatistics_aggregationField,
-    getStatistics_queryString,
-    getStatisticsResponse_statistics,
-    getStatisticsResponse_httpStatus,
+    -- ** CreateTopicRule
+    createTopicRule_tags,
+    createTopicRule_ruleName,
+    createTopicRule_topicRulePayload,
+
+    -- ** CancelJobExecution
+    cancelJobExecution_expectedVersion,
+    cancelJobExecution_statusDetails,
+    cancelJobExecution_force,
+    cancelJobExecution_jobId,
+    cancelJobExecution_thingName,
+
+    -- ** CreateJob
+    createJob_jobExecutionsRolloutConfig,
+    createJob_timeoutConfig,
+    createJob_targetSelection,
+    createJob_namespaceId,
+    createJob_documentSource,
+    createJob_document,
+    createJob_presignedUrlConfig,
+    createJob_tags,
+    createJob_description,
+    createJob_abortConfig,
+    createJob_jobTemplateArn,
+    createJob_jobId,
+    createJob_targets,
+    createJobResponse_jobArn,
+    createJobResponse_description,
+    createJobResponse_jobId,
+    createJobResponse_httpStatus,
 
     -- ** AssociateTargetsWithJob
     associateTargetsWithJob_namespaceId,
@@ -1346,20 +1437,38 @@ module Network.AWS.IoT.Lens
     associateTargetsWithJobResponse_jobId,
     associateTargetsWithJobResponse_httpStatus,
 
+    -- ** DeletePolicyVersion
+    deletePolicyVersion_policyName,
+    deletePolicyVersion_policyVersionId,
+
+    -- ** DeleteRoleAlias
+    deleteRoleAlias_roleAlias,
+    deleteRoleAliasResponse_httpStatus,
+
     -- ** ListPolicyVersions
     listPolicyVersions_policyName,
     listPolicyVersionsResponse_policyVersions,
     listPolicyVersionsResponse_httpStatus,
 
-    -- ** CancelJobExecution
-    cancelJobExecution_expectedVersion,
-    cancelJobExecution_statusDetails,
-    cancelJobExecution_force,
-    cancelJobExecution_jobId,
-    cancelJobExecution_thingName,
+    -- ** ListTargetsForPolicy
+    listTargetsForPolicy_pageSize,
+    listTargetsForPolicy_marker,
+    listTargetsForPolicy_policyName,
+    listTargetsForPolicyResponse_nextMarker,
+    listTargetsForPolicyResponse_targets,
+    listTargetsForPolicyResponse_httpStatus,
 
     -- ** CancelCertificateTransfer
     cancelCertificateTransfer_certificateId,
+
+    -- ** ListAuthorizers
+    listAuthorizers_status,
+    listAuthorizers_pageSize,
+    listAuthorizers_ascendingOrder,
+    listAuthorizers_marker,
+    listAuthorizersResponse_nextMarker,
+    listAuthorizersResponse_authorizers,
+    listAuthorizersResponse_httpStatus,
 
     -- ** CreateThingType
     createThingType_thingTypeProperties,
@@ -1380,6 +1489,57 @@ module Network.AWS.IoT.Lens
     updateAuthorizerResponse_authorizerName,
     updateAuthorizerResponse_httpStatus,
 
+    -- ** CreateAuditSuppression
+    createAuditSuppression_expirationDate,
+    createAuditSuppression_description,
+    createAuditSuppression_suppressIndefinitely,
+    createAuditSuppression_checkName,
+    createAuditSuppression_resourceIdentifier,
+    createAuditSuppression_clientRequestToken,
+    createAuditSuppressionResponse_httpStatus,
+
+    -- ** ListJobExecutionsForJob
+    listJobExecutionsForJob_nextToken,
+    listJobExecutionsForJob_status,
+    listJobExecutionsForJob_maxResults,
+    listJobExecutionsForJob_jobId,
+    listJobExecutionsForJobResponse_nextToken,
+    listJobExecutionsForJobResponse_executionSummaries,
+    listJobExecutionsForJobResponse_httpStatus,
+
+    -- ** DescribeSecurityProfile
+    describeSecurityProfile_securityProfileName,
+    describeSecurityProfileResponse_lastModifiedDate,
+    describeSecurityProfileResponse_alertTargets,
+    describeSecurityProfileResponse_additionalMetricsToRetain,
+    describeSecurityProfileResponse_creationDate,
+    describeSecurityProfileResponse_securityProfileName,
+    describeSecurityProfileResponse_version,
+    describeSecurityProfileResponse_behaviors,
+    describeSecurityProfileResponse_additionalMetricsToRetainV2,
+    describeSecurityProfileResponse_securityProfileDescription,
+    describeSecurityProfileResponse_securityProfileArn,
+    describeSecurityProfileResponse_httpStatus,
+
+    -- ** RemoveThingFromBillingGroup
+    removeThingFromBillingGroup_thingArn,
+    removeThingFromBillingGroup_thingName,
+    removeThingFromBillingGroup_billingGroupArn,
+    removeThingFromBillingGroup_billingGroupName,
+    removeThingFromBillingGroupResponse_httpStatus,
+
+    -- ** CreateStream
+    createStream_tags,
+    createStream_description,
+    createStream_streamId,
+    createStream_files,
+    createStream_roleArn,
+    createStreamResponse_streamVersion,
+    createStreamResponse_streamArn,
+    createStreamResponse_streamId,
+    createStreamResponse_description,
+    createStreamResponse_httpStatus,
+
     -- ** SearchIndex
     searchIndex_nextToken,
     searchIndex_indexName,
@@ -1391,86 +1551,47 @@ module Network.AWS.IoT.Lens
     searchIndexResponse_thingGroups,
     searchIndexResponse_httpStatus,
 
-    -- ** DescribeSecurityProfile
-    describeSecurityProfile_securityProfileName,
-    describeSecurityProfileResponse_lastModifiedDate,
-    describeSecurityProfileResponse_alertTargets,
-    describeSecurityProfileResponse_additionalMetricsToRetain,
-    describeSecurityProfileResponse_creationDate,
-    describeSecurityProfileResponse_version,
-    describeSecurityProfileResponse_securityProfileName,
-    describeSecurityProfileResponse_behaviors,
-    describeSecurityProfileResponse_additionalMetricsToRetainV2,
-    describeSecurityProfileResponse_securityProfileDescription,
-    describeSecurityProfileResponse_securityProfileArn,
-    describeSecurityProfileResponse_httpStatus,
-
-    -- ** ListJobExecutionsForJob
-    listJobExecutionsForJob_nextToken,
-    listJobExecutionsForJob_status,
-    listJobExecutionsForJob_maxResults,
-    listJobExecutionsForJob_jobId,
-    listJobExecutionsForJobResponse_nextToken,
-    listJobExecutionsForJobResponse_executionSummaries,
-    listJobExecutionsForJobResponse_httpStatus,
-
-    -- ** CreateBillingGroup
-    createBillingGroup_billingGroupProperties,
-    createBillingGroup_tags,
-    createBillingGroup_billingGroupName,
-    createBillingGroupResponse_billingGroupArn,
-    createBillingGroupResponse_billingGroupId,
-    createBillingGroupResponse_billingGroupName,
-    createBillingGroupResponse_httpStatus,
-
     -- ** CancelAuditMitigationActionsTask
     cancelAuditMitigationActionsTask_taskId,
     cancelAuditMitigationActionsTaskResponse_httpStatus,
-
-    -- ** CreateStream
-    createStream_tags,
-    createStream_description,
-    createStream_streamId,
-    createStream_files,
-    createStream_roleArn,
-    createStreamResponse_streamVersion,
-    createStreamResponse_streamId,
-    createStreamResponse_streamArn,
-    createStreamResponse_description,
-    createStreamResponse_httpStatus,
-
-    -- ** RemoveThingFromBillingGroup
-    removeThingFromBillingGroup_thingArn,
-    removeThingFromBillingGroup_thingName,
-    removeThingFromBillingGroup_billingGroupArn,
-    removeThingFromBillingGroup_billingGroupName,
-    removeThingFromBillingGroupResponse_httpStatus,
-
-    -- ** ListAuthorizers
-    listAuthorizers_status,
-    listAuthorizers_pageSize,
-    listAuthorizers_ascendingOrder,
-    listAuthorizers_marker,
-    listAuthorizersResponse_nextMarker,
-    listAuthorizersResponse_authorizers,
-    listAuthorizersResponse_httpStatus,
 
     -- ** DeleteAuthorizer
     deleteAuthorizer_authorizerName,
     deleteAuthorizerResponse_httpStatus,
 
-    -- ** CreateAuditSuppression
-    createAuditSuppression_expirationDate,
-    createAuditSuppression_description,
-    createAuditSuppression_suppressIndefinitely,
-    createAuditSuppression_checkName,
-    createAuditSuppression_resourceIdentifier,
-    createAuditSuppression_clientRequestToken,
-    createAuditSuppressionResponse_httpStatus,
+    -- ** CreateBillingGroup
+    createBillingGroup_billingGroupProperties,
+    createBillingGroup_tags,
+    createBillingGroup_billingGroupName,
+    createBillingGroupResponse_billingGroupId,
+    createBillingGroupResponse_billingGroupArn,
+    createBillingGroupResponse_billingGroupName,
+    createBillingGroupResponse_httpStatus,
+
+    -- ** DescribeAuditFinding
+    describeAuditFinding_findingId,
+    describeAuditFindingResponse_finding,
+    describeAuditFindingResponse_httpStatus,
+
+    -- ** DeleteScheduledAudit
+    deleteScheduledAudit_scheduledAuditName,
+    deleteScheduledAuditResponse_httpStatus,
+
+    -- ** GetEffectivePolicies
+    getEffectivePolicies_thingName,
+    getEffectivePolicies_cognitoIdentityPoolId,
+    getEffectivePolicies_principal,
+    getEffectivePoliciesResponse_effectivePolicies,
+    getEffectivePoliciesResponse_httpStatus,
+
+    -- ** GetOTAUpdate
+    getOTAUpdate_otaUpdateId,
+    getOTAUpdateResponse_otaUpdateInfo,
+    getOTAUpdateResponse_httpStatus,
 
     -- ** CreateProvisioningTemplate
-    createProvisioningTemplate_enabled,
     createProvisioningTemplate_preProvisioningHook,
+    createProvisioningTemplate_enabled,
     createProvisioningTemplate_tags,
     createProvisioningTemplate_description,
     createProvisioningTemplate_templateName,
@@ -1481,10 +1602,57 @@ module Network.AWS.IoT.Lens
     createProvisioningTemplateResponse_templateArn,
     createProvisioningTemplateResponse_httpStatus,
 
-    -- ** GetTopicRuleDestination
-    getTopicRuleDestination_arn,
-    getTopicRuleDestinationResponse_topicRuleDestination,
-    getTopicRuleDestinationResponse_httpStatus,
+    -- ** ListThingTypes
+    listThingTypes_nextToken,
+    listThingTypes_maxResults,
+    listThingTypes_thingTypeName,
+    listThingTypesResponse_thingTypes,
+    listThingTypesResponse_nextToken,
+    listThingTypesResponse_httpStatus,
+
+    -- ** DeleteThingType
+    deleteThingType_thingTypeName,
+    deleteThingTypeResponse_httpStatus,
+
+    -- ** RegisterThing
+    registerThing_parameters,
+    registerThing_templateBody,
+    registerThingResponse_resourceArns,
+    registerThingResponse_certificatePem,
+    registerThingResponse_httpStatus,
+
+    -- ** ListBillingGroups
+    listBillingGroups_namePrefixFilter,
+    listBillingGroups_nextToken,
+    listBillingGroups_maxResults,
+    listBillingGroupsResponse_billingGroups,
+    listBillingGroupsResponse_nextToken,
+    listBillingGroupsResponse_httpStatus,
+
+    -- ** ListStreams
+    listStreams_nextToken,
+    listStreams_maxResults,
+    listStreams_ascendingOrder,
+    listStreamsResponse_streams,
+    listStreamsResponse_nextToken,
+    listStreamsResponse_httpStatus,
+
+    -- ** TestAuthorization
+    testAuthorization_clientId,
+    testAuthorization_cognitoIdentityPoolId,
+    testAuthorization_principal,
+    testAuthorization_policyNamesToSkip,
+    testAuthorization_policyNamesToAdd,
+    testAuthorization_authInfos,
+    testAuthorizationResponse_authResults,
+    testAuthorizationResponse_httpStatus,
+
+    -- ** ListIndices
+    listIndices_nextToken,
+    listIndices_maxResults,
+    listIndicesResponse_nextToken,
+    listIndicesResponse_indexNames,
+    listIndicesResponse_httpStatus,
 
     -- ** DescribeAuditTask
     describeAuditTask_taskId,
@@ -1495,6 +1663,24 @@ module Network.AWS.IoT.Lens
     describeAuditTaskResponse_taskStartTime,
     describeAuditTaskResponse_taskType,
     describeAuditTaskResponse_httpStatus,
+
+    -- ** CreateCertificateFromCsr
+    createCertificateFromCsr_setAsActive,
+    createCertificateFromCsr_certificateSigningRequest,
+    createCertificateFromCsrResponse_certificateArn,
+    createCertificateFromCsrResponse_certificateId,
+    createCertificateFromCsrResponse_certificatePem,
+    createCertificateFromCsrResponse_httpStatus,
+
+    -- ** ListAuditSuppressions
+    listAuditSuppressions_nextToken,
+    listAuditSuppressions_maxResults,
+    listAuditSuppressions_resourceIdentifier,
+    listAuditSuppressions_checkName,
+    listAuditSuppressions_ascendingOrder,
+    listAuditSuppressionsResponse_nextToken,
+    listAuditSuppressionsResponse_suppressions,
+    listAuditSuppressionsResponse_httpStatus,
 
     -- ** DescribeDomainConfiguration
     describeDomainConfiguration_domainConfigurationName,
@@ -1509,44 +1695,6 @@ module Network.AWS.IoT.Lens
     describeDomainConfigurationResponse_serviceType,
     describeDomainConfigurationResponse_httpStatus,
 
-    -- ** ListStreams
-    listStreams_nextToken,
-    listStreams_maxResults,
-    listStreams_ascendingOrder,
-    listStreamsResponse_streams,
-    listStreamsResponse_nextToken,
-    listStreamsResponse_httpStatus,
-
-    -- ** ListAuditSuppressions
-    listAuditSuppressions_nextToken,
-    listAuditSuppressions_maxResults,
-    listAuditSuppressions_resourceIdentifier,
-    listAuditSuppressions_checkName,
-    listAuditSuppressions_ascendingOrder,
-    listAuditSuppressionsResponse_nextToken,
-    listAuditSuppressionsResponse_suppressions,
-    listAuditSuppressionsResponse_httpStatus,
-
-    -- ** CreateCertificateFromCsr
-    createCertificateFromCsr_setAsActive,
-    createCertificateFromCsr_certificateSigningRequest,
-    createCertificateFromCsrResponse_certificateArn,
-    createCertificateFromCsrResponse_certificateId,
-    createCertificateFromCsrResponse_certificatePem,
-    createCertificateFromCsrResponse_httpStatus,
-
-    -- ** GetOTAUpdate
-    getOTAUpdate_otaUpdateId,
-    getOTAUpdateResponse_otaUpdateInfo,
-    getOTAUpdateResponse_httpStatus,
-
-    -- ** GetEffectivePolicies
-    getEffectivePolicies_thingName,
-    getEffectivePolicies_cognitoIdentityPoolId,
-    getEffectivePolicies_principal,
-    getEffectivePoliciesResponse_effectivePolicies,
-    getEffectivePoliciesResponse_httpStatus,
-
     -- ** UpdateScheduledAudit
     updateScheduledAudit_dayOfWeek,
     updateScheduledAudit_dayOfMonth,
@@ -1556,58 +1704,14 @@ module Network.AWS.IoT.Lens
     updateScheduledAuditResponse_scheduledAuditArn,
     updateScheduledAuditResponse_httpStatus,
 
-    -- ** DescribeAuditFinding
-    describeAuditFinding_findingId,
-    describeAuditFindingResponse_finding,
-    describeAuditFindingResponse_httpStatus,
+    -- ** GetTopicRuleDestination
+    getTopicRuleDestination_arn,
+    getTopicRuleDestinationResponse_topicRuleDestination,
+    getTopicRuleDestinationResponse_httpStatus,
 
-    -- ** DeleteScheduledAudit
-    deleteScheduledAudit_scheduledAuditName,
-    deleteScheduledAuditResponse_httpStatus,
-
-    -- ** ListBillingGroups
-    listBillingGroups_namePrefixFilter,
-    listBillingGroups_nextToken,
-    listBillingGroups_maxResults,
-    listBillingGroupsResponse_billingGroups,
-    listBillingGroupsResponse_nextToken,
-    listBillingGroupsResponse_httpStatus,
-
-    -- ** TestAuthorization
-    testAuthorization_clientId,
-    testAuthorization_cognitoIdentityPoolId,
-    testAuthorization_principal,
-    testAuthorization_policyNamesToSkip,
-    testAuthorization_policyNamesToAdd,
-    testAuthorization_authInfos,
-    testAuthorizationResponse_authResults,
-    testAuthorizationResponse_httpStatus,
-
-    -- ** ListThingTypes
-    listThingTypes_nextToken,
-    listThingTypes_maxResults,
-    listThingTypes_thingTypeName,
-    listThingTypesResponse_thingTypes,
-    listThingTypesResponse_nextToken,
-    listThingTypesResponse_httpStatus,
-
-    -- ** ListIndices
-    listIndices_nextToken,
-    listIndices_maxResults,
-    listIndicesResponse_nextToken,
-    listIndicesResponse_indexNames,
-    listIndicesResponse_httpStatus,
-
-    -- ** DeleteThingType
-    deleteThingType_thingTypeName,
-    deleteThingTypeResponse_httpStatus,
-
-    -- ** RegisterThing
-    registerThing_parameters,
-    registerThing_templateBody,
-    registerThingResponse_resourceArns,
-    registerThingResponse_certificatePem,
-    registerThingResponse_httpStatus,
+    -- ** DeleteTopicRuleDestination
+    deleteTopicRuleDestination_arn,
+    deleteTopicRuleDestinationResponse_httpStatus,
 
     -- ** ListOutgoingCertificates
     listOutgoingCertificates_pageSize,
@@ -1617,27 +1721,19 @@ module Network.AWS.IoT.Lens
     listOutgoingCertificatesResponse_outgoingCertificates,
     listOutgoingCertificatesResponse_httpStatus,
 
-    -- ** DeleteTopicRuleDestination
-    deleteTopicRuleDestination_arn,
-    deleteTopicRuleDestinationResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ListTopicRuleDestinations
-    listTopicRuleDestinations_nextToken,
-    listTopicRuleDestinations_maxResults,
-    listTopicRuleDestinationsResponse_nextToken,
-    listTopicRuleDestinationsResponse_destinationSummaries,
-    listTopicRuleDestinationsResponse_httpStatus,
-
-    -- ** CancelDetectMitigationActionsTask
-    cancelDetectMitigationActionsTask_taskId,
-    cancelDetectMitigationActionsTaskResponse_httpStatus,
+    -- ** DescribeJobTemplate
+    describeJobTemplate_jobTemplateId,
+    describeJobTemplateResponse_jobExecutionsRolloutConfig,
+    describeJobTemplateResponse_timeoutConfig,
+    describeJobTemplateResponse_createdAt,
+    describeJobTemplateResponse_jobTemplateId,
+    describeJobTemplateResponse_documentSource,
+    describeJobTemplateResponse_document,
+    describeJobTemplateResponse_presignedUrlConfig,
+    describeJobTemplateResponse_description,
+    describeJobTemplateResponse_abortConfig,
+    describeJobTemplateResponse_jobTemplateArn,
+    describeJobTemplateResponse_httpStatus,
 
     -- ** AddThingToBillingGroup
     addThingToBillingGroup_thingArn,
@@ -1646,22 +1742,6 @@ module Network.AWS.IoT.Lens
     addThingToBillingGroup_billingGroupName,
     addThingToBillingGroupResponse_httpStatus,
 
-    -- ** DeleteThingGroup
-    deleteThingGroup_expectedVersion,
-    deleteThingGroup_thingGroupName,
-    deleteThingGroupResponse_httpStatus,
-
-    -- ** DescribeEventConfigurations
-    describeEventConfigurationsResponse_lastModifiedDate,
-    describeEventConfigurationsResponse_creationDate,
-    describeEventConfigurationsResponse_eventConfigurations,
-    describeEventConfigurationsResponse_httpStatus,
-
-    -- ** UpdateTopicRuleDestination
-    updateTopicRuleDestination_arn,
-    updateTopicRuleDestination_status,
-    updateTopicRuleDestinationResponse_httpStatus,
-
     -- ** ListOTAUpdates
     listOTAUpdates_otaUpdateStatus,
     listOTAUpdates_nextToken,
@@ -1669,6 +1749,51 @@ module Network.AWS.IoT.Lens
     listOTAUpdatesResponse_nextToken,
     listOTAUpdatesResponse_otaUpdates,
     listOTAUpdatesResponse_httpStatus,
+
+    -- ** UpdateThingGroup
+    updateThingGroup_expectedVersion,
+    updateThingGroup_thingGroupName,
+    updateThingGroup_thingGroupProperties,
+    updateThingGroupResponse_version,
+    updateThingGroupResponse_httpStatus,
+
+    -- ** DeleteThingGroup
+    deleteThingGroup_expectedVersion,
+    deleteThingGroup_thingGroupName,
+    deleteThingGroupResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** DescribeEventConfigurations
+    describeEventConfigurationsResponse_lastModifiedDate,
+    describeEventConfigurationsResponse_creationDate,
+    describeEventConfigurationsResponse_eventConfigurations,
+    describeEventConfigurationsResponse_httpStatus,
+
+    -- ** ListTopicRuleDestinations
+    listTopicRuleDestinations_nextToken,
+    listTopicRuleDestinations_maxResults,
+    listTopicRuleDestinationsResponse_nextToken,
+    listTopicRuleDestinationsResponse_destinationSummaries,
+    listTopicRuleDestinationsResponse_httpStatus,
+
+    -- ** ListProvisioningTemplateVersions
+    listProvisioningTemplateVersions_nextToken,
+    listProvisioningTemplateVersions_maxResults,
+    listProvisioningTemplateVersions_templateName,
+    listProvisioningTemplateVersionsResponse_nextToken,
+    listProvisioningTemplateVersionsResponse_versions,
+    listProvisioningTemplateVersionsResponse_httpStatus,
+
+    -- ** UpdateTopicRuleDestination
+    updateTopicRuleDestination_arn,
+    updateTopicRuleDestination_status,
+    updateTopicRuleDestinationResponse_httpStatus,
 
     -- ** ListThingGroups
     listThingGroups_namePrefixFilter,
@@ -1680,20 +1805,9 @@ module Network.AWS.IoT.Lens
     listThingGroupsResponse_thingGroups,
     listThingGroupsResponse_httpStatus,
 
-    -- ** ListProvisioningTemplateVersions
-    listProvisioningTemplateVersions_nextToken,
-    listProvisioningTemplateVersions_maxResults,
-    listProvisioningTemplateVersions_templateName,
-    listProvisioningTemplateVersionsResponse_nextToken,
-    listProvisioningTemplateVersionsResponse_versions,
-    listProvisioningTemplateVersionsResponse_httpStatus,
-
-    -- ** UpdateThingGroup
-    updateThingGroup_expectedVersion,
-    updateThingGroup_thingGroupName,
-    updateThingGroup_thingGroupProperties,
-    updateThingGroupResponse_version,
-    updateThingGroupResponse_httpStatus,
+    -- ** CancelDetectMitigationActionsTask
+    cancelDetectMitigationActionsTask_taskId,
+    cancelDetectMitigationActionsTaskResponse_httpStatus,
 
     -- * Types
 
@@ -1710,8 +1824,8 @@ module Network.AWS.IoT.Lens
     action_cloudwatchLogs,
     action_cloudwatchMetric,
     action_sqs,
-    action_timestream,
     action_firehose,
+    action_timestream,
     action_sns,
     action_elasticsearch,
     action_kinesis,
@@ -1725,23 +1839,30 @@ module Network.AWS.IoT.Lens
     action_dynamoDB,
     action_stepFunctions,
     action_cloudwatchAlarm,
-    action_http,
     action_s3,
+    action_http,
     action_iotEvents,
+    action_openSearch,
 
     -- ** ActiveViolation
     activeViolation_violationId,
     activeViolation_lastViolationTime,
     activeViolation_thingName,
     activeViolation_lastViolationValue,
+    activeViolation_verificationStateDescription,
     activeViolation_securityProfileName,
     activeViolation_behavior,
     activeViolation_violationStartTime,
+    activeViolation_verificationState,
     activeViolation_violationEventAdditionalInfo,
 
     -- ** AddThingsToThingGroupParams
     addThingsToThingGroupParams_overrideDynamicGroups,
     addThingsToThingGroupParams_thingGroupNames,
+
+    -- ** AggregationType
+    aggregationType_values,
+    aggregationType_name,
 
     -- ** AlertTarget
     alertTarget_alertTargetArn,
@@ -1760,8 +1881,8 @@ module Network.AWS.IoT.Lens
     assetPropertyValue_timestamp,
 
     -- ** AssetPropertyVariant
-    assetPropertyVariant_doubleValue,
     assetPropertyVariant_stringValue,
+    assetPropertyVariant_doubleValue,
     assetPropertyVariant_booleanValue,
     assetPropertyVariant_integerValue,
 
@@ -1849,14 +1970,14 @@ module Network.AWS.IoT.Lens
 
     -- ** AuthorizerDescription
     authorizerDescription_lastModifiedDate,
-    authorizerDescription_status,
     authorizerDescription_authorizerArn,
+    authorizerDescription_status,
     authorizerDescription_authorizerFunctionArn,
     authorizerDescription_creationDate,
     authorizerDescription_tokenSigningPublicKeys,
     authorizerDescription_authorizerName,
-    authorizerDescription_signingDisabled,
     authorizerDescription_tokenKeyName,
+    authorizerDescription_signingDisabled,
 
     -- ** AuthorizerSummary
     authorizerSummary_authorizerArn,
@@ -1900,8 +2021,8 @@ module Network.AWS.IoT.Lens
     -- ** BehaviorCriteria
     behaviorCriteria_comparisonOperator,
     behaviorCriteria_consecutiveDatapointsToAlarm,
-    behaviorCriteria_statisticalThreshold,
     behaviorCriteria_mlDetectionConfig,
+    behaviorCriteria_statisticalThreshold,
     behaviorCriteria_consecutiveDatapointsToClear,
     behaviorCriteria_value,
     behaviorCriteria_durationSeconds,
@@ -1911,14 +2032,21 @@ module Network.AWS.IoT.Lens
     behaviorModelTrainingSummary_datapointsCollectionPercentage,
     behaviorModelTrainingSummary_modelStatus,
     behaviorModelTrainingSummary_behaviorName,
-    behaviorModelTrainingSummary_trainingDataCollectionStartDate,
     behaviorModelTrainingSummary_securityProfileName,
+    behaviorModelTrainingSummary_trainingDataCollectionStartDate,
 
     -- ** BillingGroupMetadata
     billingGroupMetadata_creationDate,
 
     -- ** BillingGroupProperties
     billingGroupProperties_billingGroupDescription,
+
+    -- ** Bucket
+    bucket_keyValue,
+    bucket_count,
+
+    -- ** BucketsAggregationType
+    bucketsAggregationType_termsAggregation,
 
     -- ** CACertificate
     cACertificate_status,
@@ -1951,16 +2079,16 @@ module Network.AWS.IoT.Lens
     certificateDescription_status,
     certificateDescription_certificateMode,
     certificateDescription_certificateArn,
-    certificateDescription_previousOwnedBy,
     certificateDescription_creationDate,
+    certificateDescription_previousOwnedBy,
     certificateDescription_ownedBy,
     certificateDescription_customerVersion,
     certificateDescription_generationId,
     certificateDescription_transferData,
     certificateDescription_certificateId,
     certificateDescription_certificatePem,
-    certificateDescription_validity,
     certificateDescription_caCertificateId,
+    certificateDescription_validity,
 
     -- ** CertificateValidity
     certificateValidity_notBefore,
@@ -2013,8 +2141,8 @@ module Network.AWS.IoT.Lens
     destination_s3Destination,
 
     -- ** DetectMitigationActionExecution
-    detectMitigationActionExecution_violationId,
     detectMitigationActionExecution_status,
+    detectMitigationActionExecution_violationId,
     detectMitigationActionExecution_actionName,
     detectMitigationActionExecution_executionStartDate,
     detectMitigationActionExecution_message,
@@ -2030,8 +2158,8 @@ module Network.AWS.IoT.Lens
 
     -- ** DetectMitigationActionsTaskSummary
     detectMitigationActionsTaskSummary_taskEndTime,
-    detectMitigationActionsTaskSummary_taskStatistics,
     detectMitigationActionsTaskSummary_taskId,
+    detectMitigationActionsTaskSummary_taskStatistics,
     detectMitigationActionsTaskSummary_violationEventOccurrenceRange,
     detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded,
     detectMitigationActionsTaskSummary_target,
@@ -2053,8 +2181,8 @@ module Network.AWS.IoT.Lens
     -- ** DynamoDBAction
     dynamoDBAction_rangeKeyValue,
     dynamoDBAction_rangeKeyType,
-    dynamoDBAction_operation,
     dynamoDBAction_hashKeyType,
+    dynamoDBAction_operation,
     dynamoDBAction_rangeKeyField,
     dynamoDBAction_payloadField,
     dynamoDBAction_tableName,
@@ -2067,8 +2195,8 @@ module Network.AWS.IoT.Lens
     dynamoDBv2Action_putItem,
 
     -- ** EffectivePolicy
-    effectivePolicy_policyName,
     effectivePolicy_policyDocument,
+    effectivePolicy_policyName,
     effectivePolicy_policyArn,
 
     -- ** ElasticsearchAction
@@ -2107,6 +2235,10 @@ module Network.AWS.IoT.Lens
     firehoseAction_batchMode,
     firehoseAction_roleArn,
     firehoseAction_deliveryStreamName,
+
+    -- ** FleetMetricNameAndArn
+    fleetMetricNameAndArn_metricArn,
+    fleetMetricNameAndArn_metricName,
 
     -- ** GroupNameAndArn
     groupNameAndArn_groupName,
@@ -2160,22 +2292,23 @@ module Network.AWS.IoT.Lens
     -- ** Job
     job_jobExecutionsRolloutConfig,
     job_status,
-    job_targetSelection,
-    job_timeoutConfig,
     job_reasonCode,
+    job_timeoutConfig,
+    job_targetSelection,
     job_namespaceId,
     job_jobProcessDetails,
     job_comment,
     job_completedAt,
     job_createdAt,
+    job_forceCanceled,
     job_jobArn,
     job_targets,
-    job_forceCanceled,
     job_presignedUrlConfig,
     job_description,
     job_abortConfig,
-    job_lastUpdatedAt,
+    job_jobTemplateArn,
     job_jobId,
+    job_lastUpdatedAt,
 
     -- ** JobExecution
     jobExecution_startedAt,
@@ -2184,11 +2317,11 @@ module Network.AWS.IoT.Lens
     jobExecution_statusDetails,
     jobExecution_queuedAt,
     jobExecution_forceCanceled,
-    jobExecution_versionNumber,
     jobExecution_executionNumber,
+    jobExecution_versionNumber,
     jobExecution_approximateSecondsBeforeTimedOut,
-    jobExecution_lastUpdatedAt,
     jobExecution_jobId,
+    jobExecution_lastUpdatedAt,
 
     -- ** JobExecutionStatusDetails
     jobExecutionStatusDetails_detailsMap,
@@ -2216,12 +2349,12 @@ module Network.AWS.IoT.Lens
     jobProcessDetails_processingTargets,
     jobProcessDetails_numberOfSucceededThings,
     jobProcessDetails_numberOfQueuedThings,
-    jobProcessDetails_numberOfRemovedThings,
     jobProcessDetails_numberOfInProgressThings,
+    jobProcessDetails_numberOfRemovedThings,
     jobProcessDetails_numberOfFailedThings,
     jobProcessDetails_numberOfRejectedThings,
-    jobProcessDetails_numberOfCanceledThings,
     jobProcessDetails_numberOfTimedOutThings,
+    jobProcessDetails_numberOfCanceledThings,
 
     -- ** JobSummary
     jobSummary_status,
@@ -2230,8 +2363,14 @@ module Network.AWS.IoT.Lens
     jobSummary_createdAt,
     jobSummary_jobArn,
     jobSummary_thingGroupId,
-    jobSummary_lastUpdatedAt,
     jobSummary_jobId,
+    jobSummary_lastUpdatedAt,
+
+    -- ** JobTemplateSummary
+    jobTemplateSummary_createdAt,
+    jobTemplateSummary_jobTemplateId,
+    jobTemplateSummary_description,
+    jobTemplateSummary_jobTemplateArn,
 
     -- ** KafkaAction
     kafkaAction_key,
@@ -2280,8 +2419,8 @@ module Network.AWS.IoT.Lens
     metricValue_ports,
     metricValue_cidrs,
     metricValue_strings,
-    metricValue_count,
     metricValue_number,
+    metricValue_count,
 
     -- ** MitigationAction
     mitigationAction_roleArn,
@@ -2299,8 +2438,8 @@ module Network.AWS.IoT.Lens
     mitigationActionParams_replaceDefaultPolicyVersionParams,
     mitigationActionParams_updateDeviceCertificateParams,
     mitigationActionParams_publishFindingToSnsParams,
-    mitigationActionParams_addThingsToThingGroupParams,
     mitigationActionParams_updateCACertificateParams,
+    mitigationActionParams_addThingsToThingGroupParams,
 
     -- ** MqttContext
     mqttContext_clientId,
@@ -2317,24 +2456,24 @@ module Network.AWS.IoT.Lens
     oTAUpdateFile_fileLocation,
     oTAUpdateFile_attributes,
     oTAUpdateFile_fileName,
-    oTAUpdateFile_fileType,
     oTAUpdateFile_codeSigning,
+    oTAUpdateFile_fileType,
 
     -- ** OTAUpdateInfo
     oTAUpdateInfo_otaUpdateStatus,
     oTAUpdateInfo_lastModifiedDate,
     oTAUpdateInfo_targetSelection,
     oTAUpdateInfo_otaUpdateArn,
-    oTAUpdateInfo_awsIotJobId,
     oTAUpdateInfo_creationDate,
-    oTAUpdateInfo_awsIotJobArn,
     oTAUpdateInfo_protocols,
+    oTAUpdateInfo_awsIotJobArn,
+    oTAUpdateInfo_awsIotJobId,
     oTAUpdateInfo_targets,
+    oTAUpdateInfo_otaUpdateFiles,
     oTAUpdateInfo_awsJobPresignedUrlConfig,
     oTAUpdateInfo_errorInfo,
-    oTAUpdateInfo_description,
-    oTAUpdateInfo_otaUpdateFiles,
     oTAUpdateInfo_otaUpdateId,
+    oTAUpdateInfo_description,
     oTAUpdateInfo_additionalParameters,
     oTAUpdateInfo_awsJobExecutionsRolloutConfig,
 
@@ -2342,6 +2481,13 @@ module Network.AWS.IoT.Lens
     oTAUpdateSummary_otaUpdateArn,
     oTAUpdateSummary_creationDate,
     oTAUpdateSummary_otaUpdateId,
+
+    -- ** OpenSearchAction
+    openSearchAction_roleArn,
+    openSearchAction_endpoint,
+    openSearchAction_index,
+    openSearchAction_type,
+    openSearchAction_id,
 
     -- ** OutgoingCertificate
     outgoingCertificate_transferDate,
@@ -2377,10 +2523,10 @@ module Network.AWS.IoT.Lens
     provisioningHook_targetArn,
 
     -- ** ProvisioningTemplateSummary
-    provisioningTemplateSummary_templateName,
     provisioningTemplateSummary_lastModifiedDate,
-    provisioningTemplateSummary_enabled,
+    provisioningTemplateSummary_templateName,
     provisioningTemplateSummary_creationDate,
+    provisioningTemplateSummary_enabled,
     provisioningTemplateSummary_description,
     provisioningTemplateSummary_templateArn,
 
@@ -2393,8 +2539,8 @@ module Network.AWS.IoT.Lens
     publishFindingToSnsParams_topicArn,
 
     -- ** PutAssetPropertyValueEntry
-    putAssetPropertyValueEntry_entryId,
     putAssetPropertyValueEntry_propertyAlias,
+    putAssetPropertyValueEntry_entryId,
     putAssetPropertyValueEntry_assetId,
     putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_propertyValues,
@@ -2425,17 +2571,17 @@ module Network.AWS.IoT.Lens
 
     -- ** ResourceIdentifier
     resourceIdentifier_roleAliasArn,
-    resourceIdentifier_clientId,
     resourceIdentifier_iamRoleArn,
+    resourceIdentifier_clientId,
     resourceIdentifier_cognitoIdentityPoolId,
-    resourceIdentifier_account,
     resourceIdentifier_policyVersionIdentifier,
+    resourceIdentifier_account,
     resourceIdentifier_deviceCertificateId,
     resourceIdentifier_caCertificateId,
 
     -- ** RoleAliasDescription
-    roleAliasDescription_roleAliasArn,
     roleAliasDescription_lastModifiedDate,
+    roleAliasDescription_roleAliasArn,
     roleAliasDescription_roleArn,
     roleAliasDescription_creationDate,
     roleAliasDescription_owner,
@@ -2481,8 +2627,8 @@ module Network.AWS.IoT.Lens
 
     -- ** ServerCertificateSummary
     serverCertificateSummary_serverCertificateStatus,
-    serverCertificateSummary_serverCertificateArn,
     serverCertificateSummary_serverCertificateStatusDetail,
+    serverCertificateSummary_serverCertificateArn,
 
     -- ** SigV4Authorization
     sigV4Authorization_signingRegion,
@@ -2519,8 +2665,8 @@ module Network.AWS.IoT.Lens
     statistics_variance,
     statistics_average,
     statistics_count,
-    statistics_maximum,
     statistics_sumOfSquares,
+    statistics_maximum,
 
     -- ** StepFunctionsAction
     stepFunctionsAction_executionNamePrefix,
@@ -2539,16 +2685,16 @@ module Network.AWS.IoT.Lens
     streamInfo_roleArn,
     streamInfo_streamVersion,
     streamInfo_createdAt,
-    streamInfo_streamId,
     streamInfo_streamArn,
+    streamInfo_streamId,
     streamInfo_description,
     streamInfo_files,
     streamInfo_lastUpdatedAt,
 
     -- ** StreamSummary
     streamSummary_streamVersion,
-    streamSummary_streamId,
     streamSummary_streamArn,
+    streamSummary_streamId,
     streamSummary_description,
 
     -- ** Tag
@@ -2571,6 +2717,9 @@ module Network.AWS.IoT.Lens
     taskStatisticsForAuditCheck_skippedFindingsCount,
     taskStatisticsForAuditCheck_canceledFindingsCount,
 
+    -- ** TermsAggregation
+    termsAggregation_maxBuckets,
+
     -- ** ThingAttribute
     thingAttribute_thingArn,
     thingAttribute_thingName,
@@ -2579,6 +2728,7 @@ module Network.AWS.IoT.Lens
     thingAttribute_thingTypeName,
 
     -- ** ThingConnectivity
+    thingConnectivity_disconnectReason,
     thingConnectivity_connected,
     thingConnectivity_timestamp,
 
@@ -2613,8 +2763,8 @@ module Network.AWS.IoT.Lens
     thingGroupProperties_attributePayload,
 
     -- ** ThingIndexingConfiguration
-    thingIndexingConfiguration_managedFields,
     thingIndexingConfiguration_thingConnectivityIndexingMode,
+    thingIndexingConfiguration_managedFields,
     thingIndexingConfiguration_customFields,
     thingIndexingConfiguration_thingIndexingMode,
 
@@ -2705,8 +2855,8 @@ module Network.AWS.IoT.Lens
     transferData_transferDate,
     transferData_transferMessage,
     transferData_acceptDate,
-    transferData_rejectDate,
     transferData_rejectReason,
+    transferData_rejectDate,
 
     -- ** UpdateCACertificateParams
     updateCACertificateParams_action,
@@ -2721,8 +2871,10 @@ module Network.AWS.IoT.Lens
     violationEvent_metricValue,
     violationEvent_violationId,
     violationEvent_thingName,
+    violationEvent_verificationStateDescription,
     violationEvent_securityProfileName,
     violationEvent_behavior,
+    violationEvent_verificationState,
     violationEvent_violationEventTime,
     violationEvent_violationEventType,
     violationEvent_violationEventAdditionalInfo,
@@ -2777,7 +2929,9 @@ import Network.AWS.IoT.CreateCustomMetric
 import Network.AWS.IoT.CreateDimension
 import Network.AWS.IoT.CreateDomainConfiguration
 import Network.AWS.IoT.CreateDynamicThingGroup
+import Network.AWS.IoT.CreateFleetMetric
 import Network.AWS.IoT.CreateJob
+import Network.AWS.IoT.CreateJobTemplate
 import Network.AWS.IoT.CreateKeysAndCertificate
 import Network.AWS.IoT.CreateMitigationAction
 import Network.AWS.IoT.CreateOTAUpdate
@@ -2805,8 +2959,10 @@ import Network.AWS.IoT.DeleteCustomMetric
 import Network.AWS.IoT.DeleteDimension
 import Network.AWS.IoT.DeleteDomainConfiguration
 import Network.AWS.IoT.DeleteDynamicThingGroup
+import Network.AWS.IoT.DeleteFleetMetric
 import Network.AWS.IoT.DeleteJob
 import Network.AWS.IoT.DeleteJobExecution
+import Network.AWS.IoT.DeleteJobTemplate
 import Network.AWS.IoT.DeleteMitigationAction
 import Network.AWS.IoT.DeleteOTAUpdate
 import Network.AWS.IoT.DeletePolicy
@@ -2841,9 +2997,11 @@ import Network.AWS.IoT.DescribeDimension
 import Network.AWS.IoT.DescribeDomainConfiguration
 import Network.AWS.IoT.DescribeEndpoint
 import Network.AWS.IoT.DescribeEventConfigurations
+import Network.AWS.IoT.DescribeFleetMetric
 import Network.AWS.IoT.DescribeIndex
 import Network.AWS.IoT.DescribeJob
 import Network.AWS.IoT.DescribeJobExecution
+import Network.AWS.IoT.DescribeJobTemplate
 import Network.AWS.IoT.DescribeMitigationAction
 import Network.AWS.IoT.DescribeProvisioningTemplate
 import Network.AWS.IoT.DescribeProvisioningTemplateVersion
@@ -2861,6 +3019,7 @@ import Network.AWS.IoT.DetachThingPrincipal
 import Network.AWS.IoT.DisableTopicRule
 import Network.AWS.IoT.EnableTopicRule
 import Network.AWS.IoT.GetBehaviorModelTrainingSummaries
+import Network.AWS.IoT.GetBucketsAggregation
 import Network.AWS.IoT.GetCardinality
 import Network.AWS.IoT.GetEffectivePolicies
 import Network.AWS.IoT.GetIndexingConfiguration
@@ -2892,9 +3051,11 @@ import Network.AWS.IoT.ListDetectMitigationActionsExecutions
 import Network.AWS.IoT.ListDetectMitigationActionsTasks
 import Network.AWS.IoT.ListDimensions
 import Network.AWS.IoT.ListDomainConfigurations
+import Network.AWS.IoT.ListFleetMetrics
 import Network.AWS.IoT.ListIndices
 import Network.AWS.IoT.ListJobExecutionsForJob
 import Network.AWS.IoT.ListJobExecutionsForThing
+import Network.AWS.IoT.ListJobTemplates
 import Network.AWS.IoT.ListJobs
 import Network.AWS.IoT.ListMitigationActions
 import Network.AWS.IoT.ListOTAUpdates
@@ -2925,6 +3086,7 @@ import Network.AWS.IoT.ListTopicRuleDestinations
 import Network.AWS.IoT.ListTopicRules
 import Network.AWS.IoT.ListV2LoggingLevels
 import Network.AWS.IoT.ListViolationEvents
+import Network.AWS.IoT.PutVerificationStateOnViolation
 import Network.AWS.IoT.RegisterCACertificate
 import Network.AWS.IoT.RegisterCertificate
 import Network.AWS.IoT.RegisterCertificateWithoutCA
@@ -2953,6 +3115,7 @@ import Network.AWS.IoT.Types.AbortCriteria
 import Network.AWS.IoT.Types.Action
 import Network.AWS.IoT.Types.ActiveViolation
 import Network.AWS.IoT.Types.AddThingsToThingGroupParams
+import Network.AWS.IoT.Types.AggregationType
 import Network.AWS.IoT.Types.AlertTarget
 import Network.AWS.IoT.Types.Allowed
 import Network.AWS.IoT.Types.AssetPropertyTimestamp
@@ -2985,6 +3148,8 @@ import Network.AWS.IoT.Types.BehaviorCriteria
 import Network.AWS.IoT.Types.BehaviorModelTrainingSummary
 import Network.AWS.IoT.Types.BillingGroupMetadata
 import Network.AWS.IoT.Types.BillingGroupProperties
+import Network.AWS.IoT.Types.Bucket
+import Network.AWS.IoT.Types.BucketsAggregationType
 import Network.AWS.IoT.Types.CACertificate
 import Network.AWS.IoT.Types.CACertificateDescription
 import Network.AWS.IoT.Types.Certificate
@@ -3016,6 +3181,7 @@ import Network.AWS.IoT.Types.ExponentialRolloutRate
 import Network.AWS.IoT.Types.Field
 import Network.AWS.IoT.Types.FileLocation
 import Network.AWS.IoT.Types.FirehoseAction
+import Network.AWS.IoT.Types.FleetMetricNameAndArn
 import Network.AWS.IoT.Types.GroupNameAndArn
 import Network.AWS.IoT.Types.HttpAction
 import Network.AWS.IoT.Types.HttpActionHeader
@@ -3037,6 +3203,7 @@ import Network.AWS.IoT.Types.JobExecutionSummaryForThing
 import Network.AWS.IoT.Types.JobExecutionsRolloutConfig
 import Network.AWS.IoT.Types.JobProcessDetails
 import Network.AWS.IoT.Types.JobSummary
+import Network.AWS.IoT.Types.JobTemplateSummary
 import Network.AWS.IoT.Types.KafkaAction
 import Network.AWS.IoT.Types.KeyPair
 import Network.AWS.IoT.Types.KinesisAction
@@ -3056,6 +3223,7 @@ import Network.AWS.IoT.Types.NonCompliantResource
 import Network.AWS.IoT.Types.OTAUpdateFile
 import Network.AWS.IoT.Types.OTAUpdateInfo
 import Network.AWS.IoT.Types.OTAUpdateSummary
+import Network.AWS.IoT.Types.OpenSearchAction
 import Network.AWS.IoT.Types.OutgoingCertificate
 import Network.AWS.IoT.Types.PercentPair
 import Network.AWS.IoT.Types.Policy
@@ -3099,6 +3267,7 @@ import Network.AWS.IoT.Types.StreamSummary
 import Network.AWS.IoT.Types.Tag
 import Network.AWS.IoT.Types.TaskStatistics
 import Network.AWS.IoT.Types.TaskStatisticsForAuditCheck
+import Network.AWS.IoT.Types.TermsAggregation
 import Network.AWS.IoT.Types.ThingAttribute
 import Network.AWS.IoT.Types.ThingConnectivity
 import Network.AWS.IoT.Types.ThingDocument
@@ -3143,6 +3312,7 @@ import Network.AWS.IoT.UpdateDimension
 import Network.AWS.IoT.UpdateDomainConfiguration
 import Network.AWS.IoT.UpdateDynamicThingGroup
 import Network.AWS.IoT.UpdateEventConfigurations
+import Network.AWS.IoT.UpdateFleetMetric
 import Network.AWS.IoT.UpdateIndexingConfiguration
 import Network.AWS.IoT.UpdateJob
 import Network.AWS.IoT.UpdateMitigationAction

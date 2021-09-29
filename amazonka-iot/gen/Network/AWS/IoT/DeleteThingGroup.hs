@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteThingGroup>
+-- action.
 module Network.AWS.IoT.DeleteThingGroup
   ( -- * Creating a Request
     DeleteThingGroup (..),

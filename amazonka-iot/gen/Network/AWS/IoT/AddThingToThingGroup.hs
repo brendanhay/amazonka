@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a thing to a thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AddThingToThingGroup>
+-- action.
 module Network.AWS.IoT.AddThingToThingGroup
   ( -- * Creating a Request
     AddThingToThingGroup (..),

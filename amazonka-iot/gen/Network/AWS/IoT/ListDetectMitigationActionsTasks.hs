@@ -22,6 +22,10 @@
 --
 -- List of Device Defender ML Detect mitigation actions tasks.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListDetectMitigationActionsTasks>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListDetectMitigationActionsTasks
   ( -- * Creating a Request

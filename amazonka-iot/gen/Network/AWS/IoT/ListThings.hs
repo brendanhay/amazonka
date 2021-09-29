@@ -25,6 +25,10 @@
 -- attributeName=Color and attributeValue=Red retrieves all things in the
 -- registry that contain an attribute __Color__ with the value __Red__.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThings>
+-- action.
+--
 -- You will not be charged for calling this API if an @Access denied@ error
 -- is returned. You will also not be charged if no attributes or pagination
 -- token was provided in request and no pagination token and no results
@@ -41,6 +45,7 @@ module Network.AWS.IoT.ListThings
     listThings_nextToken,
     listThings_maxResults,
     listThings_attributeName,
+    listThings_usePrefixAttributeValue,
     listThings_thingTypeName,
 
     -- * Destructuring the Response
@@ -75,6 +80,13 @@ data ListThings = ListThings'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The attribute name used to search for things.
     attributeName :: Prelude.Maybe Prelude.Text,
+    -- | When @true@, the action returns the thing resources with attribute
+    -- values that start with the @attributeValue@ provided.
+    --
+    -- When @false@, or not present, the action returns only the thing
+    -- resources with attribute values that match the entire @attributeValue@
+    -- provided.
+    usePrefixAttributeValue :: Prelude.Maybe Prelude.Bool,
     -- | The name of the thing type used to search for things.
     thingTypeName :: Prelude.Maybe Prelude.Text
   }
@@ -98,6 +110,13 @@ data ListThings = ListThings'
 --
 -- 'attributeName', 'listThings_attributeName' - The attribute name used to search for things.
 --
+-- 'usePrefixAttributeValue', 'listThings_usePrefixAttributeValue' - When @true@, the action returns the thing resources with attribute
+-- values that start with the @attributeValue@ provided.
+--
+-- When @false@, or not present, the action returns only the thing
+-- resources with attribute values that match the entire @attributeValue@
+-- provided.
+--
 -- 'thingTypeName', 'listThings_thingTypeName' - The name of the thing type used to search for things.
 newListThings ::
   ListThings
@@ -107,6 +126,7 @@ newListThings =
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       attributeName = Prelude.Nothing,
+      usePrefixAttributeValue = Prelude.Nothing,
       thingTypeName = Prelude.Nothing
     }
 
@@ -127,6 +147,15 @@ listThings_maxResults = Lens.lens (\ListThings' {maxResults} -> maxResults) (\s@
 -- | The attribute name used to search for things.
 listThings_attributeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_attributeName = Lens.lens (\ListThings' {attributeName} -> attributeName) (\s@ListThings' {} a -> s {attributeName = a} :: ListThings)
+
+-- | When @true@, the action returns the thing resources with attribute
+-- values that start with the @attributeValue@ provided.
+--
+-- When @false@, or not present, the action returns only the thing
+-- resources with attribute values that match the entire @attributeValue@
+-- provided.
+listThings_usePrefixAttributeValue :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Bool)
+listThings_usePrefixAttributeValue = Lens.lens (\ListThings' {usePrefixAttributeValue} -> usePrefixAttributeValue) (\s@ListThings' {} a -> s {usePrefixAttributeValue = a} :: ListThings)
 
 -- | The name of the thing type used to search for things.
 listThings_thingTypeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
@@ -180,6 +209,8 @@ instance Core.ToQuery ListThings where
         "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
         "attributeName" Core.=: attributeName,
+        "usePrefixAttributeValue"
+          Core.=: usePrefixAttributeValue,
         "thingTypeName" Core.=: thingTypeName
       ]
 

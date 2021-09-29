@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Field = Field'
   { -- | The name of the field.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The datatype of the field.
+    -- | The data type of the field.
     type' :: Prelude.Maybe FieldType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data Field = Field'
 --
 -- 'name', 'field_name' - The name of the field.
 --
--- 'type'', 'field_type' - The datatype of the field.
+-- 'type'', 'field_type' - The data type of the field.
 newField ::
   Field
 newField =
@@ -58,7 +58,7 @@ newField =
 field_name :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
 field_name = Lens.lens (\Field' {name} -> name) (\s@Field' {} a -> s {name = a} :: Field)
 
--- | The datatype of the field.
+-- | The data type of the field.
 field_type :: Lens.Lens' Field (Prelude.Maybe FieldType)
 field_type = Lens.lens (\Field' {type'} -> type') (\s@Field' {} a -> s {type' = a} :: Field)
 

@@ -37,8 +37,8 @@ data TopicRulePayload = TopicRulePayload'
     -- | The description of the rule.
     description :: Prelude.Maybe Prelude.Text,
     -- | The SQL statement used to query the topic. For more information, see
-    -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference>
-    -- in the /AWS IoT Developer Guide/.
+    -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
+    -- in the /IoT Developer Guide/.
     sql :: Prelude.Text,
     -- | The actions associated with the rule.
     actions :: [Action]
@@ -62,8 +62,8 @@ data TopicRulePayload = TopicRulePayload'
 -- 'description', 'topicRulePayload_description' - The description of the rule.
 --
 -- 'sql', 'topicRulePayload_sql' - The SQL statement used to query the topic. For more information, see
--- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference>
--- in the /AWS IoT Developer Guide/.
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
+-- in the /IoT Developer Guide/.
 --
 -- 'actions', 'topicRulePayload_actions' - The actions associated with the rule.
 newTopicRulePayload ::
@@ -97,8 +97,8 @@ topicRulePayload_description :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelu
 topicRulePayload_description = Lens.lens (\TopicRulePayload' {description} -> description) (\s@TopicRulePayload' {} a -> s {description = a} :: TopicRulePayload)
 
 -- | The SQL statement used to query the topic. For more information, see
--- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference>
--- in the /AWS IoT Developer Guide/.
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
+-- in the /IoT Developer Guide/.
 topicRulePayload_sql :: Lens.Lens' TopicRulePayload Prelude.Text
 topicRulePayload_sql = Lens.lens (\TopicRulePayload' {sql} -> sql) (\s@TopicRulePayload' {} a -> s {sql = a} :: TopicRulePayload)
 

@@ -22,6 +22,10 @@
 --
 -- Updates the definition for a dimension. You cannot change the type of a
 -- dimension after it is created (you can delete it and recreate it).
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateDimension>
+-- action.
 module Network.AWS.IoT.UpdateDimension
   ( -- * Creating a Request
     UpdateDimension (..),

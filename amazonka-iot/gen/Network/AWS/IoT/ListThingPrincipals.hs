@@ -24,6 +24,10 @@
 -- can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
 -- identities or federated identities.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingPrincipals>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingPrincipals
   ( -- * Creating a Request

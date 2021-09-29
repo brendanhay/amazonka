@@ -40,10 +40,10 @@ data Statistics = Statistics'
     average :: Prelude.Maybe Prelude.Double,
     -- | The count of things that match the query.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The maximum aggregated field value.
-    maximum :: Prelude.Maybe Prelude.Double,
     -- | The sum of the squares of the aggregated field values.
-    sumOfSquares :: Prelude.Maybe Prelude.Double
+    sumOfSquares :: Prelude.Maybe Prelude.Double,
+    -- | The maximum aggregated field value.
+    maximum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,9 +67,9 @@ data Statistics = Statistics'
 --
 -- 'count', 'statistics_count' - The count of things that match the query.
 --
--- 'maximum', 'statistics_maximum' - The maximum aggregated field value.
---
 -- 'sumOfSquares', 'statistics_sumOfSquares' - The sum of the squares of the aggregated field values.
+--
+-- 'maximum', 'statistics_maximum' - The maximum aggregated field value.
 newStatistics ::
   Statistics
 newStatistics =
@@ -80,8 +80,8 @@ newStatistics =
       variance = Prelude.Nothing,
       average = Prelude.Nothing,
       count = Prelude.Nothing,
-      maximum = Prelude.Nothing,
-      sumOfSquares = Prelude.Nothing
+      sumOfSquares = Prelude.Nothing,
+      maximum = Prelude.Nothing
     }
 
 -- | The minimum aggregated field value.
@@ -108,13 +108,13 @@ statistics_average = Lens.lens (\Statistics' {average} -> average) (\s@Statistic
 statistics_count :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Int)
 statistics_count = Lens.lens (\Statistics' {count} -> count) (\s@Statistics' {} a -> s {count = a} :: Statistics)
 
--- | The maximum aggregated field value.
-statistics_maximum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
-statistics_maximum = Lens.lens (\Statistics' {maximum} -> maximum) (\s@Statistics' {} a -> s {maximum = a} :: Statistics)
-
 -- | The sum of the squares of the aggregated field values.
 statistics_sumOfSquares :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
 statistics_sumOfSquares = Lens.lens (\Statistics' {sumOfSquares} -> sumOfSquares) (\s@Statistics' {} a -> s {sumOfSquares = a} :: Statistics)
+
+-- | The maximum aggregated field value.
+statistics_maximum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
+statistics_maximum = Lens.lens (\Statistics' {maximum} -> maximum) (\s@Statistics' {} a -> s {maximum = a} :: Statistics)
 
 instance Core.FromJSON Statistics where
   parseJSON =
@@ -128,8 +128,8 @@ instance Core.FromJSON Statistics where
             Prelude.<*> (x Core..:? "variance")
             Prelude.<*> (x Core..:? "average")
             Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "maximum")
             Prelude.<*> (x Core..:? "sumOfSquares")
+            Prelude.<*> (x Core..:? "maximum")
       )
 
 instance Prelude.Hashable Statistics

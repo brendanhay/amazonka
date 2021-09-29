@@ -22,6 +22,10 @@
 --
 -- Cancels a mitigation action task that is in progress. If the task is not
 -- in progress, an InvalidRequestException occurs.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CancelAuditMitigationActionsTask>
+-- action.
 module Network.AWS.IoT.CancelAuditMitigationActionsTask
   ( -- * Creating a Request
     CancelAuditMitigationActionsTask (..),

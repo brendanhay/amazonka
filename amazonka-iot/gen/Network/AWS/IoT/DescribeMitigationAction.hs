@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a mitigation action.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeMitigationAction>
+-- action.
 module Network.AWS.IoT.DescribeMitigationAction
   ( -- * Creating a Request
     DescribeMitigationAction (..),
@@ -132,8 +136,8 @@ data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
     actionArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this action.
     actionId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the mitigation action was added to your AWS
-    -- account.
+    -- | The date and time when the mitigation action was added to your Amazon
+    -- Web Services accounts.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | Parameters that control how the mitigation action is applied, specific
     -- to the type of mitigation action.
@@ -163,8 +167,8 @@ data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
 --
 -- 'actionId', 'describeMitigationActionResponse_actionId' - A unique identifier for this action.
 --
--- 'creationDate', 'describeMitigationActionResponse_creationDate' - The date and time when the mitigation action was added to your AWS
--- account.
+-- 'creationDate', 'describeMitigationActionResponse_creationDate' - The date and time when the mitigation action was added to your Amazon
+-- Web Services accounts.
 --
 -- 'actionParams', 'describeMitigationActionResponse_actionParams' - Parameters that control how the mitigation action is applied, specific
 -- to the type of mitigation action.
@@ -212,8 +216,8 @@ describeMitigationActionResponse_actionArn = Lens.lens (\DescribeMitigationActio
 describeMitigationActionResponse_actionId :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
 describeMitigationActionResponse_actionId = Lens.lens (\DescribeMitigationActionResponse' {actionId} -> actionId) (\s@DescribeMitigationActionResponse' {} a -> s {actionId = a} :: DescribeMitigationActionResponse)
 
--- | The date and time when the mitigation action was added to your AWS
--- account.
+-- | The date and time when the mitigation action was added to your Amazon
+-- Web Services accounts.
 describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
 describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Core._Time
 

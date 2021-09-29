@@ -22,6 +22,10 @@
 --
 -- Lists jobs.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListJobs>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListJobs
   ( -- * Creating a Request
@@ -32,8 +36,8 @@ module Network.AWS.IoT.ListJobs
     listJobs_nextToken,
     listJobs_status,
     listJobs_targetSelection,
-    listJobs_maxResults,
     listJobs_namespaceId,
+    listJobs_maxResults,
     listJobs_thingGroupName,
     listJobs_thingGroupId,
 
@@ -69,18 +73,18 @@ data ListJobs = ListJobs'
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
     targetSelection :: Prelude.Maybe TargetSelection,
-    -- | The maximum number of results to return per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that limits the returned jobs to those for the specified group.
     thingGroupName :: Prelude.Maybe Prelude.Text,
     -- | A filter that limits the returned jobs to those for the specified group.
@@ -108,17 +112,17 @@ data ListJobs = ListJobs'
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
 --
--- 'maxResults', 'listJobs_maxResults' - The maximum number of results to return per request.
---
 -- 'namespaceId', 'listJobs_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
+--
+-- 'maxResults', 'listJobs_maxResults' - The maximum number of results to return per request.
 --
 -- 'thingGroupName', 'listJobs_thingGroupName' - A filter that limits the returned jobs to those for the specified group.
 --
@@ -130,8 +134,8 @@ newListJobs =
     { nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       thingGroupName = Prelude.Nothing,
       thingGroupId = Prelude.Nothing
     }
@@ -154,21 +158,21 @@ listJobs_status = Lens.lens (\ListJobs' {status} -> status) (\s@ListJobs' {} a -
 listJobs_targetSelection :: Lens.Lens' ListJobs (Prelude.Maybe TargetSelection)
 listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSelection) (\s@ListJobs' {} a -> s {targetSelection = a} :: ListJobs)
 
--- | The maximum number of results to return per request.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
-
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
 listJobs_namespaceId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_namespaceId = Lens.lens (\ListJobs' {namespaceId} -> namespaceId) (\s@ListJobs' {} a -> s {namespaceId = a} :: ListJobs)
+
+-- | The maximum number of results to return per request.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | A filter that limits the returned jobs to those for the specified group.
 listJobs_thingGroupName :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
@@ -225,8 +229,8 @@ instance Core.ToQuery ListJobs where
       [ "nextToken" Core.=: nextToken,
         "status" Core.=: status,
         "targetSelection" Core.=: targetSelection,
-        "maxResults" Core.=: maxResults,
         "namespaceId" Core.=: namespaceId,
+        "maxResults" Core.=: maxResults,
         "thingGroupName" Core.=: thingGroupName,
         "thingGroupId" Core.=: thingGroupId
       ]

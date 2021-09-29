@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The query search index.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SearchIndex>
+-- action.
 module Network.AWS.IoT.SearchIndex
   ( -- * Creating a Request
     SearchIndex (..),

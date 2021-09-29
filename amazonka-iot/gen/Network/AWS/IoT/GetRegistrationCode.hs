@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a registration code used to register a CA certificate with AWS IoT.
+-- Gets a registration code used to register a CA certificate with IoT.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetRegistrationCode>
+-- action.
 module Network.AWS.IoT.GetRegistrationCode
   ( -- * Creating a Request
     GetRegistrationCode (..),

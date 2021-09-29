@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a scheduled audit.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeScheduledAudit>
+-- action.
 module Network.AWS.IoT.DescribeScheduledAudit
   ( -- * Creating a Request
     DescribeScheduledAudit (..),

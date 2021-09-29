@@ -23,6 +23,10 @@
 -- Lists the Device Defender security profiles you\'ve created. You can
 -- filter security profiles by dimension or custom metric.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListSecurityProfiles>
+-- action.
+--
 -- @dimensionName@ and @metricName@ cannot be used in the same request.
 --
 -- This operation returns paginated results.

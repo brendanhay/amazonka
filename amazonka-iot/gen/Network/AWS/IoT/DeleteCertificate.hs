@@ -24,8 +24,12 @@
 --
 -- A certificate cannot be deleted if it has a policy or IoT thing attached
 -- to it or if its status is set to ACTIVE. To delete a certificate, first
--- use the DetachPrincipalPolicy API to detach all policies. Next, use the
--- UpdateCertificate API to set the certificate to the INACTIVE status.
+-- use the DetachPolicy action to detach all policies. Next, use the
+-- UpdateCertificate action to set the certificate to the INACTIVE status.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteCertificate>
+-- action.
 module Network.AWS.IoT.DeleteCertificate
   ( -- * Creating a Request
     DeleteCertificate (..),

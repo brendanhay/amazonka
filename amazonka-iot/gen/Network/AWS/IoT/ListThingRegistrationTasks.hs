@@ -22,6 +22,10 @@
 --
 -- List bulk thing provisioning tasks.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingRegistrationTasks>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingRegistrationTasks
   ( -- * Creating a Request

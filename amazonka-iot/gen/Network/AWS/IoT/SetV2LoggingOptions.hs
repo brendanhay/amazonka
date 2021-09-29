@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging options for the V2 logging service.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetV2LoggingOptions>
+-- action.
 module Network.AWS.IoT.SetV2LoggingOptions
   ( -- * Creating a Request
     SetV2LoggingOptions (..),

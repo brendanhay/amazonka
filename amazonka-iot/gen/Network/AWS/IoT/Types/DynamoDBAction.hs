@@ -49,12 +49,12 @@ data DynamoDBAction = DynamoDBAction'
     rangeKeyValue :: Prelude.Maybe Prelude.Text,
     -- | The range key type. Valid values are \"STRING\" or \"NUMBER\"
     rangeKeyType :: Prelude.Maybe DynamoKeyType,
+    -- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
+    hashKeyType :: Prelude.Maybe DynamoKeyType,
     -- | The type of operation to be performed. This follows the substitution
     -- template, so it can be @${operation}@, but the substitution must result
     -- in one of the following: @INSERT@, @UPDATE@, or @DELETE@.
     operation :: Prelude.Maybe Prelude.Text,
-    -- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
-    hashKeyType :: Prelude.Maybe DynamoKeyType,
     -- | The range key name.
     rangeKeyField :: Prelude.Maybe Prelude.Text,
     -- | The action payload. This name can be customized.
@@ -82,11 +82,11 @@ data DynamoDBAction = DynamoDBAction'
 --
 -- 'rangeKeyType', 'dynamoDBAction_rangeKeyType' - The range key type. Valid values are \"STRING\" or \"NUMBER\"
 --
+-- 'hashKeyType', 'dynamoDBAction_hashKeyType' - The hash key type. Valid values are \"STRING\" or \"NUMBER\"
+--
 -- 'operation', 'dynamoDBAction_operation' - The type of operation to be performed. This follows the substitution
 -- template, so it can be @${operation}@, but the substitution must result
 -- in one of the following: @INSERT@, @UPDATE@, or @DELETE@.
---
--- 'hashKeyType', 'dynamoDBAction_hashKeyType' - The hash key type. Valid values are \"STRING\" or \"NUMBER\"
 --
 -- 'rangeKeyField', 'dynamoDBAction_rangeKeyField' - The range key name.
 --
@@ -117,8 +117,8 @@ newDynamoDBAction
     DynamoDBAction'
       { rangeKeyValue = Prelude.Nothing,
         rangeKeyType = Prelude.Nothing,
-        operation = Prelude.Nothing,
         hashKeyType = Prelude.Nothing,
+        operation = Prelude.Nothing,
         rangeKeyField = Prelude.Nothing,
         payloadField = Prelude.Nothing,
         tableName = pTableName_,
@@ -135,15 +135,15 @@ dynamoDBAction_rangeKeyValue = Lens.lens (\DynamoDBAction' {rangeKeyValue} -> ra
 dynamoDBAction_rangeKeyType :: Lens.Lens' DynamoDBAction (Prelude.Maybe DynamoKeyType)
 dynamoDBAction_rangeKeyType = Lens.lens (\DynamoDBAction' {rangeKeyType} -> rangeKeyType) (\s@DynamoDBAction' {} a -> s {rangeKeyType = a} :: DynamoDBAction)
 
+-- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
+dynamoDBAction_hashKeyType :: Lens.Lens' DynamoDBAction (Prelude.Maybe DynamoKeyType)
+dynamoDBAction_hashKeyType = Lens.lens (\DynamoDBAction' {hashKeyType} -> hashKeyType) (\s@DynamoDBAction' {} a -> s {hashKeyType = a} :: DynamoDBAction)
+
 -- | The type of operation to be performed. This follows the substitution
 -- template, so it can be @${operation}@, but the substitution must result
 -- in one of the following: @INSERT@, @UPDATE@, or @DELETE@.
 dynamoDBAction_operation :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
 dynamoDBAction_operation = Lens.lens (\DynamoDBAction' {operation} -> operation) (\s@DynamoDBAction' {} a -> s {operation = a} :: DynamoDBAction)
-
--- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
-dynamoDBAction_hashKeyType :: Lens.Lens' DynamoDBAction (Prelude.Maybe DynamoKeyType)
-dynamoDBAction_hashKeyType = Lens.lens (\DynamoDBAction' {hashKeyType} -> hashKeyType) (\s@DynamoDBAction' {} a -> s {hashKeyType = a} :: DynamoDBAction)
 
 -- | The range key name.
 dynamoDBAction_rangeKeyField :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
@@ -177,8 +177,8 @@ instance Core.FromJSON DynamoDBAction where
           DynamoDBAction'
             Prelude.<$> (x Core..:? "rangeKeyValue")
             Prelude.<*> (x Core..:? "rangeKeyType")
-            Prelude.<*> (x Core..:? "operation")
             Prelude.<*> (x Core..:? "hashKeyType")
+            Prelude.<*> (x Core..:? "operation")
             Prelude.<*> (x Core..:? "rangeKeyField")
             Prelude.<*> (x Core..:? "payloadField")
             Prelude.<*> (x Core..: "tableName")
@@ -197,8 +197,8 @@ instance Core.ToJSON DynamoDBAction where
       ( Prelude.catMaybes
           [ ("rangeKeyValue" Core..=) Prelude.<$> rangeKeyValue,
             ("rangeKeyType" Core..=) Prelude.<$> rangeKeyType,
-            ("operation" Core..=) Prelude.<$> operation,
             ("hashKeyType" Core..=) Prelude.<$> hashKeyType,
+            ("operation" Core..=) Prelude.<$> operation,
             ("rangeKeyField" Core..=) Prelude.<$> rangeKeyField,
             ("payloadField" Core..=) Prelude.<$> payloadField,
             Prelude.Just ("tableName" Core..= tableName),

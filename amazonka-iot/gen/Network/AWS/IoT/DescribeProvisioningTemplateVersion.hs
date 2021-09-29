@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a fleet provisioning template version.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeProvisioningTemplateVersion>
+-- action.
 module Network.AWS.IoT.DescribeProvisioningTemplateVersion
   ( -- * Creating a Request
     DescribeProvisioningTemplateVersion (..),

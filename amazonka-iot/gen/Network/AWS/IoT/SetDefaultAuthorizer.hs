@@ -22,6 +22,10 @@
 --
 -- Sets the default authorizer. This will be used if a websocket connection
 -- is made without specifying an authorizer.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetDefaultAuthorizer>
+-- action.
 module Network.AWS.IoT.SetDefaultAuthorizer
   ( -- * Creating a Request
     SetDefaultAuthorizer (..),

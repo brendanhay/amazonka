@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a registered CA certificate.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteCACertificate>
+-- action.
 module Network.AWS.IoT.DeleteCACertificate
   ( -- * Creating a Request
     DeleteCACertificate (..),

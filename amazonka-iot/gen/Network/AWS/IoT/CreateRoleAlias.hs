@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a role alias.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateRoleAlias>
+-- action.
 module Network.AWS.IoT.CreateRoleAlias
   ( -- * Creating a Request
     CreateRoleAlias (..),
@@ -62,7 +66,8 @@ data CreateRoleAlias = CreateRoleAlias'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | How long (in seconds) the credentials will be valid.
+    -- | How long (in seconds) the credentials will be valid. The default value
+    -- is 3,600 seconds.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The role alias that points to a role ARN. This allows you to change the
     -- role without having to update the device.
@@ -90,7 +95,8 @@ data CreateRoleAlias = CreateRoleAlias'
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 --
--- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid.
+-- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
 --
 -- 'roleAlias', 'createRoleAlias_roleAlias' - The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -122,7 +128,8 @@ newCreateRoleAlias pRoleAlias_ pRoleArn_ =
 createRoleAlias_tags :: Lens.Lens' CreateRoleAlias (Prelude.Maybe [Tag])
 createRoleAlias_tags = Lens.lens (\CreateRoleAlias' {tags} -> tags) (\s@CreateRoleAlias' {} a -> s {tags = a} :: CreateRoleAlias) Prelude.. Lens.mapping Lens._Coerce
 
--- | How long (in seconds) the credentials will be valid.
+-- | How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
 createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
 createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
 

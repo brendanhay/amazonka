@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an authorizer.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateAuthorizer>
+-- action.
 module Network.AWS.IoT.CreateAuthorizer
   ( -- * Creating a Request
     CreateAuthorizer (..),
@@ -30,8 +34,8 @@ module Network.AWS.IoT.CreateAuthorizer
     createAuthorizer_status,
     createAuthorizer_tokenSigningPublicKeys,
     createAuthorizer_tags,
-    createAuthorizer_signingDisabled,
     createAuthorizer_tokenKeyName,
+    createAuthorizer_signingDisabled,
     createAuthorizer_authorizerName,
     createAuthorizer_authorizerFunctionArn,
 
@@ -70,12 +74,12 @@ data CreateAuthorizer = CreateAuthorizer'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether AWS IoT validates the token signature in an
-    -- authorization request.
-    signingDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the token key used to extract the token from the HTTP
     -- headers.
     tokenKeyName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether IoT validates the token signature in an authorization
+    -- request.
+    signingDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The authorizer name.
     authorizerName :: Prelude.Text,
     -- | The ARN of the authorizer\'s Lambda function.
@@ -106,11 +110,11 @@ data CreateAuthorizer = CreateAuthorizer'
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 --
--- 'signingDisabled', 'createAuthorizer_signingDisabled' - Specifies whether AWS IoT validates the token signature in an
--- authorization request.
---
 -- 'tokenKeyName', 'createAuthorizer_tokenKeyName' - The name of the token key used to extract the token from the HTTP
 -- headers.
+--
+-- 'signingDisabled', 'createAuthorizer_signingDisabled' - Specifies whether IoT validates the token signature in an authorization
+-- request.
 --
 -- 'authorizerName', 'createAuthorizer_authorizerName' - The authorizer name.
 --
@@ -128,8 +132,8 @@ newCreateAuthorizer
       { status = Prelude.Nothing,
         tokenSigningPublicKeys = Prelude.Nothing,
         tags = Prelude.Nothing,
-        signingDisabled = Prelude.Nothing,
         tokenKeyName = Prelude.Nothing,
+        signingDisabled = Prelude.Nothing,
         authorizerName = pAuthorizerName_,
         authorizerFunctionArn = pAuthorizerFunctionArn_
       }
@@ -155,15 +159,15 @@ createAuthorizer_tokenSigningPublicKeys = Lens.lens (\CreateAuthorizer' {tokenSi
 createAuthorizer_tags :: Lens.Lens' CreateAuthorizer (Prelude.Maybe [Tag])
 createAuthorizer_tags = Lens.lens (\CreateAuthorizer' {tags} -> tags) (\s@CreateAuthorizer' {} a -> s {tags = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies whether AWS IoT validates the token signature in an
--- authorization request.
-createAuthorizer_signingDisabled :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
-createAuthorizer_signingDisabled = Lens.lens (\CreateAuthorizer' {signingDisabled} -> signingDisabled) (\s@CreateAuthorizer' {} a -> s {signingDisabled = a} :: CreateAuthorizer)
-
 -- | The name of the token key used to extract the token from the HTTP
 -- headers.
 createAuthorizer_tokenKeyName :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_tokenKeyName = Lens.lens (\CreateAuthorizer' {tokenKeyName} -> tokenKeyName) (\s@CreateAuthorizer' {} a -> s {tokenKeyName = a} :: CreateAuthorizer)
+
+-- | Specifies whether IoT validates the token signature in an authorization
+-- request.
+createAuthorizer_signingDisabled :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
+createAuthorizer_signingDisabled = Lens.lens (\CreateAuthorizer' {signingDisabled} -> signingDisabled) (\s@CreateAuthorizer' {} a -> s {signingDisabled = a} :: CreateAuthorizer)
 
 -- | The authorizer name.
 createAuthorizer_authorizerName :: Lens.Lens' CreateAuthorizer Prelude.Text
@@ -202,9 +206,9 @@ instance Core.ToJSON CreateAuthorizer where
             ("tokenSigningPublicKeys" Core..=)
               Prelude.<$> tokenSigningPublicKeys,
             ("tags" Core..=) Prelude.<$> tags,
+            ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName,
             ("signingDisabled" Core..=)
               Prelude.<$> signingDisabled,
-            ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName,
             Prelude.Just
               ( "authorizerFunctionArn"
                   Core..= authorizerFunctionArn

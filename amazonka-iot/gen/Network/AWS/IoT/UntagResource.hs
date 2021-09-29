@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the given tags (metadata) from the resource.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UntagResource>
+-- action.
 module Network.AWS.IoT.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

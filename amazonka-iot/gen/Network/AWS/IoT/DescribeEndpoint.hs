@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique endpoint specific to the AWS account making the call.
+-- Returns a unique endpoint specific to the Amazon Web Services account
+-- making the call.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeEndpoint>
+-- action.
 module Network.AWS.IoT.DescribeEndpoint
   ( -- * Creating a Request
     DescribeEndpoint (..),
@@ -56,10 +61,10 @@ data DescribeEndpoint = DescribeEndpoint'
     --
     -- -   @iot:Data-ATS@ - Returns an ATS signed data endpoint.
     --
-    -- -   @iot:CredentialProvider@ - Returns an AWS IoT credentials provider
-    --     API endpoint.
+    -- -   @iot:CredentialProvider@ - Returns an IoT credentials provider API
+    --     endpoint.
     --
-    -- -   @iot:Jobs@ - Returns an AWS IoT device management Jobs API endpoint.
+    -- -   @iot:Jobs@ - Returns an IoT device management Jobs API endpoint.
     --
     -- We strongly recommend that customers use the newer @iot:Data-ATS@
     -- endpoint type to avoid issues related to the widespread distrust of
@@ -82,10 +87,10 @@ data DescribeEndpoint = DescribeEndpoint'
 --
 -- -   @iot:Data-ATS@ - Returns an ATS signed data endpoint.
 --
--- -   @iot:CredentialProvider@ - Returns an AWS IoT credentials provider
---     API endpoint.
+-- -   @iot:CredentialProvider@ - Returns an IoT credentials provider API
+--     endpoint.
 --
--- -   @iot:Jobs@ - Returns an AWS IoT device management Jobs API endpoint.
+-- -   @iot:Jobs@ - Returns an IoT device management Jobs API endpoint.
 --
 -- We strongly recommend that customers use the newer @iot:Data-ATS@
 -- endpoint type to avoid issues related to the widespread distrust of
@@ -101,10 +106,10 @@ newDescribeEndpoint =
 --
 -- -   @iot:Data-ATS@ - Returns an ATS signed data endpoint.
 --
--- -   @iot:CredentialProvider@ - Returns an AWS IoT credentials provider
---     API endpoint.
+-- -   @iot:CredentialProvider@ - Returns an IoT credentials provider API
+--     endpoint.
 --
--- -   @iot:Jobs@ - Returns an AWS IoT device management Jobs API endpoint.
+-- -   @iot:Jobs@ - Returns an IoT device management Jobs API endpoint.
 --
 -- We strongly recommend that customers use the newer @iot:Data-ATS@
 -- endpoint type to avoid issues related to the widespread distrust of

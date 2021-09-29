@@ -21,10 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a dimension that you can use to limit the scope of a metric used
--- in a security profile for AWS IoT Device Defender. For example, using a
+-- in a security profile for IoT Device Defender. For example, using a
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric
 -- only to MQTT topics whose name match the pattern specified in the
 -- dimension.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateDimension>
+-- action.
 module Network.AWS.IoT.CreateDimension
   ( -- * Creating a Request
     CreateDimension (..),
@@ -70,8 +74,8 @@ data CreateDimension = CreateDimension'
     stringValues :: Prelude.NonEmpty Prelude.Text,
     -- | Each dimension must have a unique client request token. If you try to
     -- create a new dimension with the same token as a dimension that already
-    -- exists, an exception occurs. If you omit this value, AWS SDKs will
-    -- automatically generate a unique client request.
+    -- exists, an exception occurs. If you omit this value, Amazon Web Services
+    -- SDKs will automatically generate a unique client request.
     clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,8 +101,8 @@ data CreateDimension = CreateDimension'
 --
 -- 'clientRequestToken', 'createDimension_clientRequestToken' - Each dimension must have a unique client request token. If you try to
 -- create a new dimension with the same token as a dimension that already
--- exists, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- exists, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 newCreateDimension ::
   -- | 'name'
   Prelude.Text ->
@@ -143,8 +147,8 @@ createDimension_stringValues = Lens.lens (\CreateDimension' {stringValues} -> st
 
 -- | Each dimension must have a unique client request token. If you try to
 -- create a new dimension with the same token as a dimension that already
--- exists, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- exists, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 createDimension_clientRequestToken :: Lens.Lens' CreateDimension Prelude.Text
 createDimension_clientRequestToken = Lens.lens (\CreateDimension' {clientRequestToken} -> clientRequestToken) (\s@CreateDimension' {} a -> s {clientRequestToken = a} :: CreateDimension)
 

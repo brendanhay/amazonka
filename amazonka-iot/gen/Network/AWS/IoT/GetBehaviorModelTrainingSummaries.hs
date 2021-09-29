@@ -23,6 +23,10 @@
 -- Returns a Device Defender\'s ML Detect Security Profile training
 -- model\'s status.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetBehaviorModelTrainingSummaries>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.GetBehaviorModelTrainingSummaries
   ( -- * Creating a Request

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateThingGroup>
+-- action.
 module Network.AWS.IoT.UpdateThingGroup
   ( -- * Creating a Request
     UpdateThingGroup (..),

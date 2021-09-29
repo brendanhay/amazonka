@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a stream.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeStream>
+-- action.
 module Network.AWS.IoT.DescribeStream
   ( -- * Creating a Request
     DescribeStream (..),

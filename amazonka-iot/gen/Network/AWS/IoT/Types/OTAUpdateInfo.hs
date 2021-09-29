@@ -48,29 +48,29 @@ data OTAUpdateInfo = OTAUpdateInfo'
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | The OTA update ARN.
     otaUpdateArn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IoT job ID associated with the OTA update.
-    awsIotJobId :: Prelude.Maybe Prelude.Text,
     -- | The date when the OTA update was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The AWS IoT job ARN associated with the OTA update.
-    awsIotJobArn :: Prelude.Maybe Prelude.Text,
     -- | The protocol used to transfer the OTA update image. Valid values are
     -- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
     -- target device can choose the protocol.
     protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
+    -- | The IoT job ARN associated with the OTA update.
+    awsIotJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The IoT job ID associated with the OTA update.
+    awsIotJobId :: Prelude.Maybe Prelude.Text,
     -- | The targets of the OTA update.
     targets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of files associated with the OTA update.
+    otaUpdateFiles :: Prelude.Maybe (Prelude.NonEmpty OTAUpdateFile),
     -- | Configuration information for pre-signed URLs. Valid when @protocols@
     -- contains HTTP.
     awsJobPresignedUrlConfig :: Prelude.Maybe AwsJobPresignedUrlConfig,
     -- | Error information associated with the OTA update.
     errorInfo :: Prelude.Maybe ErrorInfo,
-    -- | A description of the OTA update.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of files associated with the OTA update.
-    otaUpdateFiles :: Prelude.Maybe (Prelude.NonEmpty OTAUpdateFile),
     -- | The OTA update ID.
     otaUpdateId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the OTA update.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A collection of name\/value pairs
     additionalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for the rollout of OTA updates.
@@ -100,28 +100,28 @@ data OTAUpdateInfo = OTAUpdateInfo'
 --
 -- 'otaUpdateArn', 'oTAUpdateInfo_otaUpdateArn' - The OTA update ARN.
 --
--- 'awsIotJobId', 'oTAUpdateInfo_awsIotJobId' - The AWS IoT job ID associated with the OTA update.
---
 -- 'creationDate', 'oTAUpdateInfo_creationDate' - The date when the OTA update was created.
---
--- 'awsIotJobArn', 'oTAUpdateInfo_awsIotJobArn' - The AWS IoT job ARN associated with the OTA update.
 --
 -- 'protocols', 'oTAUpdateInfo_protocols' - The protocol used to transfer the OTA update image. Valid values are
 -- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
 -- target device can choose the protocol.
 --
+-- 'awsIotJobArn', 'oTAUpdateInfo_awsIotJobArn' - The IoT job ARN associated with the OTA update.
+--
+-- 'awsIotJobId', 'oTAUpdateInfo_awsIotJobId' - The IoT job ID associated with the OTA update.
+--
 -- 'targets', 'oTAUpdateInfo_targets' - The targets of the OTA update.
+--
+-- 'otaUpdateFiles', 'oTAUpdateInfo_otaUpdateFiles' - A list of files associated with the OTA update.
 --
 -- 'awsJobPresignedUrlConfig', 'oTAUpdateInfo_awsJobPresignedUrlConfig' - Configuration information for pre-signed URLs. Valid when @protocols@
 -- contains HTTP.
 --
 -- 'errorInfo', 'oTAUpdateInfo_errorInfo' - Error information associated with the OTA update.
 --
--- 'description', 'oTAUpdateInfo_description' - A description of the OTA update.
---
--- 'otaUpdateFiles', 'oTAUpdateInfo_otaUpdateFiles' - A list of files associated with the OTA update.
---
 -- 'otaUpdateId', 'oTAUpdateInfo_otaUpdateId' - The OTA update ID.
+--
+-- 'description', 'oTAUpdateInfo_description' - A description of the OTA update.
 --
 -- 'additionalParameters', 'oTAUpdateInfo_additionalParameters' - A collection of name\/value pairs
 --
@@ -134,16 +134,16 @@ newOTAUpdateInfo =
       lastModifiedDate = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
       otaUpdateArn = Prelude.Nothing,
-      awsIotJobId = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      awsIotJobArn = Prelude.Nothing,
       protocols = Prelude.Nothing,
+      awsIotJobArn = Prelude.Nothing,
+      awsIotJobId = Prelude.Nothing,
       targets = Prelude.Nothing,
+      otaUpdateFiles = Prelude.Nothing,
       awsJobPresignedUrlConfig = Prelude.Nothing,
       errorInfo = Prelude.Nothing,
-      description = Prelude.Nothing,
-      otaUpdateFiles = Prelude.Nothing,
       otaUpdateId = Prelude.Nothing,
+      description = Prelude.Nothing,
       additionalParameters = Prelude.Nothing,
       awsJobExecutionsRolloutConfig = Prelude.Nothing
     }
@@ -170,17 +170,9 @@ oTAUpdateInfo_targetSelection = Lens.lens (\OTAUpdateInfo' {targetSelection} -> 
 oTAUpdateInfo_otaUpdateArn :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
 oTAUpdateInfo_otaUpdateArn = Lens.lens (\OTAUpdateInfo' {otaUpdateArn} -> otaUpdateArn) (\s@OTAUpdateInfo' {} a -> s {otaUpdateArn = a} :: OTAUpdateInfo)
 
--- | The AWS IoT job ID associated with the OTA update.
-oTAUpdateInfo_awsIotJobId :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
-oTAUpdateInfo_awsIotJobId = Lens.lens (\OTAUpdateInfo' {awsIotJobId} -> awsIotJobId) (\s@OTAUpdateInfo' {} a -> s {awsIotJobId = a} :: OTAUpdateInfo)
-
 -- | The date when the OTA update was created.
 oTAUpdateInfo_creationDate :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.UTCTime)
 oTAUpdateInfo_creationDate = Lens.lens (\OTAUpdateInfo' {creationDate} -> creationDate) (\s@OTAUpdateInfo' {} a -> s {creationDate = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Core._Time
-
--- | The AWS IoT job ARN associated with the OTA update.
-oTAUpdateInfo_awsIotJobArn :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
-oTAUpdateInfo_awsIotJobArn = Lens.lens (\OTAUpdateInfo' {awsIotJobArn} -> awsIotJobArn) (\s@OTAUpdateInfo' {} a -> s {awsIotJobArn = a} :: OTAUpdateInfo)
 
 -- | The protocol used to transfer the OTA update image. Valid values are
 -- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
@@ -188,9 +180,21 @@ oTAUpdateInfo_awsIotJobArn = Lens.lens (\OTAUpdateInfo' {awsIotJobArn} -> awsIot
 oTAUpdateInfo_protocols :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe (Prelude.NonEmpty Protocol))
 oTAUpdateInfo_protocols = Lens.lens (\OTAUpdateInfo' {protocols} -> protocols) (\s@OTAUpdateInfo' {} a -> s {protocols = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The IoT job ARN associated with the OTA update.
+oTAUpdateInfo_awsIotJobArn :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
+oTAUpdateInfo_awsIotJobArn = Lens.lens (\OTAUpdateInfo' {awsIotJobArn} -> awsIotJobArn) (\s@OTAUpdateInfo' {} a -> s {awsIotJobArn = a} :: OTAUpdateInfo)
+
+-- | The IoT job ID associated with the OTA update.
+oTAUpdateInfo_awsIotJobId :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
+oTAUpdateInfo_awsIotJobId = Lens.lens (\OTAUpdateInfo' {awsIotJobId} -> awsIotJobId) (\s@OTAUpdateInfo' {} a -> s {awsIotJobId = a} :: OTAUpdateInfo)
+
 -- | The targets of the OTA update.
 oTAUpdateInfo_targets :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 oTAUpdateInfo_targets = Lens.lens (\OTAUpdateInfo' {targets} -> targets) (\s@OTAUpdateInfo' {} a -> s {targets = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A list of files associated with the OTA update.
+oTAUpdateInfo_otaUpdateFiles :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe (Prelude.NonEmpty OTAUpdateFile))
+oTAUpdateInfo_otaUpdateFiles = Lens.lens (\OTAUpdateInfo' {otaUpdateFiles} -> otaUpdateFiles) (\s@OTAUpdateInfo' {} a -> s {otaUpdateFiles = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Configuration information for pre-signed URLs. Valid when @protocols@
 -- contains HTTP.
@@ -201,17 +205,13 @@ oTAUpdateInfo_awsJobPresignedUrlConfig = Lens.lens (\OTAUpdateInfo' {awsJobPresi
 oTAUpdateInfo_errorInfo :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe ErrorInfo)
 oTAUpdateInfo_errorInfo = Lens.lens (\OTAUpdateInfo' {errorInfo} -> errorInfo) (\s@OTAUpdateInfo' {} a -> s {errorInfo = a} :: OTAUpdateInfo)
 
--- | A description of the OTA update.
-oTAUpdateInfo_description :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
-oTAUpdateInfo_description = Lens.lens (\OTAUpdateInfo' {description} -> description) (\s@OTAUpdateInfo' {} a -> s {description = a} :: OTAUpdateInfo)
-
--- | A list of files associated with the OTA update.
-oTAUpdateInfo_otaUpdateFiles :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe (Prelude.NonEmpty OTAUpdateFile))
-oTAUpdateInfo_otaUpdateFiles = Lens.lens (\OTAUpdateInfo' {otaUpdateFiles} -> otaUpdateFiles) (\s@OTAUpdateInfo' {} a -> s {otaUpdateFiles = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The OTA update ID.
 oTAUpdateInfo_otaUpdateId :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
 oTAUpdateInfo_otaUpdateId = Lens.lens (\OTAUpdateInfo' {otaUpdateId} -> otaUpdateId) (\s@OTAUpdateInfo' {} a -> s {otaUpdateId = a} :: OTAUpdateInfo)
+
+-- | A description of the OTA update.
+oTAUpdateInfo_description :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
+oTAUpdateInfo_description = Lens.lens (\OTAUpdateInfo' {description} -> description) (\s@OTAUpdateInfo' {} a -> s {description = a} :: OTAUpdateInfo)
 
 -- | A collection of name\/value pairs
 oTAUpdateInfo_additionalParameters :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -231,16 +231,16 @@ instance Core.FromJSON OTAUpdateInfo where
             Prelude.<*> (x Core..:? "lastModifiedDate")
             Prelude.<*> (x Core..:? "targetSelection")
             Prelude.<*> (x Core..:? "otaUpdateArn")
-            Prelude.<*> (x Core..:? "awsIotJobId")
             Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "awsIotJobArn")
             Prelude.<*> (x Core..:? "protocols")
+            Prelude.<*> (x Core..:? "awsIotJobArn")
+            Prelude.<*> (x Core..:? "awsIotJobId")
             Prelude.<*> (x Core..:? "targets")
+            Prelude.<*> (x Core..:? "otaUpdateFiles")
             Prelude.<*> (x Core..:? "awsJobPresignedUrlConfig")
             Prelude.<*> (x Core..:? "errorInfo")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "otaUpdateFiles")
             Prelude.<*> (x Core..:? "otaUpdateId")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> ( x Core..:? "additionalParameters"
                             Core..!= Prelude.mempty
                         )

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a scheduled audit.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteScheduledAudit>
+-- action.
 module Network.AWS.IoT.DeleteScheduledAudit
   ( -- * Creating a Request
     DeleteScheduledAudit (..),

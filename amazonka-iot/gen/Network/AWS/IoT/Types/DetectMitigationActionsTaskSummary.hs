@@ -34,10 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 data DetectMitigationActionsTaskSummary = DetectMitigationActionsTaskSummary'
   { -- | The date the task ended.
     taskEndTime :: Prelude.Maybe Core.POSIX,
-    -- | The statistics of a mitigation action task.
-    taskStatistics :: Prelude.Maybe DetectMitigationActionsTaskStatistics,
     -- | The unique identifier of the task.
     taskId :: Prelude.Maybe Prelude.Text,
+    -- | The statistics of a mitigation action task.
+    taskStatistics :: Prelude.Maybe DetectMitigationActionsTaskStatistics,
     -- | Specifies the time period of which violation events occurred between.
     violationEventOccurrenceRange :: Prelude.Maybe ViolationEventOccurrenceRange,
     -- | Includes only active violations.
@@ -66,9 +66,9 @@ data DetectMitigationActionsTaskSummary = DetectMitigationActionsTaskSummary'
 --
 -- 'taskEndTime', 'detectMitigationActionsTaskSummary_taskEndTime' - The date the task ended.
 --
--- 'taskStatistics', 'detectMitigationActionsTaskSummary_taskStatistics' - The statistics of a mitigation action task.
---
 -- 'taskId', 'detectMitigationActionsTaskSummary_taskId' - The unique identifier of the task.
+--
+-- 'taskStatistics', 'detectMitigationActionsTaskSummary_taskStatistics' - The statistics of a mitigation action task.
 --
 -- 'violationEventOccurrenceRange', 'detectMitigationActionsTaskSummary_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.
 --
@@ -90,8 +90,8 @@ newDetectMitigationActionsTaskSummary =
   DetectMitigationActionsTaskSummary'
     { taskEndTime =
         Prelude.Nothing,
-      taskStatistics = Prelude.Nothing,
       taskId = Prelude.Nothing,
+      taskStatistics = Prelude.Nothing,
       violationEventOccurrenceRange =
         Prelude.Nothing,
       onlyActiveViolationsIncluded =
@@ -108,13 +108,13 @@ newDetectMitigationActionsTaskSummary =
 detectMitigationActionsTaskSummary_taskEndTime :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe Prelude.UTCTime)
 detectMitigationActionsTaskSummary_taskEndTime = Lens.lens (\DetectMitigationActionsTaskSummary' {taskEndTime} -> taskEndTime) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskEndTime = a} :: DetectMitigationActionsTaskSummary) Prelude.. Lens.mapping Core._Time
 
--- | The statistics of a mitigation action task.
-detectMitigationActionsTaskSummary_taskStatistics :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe DetectMitigationActionsTaskStatistics)
-detectMitigationActionsTaskSummary_taskStatistics = Lens.lens (\DetectMitigationActionsTaskSummary' {taskStatistics} -> taskStatistics) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskStatistics = a} :: DetectMitigationActionsTaskSummary)
-
 -- | The unique identifier of the task.
 detectMitigationActionsTaskSummary_taskId :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe Prelude.Text)
 detectMitigationActionsTaskSummary_taskId = Lens.lens (\DetectMitigationActionsTaskSummary' {taskId} -> taskId) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskId = a} :: DetectMitigationActionsTaskSummary)
+
+-- | The statistics of a mitigation action task.
+detectMitigationActionsTaskSummary_taskStatistics :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe DetectMitigationActionsTaskStatistics)
+detectMitigationActionsTaskSummary_taskStatistics = Lens.lens (\DetectMitigationActionsTaskSummary' {taskStatistics} -> taskStatistics) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskStatistics = a} :: DetectMitigationActionsTaskSummary)
 
 -- | Specifies the time period of which violation events occurred between.
 detectMitigationActionsTaskSummary_violationEventOccurrenceRange :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe ViolationEventOccurrenceRange)
@@ -155,8 +155,8 @@ instance
       ( \x ->
           DetectMitigationActionsTaskSummary'
             Prelude.<$> (x Core..:? "taskEndTime")
-            Prelude.<*> (x Core..:? "taskStatistics")
             Prelude.<*> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "taskStatistics")
             Prelude.<*> (x Core..:? "violationEventOccurrenceRange")
             Prelude.<*> (x Core..:? "onlyActiveViolationsIncluded")
             Prelude.<*> (x Core..:? "target")

@@ -26,18 +26,15 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary of a domain configuration. A domain configuration specifies
 -- custom IoT-specific information about a domain. A domain configuration
--- can be associated with an AWS-managed domain (for example,
--- dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain,
--- or a default endpoint.
+-- can be associated with an Amazon Web Services-managed domain (for
+-- example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed
+-- domain, or a default endpoint.
 --
 -- -   Data
 --
 -- -   Jobs
 --
 -- -   CredentialProvider
---
--- The domain configuration feature is in public preview and is subject to
--- change.
 --
 -- /See:/ 'newDomainConfigurationSummary' smart constructor.
 data DomainConfigurationSummary = DomainConfigurationSummary'

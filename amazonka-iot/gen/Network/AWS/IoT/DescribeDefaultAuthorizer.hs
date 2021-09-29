@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the default authorizer.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeDefaultAuthorizer>
+-- action.
 module Network.AWS.IoT.DescribeDefaultAuthorizer
   ( -- * Creating a Request
     DescribeDefaultAuthorizer (..),

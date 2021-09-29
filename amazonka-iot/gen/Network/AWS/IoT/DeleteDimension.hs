@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified dimension from your AWS account.
+-- Removes the specified dimension from your Amazon Web Services accounts.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteDimension>
+-- action.
 module Network.AWS.IoT.DeleteDimension
   ( -- * Creating a Request
     DeleteDimension (..),

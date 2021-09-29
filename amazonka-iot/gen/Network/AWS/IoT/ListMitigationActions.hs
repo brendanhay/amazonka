@@ -23,6 +23,10 @@
 -- Gets a list of all mitigation actions that match the specified filter
 -- criteria.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListMitigationActions>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListMitigationActions
   ( -- * Creating a Request
@@ -31,8 +35,8 @@ module Network.AWS.IoT.ListMitigationActions
 
     -- * Request Lenses
     listMitigationActions_nextToken,
-    listMitigationActions_maxResults,
     listMitigationActions_actionType,
+    listMitigationActions_maxResults,
 
     -- * Destructuring the Response
     ListMitigationActionsResponse (..),
@@ -56,11 +60,11 @@ import qualified Network.AWS.Response as Response
 data ListMitigationActions = ListMitigationActions'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify a value to limit the result to mitigation actions with a
     -- specific action type.
-    actionType :: Prelude.Maybe MitigationActionType
+    actionType :: Prelude.Maybe MitigationActionType,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,31 +78,31 @@ data ListMitigationActions = ListMitigationActions'
 --
 -- 'nextToken', 'listMitigationActions_nextToken' - The token for the next set of results.
 --
--- 'maxResults', 'listMitigationActions_maxResults' - The maximum number of results to return at one time. The default is 25.
---
 -- 'actionType', 'listMitigationActions_actionType' - Specify a value to limit the result to mitigation actions with a
 -- specific action type.
+--
+-- 'maxResults', 'listMitigationActions_maxResults' - The maximum number of results to return at one time. The default is 25.
 newListMitigationActions ::
   ListMitigationActions
 newListMitigationActions =
   ListMitigationActions'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      actionType = Prelude.Nothing
+      actionType = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token for the next set of results.
 listMitigationActions_nextToken :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Text)
 listMitigationActions_nextToken = Lens.lens (\ListMitigationActions' {nextToken} -> nextToken) (\s@ListMitigationActions' {} a -> s {nextToken = a} :: ListMitigationActions)
 
--- | The maximum number of results to return at one time. The default is 25.
-listMitigationActions_maxResults :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Natural)
-listMitigationActions_maxResults = Lens.lens (\ListMitigationActions' {maxResults} -> maxResults) (\s@ListMitigationActions' {} a -> s {maxResults = a} :: ListMitigationActions)
-
 -- | Specify a value to limit the result to mitigation actions with a
 -- specific action type.
 listMitigationActions_actionType :: Lens.Lens' ListMitigationActions (Prelude.Maybe MitigationActionType)
 listMitigationActions_actionType = Lens.lens (\ListMitigationActions' {actionType} -> actionType) (\s@ListMitigationActions' {} a -> s {actionType = a} :: ListMitigationActions)
+
+-- | The maximum number of results to return at one time. The default is 25.
+listMitigationActions_maxResults :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Natural)
+listMitigationActions_maxResults = Lens.lens (\ListMitigationActions' {maxResults} -> maxResults) (\s@ListMitigationActions' {} a -> s {maxResults = a} :: ListMitigationActions)
 
 instance Core.AWSPager ListMitigationActions where
   page rq rs
@@ -152,8 +156,8 @@ instance Core.ToQuery ListMitigationActions where
   toQuery ListMitigationActions' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "actionType" Core.=: actionType
+        "actionType" Core.=: actionType,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListMitigationActionsResponse' smart constructor.

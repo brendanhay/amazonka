@@ -35,7 +35,7 @@ data OutgoingCertificate = OutgoingCertificate'
     transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The certificate creation date.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The AWS account to which the transfer was made.
+    -- | The Amazon Web Services account to which the transfer was made.
     transferredTo :: Prelude.Maybe Prelude.Text,
     -- | The certificate ID.
     certificateId :: Prelude.Maybe Prelude.Text
@@ -58,7 +58,7 @@ data OutgoingCertificate = OutgoingCertificate'
 --
 -- 'creationDate', 'outgoingCertificate_creationDate' - The certificate creation date.
 --
--- 'transferredTo', 'outgoingCertificate_transferredTo' - The AWS account to which the transfer was made.
+-- 'transferredTo', 'outgoingCertificate_transferredTo' - The Amazon Web Services account to which the transfer was made.
 --
 -- 'certificateId', 'outgoingCertificate_certificateId' - The certificate ID.
 newOutgoingCertificate ::
@@ -90,7 +90,7 @@ outgoingCertificate_transferMessage = Lens.lens (\OutgoingCertificate' {transfer
 outgoingCertificate_creationDate :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.UTCTime)
 outgoingCertificate_creationDate = Lens.lens (\OutgoingCertificate' {creationDate} -> creationDate) (\s@OutgoingCertificate' {} a -> s {creationDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Core._Time
 
--- | The AWS account to which the transfer was made.
+-- | The Amazon Web Services account to which the transfer was made.
 outgoingCertificate_transferredTo :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
 outgoingCertificate_transferredTo = Lens.lens (\OutgoingCertificate' {transferredTo} -> transferredTo) (\s@OutgoingCertificate' {} a -> s {transferredTo = a} :: OutgoingCertificate)
 

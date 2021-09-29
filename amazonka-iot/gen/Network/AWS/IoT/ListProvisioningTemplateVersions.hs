@@ -22,6 +22,10 @@
 --
 -- A list of fleet provisioning template versions.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListProvisioningTemplateVersions>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListProvisioningTemplateVersions
   ( -- * Creating a Request

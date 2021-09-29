@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the set of dimensions that are defined for your AWS account.
+-- List the set of dimensions that are defined for your Amazon Web Services
+-- accounts.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListDimensions>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListDimensions

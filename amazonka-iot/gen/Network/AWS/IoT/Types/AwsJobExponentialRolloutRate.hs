@@ -38,8 +38,8 @@ data AwsJobExponentialRolloutRate = AwsJobExponentialRolloutRate'
     incrementFactor :: Prelude.Double,
     -- | The criteria to initiate the increase in rate of rollout for a job.
     --
-    -- AWS IoT supports up to one digit after the decimal (for example, 1.5,
-    -- but not 1.55).
+    -- Amazon Web Services IoT Core supports up to one digit after the decimal
+    -- (for example, 1.5, but not 1.55).
     rateIncreaseCriteria :: AwsJobRateIncreaseCriteria
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data AwsJobExponentialRolloutRate = AwsJobExponentialRolloutRate'
 --
 -- 'rateIncreaseCriteria', 'awsJobExponentialRolloutRate_rateIncreaseCriteria' - The criteria to initiate the increase in rate of rollout for a job.
 --
--- AWS IoT supports up to one digit after the decimal (for example, 1.5,
--- but not 1.55).
+-- Amazon Web Services IoT Core supports up to one digit after the decimal
+-- (for example, 1.5, but not 1.55).
 newAwsJobExponentialRolloutRate ::
   -- | 'baseRatePerMinute'
   Prelude.Natural ->
@@ -95,8 +95,8 @@ awsJobExponentialRolloutRate_incrementFactor = Lens.lens (\AwsJobExponentialRoll
 
 -- | The criteria to initiate the increase in rate of rollout for a job.
 --
--- AWS IoT supports up to one digit after the decimal (for example, 1.5,
--- but not 1.55).
+-- Amazon Web Services IoT Core supports up to one digit after the decimal
+-- (for example, 1.5, but not 1.55).
 awsJobExponentialRolloutRate_rateIncreaseCriteria :: Lens.Lens' AwsJobExponentialRolloutRate AwsJobRateIncreaseCriteria
 awsJobExponentialRolloutRate_rateIncreaseCriteria = Lens.lens (\AwsJobExponentialRolloutRate' {rateIncreaseCriteria} -> rateIncreaseCriteria) (\s@AwsJobExponentialRolloutRate' {} a -> s {rateIncreaseCriteria = a} :: AwsJobExponentialRolloutRate)
 

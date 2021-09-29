@@ -22,6 +22,10 @@
 --
 -- Lists the billing groups you have created.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListBillingGroups>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListBillingGroups
   ( -- * Creating a Request

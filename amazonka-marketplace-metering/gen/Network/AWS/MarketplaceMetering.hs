@@ -75,11 +75,11 @@ module Network.AWS.MarketplaceMetering
     -- ** InvalidRegionException
     _InvalidRegionException,
 
-    -- ** InvalidUsageDimensionException
-    _InvalidUsageDimensionException,
-
     -- ** ExpiredTokenException
     _ExpiredTokenException,
+
+    -- ** InvalidUsageDimensionException
+    _InvalidUsageDimensionException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -90,11 +90,11 @@ module Network.AWS.MarketplaceMetering
     -- ** InvalidTagException
     _InvalidTagException,
 
-    -- ** DuplicateRequestException
-    _DuplicateRequestException,
-
     -- ** InvalidCustomerIdentifierException
     _InvalidCustomerIdentifierException,
+
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
 
     -- ** PlatformNotSupportedException
     _PlatformNotSupportedException,
@@ -108,11 +108,11 @@ module Network.AWS.MarketplaceMetering
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
 
-    -- ** InvalidEndpointRegionException
-    _InvalidEndpointRegionException,
-
     -- ** InvalidTokenException
     _InvalidTokenException,
+
+    -- ** InvalidEndpointRegionException
+    _InvalidEndpointRegionException,
 
     -- ** InvalidPublicKeyVersionException
     _InvalidPublicKeyVersionException,

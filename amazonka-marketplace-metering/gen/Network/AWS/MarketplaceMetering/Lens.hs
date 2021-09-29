@@ -15,9 +15,9 @@ module Network.AWS.MarketplaceMetering.Lens
   ( -- * Operations
 
     -- ** MeterUsage
-    meterUsage_dryRun,
     meterUsage_usageAllocations,
     meterUsage_usageQuantity,
+    meterUsage_dryRun,
     meterUsage_productCode,
     meterUsage_timestamp,
     meterUsage_usageDimension,

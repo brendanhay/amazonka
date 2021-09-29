@@ -6,13 +6,13 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-echo "Formatting Shell"
+echo "Formatting Shell."
 
 find scripts -type f \
   -exec shfmt -s -i 2 -ln bash -w {} \+ \
   -exec shellcheck --shell=bash --format=tty {} \+
 
-echo "Linting Shell"
+echo "Linting Shell."
 
 find . -type f -name '.envrc' \
   -exec shfmt -s -i 2 -ln bash -w {} \+ \

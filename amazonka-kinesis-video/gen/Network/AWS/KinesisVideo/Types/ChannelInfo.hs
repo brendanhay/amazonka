@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newChannelInfo' smart constructor.
 data ChannelInfo = ChannelInfo'
-  { -- | The name of the signaling channel.
-    channelName :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the signaling channel was created.
+  { -- | The time at which the signaling channel was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the signaling channel.
+    channelName :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the configuration for the @SINGLE_MASTER@
     -- channel type.
     singleMasterConfiguration :: Prelude.Maybe SingleMasterConfiguration,
@@ -57,9 +57,9 @@ data ChannelInfo = ChannelInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'channelInfo_channelName' - The name of the signaling channel.
---
 -- 'creationTime', 'channelInfo_creationTime' - The time at which the signaling channel was created.
+--
+-- 'channelName', 'channelInfo_channelName' - The name of the signaling channel.
 --
 -- 'singleMasterConfiguration', 'channelInfo_singleMasterConfiguration' - A structure that contains the configuration for the @SINGLE_MASTER@
 -- channel type.
@@ -75,8 +75,8 @@ newChannelInfo ::
   ChannelInfo
 newChannelInfo =
   ChannelInfo'
-    { channelName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      channelName = Prelude.Nothing,
       singleMasterConfiguration = Prelude.Nothing,
       channelType = Prelude.Nothing,
       version = Prelude.Nothing,
@@ -84,13 +84,13 @@ newChannelInfo =
       channelARN = Prelude.Nothing
     }
 
--- | The name of the signaling channel.
-channelInfo_channelName :: Lens.Lens' ChannelInfo (Prelude.Maybe Prelude.Text)
-channelInfo_channelName = Lens.lens (\ChannelInfo' {channelName} -> channelName) (\s@ChannelInfo' {} a -> s {channelName = a} :: ChannelInfo)
-
 -- | The time at which the signaling channel was created.
 channelInfo_creationTime :: Lens.Lens' ChannelInfo (Prelude.Maybe Prelude.UTCTime)
 channelInfo_creationTime = Lens.lens (\ChannelInfo' {creationTime} -> creationTime) (\s@ChannelInfo' {} a -> s {creationTime = a} :: ChannelInfo) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the signaling channel.
+channelInfo_channelName :: Lens.Lens' ChannelInfo (Prelude.Maybe Prelude.Text)
+channelInfo_channelName = Lens.lens (\ChannelInfo' {channelName} -> channelName) (\s@ChannelInfo' {} a -> s {channelName = a} :: ChannelInfo)
 
 -- | A structure that contains the configuration for the @SINGLE_MASTER@
 -- channel type.
@@ -119,8 +119,8 @@ instance Core.FromJSON ChannelInfo where
       "ChannelInfo"
       ( \x ->
           ChannelInfo'
-            Prelude.<$> (x Core..:? "ChannelName")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ChannelName")
             Prelude.<*> (x Core..:? "SingleMasterConfiguration")
             Prelude.<*> (x Core..:? "ChannelType")
             Prelude.<*> (x Core..:? "Version")

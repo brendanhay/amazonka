@@ -21,13 +21,13 @@ module Network.AWS.KinesisVideo.Types
     _VersionMismatchException,
     _AccountChannelLimitExceededException,
     _ClientLimitExceededException,
-    _DeviceStreamLimitExceededException,
     _TagsPerResourceExceededLimitException,
+    _DeviceStreamLimitExceededException,
     _InvalidResourceFormatException,
     _AccessDeniedException,
     _ResourceInUseException,
-    _InvalidDeviceException,
     _ResourceNotFoundException,
+    _InvalidDeviceException,
     _NotAuthorizedException,
     _InvalidArgumentException,
 
@@ -55,8 +55,8 @@ module Network.AWS.KinesisVideo.Types
     -- * ChannelInfo
     ChannelInfo (..),
     newChannelInfo,
-    channelInfo_channelName,
     channelInfo_creationTime,
+    channelInfo_channelName,
     channelInfo_singleMasterConfiguration,
     channelInfo_channelType,
     channelInfo_version,
@@ -89,8 +89,8 @@ module Network.AWS.KinesisVideo.Types
     -- * StreamInfo
     StreamInfo (..),
     newStreamInfo,
-    streamInfo_status,
     streamInfo_creationTime,
+    streamInfo_status,
     streamInfo_dataRetentionInHours,
     streamInfo_version,
     streamInfo_kmsKeyId,
@@ -241,14 +241,6 @@ _ClientLimitExceededException =
     "ClientLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | Not implemented.
-_DeviceStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DeviceStreamLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "DeviceStreamLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
 -- | You have exceeded the limit of tags that you can associate with the
 -- resource. Kinesis video streams support up to 50 tags.
 _TagsPerResourceExceededLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -256,6 +248,14 @@ _TagsPerResourceExceededLimitException =
   Core._MatchServiceError
     defaultService
     "TagsPerResourceExceededLimitException"
+    Prelude.. Core.hasStatus 400
+
+-- | Not implemented.
+_DeviceStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeviceStreamLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "DeviceStreamLimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | The format of the @StreamARN@ is invalid.
@@ -282,14 +282,6 @@ _ResourceInUseException =
     "ResourceInUseException"
     Prelude.. Core.hasStatus 400
 
--- | Not implemented.
-_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeviceException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeviceException"
-    Prelude.. Core.hasStatus 400
-
 -- | Amazon Kinesis Video Streams can\'t find the stream that you specified.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -297,6 +289,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Not implemented.
+_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeviceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeviceException"
+    Prelude.. Core.hasStatus 400
 
 -- | The caller is not authorized to perform this operation.
 _NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

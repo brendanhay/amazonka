@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
-  { -- | The status of the stream.
-    status :: Prelude.Maybe StreamStatus,
-    -- | A time stamp that indicates when the stream was created.
+  { -- | A time stamp that indicates when the stream was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the stream.
+    status :: Prelude.Maybe StreamStatus,
     -- | How long the stream retains data, in hours.
     dataRetentionInHours :: Prelude.Maybe Prelude.Natural,
     -- | The version of the stream.
@@ -58,9 +58,9 @@ data StreamInfo = StreamInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'streamInfo_status' - The status of the stream.
---
 -- 'creationTime', 'streamInfo_creationTime' - A time stamp that indicates when the stream was created.
+--
+-- 'status', 'streamInfo_status' - The status of the stream.
 --
 -- 'dataRetentionInHours', 'streamInfo_dataRetentionInHours' - How long the stream retains data, in hours.
 --
@@ -80,8 +80,8 @@ newStreamInfo ::
   StreamInfo
 newStreamInfo =
   StreamInfo'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       dataRetentionInHours = Prelude.Nothing,
       version = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
@@ -91,13 +91,13 @@ newStreamInfo =
       streamName = Prelude.Nothing
     }
 
--- | The status of the stream.
-streamInfo_status :: Lens.Lens' StreamInfo (Prelude.Maybe StreamStatus)
-streamInfo_status = Lens.lens (\StreamInfo' {status} -> status) (\s@StreamInfo' {} a -> s {status = a} :: StreamInfo)
-
 -- | A time stamp that indicates when the stream was created.
 streamInfo_creationTime :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
 streamInfo_creationTime = Lens.lens (\StreamInfo' {creationTime} -> creationTime) (\s@StreamInfo' {} a -> s {creationTime = a} :: StreamInfo) Prelude.. Lens.mapping Core._Time
+
+-- | The status of the stream.
+streamInfo_status :: Lens.Lens' StreamInfo (Prelude.Maybe StreamStatus)
+streamInfo_status = Lens.lens (\StreamInfo' {status} -> status) (\s@StreamInfo' {} a -> s {status = a} :: StreamInfo)
 
 -- | How long the stream retains data, in hours.
 streamInfo_dataRetentionInHours :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Natural)
@@ -134,8 +134,8 @@ instance Core.FromJSON StreamInfo where
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "DataRetentionInHours")
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "KmsKeyId")

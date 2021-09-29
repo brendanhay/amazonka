@@ -48,8 +48,8 @@ module Network.AWS.AutoScalingPlans.Lens
     getScalingPlanResourceForecastDataResponse_datapoints,
 
     -- ** DescribeScalingPlans
-    describeScalingPlans_nextToken,
     describeScalingPlans_scalingPlanVersion,
+    describeScalingPlans_nextToken,
     describeScalingPlans_maxResults,
     describeScalingPlans_scalingPlanNames,
     describeScalingPlans_applicationSources,
@@ -103,8 +103,8 @@ module Network.AWS.AutoScalingPlans.Lens
     -- ** ScalingInstruction
     scalingInstruction_disableDynamicScaling,
     scalingInstruction_predefinedLoadMetricSpecification,
-    scalingInstruction_customizedLoadMetricSpecification,
     scalingInstruction_predictiveScalingMaxCapacityBehavior,
+    scalingInstruction_customizedLoadMetricSpecification,
     scalingInstruction_predictiveScalingMaxCapacityBuffer,
     scalingInstruction_predictiveScalingMode,
     scalingInstruction_scalingPolicyUpdateBehavior,

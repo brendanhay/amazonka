@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes authorization from the DDoS Response Team (DRT) to notify
--- contacts about escalations to the DRT and to initiate proactive customer
+-- Removes authorization from the Shield Response Team (SRT) to notify
+-- contacts about escalations to the SRT and to initiate proactive customer
 -- support.
 module Network.AWS.Shield.DisableProactiveEngagement
   ( -- * Creating a Request

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the DDoS Response Team\'s (DRT) access to the specified Amazon
--- S3 bucket containing your AWS WAF logs.
+-- Removes the Shield Response Team\'s (SRT) access to the specified Amazon
+-- S3 bucket containing the logs that you shared previously.
 --
 -- To make a @DisassociateDRTLogBucket@ request, you must be subscribed to
 -- the
@@ -29,7 +29,7 @@
 -- or the
 -- <https://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan>.
 -- However, if you are not subscribed to one of these support plans, but
--- had been previously and had granted the DRT access to your account, you
+-- had been previously and had granted the SRT access to your account, you
 -- can submit a @DisassociateDRTLogBucket@ request to remove this access.
 module Network.AWS.Shield.DisassociateDRTLogBucket
   ( -- * Creating a Request
@@ -57,7 +57,7 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newDisassociateDRTLogBucket' smart constructor.
 data DisassociateDRTLogBucket = DisassociateDRTLogBucket'
-  { -- | The Amazon S3 bucket that contains your AWS WAF logs.
+  { -- | The Amazon S3 bucket that contains the logs that you want to share.
     logBucket :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data DisassociateDRTLogBucket = DisassociateDRTLogBucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logBucket', 'disassociateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
+-- 'logBucket', 'disassociateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains the logs that you want to share.
 newDisassociateDRTLogBucket ::
   -- | 'logBucket'
   Prelude.Text ->
@@ -78,7 +78,7 @@ newDisassociateDRTLogBucket ::
 newDisassociateDRTLogBucket pLogBucket_ =
   DisassociateDRTLogBucket' {logBucket = pLogBucket_}
 
--- | The Amazon S3 bucket that contains your AWS WAF logs.
+-- | The Amazon S3 bucket that contains the logs that you want to share.
 disassociateDRTLogBucket_logBucket :: Lens.Lens' DisassociateDRTLogBucket Prelude.Text
 disassociateDRTLogBucket_logBucket = Lens.lens (\DisassociateDRTLogBucket' {logBucket} -> logBucket) (\s@DisassociateDRTLogBucket' {} a -> s {logBucket = a} :: DisassociateDRTLogBucket)
 

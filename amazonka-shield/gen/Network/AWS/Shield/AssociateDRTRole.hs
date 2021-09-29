@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the DDoS Response Team (DRT), using the specified role, to
--- access your AWS account to assist with DDoS attack mitigation during
--- potential attacks. This enables the DRT to inspect your AWS WAF
--- configuration and create or update AWS WAF rules and web ACLs.
+-- Authorizes the Shield Response Team (SRT) using the specified role, to
+-- access your Amazon Web Services account to assist with DDoS attack
+-- mitigation during potential attacks. This enables the SRT to inspect
+-- your WAF configuration and create or update WAF rules and web ACLs.
 --
 -- You can associate only one @RoleArn@ with your subscription. If you
 -- submit an @AssociateDRTRole@ request for an account that already has an
@@ -38,17 +38,17 @@
 -- @ drt.shield.amazonaws.com@. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM JSON Policy Elements: Principal>.
 --
--- The DRT will have access only to your AWS WAF and Shield resources. By
--- submitting this request, you authorize the DRT to inspect your AWS WAF
--- and Shield configuration and create and update AWS WAF rules and web
--- ACLs on your behalf. The DRT takes these actions only if explicitly
--- authorized by you.
+-- The SRT will have access only to your WAF and Shield resources. By
+-- submitting this request, you authorize the SRT to inspect your WAF and
+-- Shield configuration and create and update WAF rules and web ACLs on
+-- your behalf. The SRT takes these actions only if explicitly authorized
+-- by you.
 --
 -- You must have the @iam:PassRole@ permission to make an
 -- @AssociateDRTRole@ request. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an AWS Service>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an Amazon Web Services Service>.
 --
--- To use the services of the DRT and make an @AssociateDRTRole@ request,
+-- To use the services of the SRT and make an @AssociateDRTRole@ request,
 -- you must be subscribed to the
 -- <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan>
 -- or the
@@ -79,8 +79,8 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newAssociateDRTRole' smart constructor.
 data AssociateDRTRole = AssociateDRTRole'
-  { -- | The Amazon Resource Name (ARN) of the role the DRT will use to access
-    -- your AWS account.
+  { -- | The Amazon Resource Name (ARN) of the role the SRT will use to access
+    -- your Amazon Web Services account.
     --
     -- Prior to making the @AssociateDRTRole@ request, you must attach the
     -- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>
@@ -98,8 +98,8 @@ data AssociateDRTRole = AssociateDRTRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'associateDRTRole_roleArn' - The Amazon Resource Name (ARN) of the role the DRT will use to access
--- your AWS account.
+-- 'roleArn', 'associateDRTRole_roleArn' - The Amazon Resource Name (ARN) of the role the SRT will use to access
+-- your Amazon Web Services account.
 --
 -- Prior to making the @AssociateDRTRole@ request, you must attach the
 -- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>
@@ -112,8 +112,8 @@ newAssociateDRTRole ::
 newAssociateDRTRole pRoleArn_ =
   AssociateDRTRole' {roleArn = pRoleArn_}
 
--- | The Amazon Resource Name (ARN) of the role the DRT will use to access
--- your AWS account.
+-- | The Amazon Resource Name (ARN) of the role the SRT will use to access
+-- your Amazon Web Services account.
 --
 -- Prior to making the @AssociateDRTRole@ request, you must attach the
 -- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>

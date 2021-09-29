@@ -11,14 +11,14 @@
 --
 -- Derived from API version @2016-06-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Shield Advanced
+-- Shield Advanced
 --
--- This is the /AWS Shield Advanced API Reference/. This guide is for
--- developers who need detailed information about the AWS Shield Advanced
--- API actions, data types, and errors. For detailed information about AWS
--- WAF and AWS Shield Advanced features and an overview of how to use the
--- AWS WAF and AWS Shield Advanced APIs, see the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF and AWS Shield Developer Guide>.
+-- This is the /Shield Advanced API Reference/. This guide is for
+-- developers who need detailed information about the Shield Advanced API
+-- actions, data types, and errors. For detailed information about WAF and
+-- Shield Advanced features and an overview of how to use the WAF and
+-- Shield Advanced APIs, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/ WAF and Shield Developer Guide>.
 module Network.AWS.Shield
   ( -- * Service Configuration
     defaultService,
@@ -77,23 +77,17 @@ module Network.AWS.Shield
     CreateSubscriptionResponse (CreateSubscriptionResponse'),
     newCreateSubscriptionResponse,
 
-    -- ** DescribeEmergencyContactSettings
-    DescribeEmergencyContactSettings (DescribeEmergencyContactSettings'),
-    newDescribeEmergencyContactSettings,
-    DescribeEmergencyContactSettingsResponse (DescribeEmergencyContactSettingsResponse'),
-    newDescribeEmergencyContactSettingsResponse,
-
     -- ** DescribeProtectionGroup
     DescribeProtectionGroup (DescribeProtectionGroup'),
     newDescribeProtectionGroup,
     DescribeProtectionGroupResponse (DescribeProtectionGroupResponse'),
     newDescribeProtectionGroupResponse,
 
-    -- ** DescribeSubscription
-    DescribeSubscription (DescribeSubscription'),
-    newDescribeSubscription,
-    DescribeSubscriptionResponse (DescribeSubscriptionResponse'),
-    newDescribeSubscriptionResponse,
+    -- ** DescribeEmergencyContactSettings
+    DescribeEmergencyContactSettings (DescribeEmergencyContactSettings'),
+    newDescribeEmergencyContactSettings,
+    DescribeEmergencyContactSettingsResponse (DescribeEmergencyContactSettingsResponse'),
+    newDescribeEmergencyContactSettingsResponse,
 
     -- ** AssociateHealthCheck
     AssociateHealthCheck (AssociateHealthCheck'),
@@ -101,17 +95,29 @@ module Network.AWS.Shield
     AssociateHealthCheckResponse (AssociateHealthCheckResponse'),
     newAssociateHealthCheckResponse,
 
+    -- ** DescribeSubscription
+    DescribeSubscription (DescribeSubscription'),
+    newDescribeSubscription,
+    DescribeSubscriptionResponse (DescribeSubscriptionResponse'),
+    newDescribeSubscriptionResponse,
+
     -- ** DescribeDRTAccess
     DescribeDRTAccess (DescribeDRTAccess'),
     newDescribeDRTAccess,
     DescribeDRTAccessResponse (DescribeDRTAccessResponse'),
     newDescribeDRTAccessResponse,
 
-    -- ** ListResourcesInProtectionGroup
-    ListResourcesInProtectionGroup (ListResourcesInProtectionGroup'),
-    newListResourcesInProtectionGroup,
-    ListResourcesInProtectionGroupResponse (ListResourcesInProtectionGroupResponse'),
-    newListResourcesInProtectionGroupResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** DisableProactiveEngagement
     DisableProactiveEngagement (DisableProactiveEngagement'),
@@ -119,17 +125,23 @@ module Network.AWS.Shield
     DisableProactiveEngagementResponse (DisableProactiveEngagementResponse'),
     newDisableProactiveEngagementResponse,
 
+    -- ** ListResourcesInProtectionGroup
+    ListResourcesInProtectionGroup (ListResourcesInProtectionGroup'),
+    newListResourcesInProtectionGroup,
+    ListResourcesInProtectionGroupResponse (ListResourcesInProtectionGroupResponse'),
+    newListResourcesInProtectionGroupResponse,
+
     -- ** EnableProactiveEngagement
     EnableProactiveEngagement (EnableProactiveEngagement'),
     newEnableProactiveEngagement,
     EnableProactiveEngagementResponse (EnableProactiveEngagementResponse'),
     newEnableProactiveEngagementResponse,
 
-    -- ** DisassociateDRTLogBucket
-    DisassociateDRTLogBucket (DisassociateDRTLogBucket'),
-    newDisassociateDRTLogBucket,
-    DisassociateDRTLogBucketResponse (DisassociateDRTLogBucketResponse'),
-    newDisassociateDRTLogBucketResponse,
+    -- ** AssociateDRTRole
+    AssociateDRTRole (AssociateDRTRole'),
+    newAssociateDRTRole,
+    AssociateDRTRoleResponse (AssociateDRTRoleResponse'),
+    newAssociateDRTRoleResponse,
 
     -- ** UpdateSubscription
     UpdateSubscription (UpdateSubscription'),
@@ -137,11 +149,11 @@ module Network.AWS.Shield
     UpdateSubscriptionResponse (UpdateSubscriptionResponse'),
     newUpdateSubscriptionResponse,
 
-    -- ** AssociateDRTRole
-    AssociateDRTRole (AssociateDRTRole'),
-    newAssociateDRTRole,
-    AssociateDRTRoleResponse (AssociateDRTRoleResponse'),
-    newAssociateDRTRoleResponse,
+    -- ** DisassociateDRTLogBucket
+    DisassociateDRTLogBucket (DisassociateDRTLogBucket'),
+    newDisassociateDRTLogBucket,
+    DisassociateDRTLogBucketResponse (DisassociateDRTLogBucketResponse'),
+    newDisassociateDRTLogBucketResponse,
 
     -- ** CreateProtection
     CreateProtection (CreateProtection'),
@@ -191,23 +203,11 @@ module Network.AWS.Shield
     CreateProtectionGroupResponse (CreateProtectionGroupResponse'),
     newCreateProtectionGroupResponse,
 
-    -- ** ListProtectionGroups
-    ListProtectionGroups (ListProtectionGroups'),
-    newListProtectionGroups,
-    ListProtectionGroupsResponse (ListProtectionGroupsResponse'),
-    newListProtectionGroupsResponse,
-
     -- ** DescribeAttack
     DescribeAttack (DescribeAttack'),
     newDescribeAttack,
     DescribeAttackResponse (DescribeAttackResponse'),
     newDescribeAttackResponse,
-
-    -- ** UpdateEmergencyContactSettings
-    UpdateEmergencyContactSettings (UpdateEmergencyContactSettings'),
-    newUpdateEmergencyContactSettings,
-    UpdateEmergencyContactSettingsResponse (UpdateEmergencyContactSettingsResponse'),
-    newUpdateEmergencyContactSettingsResponse,
 
     -- ** DeleteProtectionGroup
     DeleteProtectionGroup (DeleteProtectionGroup'),
@@ -215,11 +215,29 @@ module Network.AWS.Shield
     DeleteProtectionGroupResponse (DeleteProtectionGroupResponse'),
     newDeleteProtectionGroupResponse,
 
+    -- ** UpdateEmergencyContactSettings
+    UpdateEmergencyContactSettings (UpdateEmergencyContactSettings'),
+    newUpdateEmergencyContactSettings,
+    UpdateEmergencyContactSettingsResponse (UpdateEmergencyContactSettingsResponse'),
+    newUpdateEmergencyContactSettingsResponse,
+
     -- ** UpdateProtectionGroup
     UpdateProtectionGroup (UpdateProtectionGroup'),
     newUpdateProtectionGroup,
     UpdateProtectionGroupResponse (UpdateProtectionGroupResponse'),
     newUpdateProtectionGroupResponse,
+
+    -- ** ListProtectionGroups
+    ListProtectionGroups (ListProtectionGroups'),
+    newListProtectionGroups,
+    ListProtectionGroupsResponse (ListProtectionGroupsResponse'),
+    newListProtectionGroupsResponse,
+
+    -- ** AssociateProactiveEngagementDetails
+    AssociateProactiveEngagementDetails (AssociateProactiveEngagementDetails'),
+    newAssociateProactiveEngagementDetails,
+    AssociateProactiveEngagementDetailsResponse (AssociateProactiveEngagementDetailsResponse'),
+    newAssociateProactiveEngagementDetailsResponse,
 
     -- ** ListProtections (Paginated)
     ListProtections (ListProtections'),
@@ -227,17 +245,17 @@ module Network.AWS.Shield
     ListProtectionsResponse (ListProtectionsResponse'),
     newListProtectionsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** DeleteProtection
     DeleteProtection (DeleteProtection'),
     newDeleteProtection,
     DeleteProtectionResponse (DeleteProtectionResponse'),
     newDeleteProtectionResponse,
-
-    -- ** AssociateProactiveEngagementDetails
-    AssociateProactiveEngagementDetails (AssociateProactiveEngagementDetails'),
-    newAssociateProactiveEngagementDetails,
-    AssociateProactiveEngagementDetailsResponse (AssociateProactiveEngagementDetailsResponse'),
-    newAssociateProactiveEngagementDetailsResponse,
 
     -- ** GetSubscriptionState
     GetSubscriptionState (GetSubscriptionState'),
@@ -365,6 +383,10 @@ module Network.AWS.Shield
     SummarizedCounter (SummarizedCounter'),
     newSummarizedCounter,
 
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
     -- ** TimeRange
     TimeRange (TimeRange'),
     newTimeRange,
@@ -398,7 +420,10 @@ import Network.AWS.Shield.ListAttacks
 import Network.AWS.Shield.ListProtectionGroups
 import Network.AWS.Shield.ListProtections
 import Network.AWS.Shield.ListResourcesInProtectionGroup
+import Network.AWS.Shield.ListTagsForResource
+import Network.AWS.Shield.TagResource
 import Network.AWS.Shield.Types
+import Network.AWS.Shield.UntagResource
 import Network.AWS.Shield.UpdateEmergencyContactSettings
 import Network.AWS.Shield.UpdateProtectionGroup
 import Network.AWS.Shield.UpdateSubscription

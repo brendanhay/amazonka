@@ -27,7 +27,7 @@ import Network.AWS.Shield.Types.Limit
 import Network.AWS.Shield.Types.ProactiveEngagementStatus
 import Network.AWS.Shield.Types.SubscriptionLimits
 
--- | Information about the AWS Shield Advanced subscription for an account.
+-- | Information about the Shield Advanced subscription for an account.
 --
 -- /See:/ 'newSubscription' smart constructor.
 data Subscription = Subscription'
@@ -39,15 +39,15 @@ data Subscription = Subscription'
     -- request. If the @UpdateSubscription@ request does not included a value
     -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
     autoRenew :: Prelude.Maybe AutoRenew,
-    -- | If @ENABLED@, the DDoS Response Team (DRT) will use email and phone to
-    -- notify contacts about escalations to the DRT and to initiate proactive
+    -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
+    -- notify contacts about escalations to the SRT and to initiate proactive
     -- customer support.
     --
     -- If @PENDING@, you have requested proactive engagement and the request is
     -- pending. The status changes to @ENABLED@ when your request is fully
     -- processed.
     --
-    -- If @DISABLED@, the DRT will not proactively notify contacts about
+    -- If @DISABLED@, the SRT will not proactively notify contacts about
     -- escalations or to initiate proactive customer support.
     proactiveEngagementStatus :: Prelude.Maybe ProactiveEngagementStatus,
     -- | The start time of the subscription, in Unix time in seconds. For more
@@ -58,7 +58,9 @@ data Subscription = Subscription'
     endTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies how many protections of a given type you can create.
     limits :: Prelude.Maybe [Limit],
-    -- | The length, in seconds, of the AWS Shield Advanced subscription for the
+    -- | The ARN (Amazon Resource Name) of the subscription.
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
+    -- | The length, in seconds, of the Shield Advanced subscription for the
     -- account.
     timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Limits settings for your subscription.
@@ -82,15 +84,15 @@ data Subscription = Subscription'
 -- request. If the @UpdateSubscription@ request does not included a value
 -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
 --
--- 'proactiveEngagementStatus', 'subscription_proactiveEngagementStatus' - If @ENABLED@, the DDoS Response Team (DRT) will use email and phone to
--- notify contacts about escalations to the DRT and to initiate proactive
+-- 'proactiveEngagementStatus', 'subscription_proactiveEngagementStatus' - If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
+-- notify contacts about escalations to the SRT and to initiate proactive
 -- customer support.
 --
 -- If @PENDING@, you have requested proactive engagement and the request is
 -- pending. The status changes to @ENABLED@ when your request is fully
 -- processed.
 --
--- If @DISABLED@, the DRT will not proactively notify contacts about
+-- If @DISABLED@, the SRT will not proactively notify contacts about
 -- escalations or to initiate proactive customer support.
 --
 -- 'startTime', 'subscription_startTime' - The start time of the subscription, in Unix time in seconds. For more
@@ -101,7 +103,9 @@ data Subscription = Subscription'
 --
 -- 'limits', 'subscription_limits' - Specifies how many protections of a given type you can create.
 --
--- 'timeCommitmentInSeconds', 'subscription_timeCommitmentInSeconds' - The length, in seconds, of the AWS Shield Advanced subscription for the
+-- 'subscriptionArn', 'subscription_subscriptionArn' - The ARN (Amazon Resource Name) of the subscription.
+--
+-- 'timeCommitmentInSeconds', 'subscription_timeCommitmentInSeconds' - The length, in seconds, of the Shield Advanced subscription for the
 -- account.
 --
 -- 'subscriptionLimits', 'subscription_subscriptionLimits' - Limits settings for your subscription.
@@ -116,6 +120,7 @@ newSubscription pSubscriptionLimits_ =
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       limits = Prelude.Nothing,
+      subscriptionArn = Prelude.Nothing,
       timeCommitmentInSeconds = Prelude.Nothing,
       subscriptionLimits = pSubscriptionLimits_
     }
@@ -130,15 +135,15 @@ newSubscription pSubscriptionLimits_ =
 subscription_autoRenew :: Lens.Lens' Subscription (Prelude.Maybe AutoRenew)
 subscription_autoRenew = Lens.lens (\Subscription' {autoRenew} -> autoRenew) (\s@Subscription' {} a -> s {autoRenew = a} :: Subscription)
 
--- | If @ENABLED@, the DDoS Response Team (DRT) will use email and phone to
--- notify contacts about escalations to the DRT and to initiate proactive
+-- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
+-- notify contacts about escalations to the SRT and to initiate proactive
 -- customer support.
 --
 -- If @PENDING@, you have requested proactive engagement and the request is
 -- pending. The status changes to @ENABLED@ when your request is fully
 -- processed.
 --
--- If @DISABLED@, the DRT will not proactively notify contacts about
+-- If @DISABLED@, the SRT will not proactively notify contacts about
 -- escalations or to initiate proactive customer support.
 subscription_proactiveEngagementStatus :: Lens.Lens' Subscription (Prelude.Maybe ProactiveEngagementStatus)
 subscription_proactiveEngagementStatus = Lens.lens (\Subscription' {proactiveEngagementStatus} -> proactiveEngagementStatus) (\s@Subscription' {} a -> s {proactiveEngagementStatus = a} :: Subscription)
@@ -157,7 +162,11 @@ subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subsc
 subscription_limits :: Lens.Lens' Subscription (Prelude.Maybe [Limit])
 subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscription' {} a -> s {limits = a} :: Subscription) Prelude.. Lens.mapping Lens._Coerce
 
--- | The length, in seconds, of the AWS Shield Advanced subscription for the
+-- | The ARN (Amazon Resource Name) of the subscription.
+subscription_subscriptionArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
+subscription_subscriptionArn = Lens.lens (\Subscription' {subscriptionArn} -> subscriptionArn) (\s@Subscription' {} a -> s {subscriptionArn = a} :: Subscription)
+
+-- | The length, in seconds, of the Shield Advanced subscription for the
 -- account.
 subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Natural)
 subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitmentInSeconds} -> timeCommitmentInSeconds) (\s@Subscription' {} a -> s {timeCommitmentInSeconds = a} :: Subscription)
@@ -177,6 +186,7 @@ instance Core.FromJSON Subscription where
             Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "Limits" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SubscriptionArn")
             Prelude.<*> (x Core..:? "TimeCommitmentInSeconds")
             Prelude.<*> (x Core..: "SubscriptionLimits")
       )

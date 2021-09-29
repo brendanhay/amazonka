@@ -22,15 +22,14 @@
 --
 -- Removes health-based detection from the Shield Advanced protection for a
 -- resource. Shield Advanced health-based detection uses the health of your
--- AWS resource to improve responsiveness and accuracy in attack detection
--- and mitigation.
+-- Amazon Web Services resource to improve responsiveness and accuracy in
+-- attack detection and mitigation.
 --
 -- You define the health check in Route 53 and then associate or
 -- disassociate it with your Shield Advanced protection. For more
 -- information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option Shield Advanced Health-Based Detection>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF and AWS Shield Developer Guide>.
+-- in the /WAF Developer Guide/.
 module Network.AWS.Shield.DisassociateHealthCheck
   ( -- * Creating a Request
     DisassociateHealthCheck (..),

@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the DDoS Response Team (DRT) to access the specified Amazon
--- S3 bucket containing your AWS WAF logs. You can associate up to 10
--- Amazon S3 buckets with your subscription.
+-- Authorizes the Shield Response Team (SRT) to access the specified Amazon
+-- S3 bucket containing log data such as Application Load Balancer access
+-- logs, CloudFront logs, or logs from third party sources. You can
+-- associate up to 10 Amazon S3 buckets with your subscription.
 --
--- To use the services of the DRT and make an @AssociateDRTLogBucket@
+-- To use the services of the SRT and make an @AssociateDRTLogBucket@
 -- request, you must be subscribed to the
 -- <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan>
 -- or the
@@ -55,7 +56,7 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newAssociateDRTLogBucket' smart constructor.
 data AssociateDRTLogBucket = AssociateDRTLogBucket'
-  { -- | The Amazon S3 bucket that contains your AWS WAF logs.
+  { -- | The Amazon S3 bucket that contains the logs that you want to share.
     logBucket :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +69,7 @@ data AssociateDRTLogBucket = AssociateDRTLogBucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logBucket', 'associateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
+-- 'logBucket', 'associateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains the logs that you want to share.
 newAssociateDRTLogBucket ::
   -- | 'logBucket'
   Prelude.Text ->
@@ -76,7 +77,7 @@ newAssociateDRTLogBucket ::
 newAssociateDRTLogBucket pLogBucket_ =
   AssociateDRTLogBucket' {logBucket = pLogBucket_}
 
--- | The Amazon S3 bucket that contains your AWS WAF logs.
+-- | The Amazon S3 bucket that contains the logs that you want to share.
 associateDRTLogBucket_logBucket :: Lens.Lens' AssociateDRTLogBucket Prelude.Text
 associateDRTLogBucket_logBucket = Lens.lens (\AssociateDRTLogBucket' {logBucket} -> logBucket) (\s@AssociateDRTLogBucket' {} a -> s {logBucket = a} :: AssociateDRTLogBucket)
 

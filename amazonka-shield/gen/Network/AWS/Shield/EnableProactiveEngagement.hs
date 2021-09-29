@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the DDoS Response Team (DRT) to use email and phone to notify
--- contacts about escalations to the DRT and to initiate proactive customer
--- support.
+-- Authorizes the Shield Response Team (SRT) to use email and phone to
+-- notify contacts about escalations to the SRT and to initiate proactive
+-- customer support.
 module Network.AWS.Shield.EnableProactiveEngagement
   ( -- * Creating a Request
     EnableProactiveEngagement (..),

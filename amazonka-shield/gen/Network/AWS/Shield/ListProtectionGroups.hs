@@ -164,9 +164,8 @@ instance Core.ToQuery ListProtectionGroups where
 -- | /See:/ 'newListProtectionGroupsResponse' smart constructor.
 data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
   { -- | If you specify a value for @MaxResults@ and you have more protection
-    -- groups than the value of MaxResults, AWS Shield Advanced returns this
-    -- token that you can use in your next request, to get the next batch of
-    -- objects.
+    -- groups than the value of MaxResults, Shield Advanced returns this token
+    -- that you can use in your next request, to get the next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -183,9 +182,8 @@ data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listProtectionGroupsResponse_nextToken' - If you specify a value for @MaxResults@ and you have more protection
--- groups than the value of MaxResults, AWS Shield Advanced returns this
--- token that you can use in your next request, to get the next batch of
--- objects.
+-- groups than the value of MaxResults, Shield Advanced returns this token
+-- that you can use in your next request, to get the next batch of objects.
 --
 -- 'httpStatus', 'listProtectionGroupsResponse_httpStatus' - The response's http status code.
 --
@@ -203,9 +201,8 @@ newListProtectionGroupsResponse pHttpStatus_ =
     }
 
 -- | If you specify a value for @MaxResults@ and you have more protection
--- groups than the value of MaxResults, AWS Shield Advanced returns this
--- token that you can use in your next request, to get the next batch of
--- objects.
+-- groups than the value of MaxResults, Shield Advanced returns this token
+-- that you can use in your next request, to get the next batch of objects.
 listProtectionGroupsResponse_nextToken :: Lens.Lens' ListProtectionGroupsResponse (Prelude.Maybe Prelude.Text)
 listProtectionGroupsResponse_nextToken = Lens.lens (\ListProtectionGroupsResponse' {nextToken} -> nextToken) (\s@ListProtectionGroupsResponse' {} a -> s {nextToken = a} :: ListProtectionGroupsResponse)
 

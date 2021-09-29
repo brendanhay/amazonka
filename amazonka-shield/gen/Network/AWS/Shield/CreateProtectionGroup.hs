@@ -30,6 +30,7 @@ module Network.AWS.Shield.CreateProtectionGroup
 
     -- * Request Lenses
     createProtectionGroup_resourceType,
+    createProtectionGroup_tags,
     createProtectionGroup_members,
     createProtectionGroup_protectionGroupId,
     createProtectionGroup_aggregation,
@@ -59,6 +60,8 @@ data CreateProtectionGroup = CreateProtectionGroup'
     -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
     -- must not set it for any other @Pattern@ setting.
     resourceType :: Prelude.Maybe ProtectedResourceType,
+    -- | One or more tag key-value pairs for the protection group.
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
@@ -67,7 +70,7 @@ data CreateProtectionGroup = CreateProtectionGroup'
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
     protectionGroupId :: Prelude.Text,
-    -- | Defines how AWS Shield combines resource data for the group in order to
+    -- | Defines how Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
     -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -80,8 +83,8 @@ data CreateProtectionGroup = CreateProtectionGroup'
     --
     -- -   Max - Use the highest traffic from each resource. This is useful for
     --     resources that don\'t share traffic and for resources that share
-    --     that traffic in a non-uniform way. Examples include CloudFront
-    --     distributions and origin resources for CloudFront distributions.
+    --     that traffic in a non-uniform way. Examples include Amazon
+    --     CloudFront and origin resources for CloudFront distributions.
     aggregation :: ProtectionGroupAggregation,
     -- | The criteria to use to choose the protected resources for inclusion in
     -- the group. You can include all resources that have protections, provide
@@ -105,6 +108,8 @@ data CreateProtectionGroup = CreateProtectionGroup'
 -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
 -- must not set it for any other @Pattern@ setting.
 --
+-- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.
+--
 -- 'members', 'createProtectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
@@ -113,7 +118,7 @@ data CreateProtectionGroup = CreateProtectionGroup'
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
 --
--- 'aggregation', 'createProtectionGroup_aggregation' - Defines how AWS Shield combines resource data for the group in order to
+-- 'aggregation', 'createProtectionGroup_aggregation' - Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -126,8 +131,8 @@ data CreateProtectionGroup = CreateProtectionGroup'
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront and origin resources for CloudFront distributions.
 --
 -- 'pattern'', 'createProtectionGroup_pattern' - The criteria to use to choose the protected resources for inclusion in
 -- the group. You can include all resources that have protections, provide
@@ -148,6 +153,7 @@ newCreateProtectionGroup
     CreateProtectionGroup'
       { resourceType =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         members = Prelude.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
@@ -162,6 +168,10 @@ newCreateProtectionGroup
 createProtectionGroup_resourceType :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe ProtectedResourceType)
 createProtectionGroup_resourceType = Lens.lens (\CreateProtectionGroup' {resourceType} -> resourceType) (\s@CreateProtectionGroup' {} a -> s {resourceType = a} :: CreateProtectionGroup)
 
+-- | One or more tag key-value pairs for the protection group.
+createProtectionGroup_tags :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe [Tag])
+createProtectionGroup_tags = Lens.lens (\CreateProtectionGroup' {tags} -> tags) (\s@CreateProtectionGroup' {} a -> s {tags = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
@@ -174,7 +184,7 @@ createProtectionGroup_members = Lens.lens (\CreateProtectionGroup' {members} -> 
 createProtectionGroup_protectionGroupId :: Lens.Lens' CreateProtectionGroup Prelude.Text
 createProtectionGroup_protectionGroupId = Lens.lens (\CreateProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@CreateProtectionGroup' {} a -> s {protectionGroupId = a} :: CreateProtectionGroup)
 
--- | Defines how AWS Shield combines resource data for the group in order to
+-- | Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -187,8 +197,8 @@ createProtectionGroup_protectionGroupId = Lens.lens (\CreateProtectionGroup' {pr
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront and origin resources for CloudFront distributions.
 createProtectionGroup_aggregation :: Lens.Lens' CreateProtectionGroup ProtectionGroupAggregation
 createProtectionGroup_aggregation = Lens.lens (\CreateProtectionGroup' {aggregation} -> aggregation) (\s@CreateProtectionGroup' {} a -> s {aggregation = a} :: CreateProtectionGroup)
 
@@ -235,6 +245,7 @@ instance Core.ToJSON CreateProtectionGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("Members" Core..=) Prelude.<$> members,
             Prelude.Just
               ("ProtectionGroupId" Core..= protectionGroupId),

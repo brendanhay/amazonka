@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A list of email addresses and phone numbers that the DDoS Response Team
--- (DRT) can use to contact you if you have proactive engagement enabled,
--- for escalations to the DRT and to initiate proactive customer support.
+-- A list of email addresses and phone numbers that the Shield Response
+-- Team (SRT) can use to contact you if you have proactive engagement
+-- enabled, for escalations to the SRT and to initiate proactive customer
+-- support.
 module Network.AWS.Shield.DescribeEmergencyContactSettings
   ( -- * Creating a Request
     DescribeEmergencyContactSettings (..),
@@ -118,9 +119,10 @@ instance
 
 -- | /See:/ 'newDescribeEmergencyContactSettingsResponse' smart constructor.
 data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettingsResponse'
-  { -- | A list of email addresses and phone numbers that the DDoS Response Team
-    -- (DRT) can use to contact you if you have proactive engagement enabled,
-    -- for escalations to the DRT and to initiate proactive customer support.
+  { -- | A list of email addresses and phone numbers that the Shield Response
+    -- Team (SRT) can use to contact you if you have proactive engagement
+    -- enabled, for escalations to the SRT and to initiate proactive customer
+    -- support.
     emergencyContactList :: Prelude.Maybe [EmergencyContact],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -135,9 +137,10 @@ data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettings
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emergencyContactList', 'describeEmergencyContactSettingsResponse_emergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team
--- (DRT) can use to contact you if you have proactive engagement enabled,
--- for escalations to the DRT and to initiate proactive customer support.
+-- 'emergencyContactList', 'describeEmergencyContactSettingsResponse_emergencyContactList' - A list of email addresses and phone numbers that the Shield Response
+-- Team (SRT) can use to contact you if you have proactive engagement
+-- enabled, for escalations to the SRT and to initiate proactive customer
+-- support.
 --
 -- 'httpStatus', 'describeEmergencyContactSettingsResponse_httpStatus' - The response's http status code.
 newDescribeEmergencyContactSettingsResponse ::
@@ -152,9 +155,10 @@ newDescribeEmergencyContactSettingsResponse
         httpStatus = pHttpStatus_
       }
 
--- | A list of email addresses and phone numbers that the DDoS Response Team
--- (DRT) can use to contact you if you have proactive engagement enabled,
--- for escalations to the DRT and to initiate proactive customer support.
+-- | A list of email addresses and phone numbers that the Shield Response
+-- Team (SRT) can use to contact you if you have proactive engagement
+-- enabled, for escalations to the SRT and to initiate proactive customer
+-- support.
 describeEmergencyContactSettingsResponse_emergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Prelude.Maybe [EmergencyContact])
 describeEmergencyContactSettingsResponse_emergencyContactList = Lens.lens (\DescribeEmergencyContactSettingsResponse' {emergencyContactList} -> emergencyContactList) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
 

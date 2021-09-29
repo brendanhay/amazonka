@@ -79,8 +79,8 @@ module Network.AWS.Shield.Types
     attackProperty_unit,
     attackProperty_total,
     attackProperty_attackPropertyIdentifier,
-    attackProperty_attackLayer,
     attackProperty_topContributors,
+    attackProperty_attackLayer,
 
     -- * AttackStatisticsDataItem
     AttackStatisticsDataItem (..),
@@ -142,6 +142,7 @@ module Network.AWS.Shield.Types
     Protection (..),
     newProtection,
     protection_resourceArn,
+    protection_protectionArn,
     protection_id,
     protection_name,
     protection_healthCheckIds,
@@ -150,6 +151,7 @@ module Network.AWS.Shield.Types
     ProtectionGroup (..),
     newProtectionGroup,
     protectionGroup_resourceType,
+    protectionGroup_protectionGroupArn,
     protectionGroup_protectionGroupId,
     protectionGroup_aggregation,
     protectionGroup_pattern,
@@ -192,6 +194,7 @@ module Network.AWS.Shield.Types
     subscription_startTime,
     subscription_endTime,
     subscription_limits,
+    subscription_subscriptionArn,
     subscription_timeCommitmentInSeconds,
     subscription_subscriptionLimits,
 
@@ -210,12 +213,18 @@ module Network.AWS.Shield.Types
     -- * SummarizedCounter
     SummarizedCounter (..),
     newSummarizedCounter,
-    summarizedCounter_unit,
     summarizedCounter_n,
+    summarizedCounter_unit,
     summarizedCounter_sum,
     summarizedCounter_name,
     summarizedCounter_max,
     summarizedCounter_average,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * TimeRange
     TimeRange (..),
@@ -259,6 +268,7 @@ import Network.AWS.Shield.Types.SubscriptionLimits
 import Network.AWS.Shield.Types.SubscriptionState
 import Network.AWS.Shield.Types.SummarizedAttackVector
 import Network.AWS.Shield.Types.SummarizedCounter
+import Network.AWS.Shield.Types.Tag
 import Network.AWS.Shield.Types.TimeRange
 import Network.AWS.Shield.Types.Unit
 import qualified Network.AWS.Sign.V4 as Sign
@@ -425,11 +435,11 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | In order to grant the necessary access to the DDoS Response Team (DRT),
+-- | In order to grant the necessary access to the Shield Response Team (SRT)
 -- the user submitting the request must have the @iam:PassRole@ permission.
 -- This error indicates the user did not have the appropriate permissions.
 -- For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an AWS Service>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an Amazon Web Services Service>.
 _AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedForDependencyException =
   Core._MatchServiceError
@@ -437,10 +447,6 @@ _AccessDeniedForDependencyException =
     "AccessDeniedForDependencyException"
 
 -- | Exception that indicates that the operation would exceed a limit.
---
--- @Type@ is the type of limit that would be exceeded.
---
--- @Limit@ is the threshold that would be exceeded.
 _LimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitsExceededException =
   Core._MatchServiceError

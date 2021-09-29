@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the current role and list of Amazon S3 log buckets used by the
--- DDoS Response Team (DRT) to access your AWS account while assisting with
--- attack mitigation.
+-- Shield Response Team (SRT) to access your Amazon Web Services account
+-- while assisting with attack mitigation.
 module Network.AWS.Shield.DescribeDRTAccess
   ( -- * Creating a Request
     DescribeDRTAccess (..),
@@ -104,10 +104,10 @@ instance Core.ToQuery DescribeDRTAccess where
 
 -- | /See:/ 'newDescribeDRTAccessResponse' smart constructor.
 data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
-  { -- | The Amazon Resource Name (ARN) of the role the DRT used to access your
-    -- AWS account.
+  { -- | The Amazon Resource Name (ARN) of the role the SRT used to access your
+    -- Amazon Web Services account.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The list of Amazon S3 buckets accessed by the DRT.
+    -- | The list of Amazon S3 buckets accessed by the SRT.
     logBucketList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -122,10 +122,10 @@ data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeDRTAccessResponse_roleArn' - The Amazon Resource Name (ARN) of the role the DRT used to access your
--- AWS account.
+-- 'roleArn', 'describeDRTAccessResponse_roleArn' - The Amazon Resource Name (ARN) of the role the SRT used to access your
+-- Amazon Web Services account.
 --
--- 'logBucketList', 'describeDRTAccessResponse_logBucketList' - The list of Amazon S3 buckets accessed by the DRT.
+-- 'logBucketList', 'describeDRTAccessResponse_logBucketList' - The list of Amazon S3 buckets accessed by the SRT.
 --
 -- 'httpStatus', 'describeDRTAccessResponse_httpStatus' - The response's http status code.
 newDescribeDRTAccessResponse ::
@@ -140,12 +140,12 @@ newDescribeDRTAccessResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the role the DRT used to access your
--- AWS account.
+-- | The Amazon Resource Name (ARN) of the role the SRT used to access your
+-- Amazon Web Services account.
 describeDRTAccessResponse_roleArn :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe Prelude.Text)
 describeDRTAccessResponse_roleArn = Lens.lens (\DescribeDRTAccessResponse' {roleArn} -> roleArn) (\s@DescribeDRTAccessResponse' {} a -> s {roleArn = a} :: DescribeDRTAccessResponse)
 
--- | The list of Amazon S3 buckets accessed by the DRT.
+-- | The list of Amazon S3 buckets accessed by the SRT.
 describeDRTAccessResponse_logBucketList :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe [Prelude.Text])
 describeDRTAccessResponse_logBucketList = Lens.lens (\DescribeDRTAccessResponse' {logBucketList} -> logBucketList) (\s@DescribeDRTAccessResponse' {} a -> s {logBucketList = a} :: DescribeDRTAccessResponse) Prelude.. Lens.mapping Lens._Coerce
 

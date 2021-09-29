@@ -43,23 +43,23 @@ data JobExecution = JobExecution'
     -- | The time, in milliseconds since the epoch, when the job execution was
     -- enqueued.
     queuedAt :: Prelude.Maybe Prelude.Integer,
-    -- | The version of the job execution. Job execution versions are incremented
-    -- each time they are updated by a device.
-    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | A number that identifies a particular job execution on a particular
     -- device. It can be used later in commands that return or update job
     -- execution information.
     executionNumber :: Prelude.Maybe Prelude.Integer,
+    -- | The version of the job execution. Job execution versions are incremented
+    -- each time they are updated by a device.
+    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The content of the job document.
     jobDocument :: Prelude.Maybe Prelude.Text,
     -- | The estimated number of seconds that remain before the job execution
     -- status will be changed to @TIMED_OUT@.
     approximateSecondsBeforeTimedOut :: Prelude.Maybe Prelude.Integer,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the job execution was
     -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Prelude.Integer,
-    -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text
+    lastUpdatedAt :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,22 +86,22 @@ data JobExecution = JobExecution'
 -- 'queuedAt', 'jobExecution_queuedAt' - The time, in milliseconds since the epoch, when the job execution was
 -- enqueued.
 --
--- 'versionNumber', 'jobExecution_versionNumber' - The version of the job execution. Job execution versions are incremented
--- each time they are updated by a device.
---
 -- 'executionNumber', 'jobExecution_executionNumber' - A number that identifies a particular job execution on a particular
 -- device. It can be used later in commands that return or update job
 -- execution information.
+--
+-- 'versionNumber', 'jobExecution_versionNumber' - The version of the job execution. Job execution versions are incremented
+-- each time they are updated by a device.
 --
 -- 'jobDocument', 'jobExecution_jobDocument' - The content of the job document.
 --
 -- 'approximateSecondsBeforeTimedOut', 'jobExecution_approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution
 -- status will be changed to @TIMED_OUT@.
 --
+-- 'jobId', 'jobExecution_jobId' - The unique identifier you assigned to this job when it was created.
+--
 -- 'lastUpdatedAt', 'jobExecution_lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was
 -- last updated.
---
--- 'jobId', 'jobExecution_jobId' - The unique identifier you assigned to this job when it was created.
 newJobExecution ::
   JobExecution
 newJobExecution =
@@ -111,12 +111,12 @@ newJobExecution =
       statusDetails = Prelude.Nothing,
       thingName = Prelude.Nothing,
       queuedAt = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
       executionNumber = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       jobDocument = Prelude.Nothing,
       approximateSecondsBeforeTimedOut = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobId = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | The time, in milliseconds since the epoch, when the job execution was
@@ -144,16 +144,16 @@ jobExecution_thingName = Lens.lens (\JobExecution' {thingName} -> thingName) (\s
 jobExecution_queuedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@JobExecution' {} a -> s {queuedAt = a} :: JobExecution)
 
--- | The version of the job execution. Job execution versions are incremented
--- each time they are updated by a device.
-jobExecution_versionNumber :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
-jobExecution_versionNumber = Lens.lens (\JobExecution' {versionNumber} -> versionNumber) (\s@JobExecution' {} a -> s {versionNumber = a} :: JobExecution)
-
 -- | A number that identifies a particular job execution on a particular
 -- device. It can be used later in commands that return or update job
 -- execution information.
 jobExecution_executionNumber :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_executionNumber = Lens.lens (\JobExecution' {executionNumber} -> executionNumber) (\s@JobExecution' {} a -> s {executionNumber = a} :: JobExecution)
+
+-- | The version of the job execution. Job execution versions are incremented
+-- each time they are updated by a device.
+jobExecution_versionNumber :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
+jobExecution_versionNumber = Lens.lens (\JobExecution' {versionNumber} -> versionNumber) (\s@JobExecution' {} a -> s {versionNumber = a} :: JobExecution)
 
 -- | The content of the job document.
 jobExecution_jobDocument :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Text)
@@ -164,14 +164,14 @@ jobExecution_jobDocument = Lens.lens (\JobExecution' {jobDocument} -> jobDocumen
 jobExecution_approximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_approximateSecondsBeforeTimedOut = Lens.lens (\JobExecution' {approximateSecondsBeforeTimedOut} -> approximateSecondsBeforeTimedOut) (\s@JobExecution' {} a -> s {approximateSecondsBeforeTimedOut = a} :: JobExecution)
 
+-- | The unique identifier you assigned to this job when it was created.
+jobExecution_jobId :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Text)
+jobExecution_jobId = Lens.lens (\JobExecution' {jobId} -> jobId) (\s@JobExecution' {} a -> s {jobId = a} :: JobExecution)
+
 -- | The time, in milliseconds since the epoch, when the job execution was
 -- last updated.
 jobExecution_lastUpdatedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_lastUpdatedAt = Lens.lens (\JobExecution' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecution' {} a -> s {lastUpdatedAt = a} :: JobExecution)
-
--- | The unique identifier you assigned to this job when it was created.
-jobExecution_jobId :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Text)
-jobExecution_jobId = Lens.lens (\JobExecution' {jobId} -> jobId) (\s@JobExecution' {} a -> s {jobId = a} :: JobExecution)
 
 instance Core.FromJSON JobExecution where
   parseJSON =
@@ -184,12 +184,12 @@ instance Core.FromJSON JobExecution where
             Prelude.<*> (x Core..:? "statusDetails" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "thingName")
             Prelude.<*> (x Core..:? "queuedAt")
-            Prelude.<*> (x Core..:? "versionNumber")
             Prelude.<*> (x Core..:? "executionNumber")
+            Prelude.<*> (x Core..:? "versionNumber")
             Prelude.<*> (x Core..:? "jobDocument")
             Prelude.<*> (x Core..:? "approximateSecondsBeforeTimedOut")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "jobId")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
 instance Prelude.Hashable JobExecution

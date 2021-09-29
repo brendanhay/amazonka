@@ -51,11 +51,11 @@ module Network.AWS.IoTJobsData
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InvalidStateTransitionException
-    _InvalidStateTransitionException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
 
     -- * Waiters
     -- $waiters

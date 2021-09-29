@@ -22,8 +22,8 @@ module Network.AWS.IoTJobsData.Types
     _ServiceUnavailableException,
     _ThrottlingException,
     _InvalidRequestException,
-    _InvalidStateTransitionException,
     _ResourceNotFoundException,
+    _InvalidStateTransitionException,
 
     -- * JobExecutionStatus
     JobExecutionStatus (..),
@@ -36,12 +36,12 @@ module Network.AWS.IoTJobsData.Types
     jobExecution_statusDetails,
     jobExecution_thingName,
     jobExecution_queuedAt,
-    jobExecution_versionNumber,
     jobExecution_executionNumber,
+    jobExecution_versionNumber,
     jobExecution_jobDocument,
     jobExecution_approximateSecondsBeforeTimedOut,
-    jobExecution_lastUpdatedAt,
     jobExecution_jobId,
+    jobExecution_lastUpdatedAt,
 
     -- * JobExecutionState
     JobExecutionState (..),
@@ -55,10 +55,10 @@ module Network.AWS.IoTJobsData.Types
     newJobExecutionSummary,
     jobExecutionSummary_startedAt,
     jobExecutionSummary_queuedAt,
-    jobExecutionSummary_versionNumber,
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_versionNumber,
     jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
   )
 where
 
@@ -184,6 +184,14 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | An update attempted to change the job execution to a state that is
 -- invalid because of the job execution\'s current state (for example, an
 -- attempt to change a request in state SUCCESS to state IN_PROGRESS). In
@@ -195,11 +203,3 @@ _InvalidStateTransitionException =
     defaultService
     "InvalidStateTransitionException"
     Prelude.. Core.hasStatus 409
-
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404

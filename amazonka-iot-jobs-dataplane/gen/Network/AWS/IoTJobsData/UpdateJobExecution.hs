@@ -27,8 +27,8 @@ module Network.AWS.IoTJobsData.UpdateJobExecution
     newUpdateJobExecution,
 
     -- * Request Lenses
-    updateJobExecution_expectedVersion,
     updateJobExecution_includeJobDocument,
+    updateJobExecution_expectedVersion,
     updateJobExecution_includeJobExecutionState,
     updateJobExecution_statusDetails,
     updateJobExecution_stepTimeoutInMinutes,
@@ -57,7 +57,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateJobExecution' smart constructor.
 data UpdateJobExecution = UpdateJobExecution'
-  { -- | Optional. The expected current version of the job execution. Each time
+  { -- | Optional. When set to true, the response contains the job document. The
+    -- default is false.
+    includeJobDocument :: Prelude.Maybe Prelude.Bool,
+    -- | Optional. The expected current version of the job execution. Each time
     -- you update the job execution, its version is incremented. If the version
     -- of the job execution stored in Jobs does not match, the update is
     -- rejected with a VersionMismatch error, and an ErrorResponse that
@@ -65,9 +68,6 @@ data UpdateJobExecution = UpdateJobExecution'
     -- it unnecessary to perform a separate DescribeJobExecution request in
     -- order to obtain the job execution status data.)
     expectedVersion :: Prelude.Maybe Prelude.Integer,
-    -- | Optional. When set to true, the response contains the job document. The
-    -- default is false.
-    includeJobDocument :: Prelude.Maybe Prelude.Bool,
     -- | Optional. When included and set to true, the response contains the
     -- JobExecutionState data. The default is false.
     includeJobExecutionState :: Prelude.Maybe Prelude.Bool,
@@ -105,6 +105,9 @@ data UpdateJobExecution = UpdateJobExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeJobDocument', 'updateJobExecution_includeJobDocument' - Optional. When set to true, the response contains the job document. The
+-- default is false.
+--
 -- 'expectedVersion', 'updateJobExecution_expectedVersion' - Optional. The expected current version of the job execution. Each time
 -- you update the job execution, its version is incremented. If the version
 -- of the job execution stored in Jobs does not match, the update is
@@ -112,9 +115,6 @@ data UpdateJobExecution = UpdateJobExecution'
 -- contains the current job execution status data is returned. (This makes
 -- it unnecessary to perform a separate DescribeJobExecution request in
 -- order to obtain the job execution status data.)
---
--- 'includeJobDocument', 'updateJobExecution_includeJobDocument' - Optional. When set to true, the response contains the job document. The
--- default is false.
 --
 -- 'includeJobExecutionState', 'updateJobExecution_includeJobExecutionState' - Optional. When included and set to true, the response contains the
 -- JobExecutionState data. The default is false.
@@ -151,9 +151,9 @@ newUpdateJobExecution ::
   UpdateJobExecution
 newUpdateJobExecution pJobId_ pThingName_ pStatus_ =
   UpdateJobExecution'
-    { expectedVersion =
+    { includeJobDocument =
         Prelude.Nothing,
-      includeJobDocument = Prelude.Nothing,
+      expectedVersion = Prelude.Nothing,
       includeJobExecutionState = Prelude.Nothing,
       statusDetails = Prelude.Nothing,
       stepTimeoutInMinutes = Prelude.Nothing,
@@ -162,6 +162,11 @@ newUpdateJobExecution pJobId_ pThingName_ pStatus_ =
       thingName = pThingName_,
       status = pStatus_
     }
+
+-- | Optional. When set to true, the response contains the job document. The
+-- default is false.
+updateJobExecution_includeJobDocument :: Lens.Lens' UpdateJobExecution (Prelude.Maybe Prelude.Bool)
+updateJobExecution_includeJobDocument = Lens.lens (\UpdateJobExecution' {includeJobDocument} -> includeJobDocument) (\s@UpdateJobExecution' {} a -> s {includeJobDocument = a} :: UpdateJobExecution)
 
 -- | Optional. The expected current version of the job execution. Each time
 -- you update the job execution, its version is incremented. If the version
@@ -172,11 +177,6 @@ newUpdateJobExecution pJobId_ pThingName_ pStatus_ =
 -- order to obtain the job execution status data.)
 updateJobExecution_expectedVersion :: Lens.Lens' UpdateJobExecution (Prelude.Maybe Prelude.Integer)
 updateJobExecution_expectedVersion = Lens.lens (\UpdateJobExecution' {expectedVersion} -> expectedVersion) (\s@UpdateJobExecution' {} a -> s {expectedVersion = a} :: UpdateJobExecution)
-
--- | Optional. When set to true, the response contains the job document. The
--- default is false.
-updateJobExecution_includeJobDocument :: Lens.Lens' UpdateJobExecution (Prelude.Maybe Prelude.Bool)
-updateJobExecution_includeJobDocument = Lens.lens (\UpdateJobExecution' {includeJobDocument} -> includeJobDocument) (\s@UpdateJobExecution' {} a -> s {includeJobDocument = a} :: UpdateJobExecution)
 
 -- | Optional. When included and set to true, the response contains the
 -- JobExecutionState data. The default is false.
@@ -243,10 +243,10 @@ instance Core.ToJSON UpdateJobExecution where
   toJSON UpdateJobExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("expectedVersion" Core..=)
-              Prelude.<$> expectedVersion,
-            ("includeJobDocument" Core..=)
+          [ ("includeJobDocument" Core..=)
               Prelude.<$> includeJobDocument,
+            ("expectedVersion" Core..=)
+              Prelude.<$> expectedVersion,
             ("includeJobExecutionState" Core..=)
               Prelude.<$> includeJobExecutionState,
             ("statusDetails" Core..=) Prelude.<$> statusDetails,

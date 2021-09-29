@@ -140,11 +140,11 @@ module Network.AWS.OpsWorksCM
     CreateServerResponse (CreateServerResponse'),
     newCreateServerResponse,
 
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
+    -- ** DescribeServers (Paginated)
+    DescribeServers (DescribeServers'),
+    newDescribeServers,
+    DescribeServersResponse (DescribeServersResponse'),
+    newDescribeServersResponse,
 
     -- ** ExportServerEngineAttribute
     ExportServerEngineAttribute (ExportServerEngineAttribute'),
@@ -152,11 +152,11 @@ module Network.AWS.OpsWorksCM
     ExportServerEngineAttributeResponse (ExportServerEngineAttributeResponse'),
     newExportServerEngineAttributeResponse,
 
-    -- ** DescribeServers (Paginated)
-    DescribeServers (DescribeServers'),
-    newDescribeServers,
-    DescribeServersResponse (DescribeServersResponse'),
-    newDescribeServersResponse,
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -164,29 +164,29 @@ module Network.AWS.OpsWorksCM
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeNodeAssociationStatus
-    DescribeNodeAssociationStatus (DescribeNodeAssociationStatus'),
-    newDescribeNodeAssociationStatus,
-    DescribeNodeAssociationStatusResponse (DescribeNodeAssociationStatusResponse'),
-    newDescribeNodeAssociationStatusResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** DisassociateNode
-    DisassociateNode (DisassociateNode'),
-    newDisassociateNode,
-    DisassociateNodeResponse (DisassociateNodeResponse'),
-    newDisassociateNodeResponse,
+    -- ** DescribeNodeAssociationStatus
+    DescribeNodeAssociationStatus (DescribeNodeAssociationStatus'),
+    newDescribeNodeAssociationStatus,
+    DescribeNodeAssociationStatusResponse (DescribeNodeAssociationStatusResponse'),
+    newDescribeNodeAssociationStatusResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
+
+    -- ** DisassociateNode
+    DisassociateNode (DisassociateNode'),
+    newDisassociateNode,
+    DisassociateNodeResponse (DisassociateNodeResponse'),
+    newDisassociateNodeResponse,
 
     -- ** CreateBackup
     CreateBackup (CreateBackup'),
@@ -206,12 +206,6 @@ module Network.AWS.OpsWorksCM
     DescribeBackupsResponse (DescribeBackupsResponse'),
     newDescribeBackupsResponse,
 
-    -- ** UpdateServerEngineAttributes
-    UpdateServerEngineAttributes (UpdateServerEngineAttributes'),
-    newUpdateServerEngineAttributes,
-    UpdateServerEngineAttributesResponse (UpdateServerEngineAttributesResponse'),
-    newUpdateServerEngineAttributesResponse,
-
     -- ** StartMaintenance
     StartMaintenance (StartMaintenance'),
     newStartMaintenance,
@@ -223,6 +217,12 @@ module Network.AWS.OpsWorksCM
     newRestoreServer,
     RestoreServerResponse (RestoreServerResponse'),
     newRestoreServerResponse,
+
+    -- ** UpdateServerEngineAttributes
+    UpdateServerEngineAttributes (UpdateServerEngineAttributes'),
+    newUpdateServerEngineAttributes,
+    UpdateServerEngineAttributesResponse (UpdateServerEngineAttributesResponse'),
+    newUpdateServerEngineAttributesResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),

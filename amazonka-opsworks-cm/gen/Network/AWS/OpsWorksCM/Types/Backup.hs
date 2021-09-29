@@ -29,21 +29,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBackup' smart constructor.
 data Backup = Backup'
-  { -- | The security group IDs that are obtained from the server when the backup
-    -- is created.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The EC2 instance profile ARN that is obtained from the server when the
+  { -- | The EC2 instance profile ARN that is obtained from the server when the
     -- backup is created. Because this value is stored, you are not required to
     -- provide the InstanceProfileArn again if you restore a backup.
     instanceProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The preferred backup period that is obtained from the server when the
     -- backup is created.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | The status of a backup while in progress.
-    status :: Prelude.Maybe BackupStatus,
+    -- | The security group IDs that are obtained from the server when the backup
+    -- is created.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The service role ARN that is obtained from the server when the backup is
     -- created.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of a backup while in progress.
+    status :: Prelude.Maybe BackupStatus,
     -- | The IAM user ARN of the requester for manual backups. This field is
     -- empty for automated backups.
     userArn :: Prelude.Maybe Prelude.Text,
@@ -52,24 +52,24 @@ data Backup = Backup'
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The backup type. Valid values are @automated@ or @manual@.
     backupType :: Prelude.Maybe BackupType,
-    -- | The generated ID of the backup. Example:
-    -- @myServerName-yyyyMMddHHmmssSSS@
-    backupId :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated and is no longer used.
     s3DataUrl :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the backup.
     backupArn :: Prelude.Maybe Prelude.Text,
-    -- | The subnet IDs that are obtained from the server when the backup is
-    -- created.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The key pair that is obtained from the server when the backup is
-    -- created.
-    keyPair :: Prelude.Maybe Prelude.Text,
-    -- | This field is deprecated and is no longer used.
-    s3DataSize :: Prelude.Maybe Prelude.Int,
+    -- | The generated ID of the backup. Example:
+    -- @myServerName-yyyyMMddHHmmssSSS@
+    backupId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the backup was created in the database. Example:
     -- @2016-07-29T13:38:47.520Z@
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The subnet IDs that are obtained from the server when the backup is
+    -- created.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | This field is deprecated and is no longer used.
+    s3DataSize :: Prelude.Maybe Prelude.Int,
+    -- | The key pair that is obtained from the server when the backup is
+    -- created.
+    keyPair :: Prelude.Maybe Prelude.Text,
     -- | The name of the server from which the backup was made.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URL of the backup\'s log file.
@@ -105,9 +105,6 @@ data Backup = Backup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'backup_securityGroupIds' - The security group IDs that are obtained from the server when the backup
--- is created.
---
 -- 'instanceProfileArn', 'backup_instanceProfileArn' - The EC2 instance profile ARN that is obtained from the server when the
 -- backup is created. Because this value is stored, you are not required to
 -- provide the InstanceProfileArn again if you restore a backup.
@@ -115,10 +112,13 @@ data Backup = Backup'
 -- 'preferredBackupWindow', 'backup_preferredBackupWindow' - The preferred backup period that is obtained from the server when the
 -- backup is created.
 --
--- 'status', 'backup_status' - The status of a backup while in progress.
+-- 'securityGroupIds', 'backup_securityGroupIds' - The security group IDs that are obtained from the server when the backup
+-- is created.
 --
 -- 'serviceRoleArn', 'backup_serviceRoleArn' - The service role ARN that is obtained from the server when the backup is
 -- created.
+--
+-- 'status', 'backup_status' - The status of a backup while in progress.
 --
 -- 'userArn', 'backup_userArn' - The IAM user ARN of the requester for manual backups. This field is
 -- empty for automated backups.
@@ -128,23 +128,23 @@ data Backup = Backup'
 --
 -- 'backupType', 'backup_backupType' - The backup type. Valid values are @automated@ or @manual@.
 --
--- 'backupId', 'backup_backupId' - The generated ID of the backup. Example:
--- @myServerName-yyyyMMddHHmmssSSS@
---
 -- 's3DataUrl', 'backup_s3DataUrl' - This field is deprecated and is no longer used.
 --
 -- 'backupArn', 'backup_backupArn' - The ARN of the backup.
 --
--- 'subnetIds', 'backup_subnetIds' - The subnet IDs that are obtained from the server when the backup is
--- created.
+-- 'backupId', 'backup_backupId' - The generated ID of the backup. Example:
+-- @myServerName-yyyyMMddHHmmssSSS@
 --
--- 'keyPair', 'backup_keyPair' - The key pair that is obtained from the server when the backup is
+-- 'createdAt', 'backup_createdAt' - The time stamp when the backup was created in the database. Example:
+-- @2016-07-29T13:38:47.520Z@
+--
+-- 'subnetIds', 'backup_subnetIds' - The subnet IDs that are obtained from the server when the backup is
 -- created.
 --
 -- 's3DataSize', 'backup_s3DataSize' - This field is deprecated and is no longer used.
 --
--- 'createdAt', 'backup_createdAt' - The time stamp when the backup was created in the database. Example:
--- @2016-07-29T13:38:47.520Z@
+-- 'keyPair', 'backup_keyPair' - The key pair that is obtained from the server when the backup is
+-- created.
 --
 -- 'serverName', 'backup_serverName' - The name of the server from which the backup was made.
 --
@@ -173,21 +173,21 @@ newBackup ::
   Backup
 newBackup =
   Backup'
-    { securityGroupIds = Prelude.Nothing,
-      instanceProfileArn = Prelude.Nothing,
+    { instanceProfileArn = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
-      status = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       serviceRoleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       userArn = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       backupType = Prelude.Nothing,
-      backupId = Prelude.Nothing,
       s3DataUrl = Prelude.Nothing,
       backupArn = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      keyPair = Prelude.Nothing,
-      s3DataSize = Prelude.Nothing,
+      backupId = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      s3DataSize = Prelude.Nothing,
+      keyPair = Prelude.Nothing,
       serverName = Prelude.Nothing,
       s3LogUrl = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
@@ -198,11 +198,6 @@ newBackup =
       description = Prelude.Nothing,
       statusDescription = Prelude.Nothing
     }
-
--- | The security group IDs that are obtained from the server when the backup
--- is created.
-backup_securityGroupIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
-backup_securityGroupIds = Lens.lens (\Backup' {securityGroupIds} -> securityGroupIds) (\s@Backup' {} a -> s {securityGroupIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The EC2 instance profile ARN that is obtained from the server when the
 -- backup is created. Because this value is stored, you are not required to
@@ -215,14 +210,19 @@ backup_instanceProfileArn = Lens.lens (\Backup' {instanceProfileArn} -> instance
 backup_preferredBackupWindow :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_preferredBackupWindow = Lens.lens (\Backup' {preferredBackupWindow} -> preferredBackupWindow) (\s@Backup' {} a -> s {preferredBackupWindow = a} :: Backup)
 
--- | The status of a backup while in progress.
-backup_status :: Lens.Lens' Backup (Prelude.Maybe BackupStatus)
-backup_status = Lens.lens (\Backup' {status} -> status) (\s@Backup' {} a -> s {status = a} :: Backup)
+-- | The security group IDs that are obtained from the server when the backup
+-- is created.
+backup_securityGroupIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
+backup_securityGroupIds = Lens.lens (\Backup' {securityGroupIds} -> securityGroupIds) (\s@Backup' {} a -> s {securityGroupIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The service role ARN that is obtained from the server when the backup is
 -- created.
 backup_serviceRoleArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_serviceRoleArn = Lens.lens (\Backup' {serviceRoleArn} -> serviceRoleArn) (\s@Backup' {} a -> s {serviceRoleArn = a} :: Backup)
+
+-- | The status of a backup while in progress.
+backup_status :: Lens.Lens' Backup (Prelude.Maybe BackupStatus)
+backup_status = Lens.lens (\Backup' {status} -> status) (\s@Backup' {} a -> s {status = a} :: Backup)
 
 -- | The IAM user ARN of the requester for manual backups. This field is
 -- empty for automated backups.
@@ -238,11 +238,6 @@ backup_instanceType = Lens.lens (\Backup' {instanceType} -> instanceType) (\s@Ba
 backup_backupType :: Lens.Lens' Backup (Prelude.Maybe BackupType)
 backup_backupType = Lens.lens (\Backup' {backupType} -> backupType) (\s@Backup' {} a -> s {backupType = a} :: Backup)
 
--- | The generated ID of the backup. Example:
--- @myServerName-yyyyMMddHHmmssSSS@
-backup_backupId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
-backup_backupId = Lens.lens (\Backup' {backupId} -> backupId) (\s@Backup' {} a -> s {backupId = a} :: Backup)
-
 -- | This field is deprecated and is no longer used.
 backup_s3DataUrl :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_s3DataUrl = Lens.lens (\Backup' {s3DataUrl} -> s3DataUrl) (\s@Backup' {} a -> s {s3DataUrl = a} :: Backup)
@@ -251,24 +246,29 @@ backup_s3DataUrl = Lens.lens (\Backup' {s3DataUrl} -> s3DataUrl) (\s@Backup' {} 
 backup_backupArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_backupArn = Lens.lens (\Backup' {backupArn} -> backupArn) (\s@Backup' {} a -> s {backupArn = a} :: Backup)
 
--- | The subnet IDs that are obtained from the server when the backup is
--- created.
-backup_subnetIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
-backup_subnetIds = Lens.lens (\Backup' {subnetIds} -> subnetIds) (\s@Backup' {} a -> s {subnetIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
-
--- | The key pair that is obtained from the server when the backup is
--- created.
-backup_keyPair :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
-backup_keyPair = Lens.lens (\Backup' {keyPair} -> keyPair) (\s@Backup' {} a -> s {keyPair = a} :: Backup)
-
--- | This field is deprecated and is no longer used.
-backup_s3DataSize :: Lens.Lens' Backup (Prelude.Maybe Prelude.Int)
-backup_s3DataSize = Lens.lens (\Backup' {s3DataSize} -> s3DataSize) (\s@Backup' {} a -> s {s3DataSize = a} :: Backup)
+-- | The generated ID of the backup. Example:
+-- @myServerName-yyyyMMddHHmmssSSS@
+backup_backupId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
+backup_backupId = Lens.lens (\Backup' {backupId} -> backupId) (\s@Backup' {} a -> s {backupId = a} :: Backup)
 
 -- | The time stamp when the backup was created in the database. Example:
 -- @2016-07-29T13:38:47.520Z@
 backup_createdAt :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
 backup_createdAt = Lens.lens (\Backup' {createdAt} -> createdAt) (\s@Backup' {} a -> s {createdAt = a} :: Backup) Prelude.. Lens.mapping Core._Time
+
+-- | The subnet IDs that are obtained from the server when the backup is
+-- created.
+backup_subnetIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
+backup_subnetIds = Lens.lens (\Backup' {subnetIds} -> subnetIds) (\s@Backup' {} a -> s {subnetIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
+
+-- | This field is deprecated and is no longer used.
+backup_s3DataSize :: Lens.Lens' Backup (Prelude.Maybe Prelude.Int)
+backup_s3DataSize = Lens.lens (\Backup' {s3DataSize} -> s3DataSize) (\s@Backup' {} a -> s {s3DataSize = a} :: Backup)
+
+-- | The key pair that is obtained from the server when the backup is
+-- created.
+backup_keyPair :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
+backup_keyPair = Lens.lens (\Backup' {keyPair} -> keyPair) (\s@Backup' {} a -> s {keyPair = a} :: Backup)
 
 -- | The name of the server from which the backup was made.
 backup_serverName :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
@@ -318,23 +318,23 @@ instance Core.FromJSON Backup where
       "Backup"
       ( \x ->
           Backup'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
+            Prelude.<$> (x Core..:? "InstanceProfileArn")
+            Prelude.<*> (x Core..:? "PreferredBackupWindow")
+            Prelude.<*> ( x Core..:? "SecurityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InstanceProfileArn")
-            Prelude.<*> (x Core..:? "PreferredBackupWindow")
-            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ServiceRoleArn")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "UserArn")
             Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "BackupType")
-            Prelude.<*> (x Core..:? "BackupId")
             Prelude.<*> (x Core..:? "S3DataUrl")
             Prelude.<*> (x Core..:? "BackupArn")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "KeyPair")
-            Prelude.<*> (x Core..:? "S3DataSize")
+            Prelude.<*> (x Core..:? "BackupId")
             Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "S3DataSize")
+            Prelude.<*> (x Core..:? "KeyPair")
             Prelude.<*> (x Core..:? "ServerName")
             Prelude.<*> (x Core..:? "S3LogUrl")
             Prelude.<*> (x Core..:? "EngineVersion")

@@ -187,10 +187,18 @@ data DescribeServersResponse = DescribeServersResponse'
     -- Automate 1 must have had at least one successful maintenance run after
     -- November 1, 2019.
     --
-    -- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@
-    -- contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that
-    -- is used by the Puppet API over TCP port number 8140. The CA certificate
-    -- is also used to sign node certificates.
+    -- /For Puppet servers:/ @DescribeServersResponse$Servers$EngineAttributes@
+    -- contains the following two responses:
+    --
+    -- -   @PUPPET_API_CA_CERT@, the PEM-encoded CA certificate that is used by
+    --     the Puppet API over TCP port number 8140. The CA certificate is also
+    --     used to sign node certificates.
+    --
+    -- -   @PUPPET_API_CRL@, a certificate revocation list. The certificate
+    --     revocation list is for internal maintenance purposes only. For more
+    --     information about the Puppet certificate revocation list, see
+    --     <https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html Man Page: puppet certificate_revocation_list>
+    --     in the Puppet documentation.
     servers :: Prelude.Maybe [Server],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -216,10 +224,18 @@ data DescribeServersResponse = DescribeServersResponse'
 -- Automate 1 must have had at least one successful maintenance run after
 -- November 1, 2019.
 --
--- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@
--- contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that
--- is used by the Puppet API over TCP port number 8140. The CA certificate
--- is also used to sign node certificates.
+-- /For Puppet servers:/ @DescribeServersResponse$Servers$EngineAttributes@
+-- contains the following two responses:
+--
+-- -   @PUPPET_API_CA_CERT@, the PEM-encoded CA certificate that is used by
+--     the Puppet API over TCP port number 8140. The CA certificate is also
+--     used to sign node certificates.
+--
+-- -   @PUPPET_API_CRL@, a certificate revocation list. The certificate
+--     revocation list is for internal maintenance purposes only. For more
+--     information about the Puppet certificate revocation list, see
+--     <https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html Man Page: puppet certificate_revocation_list>
+--     in the Puppet documentation.
 --
 -- 'httpStatus', 'describeServersResponse_httpStatus' - The response's http status code.
 newDescribeServersResponse ::
@@ -247,10 +263,18 @@ describeServersResponse_nextToken = Lens.lens (\DescribeServersResponse' {nextTo
 -- Automate 1 must have had at least one successful maintenance run after
 -- November 1, 2019.
 --
--- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@
--- contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that
--- is used by the Puppet API over TCP port number 8140. The CA certificate
--- is also used to sign node certificates.
+-- /For Puppet servers:/ @DescribeServersResponse$Servers$EngineAttributes@
+-- contains the following two responses:
+--
+-- -   @PUPPET_API_CA_CERT@, the PEM-encoded CA certificate that is used by
+--     the Puppet API over TCP port number 8140. The CA certificate is also
+--     used to sign node certificates.
+--
+-- -   @PUPPET_API_CRL@, a certificate revocation list. The certificate
+--     revocation list is for internal maintenance purposes only. For more
+--     information about the Puppet certificate revocation list, see
+--     <https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html Man Page: puppet certificate_revocation_list>
+--     in the Puppet documentation.
 describeServersResponse_servers :: Lens.Lens' DescribeServersResponse (Prelude.Maybe [Server])
 describeServersResponse_servers = Lens.lens (\DescribeServersResponse' {servers} -> servers) (\s@DescribeServersResponse' {} a -> s {servers = a} :: DescribeServersResponse) Prelude.. Lens.mapping Lens._Coerce
 

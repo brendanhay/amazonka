@@ -39,29 +39,29 @@ import Test.Tasty
 --         , requestCreateServer $
 --             newCreateServer
 --
---         , requestDescribeAccountAttributes $
---             newDescribeAccountAttributes
+--         , requestDescribeServers $
+--             newDescribeServers
 --
 --         , requestExportServerEngineAttribute $
 --             newExportServerEngineAttribute
 --
---         , requestDescribeServers $
---             newDescribeServers
+--         , requestDescribeAccountAttributes $
+--             newDescribeAccountAttributes
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeNodeAssociationStatus $
---             newDescribeNodeAssociationStatus
---
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestDisassociateNode $
---             newDisassociateNode
+--         , requestDescribeNodeAssociationStatus $
+--             newDescribeNodeAssociationStatus
 --
 --         , requestDescribeEvents $
 --             newDescribeEvents
+--
+--         , requestDisassociateNode $
+--             newDisassociateNode
 --
 --         , requestCreateBackup $
 --             newCreateBackup
@@ -72,14 +72,14 @@ import Test.Tasty
 --         , requestDescribeBackups $
 --             newDescribeBackups
 --
---         , requestUpdateServerEngineAttributes $
---             newUpdateServerEngineAttributes
---
 --         , requestStartMaintenance $
 --             newStartMaintenance
 --
 --         , requestRestoreServer $
 --             newRestoreServer
+--
+--         , requestUpdateServerEngineAttributes $
+--             newUpdateServerEngineAttributes
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -99,29 +99,29 @@ import Test.Tasty
 --         , responseCreateServer $
 --             newCreateServerResponse
 --
---         , responseDescribeAccountAttributes $
---             newDescribeAccountAttributesResponse
+--         , responseDescribeServers $
+--             newDescribeServersResponse
 --
 --         , responseExportServerEngineAttribute $
 --             newExportServerEngineAttributeResponse
 --
---         , responseDescribeServers $
---             newDescribeServersResponse
+--         , responseDescribeAccountAttributes $
+--             newDescribeAccountAttributesResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeNodeAssociationStatus $
---             newDescribeNodeAssociationStatusResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseDisassociateNode $
---             newDisassociateNodeResponse
+--         , responseDescribeNodeAssociationStatus $
+--             newDescribeNodeAssociationStatusResponse
 --
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
+--
+--         , responseDisassociateNode $
+--             newDisassociateNodeResponse
 --
 --         , responseCreateBackup $
 --             newCreateBackupResponse
@@ -132,14 +132,14 @@ import Test.Tasty
 --         , responseDescribeBackups $
 --             newDescribeBackupsResponse
 --
---         , responseUpdateServerEngineAttributes $
---             newUpdateServerEngineAttributesResponse
---
 --         , responseStartMaintenance $
 --             newStartMaintenanceResponse
 --
 --         , responseRestoreServer $
 --             newRestoreServerResponse
+--
+--         , responseUpdateServerEngineAttributes $
+--             newUpdateServerEngineAttributesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -173,11 +173,11 @@ requestCreateServer =
     "CreateServer"
     "fixture/CreateServer.yaml"
 
-requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-requestDescribeAccountAttributes =
+requestDescribeServers :: DescribeServers -> TestTree
+requestDescribeServers =
   req
-    "DescribeAccountAttributes"
-    "fixture/DescribeAccountAttributes.yaml"
+    "DescribeServers"
+    "fixture/DescribeServers.yaml"
 
 requestExportServerEngineAttribute :: ExportServerEngineAttribute -> TestTree
 requestExportServerEngineAttribute =
@@ -185,11 +185,11 @@ requestExportServerEngineAttribute =
     "ExportServerEngineAttribute"
     "fixture/ExportServerEngineAttribute.yaml"
 
-requestDescribeServers :: DescribeServers -> TestTree
-requestDescribeServers =
+requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+requestDescribeAccountAttributes =
   req
-    "DescribeServers"
-    "fixture/DescribeServers.yaml"
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -197,29 +197,29 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeNodeAssociationStatus :: DescribeNodeAssociationStatus -> TestTree
-requestDescribeNodeAssociationStatus =
-  req
-    "DescribeNodeAssociationStatus"
-    "fixture/DescribeNodeAssociationStatus.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestDisassociateNode :: DisassociateNode -> TestTree
-requestDisassociateNode =
+requestDescribeNodeAssociationStatus :: DescribeNodeAssociationStatus -> TestTree
+requestDescribeNodeAssociationStatus =
   req
-    "DisassociateNode"
-    "fixture/DisassociateNode.yaml"
+    "DescribeNodeAssociationStatus"
+    "fixture/DescribeNodeAssociationStatus.yaml"
 
 requestDescribeEvents :: DescribeEvents -> TestTree
 requestDescribeEvents =
   req
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
+
+requestDisassociateNode :: DisassociateNode -> TestTree
+requestDisassociateNode =
+  req
+    "DisassociateNode"
+    "fixture/DisassociateNode.yaml"
 
 requestCreateBackup :: CreateBackup -> TestTree
 requestCreateBackup =
@@ -239,12 +239,6 @@ requestDescribeBackups =
     "DescribeBackups"
     "fixture/DescribeBackups.yaml"
 
-requestUpdateServerEngineAttributes :: UpdateServerEngineAttributes -> TestTree
-requestUpdateServerEngineAttributes =
-  req
-    "UpdateServerEngineAttributes"
-    "fixture/UpdateServerEngineAttributes.yaml"
-
 requestStartMaintenance :: StartMaintenance -> TestTree
 requestStartMaintenance =
   req
@@ -256,6 +250,12 @@ requestRestoreServer =
   req
     "RestoreServer"
     "fixture/RestoreServer.yaml"
+
+requestUpdateServerEngineAttributes :: UpdateServerEngineAttributes -> TestTree
+requestUpdateServerEngineAttributes =
+  req
+    "UpdateServerEngineAttributes"
+    "fixture/UpdateServerEngineAttributes.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -297,13 +297,13 @@ responseCreateServer =
     defaultService
     (Proxy :: Proxy CreateServer)
 
-responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
-responseDescribeAccountAttributes =
+responseDescribeServers :: DescribeServersResponse -> TestTree
+responseDescribeServers =
   res
-    "DescribeAccountAttributesResponse"
-    "fixture/DescribeAccountAttributesResponse.proto"
+    "DescribeServersResponse"
+    "fixture/DescribeServersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
+    (Proxy :: Proxy DescribeServers)
 
 responseExportServerEngineAttribute :: ExportServerEngineAttributeResponse -> TestTree
 responseExportServerEngineAttribute =
@@ -313,13 +313,13 @@ responseExportServerEngineAttribute =
     defaultService
     (Proxy :: Proxy ExportServerEngineAttribute)
 
-responseDescribeServers :: DescribeServersResponse -> TestTree
-responseDescribeServers =
+responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
+responseDescribeAccountAttributes =
   res
-    "DescribeServersResponse"
-    "fixture/DescribeServersResponse.proto"
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServers)
+    (Proxy :: Proxy DescribeAccountAttributes)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -329,14 +329,6 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseDescribeNodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> TestTree
-responseDescribeNodeAssociationStatus =
-  res
-    "DescribeNodeAssociationStatusResponse"
-    "fixture/DescribeNodeAssociationStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeNodeAssociationStatus)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -345,13 +337,13 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseDisassociateNode :: DisassociateNodeResponse -> TestTree
-responseDisassociateNode =
+responseDescribeNodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> TestTree
+responseDescribeNodeAssociationStatus =
   res
-    "DisassociateNodeResponse"
-    "fixture/DisassociateNodeResponse.proto"
+    "DescribeNodeAssociationStatusResponse"
+    "fixture/DescribeNodeAssociationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateNode)
+    (Proxy :: Proxy DescribeNodeAssociationStatus)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -360,6 +352,14 @@ responseDescribeEvents =
     "fixture/DescribeEventsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeEvents)
+
+responseDisassociateNode :: DisassociateNodeResponse -> TestTree
+responseDisassociateNode =
+  res
+    "DisassociateNodeResponse"
+    "fixture/DisassociateNodeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateNode)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
 responseCreateBackup =
@@ -385,14 +385,6 @@ responseDescribeBackups =
     defaultService
     (Proxy :: Proxy DescribeBackups)
 
-responseUpdateServerEngineAttributes :: UpdateServerEngineAttributesResponse -> TestTree
-responseUpdateServerEngineAttributes =
-  res
-    "UpdateServerEngineAttributesResponse"
-    "fixture/UpdateServerEngineAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateServerEngineAttributes)
-
 responseStartMaintenance :: StartMaintenanceResponse -> TestTree
 responseStartMaintenance =
   res
@@ -408,6 +400,14 @@ responseRestoreServer =
     "fixture/RestoreServerResponse.proto"
     defaultService
     (Proxy :: Proxy RestoreServer)
+
+responseUpdateServerEngineAttributes :: UpdateServerEngineAttributesResponse -> TestTree
+responseUpdateServerEngineAttributes =
+  res
+    "UpdateServerEngineAttributesResponse"
+    "fixture/UpdateServerEngineAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateServerEngineAttributes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

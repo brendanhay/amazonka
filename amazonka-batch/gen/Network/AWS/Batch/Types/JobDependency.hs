@@ -24,13 +24,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Batch job dependency.
+-- | An object representing an Batch job dependency.
 --
 -- /See:/ 'newJobDependency' smart constructor.
 data JobDependency = JobDependency'
   { -- | The type of the job dependency.
     type' :: Prelude.Maybe ArrayJobDependency,
-    -- | The job ID of the AWS Batch job associated with this dependency.
+    -- | The job ID of the Batch job associated with this dependency.
     jobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data JobDependency = JobDependency'
 --
 -- 'type'', 'jobDependency_type' - The type of the job dependency.
 --
--- 'jobId', 'jobDependency_jobId' - The job ID of the AWS Batch job associated with this dependency.
+-- 'jobId', 'jobDependency_jobId' - The job ID of the Batch job associated with this dependency.
 newJobDependency ::
   JobDependency
 newJobDependency =
@@ -58,7 +58,7 @@ newJobDependency =
 jobDependency_type :: Lens.Lens' JobDependency (Prelude.Maybe ArrayJobDependency)
 jobDependency_type = Lens.lens (\JobDependency' {type'} -> type') (\s@JobDependency' {} a -> s {type' = a} :: JobDependency)
 
--- | The job ID of the AWS Batch job associated with this dependency.
+-- | The job ID of the Batch job associated with this dependency.
 jobDependency_jobId :: Lens.Lens' JobDependency (Prelude.Maybe Prelude.Text)
 jobDependency_jobId = Lens.lens (\JobDependency' {jobId} -> jobId) (\s@JobDependency' {} a -> s {jobId = a} :: JobDependency)
 

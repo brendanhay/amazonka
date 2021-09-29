@@ -87,6 +87,10 @@ library
     Network.AWS.Batch.Types.Device
     Network.AWS.Batch.Types.DeviceCgroupPermission
     Network.AWS.Batch.Types.Ec2Configuration
+    Network.AWS.Batch.Types.EFSAuthorizationConfig
+    Network.AWS.Batch.Types.EFSAuthorizationConfigIAM
+    Network.AWS.Batch.Types.EFSTransitEncryption
+    Network.AWS.Batch.Types.EFSVolumeConfiguration
     Network.AWS.Batch.Types.EvaluateOnExit
     Network.AWS.Batch.Types.FargatePlatformConfiguration
     Network.AWS.Batch.Types.Host
@@ -101,6 +105,7 @@ library
     Network.AWS.Batch.Types.JQState
     Network.AWS.Batch.Types.JQStatus
     Network.AWS.Batch.Types.KeyValuePair
+    Network.AWS.Batch.Types.KeyValuesPair
     Network.AWS.Batch.Types.LaunchTemplateSpecification
     Network.AWS.Batch.Types.LinuxParameters
     Network.AWS.Batch.Types.LogConfiguration

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters an AWS Batch job definition. Job definitions are permanently
+-- Deregisters an Batch job definition. Job definitions are permanently
 -- deleted after 180 days.
 module Network.AWS.Batch.DeregisterJobDefinition
   ( -- * Creating a Request

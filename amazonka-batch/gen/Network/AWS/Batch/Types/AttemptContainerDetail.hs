@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAttemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
   { -- | The name of the CloudWatch Logs log stream associated with the
-    -- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+    -- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
     -- container attempt receives a log stream name when they reach the
     -- @RUNNING@ status.
     logStreamName :: Prelude.Maybe Prelude.Text,
@@ -43,12 +43,12 @@ data AttemptContainerDetail = AttemptContainerDetail'
     -- | A short (255 max characters) human-readable string to provide additional
     -- details about a running or stopped container.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | The network interfaces associated with the job attempt.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
     -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
     -- with the job attempt. Each container attempt receives a task ARN when
     -- they reach the @STARTING@ status.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | The network interfaces associated with the job attempt.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    taskArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +61,7 @@ data AttemptContainerDetail = AttemptContainerDetail'
 -- for backwards compatibility:
 --
 -- 'logStreamName', 'attemptContainerDetail_logStreamName' - The name of the CloudWatch Logs log stream associated with the
--- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
 -- container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 --
@@ -74,11 +74,11 @@ data AttemptContainerDetail = AttemptContainerDetail'
 -- 'reason', 'attemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
 --
+-- 'networkInterfaces', 'attemptContainerDetail_networkInterfaces' - The network interfaces associated with the job attempt.
+--
 -- 'taskArn', 'attemptContainerDetail_taskArn' - The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
 -- with the job attempt. Each container attempt receives a task ARN when
 -- they reach the @STARTING@ status.
---
--- 'networkInterfaces', 'attemptContainerDetail_networkInterfaces' - The network interfaces associated with the job attempt.
 newAttemptContainerDetail ::
   AttemptContainerDetail
 newAttemptContainerDetail =
@@ -88,12 +88,12 @@ newAttemptContainerDetail =
       containerInstanceArn = Prelude.Nothing,
       exitCode = Prelude.Nothing,
       reason = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      networkInterfaces = Prelude.Nothing,
+      taskArn = Prelude.Nothing
     }
 
 -- | The name of the CloudWatch Logs log stream associated with the
--- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
 -- container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 attemptContainerDetail_logStreamName :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
@@ -114,15 +114,15 @@ attemptContainerDetail_exitCode = Lens.lens (\AttemptContainerDetail' {exitCode}
 attemptContainerDetail_reason :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
 attemptContainerDetail_reason = Lens.lens (\AttemptContainerDetail' {reason} -> reason) (\s@AttemptContainerDetail' {} a -> s {reason = a} :: AttemptContainerDetail)
 
+-- | The network interfaces associated with the job attempt.
+attemptContainerDetail_networkInterfaces :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe [NetworkInterface])
+attemptContainerDetail_networkInterfaces = Lens.lens (\AttemptContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@AttemptContainerDetail' {} a -> s {networkInterfaces = a} :: AttemptContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
 -- with the job attempt. Each container attempt receives a task ARN when
 -- they reach the @STARTING@ status.
 attemptContainerDetail_taskArn :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
 attemptContainerDetail_taskArn = Lens.lens (\AttemptContainerDetail' {taskArn} -> taskArn) (\s@AttemptContainerDetail' {} a -> s {taskArn = a} :: AttemptContainerDetail)
-
--- | The network interfaces associated with the job attempt.
-attemptContainerDetail_networkInterfaces :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe [NetworkInterface])
-attemptContainerDetail_networkInterfaces = Lens.lens (\AttemptContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@AttemptContainerDetail' {} a -> s {networkInterfaces = a} :: AttemptContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AttemptContainerDetail where
   parseJSON =
@@ -134,10 +134,10 @@ instance Core.FromJSON AttemptContainerDetail where
             Prelude.<*> (x Core..:? "containerInstanceArn")
             Prelude.<*> (x Core..:? "exitCode")
             Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "taskArn")
             Prelude.<*> ( x Core..:? "networkInterfaces"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "taskArn")
       )
 
 instance Prelude.Hashable AttemptContainerDetail

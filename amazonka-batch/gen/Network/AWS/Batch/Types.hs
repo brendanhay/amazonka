@@ -44,6 +44,12 @@ module Network.AWS.Batch.Types
     -- * DeviceCgroupPermission
     DeviceCgroupPermission (..),
 
+    -- * EFSAuthorizationConfigIAM
+    EFSAuthorizationConfigIAM (..),
+
+    -- * EFSTransitEncryption
+    EFSTransitEncryption (..),
+
     -- * JQState
     JQState (..),
 
@@ -93,8 +99,8 @@ module Network.AWS.Batch.Types
     attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_exitCode,
     attemptContainerDetail_reason,
-    attemptContainerDetail_taskArn,
     attemptContainerDetail_networkInterfaces,
+    attemptContainerDetail_taskArn,
 
     -- * AttemptDetail
     AttemptDetail (..),
@@ -112,8 +118,8 @@ module Network.AWS.Batch.Types
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_computeResources,
     computeEnvironmentDetail_tags,
-    computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_type,
+    computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -160,29 +166,29 @@ module Network.AWS.Batch.Types
     containerDetail_logStreamName,
     containerDetail_linuxParameters,
     containerDetail_memory,
-    containerDetail_user,
     containerDetail_instanceType,
+    containerDetail_user,
     containerDetail_networkConfiguration,
-    containerDetail_executionRoleArn,
-    containerDetail_privileged,
-    containerDetail_vcpus,
     containerDetail_containerInstanceArn,
+    containerDetail_privileged,
     containerDetail_volumes,
+    containerDetail_vcpus,
+    containerDetail_executionRoleArn,
     containerDetail_environment,
     containerDetail_fargatePlatformConfiguration,
     containerDetail_exitCode,
     containerDetail_secrets,
     containerDetail_mountPoints,
-    containerDetail_image,
     containerDetail_command,
+    containerDetail_image,
     containerDetail_logConfiguration,
     containerDetail_reason,
     containerDetail_resourceRequirements,
     containerDetail_jobRoleArn,
-    containerDetail_readonlyRootFilesystem,
     containerDetail_ulimits,
-    containerDetail_taskArn,
+    containerDetail_readonlyRootFilesystem,
     containerDetail_networkInterfaces,
+    containerDetail_taskArn,
 
     -- * ContainerOverrides
     ContainerOverrides (..),
@@ -199,24 +205,24 @@ module Network.AWS.Batch.Types
     newContainerProperties,
     containerProperties_linuxParameters,
     containerProperties_memory,
-    containerProperties_user,
     containerProperties_instanceType,
+    containerProperties_user,
     containerProperties_networkConfiguration,
-    containerProperties_executionRoleArn,
     containerProperties_privileged,
-    containerProperties_vcpus,
     containerProperties_volumes,
+    containerProperties_vcpus,
+    containerProperties_executionRoleArn,
     containerProperties_environment,
     containerProperties_fargatePlatformConfiguration,
     containerProperties_secrets,
     containerProperties_mountPoints,
-    containerProperties_image,
     containerProperties_command,
+    containerProperties_image,
     containerProperties_logConfiguration,
     containerProperties_resourceRequirements,
     containerProperties_jobRoleArn,
-    containerProperties_readonlyRootFilesystem,
     containerProperties_ulimits,
+    containerProperties_readonlyRootFilesystem,
 
     -- * ContainerSummary
     ContainerSummary (..),
@@ -230,6 +236,21 @@ module Network.AWS.Batch.Types
     device_permissions,
     device_containerPath,
     device_hostPath,
+
+    -- * EFSAuthorizationConfig
+    EFSAuthorizationConfig (..),
+    newEFSAuthorizationConfig,
+    eFSAuthorizationConfig_accessPointId,
+    eFSAuthorizationConfig_iam,
+
+    -- * EFSVolumeConfiguration
+    EFSVolumeConfiguration (..),
+    newEFSVolumeConfiguration,
+    eFSVolumeConfiguration_transitEncryptionPort,
+    eFSVolumeConfiguration_rootDirectory,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_fileSystemId,
 
     -- * Ec2Configuration
     Ec2Configuration (..),
@@ -282,8 +303,8 @@ module Network.AWS.Batch.Types
     JobDetail (..),
     newJobDetail,
     jobDetail_container,
-    jobDetail_startedAt,
     jobDetail_dependsOn,
+    jobDetail_startedAt,
     jobDetail_platformCapabilities,
     jobDetail_timeout,
     jobDetail_arrayProperties,
@@ -325,6 +346,7 @@ module Network.AWS.Batch.Types
     jobSummary_arrayProperties,
     jobSummary_createdAt,
     jobSummary_jobArn,
+    jobSummary_jobDefinition,
     jobSummary_stoppedAt,
     jobSummary_nodeProperties,
     jobSummary_statusReason,
@@ -342,12 +364,18 @@ module Network.AWS.Batch.Types
     keyValuePair_name,
     keyValuePair_value,
 
+    -- * KeyValuesPair
+    KeyValuesPair (..),
+    newKeyValuesPair,
+    keyValuesPair_values,
+    keyValuesPair_name,
+
     -- * LaunchTemplateSpecification
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- * LinuxParameters
     LinuxParameters (..),
@@ -460,6 +488,7 @@ module Network.AWS.Batch.Types
     newVolume,
     volume_name,
     volume_host,
+    volume_efsVolumeConfiguration,
   )
 where
 
@@ -485,6 +514,10 @@ import Network.AWS.Batch.Types.ContainerProperties
 import Network.AWS.Batch.Types.ContainerSummary
 import Network.AWS.Batch.Types.Device
 import Network.AWS.Batch.Types.DeviceCgroupPermission
+import Network.AWS.Batch.Types.EFSAuthorizationConfig
+import Network.AWS.Batch.Types.EFSAuthorizationConfigIAM
+import Network.AWS.Batch.Types.EFSTransitEncryption
+import Network.AWS.Batch.Types.EFSVolumeConfiguration
 import Network.AWS.Batch.Types.Ec2Configuration
 import Network.AWS.Batch.Types.EvaluateOnExit
 import Network.AWS.Batch.Types.FargatePlatformConfiguration
@@ -500,6 +533,7 @@ import Network.AWS.Batch.Types.JobStatus
 import Network.AWS.Batch.Types.JobSummary
 import Network.AWS.Batch.Types.JobTimeout
 import Network.AWS.Batch.Types.KeyValuePair
+import Network.AWS.Batch.Types.KeyValuesPair
 import Network.AWS.Batch.Types.LaunchTemplateSpecification
 import Network.AWS.Batch.Types.LinuxParameters
 import Network.AWS.Batch.Types.LogConfiguration

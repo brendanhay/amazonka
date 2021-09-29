@@ -33,20 +33,20 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Batch job.
+-- | An object representing an Batch job.
 --
 -- /See:/ 'newJobDetail' smart constructor.
 data JobDetail = JobDetail'
   { -- | An object representing the details of the container that\'s associated
     -- with the job.
     container :: Prelude.Maybe ContainerDetail,
+    -- | A list of job IDs that this job depends on.
+    dependsOn :: Prelude.Maybe [JobDependency],
     -- | The Unix timestamp (in milliseconds) for when the job was started (when
     -- the job transitioned from the @STARTING@ state to the @RUNNING@ state).
     -- This parameter isn\'t provided for child jobs of array jobs or
     -- multi-node parallel jobs.
     startedAt :: Prelude.Maybe Prelude.Integer,
-    -- | A list of job IDs that this job depends on.
-    dependsOn :: Prelude.Maybe [JobDependency],
     -- | The platform capabilities required by the job definition. If no value is
     -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
     -- @FARGATE@.
@@ -72,7 +72,7 @@ data JobDetail = JobDetail'
     stoppedAt :: Prelude.Maybe Prelude.Integer,
     -- | An object representing the node properties of a multi-node parallel job.
     --
-    -- This isn\'t applicable to jobs running on Fargate resources.
+    -- This isn\'t applicable to jobs that are running on Fargate resources.
     nodeProperties :: Prelude.Maybe NodeProperties,
     -- | The tags applied to the job.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -89,7 +89,7 @@ data JobDetail = JobDetail'
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
-    -- are not propagated. Tags can only be propagated to the tasks during task
+    -- aren\'t propagated. Tags can only be propagated to the tasks during task
     -- creation. For tags with the same name, job tags are given priority over
     -- job definitions tags. If the total number of combined tags from the job
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
@@ -105,7 +105,7 @@ data JobDetail = JobDetail'
     --
     -- If your jobs don\'t progress to @STARTING@, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
-    -- in the troubleshooting section of the /AWS Batch User Guide/.
+    -- in the troubleshooting section of the /Batch User Guide/.
     status :: JobStatus,
     -- | The job definition that\'s used by this job.
     jobDefinition :: Prelude.Text
@@ -123,12 +123,12 @@ data JobDetail = JobDetail'
 -- 'container', 'jobDetail_container' - An object representing the details of the container that\'s associated
 -- with the job.
 --
+-- 'dependsOn', 'jobDetail_dependsOn' - A list of job IDs that this job depends on.
+--
 -- 'startedAt', 'jobDetail_startedAt' - The Unix timestamp (in milliseconds) for when the job was started (when
 -- the job transitioned from the @STARTING@ state to the @RUNNING@ state).
 -- This parameter isn\'t provided for child jobs of array jobs or
 -- multi-node parallel jobs.
---
--- 'dependsOn', 'jobDetail_dependsOn' - A list of job IDs that this job depends on.
 --
 -- 'platformCapabilities', 'jobDetail_platformCapabilities' - The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
@@ -155,7 +155,7 @@ data JobDetail = JobDetail'
 --
 -- 'nodeProperties', 'jobDetail_nodeProperties' - An object representing the node properties of a multi-node parallel job.
 --
--- This isn\'t applicable to jobs running on Fargate resources.
+-- This isn\'t applicable to jobs that are running on Fargate resources.
 --
 -- 'tags', 'jobDetail_tags' - The tags applied to the job.
 --
@@ -172,7 +172,7 @@ data JobDetail = JobDetail'
 --
 -- 'propagateTags', 'jobDetail_propagateTags' - Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks during task
+-- aren\'t propagated. Tags can only be propagated to the tasks during task
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
@@ -188,7 +188,7 @@ data JobDetail = JobDetail'
 --
 -- If your jobs don\'t progress to @STARTING@, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
--- in the troubleshooting section of the /AWS Batch User Guide/.
+-- in the troubleshooting section of the /Batch User Guide/.
 --
 -- 'jobDefinition', 'jobDetail_jobDefinition' - The job definition that\'s used by this job.
 newJobDetail ::
@@ -211,8 +211,8 @@ newJobDetail
   pJobDefinition_ =
     JobDetail'
       { container = Prelude.Nothing,
-        startedAt = Prelude.Nothing,
         dependsOn = Prelude.Nothing,
+        startedAt = Prelude.Nothing,
         platformCapabilities = Prelude.Nothing,
         timeout = Prelude.Nothing,
         arrayProperties = Prelude.Nothing,
@@ -239,16 +239,16 @@ newJobDetail
 jobDetail_container :: Lens.Lens' JobDetail (Prelude.Maybe ContainerDetail)
 jobDetail_container = Lens.lens (\JobDetail' {container} -> container) (\s@JobDetail' {} a -> s {container = a} :: JobDetail)
 
+-- | A list of job IDs that this job depends on.
+jobDetail_dependsOn :: Lens.Lens' JobDetail (Prelude.Maybe [JobDependency])
+jobDetail_dependsOn = Lens.lens (\JobDetail' {dependsOn} -> dependsOn) (\s@JobDetail' {} a -> s {dependsOn = a} :: JobDetail) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The Unix timestamp (in milliseconds) for when the job was started (when
 -- the job transitioned from the @STARTING@ state to the @RUNNING@ state).
 -- This parameter isn\'t provided for child jobs of array jobs or
 -- multi-node parallel jobs.
 jobDetail_startedAt :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Integer)
 jobDetail_startedAt = Lens.lens (\JobDetail' {startedAt} -> startedAt) (\s@JobDetail' {} a -> s {startedAt = a} :: JobDetail)
-
--- | A list of job IDs that this job depends on.
-jobDetail_dependsOn :: Lens.Lens' JobDetail (Prelude.Maybe [JobDependency])
-jobDetail_dependsOn = Lens.lens (\JobDetail' {dependsOn} -> dependsOn) (\s@JobDetail' {} a -> s {dependsOn = a} :: JobDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
@@ -289,7 +289,7 @@ jobDetail_stoppedAt = Lens.lens (\JobDetail' {stoppedAt} -> stoppedAt) (\s@JobDe
 
 -- | An object representing the node properties of a multi-node parallel job.
 --
--- This isn\'t applicable to jobs running on Fargate resources.
+-- This isn\'t applicable to jobs that are running on Fargate resources.
 jobDetail_nodeProperties :: Lens.Lens' JobDetail (Prelude.Maybe NodeProperties)
 jobDetail_nodeProperties = Lens.lens (\JobDetail' {nodeProperties} -> nodeProperties) (\s@JobDetail' {} a -> s {nodeProperties = a} :: JobDetail)
 
@@ -318,7 +318,7 @@ jobDetail_parameters = Lens.lens (\JobDetail' {parameters} -> parameters) (\s@Jo
 
 -- | Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks during task
+-- aren\'t propagated. Tags can only be propagated to the tasks during task
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
@@ -342,7 +342,7 @@ jobDetail_jobQueue = Lens.lens (\JobDetail' {jobQueue} -> jobQueue) (\s@JobDetai
 --
 -- If your jobs don\'t progress to @STARTING@, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
--- in the troubleshooting section of the /AWS Batch User Guide/.
+-- in the troubleshooting section of the /Batch User Guide/.
 jobDetail_status :: Lens.Lens' JobDetail JobStatus
 jobDetail_status = Lens.lens (\JobDetail' {status} -> status) (\s@JobDetail' {} a -> s {status = a} :: JobDetail)
 
@@ -357,8 +357,8 @@ instance Core.FromJSON JobDetail where
       ( \x ->
           JobDetail'
             Prelude.<$> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "startedAt")
             Prelude.<*> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "startedAt")
             Prelude.<*> ( x Core..:? "platformCapabilities"
                             Core..!= Prelude.mempty
                         )

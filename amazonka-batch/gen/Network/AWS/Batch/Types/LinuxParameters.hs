@@ -34,8 +34,8 @@ data LinuxParameters = LinuxParameters'
     -- This parameter maps to the @--tmpfs@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
     tmpfs :: Prelude.Maybe [Tmpfs],
     -- | The total amount of swap memory (in MiB) a container can use. This
     -- parameter is translated to the @--memory-swap@ option to
@@ -51,8 +51,8 @@ data LinuxParameters = LinuxParameters'
     -- for the container instance it is running on. A @maxSwap@ value must be
     -- set for the @swappiness@ parameter to be used.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
     maxSwap :: Prelude.Maybe Prelude.Int,
     -- | Any host devices to expose to the container. This parameter maps to
     -- @Devices@ in the
@@ -62,15 +62,15 @@ data LinuxParameters = LinuxParameters'
     -- @--device@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
     devices :: Prelude.Maybe [Device],
     -- | This allows you to tune a container\'s memory swappiness behavior. A
     -- @swappiness@ value of @0@ causes swapping not to happen unless
     -- absolutely necessary. A @swappiness@ value of @100@ causes pages to be
     -- swapped very aggressively. Accepted values are whole numbers between @0@
     -- and @100@. If the @swappiness@ parameter isn\'t specified, a default
-    -- value of @60@ is used. If a value isn\'t specified for @maxSwap@ then
+    -- value of @60@ is used. If a value isn\'t specified for @maxSwap@, then
     -- this parameter is ignored. If @maxSwap@ is set to 0, the container
     -- doesn\'t use swap. This parameter maps to the @--memory-swappiness@
     -- option to <https://docs.docker.com/engine/reference/run/ docker run>.
@@ -92,11 +92,11 @@ data LinuxParameters = LinuxParameters'
     --
     -- -   If the @maxSwap@ and @swappiness@ parameters are omitted from a job
     --     definition, each container will have a default @swappiness@ value of
-    --     60 and the total swap usage will be limited to two times the memory
+    --     60, and the total swap usage will be limited to two times the memory
     --     reservation of the container.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
     swappiness :: Prelude.Maybe Prelude.Int,
     -- | If true, run an @init@ process inside the container that forwards
     -- signals and reaps processes. This parameter maps to the @--init@ option
@@ -110,8 +110,8 @@ data LinuxParameters = LinuxParameters'
     -- parameter maps to the @--shm-size@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
     sharedMemorySize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -128,8 +128,8 @@ data LinuxParameters = LinuxParameters'
 -- This parameter maps to the @--tmpfs@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 --
 -- 'maxSwap', 'linuxParameters_maxSwap' - The total amount of swap memory (in MiB) a container can use. This
 -- parameter is translated to the @--memory-swap@ option to
@@ -145,8 +145,8 @@ data LinuxParameters = LinuxParameters'
 -- for the container instance it is running on. A @maxSwap@ value must be
 -- set for the @swappiness@ parameter to be used.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 --
 -- 'devices', 'linuxParameters_devices' - Any host devices to expose to the container. This parameter maps to
 -- @Devices@ in the
@@ -156,15 +156,15 @@ data LinuxParameters = LinuxParameters'
 -- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 --
 -- 'swappiness', 'linuxParameters_swappiness' - This allows you to tune a container\'s memory swappiness behavior. A
 -- @swappiness@ value of @0@ causes swapping not to happen unless
 -- absolutely necessary. A @swappiness@ value of @100@ causes pages to be
 -- swapped very aggressively. Accepted values are whole numbers between @0@
 -- and @100@. If the @swappiness@ parameter isn\'t specified, a default
--- value of @60@ is used. If a value isn\'t specified for @maxSwap@ then
+-- value of @60@ is used. If a value isn\'t specified for @maxSwap@, then
 -- this parameter is ignored. If @maxSwap@ is set to 0, the container
 -- doesn\'t use swap. This parameter maps to the @--memory-swappiness@
 -- option to <https://docs.docker.com/engine/reference/run/ docker run>.
@@ -186,11 +186,11 @@ data LinuxParameters = LinuxParameters'
 --
 -- -   If the @maxSwap@ and @swappiness@ parameters are omitted from a job
 --     definition, each container will have a default @swappiness@ value of
---     60 and the total swap usage will be limited to two times the memory
+--     60, and the total swap usage will be limited to two times the memory
 --     reservation of the container.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 --
 -- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - If true, run an @init@ process inside the container that forwards
 -- signals and reaps processes. This parameter maps to the @--init@ option
@@ -204,8 +204,8 @@ data LinuxParameters = LinuxParameters'
 -- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 newLinuxParameters ::
   LinuxParameters
 newLinuxParameters =
@@ -222,8 +222,8 @@ newLinuxParameters =
 -- This parameter maps to the @--tmpfs@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
 linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens._Coerce
 
@@ -241,8 +241,8 @@ linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@Linux
 -- for the container instance it is running on. A @maxSwap@ value must be
 -- set for the @swappiness@ parameter to be used.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 
@@ -254,8 +254,8 @@ linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s
 -- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
 linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Lens._Coerce
 
@@ -264,7 +264,7 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 -- absolutely necessary. A @swappiness@ value of @100@ causes pages to be
 -- swapped very aggressively. Accepted values are whole numbers between @0@
 -- and @100@. If the @swappiness@ parameter isn\'t specified, a default
--- value of @60@ is used. If a value isn\'t specified for @maxSwap@ then
+-- value of @60@ is used. If a value isn\'t specified for @maxSwap@, then
 -- this parameter is ignored. If @maxSwap@ is set to 0, the container
 -- doesn\'t use swap. This parameter maps to the @--memory-swappiness@
 -- option to <https://docs.docker.com/engine/reference/run/ docker run>.
@@ -286,11 +286,11 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 --
 -- -   If the @maxSwap@ and @swappiness@ parameters are omitted from a job
 --     definition, each container will have a default @swappiness@ value of
---     60 and the total swap usage will be limited to two times the memory
+--     60, and the total swap usage will be limited to two times the memory
 --     reservation of the container.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
 
@@ -308,8 +308,8 @@ linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEn
 -- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
 

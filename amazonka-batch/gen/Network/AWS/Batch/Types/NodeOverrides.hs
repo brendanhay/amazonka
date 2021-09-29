@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Object representing any node overrides to a job definition that\'s used
 -- in a SubmitJob API operation.
 --
--- This isn\'t applicable to jobs running on Fargate resources and
+-- This isn\'t applicable to jobs that are running on Fargate resources and
 -- shouldn\'t be provided; use @containerOverrides@ instead.
 --
 -- /See:/ 'newNodeOverrides' smart constructor.

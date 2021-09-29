@@ -26,7 +26,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The retry strategy associated with a job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html Automated job retries>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- /See:/ 'newRetryStrategy' smart constructor.
 data RetryStrategy = RetryStrategy'

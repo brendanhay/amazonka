@@ -38,7 +38,7 @@ data LogConfiguration = LogConfiguration'
     options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The secrets to pass to the log configuration. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     secretOptions :: Prelude.Maybe [Secret],
     -- | The log driver to use for the container. The valid values listed for
     -- this parameter are log drivers that the Amazon ECS container agent can
@@ -47,14 +47,14 @@ data LogConfiguration = LogConfiguration'
     -- The supported log drivers are @awslogs@, @fluentd@, @gelf@, @json-file@,
     -- @journald@, @logentries@, @syslog@, and @splunk@.
     --
-    -- Jobs running on Fargate resources are restricted to the @awslogs@ and
-    -- @splunk@ log drivers.
+    -- Jobs that are running on Fargate resources are restricted to the
+    -- @awslogs@ and @splunk@ log drivers.
     --
     -- [awslogs]
     --     Specifies the Amazon CloudWatch Logs logging driver. For more
     --     information, see
     --     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
-    --     in the /AWS Batch User Guide/ and
+    --     in the /Batch User Guide/ and
     --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
     --     in the Docker documentation.
     --
@@ -94,7 +94,7 @@ data LogConfiguration = LogConfiguration'
     --     <https://docs.docker.com/config/containers/logging/syslog/ Syslog logging driver>
     --     in the Docker documentation.
     --
-    -- If you have a custom driver that\'sn\'t listed earlier that you want to
+    -- If you have a custom driver that\'s not listed earlier that you want to
     -- work with the Amazon ECS container agent, you can fork the Amazon ECS
     -- container agent project that\'s
     -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and
@@ -127,7 +127,7 @@ data LogConfiguration = LogConfiguration'
 --
 -- 'secretOptions', 'logConfiguration_secretOptions' - The secrets to pass to the log configuration. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'logDriver', 'logConfiguration_logDriver' - The log driver to use for the container. The valid values listed for
 -- this parameter are log drivers that the Amazon ECS container agent can
@@ -136,14 +136,14 @@ data LogConfiguration = LogConfiguration'
 -- The supported log drivers are @awslogs@, @fluentd@, @gelf@, @json-file@,
 -- @journald@, @logentries@, @syslog@, and @splunk@.
 --
--- Jobs running on Fargate resources are restricted to the @awslogs@ and
--- @splunk@ log drivers.
+-- Jobs that are running on Fargate resources are restricted to the
+-- @awslogs@ and @splunk@ log drivers.
 --
 -- [awslogs]
 --     Specifies the Amazon CloudWatch Logs logging driver. For more
 --     information, see
 --     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
---     in the /AWS Batch User Guide/ and
+--     in the /Batch User Guide/ and
 --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
 --     in the Docker documentation.
 --
@@ -183,7 +183,7 @@ data LogConfiguration = LogConfiguration'
 --     <https://docs.docker.com/config/containers/logging/syslog/ Syslog logging driver>
 --     in the Docker documentation.
 --
--- If you have a custom driver that\'sn\'t listed earlier that you want to
+-- If you have a custom driver that\'s not listed earlier that you want to
 -- work with the Amazon ECS container agent, you can fork the Amazon ECS
 -- container agent project that\'s
 -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and
@@ -217,7 +217,7 @@ logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (
 
 -- | The secrets to pass to the log configuration. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
 logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
@@ -228,14 +228,14 @@ logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -
 -- The supported log drivers are @awslogs@, @fluentd@, @gelf@, @json-file@,
 -- @journald@, @logentries@, @syslog@, and @splunk@.
 --
--- Jobs running on Fargate resources are restricted to the @awslogs@ and
--- @splunk@ log drivers.
+-- Jobs that are running on Fargate resources are restricted to the
+-- @awslogs@ and @splunk@ log drivers.
 --
 -- [awslogs]
 --     Specifies the Amazon CloudWatch Logs logging driver. For more
 --     information, see
 --     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
---     in the /AWS Batch User Guide/ and
+--     in the /Batch User Guide/ and
 --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
 --     in the Docker documentation.
 --
@@ -275,7 +275,7 @@ logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -
 --     <https://docs.docker.com/config/containers/logging/syslog/ Syslog logging driver>
 --     in the Docker documentation.
 --
--- If you have a custom driver that\'sn\'t listed earlier that you want to
+-- If you have a custom driver that\'s not listed earlier that you want to
 -- work with the Amazon ECS container agent, you can fork the Amazon ECS
 -- container agent project that\'s
 -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and

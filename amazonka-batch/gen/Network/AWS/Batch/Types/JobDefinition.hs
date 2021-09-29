@@ -28,7 +28,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Batch job definition.
+-- | An object representing an Batch job definition.
 --
 -- /See:/ 'newJobDefinition' smart constructor.
 data JobDefinition = JobDefinition'
@@ -39,7 +39,7 @@ data JobDefinition = JobDefinition'
     -- @FARGATE@.
     platformCapabilities :: Prelude.Maybe [PlatformCapability],
     -- | The timeout configuration for jobs that are submitted with this job
-    -- definition. You can specify a timeout duration after which AWS Batch
+    -- definition. You can specify a timeout duration after which Batch
     -- terminates your jobs if they haven\'t finished.
     timeout :: Prelude.Maybe JobTimeout,
     -- | An object with various properties specific to multi-node parallel jobs.
@@ -60,7 +60,7 @@ data JobDefinition = JobDefinition'
     -- parameter defaults from the job definition. For more information about
     -- specifying parameters, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -79,7 +79,7 @@ data JobDefinition = JobDefinition'
     -- @multinode@ isn\'t supported. For more information about multi-node
     -- parallel jobs, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     type' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,7 +99,7 @@ data JobDefinition = JobDefinition'
 -- @FARGATE@.
 --
 -- 'timeout', 'jobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
--- definition. You can specify a timeout duration after which AWS Batch
+-- definition. You can specify a timeout duration after which Batch
 -- terminates your jobs if they haven\'t finished.
 --
 -- 'nodeProperties', 'jobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
@@ -120,7 +120,7 @@ data JobDefinition = JobDefinition'
 -- parameter defaults from the job definition. For more information about
 -- specifying parameters, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'propagateTags', 'jobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -139,7 +139,7 @@ data JobDefinition = JobDefinition'
 -- @multinode@ isn\'t supported. For more information about multi-node
 -- parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 newJobDefinition ::
   -- | 'jobDefinitionName'
   Prelude.Text ->
@@ -182,7 +182,7 @@ jobDefinition_platformCapabilities :: Lens.Lens' JobDefinition (Prelude.Maybe [P
 jobDefinition_platformCapabilities = Lens.lens (\JobDefinition' {platformCapabilities} -> platformCapabilities) (\s@JobDefinition' {} a -> s {platformCapabilities = a} :: JobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for jobs that are submitted with this job
--- definition. You can specify a timeout duration after which AWS Batch
+-- definition. You can specify a timeout duration after which Batch
 -- terminates your jobs if they haven\'t finished.
 jobDefinition_timeout :: Lens.Lens' JobDefinition (Prelude.Maybe JobTimeout)
 jobDefinition_timeout = Lens.lens (\JobDefinition' {timeout} -> timeout) (\s@JobDefinition' {} a -> s {timeout = a} :: JobDefinition)
@@ -213,7 +213,7 @@ jobDefinition_retryStrategy = Lens.lens (\JobDefinition' {retryStrategy} -> retr
 -- parameter defaults from the job definition. For more information about
 -- specifying parameters, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 jobDefinition_parameters :: Lens.Lens' JobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobDefinition_parameters = Lens.lens (\JobDefinition' {parameters} -> parameters) (\s@JobDefinition' {} a -> s {parameters = a} :: JobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
@@ -242,7 +242,7 @@ jobDefinition_revision = Lens.lens (\JobDefinition' {revision} -> revision) (\s@
 -- @multinode@ isn\'t supported. For more information about multi-node
 -- parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 jobDefinition_type :: Lens.Lens' JobDefinition Prelude.Text
 jobDefinition_type = Lens.lens (\JobDefinition' {type'} -> type') (\s@JobDefinition' {} a -> s {type' = a} :: JobDefinition)
 

@@ -59,12 +59,12 @@ data UpdateJobQueue = UpdateJobQueue'
     -- job scheduler to determine which compute environment should run a given
     -- job. Compute environments must be in the @VALID@ state before you can
     -- associate them with a job queue. All of the compute environments must be
-    -- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@);
+    -- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
     -- EC2 and Fargate compute environments can\'t be mixed.
     --
     -- All compute environments that are associated with a job queue must share
-    -- the same architecture. AWS Batch doesn\'t support mixing compute
-    -- environment architecture types in a single job queue.
+    -- the same architecture. Batch doesn\'t support mixing compute environment
+    -- architecture types in a single job queue.
     computeEnvironmentOrder :: Prelude.Maybe [ComputeEnvironmentOrder],
     -- | The priority of the job queue. Job queues with a higher priority (or a
     -- higher integer value for the @priority@ parameter) are evaluated first
@@ -72,12 +72,12 @@ data UpdateJobQueue = UpdateJobQueue'
     -- determined in descending order, for example, a job queue with a priority
     -- value of @10@ is given scheduling preference over a job queue with a
     -- priority value of @1@. All of the compute environments must be either
-    -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
-    -- Fargate compute environments cannot be mixed.
+    -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
+    -- Fargate compute environments can\'t be mixed.
     priority :: Prelude.Maybe Prelude.Int,
     -- | Describes the queue\'s ability to accept new jobs. If the job queue
-    -- state is @ENABLED@, it is able to accept jobs. If the job queue state is
-    -- @DISABLED@, new jobs cannot be added to the queue, but jobs already in
+    -- state is @ENABLED@, it can accept jobs. If the job queue state is
+    -- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
     -- the queue can finish.
     state :: Prelude.Maybe JQState,
     -- | The name or the Amazon Resource Name (ARN) of the job queue.
@@ -98,12 +98,12 @@ data UpdateJobQueue = UpdateJobQueue'
 -- job scheduler to determine which compute environment should run a given
 -- job. Compute environments must be in the @VALID@ state before you can
 -- associate them with a job queue. All of the compute environments must be
--- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@);
+-- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
 -- EC2 and Fargate compute environments can\'t be mixed.
 --
 -- All compute environments that are associated with a job queue must share
--- the same architecture. AWS Batch doesn\'t support mixing compute
--- environment architecture types in a single job queue.
+-- the same architecture. Batch doesn\'t support mixing compute environment
+-- architecture types in a single job queue.
 --
 -- 'priority', 'updateJobQueue_priority' - The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
@@ -111,12 +111,12 @@ data UpdateJobQueue = UpdateJobQueue'
 -- determined in descending order, for example, a job queue with a priority
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
--- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
+-- Fargate compute environments can\'t be mixed.
 --
 -- 'state', 'updateJobQueue_state' - Describes the queue\'s ability to accept new jobs. If the job queue
--- state is @ENABLED@, it is able to accept jobs. If the job queue state is
--- @DISABLED@, new jobs cannot be added to the queue, but jobs already in
+-- state is @ENABLED@, it can accept jobs. If the job queue state is
+-- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
 -- the queue can finish.
 --
 -- 'jobQueue', 'updateJobQueue_jobQueue' - The name or the Amazon Resource Name (ARN) of the job queue.
@@ -138,12 +138,12 @@ newUpdateJobQueue pJobQueue_ =
 -- job scheduler to determine which compute environment should run a given
 -- job. Compute environments must be in the @VALID@ state before you can
 -- associate them with a job queue. All of the compute environments must be
--- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@);
+-- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
 -- EC2 and Fargate compute environments can\'t be mixed.
 --
 -- All compute environments that are associated with a job queue must share
--- the same architecture. AWS Batch doesn\'t support mixing compute
--- environment architecture types in a single job queue.
+-- the same architecture. Batch doesn\'t support mixing compute environment
+-- architecture types in a single job queue.
 updateJobQueue_computeEnvironmentOrder :: Lens.Lens' UpdateJobQueue (Prelude.Maybe [ComputeEnvironmentOrder])
 updateJobQueue_computeEnvironmentOrder = Lens.lens (\UpdateJobQueue' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@UpdateJobQueue' {} a -> s {computeEnvironmentOrder = a} :: UpdateJobQueue) Prelude.. Lens.mapping Lens._Coerce
 
@@ -153,14 +153,14 @@ updateJobQueue_computeEnvironmentOrder = Lens.lens (\UpdateJobQueue' {computeEnv
 -- determined in descending order, for example, a job queue with a priority
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
--- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
+-- Fargate compute environments can\'t be mixed.
 updateJobQueue_priority :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Int)
 updateJobQueue_priority = Lens.lens (\UpdateJobQueue' {priority} -> priority) (\s@UpdateJobQueue' {} a -> s {priority = a} :: UpdateJobQueue)
 
 -- | Describes the queue\'s ability to accept new jobs. If the job queue
--- state is @ENABLED@, it is able to accept jobs. If the job queue state is
--- @DISABLED@, new jobs cannot be added to the queue, but jobs already in
+-- state is @ENABLED@, it can accept jobs. If the job queue state is
+-- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
 -- the queue can finish.
 updateJobQueue_state :: Lens.Lens' UpdateJobQueue (Prelude.Maybe JQState)
 updateJobQueue_state = Lens.lens (\UpdateJobQueue' {state} -> state) (\s@UpdateJobQueue' {} a -> s {state = a} :: UpdateJobQueue)

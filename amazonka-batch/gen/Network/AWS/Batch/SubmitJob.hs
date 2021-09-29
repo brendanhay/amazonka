@@ -20,12 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Submits an AWS Batch job from a job definition. Parameters specified
--- during SubmitJob override parameters defined in the job definition.
+-- Submits an Batch job from a job definition. Parameters that are
+-- specified during SubmitJob override parameters defined in the job
+-- definition. vCPU and memory requirements that are specified in the
+-- @ResourceRequirements@ objects in the job definition are the exception.
+-- They can\'t be overridden this way using the @memory@ and @vcpus@
+-- parameters. Rather, you must specify updates to job definition
+-- parameters in a @ResourceRequirements@ object that\'s included in the
+-- @containerOverrides@ parameter.
 --
--- Jobs run on Fargate resources don\'t run for more than 14 days. After 14
--- days, the Fargate resources might no longer be available and the job is
--- terminated.
+-- Jobs that run on Fargate resources can\'t be guaranteed to run for more
+-- than 14 days. This is because, after 14 days, Fargate resources might
+-- become unavailable and job might be terminated.
 module Network.AWS.Batch.SubmitJob
   ( -- * Creating a Request
     SubmitJob (..),
@@ -34,8 +40,8 @@ module Network.AWS.Batch.SubmitJob
     -- * Request Lenses
     submitJob_dependsOn,
     submitJob_timeout,
-    submitJob_arrayProperties,
     submitJob_containerOverrides,
+    submitJob_arrayProperties,
     submitJob_nodeOverrides,
     submitJob_tags,
     submitJob_retryStrategy,
@@ -77,7 +83,7 @@ data SubmitJob = SubmitJob'
     -- of each dependency to complete before it can begin.
     dependsOn :: Prelude.Maybe [JobDependency],
     -- | The timeout configuration for this SubmitJob operation. You can specify
-    -- a timeout duration after which AWS Batch terminates your jobs if they
+    -- a timeout duration after which Batch terminates your jobs if they
     -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
     -- retried. The minimum value for the timeout is 60 seconds. This
     -- configuration overrides any timeout configuration specified in the job
@@ -86,31 +92,31 @@ data SubmitJob = SubmitJob'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     timeout :: Prelude.Maybe JobTimeout,
+    -- | A list of container overrides in the JSON format that specify the name
+    -- of a container in the specified job definition and the overrides it
+    -- should receive. You can override the default command for a container,
+    -- which is specified in the job definition or the Docker image, with a
+    -- @command@ override. You can also override existing environment variables
+    -- on a container or add new environment variables to it with an
+    -- @environment@ override.
+    containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | The array properties for the submitted job, such as the size of the
     -- array. The array size can be between 2 and 10,000. If you specify array
     -- properties for a job, it becomes an array job. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     arrayProperties :: Prelude.Maybe ArrayProperties,
-    -- | A list of container overrides in JSON format that specify the name of a
-    -- container in the specified job definition and the overrides it should
-    -- receive. You can override the default command for a container (that\'s
-    -- specified in the job definition or the Docker image) with a @command@
-    -- override. You can also override existing environment variables (that are
-    -- specified in the job definition or Docker image) on a container or add
-    -- new environment variables to it with an @environment@ override.
-    containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | A list of node overrides in JSON format that specify the node range to
     -- target and the container overrides for that node range.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources;
-    -- use @containerOverrides@ instead.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources; use @containerOverrides@ instead.
     nodeOverrides :: Prelude.Maybe NodeOverrides,
     -- | The tags that you apply to the job request to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The retry strategy to use for failed jobs from this SubmitJob operation.
     -- When a retry strategy is specified here, it overrides the retry strategy
@@ -135,8 +141,8 @@ data SubmitJob = SubmitJob'
     -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
     -- are allowed.
     jobName :: Prelude.Text,
-    -- | The job queue into which the job is submitted. You can specify either
-    -- the name or the Amazon Resource Name (ARN) of the queue.
+    -- | The job queue where the job is submitted. You can specify either the
+    -- name or the Amazon Resource Name (ARN) of the queue.
     jobQueue :: Prelude.Text,
     -- | The job definition used by this job. This value can be one of @name@,
     -- @name:revision@, or the Amazon Resource Name (ARN) for the job
@@ -163,7 +169,7 @@ data SubmitJob = SubmitJob'
 -- of each dependency to complete before it can begin.
 --
 -- 'timeout', 'submitJob_timeout' - The timeout configuration for this SubmitJob operation. You can specify
--- a timeout duration after which AWS Batch terminates your jobs if they
+-- a timeout duration after which Batch terminates your jobs if they
 -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
 -- retried. The minimum value for the timeout is 60 seconds. This
 -- configuration overrides any timeout configuration specified in the job
@@ -172,31 +178,31 @@ data SubmitJob = SubmitJob'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
+-- 'containerOverrides', 'submitJob_containerOverrides' - A list of container overrides in the JSON format that specify the name
+-- of a container in the specified job definition and the overrides it
+-- should receive. You can override the default command for a container,
+-- which is specified in the job definition or the Docker image, with a
+-- @command@ override. You can also override existing environment variables
+-- on a container or add new environment variables to it with an
+-- @environment@ override.
+--
 -- 'arrayProperties', 'submitJob_arrayProperties' - The array properties for the submitted job, such as the size of the
 -- array. The array size can be between 2 and 10,000. If you specify array
 -- properties for a job, it becomes an array job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /AWS Batch User Guide/.
---
--- 'containerOverrides', 'submitJob_containerOverrides' - A list of container overrides in JSON format that specify the name of a
--- container in the specified job definition and the overrides it should
--- receive. You can override the default command for a container (that\'s
--- specified in the job definition or the Docker image) with a @command@
--- override. You can also override existing environment variables (that are
--- specified in the job definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
+-- in the /Batch User Guide/.
 --
 -- 'nodeOverrides', 'submitJob_nodeOverrides' - A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources;
--- use @containerOverrides@ instead.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources; use @containerOverrides@ instead.
 --
 -- 'tags', 'submitJob_tags' - The tags that you apply to the job request to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 --
 -- 'retryStrategy', 'submitJob_retryStrategy' - The retry strategy to use for failed jobs from this SubmitJob operation.
 -- When a retry strategy is specified here, it overrides the retry strategy
@@ -221,8 +227,8 @@ data SubmitJob = SubmitJob'
 -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
 -- are allowed.
 --
--- 'jobQueue', 'submitJob_jobQueue' - The job queue into which the job is submitted. You can specify either
--- the name or the Amazon Resource Name (ARN) of the queue.
+-- 'jobQueue', 'submitJob_jobQueue' - The job queue where the job is submitted. You can specify either the
+-- name or the Amazon Resource Name (ARN) of the queue.
 --
 -- 'jobDefinition', 'submitJob_jobDefinition' - The job definition used by this job. This value can be one of @name@,
 -- @name:revision@, or the Amazon Resource Name (ARN) for the job
@@ -240,8 +246,8 @@ newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
   SubmitJob'
     { dependsOn = Prelude.Nothing,
       timeout = Prelude.Nothing,
-      arrayProperties = Prelude.Nothing,
       containerOverrides = Prelude.Nothing,
+      arrayProperties = Prelude.Nothing,
       nodeOverrides = Prelude.Nothing,
       tags = Prelude.Nothing,
       retryStrategy = Prelude.Nothing,
@@ -263,7 +269,7 @@ submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
 submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for this SubmitJob operation. You can specify
--- a timeout duration after which AWS Batch terminates your jobs if they
+-- a timeout duration after which Batch terminates your jobs if they
 -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
 -- retried. The minimum value for the timeout is 60 seconds. This
 -- configuration overrides any timeout configuration specified in the job
@@ -274,37 +280,37 @@ submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@Submi
 submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
 submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
 
+-- | A list of container overrides in the JSON format that specify the name
+-- of a container in the specified job definition and the overrides it
+-- should receive. You can override the default command for a container,
+-- which is specified in the job definition or the Docker image, with a
+-- @command@ override. You can also override existing environment variables
+-- on a container or add new environment variables to it with an
+-- @environment@ override.
+submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
+submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
+
 -- | The array properties for the submitted job, such as the size of the
 -- array. The array size can be between 2 and 10,000. If you specify array
 -- properties for a job, it becomes an array job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
 submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
-
--- | A list of container overrides in JSON format that specify the name of a
--- container in the specified job definition and the overrides it should
--- receive. You can override the default command for a container (that\'s
--- specified in the job definition or the Docker image) with a @command@
--- override. You can also override existing environment variables (that are
--- specified in the job definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
-submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
-submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
 
 -- | A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources;
--- use @containerOverrides@ instead.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources; use @containerOverrides@ instead.
 submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe NodeOverrides)
 submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverrides) (\s@SubmitJob' {} a -> s {nodeOverrides = a} :: SubmitJob)
 
 -- | The tags that you apply to the job request to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 submitJob_tags :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s {tags = a} :: SubmitJob) Prelude.. Lens.mapping Lens._Coerce
 
@@ -339,8 +345,8 @@ submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTag
 submitJob_jobName :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobName = Lens.lens (\SubmitJob' {jobName} -> jobName) (\s@SubmitJob' {} a -> s {jobName = a} :: SubmitJob)
 
--- | The job queue into which the job is submitted. You can specify either
--- the name or the Amazon Resource Name (ARN) of the queue.
+-- | The job queue where the job is submitted. You can specify either the
+-- name or the Amazon Resource Name (ARN) of the queue.
 submitJob_jobQueue :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobQueue = Lens.lens (\SubmitJob' {jobQueue} -> jobQueue) (\s@SubmitJob' {} a -> s {jobQueue = a} :: SubmitJob)
 
@@ -385,10 +391,10 @@ instance Core.ToJSON SubmitJob where
       ( Prelude.catMaybes
           [ ("dependsOn" Core..=) Prelude.<$> dependsOn,
             ("timeout" Core..=) Prelude.<$> timeout,
-            ("arrayProperties" Core..=)
-              Prelude.<$> arrayProperties,
             ("containerOverrides" Core..=)
               Prelude.<$> containerOverrides,
+            ("arrayProperties" Core..=)
+              Prelude.<$> arrayProperties,
             ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
             ("tags" Core..=) Prelude.<$> tags,
             ("retryStrategy" Core..=) Prelude.<$> retryStrategy,

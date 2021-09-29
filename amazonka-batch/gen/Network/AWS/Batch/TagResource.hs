@@ -23,8 +23,8 @@
 -- Associates the specified tags to a resource with the specified
 -- @resourceArn@. If existing tags on a resource aren\'t specified in the
 -- request parameters, they aren\'t changed. When a resource is deleted,
--- the tags associated with that resource are deleted as well. AWS Batch
--- resources that support tags are compute environments, jobs, job
+-- the tags that are associated with that resource are deleted as well.
+-- Batch resources that support tags are compute environments, jobs, job
 -- definitions, and job queues. ARNs for child jobs of array and multi-node
 -- parallel (MNP) jobs are not supported.
 module Network.AWS.Batch.TagResource
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
-    -- AWS Batch resources that support tags are compute environments, jobs,
-    -- job definitions, and job queues. ARNs for child jobs of array and
-    -- multi-node parallel (MNP) jobs are not supported.
+    -- Batch resources that support tags are compute environments, jobs, job
+    -- definitions, and job queues. ARNs for child jobs of array and multi-node
+    -- parallel (MNP) jobs are not supported.
     resourceArn :: Prelude.Text,
     -- | The tags that you apply to the resource to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,15 +77,15 @@ data TagResource = TagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that tags are added to.
--- AWS Batch resources that support tags are compute environments, jobs,
--- job definitions, and job queues. ARNs for child jobs of array and
--- multi-node parallel (MNP) jobs are not supported.
+-- Batch resources that support tags are compute environments, jobs, job
+-- definitions, and job queues. ARNs for child jobs of array and multi-node
+-- parallel (MNP) jobs are not supported.
 --
 -- 'tags', 'tagResource_tags' - The tags that you apply to the resource to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -97,17 +97,17 @@ newTagResource pResourceArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
--- AWS Batch resources that support tags are compute environments, jobs,
--- job definitions, and job queues. ARNs for child jobs of array and
--- multi-node parallel (MNP) jobs are not supported.
+-- Batch resources that support tags are compute environments, jobs, job
+-- definitions, and job queues. ARNs for child jobs of array and multi-node
+-- parallel (MNP) jobs are not supported.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | The tags that you apply to the resource to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 

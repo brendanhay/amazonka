@@ -28,10 +28,10 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 --
 -- /See:/ 'newServiceActionSummary' smart constructor.
 data ServiceActionSummary = ServiceActionSummary'
-  { -- | The self-service action identifier.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
+  { -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
     definitionType :: Prelude.Maybe ServiceActionDefinitionType,
+    -- | The self-service action identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The self-service action name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The self-service action description.
@@ -47,9 +47,9 @@ data ServiceActionSummary = ServiceActionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'serviceActionSummary_id' - The self-service action identifier.
---
 -- 'definitionType', 'serviceActionSummary_definitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@.
+--
+-- 'id', 'serviceActionSummary_id' - The self-service action identifier.
 --
 -- 'name', 'serviceActionSummary_name' - The self-service action name.
 --
@@ -58,19 +58,20 @@ newServiceActionSummary ::
   ServiceActionSummary
 newServiceActionSummary =
   ServiceActionSummary'
-    { id = Prelude.Nothing,
-      definitionType = Prelude.Nothing,
+    { definitionType =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
       name = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
--- | The self-service action identifier.
-serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
-serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
-
 -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
 serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Prelude.Maybe ServiceActionDefinitionType)
 serviceActionSummary_definitionType = Lens.lens (\ServiceActionSummary' {definitionType} -> definitionType) (\s@ServiceActionSummary' {} a -> s {definitionType = a} :: ServiceActionSummary)
+
+-- | The self-service action identifier.
+serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
+serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
 
 -- | The self-service action name.
 serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
@@ -86,8 +87,8 @@ instance Core.FromJSON ServiceActionSummary where
       "ServiceActionSummary"
       ( \x ->
           ServiceActionSummary'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "DefinitionType")
+            Prelude.<$> (x Core..:? "DefinitionType")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
       )

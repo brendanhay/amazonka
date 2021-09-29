@@ -50,10 +50,10 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
     planName :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
     tags :: Prelude.Maybe [Tag],
-    -- | The plan identifier.
-    planId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Maybe Prelude.Text,
+    -- | The plan identifier.
+    planId :: Prelude.Maybe Prelude.Text,
     -- | Parameters specified by the administrator that are required for
     -- provisioning the product.
     provisioningParameters :: Prelude.Maybe [UpdateProvisioningParameter],
@@ -95,9 +95,9 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
 --
 -- 'tags', 'provisionedProductPlanDetails_tags' - One or more tags.
 --
--- 'planId', 'provisionedProductPlanDetails_planId' - The plan identifier.
---
 -- 'productId', 'provisionedProductPlanDetails_productId' - The product identifier.
+--
+-- 'planId', 'provisionedProductPlanDetails_planId' - The plan identifier.
 --
 -- 'provisioningParameters', 'provisionedProductPlanDetails_provisioningParameters' - Parameters specified by the administrator that are required for
 -- provisioning the product.
@@ -123,8 +123,8 @@ newProvisionedProductPlanDetails =
       provisioningArtifactId = Prelude.Nothing,
       planName = Prelude.Nothing,
       tags = Prelude.Nothing,
-      planId = Prelude.Nothing,
       productId = Prelude.Nothing,
+      planId = Prelude.Nothing,
       provisioningParameters = Prelude.Nothing,
       planType = Prelude.Nothing,
       pathId = Prelude.Nothing,
@@ -168,13 +168,13 @@ provisionedProductPlanDetails_planName = Lens.lens (\ProvisionedProductPlanDetai
 provisionedProductPlanDetails_tags :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe [Tag])
 provisionedProductPlanDetails_tags = Lens.lens (\ProvisionedProductPlanDetails' {tags} -> tags) (\s@ProvisionedProductPlanDetails' {} a -> s {tags = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Lens._Coerce
 
--- | The plan identifier.
-provisionedProductPlanDetails_planId :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.Text)
-provisionedProductPlanDetails_planId = Lens.lens (\ProvisionedProductPlanDetails' {planId} -> planId) (\s@ProvisionedProductPlanDetails' {} a -> s {planId = a} :: ProvisionedProductPlanDetails)
-
 -- | The product identifier.
 provisionedProductPlanDetails_productId :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.Text)
 provisionedProductPlanDetails_productId = Lens.lens (\ProvisionedProductPlanDetails' {productId} -> productId) (\s@ProvisionedProductPlanDetails' {} a -> s {productId = a} :: ProvisionedProductPlanDetails)
+
+-- | The plan identifier.
+provisionedProductPlanDetails_planId :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.Text)
+provisionedProductPlanDetails_planId = Lens.lens (\ProvisionedProductPlanDetails' {planId} -> planId) (\s@ProvisionedProductPlanDetails' {} a -> s {planId = a} :: ProvisionedProductPlanDetails)
 
 -- | Parameters specified by the administrator that are required for
 -- provisioning the product.
@@ -212,8 +212,8 @@ instance Core.FromJSON ProvisionedProductPlanDetails where
             Prelude.<*> (x Core..:? "ProvisioningArtifactId")
             Prelude.<*> (x Core..:? "PlanName")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PlanId")
             Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "PlanId")
             Prelude.<*> ( x Core..:? "ProvisioningParameters"
                             Core..!= Prelude.mempty
                         )

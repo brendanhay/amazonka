@@ -35,21 +35,21 @@ data ProductViewSummary = ProductViewSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the product.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The URL information to obtain support for this Product.
+    supportUrl :: Prelude.Maybe Prelude.Text,
+    -- | Short description of the product.
+    shortDescription :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the product has a default path. If the product does
     -- not have a default path, call ListLaunchPaths to disambiguate between
     -- paths. Otherwise, ListLaunchPaths is not required, and the output of
     -- ProductViewSummary can be used directly with
     -- DescribeProvisioningParameters.
     hasDefaultPath :: Prelude.Maybe Prelude.Bool,
-    -- | Short description of the product.
-    shortDescription :: Prelude.Maybe Prelude.Text,
-    -- | The URL information to obtain support for this Product.
-    supportUrl :: Prelude.Maybe Prelude.Text,
-    -- | The description of the support for this Product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
     -- | The owner of the product. Contact the product administrator for the
     -- significance of this value.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The description of the support for this Product.
+    supportDescription :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Maybe Prelude.Text,
     -- | The email contact information to obtain support for this Product.
@@ -76,20 +76,20 @@ data ProductViewSummary = ProductViewSummary'
 --
 -- 'name', 'productViewSummary_name' - The name of the product.
 --
+-- 'supportUrl', 'productViewSummary_supportUrl' - The URL information to obtain support for this Product.
+--
+-- 'shortDescription', 'productViewSummary_shortDescription' - Short description of the product.
+--
 -- 'hasDefaultPath', 'productViewSummary_hasDefaultPath' - Indicates whether the product has a default path. If the product does
 -- not have a default path, call ListLaunchPaths to disambiguate between
 -- paths. Otherwise, ListLaunchPaths is not required, and the output of
 -- ProductViewSummary can be used directly with
 -- DescribeProvisioningParameters.
 --
--- 'shortDescription', 'productViewSummary_shortDescription' - Short description of the product.
---
--- 'supportUrl', 'productViewSummary_supportUrl' - The URL information to obtain support for this Product.
---
--- 'supportDescription', 'productViewSummary_supportDescription' - The description of the support for this Product.
---
 -- 'owner', 'productViewSummary_owner' - The owner of the product. Contact the product administrator for the
 -- significance of this value.
+--
+-- 'supportDescription', 'productViewSummary_supportDescription' - The description of the support for this Product.
 --
 -- 'productId', 'productViewSummary_productId' - The product identifier.
 --
@@ -105,11 +105,11 @@ newProductViewSummary =
     { distributor = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      hasDefaultPath = Prelude.Nothing,
-      shortDescription = Prelude.Nothing,
       supportUrl = Prelude.Nothing,
-      supportDescription = Prelude.Nothing,
+      shortDescription = Prelude.Nothing,
+      hasDefaultPath = Prelude.Nothing,
       owner = Prelude.Nothing,
+      supportDescription = Prelude.Nothing,
       productId = Prelude.Nothing,
       supportEmail = Prelude.Nothing,
       type' = Prelude.Nothing
@@ -128,6 +128,14 @@ productViewSummary_id = Lens.lens (\ProductViewSummary' {id} -> id) (\s@ProductV
 productViewSummary_name :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
 productViewSummary_name = Lens.lens (\ProductViewSummary' {name} -> name) (\s@ProductViewSummary' {} a -> s {name = a} :: ProductViewSummary)
 
+-- | The URL information to obtain support for this Product.
+productViewSummary_supportUrl :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_supportUrl = Lens.lens (\ProductViewSummary' {supportUrl} -> supportUrl) (\s@ProductViewSummary' {} a -> s {supportUrl = a} :: ProductViewSummary)
+
+-- | Short description of the product.
+productViewSummary_shortDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_shortDescription = Lens.lens (\ProductViewSummary' {shortDescription} -> shortDescription) (\s@ProductViewSummary' {} a -> s {shortDescription = a} :: ProductViewSummary)
+
 -- | Indicates whether the product has a default path. If the product does
 -- not have a default path, call ListLaunchPaths to disambiguate between
 -- paths. Otherwise, ListLaunchPaths is not required, and the output of
@@ -136,22 +144,14 @@ productViewSummary_name = Lens.lens (\ProductViewSummary' {name} -> name) (\s@Pr
 productViewSummary_hasDefaultPath :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Bool)
 productViewSummary_hasDefaultPath = Lens.lens (\ProductViewSummary' {hasDefaultPath} -> hasDefaultPath) (\s@ProductViewSummary' {} a -> s {hasDefaultPath = a} :: ProductViewSummary)
 
--- | Short description of the product.
-productViewSummary_shortDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
-productViewSummary_shortDescription = Lens.lens (\ProductViewSummary' {shortDescription} -> shortDescription) (\s@ProductViewSummary' {} a -> s {shortDescription = a} :: ProductViewSummary)
-
--- | The URL information to obtain support for this Product.
-productViewSummary_supportUrl :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
-productViewSummary_supportUrl = Lens.lens (\ProductViewSummary' {supportUrl} -> supportUrl) (\s@ProductViewSummary' {} a -> s {supportUrl = a} :: ProductViewSummary)
-
--- | The description of the support for this Product.
-productViewSummary_supportDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
-productViewSummary_supportDescription = Lens.lens (\ProductViewSummary' {supportDescription} -> supportDescription) (\s@ProductViewSummary' {} a -> s {supportDescription = a} :: ProductViewSummary)
-
 -- | The owner of the product. Contact the product administrator for the
 -- significance of this value.
 productViewSummary_owner :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
 productViewSummary_owner = Lens.lens (\ProductViewSummary' {owner} -> owner) (\s@ProductViewSummary' {} a -> s {owner = a} :: ProductViewSummary)
+
+-- | The description of the support for this Product.
+productViewSummary_supportDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_supportDescription = Lens.lens (\ProductViewSummary' {supportDescription} -> supportDescription) (\s@ProductViewSummary' {} a -> s {supportDescription = a} :: ProductViewSummary)
 
 -- | The product identifier.
 productViewSummary_productId :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
@@ -176,11 +176,11 @@ instance Core.FromJSON ProductViewSummary where
             Prelude.<$> (x Core..:? "Distributor")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "HasDefaultPath")
-            Prelude.<*> (x Core..:? "ShortDescription")
             Prelude.<*> (x Core..:? "SupportUrl")
-            Prelude.<*> (x Core..:? "SupportDescription")
+            Prelude.<*> (x Core..:? "ShortDescription")
+            Prelude.<*> (x Core..:? "HasDefaultPath")
             Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "SupportDescription")
             Prelude.<*> (x Core..:? "ProductId")
             Prelude.<*> (x Core..:? "SupportEmail")
             Prelude.<*> (x Core..:? "Type")

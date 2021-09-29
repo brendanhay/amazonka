@@ -32,8 +32,8 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
     describeProvisioningArtifact_provisioningArtifactId,
     describeProvisioningArtifact_productName,
     describeProvisioningArtifact_productId,
-    describeProvisioningArtifact_verbose,
     describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_verbose,
 
     -- * Destructuring the Response
     DescribeProvisioningArtifactResponse (..),
@@ -64,8 +64,6 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
     productName :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether a verbose level of detail is enabled.
-    verbose :: Prelude.Maybe Prelude.Bool,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -73,7 +71,9 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether a verbose level of detail is enabled.
+    verbose :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,8 +93,6 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 --
 -- 'productId', 'describeProvisioningArtifact_productId' - The product identifier.
 --
--- 'verbose', 'describeProvisioningArtifact_verbose' - Indicates whether a verbose level of detail is enabled.
---
 -- 'acceptLanguage', 'describeProvisioningArtifact_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -102,6 +100,8 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'verbose', 'describeProvisioningArtifact_verbose' - Indicates whether a verbose level of detail is enabled.
 newDescribeProvisioningArtifact ::
   DescribeProvisioningArtifact
 newDescribeProvisioningArtifact =
@@ -111,8 +111,8 @@ newDescribeProvisioningArtifact =
       provisioningArtifactId = Prelude.Nothing,
       productName = Prelude.Nothing,
       productId = Prelude.Nothing,
-      verbose = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      acceptLanguage = Prelude.Nothing,
+      verbose = Prelude.Nothing
     }
 
 -- | The provisioning artifact name.
@@ -131,10 +131,6 @@ describeProvisioningArtifact_productName = Lens.lens (\DescribeProvisioningArtif
 describeProvisioningArtifact_productId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
 describeProvisioningArtifact_productId = Lens.lens (\DescribeProvisioningArtifact' {productId} -> productId) (\s@DescribeProvisioningArtifact' {} a -> s {productId = a} :: DescribeProvisioningArtifact)
 
--- | Indicates whether a verbose level of detail is enabled.
-describeProvisioningArtifact_verbose :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
-describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact' {verbose} -> verbose) (\s@DescribeProvisioningArtifact' {} a -> s {verbose = a} :: DescribeProvisioningArtifact)
-
 -- | The language code.
 --
 -- -   @en@ - English (default)
@@ -144,6 +140,10 @@ describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact'
 -- -   @zh@ - Chinese
 describeProvisioningArtifact_acceptLanguage :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
 describeProvisioningArtifact_acceptLanguage = Lens.lens (\DescribeProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DescribeProvisioningArtifact)
+
+-- | Indicates whether a verbose level of detail is enabled.
+describeProvisioningArtifact_verbose :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
+describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact' {verbose} -> verbose) (\s@DescribeProvisioningArtifact' {} a -> s {verbose = a} :: DescribeProvisioningArtifact)
 
 instance Core.AWSRequest DescribeProvisioningArtifact where
   type
@@ -191,9 +191,9 @@ instance Core.ToJSON DescribeProvisioningArtifact where
               Prelude.<$> provisioningArtifactId,
             ("ProductName" Core..=) Prelude.<$> productName,
             ("ProductId" Core..=) Prelude.<$> productId,
-            ("Verbose" Core..=) Prelude.<$> verbose,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> acceptLanguage,
+            ("Verbose" Core..=) Prelude.<$> verbose
           ]
       )
 

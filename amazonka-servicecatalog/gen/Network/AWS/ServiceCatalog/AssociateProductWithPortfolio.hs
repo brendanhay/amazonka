@@ -29,8 +29,8 @@ module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
     newAssociateProductWithPortfolio,
 
     -- * Request Lenses
-    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_acceptLanguage,
+    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_productId,
     associateProductWithPortfolio_portfolioId,
 
@@ -52,9 +52,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newAssociateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
-  { -- | The identifier of the source portfolio.
-    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -62,6 +60,8 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the source portfolio.
+    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Text,
     -- | The portfolio identifier.
@@ -77,8 +77,6 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourcePortfolioId', 'associateProductWithPortfolio_sourcePortfolioId' - The identifier of the source portfolio.
---
 -- 'acceptLanguage', 'associateProductWithPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -86,6 +84,8 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'sourcePortfolioId', 'associateProductWithPortfolio_sourcePortfolioId' - The identifier of the source portfolio.
 --
 -- 'productId', 'associateProductWithPortfolio_productId' - The product identifier.
 --
@@ -100,16 +100,12 @@ newAssociateProductWithPortfolio
   pProductId_
   pPortfolioId_ =
     AssociateProductWithPortfolio'
-      { sourcePortfolioId =
+      { acceptLanguage =
           Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+        sourcePortfolioId = Prelude.Nothing,
         productId = pProductId_,
         portfolioId = pPortfolioId_
       }
-
--- | The identifier of the source portfolio.
-associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
-associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The language code.
 --
@@ -120,6 +116,10 @@ associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWi
 -- -   @zh@ - Chinese
 associateProductWithPortfolio_acceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
 associateProductWithPortfolio_acceptLanguage = Lens.lens (\AssociateProductWithPortfolio' {acceptLanguage} -> acceptLanguage) (\s@AssociateProductWithPortfolio' {} a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
+
+-- | The identifier of the source portfolio.
+associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The product identifier.
 associateProductWithPortfolio_productId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
@@ -169,10 +169,10 @@ instance Core.ToJSON AssociateProductWithPortfolio where
   toJSON AssociateProductWithPortfolio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourcePortfolioId" Core..=)
-              Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("SourcePortfolioId" Core..=)
+              Prelude.<$> sourcePortfolioId,
             Prelude.Just ("ProductId" Core..= productId),
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]

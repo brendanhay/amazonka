@@ -36,10 +36,10 @@ data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
     parameterConstraints :: Prelude.Maybe ParameterConstraints,
     -- | The parameter type.
     parameterType :: Prelude.Maybe Prelude.Text,
-    -- | The parameter key.
-    parameterKey :: Prelude.Maybe Prelude.Text,
     -- | The description of the parameter.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The parameter key.
+    parameterKey :: Prelude.Maybe Prelude.Text,
     -- | The default value.
     defaultValue :: Prelude.Maybe Prelude.Text
   }
@@ -61,9 +61,9 @@ data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
 --
 -- 'parameterType', 'provisioningArtifactParameter_parameterType' - The parameter type.
 --
--- 'parameterKey', 'provisioningArtifactParameter_parameterKey' - The parameter key.
---
 -- 'description', 'provisioningArtifactParameter_description' - The description of the parameter.
+--
+-- 'parameterKey', 'provisioningArtifactParameter_parameterKey' - The parameter key.
 --
 -- 'defaultValue', 'provisioningArtifactParameter_defaultValue' - The default value.
 newProvisioningArtifactParameter ::
@@ -74,8 +74,8 @@ newProvisioningArtifactParameter =
         Prelude.Nothing,
       parameterConstraints = Prelude.Nothing,
       parameterType = Prelude.Nothing,
-      parameterKey = Prelude.Nothing,
       description = Prelude.Nothing,
+      parameterKey = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
 
@@ -93,13 +93,13 @@ provisioningArtifactParameter_parameterConstraints = Lens.lens (\ProvisioningArt
 provisioningArtifactParameter_parameterType :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
 provisioningArtifactParameter_parameterType = Lens.lens (\ProvisioningArtifactParameter' {parameterType} -> parameterType) (\s@ProvisioningArtifactParameter' {} a -> s {parameterType = a} :: ProvisioningArtifactParameter)
 
--- | The parameter key.
-provisioningArtifactParameter_parameterKey :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
-provisioningArtifactParameter_parameterKey = Lens.lens (\ProvisioningArtifactParameter' {parameterKey} -> parameterKey) (\s@ProvisioningArtifactParameter' {} a -> s {parameterKey = a} :: ProvisioningArtifactParameter)
-
 -- | The description of the parameter.
 provisioningArtifactParameter_description :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
 provisioningArtifactParameter_description = Lens.lens (\ProvisioningArtifactParameter' {description} -> description) (\s@ProvisioningArtifactParameter' {} a -> s {description = a} :: ProvisioningArtifactParameter)
+
+-- | The parameter key.
+provisioningArtifactParameter_parameterKey :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
+provisioningArtifactParameter_parameterKey = Lens.lens (\ProvisioningArtifactParameter' {parameterKey} -> parameterKey) (\s@ProvisioningArtifactParameter' {} a -> s {parameterKey = a} :: ProvisioningArtifactParameter)
 
 -- | The default value.
 provisioningArtifactParameter_defaultValue :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
@@ -114,8 +114,8 @@ instance Core.FromJSON ProvisioningArtifactParameter where
             Prelude.<$> (x Core..:? "IsNoEcho")
             Prelude.<*> (x Core..:? "ParameterConstraints")
             Prelude.<*> (x Core..:? "ParameterType")
-            Prelude.<*> (x Core..:? "ParameterKey")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ParameterKey")
             Prelude.<*> (x Core..:? "DefaultValue")
       )
 

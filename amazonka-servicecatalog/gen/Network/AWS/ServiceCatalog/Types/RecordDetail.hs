@@ -57,10 +57,10 @@ data RecordDetail = RecordDetail'
     -- | The type of provisioned product. The supported values are @CFN_STACK@
     -- and @CFN_STACKSET@.
     provisionedProductType :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the record.
-    recordId :: Prelude.Maybe Prelude.Text,
     -- | The time when the record was last updated.
     updatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The identifier of the record.
+    recordId :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the provisioning artifact.
@@ -117,9 +117,9 @@ data RecordDetail = RecordDetail'
 -- 'provisionedProductType', 'recordDetail_provisionedProductType' - The type of provisioned product. The supported values are @CFN_STACK@
 -- and @CFN_STACKSET@.
 --
--- 'recordId', 'recordDetail_recordId' - The identifier of the record.
---
 -- 'updatedTime', 'recordDetail_updatedTime' - The time when the record was last updated.
+--
+-- 'recordId', 'recordDetail_recordId' - The identifier of the record.
 --
 -- 'createdTime', 'recordDetail_createdTime' - The UTC time stamp of the creation time.
 --
@@ -148,8 +148,8 @@ newRecordDetail =
       recordErrors = Prelude.Nothing,
       provisionedProductId = Prelude.Nothing,
       provisionedProductType = Prelude.Nothing,
-      recordId = Prelude.Nothing,
       updatedTime = Prelude.Nothing,
+      recordId = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
       launchRoleArn = Prelude.Nothing,
@@ -197,13 +197,13 @@ recordDetail_provisionedProductId = Lens.lens (\RecordDetail' {provisionedProduc
 recordDetail_provisionedProductType :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.Text)
 recordDetail_provisionedProductType = Lens.lens (\RecordDetail' {provisionedProductType} -> provisionedProductType) (\s@RecordDetail' {} a -> s {provisionedProductType = a} :: RecordDetail)
 
--- | The identifier of the record.
-recordDetail_recordId :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.Text)
-recordDetail_recordId = Lens.lens (\RecordDetail' {recordId} -> recordId) (\s@RecordDetail' {} a -> s {recordId = a} :: RecordDetail)
-
 -- | The time when the record was last updated.
 recordDetail_updatedTime :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.UTCTime)
 recordDetail_updatedTime = Lens.lens (\RecordDetail' {updatedTime} -> updatedTime) (\s@RecordDetail' {} a -> s {updatedTime = a} :: RecordDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The identifier of the record.
+recordDetail_recordId :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.Text)
+recordDetail_recordId = Lens.lens (\RecordDetail' {recordId} -> recordId) (\s@RecordDetail' {} a -> s {recordId = a} :: RecordDetail)
 
 -- | The UTC time stamp of the creation time.
 recordDetail_createdTime :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.UTCTime)
@@ -247,8 +247,8 @@ instance Core.FromJSON RecordDetail where
             Prelude.<*> (x Core..:? "RecordErrors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ProvisionedProductId")
             Prelude.<*> (x Core..:? "ProvisionedProductType")
-            Prelude.<*> (x Core..:? "RecordId")
             Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<*> (x Core..:? "RecordId")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "ProvisioningArtifactId")
             Prelude.<*> (x Core..:? "LaunchRoleArn")

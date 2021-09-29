@@ -28,9 +28,7 @@ import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
 --
 -- /See:/ 'newProvisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-  { -- | The current status message of the provisioned product.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The record identifier of the last successful request performed on this
+  { -- | The record identifier of the last successful request performed on this
     -- provisioned product of the following types:
     --
     -- -   ProvisionedProduct
@@ -41,10 +39,8 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
     --
     -- -   TerminateProvisionedProduct
     lastSuccessfulProvisioningRecordId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier that you provide to ensure idempotency. If multiple
-    -- requests differ only by the idempotency token, the same response is
-    -- returned for each repeated request.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status message of the provisioned product.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The current status of the provisioned product.
     --
     -- -   @AVAILABLE@ - Stable state, ready to perform any operation. The most
@@ -70,6 +66,10 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
     --     execute the plan. Wait for an @AVAILABLE@ status before performing
     --     operations.
     status :: Prelude.Maybe ProvisionedProductStatus,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple
+    -- requests differ only by the idempotency token, the same response is
+    -- returned for each repeated request.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the provisioned product.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product.
@@ -113,8 +113,6 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'provisionedProductDetail_statusMessage' - The current status message of the provisioned product.
---
 -- 'lastSuccessfulProvisioningRecordId', 'provisionedProductDetail_lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
 --
@@ -126,9 +124,7 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- -   TerminateProvisionedProduct
 --
--- 'idempotencyToken', 'provisionedProductDetail_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
+-- 'statusMessage', 'provisionedProductDetail_statusMessage' - The current status message of the provisioned product.
 --
 -- 'status', 'provisionedProductDetail_status' - The current status of the provisioned product.
 --
@@ -154,6 +150,10 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --     been created. After reviewing the list of resources to be created,
 --     execute the plan. Wait for an @AVAILABLE@ status before performing
 --     operations.
+--
+-- 'idempotencyToken', 'provisionedProductDetail_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
 --
 -- 'arn', 'provisionedProductDetail_arn' - The ARN of the provisioned product.
 --
@@ -190,12 +190,11 @@ newProvisionedProductDetail ::
   ProvisionedProductDetail
 newProvisionedProductDetail =
   ProvisionedProductDetail'
-    { statusMessage =
+    { lastSuccessfulProvisioningRecordId =
         Prelude.Nothing,
-      lastSuccessfulProvisioningRecordId =
-        Prelude.Nothing,
-      idempotencyToken = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       createdTime = Prelude.Nothing,
@@ -207,10 +206,6 @@ newProvisionedProductDetail =
       type' = Prelude.Nothing,
       lastRecordId = Prelude.Nothing
     }
-
--- | The current status message of the provisioned product.
-provisionedProductDetail_statusMessage :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {statusMessage} -> statusMessage) (\s@ProvisionedProductDetail' {} a -> s {statusMessage = a} :: ProvisionedProductDetail)
 
 -- | The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
@@ -225,11 +220,9 @@ provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {
 provisionedProductDetail_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
 provisionedProductDetail_lastSuccessfulProvisioningRecordId = Lens.lens (\ProvisionedProductDetail' {lastSuccessfulProvisioningRecordId} -> lastSuccessfulProvisioningRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductDetail)
 
--- | A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
-provisionedProductDetail_idempotencyToken :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_idempotencyToken = Lens.lens (\ProvisionedProductDetail' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductDetail' {} a -> s {idempotencyToken = a} :: ProvisionedProductDetail)
+-- | The current status message of the provisioned product.
+provisionedProductDetail_statusMessage :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {statusMessage} -> statusMessage) (\s@ProvisionedProductDetail' {} a -> s {statusMessage = a} :: ProvisionedProductDetail)
 
 -- | The current status of the provisioned product.
 --
@@ -257,6 +250,12 @@ provisionedProductDetail_idempotencyToken = Lens.lens (\ProvisionedProductDetail
 --     operations.
 provisionedProductDetail_status :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe ProvisionedProductStatus)
 provisionedProductDetail_status = Lens.lens (\ProvisionedProductDetail' {status} -> status) (\s@ProvisionedProductDetail' {} a -> s {status = a} :: ProvisionedProductDetail)
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
+provisionedProductDetail_idempotencyToken :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_idempotencyToken = Lens.lens (\ProvisionedProductDetail' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductDetail' {} a -> s {idempotencyToken = a} :: ProvisionedProductDetail)
 
 -- | The ARN of the provisioned product.
 provisionedProductDetail_arn :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
@@ -316,10 +315,10 @@ instance Core.FromJSON ProvisionedProductDetail where
       "ProvisionedProductDetail"
       ( \x ->
           ProvisionedProductDetail'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Prelude.<*> (x Core..:? "IdempotencyToken")
+            Prelude.<$> (x Core..:? "LastSuccessfulProvisioningRecordId")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "IdempotencyToken")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "CreatedTime")

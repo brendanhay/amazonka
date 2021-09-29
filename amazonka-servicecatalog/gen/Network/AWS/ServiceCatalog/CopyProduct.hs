@@ -34,11 +34,11 @@ module Network.AWS.ServiceCatalog.CopyProduct
     newCopyProduct,
 
     -- * Request Lenses
-    copyProduct_targetProductName,
     copyProduct_copyOptions,
+    copyProduct_targetProductName,
     copyProduct_targetProductId,
-    copyProduct_sourceProvisioningArtifactIdentifiers,
     copyProduct_acceptLanguage,
+    copyProduct_sourceProvisioningArtifactIdentifiers,
     copyProduct_sourceProductArn,
     copyProduct_idempotencyToken,
 
@@ -61,19 +61,15 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newCopyProduct' smart constructor.
 data CopyProduct = CopyProduct'
-  { -- | A name for the target product. The default is the name of the source
-    -- product.
-    targetProductName :: Prelude.Maybe Prelude.Text,
-    -- | The copy options. If the value is @CopyTags@, the tags from the source
+  { -- | The copy options. If the value is @CopyTags@, the tags from the source
     -- product are copied to the target product.
     copyOptions :: Prelude.Maybe [CopyOption],
+    -- | A name for the target product. The default is the name of the source
+    -- product.
+    targetProductName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the target product. By default, a new product is
     -- created.
     targetProductId :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of the provisioning artifacts (also known as versions)
-    -- of the product to copy. By default, all provisioning artifacts are
-    -- copied.
-    sourceProvisioningArtifactIdentifiers :: Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text],
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -82,6 +78,10 @@ data CopyProduct = CopyProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the provisioning artifacts (also known as versions)
+    -- of the product to copy. By default, all provisioning artifacts are
+    -- copied.
+    sourceProvisioningArtifactIdentifiers :: Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the source product.
     sourceProductArn :: Prelude.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
@@ -99,18 +99,14 @@ data CopyProduct = CopyProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetProductName', 'copyProduct_targetProductName' - A name for the target product. The default is the name of the source
--- product.
---
 -- 'copyOptions', 'copyProduct_copyOptions' - The copy options. If the value is @CopyTags@, the tags from the source
 -- product are copied to the target product.
 --
+-- 'targetProductName', 'copyProduct_targetProductName' - A name for the target product. The default is the name of the source
+-- product.
+--
 -- 'targetProductId', 'copyProduct_targetProductId' - The identifier of the target product. By default, a new product is
 -- created.
---
--- 'sourceProvisioningArtifactIdentifiers', 'copyProduct_sourceProvisioningArtifactIdentifiers' - The identifiers of the provisioning artifacts (also known as versions)
--- of the product to copy. By default, all provisioning artifacts are
--- copied.
 --
 -- 'acceptLanguage', 'copyProduct_acceptLanguage' - The language code.
 --
@@ -119,6 +115,10 @@ data CopyProduct = CopyProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'sourceProvisioningArtifactIdentifiers', 'copyProduct_sourceProvisioningArtifactIdentifiers' - The identifiers of the provisioning artifacts (also known as versions)
+-- of the product to copy. By default, all provisioning artifacts are
+-- copied.
 --
 -- 'sourceProductArn', 'copyProduct_sourceProductArn' - The Amazon Resource Name (ARN) of the source product.
 --
@@ -133,36 +133,30 @@ newCopyProduct ::
   CopyProduct
 newCopyProduct pSourceProductArn_ pIdempotencyToken_ =
   CopyProduct'
-    { targetProductName = Prelude.Nothing,
-      copyOptions = Prelude.Nothing,
+    { copyOptions = Prelude.Nothing,
+      targetProductName = Prelude.Nothing,
       targetProductId = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       sourceProvisioningArtifactIdentifiers =
         Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       sourceProductArn = pSourceProductArn_,
       idempotencyToken = pIdempotencyToken_
     }
-
--- | A name for the target product. The default is the name of the source
--- product.
-copyProduct_targetProductName :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
-copyProduct_targetProductName = Lens.lens (\CopyProduct' {targetProductName} -> targetProductName) (\s@CopyProduct' {} a -> s {targetProductName = a} :: CopyProduct)
 
 -- | The copy options. If the value is @CopyTags@, the tags from the source
 -- product are copied to the target product.
 copyProduct_copyOptions :: Lens.Lens' CopyProduct (Prelude.Maybe [CopyOption])
 copyProduct_copyOptions = Lens.lens (\CopyProduct' {copyOptions} -> copyOptions) (\s@CopyProduct' {} a -> s {copyOptions = a} :: CopyProduct) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A name for the target product. The default is the name of the source
+-- product.
+copyProduct_targetProductName :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
+copyProduct_targetProductName = Lens.lens (\CopyProduct' {targetProductName} -> targetProductName) (\s@CopyProduct' {} a -> s {targetProductName = a} :: CopyProduct)
+
 -- | The identifier of the target product. By default, a new product is
 -- created.
 copyProduct_targetProductId :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_targetProductId = Lens.lens (\CopyProduct' {targetProductId} -> targetProductId) (\s@CopyProduct' {} a -> s {targetProductId = a} :: CopyProduct)
-
--- | The identifiers of the provisioning artifacts (also known as versions)
--- of the product to copy. By default, all provisioning artifacts are
--- copied.
-copyProduct_sourceProvisioningArtifactIdentifiers :: Lens.Lens' CopyProduct (Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text])
-copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {sourceProvisioningArtifactIdentifiers} -> sourceProvisioningArtifactIdentifiers) (\s@CopyProduct' {} a -> s {sourceProvisioningArtifactIdentifiers = a} :: CopyProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language code.
 --
@@ -173,6 +167,12 @@ copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {so
 -- -   @zh@ - Chinese
 copyProduct_acceptLanguage :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_acceptLanguage = Lens.lens (\CopyProduct' {acceptLanguage} -> acceptLanguage) (\s@CopyProduct' {} a -> s {acceptLanguage = a} :: CopyProduct)
+
+-- | The identifiers of the provisioning artifacts (also known as versions)
+-- of the product to copy. By default, all provisioning artifacts are
+-- copied.
+copyProduct_sourceProvisioningArtifactIdentifiers :: Lens.Lens' CopyProduct (Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text])
+copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {sourceProvisioningArtifactIdentifiers} -> sourceProvisioningArtifactIdentifiers) (\s@CopyProduct' {} a -> s {sourceProvisioningArtifactIdentifiers = a} :: CopyProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the source product.
 copyProduct_sourceProductArn :: Lens.Lens' CopyProduct Prelude.Text
@@ -218,15 +218,15 @@ instance Core.ToJSON CopyProduct where
   toJSON CopyProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetProductName" Core..=)
+          [ ("CopyOptions" Core..=) Prelude.<$> copyOptions,
+            ("TargetProductName" Core..=)
               Prelude.<$> targetProductName,
-            ("CopyOptions" Core..=) Prelude.<$> copyOptions,
             ("TargetProductId" Core..=)
               Prelude.<$> targetProductId,
-            ("SourceProvisioningArtifactIdentifiers" Core..=)
-              Prelude.<$> sourceProvisioningArtifactIdentifiers,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("SourceProvisioningArtifactIdentifiers" Core..=)
+              Prelude.<$> sourceProvisioningArtifactIdentifiers,
             Prelude.Just
               ("SourceProductArn" Core..= sourceProductArn),
             Prelude.Just

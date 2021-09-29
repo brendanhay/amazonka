@@ -48,11 +48,11 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestStopApplication $
---             newStopApplication
---
 --         , requestStartApplication $
 --             newStartApplication
+--
+--         , requestStopApplication $
+--             newStopApplication
 --
 --         , requestDescribeApplication $
 --             newDescribeApplication
@@ -60,29 +60,29 @@ import Test.Tasty
 --         , requestDiscoverInputSchema $
 --             newDiscoverInputSchema
 --
---         , requestAddApplicationInputProcessingConfiguration $
---             newAddApplicationInputProcessingConfiguration
---
 --         , requestDeleteApplicationInputProcessingConfiguration $
 --             newDeleteApplicationInputProcessingConfiguration
 --
---         , requestDeleteApplication $
---             newDeleteApplication
+--         , requestAddApplicationInputProcessingConfiguration $
+--             newAddApplicationInputProcessingConfiguration
 --
 --         , requestListApplications $
 --             newListApplications
 --
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
 --         , requestUpdateApplication $
 --             newUpdateApplication
---
---         , requestAddApplicationInput $
---             newAddApplicationInput
 --
 --         , requestAddApplicationReferenceDataSource $
 --             newAddApplicationReferenceDataSource
 --
 --         , requestDeleteApplicationReferenceDataSource $
 --             newDeleteApplicationReferenceDataSource
+--
+--         , requestAddApplicationInput $
+--             newAddApplicationInput
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -111,11 +111,11 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseStopApplication $
---             newStopApplicationResponse
---
 --         , responseStartApplication $
 --             newStartApplicationResponse
+--
+--         , responseStopApplication $
+--             newStopApplicationResponse
 --
 --         , responseDescribeApplication $
 --             newDescribeApplicationResponse
@@ -123,29 +123,29 @@ import Test.Tasty
 --         , responseDiscoverInputSchema $
 --             newDiscoverInputSchemaResponse
 --
---         , responseAddApplicationInputProcessingConfiguration $
---             newAddApplicationInputProcessingConfigurationResponse
---
 --         , responseDeleteApplicationInputProcessingConfiguration $
 --             newDeleteApplicationInputProcessingConfigurationResponse
 --
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
+--         , responseAddApplicationInputProcessingConfiguration $
+--             newAddApplicationInputProcessingConfigurationResponse
 --
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
 --         , responseUpdateApplication $
 --             newUpdateApplicationResponse
---
---         , responseAddApplicationInput $
---             newAddApplicationInputResponse
 --
 --         , responseAddApplicationReferenceDataSource $
 --             newAddApplicationReferenceDataSourceResponse
 --
 --         , responseDeleteApplicationReferenceDataSource $
 --             newDeleteApplicationReferenceDataSourceResponse
+--
+--         , responseAddApplicationInput $
+--             newAddApplicationInputResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -197,17 +197,17 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestStopApplication :: StopApplication -> TestTree
-requestStopApplication =
-  req
-    "StopApplication"
-    "fixture/StopApplication.yaml"
-
 requestStartApplication :: StartApplication -> TestTree
 requestStartApplication =
   req
     "StartApplication"
     "fixture/StartApplication.yaml"
+
+requestStopApplication :: StopApplication -> TestTree
+requestStopApplication =
+  req
+    "StopApplication"
+    "fixture/StopApplication.yaml"
 
 requestDescribeApplication :: DescribeApplication -> TestTree
 requestDescribeApplication =
@@ -221,23 +221,17 @@ requestDiscoverInputSchema =
     "DiscoverInputSchema"
     "fixture/DiscoverInputSchema.yaml"
 
-requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
-requestAddApplicationInputProcessingConfiguration =
-  req
-    "AddApplicationInputProcessingConfiguration"
-    "fixture/AddApplicationInputProcessingConfiguration.yaml"
-
 requestDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfiguration -> TestTree
 requestDeleteApplicationInputProcessingConfiguration =
   req
     "DeleteApplicationInputProcessingConfiguration"
     "fixture/DeleteApplicationInputProcessingConfiguration.yaml"
 
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
+requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
+requestAddApplicationInputProcessingConfiguration =
   req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
+    "AddApplicationInputProcessingConfiguration"
+    "fixture/AddApplicationInputProcessingConfiguration.yaml"
 
 requestListApplications :: ListApplications -> TestTree
 requestListApplications =
@@ -245,17 +239,17 @@ requestListApplications =
     "ListApplications"
     "fixture/ListApplications.yaml"
 
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
 requestUpdateApplication :: UpdateApplication -> TestTree
 requestUpdateApplication =
   req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
-
-requestAddApplicationInput :: AddApplicationInput -> TestTree
-requestAddApplicationInput =
-  req
-    "AddApplicationInput"
-    "fixture/AddApplicationInput.yaml"
 
 requestAddApplicationReferenceDataSource :: AddApplicationReferenceDataSource -> TestTree
 requestAddApplicationReferenceDataSource =
@@ -268,6 +262,12 @@ requestDeleteApplicationReferenceDataSource =
   req
     "DeleteApplicationReferenceDataSource"
     "fixture/DeleteApplicationReferenceDataSource.yaml"
+
+requestAddApplicationInput :: AddApplicationInput -> TestTree
+requestAddApplicationInput =
+  req
+    "AddApplicationInput"
+    "fixture/AddApplicationInput.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -333,14 +333,6 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseStopApplication :: StopApplicationResponse -> TestTree
-responseStopApplication =
-  res
-    "StopApplicationResponse"
-    "fixture/StopApplicationResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopApplication)
-
 responseStartApplication :: StartApplicationResponse -> TestTree
 responseStartApplication =
   res
@@ -348,6 +340,14 @@ responseStartApplication =
     "fixture/StartApplicationResponse.proto"
     defaultService
     (Proxy :: Proxy StartApplication)
+
+responseStopApplication :: StopApplicationResponse -> TestTree
+responseStopApplication =
+  res
+    "StopApplicationResponse"
+    "fixture/StopApplicationResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopApplication)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
 responseDescribeApplication =
@@ -365,14 +365,6 @@ responseDiscoverInputSchema =
     defaultService
     (Proxy :: Proxy DiscoverInputSchema)
 
-responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
-responseAddApplicationInputProcessingConfiguration =
-  res
-    "AddApplicationInputProcessingConfigurationResponse"
-    "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
-
 responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
 responseDeleteApplicationInputProcessingConfiguration =
   res
@@ -381,13 +373,13 @@ responseDeleteApplicationInputProcessingConfiguration =
     defaultService
     (Proxy :: Proxy DeleteApplicationInputProcessingConfiguration)
 
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
+responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
+responseAddApplicationInputProcessingConfiguration =
   res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
+    "AddApplicationInputProcessingConfigurationResponse"
+    "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -397,6 +389,14 @@ responseListApplications =
     defaultService
     (Proxy :: Proxy ListApplications)
 
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApplication)
+
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
   res
@@ -404,14 +404,6 @@ responseUpdateApplication =
     "fixture/UpdateApplicationResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateApplication)
-
-responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
-responseAddApplicationInput =
-  res
-    "AddApplicationInputResponse"
-    "fixture/AddApplicationInputResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddApplicationInput)
 
 responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
 responseAddApplicationReferenceDataSource =
@@ -428,6 +420,14 @@ responseDeleteApplicationReferenceDataSource =
     "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteApplicationReferenceDataSource)
+
+responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
+responseAddApplicationInput =
+  res
+    "AddApplicationInputResponse"
+    "fixture/AddApplicationInputResponse.proto"
+    defaultService
+    (Proxy :: Proxy AddApplicationInput)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

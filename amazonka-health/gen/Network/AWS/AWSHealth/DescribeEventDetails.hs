@@ -26,11 +26,11 @@
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html DescribeEvents>),
 -- a detailed event description, and possible additional metadata that
 -- depends upon the nature of the event. Affected entities are not
--- included. To retrieve those, use the
+-- included. To retrieve the entities, use the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html DescribeAffectedEntities>
 -- operation.
 --
--- If a specified event cannot be retrieved, an error message is returned
+-- If a specified event can\'t be retrieved, an error message is returned
 -- for that event.
 --
 -- This operation supports resource-level permissions. You can use this

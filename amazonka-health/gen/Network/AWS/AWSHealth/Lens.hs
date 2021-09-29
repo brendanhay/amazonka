@@ -14,12 +14,12 @@
 module Network.AWS.AWSHealth.Lens
   ( -- * Operations
 
-    -- ** EnableHealthServiceAccessForOrganization
-
     -- ** DescribeEntityAggregates
     describeEntityAggregates_eventArns,
     describeEntityAggregatesResponse_entityAggregates,
     describeEntityAggregatesResponse_httpStatus,
+
+    -- ** EnableHealthServiceAccessForOrganization
 
     -- ** DisableHealthServiceAccessForOrganization
 
@@ -46,6 +46,15 @@ module Network.AWS.AWSHealth.Lens
     describeAffectedAccountsForOrganizationResponse_affectedAccounts,
     describeAffectedAccountsForOrganizationResponse_httpStatus,
 
+    -- ** DescribeEvents
+    describeEvents_nextToken,
+    describeEvents_maxResults,
+    describeEvents_locale,
+    describeEvents_filter,
+    describeEventsResponse_nextToken,
+    describeEventsResponse_events,
+    describeEventsResponse_httpStatus,
+
     -- ** DescribeAffectedEntitiesForOrganization
     describeAffectedEntitiesForOrganization_nextToken,
     describeAffectedEntitiesForOrganization_maxResults,
@@ -55,15 +64,6 @@ module Network.AWS.AWSHealth.Lens
     describeAffectedEntitiesForOrganizationResponse_failedSet,
     describeAffectedEntitiesForOrganizationResponse_entities,
     describeAffectedEntitiesForOrganizationResponse_httpStatus,
-
-    -- ** DescribeEvents
-    describeEvents_nextToken,
-    describeEvents_maxResults,
-    describeEvents_locale,
-    describeEvents_filter,
-    describeEventsResponse_nextToken,
-    describeEventsResponse_events,
-    describeEventsResponse_httpStatus,
 
     -- ** DescribeEventAggregates
     describeEventAggregates_nextToken,
@@ -78,15 +78,6 @@ module Network.AWS.AWSHealth.Lens
     describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization,
     describeHealthServiceStatusForOrganizationResponse_httpStatus,
 
-    -- ** DescribeEventTypes
-    describeEventTypes_nextToken,
-    describeEventTypes_maxResults,
-    describeEventTypes_locale,
-    describeEventTypes_filter,
-    describeEventTypesResponse_eventTypes,
-    describeEventTypesResponse_nextToken,
-    describeEventTypesResponse_httpStatus,
-
     -- ** DescribeAffectedEntities
     describeAffectedEntities_nextToken,
     describeAffectedEntities_maxResults,
@@ -95,6 +86,15 @@ module Network.AWS.AWSHealth.Lens
     describeAffectedEntitiesResponse_nextToken,
     describeAffectedEntitiesResponse_entities,
     describeAffectedEntitiesResponse_httpStatus,
+
+    -- ** DescribeEventTypes
+    describeEventTypes_nextToken,
+    describeEventTypes_maxResults,
+    describeEventTypes_locale,
+    describeEventTypes_filter,
+    describeEventTypesResponse_eventTypes,
+    describeEventTypesResponse_nextToken,
+    describeEventTypesResponse_httpStatus,
 
     -- ** DescribeEventsForOrganization
     describeEventsForOrganization_nextToken,
@@ -108,13 +108,13 @@ module Network.AWS.AWSHealth.Lens
     -- * Types
 
     -- ** AffectedEntity
-    affectedEntity_eventArn,
     affectedEntity_awsAccountId,
+    affectedEntity_eventArn,
     affectedEntity_statusCode,
     affectedEntity_tags,
     affectedEntity_entityArn,
-    affectedEntity_entityValue,
     affectedEntity_entityUrl,
+    affectedEntity_entityValue,
     affectedEntity_lastUpdatedTime,
 
     -- ** DateTimeRange
@@ -137,8 +137,8 @@ module Network.AWS.AWSHealth.Lens
     event_eventTypeCategory,
     event_eventScopeCode,
     event_startTime,
-    event_service,
     event_arn,
+    event_service,
     event_endTime,
     event_availabilityZone,
     event_statusCode,
@@ -177,10 +177,10 @@ module Network.AWS.AWSHealth.Lens
     eventFilter_lastUpdatedTimes,
     eventFilter_tags,
     eventFilter_eventStatusCodes,
-    eventFilter_entityValues,
     eventFilter_regions,
-    eventFilter_eventArns,
+    eventFilter_entityValues,
     eventFilter_eventTypeCategories,
+    eventFilter_eventArns,
 
     -- ** EventType
     eventType_category,
@@ -194,16 +194,16 @@ module Network.AWS.AWSHealth.Lens
 
     -- ** OrganizationAffectedEntitiesErrorItem
     organizationAffectedEntitiesErrorItem_errorName,
-    organizationAffectedEntitiesErrorItem_eventArn,
     organizationAffectedEntitiesErrorItem_awsAccountId,
+    organizationAffectedEntitiesErrorItem_eventArn,
     organizationAffectedEntitiesErrorItem_errorMessage,
 
     -- ** OrganizationEvent
     organizationEvent_eventTypeCategory,
     organizationEvent_eventScopeCode,
     organizationEvent_startTime,
-    organizationEvent_service,
     organizationEvent_arn,
+    organizationEvent_service,
     organizationEvent_endTime,
     organizationEvent_statusCode,
     organizationEvent_eventTypeCode,
@@ -218,8 +218,8 @@ module Network.AWS.AWSHealth.Lens
 
     -- ** OrganizationEventDetailsErrorItem
     organizationEventDetailsErrorItem_errorName,
-    organizationEventDetailsErrorItem_eventArn,
     organizationEventDetailsErrorItem_awsAccountId,
+    organizationEventDetailsErrorItem_eventArn,
     organizationEventDetailsErrorItem_errorMessage,
 
     -- ** OrganizationEventFilter
@@ -229,11 +229,11 @@ module Network.AWS.AWSHealth.Lens
     organizationEventFilter_eventTypeCodes,
     organizationEventFilter_endTime,
     organizationEventFilter_eventStatusCodes,
-    organizationEventFilter_entityValues,
     organizationEventFilter_regions,
+    organizationEventFilter_entityValues,
     organizationEventFilter_eventTypeCategories,
-    organizationEventFilter_awsAccountIds,
     organizationEventFilter_lastUpdatedTime,
+    organizationEventFilter_awsAccountIds,
   )
 where
 

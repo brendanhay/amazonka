@@ -67,14 +67,17 @@ data Event = Event'
     eventScopeCode :: Prelude.Maybe EventScopeCode,
     -- | The date and time that the event began.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The unique identifier for the event. The event ARN has the
+    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- format.
+    --
+    -- For example, an event ARN might look like the following:
+    --
+    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The AWS service that is affected by the event. For example, @EC2@,
     -- @RDS@.
     service :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event. Format:
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
-    -- Example:
-    -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event ended.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS Availability Zone of the event. For example, us-east-1a.
@@ -86,7 +89,7 @@ data Event = Event'
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
-    -- | The AWS region name of the event.
+    -- | The AWS Region name of the event.
     region :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX
@@ -121,13 +124,16 @@ data Event = Event'
 --
 -- 'startTime', 'event_startTime' - The date and time that the event began.
 --
+-- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
 -- 'service', 'event_service' - The AWS service that is affected by the event. For example, @EC2@,
 -- @RDS@.
---
--- 'arn', 'event_arn' - The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
 -- 'endTime', 'event_endTime' - The date and time that the event ended.
 --
@@ -140,7 +146,7 @@ data Event = Event'
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
--- 'region', 'event_region' - The AWS region name of the event.
+-- 'region', 'event_region' - The AWS Region name of the event.
 --
 -- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.
 newEvent ::
@@ -150,8 +156,8 @@ newEvent =
     { eventTypeCategory = Prelude.Nothing,
       eventScopeCode = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      service = Prelude.Nothing,
       arn = Prelude.Nothing,
+      service = Prelude.Nothing,
       endTime = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       statusCode = Prelude.Nothing,
@@ -186,17 +192,20 @@ event_eventScopeCode = Lens.lens (\Event' {eventScopeCode} -> eventScopeCode) (\
 event_startTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
 event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
+-- | The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+event_arn :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: Event)
+
 -- | The AWS service that is affected by the event. For example, @EC2@,
 -- @RDS@.
 event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
-
--- | The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-event_arn :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: Event)
 
 -- | The date and time that the event ended.
 event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
@@ -217,7 +226,7 @@ event_statusCode = Lens.lens (\Event' {statusCode} -> statusCode) (\s@Event' {} 
 event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
 
--- | The AWS region name of the event.
+-- | The AWS Region name of the event.
 event_region :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {region = a} :: Event)
 
@@ -234,8 +243,8 @@ instance Core.FromJSON Event where
             Prelude.<$> (x Core..:? "eventTypeCategory")
             Prelude.<*> (x Core..:? "eventScopeCode")
             Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "service")
             Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "service")
             Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "availabilityZone")
             Prelude.<*> (x Core..:? "statusCode")

@@ -34,7 +34,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventFilter' smart constructor.
 data EventFilter = EventFilter'
-  { -- | A list of AWS availability zones.
+  { -- | A list of AWS Availability Zones.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | A list of dates and times that the event ended.
     endTimes :: Prelude.Maybe (Prelude.NonEmpty DateTimeRange),
@@ -55,17 +55,17 @@ data EventFilter = EventFilter'
     tags :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
     -- | A list of event status codes.
     eventStatusCodes :: Prelude.Maybe (Prelude.NonEmpty EventStatusCode),
+    -- | A list of AWS Regions.
+    regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@) or
     -- EBS volumes (@vol-426ab23e@).
     entityValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of AWS regions.
-    regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of event ARNs (unique identifiers). For example:
-    -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
-    eventArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event type category codes (@issue@, @scheduledChange@, or
     -- @accountNotification@).
-    eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory)
+    eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory),
+    -- | A list of event ARNs (unique identifiers). For example:
+    -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
+    eventArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +77,7 @@ data EventFilter = EventFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availabilityZones', 'eventFilter_availabilityZones' - A list of AWS availability zones.
+-- 'availabilityZones', 'eventFilter_availabilityZones' - A list of AWS Availability Zones.
 --
 -- 'endTimes', 'eventFilter_endTimes' - A list of dates and times that the event ended.
 --
@@ -98,16 +98,16 @@ data EventFilter = EventFilter'
 --
 -- 'eventStatusCodes', 'eventFilter_eventStatusCodes' - A list of event status codes.
 --
+-- 'regions', 'eventFilter_regions' - A list of AWS Regions.
+--
 -- 'entityValues', 'eventFilter_entityValues' - A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@) or
 -- EBS volumes (@vol-426ab23e@).
 --
--- 'regions', 'eventFilter_regions' - A list of AWS regions.
+-- 'eventTypeCategories', 'eventFilter_eventTypeCategories' - A list of event type category codes (@issue@, @scheduledChange@, or
+-- @accountNotification@).
 --
 -- 'eventArns', 'eventFilter_eventArns' - A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
---
--- 'eventTypeCategories', 'eventFilter_eventTypeCategories' - A list of event type category codes (@issue@, @scheduledChange@, or
--- @accountNotification@).
 newEventFilter ::
   EventFilter
 newEventFilter =
@@ -121,13 +121,13 @@ newEventFilter =
       lastUpdatedTimes = Prelude.Nothing,
       tags = Prelude.Nothing,
       eventStatusCodes = Prelude.Nothing,
-      entityValues = Prelude.Nothing,
       regions = Prelude.Nothing,
-      eventArns = Prelude.Nothing,
-      eventTypeCategories = Prelude.Nothing
+      entityValues = Prelude.Nothing,
+      eventTypeCategories = Prelude.Nothing,
+      eventArns = Prelude.Nothing
     }
 
--- | A list of AWS availability zones.
+-- | A list of AWS Availability Zones.
 eventFilter_availabilityZones :: Lens.Lens' EventFilter (Prelude.Maybe [Prelude.Text])
 eventFilter_availabilityZones = Lens.lens (\EventFilter' {availabilityZones} -> availabilityZones) (\s@EventFilter' {} a -> s {availabilityZones = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
 
@@ -166,24 +166,24 @@ eventFilter_tags = Lens.lens (\EventFilter' {tags} -> tags) (\s@EventFilter' {} 
 eventFilter_eventStatusCodes :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty EventStatusCode))
 eventFilter_eventStatusCodes = Lens.lens (\EventFilter' {eventStatusCodes} -> eventStatusCodes) (\s@EventFilter' {} a -> s {eventStatusCodes = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A list of AWS Regions.
+eventFilter_regions :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventFilter_regions = Lens.lens (\EventFilter' {regions} -> regions) (\s@EventFilter' {} a -> s {regions = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@) or
 -- EBS volumes (@vol-426ab23e@).
 eventFilter_entityValues :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_entityValues = Lens.lens (\EventFilter' {entityValues} -> entityValues) (\s@EventFilter' {} a -> s {entityValues = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of AWS regions.
-eventFilter_regions :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-eventFilter_regions = Lens.lens (\EventFilter' {regions} -> regions) (\s@EventFilter' {} a -> s {regions = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of event type category codes (@issue@, @scheduledChange@, or
+-- @accountNotification@).
+eventFilter_eventTypeCategories :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
+eventFilter_eventTypeCategories = Lens.lens (\EventFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventFilter' {} a -> s {eventTypeCategories = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
 eventFilter_eventArns :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_eventArns = Lens.lens (\EventFilter' {eventArns} -> eventArns) (\s@EventFilter' {} a -> s {eventArns = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of event type category codes (@issue@, @scheduledChange@, or
--- @accountNotification@).
-eventFilter_eventTypeCategories :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
-eventFilter_eventTypeCategories = Lens.lens (\EventFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventFilter' {} a -> s {eventTypeCategories = a} :: EventFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable EventFilter
 
@@ -206,10 +206,10 @@ instance Core.ToJSON EventFilter where
             ("tags" Core..=) Prelude.<$> tags,
             ("eventStatusCodes" Core..=)
               Prelude.<$> eventStatusCodes,
-            ("entityValues" Core..=) Prelude.<$> entityValues,
             ("regions" Core..=) Prelude.<$> regions,
-            ("eventArns" Core..=) Prelude.<$> eventArns,
+            ("entityValues" Core..=) Prelude.<$> entityValues,
             ("eventTypeCategories" Core..=)
-              Prelude.<$> eventTypeCategories
+              Prelude.<$> eventTypeCategories,
+            ("eventArns" Core..=) Prelude.<$> eventArns
           ]
       )

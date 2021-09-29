@@ -51,13 +51,16 @@ data OrganizationEvent = OrganizationEvent'
     eventScopeCode :: Prelude.Maybe EventScopeCode,
     -- | The date and time that the event began.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS service that is affected by the event. For example, EC2, RDS.
-    service :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event. Format:
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
-    -- Example:
-    -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    -- | The unique identifier for the event. The event ARN has the
+    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- format.
+    --
+    -- For example, an event ARN might look like the following:
+    --
+    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The AWS service that is affected by the event, such as EC2 and RDS.
+    service :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event ended.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The most recent status of the event. Possible values are @open@,
@@ -101,12 +104,15 @@ data OrganizationEvent = OrganizationEvent'
 --
 -- 'startTime', 'organizationEvent_startTime' - The date and time that the event began.
 --
--- 'service', 'organizationEvent_service' - The AWS service that is affected by the event. For example, EC2, RDS.
+-- 'arn', 'organizationEvent_arn' - The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
 --
--- 'arn', 'organizationEvent_arn' - The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- 'service', 'organizationEvent_service' - The AWS service that is affected by the event, such as EC2 and RDS.
 --
 -- 'endTime', 'organizationEvent_endTime' - The date and time that the event ended.
 --
@@ -128,8 +134,8 @@ newOrganizationEvent =
         Prelude.Nothing,
       eventScopeCode = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      service = Prelude.Nothing,
       arn = Prelude.Nothing,
+      service = Prelude.Nothing,
       endTime = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       eventTypeCode = Prelude.Nothing,
@@ -162,16 +168,19 @@ organizationEvent_eventScopeCode = Lens.lens (\OrganizationEvent' {eventScopeCod
 organizationEvent_startTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
 organizationEvent_startTime = Lens.lens (\OrganizationEvent' {startTime} -> startTime) (\s@OrganizationEvent' {} a -> s {startTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Core._Time
 
--- | The AWS service that is affected by the event. For example, EC2, RDS.
-organizationEvent_service :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
-organizationEvent_service = Lens.lens (\OrganizationEvent' {service} -> service) (\s@OrganizationEvent' {} a -> s {service = a} :: OrganizationEvent)
-
--- | The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- | The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 organizationEvent_arn :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
 organizationEvent_arn = Lens.lens (\OrganizationEvent' {arn} -> arn) (\s@OrganizationEvent' {} a -> s {arn = a} :: OrganizationEvent)
+
+-- | The AWS service that is affected by the event, such as EC2 and RDS.
+organizationEvent_service :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
+organizationEvent_service = Lens.lens (\OrganizationEvent' {service} -> service) (\s@OrganizationEvent' {} a -> s {service = a} :: OrganizationEvent)
 
 -- | The date and time that the event ended.
 organizationEvent_endTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
@@ -205,8 +214,8 @@ instance Core.FromJSON OrganizationEvent where
             Prelude.<$> (x Core..:? "eventTypeCategory")
             Prelude.<*> (x Core..:? "eventScopeCode")
             Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "service")
             Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "service")
             Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> (x Core..:? "eventTypeCode")

@@ -21,12 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns detailed information about one or more specified events for one
--- or more accounts in your organization. Information includes standard
--- event data (AWS Region, service, and so on, as returned by
--- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html DescribeEventsForOrganization>),
--- a detailed event description, and possible additional metadata that
--- depends upon the nature of the event. Affected entities are not
--- included; to retrieve those, use the
+-- or more AWS accounts in your organization. This information includes
+-- standard event data (such as the AWS Region and service), an event
+-- description, and (depending on the event) possible metadata. This
+-- operation doesn\'t return affected entities, such as the resources
+-- related to the event. To return affected entities, use the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html DescribeAffectedEntitiesForOrganization>
 -- operation.
 --
@@ -35,19 +34,20 @@
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>
 -- operation from your organization\'s management account.
 --
--- When you call the @DescribeEventDetailsForOrganization@ operation, you
+-- When you call the @DescribeEventDetailsForOrganization@ operation,
 -- specify the @organizationEventDetailFilters@ object in the request.
 -- Depending on the AWS Health event type, note the following differences:
 --
--- -   If the event is public, the @awsAccountId@ parameter must be empty.
---     If you specify an account ID for a public event, then an error
---     message is returned. That\'s because the event might apply to all
---     AWS accounts and isn\'t specific to an account in your organization.
+-- -   To return event details for a public event, you must specify a null
+--     value for the @awsAccountId@ parameter. If you specify an account ID
+--     for a public event, AWS Health returns an error message because
+--     public events aren\'t specific to an account.
 --
--- -   If the event is specific to an account, then you must specify the
---     @awsAccountId@ parameter in the request. If you don\'t specify an
---     account ID, an error message returns because the event is specific
---     to an AWS account in your organization.
+-- -   To return event details for an event that is specific to an account
+--     in your organization, you must specify the @awsAccountId@ parameter
+--     in the request. If you don\'t specify an account ID, AWS Health
+--     returns an error message because the event is specific to an account
+--     in your organization.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>.

@@ -19,14 +19,21 @@
 -- You can use the API operations to get information about AWS Health
 -- events that affect your AWS services and resources.
 --
--- You must have a Business or Enterprise support plan from
--- <http://aws.amazon.com/premiumsupport/ AWS Support> to use the AWS
--- Health API. If you call the AWS Health API from an AWS account that
--- doesn\'t have a Business or Enterprise support plan, you receive a
--- @SubscriptionRequiredException@ error.
+-- -   You must have a Business or Enterprise Support plan from
+--     <http://aws.amazon.com/premiumsupport/ AWS Support> to use the AWS
+--     Health API. If you call the AWS Health API from an AWS account that
+--     doesn\'t have a Business or Enterprise Support plan, you receive a
+--     @SubscriptionRequiredException@ error.
 --
--- AWS Health has a single endpoint: health.us-east-1.amazonaws.com
--- (HTTPS). Use this endpoint to call the AWS Health API operations.
+-- -   You can use the AWS Health endpoint health.us-east-1.amazonaws.com
+--     (HTTPS) to call the AWS Health API operations. AWS Health supports a
+--     multi-Region application architecture and has two regional endpoints
+--     in an active-passive configuration. You can use the high
+--     availability endpoint example to determine which AWS Region is
+--     active, so that you can get the latest information from the API. For
+--     more information, see
+--     <https://docs.aws.amazon.com/health/latest/ug/health-api.html Accessing the AWS Health API>
+--     in the /AWS Health User Guide/.
 --
 -- For authentication of requests, AWS Health uses the
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
@@ -76,17 +83,17 @@ module Network.AWS.AWSHealth
     -- * Operations
     -- $operations
 
-    -- ** EnableHealthServiceAccessForOrganization
-    EnableHealthServiceAccessForOrganization (EnableHealthServiceAccessForOrganization'),
-    newEnableHealthServiceAccessForOrganization,
-    EnableHealthServiceAccessForOrganizationResponse (EnableHealthServiceAccessForOrganizationResponse'),
-    newEnableHealthServiceAccessForOrganizationResponse,
-
     -- ** DescribeEntityAggregates
     DescribeEntityAggregates (DescribeEntityAggregates'),
     newDescribeEntityAggregates,
     DescribeEntityAggregatesResponse (DescribeEntityAggregatesResponse'),
     newDescribeEntityAggregatesResponse,
+
+    -- ** EnableHealthServiceAccessForOrganization
+    EnableHealthServiceAccessForOrganization (EnableHealthServiceAccessForOrganization'),
+    newEnableHealthServiceAccessForOrganization,
+    EnableHealthServiceAccessForOrganizationResponse (EnableHealthServiceAccessForOrganizationResponse'),
+    newEnableHealthServiceAccessForOrganizationResponse,
 
     -- ** DisableHealthServiceAccessForOrganization
     DisableHealthServiceAccessForOrganization (DisableHealthServiceAccessForOrganization'),
@@ -112,17 +119,17 @@ module Network.AWS.AWSHealth
     DescribeAffectedAccountsForOrganizationResponse (DescribeAffectedAccountsForOrganizationResponse'),
     newDescribeAffectedAccountsForOrganizationResponse,
 
-    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
-    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
-    newDescribeAffectedEntitiesForOrganization,
-    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
-    newDescribeAffectedEntitiesForOrganizationResponse,
-
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
+
+    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
+    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
+    newDescribeAffectedEntitiesForOrganization,
+    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
+    newDescribeAffectedEntitiesForOrganizationResponse,
 
     -- ** DescribeEventAggregates (Paginated)
     DescribeEventAggregates (DescribeEventAggregates'),
@@ -136,17 +143,17 @@ module Network.AWS.AWSHealth
     DescribeHealthServiceStatusForOrganizationResponse (DescribeHealthServiceStatusForOrganizationResponse'),
     newDescribeHealthServiceStatusForOrganizationResponse,
 
-    -- ** DescribeEventTypes (Paginated)
-    DescribeEventTypes (DescribeEventTypes'),
-    newDescribeEventTypes,
-    DescribeEventTypesResponse (DescribeEventTypesResponse'),
-    newDescribeEventTypesResponse,
-
     -- ** DescribeAffectedEntities (Paginated)
     DescribeAffectedEntities (DescribeAffectedEntities'),
     newDescribeAffectedEntities,
     DescribeAffectedEntitiesResponse (DescribeAffectedEntitiesResponse'),
     newDescribeAffectedEntitiesResponse,
+
+    -- ** DescribeEventTypes (Paginated)
+    DescribeEventTypes (DescribeEventTypes'),
+    newDescribeEventTypes,
+    DescribeEventTypesResponse (DescribeEventTypesResponse'),
+    newDescribeEventTypesResponse,
 
     -- ** DescribeEventsForOrganization (Paginated)
     DescribeEventsForOrganization (DescribeEventsForOrganization'),

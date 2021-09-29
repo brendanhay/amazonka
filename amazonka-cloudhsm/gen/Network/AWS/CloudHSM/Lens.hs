@@ -14,11 +14,10 @@
 module Network.AWS.CloudHSM.Lens
   ( -- * Operations
 
-    -- ** ListHsms
-    listHsms_nextToken,
-    listHsmsResponse_hsmList,
-    listHsmsResponse_nextToken,
-    listHsmsResponse_httpStatus,
+    -- ** DeleteHapg
+    deleteHapg_hapgArn,
+    deleteHapgResponse_httpStatus,
+    deleteHapgResponse_status,
 
     -- ** DeleteHsm
     deleteHsm_hsmArn,
@@ -31,10 +30,11 @@ module Network.AWS.CloudHSM.Lens
     modifyLunaClientResponse_clientArn,
     modifyLunaClientResponse_httpStatus,
 
-    -- ** DeleteHapg
-    deleteHapg_hapgArn,
-    deleteHapgResponse_httpStatus,
-    deleteHapgResponse_status,
+    -- ** ListHsms
+    listHsms_nextToken,
+    listHsmsResponse_hsmList,
+    listHsmsResponse_nextToken,
+    listHsmsResponse_httpStatus,
 
     -- ** GetConfig
     getConfig_clientArn,
@@ -67,11 +67,43 @@ module Network.AWS.CloudHSM.Lens
     listLunaClientsResponse_httpStatus,
     listLunaClientsResponse_clientList,
 
+    -- ** DescribeHsm
+    describeHsm_hsmSerialNumber,
+    describeHsm_hsmArn,
+    describeHsmResponse_subscriptionStartDate,
+    describeHsmResponse_status,
+    describeHsmResponse_iamRoleArn,
+    describeHsmResponse_partitions,
+    describeHsmResponse_statusDetails,
+    describeHsmResponse_subscriptionType,
+    describeHsmResponse_eniIp,
+    describeHsmResponse_serverCertLastUpdated,
+    describeHsmResponse_eniId,
+    describeHsmResponse_availabilityZone,
+    describeHsmResponse_subnetId,
+    describeHsmResponse_hsmType,
+    describeHsmResponse_sshPublicKey,
+    describeHsmResponse_hsmArn,
+    describeHsmResponse_serverCertUri,
+    describeHsmResponse_serialNumber,
+    describeHsmResponse_vendorName,
+    describeHsmResponse_subscriptionEndDate,
+    describeHsmResponse_vpcId,
+    describeHsmResponse_sshKeyLastUpdated,
+    describeHsmResponse_softwareVersion,
+    describeHsmResponse_httpStatus,
+
     -- ** RemoveTagsFromResource
     removeTagsFromResource_resourceArn,
     removeTagsFromResource_tagKeyList,
     removeTagsFromResourceResponse_httpStatus,
     removeTagsFromResourceResponse_status,
+
+    -- ** CreateLunaClient
+    createLunaClient_label,
+    createLunaClient_certificate,
+    createLunaClientResponse_clientArn,
+    createLunaClientResponse_httpStatus,
 
     -- ** DescribeHapg
     describeHapg_hapgArn,
@@ -80,43 +112,11 @@ module Network.AWS.CloudHSM.Lens
     describeHapgResponse_partitionSerialList,
     describeHapgResponse_lastModifiedTimestamp,
     describeHapgResponse_state,
-    describeHapgResponse_label,
     describeHapgResponse_hapgSerial,
+    describeHapgResponse_label,
     describeHapgResponse_hsmsPendingRegistration,
     describeHapgResponse_hsmsLastActionFailed,
     describeHapgResponse_httpStatus,
-
-    -- ** CreateLunaClient
-    createLunaClient_label,
-    createLunaClient_certificate,
-    createLunaClientResponse_clientArn,
-    createLunaClientResponse_httpStatus,
-
-    -- ** DescribeHsm
-    describeHsm_hsmSerialNumber,
-    describeHsm_hsmArn,
-    describeHsmResponse_subscriptionStartDate,
-    describeHsmResponse_iamRoleArn,
-    describeHsmResponse_status,
-    describeHsmResponse_partitions,
-    describeHsmResponse_statusDetails,
-    describeHsmResponse_eniIp,
-    describeHsmResponse_subscriptionType,
-    describeHsmResponse_serverCertLastUpdated,
-    describeHsmResponse_eniId,
-    describeHsmResponse_availabilityZone,
-    describeHsmResponse_sshPublicKey,
-    describeHsmResponse_hsmType,
-    describeHsmResponse_subnetId,
-    describeHsmResponse_vendorName,
-    describeHsmResponse_serverCertUri,
-    describeHsmResponse_hsmArn,
-    describeHsmResponse_serialNumber,
-    describeHsmResponse_sshKeyLastUpdated,
-    describeHsmResponse_subscriptionEndDate,
-    describeHsmResponse_vpcId,
-    describeHsmResponse_softwareVersion,
-    describeHsmResponse_httpStatus,
 
     -- ** CreateHapg
     createHapg_label,
@@ -155,11 +155,6 @@ module Network.AWS.CloudHSM.Lens
     modifyHsmResponse_hsmArn,
     modifyHsmResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tagList,
-
     -- ** CreateHsm
     createHsm_eniIp,
     createHsm_syslogIp,
@@ -171,6 +166,11 @@ module Network.AWS.CloudHSM.Lens
     createHsm_subscriptionType,
     createHsmResponse_hsmArn,
     createHsmResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tagList,
 
     -- * Types
 

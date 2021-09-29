@@ -24,15 +24,15 @@
 -- information, see
 -- <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs>,
 -- the
--- <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide>,
+-- <https://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide>,
 -- and the
--- <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference>.
+-- <https://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference>.
 --
 -- __For information about the current version of AWS CloudHSM__, see
 -- <http://aws.amazon.com/cloudhsm/ AWS CloudHSM>, the
--- <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>,
+-- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>,
 -- and the
--- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
+-- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
 -- Retrieves information about a high-availability partition group.
 module Network.AWS.CloudHSM.DescribeHapg
@@ -53,8 +53,8 @@ module Network.AWS.CloudHSM.DescribeHapg
     describeHapgResponse_partitionSerialList,
     describeHapgResponse_lastModifiedTimestamp,
     describeHapgResponse_state,
-    describeHapgResponse_label,
     describeHapgResponse_hapgSerial,
+    describeHapgResponse_label,
     describeHapgResponse_hsmsPendingRegistration,
     describeHapgResponse_hsmsLastActionFailed,
     describeHapgResponse_httpStatus,
@@ -113,8 +113,8 @@ instance Core.AWSRequest DescribeHapg where
                         )
             Prelude.<*> (x Core..?> "LastModifiedTimestamp")
             Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Label")
             Prelude.<*> (x Core..?> "HapgSerial")
+            Prelude.<*> (x Core..?> "Label")
             Prelude.<*> ( x Core..?> "HsmsPendingRegistration"
                             Core..!@ Prelude.mempty
                         )
@@ -171,10 +171,10 @@ data DescribeHapgResponse = DescribeHapgResponse'
     lastModifiedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The state of the high-availability partition group.
     state :: Prelude.Maybe CloudHsmObjectState,
-    -- | The label for the high-availability partition group.
-    label :: Prelude.Maybe Prelude.Text,
     -- | The serial number of the high-availability partition group.
     hapgSerial :: Prelude.Maybe Prelude.Text,
+    -- | The label for the high-availability partition group.
+    label :: Prelude.Maybe Prelude.Text,
     hsmsPendingRegistration :: Prelude.Maybe [Prelude.Text],
     hsmsLastActionFailed :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -202,9 +202,9 @@ data DescribeHapgResponse = DescribeHapgResponse'
 --
 -- 'state', 'describeHapgResponse_state' - The state of the high-availability partition group.
 --
--- 'label', 'describeHapgResponse_label' - The label for the high-availability partition group.
---
 -- 'hapgSerial', 'describeHapgResponse_hapgSerial' - The serial number of the high-availability partition group.
+--
+-- 'label', 'describeHapgResponse_label' - The label for the high-availability partition group.
 --
 -- 'hsmsPendingRegistration', 'describeHapgResponse_hsmsPendingRegistration' -
 --
@@ -223,8 +223,8 @@ newDescribeHapgResponse pHttpStatus_ =
       partitionSerialList = Prelude.Nothing,
       lastModifiedTimestamp = Prelude.Nothing,
       state = Prelude.Nothing,
-      label = Prelude.Nothing,
       hapgSerial = Prelude.Nothing,
+      label = Prelude.Nothing,
       hsmsPendingRegistration = Prelude.Nothing,
       hsmsLastActionFailed = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -252,13 +252,13 @@ describeHapgResponse_lastModifiedTimestamp = Lens.lens (\DescribeHapgResponse' {
 describeHapgResponse_state :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe CloudHsmObjectState)
 describeHapgResponse_state = Lens.lens (\DescribeHapgResponse' {state} -> state) (\s@DescribeHapgResponse' {} a -> s {state = a} :: DescribeHapgResponse)
 
--- | The label for the high-availability partition group.
-describeHapgResponse_label :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
-describeHapgResponse_label = Lens.lens (\DescribeHapgResponse' {label} -> label) (\s@DescribeHapgResponse' {} a -> s {label = a} :: DescribeHapgResponse)
-
 -- | The serial number of the high-availability partition group.
 describeHapgResponse_hapgSerial :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
 describeHapgResponse_hapgSerial = Lens.lens (\DescribeHapgResponse' {hapgSerial} -> hapgSerial) (\s@DescribeHapgResponse' {} a -> s {hapgSerial = a} :: DescribeHapgResponse)
+
+-- | The label for the high-availability partition group.
+describeHapgResponse_label :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
+describeHapgResponse_label = Lens.lens (\DescribeHapgResponse' {label} -> label) (\s@DescribeHapgResponse' {} a -> s {label = a} :: DescribeHapgResponse)
 
 -- |
 describeHapgResponse_hsmsPendingRegistration :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])

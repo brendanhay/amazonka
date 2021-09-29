@@ -30,29 +30,29 @@ import Test.Tasty
 --         [ requestListProjects $
 --             newListProjects
 --
---         , requestDescribeBundle $
---             newDescribeBundle
---
 --         , requestCreateProject $
 --             newCreateProject
+--
+--         , requestDescribeBundle $
+--             newDescribeBundle
 --
 --         , requestListBundles $
 --             newListBundles
 --
---         , requestDeleteProject $
---             newDeleteProject
---
 --         , requestUpdateProject $
 --             newUpdateProject
+--
+--         , requestDeleteProject $
+--             newDeleteProject
 --
 --         , requestExportProject $
 --             newExportProject
 --
---         , requestExportBundle $
---             newExportBundle
---
 --         , requestDescribeProject $
 --             newDescribeProject
+--
+--         , requestExportBundle $
+--             newExportBundle
 --
 --           ]
 
@@ -60,29 +60,29 @@ import Test.Tasty
 --         [ responseListProjects $
 --             newListProjectsResponse
 --
---         , responseDescribeBundle $
---             newDescribeBundleResponse
---
 --         , responseCreateProject $
 --             newCreateProjectResponse
+--
+--         , responseDescribeBundle $
+--             newDescribeBundleResponse
 --
 --         , responseListBundles $
 --             newListBundlesResponse
 --
---         , responseDeleteProject $
---             newDeleteProjectResponse
---
 --         , responseUpdateProject $
 --             newUpdateProjectResponse
+--
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
 --
 --         , responseExportProject $
 --             newExportProjectResponse
 --
---         , responseExportBundle $
---             newExportBundleResponse
---
 --         , responseDescribeProject $
 --             newDescribeProjectResponse
+--
+--         , responseExportBundle $
+--             newExportBundleResponse
 --
 --           ]
 --     ]
@@ -95,17 +95,17 @@ requestListProjects =
     "ListProjects"
     "fixture/ListProjects.yaml"
 
-requestDescribeBundle :: DescribeBundle -> TestTree
-requestDescribeBundle =
-  req
-    "DescribeBundle"
-    "fixture/DescribeBundle.yaml"
-
 requestCreateProject :: CreateProject -> TestTree
 requestCreateProject =
   req
     "CreateProject"
     "fixture/CreateProject.yaml"
+
+requestDescribeBundle :: DescribeBundle -> TestTree
+requestDescribeBundle =
+  req
+    "DescribeBundle"
+    "fixture/DescribeBundle.yaml"
 
 requestListBundles :: ListBundles -> TestTree
 requestListBundles =
@@ -113,17 +113,17 @@ requestListBundles =
     "ListBundles"
     "fixture/ListBundles.yaml"
 
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
 requestUpdateProject :: UpdateProject -> TestTree
 requestUpdateProject =
   req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
 
 requestExportProject :: ExportProject -> TestTree
 requestExportProject =
@@ -131,17 +131,17 @@ requestExportProject =
     "ExportProject"
     "fixture/ExportProject.yaml"
 
-requestExportBundle :: ExportBundle -> TestTree
-requestExportBundle =
-  req
-    "ExportBundle"
-    "fixture/ExportBundle.yaml"
-
 requestDescribeProject :: DescribeProject -> TestTree
 requestDescribeProject =
   req
     "DescribeProject"
     "fixture/DescribeProject.yaml"
+
+requestExportBundle :: ExportBundle -> TestTree
+requestExportBundle =
+  req
+    "ExportBundle"
+    "fixture/ExportBundle.yaml"
 
 -- Responses
 
@@ -153,14 +153,6 @@ responseListProjects =
     defaultService
     (Proxy :: Proxy ListProjects)
 
-responseDescribeBundle :: DescribeBundleResponse -> TestTree
-responseDescribeBundle =
-  res
-    "DescribeBundleResponse"
-    "fixture/DescribeBundleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeBundle)
-
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
   res
@@ -168,6 +160,14 @@ responseCreateProject =
     "fixture/CreateProjectResponse.proto"
     defaultService
     (Proxy :: Proxy CreateProject)
+
+responseDescribeBundle :: DescribeBundleResponse -> TestTree
+responseDescribeBundle =
+  res
+    "DescribeBundleResponse"
+    "fixture/DescribeBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeBundle)
 
 responseListBundles :: ListBundlesResponse -> TestTree
 responseListBundles =
@@ -177,14 +177,6 @@ responseListBundles =
     defaultService
     (Proxy :: Proxy ListBundles)
 
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteProject)
-
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
   res
@@ -192,6 +184,14 @@ responseUpdateProject =
     "fixture/UpdateProjectResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateProject)
+
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
+  res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteProject)
 
 responseExportProject :: ExportProjectResponse -> TestTree
 responseExportProject =
@@ -201,14 +201,6 @@ responseExportProject =
     defaultService
     (Proxy :: Proxy ExportProject)
 
-responseExportBundle :: ExportBundleResponse -> TestTree
-responseExportBundle =
-  res
-    "ExportBundleResponse"
-    "fixture/ExportBundleResponse.proto"
-    defaultService
-    (Proxy :: Proxy ExportBundle)
-
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
   res
@@ -216,3 +208,11 @@ responseDescribeProject =
     "fixture/DescribeProjectResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeProject)
+
+responseExportBundle :: ExportBundleResponse -> TestTree
+responseExportBundle =
+  res
+    "ExportBundleResponse"
+    "fixture/ExportBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy ExportBundle)

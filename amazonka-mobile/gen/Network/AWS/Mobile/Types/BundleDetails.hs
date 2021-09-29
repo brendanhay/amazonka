@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBundleDetails' smart constructor.
 data BundleDetails = BundleDetails'
   { bundleId :: Prelude.Maybe Prelude.Text,
-    title :: Prelude.Maybe Prelude.Text,
     iconUrl :: Prelude.Maybe Prelude.Text,
+    title :: Prelude.Maybe Prelude.Text,
     version :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
     availablePlatforms :: Prelude.Maybe [Platform]
@@ -47,9 +47,9 @@ data BundleDetails = BundleDetails'
 --
 -- 'bundleId', 'bundleDetails_bundleId' - Undocumented member.
 --
--- 'title', 'bundleDetails_title' - Undocumented member.
---
 -- 'iconUrl', 'bundleDetails_iconUrl' - Undocumented member.
+--
+-- 'title', 'bundleDetails_title' - Undocumented member.
 --
 -- 'version', 'bundleDetails_version' - Undocumented member.
 --
@@ -61,8 +61,8 @@ newBundleDetails ::
 newBundleDetails =
   BundleDetails'
     { bundleId = Prelude.Nothing,
-      title = Prelude.Nothing,
       iconUrl = Prelude.Nothing,
+      title = Prelude.Nothing,
       version = Prelude.Nothing,
       description = Prelude.Nothing,
       availablePlatforms = Prelude.Nothing
@@ -73,12 +73,12 @@ bundleDetails_bundleId :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
 bundleDetails_bundleId = Lens.lens (\BundleDetails' {bundleId} -> bundleId) (\s@BundleDetails' {} a -> s {bundleId = a} :: BundleDetails)
 
 -- | Undocumented member.
-bundleDetails_title :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
-bundleDetails_title = Lens.lens (\BundleDetails' {title} -> title) (\s@BundleDetails' {} a -> s {title = a} :: BundleDetails)
-
--- | Undocumented member.
 bundleDetails_iconUrl :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
 bundleDetails_iconUrl = Lens.lens (\BundleDetails' {iconUrl} -> iconUrl) (\s@BundleDetails' {} a -> s {iconUrl = a} :: BundleDetails)
+
+-- | Undocumented member.
+bundleDetails_title :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
+bundleDetails_title = Lens.lens (\BundleDetails' {title} -> title) (\s@BundleDetails' {} a -> s {title = a} :: BundleDetails)
 
 -- | Undocumented member.
 bundleDetails_version :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
@@ -99,8 +99,8 @@ instance Core.FromJSON BundleDetails where
       ( \x ->
           BundleDetails'
             Prelude.<$> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "iconUrl")
+            Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> ( x Core..:? "availablePlatforms"

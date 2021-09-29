@@ -21,11 +21,6 @@ module Network.AWS.Mobile.Lens
     listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
-    -- ** DescribeBundle
-    describeBundle_bundleId,
-    describeBundleResponse_details,
-    describeBundleResponse_httpStatus,
-
     -- ** CreateProject
     createProject_contents,
     createProject_name,
@@ -34,6 +29,11 @@ module Network.AWS.Mobile.Lens
     createProjectResponse_details,
     createProjectResponse_httpStatus,
 
+    -- ** DescribeBundle
+    describeBundle_bundleId,
+    describeBundleResponse_details,
+    describeBundleResponse_httpStatus,
+
     -- ** ListBundles
     listBundles_nextToken,
     listBundles_maxResults,
@@ -41,17 +41,17 @@ module Network.AWS.Mobile.Lens
     listBundlesResponse_bundleList,
     listBundlesResponse_httpStatus,
 
-    -- ** DeleteProject
-    deleteProject_projectId,
-    deleteProjectResponse_deletedResources,
-    deleteProjectResponse_orphanedResources,
-    deleteProjectResponse_httpStatus,
-
     -- ** UpdateProject
     updateProject_contents,
     updateProject_projectId,
     updateProjectResponse_details,
     updateProjectResponse_httpStatus,
+
+    -- ** DeleteProject
+    deleteProject_projectId,
+    deleteProjectResponse_deletedResources,
+    deleteProjectResponse_orphanedResources,
+    deleteProjectResponse_httpStatus,
 
     -- ** ExportProject
     exportProject_projectId,
@@ -60,6 +60,12 @@ module Network.AWS.Mobile.Lens
     exportProjectResponse_shareUrl,
     exportProjectResponse_httpStatus,
 
+    -- ** DescribeProject
+    describeProject_syncFromResources,
+    describeProject_projectId,
+    describeProjectResponse_details,
+    describeProjectResponse_httpStatus,
+
     -- ** ExportBundle
     exportBundle_platform,
     exportBundle_projectId,
@@ -67,18 +73,12 @@ module Network.AWS.Mobile.Lens
     exportBundleResponse_downloadUrl,
     exportBundleResponse_httpStatus,
 
-    -- ** DescribeProject
-    describeProject_syncFromResources,
-    describeProject_projectId,
-    describeProjectResponse_details,
-    describeProjectResponse_httpStatus,
-
     -- * Types
 
     -- ** BundleDetails
     bundleDetails_bundleId,
-    bundleDetails_title,
     bundleDetails_iconUrl,
+    bundleDetails_title,
     bundleDetails_version,
     bundleDetails_description,
     bundleDetails_availablePlatforms,

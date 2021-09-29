@@ -22,7 +22,7 @@
 --
 -- Deletes an automatic snapshot of an instance or disk. For more
 -- information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.DeleteAutoSnapshot
   ( -- * Creating a Request
     DeleteAutoSnapshot (..),

@@ -32,7 +32,7 @@ import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the Lightsail load balancer.
+-- | Describes a load balancer.
 --
 -- /See:/ 'newLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
@@ -51,34 +51,34 @@ data LoadBalancer = LoadBalancer'
     -- | An array of public port settings for your load balancer. For HTTP, use
     -- port 80. For HTTPS, use port 443.
     publicPorts :: Prelude.Maybe [Prelude.Int],
-    -- | A string to string map of the configuration options for your load
-    -- balancer. Valid values are listed below.
-    configurationOptions :: Prelude.Maybe (Prelude.HashMap LoadBalancerAttributeName Prelude.Text),
     -- | The port where the load balancer will direct traffic to your Lightsail
     -- instances. For HTTP traffic, it\'s port 80. For HTTPS traffic, it\'s
     -- port 443.
     instancePort :: Prelude.Maybe Prelude.Int,
+    -- | A string to string map of the configuration options for your load
+    -- balancer. Valid values are listed below.
+    configurationOptions :: Prelude.Maybe (Prelude.HashMap LoadBalancerAttributeName Prelude.Text),
     -- | The date when your load balancer was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the load balancer.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type (e.g., @LoadBalancer@.
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail load balancer. This code enables our
     -- support team to look up your Lightsail information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The resource type (e.g., @LoadBalancer@.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The status of your load balancer. Valid values are below.
     state :: Prelude.Maybe LoadBalancerState,
-    -- | The name of the load balancer (e.g., @my-load-balancer@).
-    name :: Prelude.Maybe Prelude.Text,
     -- | The path you specified to perform your health checks. If no path is
     -- specified, the load balancer tries to make a request to the default
     -- (root) page.
     healthCheckPath :: Prelude.Maybe Prelude.Text,
+    -- | The name of the load balancer (e.g., @my-load-balancer@).
+    name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The DNS name of your Lightsail load balancer.
     dnsName :: Prelude.Maybe Prelude.Text,
@@ -117,34 +117,34 @@ data LoadBalancer = LoadBalancer'
 -- 'publicPorts', 'loadBalancer_publicPorts' - An array of public port settings for your load balancer. For HTTP, use
 -- port 80. For HTTPS, use port 443.
 --
--- 'configurationOptions', 'loadBalancer_configurationOptions' - A string to string map of the configuration options for your load
--- balancer. Valid values are listed below.
---
 -- 'instancePort', 'loadBalancer_instancePort' - The port where the load balancer will direct traffic to your Lightsail
 -- instances. For HTTP traffic, it\'s port 80. For HTTPS traffic, it\'s
 -- port 443.
+--
+-- 'configurationOptions', 'loadBalancer_configurationOptions' - A string to string map of the configuration options for your load
+-- balancer. Valid values are listed below.
 --
 -- 'createdAt', 'loadBalancer_createdAt' - The date when your load balancer was created.
 --
 -- 'arn', 'loadBalancer_arn' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- 'resourceType', 'loadBalancer_resourceType' - The resource type (e.g., @LoadBalancer@.
---
 -- 'supportCode', 'loadBalancer_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about your Lightsail load balancer. This code enables our
 -- support team to look up your Lightsail information more easily.
 --
--- 'state', 'loadBalancer_state' - The status of your load balancer. Valid values are below.
+-- 'resourceType', 'loadBalancer_resourceType' - The resource type (e.g., @LoadBalancer@.
 --
--- 'name', 'loadBalancer_name' - The name of the load balancer (e.g., @my-load-balancer@).
+-- 'state', 'loadBalancer_state' - The status of your load balancer. Valid values are below.
 --
 -- 'healthCheckPath', 'loadBalancer_healthCheckPath' - The path you specified to perform your health checks. If no path is
 -- specified, the load balancer tries to make a request to the default
 -- (root) page.
 --
+-- 'name', 'loadBalancer_name' - The name of the load balancer (e.g., @my-load-balancer@).
+--
 -- 'tags', 'loadBalancer_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'dnsName', 'loadBalancer_dnsName' - The DNS name of your Lightsail load balancer.
 --
@@ -164,15 +164,15 @@ newLoadBalancer =
       tlsCertificateSummaries = Prelude.Nothing,
       instanceHealthSummary = Prelude.Nothing,
       publicPorts = Prelude.Nothing,
-      configurationOptions = Prelude.Nothing,
       instancePort = Prelude.Nothing,
+      configurationOptions = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       healthCheckPath = Prelude.Nothing,
+      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       dnsName = Prelude.Nothing,
       protocol = Prelude.Nothing,
@@ -202,16 +202,16 @@ loadBalancer_instanceHealthSummary = Lens.lens (\LoadBalancer' {instanceHealthSu
 loadBalancer_publicPorts :: Lens.Lens' LoadBalancer (Prelude.Maybe [Prelude.Int])
 loadBalancer_publicPorts = Lens.lens (\LoadBalancer' {publicPorts} -> publicPorts) (\s@LoadBalancer' {} a -> s {publicPorts = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string to string map of the configuration options for your load
--- balancer. Valid values are listed below.
-loadBalancer_configurationOptions :: Lens.Lens' LoadBalancer (Prelude.Maybe (Prelude.HashMap LoadBalancerAttributeName Prelude.Text))
-loadBalancer_configurationOptions = Lens.lens (\LoadBalancer' {configurationOptions} -> configurationOptions) (\s@LoadBalancer' {} a -> s {configurationOptions = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The port where the load balancer will direct traffic to your Lightsail
 -- instances. For HTTP traffic, it\'s port 80. For HTTPS traffic, it\'s
 -- port 443.
 loadBalancer_instancePort :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Int)
 loadBalancer_instancePort = Lens.lens (\LoadBalancer' {instancePort} -> instancePort) (\s@LoadBalancer' {} a -> s {instancePort = a} :: LoadBalancer)
+
+-- | A string to string map of the configuration options for your load
+-- balancer. Valid values are listed below.
+loadBalancer_configurationOptions :: Lens.Lens' LoadBalancer (Prelude.Maybe (Prelude.HashMap LoadBalancerAttributeName Prelude.Text))
+loadBalancer_configurationOptions = Lens.lens (\LoadBalancer' {configurationOptions} -> configurationOptions) (\s@LoadBalancer' {} a -> s {configurationOptions = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date when your load balancer was created.
 loadBalancer_createdAt :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.UTCTime)
@@ -221,23 +221,19 @@ loadBalancer_createdAt = Lens.lens (\LoadBalancer' {createdAt} -> createdAt) (\s
 loadBalancer_arn :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_arn = Lens.lens (\LoadBalancer' {arn} -> arn) (\s@LoadBalancer' {} a -> s {arn = a} :: LoadBalancer)
 
--- | The resource type (e.g., @LoadBalancer@.
-loadBalancer_resourceType :: Lens.Lens' LoadBalancer (Prelude.Maybe ResourceType)
-loadBalancer_resourceType = Lens.lens (\LoadBalancer' {resourceType} -> resourceType) (\s@LoadBalancer' {} a -> s {resourceType = a} :: LoadBalancer)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail load balancer. This code enables our
 -- support team to look up your Lightsail information more easily.
 loadBalancer_supportCode :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_supportCode = Lens.lens (\LoadBalancer' {supportCode} -> supportCode) (\s@LoadBalancer' {} a -> s {supportCode = a} :: LoadBalancer)
 
+-- | The resource type (e.g., @LoadBalancer@.
+loadBalancer_resourceType :: Lens.Lens' LoadBalancer (Prelude.Maybe ResourceType)
+loadBalancer_resourceType = Lens.lens (\LoadBalancer' {resourceType} -> resourceType) (\s@LoadBalancer' {} a -> s {resourceType = a} :: LoadBalancer)
+
 -- | The status of your load balancer. Valid values are below.
 loadBalancer_state :: Lens.Lens' LoadBalancer (Prelude.Maybe LoadBalancerState)
 loadBalancer_state = Lens.lens (\LoadBalancer' {state} -> state) (\s@LoadBalancer' {} a -> s {state = a} :: LoadBalancer)
-
--- | The name of the load balancer (e.g., @my-load-balancer@).
-loadBalancer_name :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
-loadBalancer_name = Lens.lens (\LoadBalancer' {name} -> name) (\s@LoadBalancer' {} a -> s {name = a} :: LoadBalancer)
 
 -- | The path you specified to perform your health checks. If no path is
 -- specified, the load balancer tries to make a request to the default
@@ -245,9 +241,13 @@ loadBalancer_name = Lens.lens (\LoadBalancer' {name} -> name) (\s@LoadBalancer' 
 loadBalancer_healthCheckPath :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_healthCheckPath = Lens.lens (\LoadBalancer' {healthCheckPath} -> healthCheckPath) (\s@LoadBalancer' {} a -> s {healthCheckPath = a} :: LoadBalancer)
 
+-- | The name of the load balancer (e.g., @my-load-balancer@).
+loadBalancer_name :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
+loadBalancer_name = Lens.lens (\LoadBalancer' {name} -> name) (\s@LoadBalancer' {} a -> s {name = a} :: LoadBalancer)
+
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 loadBalancer_tags :: Lens.Lens' LoadBalancer (Prelude.Maybe [Tag])
 loadBalancer_tags = Lens.lens (\LoadBalancer' {tags} -> tags) (\s@LoadBalancer' {} a -> s {tags = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
@@ -282,17 +282,17 @@ instance Core.FromJSON LoadBalancer where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "publicPorts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "instancePort")
             Prelude.<*> ( x Core..:? "configurationOptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "instancePort")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "healthCheckPath")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "dnsName")
             Prelude.<*> (x Core..:? "protocol")

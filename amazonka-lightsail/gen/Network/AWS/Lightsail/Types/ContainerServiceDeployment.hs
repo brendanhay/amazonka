@@ -36,10 +36,10 @@ import qualified Network.AWS.Prelude as Prelude
 data ContainerServiceDeployment = ContainerServiceDeployment'
   { -- | The timestamp when the deployment was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The version number of the deployment.
-    version :: Prelude.Maybe Prelude.Int,
     -- | An object that describes the endpoint of the deployment.
     publicEndpoint :: Prelude.Maybe ContainerServiceEndpoint,
+    -- | The version number of the deployment.
+    version :: Prelude.Maybe Prelude.Int,
     -- | The state of the deployment.
     --
     -- A deployment can be in one of the following states:
@@ -73,9 +73,9 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
 --
 -- 'createdAt', 'containerServiceDeployment_createdAt' - The timestamp when the deployment was created.
 --
--- 'version', 'containerServiceDeployment_version' - The version number of the deployment.
---
 -- 'publicEndpoint', 'containerServiceDeployment_publicEndpoint' - An object that describes the endpoint of the deployment.
+--
+-- 'version', 'containerServiceDeployment_version' - The version number of the deployment.
 --
 -- 'state', 'containerServiceDeployment_state' - The state of the deployment.
 --
@@ -102,8 +102,8 @@ newContainerServiceDeployment =
   ContainerServiceDeployment'
     { createdAt =
         Prelude.Nothing,
-      version = Prelude.Nothing,
       publicEndpoint = Prelude.Nothing,
+      version = Prelude.Nothing,
       state = Prelude.Nothing,
       containers = Prelude.Nothing
     }
@@ -112,13 +112,13 @@ newContainerServiceDeployment =
 containerServiceDeployment_createdAt :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.UTCTime)
 containerServiceDeployment_createdAt = Lens.lens (\ContainerServiceDeployment' {createdAt} -> createdAt) (\s@ContainerServiceDeployment' {} a -> s {createdAt = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Core._Time
 
--- | The version number of the deployment.
-containerServiceDeployment_version :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.Int)
-containerServiceDeployment_version = Lens.lens (\ContainerServiceDeployment' {version} -> version) (\s@ContainerServiceDeployment' {} a -> s {version = a} :: ContainerServiceDeployment)
-
 -- | An object that describes the endpoint of the deployment.
 containerServiceDeployment_publicEndpoint :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe ContainerServiceEndpoint)
 containerServiceDeployment_publicEndpoint = Lens.lens (\ContainerServiceDeployment' {publicEndpoint} -> publicEndpoint) (\s@ContainerServiceDeployment' {} a -> s {publicEndpoint = a} :: ContainerServiceDeployment)
+
+-- | The version number of the deployment.
+containerServiceDeployment_version :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.Int)
+containerServiceDeployment_version = Lens.lens (\ContainerServiceDeployment' {version} -> version) (\s@ContainerServiceDeployment' {} a -> s {version = a} :: ContainerServiceDeployment)
 
 -- | The state of the deployment.
 --
@@ -151,8 +151,8 @@ instance Core.FromJSON ContainerServiceDeployment where
       ( \x ->
           ContainerServiceDeployment'
             Prelude.<$> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "publicEndpoint")
+            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "containers" Core..!= Prelude.mempty)
       )

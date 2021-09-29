@@ -59,9 +59,6 @@ data GetDistributions = GetDistributions'
     pageToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the distribution for which to return information.
     --
-    -- Use the @GetDistributions@ action to get a list of distribution names
-    -- that you can specify.
-    --
     -- When omitted, the response includes all of your distributions in the AWS
     -- Region where the request is made.
     distributionName :: Prelude.Maybe Prelude.Text
@@ -84,9 +81,6 @@ data GetDistributions = GetDistributions'
 --
 -- 'distributionName', 'getDistributions_distributionName' - The name of the distribution for which to return information.
 --
--- Use the @GetDistributions@ action to get a list of distribution names
--- that you can specify.
---
 -- When omitted, the response includes all of your distributions in the AWS
 -- Region where the request is made.
 newGetDistributions ::
@@ -106,9 +100,6 @@ getDistributions_pageToken :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude
 getDistributions_pageToken = Lens.lens (\GetDistributions' {pageToken} -> pageToken) (\s@GetDistributions' {} a -> s {pageToken = a} :: GetDistributions)
 
 -- | The name of the distribution for which to return information.
---
--- Use the @GetDistributions@ action to get a list of distribution names
--- that you can specify.
 --
 -- When omitted, the response includes all of your distributions in the AWS
 -- Region where the request is made.

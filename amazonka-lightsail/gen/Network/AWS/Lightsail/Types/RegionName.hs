@@ -27,6 +27,7 @@ module Network.AWS.Lightsail.Types.RegionName
         RegionName_Ap_southeast_2,
         RegionName_Ca_central_1,
         RegionName_Eu_central_1,
+        RegionName_Eu_north_1,
         RegionName_Eu_west_1,
         RegionName_Eu_west_2,
         RegionName_Eu_west_3,
@@ -90,6 +91,9 @@ pattern RegionName_Ca_central_1 = RegionName' "ca-central-1"
 pattern RegionName_Eu_central_1 :: RegionName
 pattern RegionName_Eu_central_1 = RegionName' "eu-central-1"
 
+pattern RegionName_Eu_north_1 :: RegionName
+pattern RegionName_Eu_north_1 = RegionName' "eu-north-1"
+
 pattern RegionName_Eu_west_1 :: RegionName
 pattern RegionName_Eu_west_1 = RegionName' "eu-west-1"
 
@@ -119,6 +123,7 @@ pattern RegionName_Us_west_2 = RegionName' "us-west-2"
   RegionName_Ap_southeast_2,
   RegionName_Ca_central_1,
   RegionName_Eu_central_1,
+  RegionName_Eu_north_1,
   RegionName_Eu_west_1,
   RegionName_Eu_west_2,
   RegionName_Eu_west_3,

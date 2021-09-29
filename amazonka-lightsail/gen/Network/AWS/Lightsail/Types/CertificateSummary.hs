@@ -37,7 +37,7 @@ data CertificateSummary = CertificateSummary'
     certificateDetail :: Prelude.Maybe Certificate,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the certificate.
     certificateName :: Prelude.Maybe Prelude.Text
@@ -60,7 +60,7 @@ data CertificateSummary = CertificateSummary'
 --
 -- 'tags', 'certificateSummary_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'certificateName', 'certificateSummary_certificateName' - The name of the certificate.
 newCertificateSummary ::
@@ -89,7 +89,7 @@ certificateSummary_certificateDetail = Lens.lens (\CertificateSummary' {certific
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 certificateSummary_tags :: Lens.Lens' CertificateSummary (Prelude.Maybe [Tag])
 certificateSummary_tags = Lens.lens (\CertificateSummary' {tags} -> tags) (\s@CertificateSummary' {} a -> s {tags = a} :: CertificateSummary) Prelude.. Lens.mapping Lens._Coerce
 

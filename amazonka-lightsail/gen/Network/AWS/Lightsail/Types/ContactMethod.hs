@@ -54,12 +54,12 @@ data ContactMethod = ContactMethod'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the contact method.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type (e.g., @ContactMethod@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail contact method. This code enables
     -- our support team to look up your Lightsail information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type (e.g., @ContactMethod@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the contact method.
     name :: Prelude.Maybe Prelude.Text,
     -- | The protocol of the contact method, such as email or SMS (text
@@ -96,11 +96,11 @@ data ContactMethod = ContactMethod'
 --
 -- 'arn', 'contactMethod_arn' - The Amazon Resource Name (ARN) of the contact method.
 --
--- 'resourceType', 'contactMethod_resourceType' - The Lightsail resource type (e.g., @ContactMethod@).
---
 -- 'supportCode', 'contactMethod_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about your Lightsail contact method. This code enables
 -- our support team to look up your Lightsail information more easily.
+--
+-- 'resourceType', 'contactMethod_resourceType' - The Lightsail resource type (e.g., @ContactMethod@).
 --
 -- 'name', 'contactMethod_name' - The name of the contact method.
 --
@@ -116,8 +116,8 @@ newContactMethod =
       contactEndpoint = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
       protocol = Prelude.Nothing,
       location = Prelude.Nothing
@@ -150,15 +150,15 @@ contactMethod_createdAt = Lens.lens (\ContactMethod' {createdAt} -> createdAt) (
 contactMethod_arn :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_arn = Lens.lens (\ContactMethod' {arn} -> arn) (\s@ContactMethod' {} a -> s {arn = a} :: ContactMethod)
 
--- | The Lightsail resource type (e.g., @ContactMethod@).
-contactMethod_resourceType :: Lens.Lens' ContactMethod (Prelude.Maybe ResourceType)
-contactMethod_resourceType = Lens.lens (\ContactMethod' {resourceType} -> resourceType) (\s@ContactMethod' {} a -> s {resourceType = a} :: ContactMethod)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail contact method. This code enables
 -- our support team to look up your Lightsail information more easily.
 contactMethod_supportCode :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_supportCode = Lens.lens (\ContactMethod' {supportCode} -> supportCode) (\s@ContactMethod' {} a -> s {supportCode = a} :: ContactMethod)
+
+-- | The Lightsail resource type (e.g., @ContactMethod@).
+contactMethod_resourceType :: Lens.Lens' ContactMethod (Prelude.Maybe ResourceType)
+contactMethod_resourceType = Lens.lens (\ContactMethod' {resourceType} -> resourceType) (\s@ContactMethod' {} a -> s {resourceType = a} :: ContactMethod)
 
 -- | The name of the contact method.
 contactMethod_name :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
@@ -183,8 +183,8 @@ instance Core.FromJSON ContactMethod where
             Prelude.<*> (x Core..:? "contactEndpoint")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "protocol")
             Prelude.<*> (x Core..:? "location")

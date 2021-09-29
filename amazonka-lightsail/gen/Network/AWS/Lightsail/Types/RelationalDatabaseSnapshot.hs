@@ -37,13 +37,13 @@ data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the database snapshot.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type.
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code for the database snapshot. Include this code in your
     -- email to support when you have questions about a database snapshot in
     -- Lightsail. This code enables our support team to look up your Lightsail
     -- information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The size of the disk in GB (for example, @32@) for the database
     -- snapshot.
     sizeInGb :: Prelude.Maybe Prelude.Int,
@@ -54,13 +54,13 @@ data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
     -- | The database engine version for the database snapshot (for example,
     -- @5.7.23@).
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The tag keys and optional values for the resource. For more information
+    -- about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag],
     -- | The bundle ID of the database from which the database snapshot was
     -- created.
     fromRelationalDatabaseBundleId :: Prelude.Maybe Prelude.Text,
-    -- | The tag keys and optional values for the resource. For more information
-    -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Prelude.Maybe [Tag],
     -- | The software of the database snapshot (for example, @MySQL@)
     engine :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the database from which the database
@@ -90,12 +90,12 @@ data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
 --
 -- 'arn', 'relationalDatabaseSnapshot_arn' - The Amazon Resource Name (ARN) of the database snapshot.
 --
--- 'resourceType', 'relationalDatabaseSnapshot_resourceType' - The Lightsail resource type.
---
 -- 'supportCode', 'relationalDatabaseSnapshot_supportCode' - The support code for the database snapshot. Include this code in your
 -- email to support when you have questions about a database snapshot in
 -- Lightsail. This code enables our support team to look up your Lightsail
 -- information more easily.
+--
+-- 'resourceType', 'relationalDatabaseSnapshot_resourceType' - The Lightsail resource type.
 --
 -- 'sizeInGb', 'relationalDatabaseSnapshot_sizeInGb' - The size of the disk in GB (for example, @32@) for the database
 -- snapshot.
@@ -107,12 +107,12 @@ data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
 -- 'engineVersion', 'relationalDatabaseSnapshot_engineVersion' - The database engine version for the database snapshot (for example,
 -- @5.7.23@).
 --
--- 'fromRelationalDatabaseBundleId', 'relationalDatabaseSnapshot_fromRelationalDatabaseBundleId' - The bundle ID of the database from which the database snapshot was
--- created.
---
 -- 'tags', 'relationalDatabaseSnapshot_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+--
+-- 'fromRelationalDatabaseBundleId', 'relationalDatabaseSnapshot_fromRelationalDatabaseBundleId' - The bundle ID of the database from which the database snapshot was
+-- created.
 --
 -- 'engine', 'relationalDatabaseSnapshot_engine' - The software of the database snapshot (for example, @MySQL@)
 --
@@ -132,15 +132,15 @@ newRelationalDatabaseSnapshot =
         Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       sizeInGb = Prelude.Nothing,
       state = Prelude.Nothing,
       name = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       fromRelationalDatabaseBundleId =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
       engine = Prelude.Nothing,
       fromRelationalDatabaseArn = Prelude.Nothing,
       location = Prelude.Nothing,
@@ -161,16 +161,16 @@ relationalDatabaseSnapshot_createdAt = Lens.lens (\RelationalDatabaseSnapshot' {
 relationalDatabaseSnapshot_arn :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
 relationalDatabaseSnapshot_arn = Lens.lens (\RelationalDatabaseSnapshot' {arn} -> arn) (\s@RelationalDatabaseSnapshot' {} a -> s {arn = a} :: RelationalDatabaseSnapshot)
 
--- | The Lightsail resource type.
-relationalDatabaseSnapshot_resourceType :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe ResourceType)
-relationalDatabaseSnapshot_resourceType = Lens.lens (\RelationalDatabaseSnapshot' {resourceType} -> resourceType) (\s@RelationalDatabaseSnapshot' {} a -> s {resourceType = a} :: RelationalDatabaseSnapshot)
-
 -- | The support code for the database snapshot. Include this code in your
 -- email to support when you have questions about a database snapshot in
 -- Lightsail. This code enables our support team to look up your Lightsail
 -- information more easily.
 relationalDatabaseSnapshot_supportCode :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
 relationalDatabaseSnapshot_supportCode = Lens.lens (\RelationalDatabaseSnapshot' {supportCode} -> supportCode) (\s@RelationalDatabaseSnapshot' {} a -> s {supportCode = a} :: RelationalDatabaseSnapshot)
+
+-- | The Lightsail resource type.
+relationalDatabaseSnapshot_resourceType :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe ResourceType)
+relationalDatabaseSnapshot_resourceType = Lens.lens (\RelationalDatabaseSnapshot' {resourceType} -> resourceType) (\s@RelationalDatabaseSnapshot' {} a -> s {resourceType = a} :: RelationalDatabaseSnapshot)
 
 -- | The size of the disk in GB (for example, @32@) for the database
 -- snapshot.
@@ -190,16 +190,16 @@ relationalDatabaseSnapshot_name = Lens.lens (\RelationalDatabaseSnapshot' {name}
 relationalDatabaseSnapshot_engineVersion :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
 relationalDatabaseSnapshot_engineVersion = Lens.lens (\RelationalDatabaseSnapshot' {engineVersion} -> engineVersion) (\s@RelationalDatabaseSnapshot' {} a -> s {engineVersion = a} :: RelationalDatabaseSnapshot)
 
+-- | The tag keys and optional values for the resource. For more information
+-- about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+relationalDatabaseSnapshot_tags :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe [Tag])
+relationalDatabaseSnapshot_tags = Lens.lens (\RelationalDatabaseSnapshot' {tags} -> tags) (\s@RelationalDatabaseSnapshot' {} a -> s {tags = a} :: RelationalDatabaseSnapshot) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The bundle ID of the database from which the database snapshot was
 -- created.
 relationalDatabaseSnapshot_fromRelationalDatabaseBundleId :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
 relationalDatabaseSnapshot_fromRelationalDatabaseBundleId = Lens.lens (\RelationalDatabaseSnapshot' {fromRelationalDatabaseBundleId} -> fromRelationalDatabaseBundleId) (\s@RelationalDatabaseSnapshot' {} a -> s {fromRelationalDatabaseBundleId = a} :: RelationalDatabaseSnapshot)
-
--- | The tag keys and optional values for the resource. For more information
--- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-relationalDatabaseSnapshot_tags :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe [Tag])
-relationalDatabaseSnapshot_tags = Lens.lens (\RelationalDatabaseSnapshot' {tags} -> tags) (\s@RelationalDatabaseSnapshot' {} a -> s {tags = a} :: RelationalDatabaseSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The software of the database snapshot (for example, @MySQL@)
 relationalDatabaseSnapshot_engine :: Lens.Lens' RelationalDatabaseSnapshot (Prelude.Maybe Prelude.Text)
@@ -229,14 +229,14 @@ instance Core.FromJSON RelationalDatabaseSnapshot where
             Prelude.<$> (x Core..:? "fromRelationalDatabaseName")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "sizeInGb")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "engineVersion")
-            Prelude.<*> (x Core..:? "fromRelationalDatabaseBundleId")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "fromRelationalDatabaseBundleId")
             Prelude.<*> (x Core..:? "engine")
             Prelude.<*> (x Core..:? "fromRelationalDatabaseArn")
             Prelude.<*> (x Core..:? "location")

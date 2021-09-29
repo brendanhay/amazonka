@@ -30,7 +30,7 @@ data DistributionBundle = DistributionBundle'
   { -- | The ID of the bundle.
     bundleId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the bundle is active, and can be specified for a new
-    -- distribution.
+    -- or existing distribution.
     isActive :: Prelude.Maybe Prelude.Bool,
     -- | The name of the distribution bundle.
     name :: Prelude.Maybe Prelude.Text,
@@ -52,7 +52,7 @@ data DistributionBundle = DistributionBundle'
 -- 'bundleId', 'distributionBundle_bundleId' - The ID of the bundle.
 --
 -- 'isActive', 'distributionBundle_isActive' - Indicates whether the bundle is active, and can be specified for a new
--- distribution.
+-- or existing distribution.
 --
 -- 'name', 'distributionBundle_name' - The name of the distribution bundle.
 --
@@ -75,7 +75,7 @@ distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Prelude.Maybe Prel
 distributionBundle_bundleId = Lens.lens (\DistributionBundle' {bundleId} -> bundleId) (\s@DistributionBundle' {} a -> s {bundleId = a} :: DistributionBundle)
 
 -- | Indicates whether the bundle is active, and can be specified for a new
--- distribution.
+-- or existing distribution.
 distributionBundle_isActive :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Bool)
 distributionBundle_isActive = Lens.lens (\DistributionBundle' {isActive} -> isActive) (\s@DistributionBundle' {} a -> s {isActive = a} :: DistributionBundle)
 

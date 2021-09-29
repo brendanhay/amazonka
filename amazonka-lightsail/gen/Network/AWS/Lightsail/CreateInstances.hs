@@ -24,7 +24,7 @@
 --
 -- The @create instances@ operation supports tag-based access control via
 -- request tags. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateInstances
   ( -- * Creating a Request
     CreateInstances (..),
@@ -75,7 +75,7 @@ data CreateInstances = CreateInstances'
     -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
     -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
     -- the
-    -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
     userData :: Prelude.Maybe Prelude.Text,
     -- | An array of objects representing the add-ons to enable for the new
     -- instance.
@@ -140,7 +140,7 @@ data CreateInstances = CreateInstances'
 -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
--- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
 --
 -- 'addOns', 'createInstances_addOns' - An array of objects representing the add-ons to enable for the new
 -- instance.
@@ -220,7 +220,7 @@ createInstances_ipAddressType = Lens.lens (\CreateInstances' {ipAddressType} -> 
 -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
--- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
 createInstances_userData :: Lens.Lens' CreateInstances (Prelude.Maybe Prelude.Text)
 createInstances_userData = Lens.lens (\CreateInstances' {userData} -> userData) (\s@CreateInstances' {} a -> s {userData = a} :: CreateInstances)
 

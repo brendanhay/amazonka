@@ -28,7 +28,7 @@
 -- The @attach instances to load balancer@ operation supports tag-based
 -- access control via resource tags applied to the resource identified by
 -- @load balancer name@. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Lightsail Developer Guide>.
 module Network.AWS.Lightsail.AttachInstancesToLoadBalancer
   ( -- * Creating a Request
     AttachInstancesToLoadBalancer (..),

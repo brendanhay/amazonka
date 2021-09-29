@@ -27,6 +27,8 @@ module Network.AWS.Lightsail.Types.OperationType
         OperationType_AttachLoadBalancerTlsCertificate,
         OperationType_AttachStaticIp,
         OperationType_CloseInstancePublicPorts,
+        OperationType_CreateBucket,
+        OperationType_CreateBucketAccessKey,
         OperationType_CreateCertificate,
         OperationType_CreateContactMethod,
         OperationType_CreateContainerService,
@@ -46,6 +48,8 @@ module Network.AWS.Lightsail.Types.OperationType
         OperationType_CreateRelationalDatabaseFromSnapshot,
         OperationType_CreateRelationalDatabaseSnapshot,
         OperationType_DeleteAlarm,
+        OperationType_DeleteBucket,
+        OperationType_DeleteBucketAccessKey,
         OperationType_DeleteCertificate,
         OperationType_DeleteContactMethod,
         OperationType_DeleteContainerImage,
@@ -80,11 +84,14 @@ module Network.AWS.Lightsail.Types.OperationType
         OperationType_ResetDistributionCache,
         OperationType_SendContactMethodVerification,
         OperationType_SetIpAddressType,
+        OperationType_SetResourceAccessForBucket,
         OperationType_StartInstance,
         OperationType_StartRelationalDatabase,
         OperationType_StopInstance,
         OperationType_StopRelationalDatabase,
         OperationType_TestAlarm,
+        OperationType_UpdateBucket,
+        OperationType_UpdateBucketBundle,
         OperationType_UpdateContainerService,
         OperationType_UpdateDistribution,
         OperationType_UpdateDistributionBundle,
@@ -148,6 +155,12 @@ pattern OperationType_AttachStaticIp = OperationType' "AttachStaticIp"
 pattern OperationType_CloseInstancePublicPorts :: OperationType
 pattern OperationType_CloseInstancePublicPorts = OperationType' "CloseInstancePublicPorts"
 
+pattern OperationType_CreateBucket :: OperationType
+pattern OperationType_CreateBucket = OperationType' "CreateBucket"
+
+pattern OperationType_CreateBucketAccessKey :: OperationType
+pattern OperationType_CreateBucketAccessKey = OperationType' "CreateBucketAccessKey"
+
 pattern OperationType_CreateCertificate :: OperationType
 pattern OperationType_CreateCertificate = OperationType' "CreateCertificate"
 
@@ -204,6 +217,12 @@ pattern OperationType_CreateRelationalDatabaseSnapshot = OperationType' "CreateR
 
 pattern OperationType_DeleteAlarm :: OperationType
 pattern OperationType_DeleteAlarm = OperationType' "DeleteAlarm"
+
+pattern OperationType_DeleteBucket :: OperationType
+pattern OperationType_DeleteBucket = OperationType' "DeleteBucket"
+
+pattern OperationType_DeleteBucketAccessKey :: OperationType
+pattern OperationType_DeleteBucketAccessKey = OperationType' "DeleteBucketAccessKey"
 
 pattern OperationType_DeleteCertificate :: OperationType
 pattern OperationType_DeleteCertificate = OperationType' "DeleteCertificate"
@@ -307,6 +326,9 @@ pattern OperationType_SendContactMethodVerification = OperationType' "SendContac
 pattern OperationType_SetIpAddressType :: OperationType
 pattern OperationType_SetIpAddressType = OperationType' "SetIpAddressType"
 
+pattern OperationType_SetResourceAccessForBucket :: OperationType
+pattern OperationType_SetResourceAccessForBucket = OperationType' "SetResourceAccessForBucket"
+
 pattern OperationType_StartInstance :: OperationType
 pattern OperationType_StartInstance = OperationType' "StartInstance"
 
@@ -321,6 +343,12 @@ pattern OperationType_StopRelationalDatabase = OperationType' "StopRelationalDat
 
 pattern OperationType_TestAlarm :: OperationType
 pattern OperationType_TestAlarm = OperationType' "TestAlarm"
+
+pattern OperationType_UpdateBucket :: OperationType
+pattern OperationType_UpdateBucket = OperationType' "UpdateBucket"
+
+pattern OperationType_UpdateBucketBundle :: OperationType
+pattern OperationType_UpdateBucketBundle = OperationType' "UpdateBucketBundle"
 
 pattern OperationType_UpdateContainerService :: OperationType
 pattern OperationType_UpdateContainerService = OperationType' "UpdateContainerService"
@@ -351,6 +379,8 @@ pattern OperationType_UpdateRelationalDatabaseParameters = OperationType' "Updat
   OperationType_AttachLoadBalancerTlsCertificate,
   OperationType_AttachStaticIp,
   OperationType_CloseInstancePublicPorts,
+  OperationType_CreateBucket,
+  OperationType_CreateBucketAccessKey,
   OperationType_CreateCertificate,
   OperationType_CreateContactMethod,
   OperationType_CreateContainerService,
@@ -370,6 +400,8 @@ pattern OperationType_UpdateRelationalDatabaseParameters = OperationType' "Updat
   OperationType_CreateRelationalDatabaseFromSnapshot,
   OperationType_CreateRelationalDatabaseSnapshot,
   OperationType_DeleteAlarm,
+  OperationType_DeleteBucket,
+  OperationType_DeleteBucketAccessKey,
   OperationType_DeleteCertificate,
   OperationType_DeleteContactMethod,
   OperationType_DeleteContainerImage,
@@ -404,11 +436,14 @@ pattern OperationType_UpdateRelationalDatabaseParameters = OperationType' "Updat
   OperationType_ResetDistributionCache,
   OperationType_SendContactMethodVerification,
   OperationType_SetIpAddressType,
+  OperationType_SetResourceAccessForBucket,
   OperationType_StartInstance,
   OperationType_StartRelationalDatabase,
   OperationType_StopInstance,
   OperationType_StopRelationalDatabase,
   OperationType_TestAlarm,
+  OperationType_UpdateBucket,
+  OperationType_UpdateBucketBundle,
   OperationType_UpdateContainerService,
   OperationType_UpdateDistribution,
   OperationType_UpdateDistributionBundle,

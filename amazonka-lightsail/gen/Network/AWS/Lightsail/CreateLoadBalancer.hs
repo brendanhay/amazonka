@@ -22,7 +22,7 @@
 --
 -- Creates a Lightsail load balancer. To learn more about deciding whether
 -- to load balance your application, see
--- <https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing Configure your Lightsail instances for load balancing>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing Configure your Lightsail instances for load balancing>.
 -- You can create up to 5 load balancers per AWS Region in your account.
 --
 -- When you create a load balancer, you can specify a unique name and port
@@ -31,7 +31,7 @@
 --
 -- The @create load balancer@ operation supports tag-based access control
 -- via request tags. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateLoadBalancer
   ( -- * Creating a Request
     CreateLoadBalancer (..),
@@ -42,8 +42,8 @@ module Network.AWS.Lightsail.CreateLoadBalancer
     createLoadBalancer_certificateAlternativeNames,
     createLoadBalancer_healthCheckPath,
     createLoadBalancer_tags,
-    createLoadBalancer_certificateDomainName,
     createLoadBalancer_certificateName,
+    createLoadBalancer_certificateDomainName,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_instancePort,
 
@@ -89,17 +89,17 @@ data CreateLoadBalancer = CreateLoadBalancer'
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
     tags :: Prelude.Maybe [Tag],
+    -- | The name of the SSL\/TLS certificate.
+    --
+    -- If you specify @certificateName@, then @certificateDomainName@ is
+    -- required (and vice-versa).
+    certificateName :: Prelude.Maybe Prelude.Text,
     -- | The domain name with which your certificate is associated (e.g.,
     -- @example.com@).
     --
     -- If you specify @certificateDomainName@, then @certificateName@ is
     -- required (and vice-versa).
     certificateDomainName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the SSL\/TLS certificate.
-    --
-    -- If you specify @certificateName@, then @certificateDomainName@ is
-    -- required (and vice-versa).
-    certificateName :: Prelude.Maybe Prelude.Text,
     -- | The name of your load balancer.
     loadBalancerName :: Prelude.Text,
     -- | The instance port where you\'re creating your load balancer.
@@ -138,15 +138,15 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 --
+-- 'certificateName', 'createLoadBalancer_certificateName' - The name of the SSL\/TLS certificate.
+--
+-- If you specify @certificateName@, then @certificateDomainName@ is
+-- required (and vice-versa).
+--
 -- 'certificateDomainName', 'createLoadBalancer_certificateDomainName' - The domain name with which your certificate is associated (e.g.,
 -- @example.com@).
 --
 -- If you specify @certificateDomainName@, then @certificateName@ is
--- required (and vice-versa).
---
--- 'certificateName', 'createLoadBalancer_certificateName' - The name of the SSL\/TLS certificate.
---
--- If you specify @certificateName@, then @certificateDomainName@ is
 -- required (and vice-versa).
 --
 -- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of your load balancer.
@@ -167,8 +167,8 @@ newCreateLoadBalancer
         certificateAlternativeNames = Prelude.Nothing,
         healthCheckPath = Prelude.Nothing,
         tags = Prelude.Nothing,
-        certificateDomainName = Prelude.Nothing,
         certificateName = Prelude.Nothing,
+        certificateDomainName = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         instancePort = pInstancePort_
       }
@@ -204,6 +204,13 @@ createLoadBalancer_healthCheckPath = Lens.lens (\CreateLoadBalancer' {healthChec
 createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
 createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The name of the SSL\/TLS certificate.
+--
+-- If you specify @certificateName@, then @certificateDomainName@ is
+-- required (and vice-versa).
+createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificateName} -> certificateName) (\s@CreateLoadBalancer' {} a -> s {certificateName = a} :: CreateLoadBalancer)
+
 -- | The domain name with which your certificate is associated (e.g.,
 -- @example.com@).
 --
@@ -211,13 +218,6 @@ createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@Cr
 -- required (and vice-versa).
 createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
-
--- | The name of the SSL\/TLS certificate.
---
--- If you specify @certificateName@, then @certificateDomainName@ is
--- required (and vice-versa).
-createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
-createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificateName} -> certificateName) (\s@CreateLoadBalancer' {} a -> s {certificateName = a} :: CreateLoadBalancer)
 
 -- | The name of your load balancer.
 createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Prelude.Text
@@ -269,10 +269,10 @@ instance Core.ToJSON CreateLoadBalancer where
             ("healthCheckPath" Core..=)
               Prelude.<$> healthCheckPath,
             ("tags" Core..=) Prelude.<$> tags,
-            ("certificateDomainName" Core..=)
-              Prelude.<$> certificateDomainName,
             ("certificateName" Core..=)
               Prelude.<$> certificateName,
+            ("certificateDomainName" Core..=)
+              Prelude.<$> certificateDomainName,
             Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
             Prelude.Just ("instancePort" Core..= instancePort)

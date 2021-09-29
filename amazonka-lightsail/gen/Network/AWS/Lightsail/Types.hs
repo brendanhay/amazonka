@@ -28,6 +28,9 @@ module Network.AWS.Lightsail.Types
     -- * AccessDirection
     AccessDirection (..),
 
+    -- * AccessType
+    AccessType (..),
+
     -- * AddOnType
     AddOnType (..),
 
@@ -42,6 +45,9 @@ module Network.AWS.Lightsail.Types
 
     -- * BlueprintType
     BlueprintType (..),
+
+    -- * BucketMetricName
+    BucketMetricName (..),
 
     -- * CertificateStatus
     CertificateStatus (..),
@@ -75,6 +81,9 @@ module Network.AWS.Lightsail.Types
 
     -- * ContainerServiceState
     ContainerServiceState (..),
+
+    -- * ContainerServiceStateDetailCode
+    ContainerServiceStateDetailCode (..),
 
     -- * DiskSnapshotState
     DiskSnapshotState (..),
@@ -190,11 +199,39 @@ module Network.AWS.Lightsail.Types
     -- * RenewalStatus
     RenewalStatus (..),
 
+    -- * ResourceBucketAccess
+    ResourceBucketAccess (..),
+
     -- * ResourceType
     ResourceType (..),
 
+    -- * StatusType
+    StatusType (..),
+
     -- * TreatMissingData
     TreatMissingData (..),
+
+    -- * AccessKey
+    AccessKey (..),
+    newAccessKey,
+    accessKey_status,
+    accessKey_secretAccessKey,
+    accessKey_createdAt,
+    accessKey_lastUsed,
+    accessKey_accessKeyId,
+
+    -- * AccessKeyLastUsed
+    AccessKeyLastUsed (..),
+    newAccessKeyLastUsed,
+    accessKeyLastUsed_lastUsedDate,
+    accessKeyLastUsed_serviceName,
+    accessKeyLastUsed_region,
+
+    -- * AccessRules
+    AccessRules (..),
+    newAccessRules,
+    accessRules_allowPublicOverrides,
+    accessRules_getObject,
 
     -- * AddOn
     AddOn (..),
@@ -217,22 +254,22 @@ module Network.AWS.Lightsail.Types
     alarm_threshold,
     alarm_comparisonOperator,
     alarm_monitoredResourceInfo,
-    alarm_notificationTriggers,
     alarm_unit,
+    alarm_notificationTriggers,
     alarm_metricName,
     alarm_notificationEnabled,
     alarm_createdAt,
     alarm_arn,
+    alarm_supportCode,
     alarm_treatMissingData,
     alarm_resourceType,
-    alarm_supportCode,
     alarm_state,
     alarm_name,
     alarm_statistic,
     alarm_evaluationPeriods,
+    alarm_contactProtocols,
     alarm_period,
     alarm_location,
-    alarm_contactProtocols,
 
     -- * AttachedDisk
     AttachedDisk (..),
@@ -266,21 +303,56 @@ module Network.AWS.Lightsail.Types
     blueprint_isActive,
     blueprint_licenseUrl,
     blueprint_productUrl,
-    blueprint_version,
     blueprint_blueprintId,
-    blueprint_versionCode,
-    blueprint_name,
+    blueprint_version,
     blueprint_group,
+    blueprint_name,
+    blueprint_versionCode,
     blueprint_description,
     blueprint_type,
     blueprint_minPower,
+
+    -- * Bucket
+    Bucket (..),
+    newBucket,
+    bucket_objectVersioning,
+    bucket_bundleId,
+    bucket_resourcesReceivingAccess,
+    bucket_readonlyAccessAccounts,
+    bucket_createdAt,
+    bucket_arn,
+    bucket_supportCode,
+    bucket_resourceType,
+    bucket_state,
+    bucket_name,
+    bucket_ableToUpdateBundle,
+    bucket_accessRules,
+    bucket_tags,
+    bucket_url,
+    bucket_location,
+
+    -- * BucketBundle
+    BucketBundle (..),
+    newBucketBundle,
+    bucketBundle_bundleId,
+    bucketBundle_isActive,
+    bucketBundle_name,
+    bucketBundle_storagePerMonthInGb,
+    bucketBundle_transferPerMonthInGb,
+    bucketBundle_price,
+
+    -- * BucketState
+    BucketState (..),
+    newBucketState,
+    bucketState_message,
+    bucketState_code,
 
     -- * Bundle
     Bundle (..),
     newBundle,
     bundle_power,
-    bundle_instanceType,
     bundle_ramSizeInGb,
+    bundle_instanceType,
     bundle_bundleId,
     bundle_isActive,
     bundle_name,
@@ -316,26 +388,26 @@ module Network.AWS.Lightsail.Types
     -- * Certificate
     Certificate (..),
     newCertificate,
-    certificate_status,
     certificate_notBefore,
-    certificate_inUseResourceCount,
-    certificate_createdAt,
-    certificate_arn,
+    certificate_status,
     certificate_eligibleToRenew,
+    certificate_createdAt,
+    certificate_inUseResourceCount,
+    certificate_arn,
     certificate_supportCode,
+    certificate_domainName,
     certificate_subjectAlternativeNames,
     certificate_name,
-    certificate_domainName,
     certificate_revocationReason,
-    certificate_revokedAt,
-    certificate_issuerCA,
     certificate_notAfter,
+    certificate_issuerCA,
+    certificate_revokedAt,
     certificate_tags,
     certificate_serialNumber,
-    certificate_issuedAt,
     certificate_keyAlgorithm,
-    certificate_domainValidationRecords,
+    certificate_issuedAt,
     certificate_requestFailureReason,
+    certificate_domainValidationRecords,
     certificate_renewalSummary,
 
     -- * CertificateSummary
@@ -373,8 +445,8 @@ module Network.AWS.Lightsail.Types
     contactMethod_contactEndpoint,
     contactMethod_createdAt,
     contactMethod_arn,
-    contactMethod_resourceType,
     contactMethod_supportCode,
+    contactMethod_resourceType,
     contactMethod_name,
     contactMethod_protocol,
     contactMethod_location,
@@ -384,8 +456,8 @@ module Network.AWS.Lightsail.Types
     newContainer,
     container_environment,
     container_ports,
-    container_image,
     container_command,
+    container_image,
 
     -- * ContainerImage
     ContainerImage (..),
@@ -398,10 +470,11 @@ module Network.AWS.Lightsail.Types
     ContainerService (..),
     newContainerService,
     containerService_power,
+    containerService_stateDetail,
     containerService_currentDeployment,
     containerService_createdAt,
-    containerService_arn,
     containerService_containerServiceName,
+    containerService_arn,
     containerService_privateDomainName,
     containerService_resourceType,
     containerService_state,
@@ -419,8 +492,8 @@ module Network.AWS.Lightsail.Types
     ContainerServiceDeployment (..),
     newContainerServiceDeployment,
     containerServiceDeployment_createdAt,
-    containerServiceDeployment_version,
     containerServiceDeployment_publicEndpoint,
+    containerServiceDeployment_version,
     containerServiceDeployment_state,
     containerServiceDeployment_containers,
 
@@ -471,6 +544,12 @@ module Network.AWS.Lightsail.Types
     containerServiceRegistryLogin_password,
     containerServiceRegistryLogin_username,
 
+    -- * ContainerServiceStateDetail
+    ContainerServiceStateDetail (..),
+    newContainerServiceStateDetail,
+    containerServiceStateDetail_message,
+    containerServiceStateDetail_code,
+
     -- * CookieObject
     CookieObject (..),
     newCookieObject,
@@ -492,16 +571,16 @@ module Network.AWS.Lightsail.Types
     disk_isAttached,
     disk_createdAt,
     disk_arn,
-    disk_resourceType,
     disk_supportCode,
+    disk_resourceType,
     disk_sizeInGb,
     disk_state,
     disk_name,
     disk_attachedTo,
     disk_tags,
+    disk_path,
     disk_iops,
     disk_location,
-    disk_path,
     disk_isSystemDisk,
 
     -- * DiskInfo
@@ -525,17 +604,17 @@ module Network.AWS.Lightsail.Types
     diskSnapshot_fromDiskName,
     diskSnapshot_createdAt,
     diskSnapshot_arn,
+    diskSnapshot_supportCode,
     diskSnapshot_fromInstanceArn,
     diskSnapshot_resourceType,
-    diskSnapshot_supportCode,
     diskSnapshot_sizeInGb,
     diskSnapshot_state,
     diskSnapshot_name,
     diskSnapshot_tags,
     diskSnapshot_fromDiskArn,
     diskSnapshot_fromInstanceName,
-    diskSnapshot_location,
     diskSnapshot_progress,
+    diskSnapshot_location,
 
     -- * DiskSnapshotInfo
     DiskSnapshotInfo (..),
@@ -556,8 +635,8 @@ module Network.AWS.Lightsail.Types
     newDomain,
     domain_createdAt,
     domain_arn,
-    domain_resourceType,
     domain_supportCode,
+    domain_resourceType,
     domain_name,
     domain_tags,
     domain_location,
@@ -638,23 +717,23 @@ module Network.AWS.Lightsail.Types
     Instance (..),
     newInstance,
     instance_ipAddressType,
-    instance_ipv6Addresses,
     instance_bundleId,
+    instance_ipv6Addresses,
     instance_hardware,
     instance_addOns,
-    instance_blueprintName,
     instance_sshKeyName,
+    instance_blueprintName,
     instance_createdAt,
     instance_arn,
+    instance_supportCode,
     instance_blueprintId,
     instance_resourceType,
-    instance_supportCode,
     instance_state,
     instance_name,
     instance_tags,
     instance_networking,
-    instance_username,
     instance_publicIpAddress,
+    instance_username,
     instance_isStaticIp,
     instance_location,
     instance_privateIpAddress,
@@ -666,10 +745,10 @@ module Network.AWS.Lightsail.Types
     instanceAccessDetails_instanceName,
     instanceAccessDetails_expiresAt,
     instanceAccessDetails_privateKey,
-    instanceAccessDetails_certKey,
+    instanceAccessDetails_password,
     instanceAccessDetails_passwordData,
     instanceAccessDetails_ipAddress,
-    instanceAccessDetails_password,
+    instanceAccessDetails_certKey,
     instanceAccessDetails_username,
     instanceAccessDetails_protocol,
 
@@ -713,8 +792,8 @@ module Network.AWS.Lightsail.Types
     instancePortInfo_accessType,
     instancePortInfo_accessDirection,
     instancePortInfo_protocol,
-    instancePortInfo_toPort,
     instancePortInfo_accessFrom,
+    instancePortInfo_toPort,
 
     -- * InstancePortState
     InstancePortState (..),
@@ -722,8 +801,8 @@ module Network.AWS.Lightsail.Types
     instancePortState_fromPort,
     instancePortState_cidrListAliases,
     instancePortState_ipv6Cidrs,
-    instancePortState_state,
     instancePortState_cidrs,
+    instancePortState_state,
     instancePortState_protocol,
     instancePortState_toPort,
 
@@ -733,9 +812,9 @@ module Network.AWS.Lightsail.Types
     instanceSnapshot_isFromAutoSnapshot,
     instanceSnapshot_createdAt,
     instanceSnapshot_arn,
+    instanceSnapshot_supportCode,
     instanceSnapshot_fromInstanceArn,
     instanceSnapshot_resourceType,
-    instanceSnapshot_supportCode,
     instanceSnapshot_sizeInGb,
     instanceSnapshot_fromBundleId,
     instanceSnapshot_state,
@@ -743,8 +822,8 @@ module Network.AWS.Lightsail.Types
     instanceSnapshot_fromBlueprintId,
     instanceSnapshot_tags,
     instanceSnapshot_fromInstanceName,
-    instanceSnapshot_location,
     instanceSnapshot_progress,
+    instanceSnapshot_location,
     instanceSnapshot_fromAttachedDisks,
 
     -- * InstanceSnapshotInfo
@@ -765,8 +844,8 @@ module Network.AWS.Lightsail.Types
     newKeyPair,
     keyPair_createdAt,
     keyPair_arn,
-    keyPair_resourceType,
     keyPair_supportCode,
+    keyPair_resourceType,
     keyPair_name,
     keyPair_tags,
     keyPair_fingerprint,
@@ -777,18 +856,18 @@ module Network.AWS.Lightsail.Types
     newLightsailDistribution,
     lightsailDistribution_isEnabled,
     lightsailDistribution_ipAddressType,
-    lightsailDistribution_origin,
     lightsailDistribution_status,
     lightsailDistribution_originPublicDNS,
+    lightsailDistribution_origin,
     lightsailDistribution_bundleId,
     lightsailDistribution_alternativeDomainNames,
     lightsailDistribution_createdAt,
-    lightsailDistribution_cacheBehaviorSettings,
     lightsailDistribution_arn,
-    lightsailDistribution_resourceType,
+    lightsailDistribution_cacheBehaviorSettings,
     lightsailDistribution_supportCode,
-    lightsailDistribution_name,
+    lightsailDistribution_resourceType,
     lightsailDistribution_domainName,
+    lightsailDistribution_name,
     lightsailDistribution_ableToUpdateBundle,
     lightsailDistribution_tags,
     lightsailDistribution_cacheBehaviors,
@@ -803,15 +882,15 @@ module Network.AWS.Lightsail.Types
     loadBalancer_tlsCertificateSummaries,
     loadBalancer_instanceHealthSummary,
     loadBalancer_publicPorts,
-    loadBalancer_configurationOptions,
     loadBalancer_instancePort,
+    loadBalancer_configurationOptions,
     loadBalancer_createdAt,
     loadBalancer_arn,
-    loadBalancer_resourceType,
     loadBalancer_supportCode,
+    loadBalancer_resourceType,
     loadBalancer_state,
-    loadBalancer_name,
     loadBalancer_healthCheckPath,
+    loadBalancer_name,
     loadBalancer_tags,
     loadBalancer_dnsName,
     loadBalancer_protocol,
@@ -820,30 +899,30 @@ module Network.AWS.Lightsail.Types
     -- * LoadBalancerTlsCertificate
     LoadBalancerTlsCertificate (..),
     newLoadBalancerTlsCertificate,
-    loadBalancerTlsCertificate_status,
     loadBalancerTlsCertificate_notBefore,
+    loadBalancerTlsCertificate_status,
     loadBalancerTlsCertificate_serial,
     loadBalancerTlsCertificate_isAttached,
     loadBalancerTlsCertificate_createdAt,
     loadBalancerTlsCertificate_arn,
-    loadBalancerTlsCertificate_resourceType,
     loadBalancerTlsCertificate_supportCode,
+    loadBalancerTlsCertificate_resourceType,
+    loadBalancerTlsCertificate_domainName,
     loadBalancerTlsCertificate_subjectAlternativeNames,
     loadBalancerTlsCertificate_name,
-    loadBalancerTlsCertificate_domainName,
-    loadBalancerTlsCertificate_subject,
     loadBalancerTlsCertificate_failureReason,
+    loadBalancerTlsCertificate_subject,
     loadBalancerTlsCertificate_revocationReason,
-    loadBalancerTlsCertificate_revokedAt,
     loadBalancerTlsCertificate_notAfter,
+    loadBalancerTlsCertificate_revokedAt,
     loadBalancerTlsCertificate_tags,
-    loadBalancerTlsCertificate_signatureAlgorithm,
     loadBalancerTlsCertificate_issuer,
-    loadBalancerTlsCertificate_issuedAt,
+    loadBalancerTlsCertificate_signatureAlgorithm,
     loadBalancerTlsCertificate_keyAlgorithm,
+    loadBalancerTlsCertificate_issuedAt,
     loadBalancerTlsCertificate_domainValidationRecords,
-    loadBalancerTlsCertificate_location,
     loadBalancerTlsCertificate_loadBalancerName,
+    loadBalancerTlsCertificate_location,
     loadBalancerTlsCertificate_renewalSummary,
 
     -- * LoadBalancerTlsCertificateDomainValidationOption
@@ -855,8 +934,8 @@ module Network.AWS.Lightsail.Types
     -- * LoadBalancerTlsCertificateDomainValidationRecord
     LoadBalancerTlsCertificateDomainValidationRecord (..),
     newLoadBalancerTlsCertificateDomainValidationRecord,
-    loadBalancerTlsCertificateDomainValidationRecord_name,
     loadBalancerTlsCertificateDomainValidationRecord_domainName,
+    loadBalancerTlsCertificateDomainValidationRecord_name,
     loadBalancerTlsCertificateDomainValidationRecord_validationStatus,
     loadBalancerTlsCertificateDomainValidationRecord_value,
     loadBalancerTlsCertificateDomainValidationRecord_type,
@@ -908,14 +987,14 @@ module Network.AWS.Lightsail.Types
     operation_operationDetails,
     operation_status,
     operation_isTerminal,
-    operation_createdAt,
     operation_id,
+    operation_createdAt,
     operation_resourceType,
     operation_statusChangedAt,
-    operation_location,
-    operation_resourceName,
-    operation_operationType,
     operation_errorCode,
+    operation_operationType,
+    operation_resourceName,
+    operation_location,
     operation_errorDetails,
 
     -- * Origin
@@ -975,28 +1054,28 @@ module Network.AWS.Lightsail.Types
     -- * RelationalDatabase
     RelationalDatabase (..),
     newRelationalDatabase,
-    relationalDatabase_relationalDatabaseBundleId,
     relationalDatabase_masterEndpoint,
+    relationalDatabase_relationalDatabaseBundleId,
     relationalDatabase_pendingMaintenanceActions,
     relationalDatabase_preferredBackupWindow,
-    relationalDatabase_caCertificateIdentifier,
     relationalDatabase_relationalDatabaseBlueprintId,
+    relationalDatabase_caCertificateIdentifier,
     relationalDatabase_latestRestorableTime,
-    relationalDatabase_masterDatabaseName,
     relationalDatabase_hardware,
+    relationalDatabase_masterDatabaseName,
     relationalDatabase_createdAt,
     relationalDatabase_arn,
     relationalDatabase_masterUsername,
+    relationalDatabase_supportCode,
     relationalDatabase_resourceType,
     relationalDatabase_publiclyAccessible,
-    relationalDatabase_supportCode,
+    relationalDatabase_backupRetentionEnabled,
     relationalDatabase_state,
     relationalDatabase_name,
-    relationalDatabase_backupRetentionEnabled,
-    relationalDatabase_engineVersion,
     relationalDatabase_preferredMaintenanceWindow,
-    relationalDatabase_tags,
+    relationalDatabase_engineVersion,
     relationalDatabase_parameterApplyStatus,
+    relationalDatabase_tags,
     relationalDatabase_pendingModifiedValues,
     relationalDatabase_engine,
     relationalDatabase_secondaryAvailabilityZone,
@@ -1064,14 +1143,14 @@ module Network.AWS.Lightsail.Types
     relationalDatabaseSnapshot_fromRelationalDatabaseName,
     relationalDatabaseSnapshot_createdAt,
     relationalDatabaseSnapshot_arn,
-    relationalDatabaseSnapshot_resourceType,
     relationalDatabaseSnapshot_supportCode,
+    relationalDatabaseSnapshot_resourceType,
     relationalDatabaseSnapshot_sizeInGb,
     relationalDatabaseSnapshot_state,
     relationalDatabaseSnapshot_name,
     relationalDatabaseSnapshot_engineVersion,
-    relationalDatabaseSnapshot_fromRelationalDatabaseBundleId,
     relationalDatabaseSnapshot_tags,
+    relationalDatabaseSnapshot_fromRelationalDatabaseBundleId,
     relationalDatabaseSnapshot_engine,
     relationalDatabaseSnapshot_fromRelationalDatabaseArn,
     relationalDatabaseSnapshot_location,
@@ -1091,6 +1170,12 @@ module Network.AWS.Lightsail.Types
     resourceLocation_regionName,
     resourceLocation_availabilityZone,
 
+    -- * ResourceReceivingAccess
+    ResourceReceivingAccess (..),
+    newResourceReceivingAccess,
+    resourceReceivingAccess_resourceType,
+    resourceReceivingAccess_name,
+
     -- * ResourceRecord
     ResourceRecord (..),
     newResourceRecord,
@@ -1104,10 +1189,10 @@ module Network.AWS.Lightsail.Types
     staticIp_isAttached,
     staticIp_createdAt,
     staticIp_arn,
-    staticIp_resourceType,
     staticIp_supportCode,
-    staticIp_name,
+    staticIp_resourceType,
     staticIp_ipAddress,
+    staticIp_name,
     staticIp_attachedTo,
     staticIp_location,
 
@@ -1122,6 +1207,10 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.AccessDirection
+import Network.AWS.Lightsail.Types.AccessKey
+import Network.AWS.Lightsail.Types.AccessKeyLastUsed
+import Network.AWS.Lightsail.Types.AccessRules
+import Network.AWS.Lightsail.Types.AccessType
 import Network.AWS.Lightsail.Types.AddOn
 import Network.AWS.Lightsail.Types.AddOnRequest
 import Network.AWS.Lightsail.Types.AddOnType
@@ -1135,6 +1224,10 @@ import Network.AWS.Lightsail.Types.AvailabilityZone
 import Network.AWS.Lightsail.Types.BehaviorEnum
 import Network.AWS.Lightsail.Types.Blueprint
 import Network.AWS.Lightsail.Types.BlueprintType
+import Network.AWS.Lightsail.Types.Bucket
+import Network.AWS.Lightsail.Types.BucketBundle
+import Network.AWS.Lightsail.Types.BucketMetricName
+import Network.AWS.Lightsail.Types.BucketState
 import Network.AWS.Lightsail.Types.Bundle
 import Network.AWS.Lightsail.Types.CacheBehavior
 import Network.AWS.Lightsail.Types.CacheBehaviorPerPath
@@ -1165,6 +1258,8 @@ import Network.AWS.Lightsail.Types.ContainerServicePowerName
 import Network.AWS.Lightsail.Types.ContainerServiceProtocol
 import Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin
 import Network.AWS.Lightsail.Types.ContainerServiceState
+import Network.AWS.Lightsail.Types.ContainerServiceStateDetail
+import Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode
 import Network.AWS.Lightsail.Types.CookieObject
 import Network.AWS.Lightsail.Types.DestinationInfo
 import Network.AWS.Lightsail.Types.Disk
@@ -1260,10 +1355,13 @@ import Network.AWS.Lightsail.Types.RelationalDatabasePasswordVersion
 import Network.AWS.Lightsail.Types.RelationalDatabaseSnapshot
 import Network.AWS.Lightsail.Types.RenewalStatus
 import Network.AWS.Lightsail.Types.RenewalSummary
+import Network.AWS.Lightsail.Types.ResourceBucketAccess
 import Network.AWS.Lightsail.Types.ResourceLocation
+import Network.AWS.Lightsail.Types.ResourceReceivingAccess
 import Network.AWS.Lightsail.Types.ResourceRecord
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.StaticIp
+import Network.AWS.Lightsail.Types.StatusType
 import Network.AWS.Lightsail.Types.Tag
 import Network.AWS.Lightsail.Types.TreatMissingData
 import qualified Network.AWS.Prelude as Prelude

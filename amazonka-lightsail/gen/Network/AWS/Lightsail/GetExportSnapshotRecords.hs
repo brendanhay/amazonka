@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the export snapshot record created as a result of the
+-- Returns all export snapshot records created as a result of the
 -- @export snapshot@ operation.
 --
 -- An export snapshot record can be used to create a new Amazon EC2
--- instance and its related resources with the
--- @create cloud formation stack@ operation.
+-- instance and its related resources with the CreateCloudFormationStack
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetExportSnapshotRecords

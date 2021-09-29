@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tries to peer the Lightsail VPC with the user\'s default VPC.
+-- Peers the Lightsail VPC with the user\'s default VPC.
 module Network.AWS.Lightsail.PeerVpc
   ( -- * Creating a Request
     PeerVpc (..),

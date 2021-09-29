@@ -30,29 +30,47 @@ import Test.Tasty
 --         [ requestGetContainerServices $
 --             newGetContainerServices
 --
+--         , requestGetDistributions $
+--             newGetDistributions
+--
+--         , requestCreateContainerServiceDeployment $
+--             newCreateContainerServiceDeployment
+--
+--         , requestDeleteBucket $
+--             newDeleteBucket
+--
+--         , requestGetDiskSnapshot $
+--             newGetDiskSnapshot
+--
+--         , requestUpdateDistributionBundle $
+--             newUpdateDistributionBundle
+--
+--         , requestUpdateBucket $
+--             newUpdateBucket
+--
+--         , requestUpdateLoadBalancerAttribute $
+--             newUpdateLoadBalancerAttribute
+--
 --         , requestGetStaticIp $
 --             newGetStaticIp
 --
 --         , requestGetRelationalDatabaseSnapshots $
 --             newGetRelationalDatabaseSnapshots
 --
---         , requestGetDistributions $
---             newGetDistributions
---
---         , requestGetDiskSnapshot $
---             newGetDiskSnapshot
---
---         , requestCreateContainerServiceDeployment $
---             newCreateContainerServiceDeployment
+--         , requestGetBucketBundles $
+--             newGetBucketBundles
 --
 --         , requestPeerVpc $
 --             newPeerVpc
 --
---         , requestUpdateLoadBalancerAttribute $
---             newUpdateLoadBalancerAttribute
+--         , requestGetBucketMetricData $
+--             newGetBucketMetricData
 --
---         , requestUpdateDistributionBundle $
---             newUpdateDistributionBundle
+--         , requestUnpeerVpc $
+--             newUnpeerVpc
+--
+--         , requestDeleteInstanceSnapshot $
+--             newDeleteInstanceSnapshot
 --
 --         , requestAllocateStaticIp $
 --             newAllocateStaticIp
@@ -60,14 +78,11 @@ import Test.Tasty
 --         , requestCloseInstancePublicPorts $
 --             newCloseInstancePublicPorts
 --
---         , requestDeleteCertificate $
---             newDeleteCertificate
+--         , requestGetCloudFormationStackRecords $
+--             newGetCloudFormationStackRecords
 --
 --         , requestDisableAddOn $
 --             newDisableAddOn
---
---         , requestGetCloudFormationStackRecords $
---             newGetCloudFormationStackRecords
 --
 --         , requestIsVpcPeered $
 --             newIsVpcPeered
@@ -75,47 +90,50 @@ import Test.Tasty
 --         , requestGetRelationalDatabaseSnapshot $
 --             newGetRelationalDatabaseSnapshot
 --
---         , requestGetRelationalDatabaseBlueprints $
---             newGetRelationalDatabaseBlueprints
---
---         , requestDeleteInstanceSnapshot $
---             newDeleteInstanceSnapshot
---
---         , requestUnpeerVpc $
---             newUnpeerVpc
---
---         , requestGetContainerAPIMetadata $
---             newGetContainerAPIMetadata
---
 --         , requestGetInstances $
 --             newGetInstances
 --
 --         , requestCreateInstancesFromSnapshot $
 --             newCreateInstancesFromSnapshot
 --
---         , requestStartInstance $
---             newStartInstance
+--         , requestDeleteCertificate $
+--             newDeleteCertificate
 --
---         , requestCreateKeyPair $
---             newCreateKeyPair
+--         , requestGetContainerAPIMetadata $
+--             newGetContainerAPIMetadata
 --
---         , requestGetInstanceAccessDetails $
---             newGetInstanceAccessDetails
---
---         , requestCopySnapshot $
---             newCopySnapshot
---
---         , requestCreateInstanceSnapshot $
---             newCreateInstanceSnapshot
---
---         , requestStopInstance $
---             newStopInstance
+--         , requestGetRelationalDatabaseBlueprints $
+--             newGetRelationalDatabaseBlueprints
 --
 --         , requestRegisterContainerImage $
 --             newRegisterContainerImage
 --
---         , requestDetachCertificateFromDistribution $
---             newDetachCertificateFromDistribution
+--         , requestCreateKeyPair $
+--             newCreateKeyPair
+--
+--         , requestStartInstance $
+--             newStartInstance
+--
+--         , requestCreateInstanceSnapshot $
+--             newCreateInstanceSnapshot
+--
+--         , requestCreateBucketAccessKey $
+--             newCreateBucketAccessKey
+--
+--         , requestCopySnapshot $
+--             newCopySnapshot
+--
+--         , requestGetInstanceAccessDetails $
+--             newGetInstanceAccessDetails
+--
+--         , requestStopInstance $
+--             newStopInstance
+--
+--         , requestGetDomain $
+--             newGetDomain
+--
+--         , requestDetachStaticIp $
+--             newDetachStaticIp
 --
 --         , requestCreateLoadBalancer $
 --             newCreateLoadBalancer
@@ -126,17 +144,11 @@ import Test.Tasty
 --         , requestDeleteContactMethod $
 --             newDeleteContactMethod
 --
---         , requestGetDomain $
---             newGetDomain
---
---         , requestDetachStaticIp $
---             newDetachStaticIp
+--         , requestDetachCertificateFromDistribution $
+--             newDetachCertificateFromDistribution
 --
 --         , requestAttachDisk $
 --             newAttachDisk
---
---         , requestGetDisk $
---             newGetDisk
 --
 --         , requestGetRelationalDatabaseLogEvents $
 --             newGetRelationalDatabaseLogEvents
@@ -144,35 +156,47 @@ import Test.Tasty
 --         , requestGetRelationalDatabases $
 --             newGetRelationalDatabases
 --
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestCreateDiskFromSnapshot $
 --             newCreateDiskFromSnapshot
 --
 --         , requestGetInstanceMetricData $
 --             newGetInstanceMetricData
 --
+--         , requestUntagResource $
+--             newUntagResource
+--
 --         , requestDeleteLoadBalancer $
 --             newDeleteLoadBalancer
 --
---         , requestExportSnapshot $
---             newExportSnapshot
---
---         , requestCreateRelationalDatabaseFromSnapshot $
---             newCreateRelationalDatabaseFromSnapshot
---
---         , requestGetOperations $
---             newGetOperations
---
---         , requestGetExportSnapshotRecords $
---             newGetExportSnapshotRecords
+--         , requestGetDisk $
+--             newGetDisk
 --
 --         , requestGetLoadBalancerMetricData $
 --             newGetLoadBalancerMetricData
 --
---         , requestGetInstanceSnapshots $
---             newGetInstanceSnapshots
+--         , requestGetKeyPairs $
+--             newGetKeyPairs
+--
+--         , requestGetOperations $
+--             newGetOperations
+--
+--         , requestAttachInstancesToLoadBalancer $
+--             newAttachInstancesToLoadBalancer
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestRebootInstance $
+--             newRebootInstance
+--
+--         , requestCreateRelationalDatabaseFromSnapshot $
+--             newCreateRelationalDatabaseFromSnapshot
+--
+--         , requestGetExportSnapshotRecords $
+--             newGetExportSnapshotRecords
+--
+--         , requestGetRelationalDatabase $
+--             newGetRelationalDatabase
 --
 --         , requestDeleteInstance $
 --             newDeleteInstance
@@ -180,38 +204,26 @@ import Test.Tasty
 --         , requestCreateLoadBalancerTlsCertificate $
 --             newCreateLoadBalancerTlsCertificate
 --
---         , requestRebootInstance $
---             newRebootInstance
+--         , requestExportSnapshot $
+--             newExportSnapshot
 --
---         , requestTagResource $
---             newTagResource
+--         , requestGetInstanceSnapshots $
+--             newGetInstanceSnapshots
 --
---         , requestGetRelationalDatabase $
---             newGetRelationalDatabase
---
---         , requestGetKeyPairs $
---             newGetKeyPairs
---
---         , requestAttachInstancesToLoadBalancer $
---             newAttachInstancesToLoadBalancer
+--         , requestGetBucketAccessKeys $
+--             newGetBucketAccessKeys
 --
 --         , requestGetRegions $
 --             newGetRegions
 --
---         , requestTestAlarm $
---             newTestAlarm
+--         , requestSetIpAddressType $
+--             newSetIpAddressType
 --
 --         , requestCreateDiskSnapshot $
 --             newCreateDiskSnapshot
 --
---         , requestSetIpAddressType $
---             newSetIpAddressType
---
---         , requestDeleteAlarm $
---             newDeleteAlarm
---
---         , requestSendContactMethodVerification $
---             newSendContactMethodVerification
+--         , requestTestAlarm $
+--             newTestAlarm
 --
 --         , requestGetRelationalDatabaseMasterUserPassword $
 --             newGetRelationalDatabaseMasterUserPassword
@@ -219,23 +231,44 @@ import Test.Tasty
 --         , requestGetBlueprints $
 --             newGetBlueprints
 --
+--         , requestAttachStaticIp $
+--             newAttachStaticIp
+--
+--         , requestCreateBucket $
+--             newCreateBucket
+--
+--         , requestSendContactMethodVerification $
+--             newSendContactMethodVerification
+--
+--         , requestDownloadDefaultKeyPair $
+--             newDownloadDefaultKeyPair
+--
+--         , requestDeleteAlarm $
+--             newDeleteAlarm
+--
 --         , requestDetachDisk $
 --             newDetachDisk
 --
 --         , requestGetInstancePortStates $
 --             newGetInstancePortStates
 --
---         , requestAttachStaticIp $
---             newAttachStaticIp
+--         , requestGetRelationalDatabaseEvents $
+--             newGetRelationalDatabaseEvents
 --
---         , requestDownloadDefaultKeyPair $
---             newDownloadDefaultKeyPair
+--         , requestUpdateRelationalDatabase $
+--             newUpdateRelationalDatabase
+--
+--         , requestDeleteRelationalDatabase $
+--             newDeleteRelationalDatabase
 --
 --         , requestGetLoadBalancers $
 --             newGetLoadBalancers
 --
---         , requestUpdateRelationalDatabase $
---             newUpdateRelationalDatabase
+--         , requestGetInstance $
+--             newGetInstance
+--
+--         , requestAttachCertificateToDistribution $
+--             newAttachCertificateToDistribution
 --
 --         , requestGetRelationalDatabaseBundles $
 --             newGetRelationalDatabaseBundles
@@ -243,32 +276,11 @@ import Test.Tasty
 --         , requestAttachLoadBalancerTlsCertificate $
 --             newAttachLoadBalancerTlsCertificate
 --
---         , requestAttachCertificateToDistribution $
---             newAttachCertificateToDistribution
---
---         , requestDeleteRelationalDatabase $
---             newDeleteRelationalDatabase
---
---         , requestGetInstance $
---             newGetInstance
---
 --         , requestRebootRelationalDatabase $
 --             newRebootRelationalDatabase
 --
---         , requestGetRelationalDatabaseEvents $
---             newGetRelationalDatabaseEvents
---
---         , requestCreateDomain $
---             newCreateDomain
---
 --         , requestGetStaticIps $
 --             newGetStaticIps
---
---         , requestDeleteDisk $
---             newDeleteDisk
---
---         , requestGetRelationalDatabaseMetricData $
---             newGetRelationalDatabaseMetricData
 --
 --         , requestGetDiskSnapshots $
 --             newGetDiskSnapshots
@@ -279,20 +291,23 @@ import Test.Tasty
 --         , requestGetLoadBalancer $
 --             newGetLoadBalancer
 --
---         , requestGetBundles $
---             newGetBundles
+--         , requestDeleteBucketAccessKey $
+--             newDeleteBucketAccessKey
 --
---         , requestCreateCertificate $
---             newCreateCertificate
+--         , requestCreateDomain $
+--             newCreateDomain
 --
---         , requestDetachInstancesFromLoadBalancer $
---             newDetachInstancesFromLoadBalancer
+--         , requestDeleteDisk $
+--             newDeleteDisk
 --
---         , requestGetLoadBalancerTlsCertificates $
---             newGetLoadBalancerTlsCertificates
+--         , requestGetRelationalDatabaseMetricData $
+--             newGetRelationalDatabaseMetricData
 --
---         , requestDeleteContainerImage $
---             newDeleteContainerImage
+--         , requestSetResourceAccessForBucket $
+--             newSetResourceAccessForBucket
+--
+--         , requestDeleteDomain $
+--             newDeleteDomain
 --
 --         , requestGetOperationsForResource $
 --             newGetOperationsForResource
@@ -303,14 +318,35 @@ import Test.Tasty
 --         , requestEnableAddOn $
 --             newEnableAddOn
 --
---         , requestDeleteDomain $
---             newDeleteDomain
+--         , requestDetachInstancesFromLoadBalancer $
+--             newDetachInstancesFromLoadBalancer
 --
---         , requestStartRelationalDatabase $
---             newStartRelationalDatabase
+--         , requestGetLoadBalancerTlsCertificates $
+--             newGetLoadBalancerTlsCertificates
 --
---         , requestCreateRelationalDatabaseSnapshot $
---             newCreateRelationalDatabaseSnapshot
+--         , requestDeleteContainerImage $
+--             newDeleteContainerImage
+--
+--         , requestCreateCertificate $
+--             newCreateCertificate
+--
+--         , requestGetBundles $
+--             newGetBundles
+--
+--         , requestDeleteKnownHostKeys $
+--             newDeleteKnownHostKeys
+--
+--         , requestCreateInstances $
+--             newCreateInstances
+--
+--         , requestGetActiveNames $
+--             newGetActiveNames
+--
+--         , requestCreateContainerService $
+--             newCreateContainerService
+--
+--         , requestStopRelationalDatabase $
+--             newStopRelationalDatabase
 --
 --         , requestGetAlarms $
 --             newGetAlarms
@@ -318,95 +354,86 @@ import Test.Tasty
 --         , requestCreateDistribution $
 --             newCreateDistribution
 --
---         , requestCreateInstances $
---             newCreateInstances
---
---         , requestCreateContainerService $
---             newCreateContainerService
---
 --         , requestGetDistributionLatestCacheReset $
 --             newGetDistributionLatestCacheReset
---
---         , requestStopRelationalDatabase $
---             newStopRelationalDatabase
---
---         , requestDeleteKnownHostKeys $
---             newDeleteKnownHostKeys
 --
 --         , requestOpenInstancePublicPorts $
 --             newOpenInstancePublicPorts
 --
---         , requestGetActiveNames $
---             newGetActiveNames
+--         , requestCreateRelationalDatabaseSnapshot $
+--             newCreateRelationalDatabaseSnapshot
 --
 --         , requestGetAutoSnapshots $
 --             newGetAutoSnapshots
 --
---         , requestGetRelationalDatabaseLogStreams $
---             newGetRelationalDatabaseLogStreams
---
---         , requestGetDistributionBundles $
---             newGetDistributionBundles
---
---         , requestGetOperation $
---             newGetOperation
---
---         , requestDeleteRelationalDatabaseSnapshot $
---             newDeleteRelationalDatabaseSnapshot
---
---         , requestGetInstanceSnapshot $
---             newGetInstanceSnapshot
---
---         , requestDeleteContainerService $
---             newDeleteContainerService
---
---         , requestUpdateDistribution $
---             newUpdateDistribution
---
---         , requestPutInstancePublicPorts $
---             newPutInstancePublicPorts
---
---         , requestResetDistributionCache $
---             newResetDistributionCache
---
---         , requestCreateContactMethod $
---             newCreateContactMethod
---
---         , requestDeleteDistribution $
---             newDeleteDistribution
+--         , requestStartRelationalDatabase $
+--             newStartRelationalDatabase
 --
 --         , requestUpdateContainerService $
 --             newUpdateContainerService
 --
+--         , requestDeleteDistribution $
+--             newDeleteDistribution
+--
+--         , requestGetOperation $
+--             newGetOperation
+--
 --         , requestGetKeyPair $
 --             newGetKeyPair
+--
+--         , requestUpdateDistribution $
+--             newUpdateDistribution
+--
+--         , requestGetRelationalDatabaseLogStreams $
+--             newGetRelationalDatabaseLogStreams
+--
+--         , requestUpdateBucketBundle $
+--             newUpdateBucketBundle
+--
+--         , requestGetBuckets $
+--             newGetBuckets
+--
+--         , requestDeleteRelationalDatabaseSnapshot $
+--             newDeleteRelationalDatabaseSnapshot
+--
+--         , requestResetDistributionCache $
+--             newResetDistributionCache
+--
+--         , requestGetInstanceSnapshot $
+--             newGetInstanceSnapshot
+--
+--         , requestCreateContactMethod $
+--             newCreateContactMethod
+--
+--         , requestPutInstancePublicPorts $
+--             newPutInstancePublicPorts
+--
+--         , requestGetDistributionBundles $
+--             newGetDistributionBundles
+--
+--         , requestDeleteContainerService $
+--             newDeleteContainerService
 --
 --         , requestCreateCloudFormationStack $
 --             newCreateCloudFormationStack
 --
---         , requestCreateDomainEntry $
---             newCreateDomainEntry
+--         , requestGetContainerServicePowers $
+--             newGetContainerServicePowers
 --
---         , requestGetInstanceState $
---             newGetInstanceState
---
---         , requestGetDistributionMetricData $
---             newGetDistributionMetricData
+--         , requestReleaseStaticIp $
+--             newReleaseStaticIp
 --
 --         , requestGetDisks $
 --             newGetDisks
 --
---         , requestGetContainerServiceMetricData $
---             newGetContainerServiceMetricData
---
---         , requestCreateContainerServiceRegistryLogin $
---             newCreateContainerServiceRegistryLogin
---
 --         , requestImportKeyPair $
 --             newImportKeyPair
 --
---         , requestGetContainerServicePowers $
---             newGetContainerServicePowers
+--         , requestCreateDomainEntry $
+--             newCreateDomainEntry
+--
+--         , requestCreateContainerServiceRegistryLogin $
+--             newCreateContainerServiceRegistryLogin
 --
 --         , requestDeleteDiskSnapshot $
 --             newDeleteDiskSnapshot
@@ -414,44 +441,50 @@ import Test.Tasty
 --         , requestGetCertificates $
 --             newGetCertificates
 --
---         , requestReleaseStaticIp $
---             newReleaseStaticIp
+--         , requestGetDistributionMetricData $
+--             newGetDistributionMetricData
 --
---         , requestUpdateRelationalDatabaseParameters $
---             newUpdateRelationalDatabaseParameters
+--         , requestGetInstanceState $
+--             newGetInstanceState
 --
---         , requestDeleteLoadBalancerTlsCertificate $
---             newDeleteLoadBalancerTlsCertificate
+--         , requestGetContainerServiceMetricData $
+--             newGetContainerServiceMetricData
 --
 --         , requestUpdateDomainEntry $
 --             newUpdateDomainEntry
 --
---         , requestGetContainerLog $
---             newGetContainerLog
---
---         , requestDeleteDomainEntry $
---             newDeleteDomainEntry
+--         , requestDeleteLoadBalancerTlsCertificate $
+--             newDeleteLoadBalancerTlsCertificate
 --
 --         , requestGetContainerImages $
 --             newGetContainerImages
 --
+--         , requestUpdateRelationalDatabaseParameters $
+--             newUpdateRelationalDatabaseParameters
+--
 --         , requestGetDomains $
 --             newGetDomains
+--
+--         , requestDeleteDomainEntry $
+--             newDeleteDomainEntry
+--
+--         , requestGetContainerLog $
+--             newGetContainerLog
 --
 --         , requestPutAlarm $
 --             newPutAlarm
 --
---         , requestDeleteAutoSnapshot $
---             newDeleteAutoSnapshot
---
---         , requestGetContactMethods $
---             newGetContactMethods
---
 --         , requestGetRelationalDatabaseParameters $
 --             newGetRelationalDatabaseParameters
 --
+--         , requestDeleteAutoSnapshot $
+--             newDeleteAutoSnapshot
+--
 --         , requestCreateRelationalDatabase $
 --             newCreateRelationalDatabase
+--
+--         , requestGetContactMethods $
+--             newGetContactMethods
 --
 --           ]
 
@@ -459,29 +492,47 @@ import Test.Tasty
 --         [ responseGetContainerServices $
 --             newGetContainerServicesResponse
 --
+--         , responseGetDistributions $
+--             newGetDistributionsResponse
+--
+--         , responseCreateContainerServiceDeployment $
+--             newCreateContainerServiceDeploymentResponse
+--
+--         , responseDeleteBucket $
+--             newDeleteBucketResponse
+--
+--         , responseGetDiskSnapshot $
+--             newGetDiskSnapshotResponse
+--
+--         , responseUpdateDistributionBundle $
+--             newUpdateDistributionBundleResponse
+--
+--         , responseUpdateBucket $
+--             newUpdateBucketResponse
+--
+--         , responseUpdateLoadBalancerAttribute $
+--             newUpdateLoadBalancerAttributeResponse
+--
 --         , responseGetStaticIp $
 --             newGetStaticIpResponse
 --
 --         , responseGetRelationalDatabaseSnapshots $
 --             newGetRelationalDatabaseSnapshotsResponse
 --
---         , responseGetDistributions $
---             newGetDistributionsResponse
---
---         , responseGetDiskSnapshot $
---             newGetDiskSnapshotResponse
---
---         , responseCreateContainerServiceDeployment $
---             newCreateContainerServiceDeploymentResponse
+--         , responseGetBucketBundles $
+--             newGetBucketBundlesResponse
 --
 --         , responsePeerVpc $
 --             newPeerVpcResponse
 --
---         , responseUpdateLoadBalancerAttribute $
---             newUpdateLoadBalancerAttributeResponse
+--         , responseGetBucketMetricData $
+--             newGetBucketMetricDataResponse
 --
---         , responseUpdateDistributionBundle $
---             newUpdateDistributionBundleResponse
+--         , responseUnpeerVpc $
+--             newUnpeerVpcResponse
+--
+--         , responseDeleteInstanceSnapshot $
+--             newDeleteInstanceSnapshotResponse
 --
 --         , responseAllocateStaticIp $
 --             newAllocateStaticIpResponse
@@ -489,14 +540,11 @@ import Test.Tasty
 --         , responseCloseInstancePublicPorts $
 --             newCloseInstancePublicPortsResponse
 --
---         , responseDeleteCertificate $
---             newDeleteCertificateResponse
+--         , responseGetCloudFormationStackRecords $
+--             newGetCloudFormationStackRecordsResponse
 --
 --         , responseDisableAddOn $
 --             newDisableAddOnResponse
---
---         , responseGetCloudFormationStackRecords $
---             newGetCloudFormationStackRecordsResponse
 --
 --         , responseIsVpcPeered $
 --             newIsVpcPeeredResponse
@@ -504,47 +552,50 @@ import Test.Tasty
 --         , responseGetRelationalDatabaseSnapshot $
 --             newGetRelationalDatabaseSnapshotResponse
 --
---         , responseGetRelationalDatabaseBlueprints $
---             newGetRelationalDatabaseBlueprintsResponse
---
---         , responseDeleteInstanceSnapshot $
---             newDeleteInstanceSnapshotResponse
---
---         , responseUnpeerVpc $
---             newUnpeerVpcResponse
---
---         , responseGetContainerAPIMetadata $
---             newGetContainerAPIMetadataResponse
---
 --         , responseGetInstances $
 --             newGetInstancesResponse
 --
 --         , responseCreateInstancesFromSnapshot $
 --             newCreateInstancesFromSnapshotResponse
 --
---         , responseStartInstance $
---             newStartInstanceResponse
+--         , responseDeleteCertificate $
+--             newDeleteCertificateResponse
 --
---         , responseCreateKeyPair $
---             newCreateKeyPairResponse
+--         , responseGetContainerAPIMetadata $
+--             newGetContainerAPIMetadataResponse
 --
---         , responseGetInstanceAccessDetails $
---             newGetInstanceAccessDetailsResponse
---
---         , responseCopySnapshot $
---             newCopySnapshotResponse
---
---         , responseCreateInstanceSnapshot $
---             newCreateInstanceSnapshotResponse
---
---         , responseStopInstance $
---             newStopInstanceResponse
+--         , responseGetRelationalDatabaseBlueprints $
+--             newGetRelationalDatabaseBlueprintsResponse
 --
 --         , responseRegisterContainerImage $
 --             newRegisterContainerImageResponse
 --
---         , responseDetachCertificateFromDistribution $
---             newDetachCertificateFromDistributionResponse
+--         , responseCreateKeyPair $
+--             newCreateKeyPairResponse
+--
+--         , responseStartInstance $
+--             newStartInstanceResponse
+--
+--         , responseCreateInstanceSnapshot $
+--             newCreateInstanceSnapshotResponse
+--
+--         , responseCreateBucketAccessKey $
+--             newCreateBucketAccessKeyResponse
+--
+--         , responseCopySnapshot $
+--             newCopySnapshotResponse
+--
+--         , responseGetInstanceAccessDetails $
+--             newGetInstanceAccessDetailsResponse
+--
+--         , responseStopInstance $
+--             newStopInstanceResponse
+--
+--         , responseGetDomain $
+--             newGetDomainResponse
+--
+--         , responseDetachStaticIp $
+--             newDetachStaticIpResponse
 --
 --         , responseCreateLoadBalancer $
 --             newCreateLoadBalancerResponse
@@ -555,17 +606,11 @@ import Test.Tasty
 --         , responseDeleteContactMethod $
 --             newDeleteContactMethodResponse
 --
---         , responseGetDomain $
---             newGetDomainResponse
---
---         , responseDetachStaticIp $
---             newDetachStaticIpResponse
+--         , responseDetachCertificateFromDistribution $
+--             newDetachCertificateFromDistributionResponse
 --
 --         , responseAttachDisk $
 --             newAttachDiskResponse
---
---         , responseGetDisk $
---             newGetDiskResponse
 --
 --         , responseGetRelationalDatabaseLogEvents $
 --             newGetRelationalDatabaseLogEventsResponse
@@ -573,35 +618,47 @@ import Test.Tasty
 --         , responseGetRelationalDatabases $
 --             newGetRelationalDatabasesResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseCreateDiskFromSnapshot $
 --             newCreateDiskFromSnapshotResponse
 --
 --         , responseGetInstanceMetricData $
 --             newGetInstanceMetricDataResponse
 --
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
 --         , responseDeleteLoadBalancer $
 --             newDeleteLoadBalancerResponse
 --
---         , responseExportSnapshot $
---             newExportSnapshotResponse
---
---         , responseCreateRelationalDatabaseFromSnapshot $
---             newCreateRelationalDatabaseFromSnapshotResponse
---
---         , responseGetOperations $
---             newGetOperationsResponse
---
---         , responseGetExportSnapshotRecords $
---             newGetExportSnapshotRecordsResponse
+--         , responseGetDisk $
+--             newGetDiskResponse
 --
 --         , responseGetLoadBalancerMetricData $
 --             newGetLoadBalancerMetricDataResponse
 --
---         , responseGetInstanceSnapshots $
---             newGetInstanceSnapshotsResponse
+--         , responseGetKeyPairs $
+--             newGetKeyPairsResponse
+--
+--         , responseGetOperations $
+--             newGetOperationsResponse
+--
+--         , responseAttachInstancesToLoadBalancer $
+--             newAttachInstancesToLoadBalancerResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseRebootInstance $
+--             newRebootInstanceResponse
+--
+--         , responseCreateRelationalDatabaseFromSnapshot $
+--             newCreateRelationalDatabaseFromSnapshotResponse
+--
+--         , responseGetExportSnapshotRecords $
+--             newGetExportSnapshotRecordsResponse
+--
+--         , responseGetRelationalDatabase $
+--             newGetRelationalDatabaseResponse
 --
 --         , responseDeleteInstance $
 --             newDeleteInstanceResponse
@@ -609,38 +666,26 @@ import Test.Tasty
 --         , responseCreateLoadBalancerTlsCertificate $
 --             newCreateLoadBalancerTlsCertificateResponse
 --
---         , responseRebootInstance $
---             newRebootInstanceResponse
+--         , responseExportSnapshot $
+--             newExportSnapshotResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseGetInstanceSnapshots $
+--             newGetInstanceSnapshotsResponse
 --
---         , responseGetRelationalDatabase $
---             newGetRelationalDatabaseResponse
---
---         , responseGetKeyPairs $
---             newGetKeyPairsResponse
---
---         , responseAttachInstancesToLoadBalancer $
---             newAttachInstancesToLoadBalancerResponse
+--         , responseGetBucketAccessKeys $
+--             newGetBucketAccessKeysResponse
 --
 --         , responseGetRegions $
 --             newGetRegionsResponse
 --
---         , responseTestAlarm $
---             newTestAlarmResponse
+--         , responseSetIpAddressType $
+--             newSetIpAddressTypeResponse
 --
 --         , responseCreateDiskSnapshot $
 --             newCreateDiskSnapshotResponse
 --
---         , responseSetIpAddressType $
---             newSetIpAddressTypeResponse
---
---         , responseDeleteAlarm $
---             newDeleteAlarmResponse
---
---         , responseSendContactMethodVerification $
---             newSendContactMethodVerificationResponse
+--         , responseTestAlarm $
+--             newTestAlarmResponse
 --
 --         , responseGetRelationalDatabaseMasterUserPassword $
 --             newGetRelationalDatabaseMasterUserPasswordResponse
@@ -648,23 +693,44 @@ import Test.Tasty
 --         , responseGetBlueprints $
 --             newGetBlueprintsResponse
 --
+--         , responseAttachStaticIp $
+--             newAttachStaticIpResponse
+--
+--         , responseCreateBucket $
+--             newCreateBucketResponse
+--
+--         , responseSendContactMethodVerification $
+--             newSendContactMethodVerificationResponse
+--
+--         , responseDownloadDefaultKeyPair $
+--             newDownloadDefaultKeyPairResponse
+--
+--         , responseDeleteAlarm $
+--             newDeleteAlarmResponse
+--
 --         , responseDetachDisk $
 --             newDetachDiskResponse
 --
 --         , responseGetInstancePortStates $
 --             newGetInstancePortStatesResponse
 --
---         , responseAttachStaticIp $
---             newAttachStaticIpResponse
+--         , responseGetRelationalDatabaseEvents $
+--             newGetRelationalDatabaseEventsResponse
 --
---         , responseDownloadDefaultKeyPair $
---             newDownloadDefaultKeyPairResponse
+--         , responseUpdateRelationalDatabase $
+--             newUpdateRelationalDatabaseResponse
+--
+--         , responseDeleteRelationalDatabase $
+--             newDeleteRelationalDatabaseResponse
 --
 --         , responseGetLoadBalancers $
 --             newGetLoadBalancersResponse
 --
---         , responseUpdateRelationalDatabase $
---             newUpdateRelationalDatabaseResponse
+--         , responseGetInstance $
+--             newGetInstanceResponse
+--
+--         , responseAttachCertificateToDistribution $
+--             newAttachCertificateToDistributionResponse
 --
 --         , responseGetRelationalDatabaseBundles $
 --             newGetRelationalDatabaseBundlesResponse
@@ -672,32 +738,11 @@ import Test.Tasty
 --         , responseAttachLoadBalancerTlsCertificate $
 --             newAttachLoadBalancerTlsCertificateResponse
 --
---         , responseAttachCertificateToDistribution $
---             newAttachCertificateToDistributionResponse
---
---         , responseDeleteRelationalDatabase $
---             newDeleteRelationalDatabaseResponse
---
---         , responseGetInstance $
---             newGetInstanceResponse
---
 --         , responseRebootRelationalDatabase $
 --             newRebootRelationalDatabaseResponse
 --
---         , responseGetRelationalDatabaseEvents $
---             newGetRelationalDatabaseEventsResponse
---
---         , responseCreateDomain $
---             newCreateDomainResponse
---
 --         , responseGetStaticIps $
 --             newGetStaticIpsResponse
---
---         , responseDeleteDisk $
---             newDeleteDiskResponse
---
---         , responseGetRelationalDatabaseMetricData $
---             newGetRelationalDatabaseMetricDataResponse
 --
 --         , responseGetDiskSnapshots $
 --             newGetDiskSnapshotsResponse
@@ -708,20 +753,23 @@ import Test.Tasty
 --         , responseGetLoadBalancer $
 --             newGetLoadBalancerResponse
 --
---         , responseGetBundles $
---             newGetBundlesResponse
+--         , responseDeleteBucketAccessKey $
+--             newDeleteBucketAccessKeyResponse
 --
---         , responseCreateCertificate $
---             newCreateCertificateResponse
+--         , responseCreateDomain $
+--             newCreateDomainResponse
 --
---         , responseDetachInstancesFromLoadBalancer $
---             newDetachInstancesFromLoadBalancerResponse
+--         , responseDeleteDisk $
+--             newDeleteDiskResponse
 --
---         , responseGetLoadBalancerTlsCertificates $
---             newGetLoadBalancerTlsCertificatesResponse
+--         , responseGetRelationalDatabaseMetricData $
+--             newGetRelationalDatabaseMetricDataResponse
 --
---         , responseDeleteContainerImage $
---             newDeleteContainerImageResponse
+--         , responseSetResourceAccessForBucket $
+--             newSetResourceAccessForBucketResponse
+--
+--         , responseDeleteDomain $
+--             newDeleteDomainResponse
 --
 --         , responseGetOperationsForResource $
 --             newGetOperationsForResourceResponse
@@ -732,14 +780,35 @@ import Test.Tasty
 --         , responseEnableAddOn $
 --             newEnableAddOnResponse
 --
---         , responseDeleteDomain $
---             newDeleteDomainResponse
+--         , responseDetachInstancesFromLoadBalancer $
+--             newDetachInstancesFromLoadBalancerResponse
 --
---         , responseStartRelationalDatabase $
---             newStartRelationalDatabaseResponse
+--         , responseGetLoadBalancerTlsCertificates $
+--             newGetLoadBalancerTlsCertificatesResponse
 --
---         , responseCreateRelationalDatabaseSnapshot $
---             newCreateRelationalDatabaseSnapshotResponse
+--         , responseDeleteContainerImage $
+--             newDeleteContainerImageResponse
+--
+--         , responseCreateCertificate $
+--             newCreateCertificateResponse
+--
+--         , responseGetBundles $
+--             newGetBundlesResponse
+--
+--         , responseDeleteKnownHostKeys $
+--             newDeleteKnownHostKeysResponse
+--
+--         , responseCreateInstances $
+--             newCreateInstancesResponse
+--
+--         , responseGetActiveNames $
+--             newGetActiveNamesResponse
+--
+--         , responseCreateContainerService $
+--             newCreateContainerServiceResponse
+--
+--         , responseStopRelationalDatabase $
+--             newStopRelationalDatabaseResponse
 --
 --         , responseGetAlarms $
 --             newGetAlarmsResponse
@@ -747,95 +816,86 @@ import Test.Tasty
 --         , responseCreateDistribution $
 --             newCreateDistributionResponse
 --
---         , responseCreateInstances $
---             newCreateInstancesResponse
---
---         , responseCreateContainerService $
---             newCreateContainerServiceResponse
---
 --         , responseGetDistributionLatestCacheReset $
 --             newGetDistributionLatestCacheResetResponse
---
---         , responseStopRelationalDatabase $
---             newStopRelationalDatabaseResponse
---
---         , responseDeleteKnownHostKeys $
---             newDeleteKnownHostKeysResponse
 --
 --         , responseOpenInstancePublicPorts $
 --             newOpenInstancePublicPortsResponse
 --
---         , responseGetActiveNames $
---             newGetActiveNamesResponse
+--         , responseCreateRelationalDatabaseSnapshot $
+--             newCreateRelationalDatabaseSnapshotResponse
 --
 --         , responseGetAutoSnapshots $
 --             newGetAutoSnapshotsResponse
 --
---         , responseGetRelationalDatabaseLogStreams $
---             newGetRelationalDatabaseLogStreamsResponse
---
---         , responseGetDistributionBundles $
---             newGetDistributionBundlesResponse
---
---         , responseGetOperation $
---             newGetOperationResponse
---
---         , responseDeleteRelationalDatabaseSnapshot $
---             newDeleteRelationalDatabaseSnapshotResponse
---
---         , responseGetInstanceSnapshot $
---             newGetInstanceSnapshotResponse
---
---         , responseDeleteContainerService $
---             newDeleteContainerServiceResponse
---
---         , responseUpdateDistribution $
---             newUpdateDistributionResponse
---
---         , responsePutInstancePublicPorts $
---             newPutInstancePublicPortsResponse
---
---         , responseResetDistributionCache $
---             newResetDistributionCacheResponse
---
---         , responseCreateContactMethod $
---             newCreateContactMethodResponse
---
---         , responseDeleteDistribution $
---             newDeleteDistributionResponse
+--         , responseStartRelationalDatabase $
+--             newStartRelationalDatabaseResponse
 --
 --         , responseUpdateContainerService $
 --             newUpdateContainerServiceResponse
 --
+--         , responseDeleteDistribution $
+--             newDeleteDistributionResponse
+--
+--         , responseGetOperation $
+--             newGetOperationResponse
+--
 --         , responseGetKeyPair $
 --             newGetKeyPairResponse
+--
+--         , responseUpdateDistribution $
+--             newUpdateDistributionResponse
+--
+--         , responseGetRelationalDatabaseLogStreams $
+--             newGetRelationalDatabaseLogStreamsResponse
+--
+--         , responseUpdateBucketBundle $
+--             newUpdateBucketBundleResponse
+--
+--         , responseGetBuckets $
+--             newGetBucketsResponse
+--
+--         , responseDeleteRelationalDatabaseSnapshot $
+--             newDeleteRelationalDatabaseSnapshotResponse
+--
+--         , responseResetDistributionCache $
+--             newResetDistributionCacheResponse
+--
+--         , responseGetInstanceSnapshot $
+--             newGetInstanceSnapshotResponse
+--
+--         , responseCreateContactMethod $
+--             newCreateContactMethodResponse
+--
+--         , responsePutInstancePublicPorts $
+--             newPutInstancePublicPortsResponse
+--
+--         , responseGetDistributionBundles $
+--             newGetDistributionBundlesResponse
+--
+--         , responseDeleteContainerService $
+--             newDeleteContainerServiceResponse
 --
 --         , responseCreateCloudFormationStack $
 --             newCreateCloudFormationStackResponse
 --
---         , responseCreateDomainEntry $
---             newCreateDomainEntryResponse
+--         , responseGetContainerServicePowers $
+--             newGetContainerServicePowersResponse
 --
---         , responseGetInstanceState $
---             newGetInstanceStateResponse
---
---         , responseGetDistributionMetricData $
---             newGetDistributionMetricDataResponse
+--         , responseReleaseStaticIp $
+--             newReleaseStaticIpResponse
 --
 --         , responseGetDisks $
 --             newGetDisksResponse
 --
---         , responseGetContainerServiceMetricData $
---             newGetContainerServiceMetricDataResponse
---
---         , responseCreateContainerServiceRegistryLogin $
---             newCreateContainerServiceRegistryLoginResponse
---
 --         , responseImportKeyPair $
 --             newImportKeyPairResponse
 --
---         , responseGetContainerServicePowers $
---             newGetContainerServicePowersResponse
+--         , responseCreateDomainEntry $
+--             newCreateDomainEntryResponse
+--
+--         , responseCreateContainerServiceRegistryLogin $
+--             newCreateContainerServiceRegistryLoginResponse
 --
 --         , responseDeleteDiskSnapshot $
 --             newDeleteDiskSnapshotResponse
@@ -843,44 +903,50 @@ import Test.Tasty
 --         , responseGetCertificates $
 --             newGetCertificatesResponse
 --
---         , responseReleaseStaticIp $
---             newReleaseStaticIpResponse
+--         , responseGetDistributionMetricData $
+--             newGetDistributionMetricDataResponse
 --
---         , responseUpdateRelationalDatabaseParameters $
---             newUpdateRelationalDatabaseParametersResponse
+--         , responseGetInstanceState $
+--             newGetInstanceStateResponse
 --
---         , responseDeleteLoadBalancerTlsCertificate $
---             newDeleteLoadBalancerTlsCertificateResponse
+--         , responseGetContainerServiceMetricData $
+--             newGetContainerServiceMetricDataResponse
 --
 --         , responseUpdateDomainEntry $
 --             newUpdateDomainEntryResponse
 --
---         , responseGetContainerLog $
---             newGetContainerLogResponse
---
---         , responseDeleteDomainEntry $
---             newDeleteDomainEntryResponse
+--         , responseDeleteLoadBalancerTlsCertificate $
+--             newDeleteLoadBalancerTlsCertificateResponse
 --
 --         , responseGetContainerImages $
 --             newGetContainerImagesResponse
 --
+--         , responseUpdateRelationalDatabaseParameters $
+--             newUpdateRelationalDatabaseParametersResponse
+--
 --         , responseGetDomains $
 --             newGetDomainsResponse
+--
+--         , responseDeleteDomainEntry $
+--             newDeleteDomainEntryResponse
+--
+--         , responseGetContainerLog $
+--             newGetContainerLogResponse
 --
 --         , responsePutAlarm $
 --             newPutAlarmResponse
 --
---         , responseDeleteAutoSnapshot $
---             newDeleteAutoSnapshotResponse
---
---         , responseGetContactMethods $
---             newGetContactMethodsResponse
---
 --         , responseGetRelationalDatabaseParameters $
 --             newGetRelationalDatabaseParametersResponse
 --
+--         , responseDeleteAutoSnapshot $
+--             newDeleteAutoSnapshotResponse
+--
 --         , responseCreateRelationalDatabase $
 --             newCreateRelationalDatabaseResponse
+--
+--         , responseGetContactMethods $
+--             newGetContactMethodsResponse
 --
 --           ]
 --     ]
@@ -892,6 +958,48 @@ requestGetContainerServices =
   req
     "GetContainerServices"
     "fixture/GetContainerServices.yaml"
+
+requestGetDistributions :: GetDistributions -> TestTree
+requestGetDistributions =
+  req
+    "GetDistributions"
+    "fixture/GetDistributions.yaml"
+
+requestCreateContainerServiceDeployment :: CreateContainerServiceDeployment -> TestTree
+requestCreateContainerServiceDeployment =
+  req
+    "CreateContainerServiceDeployment"
+    "fixture/CreateContainerServiceDeployment.yaml"
+
+requestDeleteBucket :: DeleteBucket -> TestTree
+requestDeleteBucket =
+  req
+    "DeleteBucket"
+    "fixture/DeleteBucket.yaml"
+
+requestGetDiskSnapshot :: GetDiskSnapshot -> TestTree
+requestGetDiskSnapshot =
+  req
+    "GetDiskSnapshot"
+    "fixture/GetDiskSnapshot.yaml"
+
+requestUpdateDistributionBundle :: UpdateDistributionBundle -> TestTree
+requestUpdateDistributionBundle =
+  req
+    "UpdateDistributionBundle"
+    "fixture/UpdateDistributionBundle.yaml"
+
+requestUpdateBucket :: UpdateBucket -> TestTree
+requestUpdateBucket =
+  req
+    "UpdateBucket"
+    "fixture/UpdateBucket.yaml"
+
+requestUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttribute -> TestTree
+requestUpdateLoadBalancerAttribute =
+  req
+    "UpdateLoadBalancerAttribute"
+    "fixture/UpdateLoadBalancerAttribute.yaml"
 
 requestGetStaticIp :: GetStaticIp -> TestTree
 requestGetStaticIp =
@@ -905,23 +1013,11 @@ requestGetRelationalDatabaseSnapshots =
     "GetRelationalDatabaseSnapshots"
     "fixture/GetRelationalDatabaseSnapshots.yaml"
 
-requestGetDistributions :: GetDistributions -> TestTree
-requestGetDistributions =
+requestGetBucketBundles :: GetBucketBundles -> TestTree
+requestGetBucketBundles =
   req
-    "GetDistributions"
-    "fixture/GetDistributions.yaml"
-
-requestGetDiskSnapshot :: GetDiskSnapshot -> TestTree
-requestGetDiskSnapshot =
-  req
-    "GetDiskSnapshot"
-    "fixture/GetDiskSnapshot.yaml"
-
-requestCreateContainerServiceDeployment :: CreateContainerServiceDeployment -> TestTree
-requestCreateContainerServiceDeployment =
-  req
-    "CreateContainerServiceDeployment"
-    "fixture/CreateContainerServiceDeployment.yaml"
+    "GetBucketBundles"
+    "fixture/GetBucketBundles.yaml"
 
 requestPeerVpc :: PeerVpc -> TestTree
 requestPeerVpc =
@@ -929,17 +1025,23 @@ requestPeerVpc =
     "PeerVpc"
     "fixture/PeerVpc.yaml"
 
-requestUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttribute -> TestTree
-requestUpdateLoadBalancerAttribute =
+requestGetBucketMetricData :: GetBucketMetricData -> TestTree
+requestGetBucketMetricData =
   req
-    "UpdateLoadBalancerAttribute"
-    "fixture/UpdateLoadBalancerAttribute.yaml"
+    "GetBucketMetricData"
+    "fixture/GetBucketMetricData.yaml"
 
-requestUpdateDistributionBundle :: UpdateDistributionBundle -> TestTree
-requestUpdateDistributionBundle =
+requestUnpeerVpc :: UnpeerVpc -> TestTree
+requestUnpeerVpc =
   req
-    "UpdateDistributionBundle"
-    "fixture/UpdateDistributionBundle.yaml"
+    "UnpeerVpc"
+    "fixture/UnpeerVpc.yaml"
+
+requestDeleteInstanceSnapshot :: DeleteInstanceSnapshot -> TestTree
+requestDeleteInstanceSnapshot =
+  req
+    "DeleteInstanceSnapshot"
+    "fixture/DeleteInstanceSnapshot.yaml"
 
 requestAllocateStaticIp :: AllocateStaticIp -> TestTree
 requestAllocateStaticIp =
@@ -953,23 +1055,17 @@ requestCloseInstancePublicPorts =
     "CloseInstancePublicPorts"
     "fixture/CloseInstancePublicPorts.yaml"
 
-requestDeleteCertificate :: DeleteCertificate -> TestTree
-requestDeleteCertificate =
+requestGetCloudFormationStackRecords :: GetCloudFormationStackRecords -> TestTree
+requestGetCloudFormationStackRecords =
   req
-    "DeleteCertificate"
-    "fixture/DeleteCertificate.yaml"
+    "GetCloudFormationStackRecords"
+    "fixture/GetCloudFormationStackRecords.yaml"
 
 requestDisableAddOn :: DisableAddOn -> TestTree
 requestDisableAddOn =
   req
     "DisableAddOn"
     "fixture/DisableAddOn.yaml"
-
-requestGetCloudFormationStackRecords :: GetCloudFormationStackRecords -> TestTree
-requestGetCloudFormationStackRecords =
-  req
-    "GetCloudFormationStackRecords"
-    "fixture/GetCloudFormationStackRecords.yaml"
 
 requestIsVpcPeered :: IsVpcPeered -> TestTree
 requestIsVpcPeered =
@@ -983,30 +1079,6 @@ requestGetRelationalDatabaseSnapshot =
     "GetRelationalDatabaseSnapshot"
     "fixture/GetRelationalDatabaseSnapshot.yaml"
 
-requestGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprints -> TestTree
-requestGetRelationalDatabaseBlueprints =
-  req
-    "GetRelationalDatabaseBlueprints"
-    "fixture/GetRelationalDatabaseBlueprints.yaml"
-
-requestDeleteInstanceSnapshot :: DeleteInstanceSnapshot -> TestTree
-requestDeleteInstanceSnapshot =
-  req
-    "DeleteInstanceSnapshot"
-    "fixture/DeleteInstanceSnapshot.yaml"
-
-requestUnpeerVpc :: UnpeerVpc -> TestTree
-requestUnpeerVpc =
-  req
-    "UnpeerVpc"
-    "fixture/UnpeerVpc.yaml"
-
-requestGetContainerAPIMetadata :: GetContainerAPIMetadata -> TestTree
-requestGetContainerAPIMetadata =
-  req
-    "GetContainerAPIMetadata"
-    "fixture/GetContainerAPIMetadata.yaml"
-
 requestGetInstances :: GetInstances -> TestTree
 requestGetInstances =
   req
@@ -1019,41 +1091,23 @@ requestCreateInstancesFromSnapshot =
     "CreateInstancesFromSnapshot"
     "fixture/CreateInstancesFromSnapshot.yaml"
 
-requestStartInstance :: StartInstance -> TestTree
-requestStartInstance =
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate =
   req
-    "StartInstance"
-    "fixture/StartInstance.yaml"
+    "DeleteCertificate"
+    "fixture/DeleteCertificate.yaml"
 
-requestCreateKeyPair :: CreateKeyPair -> TestTree
-requestCreateKeyPair =
+requestGetContainerAPIMetadata :: GetContainerAPIMetadata -> TestTree
+requestGetContainerAPIMetadata =
   req
-    "CreateKeyPair"
-    "fixture/CreateKeyPair.yaml"
+    "GetContainerAPIMetadata"
+    "fixture/GetContainerAPIMetadata.yaml"
 
-requestGetInstanceAccessDetails :: GetInstanceAccessDetails -> TestTree
-requestGetInstanceAccessDetails =
+requestGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprints -> TestTree
+requestGetRelationalDatabaseBlueprints =
   req
-    "GetInstanceAccessDetails"
-    "fixture/GetInstanceAccessDetails.yaml"
-
-requestCopySnapshot :: CopySnapshot -> TestTree
-requestCopySnapshot =
-  req
-    "CopySnapshot"
-    "fixture/CopySnapshot.yaml"
-
-requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
-requestCreateInstanceSnapshot =
-  req
-    "CreateInstanceSnapshot"
-    "fixture/CreateInstanceSnapshot.yaml"
-
-requestStopInstance :: StopInstance -> TestTree
-requestStopInstance =
-  req
-    "StopInstance"
-    "fixture/StopInstance.yaml"
+    "GetRelationalDatabaseBlueprints"
+    "fixture/GetRelationalDatabaseBlueprints.yaml"
 
 requestRegisterContainerImage :: RegisterContainerImage -> TestTree
 requestRegisterContainerImage =
@@ -1061,11 +1115,59 @@ requestRegisterContainerImage =
     "RegisterContainerImage"
     "fixture/RegisterContainerImage.yaml"
 
-requestDetachCertificateFromDistribution :: DetachCertificateFromDistribution -> TestTree
-requestDetachCertificateFromDistribution =
+requestCreateKeyPair :: CreateKeyPair -> TestTree
+requestCreateKeyPair =
   req
-    "DetachCertificateFromDistribution"
-    "fixture/DetachCertificateFromDistribution.yaml"
+    "CreateKeyPair"
+    "fixture/CreateKeyPair.yaml"
+
+requestStartInstance :: StartInstance -> TestTree
+requestStartInstance =
+  req
+    "StartInstance"
+    "fixture/StartInstance.yaml"
+
+requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
+requestCreateInstanceSnapshot =
+  req
+    "CreateInstanceSnapshot"
+    "fixture/CreateInstanceSnapshot.yaml"
+
+requestCreateBucketAccessKey :: CreateBucketAccessKey -> TestTree
+requestCreateBucketAccessKey =
+  req
+    "CreateBucketAccessKey"
+    "fixture/CreateBucketAccessKey.yaml"
+
+requestCopySnapshot :: CopySnapshot -> TestTree
+requestCopySnapshot =
+  req
+    "CopySnapshot"
+    "fixture/CopySnapshot.yaml"
+
+requestGetInstanceAccessDetails :: GetInstanceAccessDetails -> TestTree
+requestGetInstanceAccessDetails =
+  req
+    "GetInstanceAccessDetails"
+    "fixture/GetInstanceAccessDetails.yaml"
+
+requestStopInstance :: StopInstance -> TestTree
+requestStopInstance =
+  req
+    "StopInstance"
+    "fixture/StopInstance.yaml"
+
+requestGetDomain :: GetDomain -> TestTree
+requestGetDomain =
+  req
+    "GetDomain"
+    "fixture/GetDomain.yaml"
+
+requestDetachStaticIp :: DetachStaticIp -> TestTree
+requestDetachStaticIp =
+  req
+    "DetachStaticIp"
+    "fixture/DetachStaticIp.yaml"
 
 requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
 requestCreateLoadBalancer =
@@ -1085,29 +1187,17 @@ requestDeleteContactMethod =
     "DeleteContactMethod"
     "fixture/DeleteContactMethod.yaml"
 
-requestGetDomain :: GetDomain -> TestTree
-requestGetDomain =
+requestDetachCertificateFromDistribution :: DetachCertificateFromDistribution -> TestTree
+requestDetachCertificateFromDistribution =
   req
-    "GetDomain"
-    "fixture/GetDomain.yaml"
-
-requestDetachStaticIp :: DetachStaticIp -> TestTree
-requestDetachStaticIp =
-  req
-    "DetachStaticIp"
-    "fixture/DetachStaticIp.yaml"
+    "DetachCertificateFromDistribution"
+    "fixture/DetachCertificateFromDistribution.yaml"
 
 requestAttachDisk :: AttachDisk -> TestTree
 requestAttachDisk =
   req
     "AttachDisk"
     "fixture/AttachDisk.yaml"
-
-requestGetDisk :: GetDisk -> TestTree
-requestGetDisk =
-  req
-    "GetDisk"
-    "fixture/GetDisk.yaml"
 
 requestGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEvents -> TestTree
 requestGetRelationalDatabaseLogEvents =
@@ -1121,12 +1211,6 @@ requestGetRelationalDatabases =
     "GetRelationalDatabases"
     "fixture/GetRelationalDatabases.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestCreateDiskFromSnapshot :: CreateDiskFromSnapshot -> TestTree
 requestCreateDiskFromSnapshot =
   req
@@ -1139,35 +1223,23 @@ requestGetInstanceMetricData =
     "GetInstanceMetricData"
     "fixture/GetInstanceMetricData.yaml"
 
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
 requestDeleteLoadBalancer =
   req
     "DeleteLoadBalancer"
     "fixture/DeleteLoadBalancer.yaml"
 
-requestExportSnapshot :: ExportSnapshot -> TestTree
-requestExportSnapshot =
+requestGetDisk :: GetDisk -> TestTree
+requestGetDisk =
   req
-    "ExportSnapshot"
-    "fixture/ExportSnapshot.yaml"
-
-requestCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshot -> TestTree
-requestCreateRelationalDatabaseFromSnapshot =
-  req
-    "CreateRelationalDatabaseFromSnapshot"
-    "fixture/CreateRelationalDatabaseFromSnapshot.yaml"
-
-requestGetOperations :: GetOperations -> TestTree
-requestGetOperations =
-  req
-    "GetOperations"
-    "fixture/GetOperations.yaml"
-
-requestGetExportSnapshotRecords :: GetExportSnapshotRecords -> TestTree
-requestGetExportSnapshotRecords =
-  req
-    "GetExportSnapshotRecords"
-    "fixture/GetExportSnapshotRecords.yaml"
+    "GetDisk"
+    "fixture/GetDisk.yaml"
 
 requestGetLoadBalancerMetricData :: GetLoadBalancerMetricData -> TestTree
 requestGetLoadBalancerMetricData =
@@ -1175,11 +1247,53 @@ requestGetLoadBalancerMetricData =
     "GetLoadBalancerMetricData"
     "fixture/GetLoadBalancerMetricData.yaml"
 
-requestGetInstanceSnapshots :: GetInstanceSnapshots -> TestTree
-requestGetInstanceSnapshots =
+requestGetKeyPairs :: GetKeyPairs -> TestTree
+requestGetKeyPairs =
   req
-    "GetInstanceSnapshots"
-    "fixture/GetInstanceSnapshots.yaml"
+    "GetKeyPairs"
+    "fixture/GetKeyPairs.yaml"
+
+requestGetOperations :: GetOperations -> TestTree
+requestGetOperations =
+  req
+    "GetOperations"
+    "fixture/GetOperations.yaml"
+
+requestAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancer -> TestTree
+requestAttachInstancesToLoadBalancer =
+  req
+    "AttachInstancesToLoadBalancer"
+    "fixture/AttachInstancesToLoadBalancer.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestRebootInstance :: RebootInstance -> TestTree
+requestRebootInstance =
+  req
+    "RebootInstance"
+    "fixture/RebootInstance.yaml"
+
+requestCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshot -> TestTree
+requestCreateRelationalDatabaseFromSnapshot =
+  req
+    "CreateRelationalDatabaseFromSnapshot"
+    "fixture/CreateRelationalDatabaseFromSnapshot.yaml"
+
+requestGetExportSnapshotRecords :: GetExportSnapshotRecords -> TestTree
+requestGetExportSnapshotRecords =
+  req
+    "GetExportSnapshotRecords"
+    "fixture/GetExportSnapshotRecords.yaml"
+
+requestGetRelationalDatabase :: GetRelationalDatabase -> TestTree
+requestGetRelationalDatabase =
+  req
+    "GetRelationalDatabase"
+    "fixture/GetRelationalDatabase.yaml"
 
 requestDeleteInstance :: DeleteInstance -> TestTree
 requestDeleteInstance =
@@ -1193,35 +1307,23 @@ requestCreateLoadBalancerTlsCertificate =
     "CreateLoadBalancerTlsCertificate"
     "fixture/CreateLoadBalancerTlsCertificate.yaml"
 
-requestRebootInstance :: RebootInstance -> TestTree
-requestRebootInstance =
+requestExportSnapshot :: ExportSnapshot -> TestTree
+requestExportSnapshot =
   req
-    "RebootInstance"
-    "fixture/RebootInstance.yaml"
+    "ExportSnapshot"
+    "fixture/ExportSnapshot.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestGetInstanceSnapshots :: GetInstanceSnapshots -> TestTree
+requestGetInstanceSnapshots =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "GetInstanceSnapshots"
+    "fixture/GetInstanceSnapshots.yaml"
 
-requestGetRelationalDatabase :: GetRelationalDatabase -> TestTree
-requestGetRelationalDatabase =
+requestGetBucketAccessKeys :: GetBucketAccessKeys -> TestTree
+requestGetBucketAccessKeys =
   req
-    "GetRelationalDatabase"
-    "fixture/GetRelationalDatabase.yaml"
-
-requestGetKeyPairs :: GetKeyPairs -> TestTree
-requestGetKeyPairs =
-  req
-    "GetKeyPairs"
-    "fixture/GetKeyPairs.yaml"
-
-requestAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancer -> TestTree
-requestAttachInstancesToLoadBalancer =
-  req
-    "AttachInstancesToLoadBalancer"
-    "fixture/AttachInstancesToLoadBalancer.yaml"
+    "GetBucketAccessKeys"
+    "fixture/GetBucketAccessKeys.yaml"
 
 requestGetRegions :: GetRegions -> TestTree
 requestGetRegions =
@@ -1229,11 +1331,11 @@ requestGetRegions =
     "GetRegions"
     "fixture/GetRegions.yaml"
 
-requestTestAlarm :: TestAlarm -> TestTree
-requestTestAlarm =
+requestSetIpAddressType :: SetIpAddressType -> TestTree
+requestSetIpAddressType =
   req
-    "TestAlarm"
-    "fixture/TestAlarm.yaml"
+    "SetIpAddressType"
+    "fixture/SetIpAddressType.yaml"
 
 requestCreateDiskSnapshot :: CreateDiskSnapshot -> TestTree
 requestCreateDiskSnapshot =
@@ -1241,23 +1343,11 @@ requestCreateDiskSnapshot =
     "CreateDiskSnapshot"
     "fixture/CreateDiskSnapshot.yaml"
 
-requestSetIpAddressType :: SetIpAddressType -> TestTree
-requestSetIpAddressType =
+requestTestAlarm :: TestAlarm -> TestTree
+requestTestAlarm =
   req
-    "SetIpAddressType"
-    "fixture/SetIpAddressType.yaml"
-
-requestDeleteAlarm :: DeleteAlarm -> TestTree
-requestDeleteAlarm =
-  req
-    "DeleteAlarm"
-    "fixture/DeleteAlarm.yaml"
-
-requestSendContactMethodVerification :: SendContactMethodVerification -> TestTree
-requestSendContactMethodVerification =
-  req
-    "SendContactMethodVerification"
-    "fixture/SendContactMethodVerification.yaml"
+    "TestAlarm"
+    "fixture/TestAlarm.yaml"
 
 requestGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPassword -> TestTree
 requestGetRelationalDatabaseMasterUserPassword =
@@ -1271,6 +1361,36 @@ requestGetBlueprints =
     "GetBlueprints"
     "fixture/GetBlueprints.yaml"
 
+requestAttachStaticIp :: AttachStaticIp -> TestTree
+requestAttachStaticIp =
+  req
+    "AttachStaticIp"
+    "fixture/AttachStaticIp.yaml"
+
+requestCreateBucket :: CreateBucket -> TestTree
+requestCreateBucket =
+  req
+    "CreateBucket"
+    "fixture/CreateBucket.yaml"
+
+requestSendContactMethodVerification :: SendContactMethodVerification -> TestTree
+requestSendContactMethodVerification =
+  req
+    "SendContactMethodVerification"
+    "fixture/SendContactMethodVerification.yaml"
+
+requestDownloadDefaultKeyPair :: DownloadDefaultKeyPair -> TestTree
+requestDownloadDefaultKeyPair =
+  req
+    "DownloadDefaultKeyPair"
+    "fixture/DownloadDefaultKeyPair.yaml"
+
+requestDeleteAlarm :: DeleteAlarm -> TestTree
+requestDeleteAlarm =
+  req
+    "DeleteAlarm"
+    "fixture/DeleteAlarm.yaml"
+
 requestDetachDisk :: DetachDisk -> TestTree
 requestDetachDisk =
   req
@@ -1283,17 +1403,23 @@ requestGetInstancePortStates =
     "GetInstancePortStates"
     "fixture/GetInstancePortStates.yaml"
 
-requestAttachStaticIp :: AttachStaticIp -> TestTree
-requestAttachStaticIp =
+requestGetRelationalDatabaseEvents :: GetRelationalDatabaseEvents -> TestTree
+requestGetRelationalDatabaseEvents =
   req
-    "AttachStaticIp"
-    "fixture/AttachStaticIp.yaml"
+    "GetRelationalDatabaseEvents"
+    "fixture/GetRelationalDatabaseEvents.yaml"
 
-requestDownloadDefaultKeyPair :: DownloadDefaultKeyPair -> TestTree
-requestDownloadDefaultKeyPair =
+requestUpdateRelationalDatabase :: UpdateRelationalDatabase -> TestTree
+requestUpdateRelationalDatabase =
   req
-    "DownloadDefaultKeyPair"
-    "fixture/DownloadDefaultKeyPair.yaml"
+    "UpdateRelationalDatabase"
+    "fixture/UpdateRelationalDatabase.yaml"
+
+requestDeleteRelationalDatabase :: DeleteRelationalDatabase -> TestTree
+requestDeleteRelationalDatabase =
+  req
+    "DeleteRelationalDatabase"
+    "fixture/DeleteRelationalDatabase.yaml"
 
 requestGetLoadBalancers :: GetLoadBalancers -> TestTree
 requestGetLoadBalancers =
@@ -1301,11 +1427,17 @@ requestGetLoadBalancers =
     "GetLoadBalancers"
     "fixture/GetLoadBalancers.yaml"
 
-requestUpdateRelationalDatabase :: UpdateRelationalDatabase -> TestTree
-requestUpdateRelationalDatabase =
+requestGetInstance :: GetInstance -> TestTree
+requestGetInstance =
   req
-    "UpdateRelationalDatabase"
-    "fixture/UpdateRelationalDatabase.yaml"
+    "GetInstance"
+    "fixture/GetInstance.yaml"
+
+requestAttachCertificateToDistribution :: AttachCertificateToDistribution -> TestTree
+requestAttachCertificateToDistribution =
+  req
+    "AttachCertificateToDistribution"
+    "fixture/AttachCertificateToDistribution.yaml"
 
 requestGetRelationalDatabaseBundles :: GetRelationalDatabaseBundles -> TestTree
 requestGetRelationalDatabaseBundles =
@@ -1319,59 +1451,17 @@ requestAttachLoadBalancerTlsCertificate =
     "AttachLoadBalancerTlsCertificate"
     "fixture/AttachLoadBalancerTlsCertificate.yaml"
 
-requestAttachCertificateToDistribution :: AttachCertificateToDistribution -> TestTree
-requestAttachCertificateToDistribution =
-  req
-    "AttachCertificateToDistribution"
-    "fixture/AttachCertificateToDistribution.yaml"
-
-requestDeleteRelationalDatabase :: DeleteRelationalDatabase -> TestTree
-requestDeleteRelationalDatabase =
-  req
-    "DeleteRelationalDatabase"
-    "fixture/DeleteRelationalDatabase.yaml"
-
-requestGetInstance :: GetInstance -> TestTree
-requestGetInstance =
-  req
-    "GetInstance"
-    "fixture/GetInstance.yaml"
-
 requestRebootRelationalDatabase :: RebootRelationalDatabase -> TestTree
 requestRebootRelationalDatabase =
   req
     "RebootRelationalDatabase"
     "fixture/RebootRelationalDatabase.yaml"
 
-requestGetRelationalDatabaseEvents :: GetRelationalDatabaseEvents -> TestTree
-requestGetRelationalDatabaseEvents =
-  req
-    "GetRelationalDatabaseEvents"
-    "fixture/GetRelationalDatabaseEvents.yaml"
-
-requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
-  req
-    "CreateDomain"
-    "fixture/CreateDomain.yaml"
-
 requestGetStaticIps :: GetStaticIps -> TestTree
 requestGetStaticIps =
   req
     "GetStaticIps"
     "fixture/GetStaticIps.yaml"
-
-requestDeleteDisk :: DeleteDisk -> TestTree
-requestDeleteDisk =
-  req
-    "DeleteDisk"
-    "fixture/DeleteDisk.yaml"
-
-requestGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricData -> TestTree
-requestGetRelationalDatabaseMetricData =
-  req
-    "GetRelationalDatabaseMetricData"
-    "fixture/GetRelationalDatabaseMetricData.yaml"
 
 requestGetDiskSnapshots :: GetDiskSnapshots -> TestTree
 requestGetDiskSnapshots =
@@ -1391,35 +1481,41 @@ requestGetLoadBalancer =
     "GetLoadBalancer"
     "fixture/GetLoadBalancer.yaml"
 
-requestGetBundles :: GetBundles -> TestTree
-requestGetBundles =
+requestDeleteBucketAccessKey :: DeleteBucketAccessKey -> TestTree
+requestDeleteBucketAccessKey =
   req
-    "GetBundles"
-    "fixture/GetBundles.yaml"
+    "DeleteBucketAccessKey"
+    "fixture/DeleteBucketAccessKey.yaml"
 
-requestCreateCertificate :: CreateCertificate -> TestTree
-requestCreateCertificate =
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain =
   req
-    "CreateCertificate"
-    "fixture/CreateCertificate.yaml"
+    "CreateDomain"
+    "fixture/CreateDomain.yaml"
 
-requestDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancer -> TestTree
-requestDetachInstancesFromLoadBalancer =
+requestDeleteDisk :: DeleteDisk -> TestTree
+requestDeleteDisk =
   req
-    "DetachInstancesFromLoadBalancer"
-    "fixture/DetachInstancesFromLoadBalancer.yaml"
+    "DeleteDisk"
+    "fixture/DeleteDisk.yaml"
 
-requestGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificates -> TestTree
-requestGetLoadBalancerTlsCertificates =
+requestGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricData -> TestTree
+requestGetRelationalDatabaseMetricData =
   req
-    "GetLoadBalancerTlsCertificates"
-    "fixture/GetLoadBalancerTlsCertificates.yaml"
+    "GetRelationalDatabaseMetricData"
+    "fixture/GetRelationalDatabaseMetricData.yaml"
 
-requestDeleteContainerImage :: DeleteContainerImage -> TestTree
-requestDeleteContainerImage =
+requestSetResourceAccessForBucket :: SetResourceAccessForBucket -> TestTree
+requestSetResourceAccessForBucket =
   req
-    "DeleteContainerImage"
-    "fixture/DeleteContainerImage.yaml"
+    "SetResourceAccessForBucket"
+    "fixture/SetResourceAccessForBucket.yaml"
+
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain =
+  req
+    "DeleteDomain"
+    "fixture/DeleteDomain.yaml"
 
 requestGetOperationsForResource :: GetOperationsForResource -> TestTree
 requestGetOperationsForResource =
@@ -1439,23 +1535,65 @@ requestEnableAddOn =
     "EnableAddOn"
     "fixture/EnableAddOn.yaml"
 
-requestDeleteDomain :: DeleteDomain -> TestTree
-requestDeleteDomain =
+requestDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancer -> TestTree
+requestDetachInstancesFromLoadBalancer =
   req
-    "DeleteDomain"
-    "fixture/DeleteDomain.yaml"
+    "DetachInstancesFromLoadBalancer"
+    "fixture/DetachInstancesFromLoadBalancer.yaml"
 
-requestStartRelationalDatabase :: StartRelationalDatabase -> TestTree
-requestStartRelationalDatabase =
+requestGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificates -> TestTree
+requestGetLoadBalancerTlsCertificates =
   req
-    "StartRelationalDatabase"
-    "fixture/StartRelationalDatabase.yaml"
+    "GetLoadBalancerTlsCertificates"
+    "fixture/GetLoadBalancerTlsCertificates.yaml"
 
-requestCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshot -> TestTree
-requestCreateRelationalDatabaseSnapshot =
+requestDeleteContainerImage :: DeleteContainerImage -> TestTree
+requestDeleteContainerImage =
   req
-    "CreateRelationalDatabaseSnapshot"
-    "fixture/CreateRelationalDatabaseSnapshot.yaml"
+    "DeleteContainerImage"
+    "fixture/DeleteContainerImage.yaml"
+
+requestCreateCertificate :: CreateCertificate -> TestTree
+requestCreateCertificate =
+  req
+    "CreateCertificate"
+    "fixture/CreateCertificate.yaml"
+
+requestGetBundles :: GetBundles -> TestTree
+requestGetBundles =
+  req
+    "GetBundles"
+    "fixture/GetBundles.yaml"
+
+requestDeleteKnownHostKeys :: DeleteKnownHostKeys -> TestTree
+requestDeleteKnownHostKeys =
+  req
+    "DeleteKnownHostKeys"
+    "fixture/DeleteKnownHostKeys.yaml"
+
+requestCreateInstances :: CreateInstances -> TestTree
+requestCreateInstances =
+  req
+    "CreateInstances"
+    "fixture/CreateInstances.yaml"
+
+requestGetActiveNames :: GetActiveNames -> TestTree
+requestGetActiveNames =
+  req
+    "GetActiveNames"
+    "fixture/GetActiveNames.yaml"
+
+requestCreateContainerService :: CreateContainerService -> TestTree
+requestCreateContainerService =
+  req
+    "CreateContainerService"
+    "fixture/CreateContainerService.yaml"
+
+requestStopRelationalDatabase :: StopRelationalDatabase -> TestTree
+requestStopRelationalDatabase =
+  req
+    "StopRelationalDatabase"
+    "fixture/StopRelationalDatabase.yaml"
 
 requestGetAlarms :: GetAlarms -> TestTree
 requestGetAlarms =
@@ -1469,35 +1607,11 @@ requestCreateDistribution =
     "CreateDistribution"
     "fixture/CreateDistribution.yaml"
 
-requestCreateInstances :: CreateInstances -> TestTree
-requestCreateInstances =
-  req
-    "CreateInstances"
-    "fixture/CreateInstances.yaml"
-
-requestCreateContainerService :: CreateContainerService -> TestTree
-requestCreateContainerService =
-  req
-    "CreateContainerService"
-    "fixture/CreateContainerService.yaml"
-
 requestGetDistributionLatestCacheReset :: GetDistributionLatestCacheReset -> TestTree
 requestGetDistributionLatestCacheReset =
   req
     "GetDistributionLatestCacheReset"
     "fixture/GetDistributionLatestCacheReset.yaml"
-
-requestStopRelationalDatabase :: StopRelationalDatabase -> TestTree
-requestStopRelationalDatabase =
-  req
-    "StopRelationalDatabase"
-    "fixture/StopRelationalDatabase.yaml"
-
-requestDeleteKnownHostKeys :: DeleteKnownHostKeys -> TestTree
-requestDeleteKnownHostKeys =
-  req
-    "DeleteKnownHostKeys"
-    "fixture/DeleteKnownHostKeys.yaml"
 
 requestOpenInstancePublicPorts :: OpenInstancePublicPorts -> TestTree
 requestOpenInstancePublicPorts =
@@ -1505,11 +1619,11 @@ requestOpenInstancePublicPorts =
     "OpenInstancePublicPorts"
     "fixture/OpenInstancePublicPorts.yaml"
 
-requestGetActiveNames :: GetActiveNames -> TestTree
-requestGetActiveNames =
+requestCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshot -> TestTree
+requestCreateRelationalDatabaseSnapshot =
   req
-    "GetActiveNames"
-    "fixture/GetActiveNames.yaml"
+    "CreateRelationalDatabaseSnapshot"
+    "fixture/CreateRelationalDatabaseSnapshot.yaml"
 
 requestGetAutoSnapshots :: GetAutoSnapshots -> TestTree
 requestGetAutoSnapshots =
@@ -1517,71 +1631,11 @@ requestGetAutoSnapshots =
     "GetAutoSnapshots"
     "fixture/GetAutoSnapshots.yaml"
 
-requestGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreams -> TestTree
-requestGetRelationalDatabaseLogStreams =
+requestStartRelationalDatabase :: StartRelationalDatabase -> TestTree
+requestStartRelationalDatabase =
   req
-    "GetRelationalDatabaseLogStreams"
-    "fixture/GetRelationalDatabaseLogStreams.yaml"
-
-requestGetDistributionBundles :: GetDistributionBundles -> TestTree
-requestGetDistributionBundles =
-  req
-    "GetDistributionBundles"
-    "fixture/GetDistributionBundles.yaml"
-
-requestGetOperation :: GetOperation -> TestTree
-requestGetOperation =
-  req
-    "GetOperation"
-    "fixture/GetOperation.yaml"
-
-requestDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshot -> TestTree
-requestDeleteRelationalDatabaseSnapshot =
-  req
-    "DeleteRelationalDatabaseSnapshot"
-    "fixture/DeleteRelationalDatabaseSnapshot.yaml"
-
-requestGetInstanceSnapshot :: GetInstanceSnapshot -> TestTree
-requestGetInstanceSnapshot =
-  req
-    "GetInstanceSnapshot"
-    "fixture/GetInstanceSnapshot.yaml"
-
-requestDeleteContainerService :: DeleteContainerService -> TestTree
-requestDeleteContainerService =
-  req
-    "DeleteContainerService"
-    "fixture/DeleteContainerService.yaml"
-
-requestUpdateDistribution :: UpdateDistribution -> TestTree
-requestUpdateDistribution =
-  req
-    "UpdateDistribution"
-    "fixture/UpdateDistribution.yaml"
-
-requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
-requestPutInstancePublicPorts =
-  req
-    "PutInstancePublicPorts"
-    "fixture/PutInstancePublicPorts.yaml"
-
-requestResetDistributionCache :: ResetDistributionCache -> TestTree
-requestResetDistributionCache =
-  req
-    "ResetDistributionCache"
-    "fixture/ResetDistributionCache.yaml"
-
-requestCreateContactMethod :: CreateContactMethod -> TestTree
-requestCreateContactMethod =
-  req
-    "CreateContactMethod"
-    "fixture/CreateContactMethod.yaml"
-
-requestDeleteDistribution :: DeleteDistribution -> TestTree
-requestDeleteDistribution =
-  req
-    "DeleteDistribution"
-    "fixture/DeleteDistribution.yaml"
+    "StartRelationalDatabase"
+    "fixture/StartRelationalDatabase.yaml"
 
 requestUpdateContainerService :: UpdateContainerService -> TestTree
 requestUpdateContainerService =
@@ -1589,11 +1643,89 @@ requestUpdateContainerService =
     "UpdateContainerService"
     "fixture/UpdateContainerService.yaml"
 
+requestDeleteDistribution :: DeleteDistribution -> TestTree
+requestDeleteDistribution =
+  req
+    "DeleteDistribution"
+    "fixture/DeleteDistribution.yaml"
+
+requestGetOperation :: GetOperation -> TestTree
+requestGetOperation =
+  req
+    "GetOperation"
+    "fixture/GetOperation.yaml"
+
 requestGetKeyPair :: GetKeyPair -> TestTree
 requestGetKeyPair =
   req
     "GetKeyPair"
     "fixture/GetKeyPair.yaml"
+
+requestUpdateDistribution :: UpdateDistribution -> TestTree
+requestUpdateDistribution =
+  req
+    "UpdateDistribution"
+    "fixture/UpdateDistribution.yaml"
+
+requestGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreams -> TestTree
+requestGetRelationalDatabaseLogStreams =
+  req
+    "GetRelationalDatabaseLogStreams"
+    "fixture/GetRelationalDatabaseLogStreams.yaml"
+
+requestUpdateBucketBundle :: UpdateBucketBundle -> TestTree
+requestUpdateBucketBundle =
+  req
+    "UpdateBucketBundle"
+    "fixture/UpdateBucketBundle.yaml"
+
+requestGetBuckets :: GetBuckets -> TestTree
+requestGetBuckets =
+  req
+    "GetBuckets"
+    "fixture/GetBuckets.yaml"
+
+requestDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshot -> TestTree
+requestDeleteRelationalDatabaseSnapshot =
+  req
+    "DeleteRelationalDatabaseSnapshot"
+    "fixture/DeleteRelationalDatabaseSnapshot.yaml"
+
+requestResetDistributionCache :: ResetDistributionCache -> TestTree
+requestResetDistributionCache =
+  req
+    "ResetDistributionCache"
+    "fixture/ResetDistributionCache.yaml"
+
+requestGetInstanceSnapshot :: GetInstanceSnapshot -> TestTree
+requestGetInstanceSnapshot =
+  req
+    "GetInstanceSnapshot"
+    "fixture/GetInstanceSnapshot.yaml"
+
+requestCreateContactMethod :: CreateContactMethod -> TestTree
+requestCreateContactMethod =
+  req
+    "CreateContactMethod"
+    "fixture/CreateContactMethod.yaml"
+
+requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
+requestPutInstancePublicPorts =
+  req
+    "PutInstancePublicPorts"
+    "fixture/PutInstancePublicPorts.yaml"
+
+requestGetDistributionBundles :: GetDistributionBundles -> TestTree
+requestGetDistributionBundles =
+  req
+    "GetDistributionBundles"
+    "fixture/GetDistributionBundles.yaml"
+
+requestDeleteContainerService :: DeleteContainerService -> TestTree
+requestDeleteContainerService =
+  req
+    "DeleteContainerService"
+    "fixture/DeleteContainerService.yaml"
 
 requestCreateCloudFormationStack :: CreateCloudFormationStack -> TestTree
 requestCreateCloudFormationStack =
@@ -1601,23 +1733,17 @@ requestCreateCloudFormationStack =
     "CreateCloudFormationStack"
     "fixture/CreateCloudFormationStack.yaml"
 
-requestCreateDomainEntry :: CreateDomainEntry -> TestTree
-requestCreateDomainEntry =
+requestGetContainerServicePowers :: GetContainerServicePowers -> TestTree
+requestGetContainerServicePowers =
   req
-    "CreateDomainEntry"
-    "fixture/CreateDomainEntry.yaml"
+    "GetContainerServicePowers"
+    "fixture/GetContainerServicePowers.yaml"
 
-requestGetInstanceState :: GetInstanceState -> TestTree
-requestGetInstanceState =
+requestReleaseStaticIp :: ReleaseStaticIp -> TestTree
+requestReleaseStaticIp =
   req
-    "GetInstanceState"
-    "fixture/GetInstanceState.yaml"
-
-requestGetDistributionMetricData :: GetDistributionMetricData -> TestTree
-requestGetDistributionMetricData =
-  req
-    "GetDistributionMetricData"
-    "fixture/GetDistributionMetricData.yaml"
+    "ReleaseStaticIp"
+    "fixture/ReleaseStaticIp.yaml"
 
 requestGetDisks :: GetDisks -> TestTree
 requestGetDisks =
@@ -1625,29 +1751,23 @@ requestGetDisks =
     "GetDisks"
     "fixture/GetDisks.yaml"
 
-requestGetContainerServiceMetricData :: GetContainerServiceMetricData -> TestTree
-requestGetContainerServiceMetricData =
-  req
-    "GetContainerServiceMetricData"
-    "fixture/GetContainerServiceMetricData.yaml"
-
-requestCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLogin -> TestTree
-requestCreateContainerServiceRegistryLogin =
-  req
-    "CreateContainerServiceRegistryLogin"
-    "fixture/CreateContainerServiceRegistryLogin.yaml"
-
 requestImportKeyPair :: ImportKeyPair -> TestTree
 requestImportKeyPair =
   req
     "ImportKeyPair"
     "fixture/ImportKeyPair.yaml"
 
-requestGetContainerServicePowers :: GetContainerServicePowers -> TestTree
-requestGetContainerServicePowers =
+requestCreateDomainEntry :: CreateDomainEntry -> TestTree
+requestCreateDomainEntry =
   req
-    "GetContainerServicePowers"
-    "fixture/GetContainerServicePowers.yaml"
+    "CreateDomainEntry"
+    "fixture/CreateDomainEntry.yaml"
+
+requestCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLogin -> TestTree
+requestCreateContainerServiceRegistryLogin =
+  req
+    "CreateContainerServiceRegistryLogin"
+    "fixture/CreateContainerServiceRegistryLogin.yaml"
 
 requestDeleteDiskSnapshot :: DeleteDiskSnapshot -> TestTree
 requestDeleteDiskSnapshot =
@@ -1661,23 +1781,23 @@ requestGetCertificates =
     "GetCertificates"
     "fixture/GetCertificates.yaml"
 
-requestReleaseStaticIp :: ReleaseStaticIp -> TestTree
-requestReleaseStaticIp =
+requestGetDistributionMetricData :: GetDistributionMetricData -> TestTree
+requestGetDistributionMetricData =
   req
-    "ReleaseStaticIp"
-    "fixture/ReleaseStaticIp.yaml"
+    "GetDistributionMetricData"
+    "fixture/GetDistributionMetricData.yaml"
 
-requestUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParameters -> TestTree
-requestUpdateRelationalDatabaseParameters =
+requestGetInstanceState :: GetInstanceState -> TestTree
+requestGetInstanceState =
   req
-    "UpdateRelationalDatabaseParameters"
-    "fixture/UpdateRelationalDatabaseParameters.yaml"
+    "GetInstanceState"
+    "fixture/GetInstanceState.yaml"
 
-requestDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificate -> TestTree
-requestDeleteLoadBalancerTlsCertificate =
+requestGetContainerServiceMetricData :: GetContainerServiceMetricData -> TestTree
+requestGetContainerServiceMetricData =
   req
-    "DeleteLoadBalancerTlsCertificate"
-    "fixture/DeleteLoadBalancerTlsCertificate.yaml"
+    "GetContainerServiceMetricData"
+    "fixture/GetContainerServiceMetricData.yaml"
 
 requestUpdateDomainEntry :: UpdateDomainEntry -> TestTree
 requestUpdateDomainEntry =
@@ -1685,17 +1805,11 @@ requestUpdateDomainEntry =
     "UpdateDomainEntry"
     "fixture/UpdateDomainEntry.yaml"
 
-requestGetContainerLog :: GetContainerLog -> TestTree
-requestGetContainerLog =
+requestDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificate -> TestTree
+requestDeleteLoadBalancerTlsCertificate =
   req
-    "GetContainerLog"
-    "fixture/GetContainerLog.yaml"
-
-requestDeleteDomainEntry :: DeleteDomainEntry -> TestTree
-requestDeleteDomainEntry =
-  req
-    "DeleteDomainEntry"
-    "fixture/DeleteDomainEntry.yaml"
+    "DeleteLoadBalancerTlsCertificate"
+    "fixture/DeleteLoadBalancerTlsCertificate.yaml"
 
 requestGetContainerImages :: GetContainerImages -> TestTree
 requestGetContainerImages =
@@ -1703,11 +1817,29 @@ requestGetContainerImages =
     "GetContainerImages"
     "fixture/GetContainerImages.yaml"
 
+requestUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParameters -> TestTree
+requestUpdateRelationalDatabaseParameters =
+  req
+    "UpdateRelationalDatabaseParameters"
+    "fixture/UpdateRelationalDatabaseParameters.yaml"
+
 requestGetDomains :: GetDomains -> TestTree
 requestGetDomains =
   req
     "GetDomains"
     "fixture/GetDomains.yaml"
+
+requestDeleteDomainEntry :: DeleteDomainEntry -> TestTree
+requestDeleteDomainEntry =
+  req
+    "DeleteDomainEntry"
+    "fixture/DeleteDomainEntry.yaml"
+
+requestGetContainerLog :: GetContainerLog -> TestTree
+requestGetContainerLog =
+  req
+    "GetContainerLog"
+    "fixture/GetContainerLog.yaml"
 
 requestPutAlarm :: PutAlarm -> TestTree
 requestPutAlarm =
@@ -1715,29 +1847,29 @@ requestPutAlarm =
     "PutAlarm"
     "fixture/PutAlarm.yaml"
 
-requestDeleteAutoSnapshot :: DeleteAutoSnapshot -> TestTree
-requestDeleteAutoSnapshot =
-  req
-    "DeleteAutoSnapshot"
-    "fixture/DeleteAutoSnapshot.yaml"
-
-requestGetContactMethods :: GetContactMethods -> TestTree
-requestGetContactMethods =
-  req
-    "GetContactMethods"
-    "fixture/GetContactMethods.yaml"
-
 requestGetRelationalDatabaseParameters :: GetRelationalDatabaseParameters -> TestTree
 requestGetRelationalDatabaseParameters =
   req
     "GetRelationalDatabaseParameters"
     "fixture/GetRelationalDatabaseParameters.yaml"
 
+requestDeleteAutoSnapshot :: DeleteAutoSnapshot -> TestTree
+requestDeleteAutoSnapshot =
+  req
+    "DeleteAutoSnapshot"
+    "fixture/DeleteAutoSnapshot.yaml"
+
 requestCreateRelationalDatabase :: CreateRelationalDatabase -> TestTree
 requestCreateRelationalDatabase =
   req
     "CreateRelationalDatabase"
     "fixture/CreateRelationalDatabase.yaml"
+
+requestGetContactMethods :: GetContactMethods -> TestTree
+requestGetContactMethods =
+  req
+    "GetContactMethods"
+    "fixture/GetContactMethods.yaml"
 
 -- Responses
 
@@ -1748,6 +1880,62 @@ responseGetContainerServices =
     "fixture/GetContainerServicesResponse.proto"
     defaultService
     (Proxy :: Proxy GetContainerServices)
+
+responseGetDistributions :: GetDistributionsResponse -> TestTree
+responseGetDistributions =
+  res
+    "GetDistributionsResponse"
+    "fixture/GetDistributionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDistributions)
+
+responseCreateContainerServiceDeployment :: CreateContainerServiceDeploymentResponse -> TestTree
+responseCreateContainerServiceDeployment =
+  res
+    "CreateContainerServiceDeploymentResponse"
+    "fixture/CreateContainerServiceDeploymentResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateContainerServiceDeployment)
+
+responseDeleteBucket :: DeleteBucketResponse -> TestTree
+responseDeleteBucket =
+  res
+    "DeleteBucketResponse"
+    "fixture/DeleteBucketResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBucket)
+
+responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
+responseGetDiskSnapshot =
+  res
+    "GetDiskSnapshotResponse"
+    "fixture/GetDiskSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDiskSnapshot)
+
+responseUpdateDistributionBundle :: UpdateDistributionBundleResponse -> TestTree
+responseUpdateDistributionBundle =
+  res
+    "UpdateDistributionBundleResponse"
+    "fixture/UpdateDistributionBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDistributionBundle)
+
+responseUpdateBucket :: UpdateBucketResponse -> TestTree
+responseUpdateBucket =
+  res
+    "UpdateBucketResponse"
+    "fixture/UpdateBucketResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateBucket)
+
+responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
+responseUpdateLoadBalancerAttribute =
+  res
+    "UpdateLoadBalancerAttributeResponse"
+    "fixture/UpdateLoadBalancerAttributeResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateLoadBalancerAttribute)
 
 responseGetStaticIp :: GetStaticIpResponse -> TestTree
 responseGetStaticIp =
@@ -1765,29 +1953,13 @@ responseGetRelationalDatabaseSnapshots =
     defaultService
     (Proxy :: Proxy GetRelationalDatabaseSnapshots)
 
-responseGetDistributions :: GetDistributionsResponse -> TestTree
-responseGetDistributions =
+responseGetBucketBundles :: GetBucketBundlesResponse -> TestTree
+responseGetBucketBundles =
   res
-    "GetDistributionsResponse"
-    "fixture/GetDistributionsResponse.proto"
+    "GetBucketBundlesResponse"
+    "fixture/GetBucketBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributions)
-
-responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
-responseGetDiskSnapshot =
-  res
-    "GetDiskSnapshotResponse"
-    "fixture/GetDiskSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDiskSnapshot)
-
-responseCreateContainerServiceDeployment :: CreateContainerServiceDeploymentResponse -> TestTree
-responseCreateContainerServiceDeployment =
-  res
-    "CreateContainerServiceDeploymentResponse"
-    "fixture/CreateContainerServiceDeploymentResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateContainerServiceDeployment)
+    (Proxy :: Proxy GetBucketBundles)
 
 responsePeerVpc :: PeerVpcResponse -> TestTree
 responsePeerVpc =
@@ -1797,21 +1969,29 @@ responsePeerVpc =
     defaultService
     (Proxy :: Proxy PeerVpc)
 
-responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
-responseUpdateLoadBalancerAttribute =
+responseGetBucketMetricData :: GetBucketMetricDataResponse -> TestTree
+responseGetBucketMetricData =
   res
-    "UpdateLoadBalancerAttributeResponse"
-    "fixture/UpdateLoadBalancerAttributeResponse.proto"
+    "GetBucketMetricDataResponse"
+    "fixture/GetBucketMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLoadBalancerAttribute)
+    (Proxy :: Proxy GetBucketMetricData)
 
-responseUpdateDistributionBundle :: UpdateDistributionBundleResponse -> TestTree
-responseUpdateDistributionBundle =
+responseUnpeerVpc :: UnpeerVpcResponse -> TestTree
+responseUnpeerVpc =
   res
-    "UpdateDistributionBundleResponse"
-    "fixture/UpdateDistributionBundleResponse.proto"
+    "UnpeerVpcResponse"
+    "fixture/UnpeerVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistributionBundle)
+    (Proxy :: Proxy UnpeerVpc)
+
+responseDeleteInstanceSnapshot :: DeleteInstanceSnapshotResponse -> TestTree
+responseDeleteInstanceSnapshot =
+  res
+    "DeleteInstanceSnapshotResponse"
+    "fixture/DeleteInstanceSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteInstanceSnapshot)
 
 responseAllocateStaticIp :: AllocateStaticIpResponse -> TestTree
 responseAllocateStaticIp =
@@ -1829,13 +2009,13 @@ responseCloseInstancePublicPorts =
     defaultService
     (Proxy :: Proxy CloseInstancePublicPorts)
 
-responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
-responseDeleteCertificate =
+responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
+responseGetCloudFormationStackRecords =
   res
-    "DeleteCertificateResponse"
-    "fixture/DeleteCertificateResponse.proto"
+    "GetCloudFormationStackRecordsResponse"
+    "fixture/GetCloudFormationStackRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCertificate)
+    (Proxy :: Proxy GetCloudFormationStackRecords)
 
 responseDisableAddOn :: DisableAddOnResponse -> TestTree
 responseDisableAddOn =
@@ -1844,14 +2024,6 @@ responseDisableAddOn =
     "fixture/DisableAddOnResponse.proto"
     defaultService
     (Proxy :: Proxy DisableAddOn)
-
-responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
-responseGetCloudFormationStackRecords =
-  res
-    "GetCloudFormationStackRecordsResponse"
-    "fixture/GetCloudFormationStackRecordsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCloudFormationStackRecords)
 
 responseIsVpcPeered :: IsVpcPeeredResponse -> TestTree
 responseIsVpcPeered =
@@ -1869,38 +2041,6 @@ responseGetRelationalDatabaseSnapshot =
     defaultService
     (Proxy :: Proxy GetRelationalDatabaseSnapshot)
 
-responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
-responseGetRelationalDatabaseBlueprints =
-  res
-    "GetRelationalDatabaseBlueprintsResponse"
-    "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRelationalDatabaseBlueprints)
-
-responseDeleteInstanceSnapshot :: DeleteInstanceSnapshotResponse -> TestTree
-responseDeleteInstanceSnapshot =
-  res
-    "DeleteInstanceSnapshotResponse"
-    "fixture/DeleteInstanceSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteInstanceSnapshot)
-
-responseUnpeerVpc :: UnpeerVpcResponse -> TestTree
-responseUnpeerVpc =
-  res
-    "UnpeerVpcResponse"
-    "fixture/UnpeerVpcResponse.proto"
-    defaultService
-    (Proxy :: Proxy UnpeerVpc)
-
-responseGetContainerAPIMetadata :: GetContainerAPIMetadataResponse -> TestTree
-responseGetContainerAPIMetadata =
-  res
-    "GetContainerAPIMetadataResponse"
-    "fixture/GetContainerAPIMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetContainerAPIMetadata)
-
 responseGetInstances :: GetInstancesResponse -> TestTree
 responseGetInstances =
   res
@@ -1917,53 +2057,29 @@ responseCreateInstancesFromSnapshot =
     defaultService
     (Proxy :: Proxy CreateInstancesFromSnapshot)
 
-responseStartInstance :: StartInstanceResponse -> TestTree
-responseStartInstance =
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate =
   res
-    "StartInstanceResponse"
-    "fixture/StartInstanceResponse.proto"
+    "DeleteCertificateResponse"
+    "fixture/DeleteCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy StartInstance)
+    (Proxy :: Proxy DeleteCertificate)
 
-responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
-responseCreateKeyPair =
+responseGetContainerAPIMetadata :: GetContainerAPIMetadataResponse -> TestTree
+responseGetContainerAPIMetadata =
   res
-    "CreateKeyPairResponse"
-    "fixture/CreateKeyPairResponse.proto"
+    "GetContainerAPIMetadataResponse"
+    "fixture/GetContainerAPIMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKeyPair)
+    (Proxy :: Proxy GetContainerAPIMetadata)
 
-responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
-responseGetInstanceAccessDetails =
+responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
+responseGetRelationalDatabaseBlueprints =
   res
-    "GetInstanceAccessDetailsResponse"
-    "fixture/GetInstanceAccessDetailsResponse.proto"
+    "GetRelationalDatabaseBlueprintsResponse"
+    "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceAccessDetails)
-
-responseCopySnapshot :: CopySnapshotResponse -> TestTree
-responseCopySnapshot =
-  res
-    "CopySnapshotResponse"
-    "fixture/CopySnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy CopySnapshot)
-
-responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
-responseCreateInstanceSnapshot =
-  res
-    "CreateInstanceSnapshotResponse"
-    "fixture/CreateInstanceSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateInstanceSnapshot)
-
-responseStopInstance :: StopInstanceResponse -> TestTree
-responseStopInstance =
-  res
-    "StopInstanceResponse"
-    "fixture/StopInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopInstance)
+    (Proxy :: Proxy GetRelationalDatabaseBlueprints)
 
 responseRegisterContainerImage :: RegisterContainerImageResponse -> TestTree
 responseRegisterContainerImage =
@@ -1973,13 +2089,77 @@ responseRegisterContainerImage =
     defaultService
     (Proxy :: Proxy RegisterContainerImage)
 
-responseDetachCertificateFromDistribution :: DetachCertificateFromDistributionResponse -> TestTree
-responseDetachCertificateFromDistribution =
+responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
+responseCreateKeyPair =
   res
-    "DetachCertificateFromDistributionResponse"
-    "fixture/DetachCertificateFromDistributionResponse.proto"
+    "CreateKeyPairResponse"
+    "fixture/CreateKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachCertificateFromDistribution)
+    (Proxy :: Proxy CreateKeyPair)
+
+responseStartInstance :: StartInstanceResponse -> TestTree
+responseStartInstance =
+  res
+    "StartInstanceResponse"
+    "fixture/StartInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartInstance)
+
+responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
+responseCreateInstanceSnapshot =
+  res
+    "CreateInstanceSnapshotResponse"
+    "fixture/CreateInstanceSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateInstanceSnapshot)
+
+responseCreateBucketAccessKey :: CreateBucketAccessKeyResponse -> TestTree
+responseCreateBucketAccessKey =
+  res
+    "CreateBucketAccessKeyResponse"
+    "fixture/CreateBucketAccessKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateBucketAccessKey)
+
+responseCopySnapshot :: CopySnapshotResponse -> TestTree
+responseCopySnapshot =
+  res
+    "CopySnapshotResponse"
+    "fixture/CopySnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy CopySnapshot)
+
+responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
+responseGetInstanceAccessDetails =
+  res
+    "GetInstanceAccessDetailsResponse"
+    "fixture/GetInstanceAccessDetailsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInstanceAccessDetails)
+
+responseStopInstance :: StopInstanceResponse -> TestTree
+responseStopInstance =
+  res
+    "StopInstanceResponse"
+    "fixture/StopInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopInstance)
+
+responseGetDomain :: GetDomainResponse -> TestTree
+responseGetDomain =
+  res
+    "GetDomainResponse"
+    "fixture/GetDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDomain)
+
+responseDetachStaticIp :: DetachStaticIpResponse -> TestTree
+responseDetachStaticIp =
+  res
+    "DetachStaticIpResponse"
+    "fixture/DetachStaticIpResponse.proto"
+    defaultService
+    (Proxy :: Proxy DetachStaticIp)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
 responseCreateLoadBalancer =
@@ -2005,21 +2185,13 @@ responseDeleteContactMethod =
     defaultService
     (Proxy :: Proxy DeleteContactMethod)
 
-responseGetDomain :: GetDomainResponse -> TestTree
-responseGetDomain =
+responseDetachCertificateFromDistribution :: DetachCertificateFromDistributionResponse -> TestTree
+responseDetachCertificateFromDistribution =
   res
-    "GetDomainResponse"
-    "fixture/GetDomainResponse.proto"
+    "DetachCertificateFromDistributionResponse"
+    "fixture/DetachCertificateFromDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomain)
-
-responseDetachStaticIp :: DetachStaticIpResponse -> TestTree
-responseDetachStaticIp =
-  res
-    "DetachStaticIpResponse"
-    "fixture/DetachStaticIpResponse.proto"
-    defaultService
-    (Proxy :: Proxy DetachStaticIp)
+    (Proxy :: Proxy DetachCertificateFromDistribution)
 
 responseAttachDisk :: AttachDiskResponse -> TestTree
 responseAttachDisk =
@@ -2028,14 +2200,6 @@ responseAttachDisk =
     "fixture/AttachDiskResponse.proto"
     defaultService
     (Proxy :: Proxy AttachDisk)
-
-responseGetDisk :: GetDiskResponse -> TestTree
-responseGetDisk =
-  res
-    "GetDiskResponse"
-    "fixture/GetDiskResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDisk)
 
 responseGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEventsResponse -> TestTree
 responseGetRelationalDatabaseLogEvents =
@@ -2053,14 +2217,6 @@ responseGetRelationalDatabases =
     defaultService
     (Proxy :: Proxy GetRelationalDatabases)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
 responseCreateDiskFromSnapshot :: CreateDiskFromSnapshotResponse -> TestTree
 responseCreateDiskFromSnapshot =
   res
@@ -2077,6 +2233,14 @@ responseGetInstanceMetricData =
     defaultService
     (Proxy :: Proxy GetInstanceMetricData)
 
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
 responseDeleteLoadBalancer =
   res
@@ -2085,37 +2249,13 @@ responseDeleteLoadBalancer =
     defaultService
     (Proxy :: Proxy DeleteLoadBalancer)
 
-responseExportSnapshot :: ExportSnapshotResponse -> TestTree
-responseExportSnapshot =
+responseGetDisk :: GetDiskResponse -> TestTree
+responseGetDisk =
   res
-    "ExportSnapshotResponse"
-    "fixture/ExportSnapshotResponse.proto"
+    "GetDiskResponse"
+    "fixture/GetDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportSnapshot)
-
-responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
-responseCreateRelationalDatabaseFromSnapshot =
-  res
-    "CreateRelationalDatabaseFromSnapshotResponse"
-    "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
-
-responseGetOperations :: GetOperationsResponse -> TestTree
-responseGetOperations =
-  res
-    "GetOperationsResponse"
-    "fixture/GetOperationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetOperations)
-
-responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
-responseGetExportSnapshotRecords =
-  res
-    "GetExportSnapshotRecordsResponse"
-    "fixture/GetExportSnapshotRecordsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetExportSnapshotRecords)
+    (Proxy :: Proxy GetDisk)
 
 responseGetLoadBalancerMetricData :: GetLoadBalancerMetricDataResponse -> TestTree
 responseGetLoadBalancerMetricData =
@@ -2125,13 +2265,69 @@ responseGetLoadBalancerMetricData =
     defaultService
     (Proxy :: Proxy GetLoadBalancerMetricData)
 
-responseGetInstanceSnapshots :: GetInstanceSnapshotsResponse -> TestTree
-responseGetInstanceSnapshots =
+responseGetKeyPairs :: GetKeyPairsResponse -> TestTree
+responseGetKeyPairs =
   res
-    "GetInstanceSnapshotsResponse"
-    "fixture/GetInstanceSnapshotsResponse.proto"
+    "GetKeyPairsResponse"
+    "fixture/GetKeyPairsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceSnapshots)
+    (Proxy :: Proxy GetKeyPairs)
+
+responseGetOperations :: GetOperationsResponse -> TestTree
+responseGetOperations =
+  res
+    "GetOperationsResponse"
+    "fixture/GetOperationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetOperations)
+
+responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
+responseAttachInstancesToLoadBalancer =
+  res
+    "AttachInstancesToLoadBalancerResponse"
+    "fixture/AttachInstancesToLoadBalancerResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachInstancesToLoadBalancer)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseRebootInstance :: RebootInstanceResponse -> TestTree
+responseRebootInstance =
+  res
+    "RebootInstanceResponse"
+    "fixture/RebootInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy RebootInstance)
+
+responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
+responseCreateRelationalDatabaseFromSnapshot =
+  res
+    "CreateRelationalDatabaseFromSnapshotResponse"
+    "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
+
+responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
+responseGetExportSnapshotRecords =
+  res
+    "GetExportSnapshotRecordsResponse"
+    "fixture/GetExportSnapshotRecordsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetExportSnapshotRecords)
+
+responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
+responseGetRelationalDatabase =
+  res
+    "GetRelationalDatabaseResponse"
+    "fixture/GetRelationalDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRelationalDatabase)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
 responseDeleteInstance =
@@ -2149,45 +2345,29 @@ responseCreateLoadBalancerTlsCertificate =
     defaultService
     (Proxy :: Proxy CreateLoadBalancerTlsCertificate)
 
-responseRebootInstance :: RebootInstanceResponse -> TestTree
-responseRebootInstance =
+responseExportSnapshot :: ExportSnapshotResponse -> TestTree
+responseExportSnapshot =
   res
-    "RebootInstanceResponse"
-    "fixture/RebootInstanceResponse.proto"
+    "ExportSnapshotResponse"
+    "fixture/ExportSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootInstance)
+    (Proxy :: Proxy ExportSnapshot)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseGetInstanceSnapshots :: GetInstanceSnapshotsResponse -> TestTree
+responseGetInstanceSnapshots =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "GetInstanceSnapshotsResponse"
+    "fixture/GetInstanceSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy :: Proxy GetInstanceSnapshots)
 
-responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
-responseGetRelationalDatabase =
+responseGetBucketAccessKeys :: GetBucketAccessKeysResponse -> TestTree
+responseGetBucketAccessKeys =
   res
-    "GetRelationalDatabaseResponse"
-    "fixture/GetRelationalDatabaseResponse.proto"
+    "GetBucketAccessKeysResponse"
+    "fixture/GetBucketAccessKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabase)
-
-responseGetKeyPairs :: GetKeyPairsResponse -> TestTree
-responseGetKeyPairs =
-  res
-    "GetKeyPairsResponse"
-    "fixture/GetKeyPairsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetKeyPairs)
-
-responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
-responseAttachInstancesToLoadBalancer =
-  res
-    "AttachInstancesToLoadBalancerResponse"
-    "fixture/AttachInstancesToLoadBalancerResponse.proto"
-    defaultService
-    (Proxy :: Proxy AttachInstancesToLoadBalancer)
+    (Proxy :: Proxy GetBucketAccessKeys)
 
 responseGetRegions :: GetRegionsResponse -> TestTree
 responseGetRegions =
@@ -2197,13 +2377,13 @@ responseGetRegions =
     defaultService
     (Proxy :: Proxy GetRegions)
 
-responseTestAlarm :: TestAlarmResponse -> TestTree
-responseTestAlarm =
+responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
+responseSetIpAddressType =
   res
-    "TestAlarmResponse"
-    "fixture/TestAlarmResponse.proto"
+    "SetIpAddressTypeResponse"
+    "fixture/SetIpAddressTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy TestAlarm)
+    (Proxy :: Proxy SetIpAddressType)
 
 responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
 responseCreateDiskSnapshot =
@@ -2213,29 +2393,13 @@ responseCreateDiskSnapshot =
     defaultService
     (Proxy :: Proxy CreateDiskSnapshot)
 
-responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
-responseSetIpAddressType =
+responseTestAlarm :: TestAlarmResponse -> TestTree
+responseTestAlarm =
   res
-    "SetIpAddressTypeResponse"
-    "fixture/SetIpAddressTypeResponse.proto"
+    "TestAlarmResponse"
+    "fixture/TestAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIpAddressType)
-
-responseDeleteAlarm :: DeleteAlarmResponse -> TestTree
-responseDeleteAlarm =
-  res
-    "DeleteAlarmResponse"
-    "fixture/DeleteAlarmResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAlarm)
-
-responseSendContactMethodVerification :: SendContactMethodVerificationResponse -> TestTree
-responseSendContactMethodVerification =
-  res
-    "SendContactMethodVerificationResponse"
-    "fixture/SendContactMethodVerificationResponse.proto"
-    defaultService
-    (Proxy :: Proxy SendContactMethodVerification)
+    (Proxy :: Proxy TestAlarm)
 
 responseGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> TestTree
 responseGetRelationalDatabaseMasterUserPassword =
@@ -2253,6 +2417,46 @@ responseGetBlueprints =
     defaultService
     (Proxy :: Proxy GetBlueprints)
 
+responseAttachStaticIp :: AttachStaticIpResponse -> TestTree
+responseAttachStaticIp =
+  res
+    "AttachStaticIpResponse"
+    "fixture/AttachStaticIpResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachStaticIp)
+
+responseCreateBucket :: CreateBucketResponse -> TestTree
+responseCreateBucket =
+  res
+    "CreateBucketResponse"
+    "fixture/CreateBucketResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateBucket)
+
+responseSendContactMethodVerification :: SendContactMethodVerificationResponse -> TestTree
+responseSendContactMethodVerification =
+  res
+    "SendContactMethodVerificationResponse"
+    "fixture/SendContactMethodVerificationResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendContactMethodVerification)
+
+responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
+responseDownloadDefaultKeyPair =
+  res
+    "DownloadDefaultKeyPairResponse"
+    "fixture/DownloadDefaultKeyPairResponse.proto"
+    defaultService
+    (Proxy :: Proxy DownloadDefaultKeyPair)
+
+responseDeleteAlarm :: DeleteAlarmResponse -> TestTree
+responseDeleteAlarm =
+  res
+    "DeleteAlarmResponse"
+    "fixture/DeleteAlarmResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAlarm)
+
 responseDetachDisk :: DetachDiskResponse -> TestTree
 responseDetachDisk =
   res
@@ -2269,21 +2473,29 @@ responseGetInstancePortStates =
     defaultService
     (Proxy :: Proxy GetInstancePortStates)
 
-responseAttachStaticIp :: AttachStaticIpResponse -> TestTree
-responseAttachStaticIp =
+responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
+responseGetRelationalDatabaseEvents =
   res
-    "AttachStaticIpResponse"
-    "fixture/AttachStaticIpResponse.proto"
+    "GetRelationalDatabaseEventsResponse"
+    "fixture/GetRelationalDatabaseEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachStaticIp)
+    (Proxy :: Proxy GetRelationalDatabaseEvents)
 
-responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
-responseDownloadDefaultKeyPair =
+responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
+responseUpdateRelationalDatabase =
   res
-    "DownloadDefaultKeyPairResponse"
-    "fixture/DownloadDefaultKeyPairResponse.proto"
+    "UpdateRelationalDatabaseResponse"
+    "fixture/UpdateRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy DownloadDefaultKeyPair)
+    (Proxy :: Proxy UpdateRelationalDatabase)
+
+responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
+responseDeleteRelationalDatabase =
+  res
+    "DeleteRelationalDatabaseResponse"
+    "fixture/DeleteRelationalDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRelationalDatabase)
 
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
 responseGetLoadBalancers =
@@ -2293,13 +2505,21 @@ responseGetLoadBalancers =
     defaultService
     (Proxy :: Proxy GetLoadBalancers)
 
-responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
-responseUpdateRelationalDatabase =
+responseGetInstance :: GetInstanceResponse -> TestTree
+responseGetInstance =
   res
-    "UpdateRelationalDatabaseResponse"
-    "fixture/UpdateRelationalDatabaseResponse.proto"
+    "GetInstanceResponse"
+    "fixture/GetInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRelationalDatabase)
+    (Proxy :: Proxy GetInstance)
+
+responseAttachCertificateToDistribution :: AttachCertificateToDistributionResponse -> TestTree
+responseAttachCertificateToDistribution =
+  res
+    "AttachCertificateToDistributionResponse"
+    "fixture/AttachCertificateToDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy AttachCertificateToDistribution)
 
 responseGetRelationalDatabaseBundles :: GetRelationalDatabaseBundlesResponse -> TestTree
 responseGetRelationalDatabaseBundles =
@@ -2317,30 +2537,6 @@ responseAttachLoadBalancerTlsCertificate =
     defaultService
     (Proxy :: Proxy AttachLoadBalancerTlsCertificate)
 
-responseAttachCertificateToDistribution :: AttachCertificateToDistributionResponse -> TestTree
-responseAttachCertificateToDistribution =
-  res
-    "AttachCertificateToDistributionResponse"
-    "fixture/AttachCertificateToDistributionResponse.proto"
-    defaultService
-    (Proxy :: Proxy AttachCertificateToDistribution)
-
-responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
-responseDeleteRelationalDatabase =
-  res
-    "DeleteRelationalDatabaseResponse"
-    "fixture/DeleteRelationalDatabaseResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRelationalDatabase)
-
-responseGetInstance :: GetInstanceResponse -> TestTree
-responseGetInstance =
-  res
-    "GetInstanceResponse"
-    "fixture/GetInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInstance)
-
 responseRebootRelationalDatabase :: RebootRelationalDatabaseResponse -> TestTree
 responseRebootRelationalDatabase =
   res
@@ -2349,22 +2545,6 @@ responseRebootRelationalDatabase =
     defaultService
     (Proxy :: Proxy RebootRelationalDatabase)
 
-responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
-responseGetRelationalDatabaseEvents =
-  res
-    "GetRelationalDatabaseEventsResponse"
-    "fixture/GetRelationalDatabaseEventsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRelationalDatabaseEvents)
-
-responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
-  res
-    "CreateDomainResponse"
-    "fixture/CreateDomainResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDomain)
-
 responseGetStaticIps :: GetStaticIpsResponse -> TestTree
 responseGetStaticIps =
   res
@@ -2372,22 +2552,6 @@ responseGetStaticIps =
     "fixture/GetStaticIpsResponse.proto"
     defaultService
     (Proxy :: Proxy GetStaticIps)
-
-responseDeleteDisk :: DeleteDiskResponse -> TestTree
-responseDeleteDisk =
-  res
-    "DeleteDiskResponse"
-    "fixture/DeleteDiskResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDisk)
-
-responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
-responseGetRelationalDatabaseMetricData =
-  res
-    "GetRelationalDatabaseMetricDataResponse"
-    "fixture/GetRelationalDatabaseMetricDataResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRelationalDatabaseMetricData)
 
 responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
 responseGetDiskSnapshots =
@@ -2413,45 +2577,53 @@ responseGetLoadBalancer =
     defaultService
     (Proxy :: Proxy GetLoadBalancer)
 
-responseGetBundles :: GetBundlesResponse -> TestTree
-responseGetBundles =
+responseDeleteBucketAccessKey :: DeleteBucketAccessKeyResponse -> TestTree
+responseDeleteBucketAccessKey =
   res
-    "GetBundlesResponse"
-    "fixture/GetBundlesResponse.proto"
+    "DeleteBucketAccessKeyResponse"
+    "fixture/DeleteBucketAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBundles)
+    (Proxy :: Proxy DeleteBucketAccessKey)
 
-responseCreateCertificate :: CreateCertificateResponse -> TestTree
-responseCreateCertificate =
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain =
   res
-    "CreateCertificateResponse"
-    "fixture/CreateCertificateResponse.proto"
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificate)
+    (Proxy :: Proxy CreateDomain)
 
-responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
-responseDetachInstancesFromLoadBalancer =
+responseDeleteDisk :: DeleteDiskResponse -> TestTree
+responseDeleteDisk =
   res
-    "DetachInstancesFromLoadBalancerResponse"
-    "fixture/DetachInstancesFromLoadBalancerResponse.proto"
+    "DeleteDiskResponse"
+    "fixture/DeleteDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachInstancesFromLoadBalancer)
+    (Proxy :: Proxy DeleteDisk)
 
-responseGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificatesResponse -> TestTree
-responseGetLoadBalancerTlsCertificates =
+responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
+responseGetRelationalDatabaseMetricData =
   res
-    "GetLoadBalancerTlsCertificatesResponse"
-    "fixture/GetLoadBalancerTlsCertificatesResponse.proto"
+    "GetRelationalDatabaseMetricDataResponse"
+    "fixture/GetRelationalDatabaseMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoadBalancerTlsCertificates)
+    (Proxy :: Proxy GetRelationalDatabaseMetricData)
 
-responseDeleteContainerImage :: DeleteContainerImageResponse -> TestTree
-responseDeleteContainerImage =
+responseSetResourceAccessForBucket :: SetResourceAccessForBucketResponse -> TestTree
+responseSetResourceAccessForBucket =
   res
-    "DeleteContainerImageResponse"
-    "fixture/DeleteContainerImageResponse.proto"
+    "SetResourceAccessForBucketResponse"
+    "fixture/SetResourceAccessForBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainerImage)
+    (Proxy :: Proxy SetResourceAccessForBucket)
+
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain =
+  res
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDomain)
 
 responseGetOperationsForResource :: GetOperationsForResourceResponse -> TestTree
 responseGetOperationsForResource =
@@ -2477,29 +2649,85 @@ responseEnableAddOn =
     defaultService
     (Proxy :: Proxy EnableAddOn)
 
-responseDeleteDomain :: DeleteDomainResponse -> TestTree
-responseDeleteDomain =
+responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
+responseDetachInstancesFromLoadBalancer =
   res
-    "DeleteDomainResponse"
-    "fixture/DeleteDomainResponse.proto"
+    "DetachInstancesFromLoadBalancerResponse"
+    "fixture/DetachInstancesFromLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy :: Proxy DetachInstancesFromLoadBalancer)
 
-responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
-responseStartRelationalDatabase =
+responseGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificatesResponse -> TestTree
+responseGetLoadBalancerTlsCertificates =
   res
-    "StartRelationalDatabaseResponse"
-    "fixture/StartRelationalDatabaseResponse.proto"
+    "GetLoadBalancerTlsCertificatesResponse"
+    "fixture/GetLoadBalancerTlsCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy StartRelationalDatabase)
+    (Proxy :: Proxy GetLoadBalancerTlsCertificates)
 
-responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
-responseCreateRelationalDatabaseSnapshot =
+responseDeleteContainerImage :: DeleteContainerImageResponse -> TestTree
+responseDeleteContainerImage =
   res
-    "CreateRelationalDatabaseSnapshotResponse"
-    "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
+    "DeleteContainerImageResponse"
+    "fixture/DeleteContainerImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
+    (Proxy :: Proxy DeleteContainerImage)
+
+responseCreateCertificate :: CreateCertificateResponse -> TestTree
+responseCreateCertificate =
+  res
+    "CreateCertificateResponse"
+    "fixture/CreateCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCertificate)
+
+responseGetBundles :: GetBundlesResponse -> TestTree
+responseGetBundles =
+  res
+    "GetBundlesResponse"
+    "fixture/GetBundlesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBundles)
+
+responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
+responseDeleteKnownHostKeys =
+  res
+    "DeleteKnownHostKeysResponse"
+    "fixture/DeleteKnownHostKeysResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteKnownHostKeys)
+
+responseCreateInstances :: CreateInstancesResponse -> TestTree
+responseCreateInstances =
+  res
+    "CreateInstancesResponse"
+    "fixture/CreateInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateInstances)
+
+responseGetActiveNames :: GetActiveNamesResponse -> TestTree
+responseGetActiveNames =
+  res
+    "GetActiveNamesResponse"
+    "fixture/GetActiveNamesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetActiveNames)
+
+responseCreateContainerService :: CreateContainerServiceResponse -> TestTree
+responseCreateContainerService =
+  res
+    "CreateContainerServiceResponse"
+    "fixture/CreateContainerServiceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateContainerService)
+
+responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
+responseStopRelationalDatabase =
+  res
+    "StopRelationalDatabaseResponse"
+    "fixture/StopRelationalDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopRelationalDatabase)
 
 responseGetAlarms :: GetAlarmsResponse -> TestTree
 responseGetAlarms =
@@ -2517,22 +2745,6 @@ responseCreateDistribution =
     defaultService
     (Proxy :: Proxy CreateDistribution)
 
-responseCreateInstances :: CreateInstancesResponse -> TestTree
-responseCreateInstances =
-  res
-    "CreateInstancesResponse"
-    "fixture/CreateInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateInstances)
-
-responseCreateContainerService :: CreateContainerServiceResponse -> TestTree
-responseCreateContainerService =
-  res
-    "CreateContainerServiceResponse"
-    "fixture/CreateContainerServiceResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateContainerService)
-
 responseGetDistributionLatestCacheReset :: GetDistributionLatestCacheResetResponse -> TestTree
 responseGetDistributionLatestCacheReset =
   res
@@ -2540,22 +2752,6 @@ responseGetDistributionLatestCacheReset =
     "fixture/GetDistributionLatestCacheResetResponse.proto"
     defaultService
     (Proxy :: Proxy GetDistributionLatestCacheReset)
-
-responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
-responseStopRelationalDatabase =
-  res
-    "StopRelationalDatabaseResponse"
-    "fixture/StopRelationalDatabaseResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopRelationalDatabase)
-
-responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
-responseDeleteKnownHostKeys =
-  res
-    "DeleteKnownHostKeysResponse"
-    "fixture/DeleteKnownHostKeysResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteKnownHostKeys)
 
 responseOpenInstancePublicPorts :: OpenInstancePublicPortsResponse -> TestTree
 responseOpenInstancePublicPorts =
@@ -2565,13 +2761,13 @@ responseOpenInstancePublicPorts =
     defaultService
     (Proxy :: Proxy OpenInstancePublicPorts)
 
-responseGetActiveNames :: GetActiveNamesResponse -> TestTree
-responseGetActiveNames =
+responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
+responseCreateRelationalDatabaseSnapshot =
   res
-    "GetActiveNamesResponse"
-    "fixture/GetActiveNamesResponse.proto"
+    "CreateRelationalDatabaseSnapshotResponse"
+    "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetActiveNames)
+    (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
 
 responseGetAutoSnapshots :: GetAutoSnapshotsResponse -> TestTree
 responseGetAutoSnapshots =
@@ -2581,93 +2777,13 @@ responseGetAutoSnapshots =
     defaultService
     (Proxy :: Proxy GetAutoSnapshots)
 
-responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
-responseGetRelationalDatabaseLogStreams =
+responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
+responseStartRelationalDatabase =
   res
-    "GetRelationalDatabaseLogStreamsResponse"
-    "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
+    "StartRelationalDatabaseResponse"
+    "fixture/StartRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseLogStreams)
-
-responseGetDistributionBundles :: GetDistributionBundlesResponse -> TestTree
-responseGetDistributionBundles =
-  res
-    "GetDistributionBundlesResponse"
-    "fixture/GetDistributionBundlesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDistributionBundles)
-
-responseGetOperation :: GetOperationResponse -> TestTree
-responseGetOperation =
-  res
-    "GetOperationResponse"
-    "fixture/GetOperationResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetOperation)
-
-responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
-responseDeleteRelationalDatabaseSnapshot =
-  res
-    "DeleteRelationalDatabaseSnapshotResponse"
-    "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
-
-responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
-responseGetInstanceSnapshot =
-  res
-    "GetInstanceSnapshotResponse"
-    "fixture/GetInstanceSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInstanceSnapshot)
-
-responseDeleteContainerService :: DeleteContainerServiceResponse -> TestTree
-responseDeleteContainerService =
-  res
-    "DeleteContainerServiceResponse"
-    "fixture/DeleteContainerServiceResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteContainerService)
-
-responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
-responseUpdateDistribution =
-  res
-    "UpdateDistributionResponse"
-    "fixture/UpdateDistributionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDistribution)
-
-responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
-responsePutInstancePublicPorts =
-  res
-    "PutInstancePublicPortsResponse"
-    "fixture/PutInstancePublicPortsResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutInstancePublicPorts)
-
-responseResetDistributionCache :: ResetDistributionCacheResponse -> TestTree
-responseResetDistributionCache =
-  res
-    "ResetDistributionCacheResponse"
-    "fixture/ResetDistributionCacheResponse.proto"
-    defaultService
-    (Proxy :: Proxy ResetDistributionCache)
-
-responseCreateContactMethod :: CreateContactMethodResponse -> TestTree
-responseCreateContactMethod =
-  res
-    "CreateContactMethodResponse"
-    "fixture/CreateContactMethodResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateContactMethod)
-
-responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
-responseDeleteDistribution =
-  res
-    "DeleteDistributionResponse"
-    "fixture/DeleteDistributionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDistribution)
+    (Proxy :: Proxy StartRelationalDatabase)
 
 responseUpdateContainerService :: UpdateContainerServiceResponse -> TestTree
 responseUpdateContainerService =
@@ -2677,6 +2793,22 @@ responseUpdateContainerService =
     defaultService
     (Proxy :: Proxy UpdateContainerService)
 
+responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
+responseDeleteDistribution =
+  res
+    "DeleteDistributionResponse"
+    "fixture/DeleteDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDistribution)
+
+responseGetOperation :: GetOperationResponse -> TestTree
+responseGetOperation =
+  res
+    "GetOperationResponse"
+    "fixture/GetOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetOperation)
+
 responseGetKeyPair :: GetKeyPairResponse -> TestTree
 responseGetKeyPair =
   res
@@ -2684,6 +2816,94 @@ responseGetKeyPair =
     "fixture/GetKeyPairResponse.proto"
     defaultService
     (Proxy :: Proxy GetKeyPair)
+
+responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
+responseUpdateDistribution =
+  res
+    "UpdateDistributionResponse"
+    "fixture/UpdateDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDistribution)
+
+responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
+responseGetRelationalDatabaseLogStreams =
+  res
+    "GetRelationalDatabaseLogStreamsResponse"
+    "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRelationalDatabaseLogStreams)
+
+responseUpdateBucketBundle :: UpdateBucketBundleResponse -> TestTree
+responseUpdateBucketBundle =
+  res
+    "UpdateBucketBundleResponse"
+    "fixture/UpdateBucketBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateBucketBundle)
+
+responseGetBuckets :: GetBucketsResponse -> TestTree
+responseGetBuckets =
+  res
+    "GetBucketsResponse"
+    "fixture/GetBucketsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBuckets)
+
+responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
+responseDeleteRelationalDatabaseSnapshot =
+  res
+    "DeleteRelationalDatabaseSnapshotResponse"
+    "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
+
+responseResetDistributionCache :: ResetDistributionCacheResponse -> TestTree
+responseResetDistributionCache =
+  res
+    "ResetDistributionCacheResponse"
+    "fixture/ResetDistributionCacheResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResetDistributionCache)
+
+responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
+responseGetInstanceSnapshot =
+  res
+    "GetInstanceSnapshotResponse"
+    "fixture/GetInstanceSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInstanceSnapshot)
+
+responseCreateContactMethod :: CreateContactMethodResponse -> TestTree
+responseCreateContactMethod =
+  res
+    "CreateContactMethodResponse"
+    "fixture/CreateContactMethodResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateContactMethod)
+
+responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
+responsePutInstancePublicPorts =
+  res
+    "PutInstancePublicPortsResponse"
+    "fixture/PutInstancePublicPortsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutInstancePublicPorts)
+
+responseGetDistributionBundles :: GetDistributionBundlesResponse -> TestTree
+responseGetDistributionBundles =
+  res
+    "GetDistributionBundlesResponse"
+    "fixture/GetDistributionBundlesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDistributionBundles)
+
+responseDeleteContainerService :: DeleteContainerServiceResponse -> TestTree
+responseDeleteContainerService =
+  res
+    "DeleteContainerServiceResponse"
+    "fixture/DeleteContainerServiceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteContainerService)
 
 responseCreateCloudFormationStack :: CreateCloudFormationStackResponse -> TestTree
 responseCreateCloudFormationStack =
@@ -2693,29 +2913,21 @@ responseCreateCloudFormationStack =
     defaultService
     (Proxy :: Proxy CreateCloudFormationStack)
 
-responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
-responseCreateDomainEntry =
+responseGetContainerServicePowers :: GetContainerServicePowersResponse -> TestTree
+responseGetContainerServicePowers =
   res
-    "CreateDomainEntryResponse"
-    "fixture/CreateDomainEntryResponse.proto"
+    "GetContainerServicePowersResponse"
+    "fixture/GetContainerServicePowersResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomainEntry)
+    (Proxy :: Proxy GetContainerServicePowers)
 
-responseGetInstanceState :: GetInstanceStateResponse -> TestTree
-responseGetInstanceState =
+responseReleaseStaticIp :: ReleaseStaticIpResponse -> TestTree
+responseReleaseStaticIp =
   res
-    "GetInstanceStateResponse"
-    "fixture/GetInstanceStateResponse.proto"
+    "ReleaseStaticIpResponse"
+    "fixture/ReleaseStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceState)
-
-responseGetDistributionMetricData :: GetDistributionMetricDataResponse -> TestTree
-responseGetDistributionMetricData =
-  res
-    "GetDistributionMetricDataResponse"
-    "fixture/GetDistributionMetricDataResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDistributionMetricData)
+    (Proxy :: Proxy ReleaseStaticIp)
 
 responseGetDisks :: GetDisksResponse -> TestTree
 responseGetDisks =
@@ -2725,22 +2937,6 @@ responseGetDisks =
     defaultService
     (Proxy :: Proxy GetDisks)
 
-responseGetContainerServiceMetricData :: GetContainerServiceMetricDataResponse -> TestTree
-responseGetContainerServiceMetricData =
-  res
-    "GetContainerServiceMetricDataResponse"
-    "fixture/GetContainerServiceMetricDataResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetContainerServiceMetricData)
-
-responseCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLoginResponse -> TestTree
-responseCreateContainerServiceRegistryLogin =
-  res
-    "CreateContainerServiceRegistryLoginResponse"
-    "fixture/CreateContainerServiceRegistryLoginResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateContainerServiceRegistryLogin)
-
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
 responseImportKeyPair =
   res
@@ -2749,13 +2945,21 @@ responseImportKeyPair =
     defaultService
     (Proxy :: Proxy ImportKeyPair)
 
-responseGetContainerServicePowers :: GetContainerServicePowersResponse -> TestTree
-responseGetContainerServicePowers =
+responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
+responseCreateDomainEntry =
   res
-    "GetContainerServicePowersResponse"
-    "fixture/GetContainerServicePowersResponse.proto"
+    "CreateDomainEntryResponse"
+    "fixture/CreateDomainEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerServicePowers)
+    (Proxy :: Proxy CreateDomainEntry)
+
+responseCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLoginResponse -> TestTree
+responseCreateContainerServiceRegistryLogin =
+  res
+    "CreateContainerServiceRegistryLoginResponse"
+    "fixture/CreateContainerServiceRegistryLoginResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateContainerServiceRegistryLogin)
 
 responseDeleteDiskSnapshot :: DeleteDiskSnapshotResponse -> TestTree
 responseDeleteDiskSnapshot =
@@ -2773,29 +2977,29 @@ responseGetCertificates =
     defaultService
     (Proxy :: Proxy GetCertificates)
 
-responseReleaseStaticIp :: ReleaseStaticIpResponse -> TestTree
-responseReleaseStaticIp =
+responseGetDistributionMetricData :: GetDistributionMetricDataResponse -> TestTree
+responseGetDistributionMetricData =
   res
-    "ReleaseStaticIpResponse"
-    "fixture/ReleaseStaticIpResponse.proto"
+    "GetDistributionMetricDataResponse"
+    "fixture/GetDistributionMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy ReleaseStaticIp)
+    (Proxy :: Proxy GetDistributionMetricData)
 
-responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
-responseUpdateRelationalDatabaseParameters =
+responseGetInstanceState :: GetInstanceStateResponse -> TestTree
+responseGetInstanceState =
   res
-    "UpdateRelationalDatabaseParametersResponse"
-    "fixture/UpdateRelationalDatabaseParametersResponse.proto"
+    "GetInstanceStateResponse"
+    "fixture/GetInstanceStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRelationalDatabaseParameters)
+    (Proxy :: Proxy GetInstanceState)
 
-responseDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificateResponse -> TestTree
-responseDeleteLoadBalancerTlsCertificate =
+responseGetContainerServiceMetricData :: GetContainerServiceMetricDataResponse -> TestTree
+responseGetContainerServiceMetricData =
   res
-    "DeleteLoadBalancerTlsCertificateResponse"
-    "fixture/DeleteLoadBalancerTlsCertificateResponse.proto"
+    "GetContainerServiceMetricDataResponse"
+    "fixture/GetContainerServiceMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancerTlsCertificate)
+    (Proxy :: Proxy GetContainerServiceMetricData)
 
 responseUpdateDomainEntry :: UpdateDomainEntryResponse -> TestTree
 responseUpdateDomainEntry =
@@ -2805,21 +3009,13 @@ responseUpdateDomainEntry =
     defaultService
     (Proxy :: Proxy UpdateDomainEntry)
 
-responseGetContainerLog :: GetContainerLogResponse -> TestTree
-responseGetContainerLog =
+responseDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificateResponse -> TestTree
+responseDeleteLoadBalancerTlsCertificate =
   res
-    "GetContainerLogResponse"
-    "fixture/GetContainerLogResponse.proto"
+    "DeleteLoadBalancerTlsCertificateResponse"
+    "fixture/DeleteLoadBalancerTlsCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerLog)
-
-responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
-responseDeleteDomainEntry =
-  res
-    "DeleteDomainEntryResponse"
-    "fixture/DeleteDomainEntryResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDomainEntry)
+    (Proxy :: Proxy DeleteLoadBalancerTlsCertificate)
 
 responseGetContainerImages :: GetContainerImagesResponse -> TestTree
 responseGetContainerImages =
@@ -2829,6 +3025,14 @@ responseGetContainerImages =
     defaultService
     (Proxy :: Proxy GetContainerImages)
 
+responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
+responseUpdateRelationalDatabaseParameters =
+  res
+    "UpdateRelationalDatabaseParametersResponse"
+    "fixture/UpdateRelationalDatabaseParametersResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRelationalDatabaseParameters)
+
 responseGetDomains :: GetDomainsResponse -> TestTree
 responseGetDomains =
   res
@@ -2836,6 +3040,22 @@ responseGetDomains =
     "fixture/GetDomainsResponse.proto"
     defaultService
     (Proxy :: Proxy GetDomains)
+
+responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
+responseDeleteDomainEntry =
+  res
+    "DeleteDomainEntryResponse"
+    "fixture/DeleteDomainEntryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDomainEntry)
+
+responseGetContainerLog :: GetContainerLogResponse -> TestTree
+responseGetContainerLog =
+  res
+    "GetContainerLogResponse"
+    "fixture/GetContainerLogResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetContainerLog)
 
 responsePutAlarm :: PutAlarmResponse -> TestTree
 responsePutAlarm =
@@ -2845,22 +3065,6 @@ responsePutAlarm =
     defaultService
     (Proxy :: Proxy PutAlarm)
 
-responseDeleteAutoSnapshot :: DeleteAutoSnapshotResponse -> TestTree
-responseDeleteAutoSnapshot =
-  res
-    "DeleteAutoSnapshotResponse"
-    "fixture/DeleteAutoSnapshotResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAutoSnapshot)
-
-responseGetContactMethods :: GetContactMethodsResponse -> TestTree
-responseGetContactMethods =
-  res
-    "GetContactMethodsResponse"
-    "fixture/GetContactMethodsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetContactMethods)
-
 responseGetRelationalDatabaseParameters :: GetRelationalDatabaseParametersResponse -> TestTree
 responseGetRelationalDatabaseParameters =
   res
@@ -2869,6 +3073,14 @@ responseGetRelationalDatabaseParameters =
     defaultService
     (Proxy :: Proxy GetRelationalDatabaseParameters)
 
+responseDeleteAutoSnapshot :: DeleteAutoSnapshotResponse -> TestTree
+responseDeleteAutoSnapshot =
+  res
+    "DeleteAutoSnapshotResponse"
+    "fixture/DeleteAutoSnapshotResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAutoSnapshot)
+
 responseCreateRelationalDatabase :: CreateRelationalDatabaseResponse -> TestTree
 responseCreateRelationalDatabase =
   res
@@ -2876,3 +3088,11 @@ responseCreateRelationalDatabase =
     "fixture/CreateRelationalDatabaseResponse.proto"
     defaultService
     (Proxy :: Proxy CreateRelationalDatabase)
+
+responseGetContactMethods :: GetContactMethodsResponse -> TestTree
+responseGetContactMethods =
+  res
+    "GetContactMethodsResponse"
+    "fixture/GetContactMethodsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetContactMethods)

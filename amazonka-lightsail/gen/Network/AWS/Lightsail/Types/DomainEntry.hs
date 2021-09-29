@@ -41,20 +41,27 @@ data DomainEntry = DomainEntry'
     -- your request, which points to a load balancer DNS name and routes
     -- traffic to your load balancer.
     isAlias :: Prelude.Maybe Prelude.Bool,
-    -- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@).
+    -- | The target IP address (e.g., @192.0.2.0@), or AWS name server (e.g.,
+    -- @ns-111.awsdns-22.com.@).
     --
     -- For Lightsail load balancers, the value looks like
     -- @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@.
+    -- For Lightsail distributions, the value looks like
+    -- @exampled1182ne.cloudfront.net@. For Lightsail container services, the
+    -- value looks like
+    -- @container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com@.
     -- Be sure to also set @isAlias@ to @true@ when setting up an A record for
-    -- a load balancer.
+    -- a Lightsail load balancer, distribution, or container service.
     target :: Prelude.Maybe Prelude.Text,
-    -- | The type of domain entry, such as address (A), canonical name (CNAME),
-    -- mail exchanger (MX), name server (NS), start of authority (SOA), service
-    -- locator (SRV), or text (TXT).
+    -- | The type of domain entry, such as address for IPv4 (A), address for IPv6
+    -- (AAAA), canonical name (CNAME), mail exchanger (MX), name server (NS),
+    -- start of authority (SOA), service locator (SRV), or text (TXT).
     --
     -- The following domain entry types can be used:
     --
     -- -   @A@
+    --
+    -- -   @AAAA@
     --
     -- -   @CNAME@
     --
@@ -93,20 +100,27 @@ data DomainEntry = DomainEntry'
 -- your request, which points to a load balancer DNS name and routes
 -- traffic to your load balancer.
 --
--- 'target', 'domainEntry_target' - The target AWS name server (e.g., @ns-111.awsdns-22.com.@).
+-- 'target', 'domainEntry_target' - The target IP address (e.g., @192.0.2.0@), or AWS name server (e.g.,
+-- @ns-111.awsdns-22.com.@).
 --
 -- For Lightsail load balancers, the value looks like
 -- @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@.
+-- For Lightsail distributions, the value looks like
+-- @exampled1182ne.cloudfront.net@. For Lightsail container services, the
+-- value looks like
+-- @container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com@.
 -- Be sure to also set @isAlias@ to @true@ when setting up an A record for
--- a load balancer.
+-- a Lightsail load balancer, distribution, or container service.
 --
--- 'type'', 'domainEntry_type' - The type of domain entry, such as address (A), canonical name (CNAME),
--- mail exchanger (MX), name server (NS), start of authority (SOA), service
--- locator (SRV), or text (TXT).
+-- 'type'', 'domainEntry_type' - The type of domain entry, such as address for IPv4 (A), address for IPv6
+-- (AAAA), canonical name (CNAME), mail exchanger (MX), name server (NS),
+-- start of authority (SOA), service locator (SRV), or text (TXT).
 --
 -- The following domain entry types can be used:
 --
 -- -   @A@
+--
+-- -   @AAAA@
 --
 -- -   @CNAME@
 --
@@ -153,22 +167,29 @@ domainEntry_name = Lens.lens (\DomainEntry' {name} -> name) (\s@DomainEntry' {} 
 domainEntry_isAlias :: Lens.Lens' DomainEntry (Prelude.Maybe Prelude.Bool)
 domainEntry_isAlias = Lens.lens (\DomainEntry' {isAlias} -> isAlias) (\s@DomainEntry' {} a -> s {isAlias = a} :: DomainEntry)
 
--- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@).
+-- | The target IP address (e.g., @192.0.2.0@), or AWS name server (e.g.,
+-- @ns-111.awsdns-22.com.@).
 --
 -- For Lightsail load balancers, the value looks like
 -- @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@.
+-- For Lightsail distributions, the value looks like
+-- @exampled1182ne.cloudfront.net@. For Lightsail container services, the
+-- value looks like
+-- @container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com@.
 -- Be sure to also set @isAlias@ to @true@ when setting up an A record for
--- a load balancer.
+-- a Lightsail load balancer, distribution, or container service.
 domainEntry_target :: Lens.Lens' DomainEntry (Prelude.Maybe Prelude.Text)
 domainEntry_target = Lens.lens (\DomainEntry' {target} -> target) (\s@DomainEntry' {} a -> s {target = a} :: DomainEntry)
 
--- | The type of domain entry, such as address (A), canonical name (CNAME),
--- mail exchanger (MX), name server (NS), start of authority (SOA), service
--- locator (SRV), or text (TXT).
+-- | The type of domain entry, such as address for IPv4 (A), address for IPv6
+-- (AAAA), canonical name (CNAME), mail exchanger (MX), name server (NS),
+-- start of authority (SOA), service locator (SRV), or text (TXT).
 --
 -- The following domain entry types can be used:
 --
 -- -   @A@
+--
+-- -   @AAAA@
 --
 -- -   @CNAME@
 --

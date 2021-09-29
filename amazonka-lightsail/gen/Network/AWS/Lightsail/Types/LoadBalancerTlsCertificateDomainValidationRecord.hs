@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerTlsCertificateDomainValidationRecord' smart constructor.
 data LoadBalancerTlsCertificateDomainValidationRecord = LoadBalancerTlsCertificateDomainValidationRecord'
-  { -- | A fully qualified domain name in the certificate. For example,
+  { -- | The domain name against which your SSL\/TLS certificate was validated.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | A fully qualified domain name in the certificate. For example,
     -- @example.com@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The domain name against which your SSL\/TLS certificate was validated.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | The validation status. Valid values are listed below.
     validationStatus :: Prelude.Maybe LoadBalancerTlsCertificateDomainStatus,
     -- | The value for that type.
@@ -52,10 +52,10 @@ data LoadBalancerTlsCertificateDomainValidationRecord = LoadBalancerTlsCertifica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'loadBalancerTlsCertificateDomainValidationRecord_domainName' - The domain name against which your SSL\/TLS certificate was validated.
+--
 -- 'name', 'loadBalancerTlsCertificateDomainValidationRecord_name' - A fully qualified domain name in the certificate. For example,
 -- @example.com@.
---
--- 'domainName', 'loadBalancerTlsCertificateDomainValidationRecord_domainName' - The domain name against which your SSL\/TLS certificate was validated.
 --
 -- 'validationStatus', 'loadBalancerTlsCertificateDomainValidationRecord_validationStatus' - The validation status. Valid values are listed below.
 --
@@ -67,24 +67,23 @@ newLoadBalancerTlsCertificateDomainValidationRecord ::
   LoadBalancerTlsCertificateDomainValidationRecord
 newLoadBalancerTlsCertificateDomainValidationRecord =
   LoadBalancerTlsCertificateDomainValidationRecord'
-    { name =
+    { domainName =
         Prelude.Nothing,
-      domainName =
-        Prelude.Nothing,
+      name = Prelude.Nothing,
       validationStatus =
         Prelude.Nothing,
       value = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
+-- | The domain name against which your SSL\/TLS certificate was validated.
+loadBalancerTlsCertificateDomainValidationRecord_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDomainValidationRecord_domainName = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {domainName} -> domainName) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {domainName = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
+
 -- | A fully qualified domain name in the certificate. For example,
 -- @example.com@.
 loadBalancerTlsCertificateDomainValidationRecord_name :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificateDomainValidationRecord_name = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {name} -> name) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {name = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
-
--- | The domain name against which your SSL\/TLS certificate was validated.
-loadBalancerTlsCertificateDomainValidationRecord_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
-loadBalancerTlsCertificateDomainValidationRecord_domainName = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {domainName} -> domainName) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {domainName = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The validation status. Valid values are listed below.
 loadBalancerTlsCertificateDomainValidationRecord_validationStatus :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe LoadBalancerTlsCertificateDomainStatus)
@@ -108,8 +107,8 @@ instance
       "LoadBalancerTlsCertificateDomainValidationRecord"
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationRecord'
-            Prelude.<$> (x Core..:? "name")
-              Prelude.<*> (x Core..:? "domainName")
+            Prelude.<$> (x Core..:? "domainName")
+              Prelude.<*> (x Core..:? "name")
               Prelude.<*> (x Core..:? "validationStatus")
               Prelude.<*> (x Core..:? "value")
               Prelude.<*> (x Core..:? "type")

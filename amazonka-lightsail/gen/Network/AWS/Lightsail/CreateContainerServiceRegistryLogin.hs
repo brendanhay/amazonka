@@ -41,7 +41,7 @@
 -- (lightsailctl) plugin to push container images to your Lightsail
 -- container service. For more information, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images Pushing and managing container images on your Amazon Lightsail container services>
--- in the /Lightsail Dev Guide/.
+-- in the /Amazon Lightsail Developer Guide/.
 module Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
   ( -- * Creating a Request
     CreateContainerServiceRegistryLogin (..),

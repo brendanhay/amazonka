@@ -27,7 +27,7 @@ import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a domain where you are storing recordsets in Lightsail.
+-- | Describes a domain where you are storing recordsets.
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
@@ -36,18 +36,18 @@ data Domain = Domain'
     -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
     -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type.
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The resource type.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the domain.
     name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The AWS Region and Availability Zones where the domain recordset was
     -- created.
@@ -71,18 +71,18 @@ data Domain = Domain'
 -- 'arn', 'domain_arn' - The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
 --
--- 'resourceType', 'domain_resourceType' - The resource type.
---
 -- 'supportCode', 'domain_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
 --
+-- 'resourceType', 'domain_resourceType' - The resource type.
+--
 -- 'name', 'domain_name' - The name of the domain.
 --
 -- 'tags', 'domain_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'location', 'domain_location' - The AWS Region and Availability Zones where the domain recordset was
 -- created.
@@ -95,8 +95,8 @@ newDomain =
   Domain'
     { createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       location = Prelude.Nothing,
@@ -112,10 +112,6 @@ domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} 
 domain_arn :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_arn = Lens.lens (\Domain' {arn} -> arn) (\s@Domain' {} a -> s {arn = a} :: Domain)
 
--- | The resource type.
-domain_resourceType :: Lens.Lens' Domain (Prelude.Maybe ResourceType)
-domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Domain' {} a -> s {resourceType = a} :: Domain)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
@@ -123,13 +119,17 @@ domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Do
 domain_supportCode :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_supportCode = Lens.lens (\Domain' {supportCode} -> supportCode) (\s@Domain' {} a -> s {supportCode = a} :: Domain)
 
+-- | The resource type.
+domain_resourceType :: Lens.Lens' Domain (Prelude.Maybe ResourceType)
+domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Domain' {} a -> s {resourceType = a} :: Domain)
+
 -- | The name of the domain.
 domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 domain_tags :: Lens.Lens' Domain (Prelude.Maybe [Tag])
 domain_tags = Lens.lens (\Domain' {tags} -> tags) (\s@Domain' {} a -> s {tags = a} :: Domain) Prelude.. Lens.mapping Lens._Coerce
 
@@ -151,8 +151,8 @@ instance Core.FromJSON Domain where
           Domain'
             Prelude.<$> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "location")

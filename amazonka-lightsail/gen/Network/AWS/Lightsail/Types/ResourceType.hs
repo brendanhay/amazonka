@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.ResourceType
   ( ResourceType
       ( ..,
         ResourceType_Alarm,
+        ResourceType_Bucket,
         ResourceType_Certificate,
         ResourceType_CloudFormationStackRecord,
         ResourceType_ContactMethod,
@@ -76,6 +77,9 @@ newtype ResourceType = ResourceType'
 
 pattern ResourceType_Alarm :: ResourceType
 pattern ResourceType_Alarm = ResourceType' "Alarm"
+
+pattern ResourceType_Bucket :: ResourceType
+pattern ResourceType_Bucket = ResourceType' "Bucket"
 
 pattern ResourceType_Certificate :: ResourceType
 pattern ResourceType_Certificate = ResourceType' "Certificate"
@@ -133,6 +137,7 @@ pattern ResourceType_StaticIp = ResourceType' "StaticIp"
 
 {-# COMPLETE
   ResourceType_Alarm,
+  ResourceType_Bucket,
   ResourceType_Certificate,
   ResourceType_CloudFormationStackRecord,
   ResourceType_ContactMethod,

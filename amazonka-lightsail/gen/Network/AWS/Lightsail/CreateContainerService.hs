@@ -32,8 +32,8 @@ module Network.AWS.Lightsail.CreateContainerService
     newCreateContainerService,
 
     -- * Request Lenses
-    createContainerService_deployment,
     createContainerService_tags,
+    createContainerService_deployment,
     createContainerService_publicDomainNames,
     createContainerService_serviceName,
     createContainerService_power,
@@ -58,7 +58,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateContainerService' smart constructor.
 data CreateContainerService = CreateContainerService'
-  { -- | An object that describes a deployment for the container service.
+  { -- | The tag keys and optional values to add to the certificate during
+    -- create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    --
+    -- For more information about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object that describes a deployment for the container service.
     --
     -- A deployment specifies the containers that will be launched on the
     -- container service and their settings, such as the ports to open, the
@@ -67,11 +75,6 @@ data CreateContainerService = CreateContainerService'
     -- deployment and its settings, such as the HTTP or HTTPS port to use, and
     -- the health check configuration.
     deployment :: Prelude.Maybe ContainerServiceDeploymentRequest,
-    -- | The tag keys and optional values for the container service.
-    --
-    -- For more information about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Prelude.Maybe [Tag],
     -- | The public domain names to use with the container service, such as
     -- @example.com@ and @www.example.com@.
     --
@@ -144,6 +147,14 @@ data CreateContainerService = CreateContainerService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- For more information about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+--
 -- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.
 --
 -- A deployment specifies the containers that will be launched on the
@@ -152,11 +163,6 @@ data CreateContainerService = CreateContainerService'
 -- specifies the container that will serve as the public endpoint of the
 -- deployment and its settings, such as the HTTP or HTTPS port to use, and
 -- the health check configuration.
---
--- 'tags', 'createContainerService_tags' - The tag keys and optional values for the container service.
---
--- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
 --
 -- 'publicDomainNames', 'createContainerService_publicDomainNames' - The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -231,14 +237,23 @@ newCreateContainerService
   pPower_
   pScale_ =
     CreateContainerService'
-      { deployment =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        deployment = Prelude.Nothing,
         publicDomainNames = Prelude.Nothing,
         serviceName = pServiceName_,
         power = pPower_,
         scale = pScale_
       }
+
+-- | The tag keys and optional values to add to the certificate during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- For more information about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+createContainerService_tags :: Lens.Lens' CreateContainerService (Prelude.Maybe [Tag])
+createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object that describes a deployment for the container service.
 --
@@ -250,13 +265,6 @@ newCreateContainerService
 -- the health check configuration.
 createContainerService_deployment :: Lens.Lens' CreateContainerService (Prelude.Maybe ContainerServiceDeploymentRequest)
 createContainerService_deployment = Lens.lens (\CreateContainerService' {deployment} -> deployment) (\s@CreateContainerService' {} a -> s {deployment = a} :: CreateContainerService)
-
--- | The tag keys and optional values for the container service.
---
--- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-createContainerService_tags :: Lens.Lens' CreateContainerService (Prelude.Maybe [Tag])
-createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -363,8 +371,8 @@ instance Core.ToJSON CreateContainerService where
   toJSON CreateContainerService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deployment" Core..=) Prelude.<$> deployment,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("deployment" Core..=) Prelude.<$> deployment,
             ("publicDomainNames" Core..=)
               Prelude.<$> publicDomainNames,
             Prelude.Just ("serviceName" Core..= serviceName),

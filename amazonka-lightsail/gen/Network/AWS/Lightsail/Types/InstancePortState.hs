@@ -65,10 +65,6 @@ data InstancePortState = InstancePortState'
     -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
     -- on /Wikipedia/.
     ipv6Cidrs :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the instance port is @open@ or @closed@.
-    --
-    -- The port state for Lightsail instances is always @open@.
-    state :: Prelude.Maybe PortState,
     -- | The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are
     -- allowed to connect to an instance through the ports, and the protocol.
     --
@@ -79,6 +75,10 @@ data InstancePortState = InstancePortState'
     -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
     -- on /Wikipedia/.
     cidrs :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether the instance port is @open@ or @closed@.
+    --
+    -- The port state for Lightsail instances is always @open@.
+    state :: Prelude.Maybe PortState,
     -- | The IP protocol name.
     --
     -- The name can be one of the following:
@@ -173,10 +173,6 @@ data InstancePortState = InstancePortState'
 -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
 -- on /Wikipedia/.
 --
--- 'state', 'instancePortState_state' - Specifies whether the instance port is @open@ or @closed@.
---
--- The port state for Lightsail instances is always @open@.
---
 -- 'cidrs', 'instancePortState_cidrs' - The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are
 -- allowed to connect to an instance through the ports, and the protocol.
 --
@@ -186,6 +182,10 @@ data InstancePortState = InstancePortState'
 -- For more information about CIDR block notation, see
 -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation Classless Inter-Domain Routing>
 -- on /Wikipedia/.
+--
+-- 'state', 'instancePortState_state' - Specifies whether the instance port is @open@ or @closed@.
+--
+-- The port state for Lightsail instances is always @open@.
 --
 -- 'protocol', 'instancePortState_protocol' - The IP protocol name.
 --
@@ -241,8 +241,8 @@ newInstancePortState =
     { fromPort = Prelude.Nothing,
       cidrListAliases = Prelude.Nothing,
       ipv6Cidrs = Prelude.Nothing,
-      state = Prelude.Nothing,
       cidrs = Prelude.Nothing,
+      state = Prelude.Nothing,
       protocol = Prelude.Nothing,
       toPort = Prelude.Nothing
     }
@@ -288,12 +288,6 @@ instancePortState_cidrListAliases = Lens.lens (\InstancePortState' {cidrListAlia
 instancePortState_ipv6Cidrs :: Lens.Lens' InstancePortState (Prelude.Maybe [Prelude.Text])
 instancePortState_ipv6Cidrs = Lens.lens (\InstancePortState' {ipv6Cidrs} -> ipv6Cidrs) (\s@InstancePortState' {} a -> s {ipv6Cidrs = a} :: InstancePortState) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies whether the instance port is @open@ or @closed@.
---
--- The port state for Lightsail instances is always @open@.
-instancePortState_state :: Lens.Lens' InstancePortState (Prelude.Maybe PortState)
-instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@InstancePortState' {} a -> s {state = a} :: InstancePortState)
-
 -- | The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are
 -- allowed to connect to an instance through the ports, and the protocol.
 --
@@ -305,6 +299,12 @@ instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@I
 -- on /Wikipedia/.
 instancePortState_cidrs :: Lens.Lens' InstancePortState (Prelude.Maybe [Prelude.Text])
 instancePortState_cidrs = Lens.lens (\InstancePortState' {cidrs} -> cidrs) (\s@InstancePortState' {} a -> s {cidrs = a} :: InstancePortState) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies whether the instance port is @open@ or @closed@.
+--
+-- The port state for Lightsail instances is always @open@.
+instancePortState_state :: Lens.Lens' InstancePortState (Prelude.Maybe PortState)
+instancePortState_state = Lens.lens (\InstancePortState' {state} -> state) (\s@InstancePortState' {} a -> s {state = a} :: InstancePortState)
 
 -- | The IP protocol name.
 --
@@ -369,8 +369,8 @@ instance Core.FromJSON InstancePortState where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "ipv6Cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "cidrs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "protocol")
             Prelude.<*> (x Core..:? "toPort")
       )

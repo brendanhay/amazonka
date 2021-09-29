@@ -24,7 +24,7 @@
 -- distribution.
 --
 -- Use this action to update the configuration of your existing
--- distribution
+-- distribution.
 module Network.AWS.Lightsail.UpdateDistribution
   ( -- * Creating a Request
     UpdateDistribution (..),

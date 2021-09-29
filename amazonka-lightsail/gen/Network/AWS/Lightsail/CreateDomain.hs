@@ -24,7 +24,7 @@
 --
 -- The @create domain@ operation supports tag-based access control via
 -- request tags. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateDomain
   ( -- * Creating a Request
     CreateDomain (..),
@@ -62,7 +62,7 @@ data CreateDomain = CreateDomain'
     -- You cannot register a new domain name using Lightsail. You must register
     -- a domain name using Amazon Route 53 or another domain name registrar. If
     -- you have already registered your domain, you can enter its name in this
-    -- parameter to manage the DNS records for that domain.
+    -- parameter to manage the DNS records for that domain using Lightsail.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +84,7 @@ data CreateDomain = CreateDomain'
 -- You cannot register a new domain name using Lightsail. You must register
 -- a domain name using Amazon Route 53 or another domain name registrar. If
 -- you have already registered your domain, you can enter its name in this
--- parameter to manage the DNS records for that domain.
+-- parameter to manage the DNS records for that domain using Lightsail.
 newCreateDomain ::
   -- | 'domainName'
   Prelude.Text ->
@@ -106,7 +106,7 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 -- You cannot register a new domain name using Lightsail. You must register
 -- a domain name using Amazon Route 53 or another domain name registrar. If
 -- you have already registered your domain, you can enter its name in this
--- parameter to manage the DNS records for that domain.
+-- parameter to manage the DNS records for that domain using Lightsail.
 createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
 createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 

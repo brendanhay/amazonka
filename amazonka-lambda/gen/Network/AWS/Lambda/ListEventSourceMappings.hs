@@ -84,7 +84,9 @@ data ListEventSourceMappings = ListEventSourceMappings'
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
     functionName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of event source mappings to return.
+    -- | The maximum number of event source mappings to return. Note that
+    -- ListEventSourceMappings returns a maximum of 100 items in each response,
+    -- even if you set the number higher.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text
@@ -128,7 +130,9 @@ data ListEventSourceMappings = ListEventSourceMappings'
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
 --
--- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return.
+-- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
 --
 -- 'marker', 'listEventSourceMappings_marker' - A pagination token returned by a previous call.
 newListEventSourceMappings ::
@@ -175,7 +179,9 @@ listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {e
 listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_functionName = Lens.lens (\ListEventSourceMappings' {functionName} -> functionName) (\s@ListEventSourceMappings' {} a -> s {functionName = a} :: ListEventSourceMappings)
 
--- | The maximum number of event source mappings to return.
+-- | The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
 listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
 listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
 

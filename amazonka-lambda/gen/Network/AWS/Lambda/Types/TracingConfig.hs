@@ -24,8 +24,10 @@ import Network.AWS.Lambda.Types.TracingMode
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The function\'s AWS X-Ray tracing configuration. To sample and record
--- incoming requests, set @Mode@ to @Active@.
+-- | The function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>
+-- tracing configuration. To sample and record incoming requests, set
+-- @Mode@ to @Active@.
 --
 -- /See:/ 'newTracingConfig' smart constructor.
 data TracingConfig = TracingConfig'

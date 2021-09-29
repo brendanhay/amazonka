@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.
 -- Versions that have been deleted aren\'t listed. Specify a
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime identifier>
 -- to list only versions that indicate that they\'re compatible with that
@@ -35,8 +35,8 @@ module Network.AWS.Lambda.ListLayerVersions
 
     -- * Request Lenses
     listLayerVersions_maxItems,
-    listLayerVersions_compatibleRuntime,
     listLayerVersions_marker,
+    listLayerVersions_compatibleRuntime,
     listLayerVersions_layerName,
 
     -- * Destructuring the Response
@@ -61,10 +61,10 @@ import qualified Network.AWS.Response as Response
 data ListLayerVersions = ListLayerVersions'
   { -- | The maximum number of versions to return.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A runtime identifier. For example, @go1.x@.
+    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Prelude.Text
   }
@@ -80,9 +80,9 @@ data ListLayerVersions = ListLayerVersions'
 --
 -- 'maxItems', 'listLayerVersions_maxItems' - The maximum number of versions to return.
 --
--- 'compatibleRuntime', 'listLayerVersions_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
---
 -- 'marker', 'listLayerVersions_marker' - A pagination token returned by a previous call.
+--
+-- 'compatibleRuntime', 'listLayerVersions_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 --
 -- 'layerName', 'listLayerVersions_layerName' - The name or Amazon Resource Name (ARN) of the layer.
 newListLayerVersions ::
@@ -92,8 +92,8 @@ newListLayerVersions ::
 newListLayerVersions pLayerName_ =
   ListLayerVersions'
     { maxItems = Prelude.Nothing,
-      compatibleRuntime = Prelude.Nothing,
       marker = Prelude.Nothing,
+      compatibleRuntime = Prelude.Nothing,
       layerName = pLayerName_
     }
 
@@ -101,13 +101,13 @@ newListLayerVersions pLayerName_ =
 listLayerVersions_maxItems :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Natural)
 listLayerVersions_maxItems = Lens.lens (\ListLayerVersions' {maxItems} -> maxItems) (\s@ListLayerVersions' {} a -> s {maxItems = a} :: ListLayerVersions)
 
--- | A runtime identifier. For example, @go1.x@.
-listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
-listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
-
 -- | A pagination token returned by a previous call.
 listLayerVersions_marker :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Text)
 listLayerVersions_marker = Lens.lens (\ListLayerVersions' {marker} -> marker) (\s@ListLayerVersions' {} a -> s {marker = a} :: ListLayerVersions)
+
+-- | A runtime identifier. For example, @go1.x@.
+listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
+listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 listLayerVersions_layerName :: Lens.Lens' ListLayerVersions Prelude.Text
@@ -168,8 +168,8 @@ instance Core.ToQuery ListLayerVersions where
   toQuery ListLayerVersions' {..} =
     Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
-        "CompatibleRuntime" Core.=: compatibleRuntime,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "CompatibleRuntime" Core.=: compatibleRuntime
       ]
 
 -- | /See:/ 'newListLayerVersionsResponse' smart constructor.

@@ -25,7 +25,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.
 --
 -- /See:/ 'newLayersListItem' smart constructor.
 data LayersListItem = LayersListItem'

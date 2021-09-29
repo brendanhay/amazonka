@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>
 -- from a ZIP archive. Each time you call @PublishLayerVersion@ with the
 -- same layer name, a new version is created.
 --

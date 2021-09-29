@@ -20,20 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Grants an AWS service or another account permission to use a function.
--- You can apply the policy at the function level, or specify a qualifier
--- to restrict access to a single version or alias. If you use a qualifier,
--- the invoker must use the full Amazon Resource Name (ARN) of that version
--- or alias to invoke the function.
+-- Grants an Amazon Web Services service or another account permission to
+-- use a function. You can apply the policy at the function level, or
+-- specify a qualifier to restrict access to a single version or alias. If
+-- you use a qualifier, the invoker must use the full Amazon Resource Name
+-- (ARN) of that version or alias to invoke the function.
 --
 -- To grant permission to another account, specify the account ID as the
--- @Principal@. For AWS services, the principal is a domain-style
--- identifier defined by the service, like @s3.amazonaws.com@ or
--- @sns.amazonaws.com@. For AWS services, you can also specify the ARN of
--- the associated resource as the @SourceArn@. If you grant permission to a
--- service principal without specifying the source, other accounts could
--- potentially configure resources in their account to invoke your Lambda
--- function.
+-- @Principal@. For Amazon Web Services services, the principal is a
+-- domain-style identifier defined by the service, like @s3.amazonaws.com@
+-- or @sns.amazonaws.com@. For Amazon Web Services services, you can also
+-- specify the ARN of the associated resource as the @SourceArn@. If you
+-- grant permission to a service principal without specifying the source,
+-- other accounts could potentially configure resources in their account to
+-- invoke your Lambda function.
 --
 -- This action adds a statement to a resource-based permissions policy for
 -- the function. For more information about function policies, see
@@ -88,8 +88,9 @@ data AddPermission = AddPermission'
     -- specified account. It is possible for an Amazon S3 bucket to be deleted
     -- by its owner and recreated by another account.
     sourceAccount :: Prelude.Maybe Prelude.Text,
-    -- | For AWS services, the ARN of the AWS resource that invokes the function.
-    -- For example, an Amazon S3 bucket or Amazon SNS topic.
+    -- | For Amazon Web Services services, the ARN of the Amazon Web Services
+    -- resource that invokes the function. For example, an Amazon S3 bucket or
+    -- Amazon SNS topic.
     sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
@@ -113,9 +114,9 @@ data AddPermission = AddPermission'
     -- | The action that the principal can use on the function. For example,
     -- @lambda:InvokeFunction@ or @lambda:GetFunction@.
     action :: Prelude.Text,
-    -- | The AWS service or account that invokes the function. If you specify a
-    -- service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the
-    -- function through that service.
+    -- | The Amazon Web Services service or account that invokes the function. If
+    -- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+    -- can invoke the function through that service.
     principal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -143,8 +144,9 @@ data AddPermission = AddPermission'
 -- specified account. It is possible for an Amazon S3 bucket to be deleted
 -- by its owner and recreated by another account.
 --
--- 'sourceArn', 'addPermission_sourceArn' - For AWS services, the ARN of the AWS resource that invokes the function.
--- For example, an Amazon S3 bucket or Amazon SNS topic.
+-- 'sourceArn', 'addPermission_sourceArn' - For Amazon Web Services services, the ARN of the Amazon Web Services
+-- resource that invokes the function. For example, an Amazon S3 bucket or
+-- Amazon SNS topic.
 --
 -- 'functionName', 'addPermission_functionName' - The name of the Lambda function, version, or alias.
 --
@@ -168,9 +170,9 @@ data AddPermission = AddPermission'
 -- 'action', 'addPermission_action' - The action that the principal can use on the function. For example,
 -- @lambda:InvokeFunction@ or @lambda:GetFunction@.
 --
--- 'principal', 'addPermission_principal' - The AWS service or account that invokes the function. If you specify a
--- service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the
--- function through that service.
+-- 'principal', 'addPermission_principal' - The Amazon Web Services service or account that invokes the function. If
+-- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+-- can invoke the function through that service.
 newAddPermission ::
   -- | 'functionName'
   Prelude.Text ->
@@ -221,8 +223,9 @@ addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -
 addPermission_sourceAccount :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceAccount = Lens.lens (\AddPermission' {sourceAccount} -> sourceAccount) (\s@AddPermission' {} a -> s {sourceAccount = a} :: AddPermission)
 
--- | For AWS services, the ARN of the AWS resource that invokes the function.
--- For example, an Amazon S3 bucket or Amazon SNS topic.
+-- | For Amazon Web Services services, the ARN of the Amazon Web Services
+-- resource that invokes the function. For example, an Amazon S3 bucket or
+-- Amazon SNS topic.
 addPermission_sourceArn :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (\s@AddPermission' {} a -> s {sourceArn = a} :: AddPermission)
 
@@ -254,9 +257,9 @@ addPermission_statementId = Lens.lens (\AddPermission' {statementId} -> statemen
 addPermission_action :: Lens.Lens' AddPermission Prelude.Text
 addPermission_action = Lens.lens (\AddPermission' {action} -> action) (\s@AddPermission' {} a -> s {action = a} :: AddPermission)
 
--- | The AWS service or account that invokes the function. If you specify a
--- service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the
--- function through that service.
+-- | The Amazon Web Services service or account that invokes the function. If
+-- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+-- can invoke the function through that service.
 addPermission_principal :: Lens.Lens' AddPermission Prelude.Text
 addPermission_principal = Lens.lens (\AddPermission' {principal} -> principal) (\s@AddPermission' {} a -> s {principal = a} :: AddPermission)
 

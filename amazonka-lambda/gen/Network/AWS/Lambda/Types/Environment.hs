@@ -23,11 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A function\'s environment variable settings.
+-- | A function\'s environment variable settings. You can use environment
+-- variables to adjust your function\'s behavior without updating code. An
+-- environment variable is a pair of strings that are stored in a
+-- function\'s version-specific configuration.
 --
 -- /See:/ 'newEnvironment' smart constructor.
 data Environment = Environment'
-  { -- | Environment variable key-value pairs.
+  { -- | Environment variable key-value pairs. For more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
     variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -40,13 +44,15 @@ data Environment = Environment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variables', 'environment_variables' - Environment variable key-value pairs.
+-- 'variables', 'environment_variables' - Environment variable key-value pairs. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
 newEnvironment ::
   Environment
 newEnvironment =
   Environment' {variables = Prelude.Nothing}
 
--- | Environment variable key-value pairs.
+-- | Environment variable key-value pairs. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
 environment_variables :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 

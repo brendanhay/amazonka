@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes a statement from the permissions policy for a version of an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.
 -- For more information, see AddLayerVersionPermission.
 module Network.AWS.Lambda.RemoveLayerVersionPermission
   ( -- * Creating a Request

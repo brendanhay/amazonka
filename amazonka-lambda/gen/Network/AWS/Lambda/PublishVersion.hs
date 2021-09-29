@@ -26,10 +26,10 @@
 -- create a snapshot of your function code and configuration that doesn\'t
 -- change.
 --
--- AWS Lambda doesn\'t publish a version if the function\'s configuration
--- and code haven\'t changed since the last version. Use UpdateFunctionCode
--- or UpdateFunctionConfiguration to update the function before publishing
--- a version.
+-- Lambda doesn\'t publish a version if the function\'s configuration and
+-- code haven\'t changed since the last version. Use UpdateFunctionCode or
+-- UpdateFunctionConfiguration to update the function before publishing a
+-- version.
 --
 -- Clients can invoke versions directly or with an alias. To create an
 -- alias, use CreateAlias.
@@ -49,9 +49,9 @@ module Network.AWS.Lambda.PublishVersion
     newFunctionConfiguration,
 
     -- * Response Lenses
+    functionConfiguration_vpcConfig,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_lastUpdateStatus,
-    functionConfiguration_vpcConfig,
     functionConfiguration_memorySize,
     functionConfiguration_masterArn,
     functionConfiguration_revisionId,
@@ -61,23 +61,23 @@ module Network.AWS.Lambda.PublishVersion
     functionConfiguration_timeout,
     functionConfiguration_handler,
     functionConfiguration_deadLetterConfig,
-    functionConfiguration_functionName,
     functionConfiguration_environment,
+    functionConfiguration_functionName,
     functionConfiguration_version,
-    functionConfiguration_functionArn,
-    functionConfiguration_state,
     functionConfiguration_kmsKeyArn,
+    functionConfiguration_state,
+    functionConfiguration_functionArn,
     functionConfiguration_runtime,
     functionConfiguration_role,
     functionConfiguration_signingJobArn,
     functionConfiguration_stateReasonCode,
+    functionConfiguration_description,
     functionConfiguration_imageConfigResponse,
     functionConfiguration_tracingConfig,
-    functionConfiguration_description,
-    functionConfiguration_lastModified,
     functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_layers,
+    functionConfiguration_lastModified,
     functionConfiguration_codeSize,
+    functionConfiguration_layers,
     functionConfiguration_fileSystemConfigs,
     functionConfiguration_packageType,
   )

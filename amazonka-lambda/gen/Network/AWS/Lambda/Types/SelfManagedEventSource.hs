@@ -24,7 +24,7 @@ import Network.AWS.Lambda.Types.EndPointType
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The Self-Managed Apache Kafka cluster for your event source.
+-- | The self-managed Apache Kafka cluster for your event source.
 --
 -- /See:/ 'newSelfManagedEventSource' smart constructor.
 data SelfManagedEventSource = SelfManagedEventSource'

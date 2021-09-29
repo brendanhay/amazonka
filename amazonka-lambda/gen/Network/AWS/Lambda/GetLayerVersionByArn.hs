@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a version of an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>,
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>,
 -- with a link to download the layer archive that\'s valid for 10 minutes.
 module Network.AWS.Lambda.GetLayerVersionByArn
   ( -- * Creating a Request

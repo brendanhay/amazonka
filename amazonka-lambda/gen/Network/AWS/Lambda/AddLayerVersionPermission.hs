@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds permissions to the resource-based policy of a version of an
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.
 -- Use this action to grant layer usage permission to other accounts. You
--- can grant permission to a single account, all AWS accounts, or all
--- accounts in an organization.
+-- can grant permission to a single account, all accounts in an
+-- organization, or all Amazon Web Services accounts.
 --
 -- To revoke permission, call RemoveLayerVersionPermission with the
 -- statement ID that you specified when you added it.
@@ -79,7 +79,11 @@ data AddLayerVersionPermission = AddLayerVersionPermission'
     -- | The API action that grants access to the layer. For example,
     -- @lambda:GetLayerVersion@.
     action :: Prelude.Text,
-    -- | An account ID, or @*@ to grant permission to all AWS accounts.
+    -- | An account ID, or @*@ to grant layer usage permission to all accounts in
+    -- an organization, or all Amazon Web Services accounts (if
+    -- @organizationId@ is not specified). For the last case, make sure that
+    -- you really do want all Amazon Web Services accounts to have usage
+    -- permission to this layer.
     principal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,7 +113,11 @@ data AddLayerVersionPermission = AddLayerVersionPermission'
 -- 'action', 'addLayerVersionPermission_action' - The API action that grants access to the layer. For example,
 -- @lambda:GetLayerVersion@.
 --
--- 'principal', 'addLayerVersionPermission_principal' - An account ID, or @*@ to grant permission to all AWS accounts.
+-- 'principal', 'addLayerVersionPermission_principal' - An account ID, or @*@ to grant layer usage permission to all accounts in
+-- an organization, or all Amazon Web Services accounts (if
+-- @organizationId@ is not specified). For the last case, make sure that
+-- you really do want all Amazon Web Services accounts to have usage
+-- permission to this layer.
 newAddLayerVersionPermission ::
   -- | 'layerName'
   Prelude.Text ->
@@ -168,7 +176,11 @@ addLayerVersionPermission_statementId = Lens.lens (\AddLayerVersionPermission' {
 addLayerVersionPermission_action :: Lens.Lens' AddLayerVersionPermission Prelude.Text
 addLayerVersionPermission_action = Lens.lens (\AddLayerVersionPermission' {action} -> action) (\s@AddLayerVersionPermission' {} a -> s {action = a} :: AddLayerVersionPermission)
 
--- | An account ID, or @*@ to grant permission to all AWS accounts.
+-- | An account ID, or @*@ to grant layer usage permission to all accounts in
+-- an organization, or all Amazon Web Services accounts (if
+-- @organizationId@ is not specified). For the last case, make sure that
+-- you really do want all Amazon Web Services accounts to have usage
+-- permission to this layer.
 addLayerVersionPermission_principal :: Lens.Lens' AddLayerVersionPermission Prelude.Text
 addLayerVersionPermission_principal = Lens.lens (\AddLayerVersionPermission' {principal} -> principal) (\s@AddLayerVersionPermission' {} a -> s {principal = a} :: AddLayerVersionPermission)
 

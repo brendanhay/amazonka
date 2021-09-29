@@ -56,7 +56,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { -- | The maximum number of versions to return.
+  { -- | The maximum number of versions to return. Note that
+    -- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+    -- even if you set the number higher.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
@@ -86,7 +88,9 @@ data ListVersionsByFunction = ListVersionsByFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listVersionsByFunction_maxItems' - The maximum number of versions to return.
+-- 'maxItems', 'listVersionsByFunction_maxItems' - The maximum number of versions to return. Note that
+-- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+-- even if you set the number higher.
 --
 -- 'marker', 'listVersionsByFunction_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
@@ -115,7 +119,9 @@ newListVersionsByFunction pFunctionName_ =
       functionName = pFunctionName_
     }
 
--- | The maximum number of versions to return.
+-- | The maximum number of versions to return. Note that
+-- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+-- even if you set the number higher.
 listVersionsByFunction_maxItems :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Natural)
 listVersionsByFunction_maxItems = Lens.lens (\ListVersionsByFunction' {maxItems} -> maxItems) (\s@ListVersionsByFunction' {} a -> s {maxItems = a} :: ListVersionsByFunction)
 

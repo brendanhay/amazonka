@@ -23,6 +23,7 @@ module Network.AWS.Lambda.Types.SourceAccessType
         SourceAccessType_BASIC_AUTH,
         SourceAccessType_SASL_SCRAM_256_AUTH,
         SourceAccessType_SASL_SCRAM_512_AUTH,
+        SourceAccessType_VIRTUAL_HOST,
         SourceAccessType_VPC_SECURITY_GROUP,
         SourceAccessType_VPC_SUBNET
       ),
@@ -69,6 +70,9 @@ pattern SourceAccessType_SASL_SCRAM_256_AUTH = SourceAccessType' "SASL_SCRAM_256
 pattern SourceAccessType_SASL_SCRAM_512_AUTH :: SourceAccessType
 pattern SourceAccessType_SASL_SCRAM_512_AUTH = SourceAccessType' "SASL_SCRAM_512_AUTH"
 
+pattern SourceAccessType_VIRTUAL_HOST :: SourceAccessType
+pattern SourceAccessType_VIRTUAL_HOST = SourceAccessType' "VIRTUAL_HOST"
+
 pattern SourceAccessType_VPC_SECURITY_GROUP :: SourceAccessType
 pattern SourceAccessType_VPC_SECURITY_GROUP = SourceAccessType' "VPC_SECURITY_GROUP"
 
@@ -79,6 +83,7 @@ pattern SourceAccessType_VPC_SUBNET = SourceAccessType' "VPC_SUBNET"
   SourceAccessType_BASIC_AUTH,
   SourceAccessType_SASL_SCRAM_256_AUTH,
   SourceAccessType_SASL_SCRAM_512_AUTH,
+  SourceAccessType_VIRTUAL_HOST,
   SourceAccessType_VPC_SECURITY_GROUP,
   SourceAccessType_VPC_SUBNET,
   SourceAccessType'

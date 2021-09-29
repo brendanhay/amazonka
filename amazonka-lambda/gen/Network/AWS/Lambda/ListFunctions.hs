@@ -24,8 +24,12 @@
 -- configuration of each. Lambda returns up to 50 functions per call.
 --
 -- Set @FunctionVersion@ to @ALL@ to include all published versions of each
--- function in addition to the unpublished version. To get more information
--- about a function or version, use GetFunction.
+-- function in addition to the unpublished version.
+--
+-- The @ListFunctions@ action returns a subset of the FunctionConfiguration
+-- fields. To get the additional fields (State, StateReasonCode,
+-- StateReason, LastUpdateStatus, LastUpdateStatusReason,
+-- LastUpdateStatusReasonCode) for a function or version, use GetFunction.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
@@ -59,15 +63,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { -- | For Lambda\@Edge functions, the AWS Region of the master function. For
-    -- example, @us-east-1@ filters the list of functions to only include
-    -- Lambda\@Edge functions replicated from a master function in US East (N.
-    -- Virginia). If specified, you must set @FunctionVersion@ to @ALL@.
+  { -- | For Lambda\@Edge functions, the Amazon Web Services Region of the master
+    -- function. For example, @us-east-1@ filters the list of functions to only
+    -- include Lambda\@Edge functions replicated from a master function in US
+    -- East (N. Virginia). If specified, you must set @FunctionVersion@ to
+    -- @ALL@.
     masterRegion :: Prelude.Maybe Prelude.Text,
     -- | Set to @ALL@ to include entries for all published versions of each
     -- function.
     functionVersion :: Prelude.Maybe FunctionVersion,
-    -- | The maximum number of functions to return.
+    -- | The maximum number of functions to return in the response. Note that
+    -- @ListFunctions@ returns a maximum of 50 items in each response, even if
+    -- you set the number higher.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
@@ -83,15 +90,18 @@ data ListFunctions = ListFunctions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'masterRegion', 'listFunctions_masterRegion' - For Lambda\@Edge functions, the AWS Region of the master function. For
--- example, @us-east-1@ filters the list of functions to only include
--- Lambda\@Edge functions replicated from a master function in US East (N.
--- Virginia). If specified, you must set @FunctionVersion@ to @ALL@.
+-- 'masterRegion', 'listFunctions_masterRegion' - For Lambda\@Edge functions, the Amazon Web Services Region of the master
+-- function. For example, @us-east-1@ filters the list of functions to only
+-- include Lambda\@Edge functions replicated from a master function in US
+-- East (N. Virginia). If specified, you must set @FunctionVersion@ to
+-- @ALL@.
 --
 -- 'functionVersion', 'listFunctions_functionVersion' - Set to @ALL@ to include entries for all published versions of each
 -- function.
 --
--- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions to return.
+-- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions to return in the response. Note that
+-- @ListFunctions@ returns a maximum of 50 items in each response, even if
+-- you set the number higher.
 --
 -- 'marker', 'listFunctions_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
@@ -105,10 +115,11 @@ newListFunctions =
       marker = Prelude.Nothing
     }
 
--- | For Lambda\@Edge functions, the AWS Region of the master function. For
--- example, @us-east-1@ filters the list of functions to only include
--- Lambda\@Edge functions replicated from a master function in US East (N.
--- Virginia). If specified, you must set @FunctionVersion@ to @ALL@.
+-- | For Lambda\@Edge functions, the Amazon Web Services Region of the master
+-- function. For example, @us-east-1@ filters the list of functions to only
+-- include Lambda\@Edge functions replicated from a master function in US
+-- East (N. Virginia). If specified, you must set @FunctionVersion@ to
+-- @ALL@.
 listFunctions_masterRegion :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_masterRegion = Lens.lens (\ListFunctions' {masterRegion} -> masterRegion) (\s@ListFunctions' {} a -> s {masterRegion = a} :: ListFunctions)
 
@@ -117,7 +128,9 @@ listFunctions_masterRegion = Lens.lens (\ListFunctions' {masterRegion} -> master
 listFunctions_functionVersion :: Lens.Lens' ListFunctions (Prelude.Maybe FunctionVersion)
 listFunctions_functionVersion = Lens.lens (\ListFunctions' {functionVersion} -> functionVersion) (\s@ListFunctions' {} a -> s {functionVersion = a} :: ListFunctions)
 
--- | The maximum number of functions to return.
+-- | The maximum number of functions to return in the response. Note that
+-- @ListFunctions@ returns a maximum of 50 items in each response, even if
+-- you set the number higher.
 listFunctions_maxItems :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
 listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@ListFunctions' {} a -> s {maxItems = a} :: ListFunctions)
 

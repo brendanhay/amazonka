@@ -42,6 +42,7 @@ module Network.AWS.Lambda.Types.Runtime
         Runtime_Python3_6,
         Runtime_Python3_7,
         Runtime_Python3_8,
+        Runtime_Python3_9,
         Runtime_Ruby2_5,
         Runtime_Ruby2_7
       ),
@@ -142,6 +143,9 @@ pattern Runtime_Python3_7 = Runtime' "python3.7"
 pattern Runtime_Python3_8 :: Runtime
 pattern Runtime_Python3_8 = Runtime' "python3.8"
 
+pattern Runtime_Python3_9 :: Runtime
+pattern Runtime_Python3_9 = Runtime' "python3.9"
+
 pattern Runtime_Ruby2_5 :: Runtime
 pattern Runtime_Ruby2_5 = Runtime' "ruby2.5"
 
@@ -171,6 +175,7 @@ pattern Runtime_Ruby2_7 = Runtime' "ruby2.7"
   Runtime_Python3_6,
   Runtime_Python3_7,
   Runtime_Python3_8,
+  Runtime_Python3_9,
   Runtime_Ruby2_5,
   Runtime_Ruby2_7,
   Runtime'

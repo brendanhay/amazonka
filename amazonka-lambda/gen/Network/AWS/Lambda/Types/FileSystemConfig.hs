@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Details about the connection between a Lambda function and an Amazon EFS
--- file system.
+-- | Details about the connection between a Lambda function and an
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html Amazon EFS file system>.
 --
 -- /See:/ 'newFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'

@@ -31,7 +31,7 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
   { -- | Specifies whether the AWS resource was ignored by Trusted Advisor
     -- because it was marked as suppressed by the user.
     isSuppressed :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS region in which the identified resource is located.
+    -- | The AWS Region in which the identified resource is located.
     region :: Prelude.Maybe Prelude.Text,
     -- | The status code for the resource identified in the Trusted Advisor
     -- check.
@@ -59,7 +59,7 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
 -- 'isSuppressed', 'trustedAdvisorResourceDetail_isSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor
 -- because it was marked as suppressed by the user.
 --
--- 'region', 'trustedAdvisorResourceDetail_region' - The AWS region in which the identified resource is located.
+-- 'region', 'trustedAdvisorResourceDetail_region' - The AWS Region in which the identified resource is located.
 --
 -- 'status', 'trustedAdvisorResourceDetail_status' - The status code for the resource identified in the Trusted Advisor
 -- check.
@@ -93,7 +93,7 @@ newTrustedAdvisorResourceDetail pStatus_ pResourceId_ =
 trustedAdvisorResourceDetail_isSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Prelude.Maybe Prelude.Bool)
 trustedAdvisorResourceDetail_isSuppressed = Lens.lens (\TrustedAdvisorResourceDetail' {isSuppressed} -> isSuppressed) (\s@TrustedAdvisorResourceDetail' {} a -> s {isSuppressed = a} :: TrustedAdvisorResourceDetail)
 
--- | The AWS region in which the identified resource is located.
+-- | The AWS Region in which the identified resource is located.
 trustedAdvisorResourceDetail_region :: Lens.Lens' TrustedAdvisorResourceDetail (Prelude.Maybe Prelude.Text)
 trustedAdvisorResourceDetail_region = Lens.lens (\TrustedAdvisorResourceDetail' {region} -> region) (\s@TrustedAdvisorResourceDetail' {} a -> s {region = a} :: TrustedAdvisorResourceDetail)
 

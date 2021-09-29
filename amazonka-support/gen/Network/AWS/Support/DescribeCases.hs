@@ -38,11 +38,11 @@
 -- Case data is available for 12 months after creation. If a case was
 -- created more than 12 months ago, a request might return an error.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -54,8 +54,8 @@ module Network.AWS.Support.DescribeCases
     newDescribeCases,
 
     -- * Request Lenses
-    describeCases_displayId,
     describeCases_includeCommunications,
+    describeCases_displayId,
     describeCases_nextToken,
     describeCases_maxResults,
     describeCases_caseIdList,
@@ -84,11 +84,11 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'newDescribeCases' smart constructor.
 data DescribeCases = DescribeCases'
-  { -- | The ID displayed for a case in the AWS Support Center user interface.
-    displayId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to include communications in the @DescribeCases@
-    -- response. By default, communications are incuded.
+  { -- | Specifies whether to include communications in the @DescribeCases@
+    -- response. By default, communications are included.
     includeCommunications :: Prelude.Maybe Prelude.Bool,
+    -- | The ID displayed for a case in the AWS Support Center user interface.
+    displayId :: Prelude.Maybe Prelude.Text,
     -- | A resumption point for pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return before paginating.
@@ -122,10 +122,10 @@ data DescribeCases = DescribeCases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'displayId', 'describeCases_displayId' - The ID displayed for a case in the AWS Support Center user interface.
---
 -- 'includeCommunications', 'describeCases_includeCommunications' - Specifies whether to include communications in the @DescribeCases@
--- response. By default, communications are incuded.
+-- response. By default, communications are included.
+--
+-- 'displayId', 'describeCases_displayId' - The ID displayed for a case in the AWS Support Center user interface.
 --
 -- 'nextToken', 'describeCases_nextToken' - A resumption point for pagination.
 --
@@ -152,8 +152,9 @@ newDescribeCases ::
   DescribeCases
 newDescribeCases =
   DescribeCases'
-    { displayId = Prelude.Nothing,
-      includeCommunications = Prelude.Nothing,
+    { includeCommunications =
+        Prelude.Nothing,
+      displayId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       caseIdList = Prelude.Nothing,
@@ -163,14 +164,14 @@ newDescribeCases =
       language = Prelude.Nothing
     }
 
+-- | Specifies whether to include communications in the @DescribeCases@
+-- response. By default, communications are included.
+describeCases_includeCommunications :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Bool)
+describeCases_includeCommunications = Lens.lens (\DescribeCases' {includeCommunications} -> includeCommunications) (\s@DescribeCases' {} a -> s {includeCommunications = a} :: DescribeCases)
+
 -- | The ID displayed for a case in the AWS Support Center user interface.
 describeCases_displayId :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_displayId = Lens.lens (\DescribeCases' {displayId} -> displayId) (\s@DescribeCases' {} a -> s {displayId = a} :: DescribeCases)
-
--- | Specifies whether to include communications in the @DescribeCases@
--- response. By default, communications are incuded.
-describeCases_includeCommunications :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Bool)
-describeCases_includeCommunications = Lens.lens (\DescribeCases' {includeCommunications} -> includeCommunications) (\s@DescribeCases' {} a -> s {includeCommunications = a} :: DescribeCases)
 
 -- | A resumption point for pagination.
 describeCases_nextToken :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
@@ -264,9 +265,9 @@ instance Core.ToJSON DescribeCases where
   toJSON DescribeCases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("displayId" Core..=) Prelude.<$> displayId,
-            ("includeCommunications" Core..=)
+          [ ("includeCommunications" Core..=)
               Prelude.<$> includeCommunications,
+            ("displayId" Core..=) Prelude.<$> displayId,
             ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("caseIdList" Core..=) Prelude.<$> caseIdList,

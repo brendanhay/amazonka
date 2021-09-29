@@ -30,17 +30,17 @@ import Test.Tasty
 --         [ requestDescribeTrustedAdvisorChecks $
 --             newDescribeTrustedAdvisorChecks
 --
---         , requestAddCommunicationToCase $
---             newAddCommunicationToCase
---
 --         , requestDescribeCommunications $
 --             newDescribeCommunications
 --
---         , requestDescribeTrustedAdvisorCheckResult $
---             newDescribeTrustedAdvisorCheckResult
+--         , requestAddCommunicationToCase $
+--             newAddCommunicationToCase
 --
 --         , requestDescribeSeverityLevels $
 --             newDescribeSeverityLevels
+--
+--         , requestDescribeTrustedAdvisorCheckResult $
+--             newDescribeTrustedAdvisorCheckResult
 --
 --         , requestCreateCase $
 --             newCreateCase
@@ -75,17 +75,17 @@ import Test.Tasty
 --         [ responseDescribeTrustedAdvisorChecks $
 --             newDescribeTrustedAdvisorChecksResponse
 --
---         , responseAddCommunicationToCase $
---             newAddCommunicationToCaseResponse
---
 --         , responseDescribeCommunications $
 --             newDescribeCommunicationsResponse
 --
---         , responseDescribeTrustedAdvisorCheckResult $
---             newDescribeTrustedAdvisorCheckResultResponse
+--         , responseAddCommunicationToCase $
+--             newAddCommunicationToCaseResponse
 --
 --         , responseDescribeSeverityLevels $
 --             newDescribeSeverityLevelsResponse
+--
+--         , responseDescribeTrustedAdvisorCheckResult $
+--             newDescribeTrustedAdvisorCheckResultResponse
 --
 --         , responseCreateCase $
 --             newCreateCaseResponse
@@ -125,29 +125,29 @@ requestDescribeTrustedAdvisorChecks =
     "DescribeTrustedAdvisorChecks"
     "fixture/DescribeTrustedAdvisorChecks.yaml"
 
-requestAddCommunicationToCase :: AddCommunicationToCase -> TestTree
-requestAddCommunicationToCase =
-  req
-    "AddCommunicationToCase"
-    "fixture/AddCommunicationToCase.yaml"
-
 requestDescribeCommunications :: DescribeCommunications -> TestTree
 requestDescribeCommunications =
   req
     "DescribeCommunications"
     "fixture/DescribeCommunications.yaml"
 
-requestDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResult -> TestTree
-requestDescribeTrustedAdvisorCheckResult =
+requestAddCommunicationToCase :: AddCommunicationToCase -> TestTree
+requestAddCommunicationToCase =
   req
-    "DescribeTrustedAdvisorCheckResult"
-    "fixture/DescribeTrustedAdvisorCheckResult.yaml"
+    "AddCommunicationToCase"
+    "fixture/AddCommunicationToCase.yaml"
 
 requestDescribeSeverityLevels :: DescribeSeverityLevels -> TestTree
 requestDescribeSeverityLevels =
   req
     "DescribeSeverityLevels"
     "fixture/DescribeSeverityLevels.yaml"
+
+requestDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResult -> TestTree
+requestDescribeTrustedAdvisorCheckResult =
+  req
+    "DescribeTrustedAdvisorCheckResult"
+    "fixture/DescribeTrustedAdvisorCheckResult.yaml"
 
 requestCreateCase :: CreateCase -> TestTree
 requestCreateCase =
@@ -213,14 +213,6 @@ responseDescribeTrustedAdvisorChecks =
     defaultService
     (Proxy :: Proxy DescribeTrustedAdvisorChecks)
 
-responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
-responseAddCommunicationToCase =
-  res
-    "AddCommunicationToCaseResponse"
-    "fixture/AddCommunicationToCaseResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddCommunicationToCase)
-
 responseDescribeCommunications :: DescribeCommunicationsResponse -> TestTree
 responseDescribeCommunications =
   res
@@ -229,13 +221,13 @@ responseDescribeCommunications =
     defaultService
     (Proxy :: Proxy DescribeCommunications)
 
-responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
-responseDescribeTrustedAdvisorCheckResult =
+responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
+responseAddCommunicationToCase =
   res
-    "DescribeTrustedAdvisorCheckResultResponse"
-    "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
+    "AddCommunicationToCaseResponse"
+    "fixture/AddCommunicationToCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
+    (Proxy :: Proxy AddCommunicationToCase)
 
 responseDescribeSeverityLevels :: DescribeSeverityLevelsResponse -> TestTree
 responseDescribeSeverityLevels =
@@ -244,6 +236,14 @@ responseDescribeSeverityLevels =
     "fixture/DescribeSeverityLevelsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeSeverityLevels)
+
+responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
+responseDescribeTrustedAdvisorCheckResult =
+  res
+    "DescribeTrustedAdvisorCheckResultResponse"
+    "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
 
 responseCreateCase :: CreateCaseResponse -> TestTree
 responseCreateCase =

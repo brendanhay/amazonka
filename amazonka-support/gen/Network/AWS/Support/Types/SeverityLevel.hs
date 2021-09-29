@@ -38,20 +38,21 @@ data SeverityLevel = SeverityLevel'
     -- | The name of the severity level that corresponds to the severity level
     -- code.
     --
-    -- The values returned by the API differ from the values that are displayed
-    -- in the AWS Support Center. For example, for the code \"low\", the API
-    -- name is \"Low\", but the name in the Support Center is \"General
-    -- guidance\". These are the Support Center code\/name mappings:
+    -- The values returned by the API are different from the values that appear
+    -- in the AWS Support Center. For example, the API uses the code @low@, but
+    -- the name appears as General guidance in Support Center.
     --
-    -- -   @low@: General guidance
+    -- The following are the API code names and how they appear in the console:
     --
-    -- -   @normal@: System impaired
+    -- -   @low@ - General guidance
     --
-    -- -   @high@: Production system impaired
+    -- -   @normal@ - System impaired
     --
-    -- -   @urgent@: Production system down
+    -- -   @high@ - Production system impaired
     --
-    -- -   @critical@: Business-critical system down
+    -- -   @urgent@ - Production system down
+    --
+    -- -   @critical@ - Business-critical system down
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
@@ -75,20 +76,21 @@ data SeverityLevel = SeverityLevel'
 -- 'name', 'severityLevel_name' - The name of the severity level that corresponds to the severity level
 -- code.
 --
--- The values returned by the API differ from the values that are displayed
--- in the AWS Support Center. For example, for the code \"low\", the API
--- name is \"Low\", but the name in the Support Center is \"General
--- guidance\". These are the Support Center code\/name mappings:
+-- The values returned by the API are different from the values that appear
+-- in the AWS Support Center. For example, the API uses the code @low@, but
+-- the name appears as General guidance in Support Center.
 --
--- -   @low@: General guidance
+-- The following are the API code names and how they appear in the console:
 --
--- -   @normal@: System impaired
+-- -   @low@ - General guidance
 --
--- -   @high@: Production system impaired
+-- -   @normal@ - System impaired
 --
--- -   @urgent@: Production system down
+-- -   @high@ - Production system impaired
 --
--- -   @critical@: Business-critical system down
+-- -   @urgent@ - Production system down
+--
+-- -   @critical@ - Business-critical system down
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
@@ -110,20 +112,21 @@ severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLeve
 -- | The name of the severity level that corresponds to the severity level
 -- code.
 --
--- The values returned by the API differ from the values that are displayed
--- in the AWS Support Center. For example, for the code \"low\", the API
--- name is \"Low\", but the name in the Support Center is \"General
--- guidance\". These are the Support Center code\/name mappings:
+-- The values returned by the API are different from the values that appear
+-- in the AWS Support Center. For example, the API uses the code @low@, but
+-- the name appears as General guidance in Support Center.
 --
--- -   @low@: General guidance
+-- The following are the API code names and how they appear in the console:
 --
--- -   @normal@: System impaired
+-- -   @low@ - General guidance
 --
--- -   @high@: Production system impaired
+-- -   @normal@ - System impaired
 --
--- -   @urgent@: Production system down
+-- -   @high@ - Production system impaired
 --
--- -   @critical@: Business-critical system down
+-- -   @urgent@ - Production system down
+--
+-- -   @critical@ - Business-critical system down
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>

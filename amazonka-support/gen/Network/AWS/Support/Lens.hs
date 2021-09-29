@@ -19,14 +19,6 @@ module Network.AWS.Support.Lens
     describeTrustedAdvisorChecksResponse_httpStatus,
     describeTrustedAdvisorChecksResponse_checks,
 
-    -- ** AddCommunicationToCase
-    addCommunicationToCase_caseId,
-    addCommunicationToCase_ccEmailAddresses,
-    addCommunicationToCase_attachmentSetId,
-    addCommunicationToCase_communicationBody,
-    addCommunicationToCaseResponse_result,
-    addCommunicationToCaseResponse_httpStatus,
-
     -- ** DescribeCommunications
     describeCommunications_nextToken,
     describeCommunications_maxResults,
@@ -37,16 +29,24 @@ module Network.AWS.Support.Lens
     describeCommunicationsResponse_communications,
     describeCommunicationsResponse_httpStatus,
 
-    -- ** DescribeTrustedAdvisorCheckResult
-    describeTrustedAdvisorCheckResult_language,
-    describeTrustedAdvisorCheckResult_checkId,
-    describeTrustedAdvisorCheckResultResponse_result,
-    describeTrustedAdvisorCheckResultResponse_httpStatus,
+    -- ** AddCommunicationToCase
+    addCommunicationToCase_caseId,
+    addCommunicationToCase_ccEmailAddresses,
+    addCommunicationToCase_attachmentSetId,
+    addCommunicationToCase_communicationBody,
+    addCommunicationToCaseResponse_result,
+    addCommunicationToCaseResponse_httpStatus,
 
     -- ** DescribeSeverityLevels
     describeSeverityLevels_language,
     describeSeverityLevelsResponse_severityLevels,
     describeSeverityLevelsResponse_httpStatus,
+
+    -- ** DescribeTrustedAdvisorCheckResult
+    describeTrustedAdvisorCheckResult_language,
+    describeTrustedAdvisorCheckResult_checkId,
+    describeTrustedAdvisorCheckResultResponse_result,
+    describeTrustedAdvisorCheckResultResponse_httpStatus,
 
     -- ** CreateCase
     createCase_serviceCode,
@@ -101,8 +101,8 @@ module Network.AWS.Support.Lens
     describeTrustedAdvisorCheckRefreshStatusesResponse_statuses,
 
     -- ** DescribeCases
-    describeCases_displayId,
     describeCases_includeCommunications,
+    describeCases_displayId,
     describeCases_nextToken,
     describeCases_maxResults,
     describeCases_caseIdList,

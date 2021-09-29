@@ -21,8 +21,8 @@ module Network.AWS.Support.Types
     _CaseCreationLimitExceeded,
     _AttachmentSetSizeLimitExceeded,
     _AttachmentSetIdNotFound,
-    _InternalServerError,
     _CaseIdNotFound,
+    _InternalServerError,
     _AttachmentIdNotFound,
     _AttachmentLimitExceeded,
     _DescribeAttachmentLimitExceeded,
@@ -276,19 +276,19 @@ _AttachmentSetIdNotFound =
     defaultService
     "AttachmentSetIdNotFound"
 
+-- | The requested @caseId@ couldn\'t be located.
+_CaseIdNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CaseIdNotFound =
+  Core._MatchServiceError
+    defaultService
+    "CaseIdNotFound"
+
 -- | An internal server error occurred.
 _InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
-
--- | The requested @caseId@ could not be located.
-_CaseIdNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CaseIdNotFound =
-  Core._MatchServiceError
-    defaultService
-    "CaseIdNotFound"
 
 -- | An attachment with the specified ID could not be found.
 _AttachmentIdNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -26,11 +26,11 @@
 -- using the @ccEmailAddresses@ parameter. The @communicationBody@ value
 -- contains the text of the communication.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -64,8 +64,8 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'newAddCommunicationToCase' smart constructor.
 data AddCommunicationToCase = AddCommunicationToCase'
-  { -- | The AWS Support case ID requested or returned in the call. The case ID
-    -- is an alphanumeric string formatted as shown in this example:
+  { -- | The support case ID requested or returned in the call. The case ID is an
+    -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
     -- | The email addresses in the CC line of an email to be added to the
@@ -87,8 +87,8 @@ data AddCommunicationToCase = AddCommunicationToCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'caseId', 'addCommunicationToCase_caseId' - The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- 'caseId', 'addCommunicationToCase_caseId' - The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- 'ccEmailAddresses', 'addCommunicationToCase_ccEmailAddresses' - The email addresses in the CC line of an email to be added to the
@@ -110,8 +110,8 @@ newAddCommunicationToCase pCommunicationBody_ =
       communicationBody = pCommunicationBody_
     }
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- | The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 addCommunicationToCase_caseId :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe Prelude.Text)
 addCommunicationToCase_caseId = Lens.lens (\AddCommunicationToCase' {caseId} -> caseId) (\s@AddCommunicationToCase' {} a -> s {caseId = a} :: AddCommunicationToCase)

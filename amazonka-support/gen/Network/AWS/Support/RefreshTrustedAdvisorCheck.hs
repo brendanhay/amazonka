@@ -30,11 +30,11 @@
 --
 -- The response contains a TrustedAdvisorCheckRefreshStatus object.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -68,8 +68,9 @@ import Network.AWS.Support.Types
 -- /See:/ 'newRefreshTrustedAdvisorCheck' smart constructor.
 data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
   { -- | The unique identifier for the Trusted Advisor check to refresh.
-    -- __Note:__ Specifying the check ID of a check that is automatically
-    -- refreshed causes an @InvalidParameterValue@ error.
+    --
+    -- Specifying the check ID of a check that is automatically refreshed
+    -- causes an @InvalidParameterValue@ error.
     checkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,8 +84,9 @@ data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
 -- for backwards compatibility:
 --
 -- 'checkId', 'refreshTrustedAdvisorCheck_checkId' - The unique identifier for the Trusted Advisor check to refresh.
--- __Note:__ Specifying the check ID of a check that is automatically
--- refreshed causes an @InvalidParameterValue@ error.
+--
+-- Specifying the check ID of a check that is automatically refreshed
+-- causes an @InvalidParameterValue@ error.
 newRefreshTrustedAdvisorCheck ::
   -- | 'checkId'
   Prelude.Text ->
@@ -93,8 +95,9 @@ newRefreshTrustedAdvisorCheck pCheckId_ =
   RefreshTrustedAdvisorCheck' {checkId = pCheckId_}
 
 -- | The unique identifier for the Trusted Advisor check to refresh.
--- __Note:__ Specifying the check ID of a check that is automatically
--- refreshed causes an @InvalidParameterValue@ error.
+--
+-- Specifying the check ID of a check that is automatically refreshed
+-- causes an @InvalidParameterValue@ error.
 refreshTrustedAdvisorCheck_checkId :: Lens.Lens' RefreshTrustedAdvisorCheck Prelude.Text
 refreshTrustedAdvisorCheck_checkId = Lens.lens (\RefreshTrustedAdvisorCheck' {checkId} -> checkId) (\s@RefreshTrustedAdvisorCheck' {} a -> s {checkId = a} :: RefreshTrustedAdvisorCheck)
 

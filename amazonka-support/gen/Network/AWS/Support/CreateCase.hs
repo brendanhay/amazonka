@@ -46,11 +46,11 @@
 -- <https://console.aws.amazon.com/support AWS Support Center>. Use the
 -- DescribeCases operation to get the @displayId@.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -92,7 +92,7 @@ data CreateCase = CreateCase'
   { -- | The code for the AWS service. You can use the DescribeServices operation
     -- to get the possible @serviceCode@ values.
     serviceCode :: Prelude.Maybe Prelude.Text,
-    -- | The category of problem for the AWS Support case. You also use the
+    -- | The category of problem for the support case. You also use the
     -- DescribeServices operation to get the category code for a service. Each
     -- AWS service defines its own set of category codes.
     categoryCode :: Prelude.Maybe Prelude.Text,
@@ -124,7 +124,7 @@ data CreateCase = CreateCase'
     -- language. Currently, English (\"en\") and Japanese (\"ja\") are
     -- supported.
     language :: Prelude.Maybe Prelude.Text,
-    -- | The title of the AWS Support case. The title appears in the __Subject__
+    -- | The title of the support case. The title appears in the __Subject__
     -- field on the AWS Support Center
     -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
     -- page.
@@ -148,7 +148,7 @@ data CreateCase = CreateCase'
 -- 'serviceCode', 'createCase_serviceCode' - The code for the AWS service. You can use the DescribeServices operation
 -- to get the possible @serviceCode@ values.
 --
--- 'categoryCode', 'createCase_categoryCode' - The category of problem for the AWS Support case. You also use the
+-- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the
 -- DescribeServices operation to get the category code for a service. Each
 -- AWS service defines its own set of category codes.
 --
@@ -180,7 +180,7 @@ data CreateCase = CreateCase'
 -- language. Currently, English (\"en\") and Japanese (\"ja\") are
 -- supported.
 --
--- 'subject', 'createCase_subject' - The title of the AWS Support case. The title appears in the __Subject__
+-- 'subject', 'createCase_subject' - The title of the support case. The title appears in the __Subject__
 -- field on the AWS Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page.
@@ -213,7 +213,7 @@ newCreateCase pSubject_ pCommunicationBody_ =
 createCase_serviceCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_serviceCode = Lens.lens (\CreateCase' {serviceCode} -> serviceCode) (\s@CreateCase' {} a -> s {serviceCode = a} :: CreateCase)
 
--- | The category of problem for the AWS Support case. You also use the
+-- | The category of problem for the support case. You also use the
 -- DescribeServices operation to get the category code for a service. Each
 -- AWS service defines its own set of category codes.
 createCase_categoryCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
@@ -257,7 +257,7 @@ createCase_severityCode = Lens.lens (\CreateCase' {severityCode} -> severityCode
 createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
 
--- | The title of the AWS Support case. The title appears in the __Subject__
+-- | The title of the support case. The title appears in the __Subject__
 -- field on the AWS Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page.
@@ -326,13 +326,13 @@ instance Core.ToPath CreateCase where
 instance Core.ToQuery CreateCase where
   toQuery = Prelude.const Prelude.mempty
 
--- | The AWS Support case ID returned by a successful completion of the
+-- | The support case ID returned by a successful completion of the
 -- CreateCase operation.
 --
 -- /See:/ 'newCreateCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
-  { -- | The AWS Support case ID requested or returned in the call. The case ID
-    -- is an alphanumeric string in the following format:
+  { -- | The support case ID requested or returned in the call. The case ID is an
+    -- alphanumeric string in the following format:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -348,8 +348,8 @@ data CreateCaseResponse = CreateCaseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'caseId', 'createCaseResponse_caseId' - The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string in the following format:
+-- 'caseId', 'createCaseResponse_caseId' - The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string in the following format:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- 'httpStatus', 'createCaseResponse_httpStatus' - The response's http status code.
@@ -363,8 +363,8 @@ newCreateCaseResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string in the following format:
+-- | The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string in the following format:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 createCaseResponse_caseId :: Lens.Lens' CreateCaseResponse (Prelude.Maybe Prelude.Text)
 createCaseResponse_caseId = Lens.lens (\CreateCaseResponse' {caseId} -> caseId) (\s@CreateCaseResponse' {} a -> s {caseId = a} :: CreateCaseResponse)

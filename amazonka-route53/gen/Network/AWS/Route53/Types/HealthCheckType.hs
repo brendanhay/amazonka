@@ -26,6 +26,7 @@ module Network.AWS.Route53.Types.HealthCheckType
         HealthCheckType_HTTPS,
         HealthCheckType_HTTPS_STR_MATCH,
         HealthCheckType_HTTP_STR_MATCH,
+        HealthCheckType_RECOVERY_CONTROL,
         HealthCheckType_TCP
       ),
   )
@@ -81,6 +82,9 @@ pattern HealthCheckType_HTTPS_STR_MATCH = HealthCheckType' "HTTPS_STR_MATCH"
 pattern HealthCheckType_HTTP_STR_MATCH :: HealthCheckType
 pattern HealthCheckType_HTTP_STR_MATCH = HealthCheckType' "HTTP_STR_MATCH"
 
+pattern HealthCheckType_RECOVERY_CONTROL :: HealthCheckType
+pattern HealthCheckType_RECOVERY_CONTROL = HealthCheckType' "RECOVERY_CONTROL"
+
 pattern HealthCheckType_TCP :: HealthCheckType
 pattern HealthCheckType_TCP = HealthCheckType' "TCP"
 
@@ -91,6 +95,7 @@ pattern HealthCheckType_TCP = HealthCheckType' "TCP"
   HealthCheckType_HTTPS,
   HealthCheckType_HTTPS_STR_MATCH,
   HealthCheckType_HTTP_STR_MATCH,
+  HealthCheckType_RECOVERY_CONTROL,
   HealthCheckType_TCP,
   HealthCheckType'
   #-}

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a list of the health checks that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListHealthChecks
@@ -55,7 +55,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request to retrieve a list of the health checks that are associated
--- with the current AWS account.
+-- with the current Amazon Web Services account.
 --
 -- /See:/ 'newListHealthChecks' smart constructor.
 data ListHealthChecks = ListHealthChecks'
@@ -197,7 +197,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains one @HealthCheck@ element for each health
-    -- check that is associated with the current AWS account.
+    -- check that is associated with the current Amazon Web Services account.
     healthChecks :: [HealthCheck],
     -- | For the second and subsequent calls to @ListHealthChecks@, @Marker@ is
     -- the value that you specified for the @marker@ parameter in the previous
@@ -230,7 +230,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
 -- 'httpStatus', 'listHealthChecksResponse_httpStatus' - The response's http status code.
 --
 -- 'healthChecks', 'listHealthChecksResponse_healthChecks' - A complex type that contains one @HealthCheck@ element for each health
--- check that is associated with the current AWS account.
+-- check that is associated with the current Amazon Web Services account.
 --
 -- 'marker', 'listHealthChecksResponse_marker' - For the second and subsequent calls to @ListHealthChecks@, @Marker@ is
 -- the value that you specified for the @marker@ parameter in the previous
@@ -280,7 +280,7 @@ listHealthChecksResponse_httpStatus :: Lens.Lens' ListHealthChecksResponse Prelu
 listHealthChecksResponse_httpStatus = Lens.lens (\ListHealthChecksResponse' {httpStatus} -> httpStatus) (\s@ListHealthChecksResponse' {} a -> s {httpStatus = a} :: ListHealthChecksResponse)
 
 -- | A complex type that contains one @HealthCheck@ element for each health
--- check that is associated with the current AWS account.
+-- check that is associated with the current Amazon Web Services account.
 listHealthChecksResponse_healthChecks :: Lens.Lens' ListHealthChecksResponse [HealthCheck]
 listHealthChecksResponse_healthChecks = Lens.lens (\ListHealthChecksResponse' {healthChecks} -> healthChecks) (\s@ListHealthChecksResponse' {} a -> s {healthChecks = a} :: ListHealthChecksResponse) Prelude.. Lens._Coerce
 

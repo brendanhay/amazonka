@@ -33,19 +33,19 @@ module Network.AWS.Route53.UpdateHealthCheck
 
     -- * Request Lenses
     updateHealthCheck_failureThreshold,
-    updateHealthCheck_searchString,
     updateHealthCheck_childHealthChecks,
+    updateHealthCheck_searchString,
     updateHealthCheck_disabled,
     updateHealthCheck_alarmIdentifier,
     updateHealthCheck_enableSNI,
     updateHealthCheck_insufficientDataHealthStatus,
-    updateHealthCheck_iPAddress,
     updateHealthCheck_resourcePath,
+    updateHealthCheck_iPAddress,
     updateHealthCheck_port,
-    updateHealthCheck_healthThreshold,
     updateHealthCheck_regions,
-    updateHealthCheck_fullyQualifiedDomainName,
     updateHealthCheck_inverted,
+    updateHealthCheck_fullyQualifiedDomainName,
+    updateHealthCheck_healthThreshold,
     updateHealthCheck_healthCheckVersion,
     updateHealthCheck_resetElements,
     updateHealthCheck_healthCheckId,
@@ -81,16 +81,16 @@ data UpdateHealthCheck = UpdateHealthCheck'
     -- If you don\'t specify a value for @FailureThreshold@, the default value
     -- is three health checks.
     failureThreshold :: Prelude.Maybe Prelude.Natural,
+    -- | A complex type that contains one @ChildHealthCheck@ element for each
+    -- health check that you want to associate with a @CALCULATED@ health
+    -- check.
+    childHealthChecks :: Prelude.Maybe [Prelude.Text],
     -- | If the value of @Type@ is @HTTP_STR_MATCH@ or @HTTPS_STR_MATCH@, the
     -- string that you want Amazon Route 53 to search for in the response body
     -- from the specified resource. If the string appears in the response body,
     -- Route 53 considers the resource healthy. (You can\'t change the value of
     -- @Type@ when you update a health check.)
     searchString :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains one @ChildHealthCheck@ element for each
-    -- health check that you want to associate with a @CALCULATED@ health
-    -- check.
-    childHealthChecks :: Prelude.Maybe [Prelude.Text],
     -- | Stops Route 53 from performing health checks. When you disable a health
     -- check, here\'s what happens:
     --
@@ -153,6 +153,14 @@ data UpdateHealthCheck = UpdateHealthCheck'
     --     state. For new health checks that have no last known status, the
     --     default status for the health check is healthy.
     insufficientDataHealthStatus :: Prelude.Maybe InsufficientDataHealthStatus,
+    -- | The path that you want Amazon Route 53 to request when performing health
+    -- checks. The path can be any value for which your endpoint will return an
+    -- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
+    -- the file \/docs\/route53-health-check.html. You can also include query
+    -- string parameters, for example, @\/welcome.html?language=jp&login=y@.
+    --
+    -- Specify this value only if you want to change it.
+    resourcePath :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route
     -- 53 to perform health checks on. If you don\'t specify a value for
     -- @IPAddress@, Route 53 sends a DNS request to resolve the domain name
@@ -203,38 +211,20 @@ data UpdateHealthCheck = UpdateHealthCheck'
     --
     -- -   <https://tools.ietf.org/html/rfc5156 RFC 5156, Special-Use IPv6 Addresses>
     iPAddress :: Prelude.Maybe Prelude.Text,
-    -- | The path that you want Amazon Route 53 to request when performing health
-    -- checks. The path can be any value for which your endpoint will return an
-    -- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
-    -- the file \/docs\/route53-health-check.html. You can also include query
-    -- string parameters, for example, @\/welcome.html?language=jp&login=y@.
-    --
-    -- Specify this value only if you want to change it.
-    resourcePath :: Prelude.Maybe Prelude.Text,
     -- | The port on the endpoint that you want Amazon Route 53 to perform health
     -- checks on.
     --
     -- Don\'t specify a value for @Port@ when you specify a value for @Type@ of
     -- @CLOUDWATCH_METRIC@ or @CALCULATED@.
     port :: Prelude.Maybe Prelude.Natural,
-    -- | The number of child health checks that are associated with a
-    -- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
-    -- @CALCULATED@ health check to be considered healthy. To specify the child
-    -- health checks that you want to associate with a @CALCULATED@ health
-    -- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
-    --
-    -- Note the following:
-    --
-    -- -   If you specify a number greater than the number of child health
-    --     checks, Route 53 always considers this health check to be unhealthy.
-    --
-    -- -   If you specify @0@, Route 53 always considers this health check to
-    --     be healthy.
-    healthThreshold :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains one @Region@ element for each region that
     -- you want Amazon Route 53 health checkers to check the specified endpoint
     -- from.
     regions :: Prelude.Maybe (Prelude.NonEmpty HealthCheckRegion),
+    -- | Specify whether you want Amazon Route 53 to invert the status of a
+    -- health check, for example, to consider a health check unhealthy when it
+    -- otherwise would be considered healthy.
+    inverted :: Prelude.Maybe Prelude.Bool,
     -- | Amazon Route 53 behavior depends on whether you specify a value for
     -- @IPAddress@.
     --
@@ -303,10 +293,20 @@ data UpdateHealthCheck = UpdateHealthCheck'
     -- specify a value for @IPAddress@. If the value of @Type@ is @TCP@, Route
     -- 53 doesn\'t pass a @Host@ header.
     fullyQualifiedDomainName :: Prelude.Maybe Prelude.Text,
-    -- | Specify whether you want Amazon Route 53 to invert the status of a
-    -- health check, for example, to consider a health check unhealthy when it
-    -- otherwise would be considered healthy.
-    inverted :: Prelude.Maybe Prelude.Bool,
+    -- | The number of child health checks that are associated with a
+    -- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
+    -- @CALCULATED@ health check to be considered healthy. To specify the child
+    -- health checks that you want to associate with a @CALCULATED@ health
+    -- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
+    --
+    -- Note the following:
+    --
+    -- -   If you specify a number greater than the number of child health
+    --     checks, Route 53 always considers this health check to be unhealthy.
+    --
+    -- -   If you specify @0@, Route 53 always considers this health check to
+    --     be healthy.
+    healthThreshold :: Prelude.Maybe Prelude.Natural,
     -- | A sequential counter that Amazon Route 53 sets to @1@ when you create a
     -- health check and increments by 1 each time you update settings for the
     -- health check.
@@ -370,15 +370,15 @@ data UpdateHealthCheck = UpdateHealthCheck'
 -- If you don\'t specify a value for @FailureThreshold@, the default value
 -- is three health checks.
 --
+-- 'childHealthChecks', 'updateHealthCheck_childHealthChecks' - A complex type that contains one @ChildHealthCheck@ element for each
+-- health check that you want to associate with a @CALCULATED@ health
+-- check.
+--
 -- 'searchString', 'updateHealthCheck_searchString' - If the value of @Type@ is @HTTP_STR_MATCH@ or @HTTPS_STR_MATCH@, the
 -- string that you want Amazon Route 53 to search for in the response body
 -- from the specified resource. If the string appears in the response body,
 -- Route 53 considers the resource healthy. (You can\'t change the value of
 -- @Type@ when you update a health check.)
---
--- 'childHealthChecks', 'updateHealthCheck_childHealthChecks' - A complex type that contains one @ChildHealthCheck@ element for each
--- health check that you want to associate with a @CALCULATED@ health
--- check.
 --
 -- 'disabled', 'updateHealthCheck_disabled' - Stops Route 53 from performing health checks. When you disable a health
 -- check, here\'s what happens:
@@ -442,6 +442,14 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --     state. For new health checks that have no last known status, the
 --     default status for the health check is healthy.
 --
+-- 'resourcePath', 'updateHealthCheck_resourcePath' - The path that you want Amazon Route 53 to request when performing health
+-- checks. The path can be any value for which your endpoint will return an
+-- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
+-- the file \/docs\/route53-health-check.html. You can also include query
+-- string parameters, for example, @\/welcome.html?language=jp&login=y@.
+--
+-- Specify this value only if you want to change it.
+--
 -- 'iPAddress', 'updateHealthCheck_iPAddress' - The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route
 -- 53 to perform health checks on. If you don\'t specify a value for
 -- @IPAddress@, Route 53 sends a DNS request to resolve the domain name
@@ -492,37 +500,19 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --
 -- -   <https://tools.ietf.org/html/rfc5156 RFC 5156, Special-Use IPv6 Addresses>
 --
--- 'resourcePath', 'updateHealthCheck_resourcePath' - The path that you want Amazon Route 53 to request when performing health
--- checks. The path can be any value for which your endpoint will return an
--- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
--- the file \/docs\/route53-health-check.html. You can also include query
--- string parameters, for example, @\/welcome.html?language=jp&login=y@.
---
--- Specify this value only if you want to change it.
---
 -- 'port', 'updateHealthCheck_port' - The port on the endpoint that you want Amazon Route 53 to perform health
 -- checks on.
 --
 -- Don\'t specify a value for @Port@ when you specify a value for @Type@ of
 -- @CLOUDWATCH_METRIC@ or @CALCULATED@.
 --
--- 'healthThreshold', 'updateHealthCheck_healthThreshold' - The number of child health checks that are associated with a
--- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
--- @CALCULATED@ health check to be considered healthy. To specify the child
--- health checks that you want to associate with a @CALCULATED@ health
--- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
---
--- Note the following:
---
--- -   If you specify a number greater than the number of child health
---     checks, Route 53 always considers this health check to be unhealthy.
---
--- -   If you specify @0@, Route 53 always considers this health check to
---     be healthy.
---
 -- 'regions', 'updateHealthCheck_regions' - A complex type that contains one @Region@ element for each region that
 -- you want Amazon Route 53 health checkers to check the specified endpoint
 -- from.
+--
+-- 'inverted', 'updateHealthCheck_inverted' - Specify whether you want Amazon Route 53 to invert the status of a
+-- health check, for example, to consider a health check unhealthy when it
+-- otherwise would be considered healthy.
 --
 -- 'fullyQualifiedDomainName', 'updateHealthCheck_fullyQualifiedDomainName' - Amazon Route 53 behavior depends on whether you specify a value for
 -- @IPAddress@.
@@ -592,9 +582,19 @@ data UpdateHealthCheck = UpdateHealthCheck'
 -- specify a value for @IPAddress@. If the value of @Type@ is @TCP@, Route
 -- 53 doesn\'t pass a @Host@ header.
 --
--- 'inverted', 'updateHealthCheck_inverted' - Specify whether you want Amazon Route 53 to invert the status of a
--- health check, for example, to consider a health check unhealthy when it
--- otherwise would be considered healthy.
+-- 'healthThreshold', 'updateHealthCheck_healthThreshold' - The number of child health checks that are associated with a
+-- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
+-- @CALCULATED@ health check to be considered healthy. To specify the child
+-- health checks that you want to associate with a @CALCULATED@ health
+-- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
+--
+-- Note the following:
+--
+-- -   If you specify a number greater than the number of child health
+--     checks, Route 53 always considers this health check to be unhealthy.
+--
+-- -   If you specify @0@, Route 53 always considers this health check to
+--     be healthy.
 --
 -- 'healthCheckVersion', 'updateHealthCheck_healthCheckVersion' - A sequential counter that Amazon Route 53 sets to @1@ when you create a
 -- health check and increments by 1 each time you update settings for the
@@ -646,19 +646,19 @@ newUpdateHealthCheck pHealthCheckId_ =
   UpdateHealthCheck'
     { failureThreshold =
         Prelude.Nothing,
-      searchString = Prelude.Nothing,
       childHealthChecks = Prelude.Nothing,
+      searchString = Prelude.Nothing,
       disabled = Prelude.Nothing,
       alarmIdentifier = Prelude.Nothing,
       enableSNI = Prelude.Nothing,
       insufficientDataHealthStatus = Prelude.Nothing,
-      iPAddress = Prelude.Nothing,
       resourcePath = Prelude.Nothing,
+      iPAddress = Prelude.Nothing,
       port = Prelude.Nothing,
-      healthThreshold = Prelude.Nothing,
       regions = Prelude.Nothing,
-      fullyQualifiedDomainName = Prelude.Nothing,
       inverted = Prelude.Nothing,
+      fullyQualifiedDomainName = Prelude.Nothing,
+      healthThreshold = Prelude.Nothing,
       healthCheckVersion = Prelude.Nothing,
       resetElements = Prelude.Nothing,
       healthCheckId = pHealthCheckId_
@@ -675,6 +675,12 @@ newUpdateHealthCheck pHealthCheckId_ =
 updateHealthCheck_failureThreshold :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Natural)
 updateHealthCheck_failureThreshold = Lens.lens (\UpdateHealthCheck' {failureThreshold} -> failureThreshold) (\s@UpdateHealthCheck' {} a -> s {failureThreshold = a} :: UpdateHealthCheck)
 
+-- | A complex type that contains one @ChildHealthCheck@ element for each
+-- health check that you want to associate with a @CALCULATED@ health
+-- check.
+updateHealthCheck_childHealthChecks :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe [Prelude.Text])
+updateHealthCheck_childHealthChecks = Lens.lens (\UpdateHealthCheck' {childHealthChecks} -> childHealthChecks) (\s@UpdateHealthCheck' {} a -> s {childHealthChecks = a} :: UpdateHealthCheck) Prelude.. Lens.mapping Lens._Coerce
+
 -- | If the value of @Type@ is @HTTP_STR_MATCH@ or @HTTPS_STR_MATCH@, the
 -- string that you want Amazon Route 53 to search for in the response body
 -- from the specified resource. If the string appears in the response body,
@@ -682,12 +688,6 @@ updateHealthCheck_failureThreshold = Lens.lens (\UpdateHealthCheck' {failureThre
 -- @Type@ when you update a health check.)
 updateHealthCheck_searchString :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Text)
 updateHealthCheck_searchString = Lens.lens (\UpdateHealthCheck' {searchString} -> searchString) (\s@UpdateHealthCheck' {} a -> s {searchString = a} :: UpdateHealthCheck)
-
--- | A complex type that contains one @ChildHealthCheck@ element for each
--- health check that you want to associate with a @CALCULATED@ health
--- check.
-updateHealthCheck_childHealthChecks :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe [Prelude.Text])
-updateHealthCheck_childHealthChecks = Lens.lens (\UpdateHealthCheck' {childHealthChecks} -> childHealthChecks) (\s@UpdateHealthCheck' {} a -> s {childHealthChecks = a} :: UpdateHealthCheck) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Stops Route 53 from performing health checks. When you disable a health
 -- check, here\'s what happens:
@@ -759,6 +759,16 @@ updateHealthCheck_enableSNI = Lens.lens (\UpdateHealthCheck' {enableSNI} -> enab
 updateHealthCheck_insufficientDataHealthStatus :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe InsufficientDataHealthStatus)
 updateHealthCheck_insufficientDataHealthStatus = Lens.lens (\UpdateHealthCheck' {insufficientDataHealthStatus} -> insufficientDataHealthStatus) (\s@UpdateHealthCheck' {} a -> s {insufficientDataHealthStatus = a} :: UpdateHealthCheck)
 
+-- | The path that you want Amazon Route 53 to request when performing health
+-- checks. The path can be any value for which your endpoint will return an
+-- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
+-- the file \/docs\/route53-health-check.html. You can also include query
+-- string parameters, for example, @\/welcome.html?language=jp&login=y@.
+--
+-- Specify this value only if you want to change it.
+updateHealthCheck_resourcePath :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Text)
+updateHealthCheck_resourcePath = Lens.lens (\UpdateHealthCheck' {resourcePath} -> resourcePath) (\s@UpdateHealthCheck' {} a -> s {resourcePath = a} :: UpdateHealthCheck)
+
 -- | The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route
 -- 53 to perform health checks on. If you don\'t specify a value for
 -- @IPAddress@, Route 53 sends a DNS request to resolve the domain name
@@ -811,16 +821,6 @@ updateHealthCheck_insufficientDataHealthStatus = Lens.lens (\UpdateHealthCheck' 
 updateHealthCheck_iPAddress :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Text)
 updateHealthCheck_iPAddress = Lens.lens (\UpdateHealthCheck' {iPAddress} -> iPAddress) (\s@UpdateHealthCheck' {} a -> s {iPAddress = a} :: UpdateHealthCheck)
 
--- | The path that you want Amazon Route 53 to request when performing health
--- checks. The path can be any value for which your endpoint will return an
--- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
--- the file \/docs\/route53-health-check.html. You can also include query
--- string parameters, for example, @\/welcome.html?language=jp&login=y@.
---
--- Specify this value only if you want to change it.
-updateHealthCheck_resourcePath :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Text)
-updateHealthCheck_resourcePath = Lens.lens (\UpdateHealthCheck' {resourcePath} -> resourcePath) (\s@UpdateHealthCheck' {} a -> s {resourcePath = a} :: UpdateHealthCheck)
-
 -- | The port on the endpoint that you want Amazon Route 53 to perform health
 -- checks on.
 --
@@ -829,27 +829,17 @@ updateHealthCheck_resourcePath = Lens.lens (\UpdateHealthCheck' {resourcePath} -
 updateHealthCheck_port :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Natural)
 updateHealthCheck_port = Lens.lens (\UpdateHealthCheck' {port} -> port) (\s@UpdateHealthCheck' {} a -> s {port = a} :: UpdateHealthCheck)
 
--- | The number of child health checks that are associated with a
--- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
--- @CALCULATED@ health check to be considered healthy. To specify the child
--- health checks that you want to associate with a @CALCULATED@ health
--- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
---
--- Note the following:
---
--- -   If you specify a number greater than the number of child health
---     checks, Route 53 always considers this health check to be unhealthy.
---
--- -   If you specify @0@, Route 53 always considers this health check to
---     be healthy.
-updateHealthCheck_healthThreshold :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Natural)
-updateHealthCheck_healthThreshold = Lens.lens (\UpdateHealthCheck' {healthThreshold} -> healthThreshold) (\s@UpdateHealthCheck' {} a -> s {healthThreshold = a} :: UpdateHealthCheck)
-
 -- | A complex type that contains one @Region@ element for each region that
 -- you want Amazon Route 53 health checkers to check the specified endpoint
 -- from.
 updateHealthCheck_regions :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe (Prelude.NonEmpty HealthCheckRegion))
 updateHealthCheck_regions = Lens.lens (\UpdateHealthCheck' {regions} -> regions) (\s@UpdateHealthCheck' {} a -> s {regions = a} :: UpdateHealthCheck) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specify whether you want Amazon Route 53 to invert the status of a
+-- health check, for example, to consider a health check unhealthy when it
+-- otherwise would be considered healthy.
+updateHealthCheck_inverted :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Bool)
+updateHealthCheck_inverted = Lens.lens (\UpdateHealthCheck' {inverted} -> inverted) (\s@UpdateHealthCheck' {} a -> s {inverted = a} :: UpdateHealthCheck)
 
 -- | Amazon Route 53 behavior depends on whether you specify a value for
 -- @IPAddress@.
@@ -921,11 +911,21 @@ updateHealthCheck_regions = Lens.lens (\UpdateHealthCheck' {regions} -> regions)
 updateHealthCheck_fullyQualifiedDomainName :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Text)
 updateHealthCheck_fullyQualifiedDomainName = Lens.lens (\UpdateHealthCheck' {fullyQualifiedDomainName} -> fullyQualifiedDomainName) (\s@UpdateHealthCheck' {} a -> s {fullyQualifiedDomainName = a} :: UpdateHealthCheck)
 
--- | Specify whether you want Amazon Route 53 to invert the status of a
--- health check, for example, to consider a health check unhealthy when it
--- otherwise would be considered healthy.
-updateHealthCheck_inverted :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Bool)
-updateHealthCheck_inverted = Lens.lens (\UpdateHealthCheck' {inverted} -> inverted) (\s@UpdateHealthCheck' {} a -> s {inverted = a} :: UpdateHealthCheck)
+-- | The number of child health checks that are associated with a
+-- @CALCULATED@ health that Amazon Route 53 must consider healthy for the
+-- @CALCULATED@ health check to be considered healthy. To specify the child
+-- health checks that you want to associate with a @CALCULATED@ health
+-- check, use the @ChildHealthChecks@ and @ChildHealthCheck@ elements.
+--
+-- Note the following:
+--
+-- -   If you specify a number greater than the number of child health
+--     checks, Route 53 always considers this health check to be unhealthy.
+--
+-- -   If you specify @0@, Route 53 always considers this health check to
+--     be healthy.
+updateHealthCheck_healthThreshold :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe Prelude.Natural)
+updateHealthCheck_healthThreshold = Lens.lens (\UpdateHealthCheck' {healthThreshold} -> healthThreshold) (\s@UpdateHealthCheck' {} a -> s {healthThreshold = a} :: UpdateHealthCheck)
 
 -- | A sequential counter that Amazon Route 53 sets to @1@ when you create a
 -- health check and increments by 1 each time you update settings for the
@@ -1013,27 +1013,27 @@ instance Core.ToXML UpdateHealthCheck where
   toXML UpdateHealthCheck' {..} =
     Prelude.mconcat
       [ "FailureThreshold" Core.@= failureThreshold,
-        "SearchString" Core.@= searchString,
         "ChildHealthChecks"
           Core.@= Core.toXML
             ( Core.toXMLList "ChildHealthCheck"
                 Prelude.<$> childHealthChecks
             ),
+        "SearchString" Core.@= searchString,
         "Disabled" Core.@= disabled,
         "AlarmIdentifier" Core.@= alarmIdentifier,
         "EnableSNI" Core.@= enableSNI,
         "InsufficientDataHealthStatus"
           Core.@= insufficientDataHealthStatus,
-        "IPAddress" Core.@= iPAddress,
         "ResourcePath" Core.@= resourcePath,
+        "IPAddress" Core.@= iPAddress,
         "Port" Core.@= port,
-        "HealthThreshold" Core.@= healthThreshold,
         "Regions"
           Core.@= Core.toXML
             (Core.toXMLList "Region" Prelude.<$> regions),
+        "Inverted" Core.@= inverted,
         "FullyQualifiedDomainName"
           Core.@= fullyQualifiedDomainName,
-        "Inverted" Core.@= inverted,
+        "HealthThreshold" Core.@= healthThreshold,
         "HealthCheckVersion" Core.@= healthCheckVersion,
         "ResetElements"
           Core.@= Core.toXML

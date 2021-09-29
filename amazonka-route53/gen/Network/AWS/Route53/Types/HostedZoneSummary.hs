@@ -39,7 +39,8 @@ data HostedZoneSummary = HostedZoneSummary'
     -- | The name of the private hosted zone, such as @example.com@.
     name :: Prelude.Text,
     -- | The owner of a private hosted zone that the specified VPC is associated
-    -- with. The owner can be either an AWS account or an AWS service.
+    -- with. The owner can be either an Amazon Web Services account or an
+    -- Amazon Web Services service.
     owner :: HostedZoneOwner
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,7 +59,8 @@ data HostedZoneSummary = HostedZoneSummary'
 -- 'name', 'hostedZoneSummary_name' - The name of the private hosted zone, such as @example.com@.
 --
 -- 'owner', 'hostedZoneSummary_owner' - The owner of a private hosted zone that the specified VPC is associated
--- with. The owner can be either an AWS account or an AWS service.
+-- with. The owner can be either an Amazon Web Services account or an
+-- Amazon Web Services service.
 newHostedZoneSummary ::
   -- | 'hostedZoneId'
   ResourceId ->
@@ -84,7 +86,8 @@ hostedZoneSummary_name :: Lens.Lens' HostedZoneSummary Prelude.Text
 hostedZoneSummary_name = Lens.lens (\HostedZoneSummary' {name} -> name) (\s@HostedZoneSummary' {} a -> s {name = a} :: HostedZoneSummary)
 
 -- | The owner of a private hosted zone that the specified VPC is associated
--- with. The owner can be either an AWS account or an AWS service.
+-- with. The owner can be either an Amazon Web Services account or an
+-- Amazon Web Services service.
 hostedZoneSummary_owner :: Lens.Lens' HostedZoneSummary HostedZoneOwner
 hostedZoneSummary_owner = Lens.lens (\HostedZoneSummary' {owner} -> owner) (\s@HostedZoneSummary' {} a -> s {owner = a} :: HostedZoneSummary)
 

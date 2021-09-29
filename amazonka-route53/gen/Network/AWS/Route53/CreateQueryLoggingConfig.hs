@@ -48,9 +48,9 @@
 --
 --         -   You must create the log group in the us-east-1 region.
 --
---         -   You must use the same AWS account to create the log group
---             and the hosted zone that you want to configure query logging
---             for.
+--         -   You must use the same Amazon Web Services account to create
+--             the log group and the hosted zone that you want to configure
+--             query logging for.
 --
 --         -   When you create log groups for query logging, we recommend
 --             that you use a consistent prefix, for example:
@@ -59,11 +59,11 @@
 --
 --             In the next step, you\'ll create a resource policy, which
 --             controls access to one or more log groups and the associated
---             AWS resources, such as Route 53 hosted zones. There\'s a
---             limit on the number of resource policies that you can
---             create, so we recommend that you use a consistent prefix so
---             you can use the same resource policy for all the log groups
---             that you create for query logging.
+--             Amazon Web Services resources, such as Route 53 hosted
+--             zones. There\'s a limit on the number of resource policies
+--             that you can create, so we recommend that you use a
+--             consistent prefix so you can use the same resource policy
+--             for all the log groups that you create for query logging.
 --
 --     2.  Create a CloudWatch Logs resource policy, and give it the
 --         permissions that Route 53 needs to create log streams and to
@@ -77,8 +77,8 @@
 --         @arn:aws:logs:us-east-1:123412341234:log-group:\/aws\/route53\/*@
 --
 --         You can\'t use the CloudWatch console to create or edit a
---         resource policy. You must use the CloudWatch API, one of the AWS
---         SDKs, or the AWS CLI.
+--         resource policy. You must use the CloudWatch API, one of the
+--         Amazon Web Services SDKs, or the CLI.
 --
 -- [Log Streams and Edge Locations]
 --     When Route 53 finishes creating the configuration for DNS query
@@ -174,7 +174,8 @@ data CreateQueryLoggingConfig = CreateQueryLoggingConfig'
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups>
     -- API action, the
     -- <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups>
-    -- command, or the applicable command in one of the AWS SDKs.
+    -- command, or the applicable command in one of the Amazon Web Services
+    -- SDKs.
     cloudWatchLogsLogGroupArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -199,7 +200,8 @@ data CreateQueryLoggingConfig = CreateQueryLoggingConfig'
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups>
 -- API action, the
 -- <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups>
--- command, or the applicable command in one of the AWS SDKs.
+-- command, or the applicable command in one of the Amazon Web Services
+-- SDKs.
 newCreateQueryLoggingConfig ::
   -- | 'hostedZoneId'
   ResourceId ->
@@ -230,7 +232,8 @@ createQueryLoggingConfig_hostedZoneId = Lens.lens (\CreateQueryLoggingConfig' {h
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups>
 -- API action, the
 -- <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups>
--- command, or the applicable command in one of the AWS SDKs.
+-- command, or the applicable command in one of the Amazon Web Services
+-- SDKs.
 createQueryLoggingConfig_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateQueryLoggingConfig Prelude.Text
 createQueryLoggingConfig_cloudWatchLogsLogGroupArn = Lens.lens (\CreateQueryLoggingConfig' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@CreateQueryLoggingConfig' {} a -> s {cloudWatchLogsLogGroupArn = a} :: CreateQueryLoggingConfig)
 

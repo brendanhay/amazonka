@@ -24,6 +24,8 @@
 -- for a specified record name and type. You can optionally specify the IP
 -- address of a DNS resolver, an EDNS0 client subnet IP address, and a
 -- subnet mask.
+--
+-- This call only supports querying public hosted zones.
 module Network.AWS.Route53.TestDNSAnswer
   ( -- * Creating a Request
     TestDNSAnswer (..),
@@ -68,8 +70,8 @@ import Network.AWS.Route53.Types
 data TestDNSAnswer = TestDNSAnswer'
   { -- | If you want to simulate a request from a specific DNS resolver, specify
     -- the IP address for that resolver. If you omit this value,
-    -- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
-    -- (N. Virginia) Region (@us-east-1@).
+    -- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web
+    -- Services US East (N. Virginia) Region (@us-east-1@).
     resolverIP :: Prelude.Maybe Prelude.Text,
     -- | If you specify an IP address for @edns0clientsubnetip@, you can
     -- optionally specify the number of bits of the IP address that you want
@@ -111,8 +113,8 @@ data TestDNSAnswer = TestDNSAnswer'
 --
 -- 'resolverIP', 'testDNSAnswer_resolverIP' - If you want to simulate a request from a specific DNS resolver, specify
 -- the IP address for that resolver. If you omit this value,
--- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
--- (N. Virginia) Region (@us-east-1@).
+-- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web
+-- Services US East (N. Virginia) Region (@us-east-1@).
 --
 -- 'eDNS0ClientSubnetMask', 'testDNSAnswer_eDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@, you can
 -- optionally specify the number of bits of the IP address that you want
@@ -163,8 +165,8 @@ newTestDNSAnswer
 
 -- | If you want to simulate a request from a specific DNS resolver, specify
 -- the IP address for that resolver. If you omit this value,
--- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
--- (N. Virginia) Region (@us-east-1@).
+-- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web
+-- Services US East (N. Virginia) Region (@us-east-1@).
 testDNSAnswer_resolverIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
 testDNSAnswer_resolverIP = Lens.lens (\TestDNSAnswer' {resolverIP} -> resolverIP) (\s@TestDNSAnswer' {} a -> s {resolverIP = a} :: TestDNSAnswer)
 

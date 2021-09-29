@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the number of traffic policy instances that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
   ( -- * Creating a Request
     GetTrafficPolicyInstanceCount (..),
@@ -45,7 +45,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | Request to get the number of traffic policy instances that are
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newGetTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
@@ -103,7 +103,7 @@ data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountRespon
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The number of traffic policy instances that are associated with the
-    -- current AWS account.
+    -- current Amazon Web Services account.
     trafficPolicyInstanceCount :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,7 +119,7 @@ data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountRespon
 -- 'httpStatus', 'getTrafficPolicyInstanceCountResponse_httpStatus' - The response's http status code.
 --
 -- 'trafficPolicyInstanceCount', 'getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 newGetTrafficPolicyInstanceCountResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -141,7 +141,7 @@ getTrafficPolicyInstanceCountResponse_httpStatus :: Lens.Lens' GetTrafficPolicyI
 getTrafficPolicyInstanceCountResponse_httpStatus = Lens.lens (\GetTrafficPolicyInstanceCountResponse' {httpStatus} -> httpStatus) (\s@GetTrafficPolicyInstanceCountResponse' {} a -> s {httpStatus = a} :: GetTrafficPolicyInstanceCountResponse)
 
 -- | The number of traffic policy instances that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Prelude.Int
 getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount = Lens.lens (\GetTrafficPolicyInstanceCountResponse' {trafficPolicyInstanceCount} -> trafficPolicyInstanceCount) (\s@GetTrafficPolicyInstanceCountResponse' {} a -> s {trafficPolicyInstanceCount = a} :: GetTrafficPolicyInstanceCountResponse)
 

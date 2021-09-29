@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of the reusable delegation sets that are associated
--- with the current AWS account.
+-- with the current Amazon Web Services account.
 module Network.AWS.Route53.ListReusableDelegationSets
   ( -- * Creating a Request
     ListReusableDelegationSets (..),
@@ -53,7 +53,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request to get a list of the reusable delegation sets that are
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newListReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'
@@ -162,7 +162,7 @@ instance Core.ToQuery ListReusableDelegationSets where
       ]
 
 -- | A complex type that contains information about the reusable delegation
--- sets that are associated with the current AWS account.
+-- sets that are associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newListReusableDelegationSetsResponse' smart constructor.
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
@@ -174,7 +174,8 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains one @DelegationSet@ element for each
-    -- reusable delegation set that was created by the current AWS account.
+    -- reusable delegation set that was created by the current Amazon Web
+    -- Services account.
     delegationSets :: [DelegationSet],
     -- | For the second and subsequent calls to @ListReusableDelegationSets@,
     -- @Marker@ is the value that you specified for the @marker@ parameter in
@@ -205,7 +206,8 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 -- 'httpStatus', 'listReusableDelegationSetsResponse_httpStatus' - The response's http status code.
 --
 -- 'delegationSets', 'listReusableDelegationSetsResponse_delegationSets' - A complex type that contains one @DelegationSet@ element for each
--- reusable delegation set that was created by the current AWS account.
+-- reusable delegation set that was created by the current Amazon Web
+-- Services account.
 --
 -- 'marker', 'listReusableDelegationSetsResponse_marker' - For the second and subsequent calls to @ListReusableDelegationSets@,
 -- @Marker@ is the value that you specified for the @marker@ parameter in
@@ -253,7 +255,8 @@ listReusableDelegationSetsResponse_httpStatus :: Lens.Lens' ListReusableDelegati
 listReusableDelegationSetsResponse_httpStatus = Lens.lens (\ListReusableDelegationSetsResponse' {httpStatus} -> httpStatus) (\s@ListReusableDelegationSetsResponse' {} a -> s {httpStatus = a} :: ListReusableDelegationSetsResponse)
 
 -- | A complex type that contains one @DelegationSet@ element for each
--- reusable delegation set that was created by the current AWS account.
+-- reusable delegation set that was created by the current Amazon Web
+-- Services account.
 listReusableDelegationSetsResponse_delegationSets :: Lens.Lens' ListReusableDelegationSetsResponse [DelegationSet]
 listReusableDelegationSetsResponse_delegationSets = Lens.lens (\ListReusableDelegationSetsResponse' {delegationSets} -> delegationSets) (\s@ListReusableDelegationSetsResponse' {} a -> s {delegationSets = a} :: ListReusableDelegationSetsResponse) Prelude.. Lens._Coerce
 

@@ -76,9 +76,9 @@
 -- -   @DELETE@: Deletes an existing resource record set that has the
 --     specified values.
 --
--- -   @UPSERT@: If a resource record set does not already exist, AWS
---     creates it. If a resource set does exist, Route 53 updates it with
---     the values in the request.
+-- -   @UPSERT@: If a resource record set does not already exist, Amazon
+--     Web Services creates it. If a resource set does exist, Route 53
+--     updates it with the values in the request.
 --
 -- __Syntaxes for Creating, Updating, and Deleting Resource Record Sets__
 --

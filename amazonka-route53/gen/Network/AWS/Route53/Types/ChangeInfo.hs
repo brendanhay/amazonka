@@ -30,14 +30,11 @@ import Network.AWS.Route53.Types.ChangeStatus
 --
 -- /See:/ 'newChangeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
-  { -- | A complex type that describes change information about changes made to
-    -- your hosted zone.
-    --
-    -- This element contains an ID that you use when performing a
+  { -- | A comment you can provide.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | This element contains an ID that you use when performing a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
     -- action to get detailed information about the change.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the request.
     id :: ResourceId,
     -- | The current state of the request. @PENDING@ indicates that this request
     -- has not yet been applied to all Amazon Route 53 DNS servers.
@@ -58,14 +55,11 @@ data ChangeInfo = ChangeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'changeInfo_comment' - A complex type that describes change information about changes made to
--- your hosted zone.
+-- 'comment', 'changeInfo_comment' - A comment you can provide.
 --
--- This element contains an ID that you use when performing a
+-- 'id', 'changeInfo_id' - This element contains an ID that you use when performing a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
 -- action to get detailed information about the change.
---
--- 'id', 'changeInfo_id' - The ID of the request.
 --
 -- 'status', 'changeInfo_status' - The current state of the request. @PENDING@ indicates that this request
 -- has not yet been applied to all Amazon Route 53 DNS servers.
@@ -90,16 +84,13 @@ newChangeInfo pId_ pStatus_ pSubmittedAt_ =
       submittedAt = Core._Time Lens.# pSubmittedAt_
     }
 
--- | A complex type that describes change information about changes made to
--- your hosted zone.
---
--- This element contains an ID that you use when performing a
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
--- action to get detailed information about the change.
+-- | A comment you can provide.
 changeInfo_comment :: Lens.Lens' ChangeInfo (Prelude.Maybe Prelude.Text)
 changeInfo_comment = Lens.lens (\ChangeInfo' {comment} -> comment) (\s@ChangeInfo' {} a -> s {comment = a} :: ChangeInfo)
 
--- | The ID of the request.
+-- | This element contains an ID that you use when performing a
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
+-- action to get detailed information about the change.
 changeInfo_id :: Lens.Lens' ChangeInfo ResourceId
 changeInfo_id = Lens.lens (\ChangeInfo' {id} -> id) (\s@ChangeInfo' {} a -> s {id = a} :: ChangeInfo)
 

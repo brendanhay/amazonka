@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a delegation set (a group of four name servers) that can be
--- reused by multiple hosted zones that were created by the same AWS
--- account.
+-- reused by multiple hosted zones that were created by the same Amazon Web
+-- Services account.
 --
 -- You can also create a reusable delegation set that uses the four name
 -- servers that are associated with an existing hosted zone. Specify the

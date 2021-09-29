@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the traffic policy instances that you created by
--- using the current AWS account.
+-- using the current Amazon Web Services account.
 --
 -- After you submit an @UpdateTrafficPolicyInstance@ request, there\'s a
 -- brief delay while Amazon Route 53 creates the resource record sets that
@@ -65,7 +65,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request to get information about the traffic policy instances that you
--- created by using the current AWS account.
+-- created by using the current Amazon Web Services account.
 --
 -- /See:/ 'newListTrafficPolicyInstances' smart constructor.
 data ListTrafficPolicyInstances = ListTrafficPolicyInstances'

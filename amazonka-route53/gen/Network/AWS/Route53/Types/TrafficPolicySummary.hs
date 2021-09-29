@@ -26,7 +26,8 @@ import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.RRType
 
 -- | A complex type that contains information about the latest version of one
--- traffic policy that is associated with the current AWS account.
+-- traffic policy that is associated with the current Amazon Web Services
+-- account.
 --
 -- /See:/ 'newTrafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
@@ -40,8 +41,8 @@ data TrafficPolicySummary = TrafficPolicySummary'
     type' :: RRType,
     -- | The version number of the latest version of the traffic policy.
     latestVersion :: Prelude.Natural,
-    -- | The number of traffic policies that are associated with the current AWS
-    -- account.
+    -- | The number of traffic policies that are associated with the current
+    -- Amazon Web Services account.
     trafficPolicyCount :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +65,8 @@ data TrafficPolicySummary = TrafficPolicySummary'
 --
 -- 'latestVersion', 'trafficPolicySummary_latestVersion' - The version number of the latest version of the traffic policy.
 --
--- 'trafficPolicyCount', 'trafficPolicySummary_trafficPolicyCount' - The number of traffic policies that are associated with the current AWS
--- account.
+-- 'trafficPolicyCount', 'trafficPolicySummary_trafficPolicyCount' - The number of traffic policies that are associated with the current
+-- Amazon Web Services account.
 newTrafficPolicySummary ::
   -- | 'id'
   Prelude.Text ->
@@ -110,8 +111,8 @@ trafficPolicySummary_type = Lens.lens (\TrafficPolicySummary' {type'} -> type') 
 trafficPolicySummary_latestVersion :: Lens.Lens' TrafficPolicySummary Prelude.Natural
 trafficPolicySummary_latestVersion = Lens.lens (\TrafficPolicySummary' {latestVersion} -> latestVersion) (\s@TrafficPolicySummary' {} a -> s {latestVersion = a} :: TrafficPolicySummary)
 
--- | The number of traffic policies that are associated with the current AWS
--- account.
+-- | The number of traffic policies that are associated with the current
+-- Amazon Web Services account.
 trafficPolicySummary_trafficPolicyCount :: Lens.Lens' TrafficPolicySummary Prelude.Natural
 trafficPolicySummary_trafficPolicyCount = Lens.lens (\TrafficPolicySummary' {trafficPolicyCount} -> trafficPolicyCount) (\s@TrafficPolicySummary' {} a -> s {trafficPolicyCount = a} :: TrafficPolicySummary)
 

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the number of hosted zones that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 module Network.AWS.Route53.GetHostedZoneCount
   ( -- * Creating a Request
     GetHostedZoneCount (..),
@@ -45,7 +45,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request to retrieve a count of all the hosted zones that are
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newGetHostedZoneCount' smart constructor.
 data GetHostedZoneCount = GetHostedZoneCount'
@@ -95,7 +95,7 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The total number of public and private hosted zones that are associated
-    -- with the current AWS account.
+    -- with the current Amazon Web Services account.
     hostedZoneCount :: Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,7 +111,7 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
 -- 'httpStatus', 'getHostedZoneCountResponse_httpStatus' - The response's http status code.
 --
 -- 'hostedZoneCount', 'getHostedZoneCountResponse_hostedZoneCount' - The total number of public and private hosted zones that are associated
--- with the current AWS account.
+-- with the current Amazon Web Services account.
 newGetHostedZoneCountResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -132,7 +132,7 @@ getHostedZoneCountResponse_httpStatus :: Lens.Lens' GetHostedZoneCountResponse P
 getHostedZoneCountResponse_httpStatus = Lens.lens (\GetHostedZoneCountResponse' {httpStatus} -> httpStatus) (\s@GetHostedZoneCountResponse' {} a -> s {httpStatus = a} :: GetHostedZoneCountResponse)
 
 -- | The total number of public and private hosted zones that are associated
--- with the current AWS account.
+-- with the current Amazon Web Services account.
 getHostedZoneCountResponse_hostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Prelude.Integer
 getHostedZoneCountResponse_hostedZoneCount = Lens.lens (\GetHostedZoneCountResponse' {hostedZoneCount} -> hostedZoneCount) (\s@GetHostedZoneCountResponse' {} a -> s {hostedZoneCount = a} :: GetHostedZoneCountResponse)
 

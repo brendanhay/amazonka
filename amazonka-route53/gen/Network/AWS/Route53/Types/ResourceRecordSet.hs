@@ -255,9 +255,9 @@ data ResourceRecordSet = ResourceRecordSet'
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
     --     in the /Amazon Route 53 Developer Guide/.
     weight :: Prelude.Maybe Prelude.Natural,
-    -- | /Alias resource record sets only:/ Information about the AWS resource,
-    -- such as a CloudFront distribution or an Amazon S3 bucket, that you want
-    -- to route traffic to.
+    -- | /Alias resource record sets only:/ Information about the Amazon Web
+    -- Services resource, such as a CloudFront distribution or an Amazon S3
+    -- bucket, that you want to route traffic to.
     --
     -- If you\'re creating resource records sets for a private hosted zone,
     -- note the following:
@@ -273,11 +273,6 @@ data ResourceRecordSet = ResourceRecordSet'
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
     --     in the /Amazon Route 53 Developer Guide/.
     aliasTarget :: Prelude.Maybe AliasTarget,
-    -- | Information about the resource records to act upon.
-    --
-    -- If you\'re creating an alias resource record set, omit
-    -- @ResourceRecords@.
-    resourceRecords :: Prelude.Maybe (Prelude.NonEmpty ResourceRecord),
     -- | /Failover resource record sets only:/ To configure failover, you add the
     -- @Failover@ element to two resource record sets. For one resource record
     -- set, you specify @PRIMARY@ as the value for @Failover@; for the other
@@ -322,6 +317,11 @@ data ResourceRecordSet = ResourceRecordSet'
     --
     -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
     failover :: Prelude.Maybe ResourceRecordSetFailover,
+    -- | Information about the resource records to act upon.
+    --
+    -- If you\'re creating an alias resource record set, omit
+    -- @ResourceRecords@.
+    resourceRecords :: Prelude.Maybe (Prelude.NonEmpty ResourceRecord),
     -- | The resource record cache time to live (TTL), in seconds. Note the
     -- following:
     --
@@ -344,6 +344,17 @@ data ResourceRecordSet = ResourceRecordSet'
     --     for load balancers) will change the effect of the values that you
     --     specify for @Weight@.
     ttl :: Prelude.Maybe Prelude.Natural,
+    -- | /Resource record sets that have a routing policy other than simple:/ An
+    -- identifier that differentiates among multiple resource record sets that
+    -- have the same combination of name and type, such as multiple weighted
+    -- resource record sets named acme.example.com that have a type of A. In a
+    -- group of resource record sets that have the same name and type, the
+    -- value of @SetIdentifier@ must be unique for each resource record set.
+    --
+    -- For information about routing policies, see
+    -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+    -- in the /Amazon Route 53 Developer Guide/.
+    setIdentifier :: Prelude.Maybe Prelude.Text,
     -- | When you create a traffic policy instance, Amazon Route 53 automatically
     -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
     -- the traffic policy instance that Route 53 created this resource record
@@ -356,22 +367,11 @@ data ResourceRecordSet = ResourceRecordSet'
     -- delete the traffic policy instance, and you\'ll continue to be charged
     -- for it even though it\'s no longer in use.
     trafficPolicyInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | /Resource record sets that have a routing policy other than simple:/ An
-    -- identifier that differentiates among multiple resource record sets that
-    -- have the same combination of name and type, such as multiple weighted
-    -- resource record sets named acme.example.com that have a type of A. In a
-    -- group of resource record sets that have the same name and type, the
-    -- value of @SetIdentifier@ must be unique for each resource record set.
-    --
-    -- For information about routing policies, see
-    -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
-    -- in the /Amazon Route 53 Developer Guide/.
-    setIdentifier :: Prelude.Maybe Prelude.Text,
     -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
     -- you created the resource that this resource record set refers to. The
-    -- resource typically is an AWS resource, such as an EC2 instance or an ELB
-    -- load balancer, and is referred to by an IP address or a DNS domain name,
-    -- depending on the record type.
+    -- resource typically is an Amazon Web Services resource, such as an EC2
+    -- instance or an ELB load balancer, and is referred to by an IP address or
+    -- a DNS domain name, depending on the record type.
     --
     -- Although creating latency and latency alias resource record sets in a
     -- private hosted zone is allowed, it\'s not supported.
@@ -730,9 +730,9 @@ data ResourceRecordSet = ResourceRecordSet'
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
 --     in the /Amazon Route 53 Developer Guide/.
 --
--- 'aliasTarget', 'resourceRecordSet_aliasTarget' - /Alias resource record sets only:/ Information about the AWS resource,
--- such as a CloudFront distribution or an Amazon S3 bucket, that you want
--- to route traffic to.
+-- 'aliasTarget', 'resourceRecordSet_aliasTarget' - /Alias resource record sets only:/ Information about the Amazon Web
+-- Services resource, such as a CloudFront distribution or an Amazon S3
+-- bucket, that you want to route traffic to.
 --
 -- If you\'re creating resource records sets for a private hosted zone,
 -- note the following:
@@ -747,11 +747,6 @@ data ResourceRecordSet = ResourceRecordSet'
 --     private hosted zone, see
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
 --     in the /Amazon Route 53 Developer Guide/.
---
--- 'resourceRecords', 'resourceRecordSet_resourceRecords' - Information about the resource records to act upon.
---
--- If you\'re creating an alias resource record set, omit
--- @ResourceRecords@.
 --
 -- 'failover', 'resourceRecordSet_failover' - /Failover resource record sets only:/ To configure failover, you add the
 -- @Failover@ element to two resource record sets. For one resource record
@@ -797,6 +792,11 @@ data ResourceRecordSet = ResourceRecordSet'
 --
 -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
 --
+-- 'resourceRecords', 'resourceRecordSet_resourceRecords' - Information about the resource records to act upon.
+--
+-- If you\'re creating an alias resource record set, omit
+-- @ResourceRecords@.
+--
 -- 'ttl', 'resourceRecordSet_ttl' - The resource record cache time to live (TTL), in seconds. Note the
 -- following:
 --
@@ -819,6 +819,17 @@ data ResourceRecordSet = ResourceRecordSet'
 --     for load balancers) will change the effect of the values that you
 --     specify for @Weight@.
 --
+-- 'setIdentifier', 'resourceRecordSet_setIdentifier' - /Resource record sets that have a routing policy other than simple:/ An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of name and type, such as multiple weighted
+-- resource record sets named acme.example.com that have a type of A. In a
+-- group of resource record sets that have the same name and type, the
+-- value of @SetIdentifier@ must be unique for each resource record set.
+--
+-- For information about routing policies, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+-- in the /Amazon Route 53 Developer Guide/.
+--
 -- 'trafficPolicyInstanceId', 'resourceRecordSet_trafficPolicyInstanceId' - When you create a traffic policy instance, Amazon Route 53 automatically
 -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
 -- the traffic policy instance that Route 53 created this resource record
@@ -831,22 +842,11 @@ data ResourceRecordSet = ResourceRecordSet'
 -- delete the traffic policy instance, and you\'ll continue to be charged
 -- for it even though it\'s no longer in use.
 --
--- 'setIdentifier', 'resourceRecordSet_setIdentifier' - /Resource record sets that have a routing policy other than simple:/ An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of name and type, such as multiple weighted
--- resource record sets named acme.example.com that have a type of A. In a
--- group of resource record sets that have the same name and type, the
--- value of @SetIdentifier@ must be unique for each resource record set.
---
--- For information about routing policies, see
--- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
--- in the /Amazon Route 53 Developer Guide/.
---
 -- 'region', 'resourceRecordSet_region' - /Latency-based resource record sets only:/ The Amazon EC2 Region where
 -- you created the resource that this resource record set refers to. The
--- resource typically is an AWS resource, such as an EC2 instance or an ELB
--- load balancer, and is referred to by an IP address or a DNS domain name,
--- depending on the record type.
+-- resource typically is an Amazon Web Services resource, such as an EC2
+-- instance or an ELB load balancer, and is referred to by an IP address or
+-- a DNS domain name, depending on the record type.
 --
 -- Although creating latency and latency alias resource record sets in a
 -- private hosted zone is allowed, it\'s not supported.
@@ -984,11 +984,11 @@ newResourceRecordSet pName_ pType_ =
       geoLocation = Prelude.Nothing,
       weight = Prelude.Nothing,
       aliasTarget = Prelude.Nothing,
-      resourceRecords = Prelude.Nothing,
       failover = Prelude.Nothing,
+      resourceRecords = Prelude.Nothing,
       ttl = Prelude.Nothing,
-      trafficPolicyInstanceId = Prelude.Nothing,
       setIdentifier = Prelude.Nothing,
+      trafficPolicyInstanceId = Prelude.Nothing,
       region = Prelude.Nothing,
       name = pName_,
       type' = pType_
@@ -1224,9 +1224,9 @@ resourceRecordSet_geoLocation = Lens.lens (\ResourceRecordSet' {geoLocation} -> 
 resourceRecordSet_weight :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
 resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\s@ResourceRecordSet' {} a -> s {weight = a} :: ResourceRecordSet)
 
--- | /Alias resource record sets only:/ Information about the AWS resource,
--- such as a CloudFront distribution or an Amazon S3 bucket, that you want
--- to route traffic to.
+-- | /Alias resource record sets only:/ Information about the Amazon Web
+-- Services resource, such as a CloudFront distribution or an Amazon S3
+-- bucket, that you want to route traffic to.
 --
 -- If you\'re creating resource records sets for a private hosted zone,
 -- note the following:
@@ -1243,13 +1243,6 @@ resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\
 --     in the /Amazon Route 53 Developer Guide/.
 resourceRecordSet_aliasTarget :: Lens.Lens' ResourceRecordSet (Prelude.Maybe AliasTarget)
 resourceRecordSet_aliasTarget = Lens.lens (\ResourceRecordSet' {aliasTarget} -> aliasTarget) (\s@ResourceRecordSet' {} a -> s {aliasTarget = a} :: ResourceRecordSet)
-
--- | Information about the resource records to act upon.
---
--- If you\'re creating an alias resource record set, omit
--- @ResourceRecords@.
-resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Prelude.Maybe (Prelude.NonEmpty ResourceRecord))
-resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | /Failover resource record sets only:/ To configure failover, you add the
 -- @Failover@ element to two resource record sets. For one resource record
@@ -1297,6 +1290,13 @@ resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceReco
 resourceRecordSet_failover :: Lens.Lens' ResourceRecordSet (Prelude.Maybe ResourceRecordSetFailover)
 resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failover) (\s@ResourceRecordSet' {} a -> s {failover = a} :: ResourceRecordSet)
 
+-- | Information about the resource records to act upon.
+--
+-- If you\'re creating an alias resource record set, omit
+-- @ResourceRecords@.
+resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Prelude.Maybe (Prelude.NonEmpty ResourceRecord))
+resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The resource record cache time to live (TTL), in seconds. Note the
 -- following:
 --
@@ -1321,6 +1321,19 @@ resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failov
 resourceRecordSet_ttl :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
 resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@ResourceRecordSet' {} a -> s {ttl = a} :: ResourceRecordSet)
 
+-- | /Resource record sets that have a routing policy other than simple:/ An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of name and type, such as multiple weighted
+-- resource record sets named acme.example.com that have a type of A. In a
+-- group of resource record sets that have the same name and type, the
+-- value of @SetIdentifier@ must be unique for each resource record set.
+--
+-- For information about routing policies, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+-- in the /Amazon Route 53 Developer Guide/.
+resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier} -> setIdentifier) (\s@ResourceRecordSet' {} a -> s {setIdentifier = a} :: ResourceRecordSet)
+
 -- | When you create a traffic policy instance, Amazon Route 53 automatically
 -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
 -- the traffic policy instance that Route 53 created this resource record
@@ -1335,24 +1348,11 @@ resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@Resourc
 resourceRecordSet_trafficPolicyInstanceId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
 resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {trafficPolicyInstanceId} -> trafficPolicyInstanceId) (\s@ResourceRecordSet' {} a -> s {trafficPolicyInstanceId = a} :: ResourceRecordSet)
 
--- | /Resource record sets that have a routing policy other than simple:/ An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of name and type, such as multiple weighted
--- resource record sets named acme.example.com that have a type of A. In a
--- group of resource record sets that have the same name and type, the
--- value of @SetIdentifier@ must be unique for each resource record set.
---
--- For information about routing policies, see
--- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
--- in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
-resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier} -> setIdentifier) (\s@ResourceRecordSet' {} a -> s {setIdentifier = a} :: ResourceRecordSet)
-
 -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
 -- you created the resource that this resource record set refers to. The
--- resource typically is an AWS resource, such as an EC2 instance or an ELB
--- load balancer, and is referred to by an IP address or a DNS domain name,
--- depending on the record type.
+-- resource typically is an Amazon Web Services resource, such as an EC2
+-- instance or an ELB load balancer, and is referred to by an IP address or
+-- a DNS domain name, depending on the record type.
 --
 -- Although creating latency and latency alias resource record sets in a
 -- private hosted zone is allowed, it\'s not supported.
@@ -1492,13 +1492,13 @@ instance Core.FromXML ResourceRecordSet where
       Prelude.<*> (x Core..@? "GeoLocation")
       Prelude.<*> (x Core..@? "Weight")
       Prelude.<*> (x Core..@? "AliasTarget")
+      Prelude.<*> (x Core..@? "Failover")
       Prelude.<*> ( x Core..@? "ResourceRecords" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "ResourceRecord")
                   )
-      Prelude.<*> (x Core..@? "Failover")
       Prelude.<*> (x Core..@? "TTL")
-      Prelude.<*> (x Core..@? "TrafficPolicyInstanceId")
       Prelude.<*> (x Core..@? "SetIdentifier")
+      Prelude.<*> (x Core..@? "TrafficPolicyInstanceId")
       Prelude.<*> (x Core..@? "Region")
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "Type")
@@ -1515,16 +1515,16 @@ instance Core.ToXML ResourceRecordSet where
         "GeoLocation" Core.@= geoLocation,
         "Weight" Core.@= weight,
         "AliasTarget" Core.@= aliasTarget,
+        "Failover" Core.@= failover,
         "ResourceRecords"
           Core.@= Core.toXML
             ( Core.toXMLList "ResourceRecord"
                 Prelude.<$> resourceRecords
             ),
-        "Failover" Core.@= failover,
         "TTL" Core.@= ttl,
+        "SetIdentifier" Core.@= setIdentifier,
         "TrafficPolicyInstanceId"
           Core.@= trafficPolicyInstanceId,
-        "SetIdentifier" Core.@= setIdentifier,
         "Region" Core.@= region,
         "Name" Core.@= name,
         "Type" Core.@= type'

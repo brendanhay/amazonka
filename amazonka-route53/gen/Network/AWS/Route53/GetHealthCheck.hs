@@ -119,7 +119,7 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains information about one health check that is
-    -- associated with the current AWS account.
+    -- associated with the current Amazon Web Services account.
     healthCheck :: HealthCheck
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -135,7 +135,7 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
 -- 'httpStatus', 'getHealthCheckResponse_httpStatus' - The response's http status code.
 --
 -- 'healthCheck', 'getHealthCheckResponse_healthCheck' - A complex type that contains information about one health check that is
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 newGetHealthCheckResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -153,7 +153,7 @@ getHealthCheckResponse_httpStatus :: Lens.Lens' GetHealthCheckResponse Prelude.I
 getHealthCheckResponse_httpStatus = Lens.lens (\GetHealthCheckResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckResponse' {} a -> s {httpStatus = a} :: GetHealthCheckResponse)
 
 -- | A complex type that contains information about one health check that is
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 getHealthCheckResponse_healthCheck :: Lens.Lens' GetHealthCheckResponse HealthCheck
 getHealthCheckResponse_healthCheck = Lens.lens (\GetHealthCheckResponse' {healthCheck} -> healthCheck) (\s@GetHealthCheckResponse' {} a -> s {healthCheck = a} :: GetHealthCheckResponse)
 

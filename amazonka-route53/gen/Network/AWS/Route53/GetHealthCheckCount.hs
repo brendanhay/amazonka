@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the number of health checks that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 module Network.AWS.Route53.GetHealthCheckCount
   ( -- * Creating a Request
     GetHealthCheckCount (..),
@@ -45,7 +45,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request for the number of health checks that are associated with the
--- current AWS account.
+-- current Amazon Web Services account.
 --
 -- /See:/ 'newGetHealthCheckCount' smart constructor.
 data GetHealthCheckCount = GetHealthCheckCount'
@@ -94,7 +94,8 @@ instance Core.ToQuery GetHealthCheckCount where
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The number of health checks associated with the current AWS account.
+    -- | The number of health checks associated with the current Amazon Web
+    -- Services account.
     healthCheckCount :: Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,7 +110,8 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
 --
 -- 'httpStatus', 'getHealthCheckCountResponse_httpStatus' - The response's http status code.
 --
--- 'healthCheckCount', 'getHealthCheckCountResponse_healthCheckCount' - The number of health checks associated with the current AWS account.
+-- 'healthCheckCount', 'getHealthCheckCountResponse_healthCheckCount' - The number of health checks associated with the current Amazon Web
+-- Services account.
 newGetHealthCheckCountResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -129,7 +131,8 @@ newGetHealthCheckCountResponse
 getHealthCheckCountResponse_httpStatus :: Lens.Lens' GetHealthCheckCountResponse Prelude.Int
 getHealthCheckCountResponse_httpStatus = Lens.lens (\GetHealthCheckCountResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckCountResponse' {} a -> s {httpStatus = a} :: GetHealthCheckCountResponse)
 
--- | The number of health checks associated with the current AWS account.
+-- | The number of health checks associated with the current Amazon Web
+-- Services account.
 getHealthCheckCountResponse_healthCheckCount :: Lens.Lens' GetHealthCheckCountResponse Prelude.Integer
 getHealthCheckCountResponse_healthCheckCount = Lens.lens (\GetHealthCheckCountResponse' {healthCheckCount} -> healthCheckCount) (\s@GetHealthCheckCountResponse' {} a -> s {healthCheckCount = a} :: GetHealthCheckCountResponse)
 

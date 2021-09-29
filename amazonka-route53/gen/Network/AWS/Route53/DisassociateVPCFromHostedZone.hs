@@ -32,7 +32,7 @@
 --     either the account that created the hosted zone or the account that
 --     created the Amazon VPC.
 --
--- -   Some services, such as AWS Cloud Map and Amazon Elastic File System
+-- -   Some services, such as Cloud Map and Amazon Elastic File System
 --     (Amazon EFS) automatically create hosted zones and associate VPCs
 --     with the hosted zones. A service can create a hosted zone using your
 --     account or using its own account. You can disassociate a VPC from a

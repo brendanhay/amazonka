@@ -25,8 +25,8 @@
 -- you can use to establish a connection between a transit gateway and an
 -- appliance.
 --
--- A Connect attachment uses an existing VPC or AWS Direct Connect
--- attachment as the underlying transport mechanism.
+-- A Connect attachment uses an existing VPC or Amazon Web Services Direct
+-- Connect attachment as the underlying transport mechanism.
 module Network.AWS.EC2.CreateTransitGatewayConnect
   ( -- * Creating a Request
     CreateTransitGatewayConnect (..),
@@ -65,7 +65,7 @@ data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the transit gateway attachment. You can specify a VPC
-    -- attachment or a AWS Direct Connect attachment.
+    -- attachment or Amazon Web Services Direct Connect attachment.
     transportTransitGatewayAttachmentId :: Prelude.Text,
     -- | The Connect attachment options.
     options :: CreateTransitGatewayConnectRequestOptions
@@ -88,7 +88,7 @@ data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'transportTransitGatewayAttachmentId', 'createTransitGatewayConnect_transportTransitGatewayAttachmentId' - The ID of the transit gateway attachment. You can specify a VPC
--- attachment or a AWS Direct Connect attachment.
+-- attachment or Amazon Web Services Direct Connect attachment.
 --
 -- 'options', 'createTransitGatewayConnect_options' - The Connect attachment options.
 newCreateTransitGatewayConnect ::
@@ -121,7 +121,7 @@ createTransitGatewayConnect_dryRun :: Lens.Lens' CreateTransitGatewayConnect (Pr
 createTransitGatewayConnect_dryRun = Lens.lens (\CreateTransitGatewayConnect' {dryRun} -> dryRun) (\s@CreateTransitGatewayConnect' {} a -> s {dryRun = a} :: CreateTransitGatewayConnect)
 
 -- | The ID of the transit gateway attachment. You can specify a VPC
--- attachment or a AWS Direct Connect attachment.
+-- attachment or Amazon Web Services Direct Connect attachment.
 createTransitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayConnect Prelude.Text
 createTransitGatewayConnect_transportTransitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayConnect' {transportTransitGatewayAttachmentId} -> transportTransitGatewayAttachmentId) (\s@CreateTransitGatewayConnect' {} a -> s {transportTransitGatewayAttachmentId = a} :: CreateTransitGatewayConnect)
 

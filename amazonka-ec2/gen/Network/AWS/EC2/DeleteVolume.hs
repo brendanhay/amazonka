@@ -26,7 +26,7 @@
 -- The volume can remain in the @deleting@ state for several minutes.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS volume>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Delete an Amazon EBS volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DeleteVolume
   ( -- * Creating a Request

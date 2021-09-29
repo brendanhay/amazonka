@@ -46,11 +46,11 @@ data TransitGatewayAttachment = TransitGatewayAttachment'
     state :: Prelude.Maybe TransitGatewayAttachmentState,
     -- | The tags for the attachment.
     tags :: Prelude.Maybe [Tag],
-    -- | The ID of the AWS account that owns the resource.
+    -- | The ID of the Amazon Web Services account that owns the resource.
     resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account that owns the transit gateway.
+    -- | The ID of the Amazon Web Services account that owns the transit gateway.
     transitGatewayOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Maybe Prelude.Text
@@ -79,11 +79,11 @@ data TransitGatewayAttachment = TransitGatewayAttachment'
 --
 -- 'tags', 'transitGatewayAttachment_tags' - The tags for the attachment.
 --
--- 'resourceOwnerId', 'transitGatewayAttachment_resourceOwnerId' - The ID of the AWS account that owns the resource.
+-- 'resourceOwnerId', 'transitGatewayAttachment_resourceOwnerId' - The ID of the Amazon Web Services account that owns the resource.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 --
--- 'transitGatewayOwnerId', 'transitGatewayAttachment_transitGatewayOwnerId' - The ID of the AWS account that owns the transit gateway.
+-- 'transitGatewayOwnerId', 'transitGatewayAttachment_transitGatewayOwnerId' - The ID of the Amazon Web Services account that owns the transit gateway.
 --
 -- 'transitGatewayId', 'transitGatewayAttachment_transitGatewayId' - The ID of the transit gateway.
 newTransitGatewayAttachment ::
@@ -129,7 +129,7 @@ transitGatewayAttachment_state = Lens.lens (\TransitGatewayAttachment' {state} -
 transitGatewayAttachment_tags :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe [Tag])
 transitGatewayAttachment_tags = Lens.lens (\TransitGatewayAttachment' {tags} -> tags) (\s@TransitGatewayAttachment' {} a -> s {tags = a} :: TransitGatewayAttachment) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the AWS account that owns the resource.
+-- | The ID of the Amazon Web Services account that owns the resource.
 transitGatewayAttachment_resourceOwnerId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayAttachment_resourceOwnerId = Lens.lens (\TransitGatewayAttachment' {resourceOwnerId} -> resourceOwnerId) (\s@TransitGatewayAttachment' {} a -> s {resourceOwnerId = a} :: TransitGatewayAttachment)
 
@@ -137,7 +137,7 @@ transitGatewayAttachment_resourceOwnerId = Lens.lens (\TransitGatewayAttachment'
 transitGatewayAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayAttachment)
 
--- | The ID of the AWS account that owns the transit gateway.
+-- | The ID of the Amazon Web Services account that owns the transit gateway.
 transitGatewayAttachment_transitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayAttachment_transitGatewayOwnerId = Lens.lens (\TransitGatewayAttachment' {transitGatewayOwnerId} -> transitGatewayOwnerId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayOwnerId = a} :: TransitGatewayAttachment)
 

@@ -47,14 +47,17 @@ module Network.AWS.EC2
     -- * Waiters
     -- $waiters
 
+    -- ** ExportTaskCompleted
+    newExportTaskCompleted,
+
     -- ** InstanceTerminated
     newInstanceTerminated,
 
     -- ** VpcPeeringConnectionDeleted
     newVpcPeeringConnectionDeleted,
 
-    -- ** ExportTaskCompleted
-    newExportTaskCompleted,
+    -- ** VolumeAvailable
+    newVolumeAvailable,
 
     -- ** SnapshotCompleted
     newSnapshotCompleted,
@@ -62,17 +65,14 @@ module Network.AWS.EC2
     -- ** SpotInstanceRequestFulfilled
     newSpotInstanceRequestFulfilled,
 
-    -- ** VolumeAvailable
-    newVolumeAvailable,
-
-    -- ** ImageAvailable
-    newImageAvailable,
-
     -- ** PasswordDataAvailable
     newPasswordDataAvailable,
 
     -- ** InstanceRunning
     newInstanceRunning,
+
+    -- ** ImageAvailable
+    newImageAvailable,
 
     -- ** KeyPairExists
     newKeyPairExists,
@@ -80,11 +80,11 @@ module Network.AWS.EC2
     -- ** ExportTaskCancelled
     newExportTaskCancelled,
 
-    -- ** VpnConnectionAvailable
-    newVpnConnectionAvailable,
-
     -- ** ImageExists
     newImageExists,
+
+    -- ** VpnConnectionAvailable
+    newVpnConnectionAvailable,
 
     -- ** VpcAvailable
     newVpcAvailable,
@@ -92,17 +92,17 @@ module Network.AWS.EC2
     -- ** VolumeInUse
     newVolumeInUse,
 
-    -- ** InstanceExists
-    newInstanceExists,
-
     -- ** VpcPeeringConnectionExists
     newVpcPeeringConnectionExists,
 
-    -- ** InstanceStatusOk
-    newInstanceStatusOk,
+    -- ** InstanceExists
+    newInstanceExists,
 
     -- ** SecurityGroupExists
     newSecurityGroupExists,
+
+    -- ** InstanceStatusOk
+    newInstanceStatusOk,
 
     -- ** ConversionTaskCancelled
     newConversionTaskCancelled,
@@ -110,26 +110,26 @@ module Network.AWS.EC2
     -- ** VpnConnectionDeleted
     newVpnConnectionDeleted,
 
-    -- ** InstanceStopped
-    newInstanceStopped,
+    -- ** BundleTaskComplete
+    newBundleTaskComplete,
 
     -- ** ConversionTaskCompleted
     newConversionTaskCompleted,
 
-    -- ** BundleTaskComplete
-    newBundleTaskComplete,
+    -- ** InstanceStopped
+    newInstanceStopped,
 
     -- ** ConversionTaskDeleted
     newConversionTaskDeleted,
+
+    -- ** VpcExists
+    newVpcExists,
 
     -- ** VolumeDeleted
     newVolumeDeleted,
 
     -- ** CustomerGatewayAvailable
     newCustomerGatewayAvailable,
-
-    -- ** VpcExists
-    newVpcExists,
 
     -- ** SystemStatusOk
     newSystemStatusOk,
@@ -146,77 +146,17 @@ module Network.AWS.EC2
     -- * Operations
     -- $operations
 
-    -- ** AcceptReservedInstancesExchangeQuote
-    AcceptReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote'),
-    newAcceptReservedInstancesExchangeQuote,
-    AcceptReservedInstancesExchangeQuoteResponse (AcceptReservedInstancesExchangeQuoteResponse'),
-    newAcceptReservedInstancesExchangeQuoteResponse,
+    -- ** DescribeVpcPeeringConnections (Paginated)
+    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
+    newDescribeVpcPeeringConnections,
+    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
+    newDescribeVpcPeeringConnectionsResponse,
 
-    -- ** DescribeInstanceCreditSpecifications (Paginated)
-    DescribeInstanceCreditSpecifications (DescribeInstanceCreditSpecifications'),
-    newDescribeInstanceCreditSpecifications,
-    DescribeInstanceCreditSpecificationsResponse (DescribeInstanceCreditSpecificationsResponse'),
-    newDescribeInstanceCreditSpecificationsResponse,
-
-    -- ** DescribeByoipCidrs (Paginated)
-    DescribeByoipCidrs (DescribeByoipCidrs'),
-    newDescribeByoipCidrs,
-    DescribeByoipCidrsResponse (DescribeByoipCidrsResponse'),
-    newDescribeByoipCidrsResponse,
-
-    -- ** DescribeLocalGatewayVirtualInterfaces (Paginated)
-    DescribeLocalGatewayVirtualInterfaces (DescribeLocalGatewayVirtualInterfaces'),
-    newDescribeLocalGatewayVirtualInterfaces,
-    DescribeLocalGatewayVirtualInterfacesResponse (DescribeLocalGatewayVirtualInterfacesResponse'),
-    newDescribeLocalGatewayVirtualInterfacesResponse,
-
-    -- ** DeleteLocalGatewayRouteTableVpcAssociation
-    DeleteLocalGatewayRouteTableVpcAssociation (DeleteLocalGatewayRouteTableVpcAssociation'),
-    newDeleteLocalGatewayRouteTableVpcAssociation,
-    DeleteLocalGatewayRouteTableVpcAssociationResponse (DeleteLocalGatewayRouteTableVpcAssociationResponse'),
-    newDeleteLocalGatewayRouteTableVpcAssociationResponse,
-
-    -- ** DetachVolume
-    DetachVolume (DetachVolume'),
-    newDetachVolume,
-    VolumeAttachment (VolumeAttachment'),
-    newVolumeAttachment,
-
-    -- ** CreateTransitGatewayVpcAttachment
-    CreateTransitGatewayVpcAttachment (CreateTransitGatewayVpcAttachment'),
-    newCreateTransitGatewayVpcAttachment,
-    CreateTransitGatewayVpcAttachmentResponse (CreateTransitGatewayVpcAttachmentResponse'),
-    newCreateTransitGatewayVpcAttachmentResponse,
-
-    -- ** DeleteVpcEndpointConnectionNotifications
-    DeleteVpcEndpointConnectionNotifications (DeleteVpcEndpointConnectionNotifications'),
-    newDeleteVpcEndpointConnectionNotifications,
-    DeleteVpcEndpointConnectionNotificationsResponse (DeleteVpcEndpointConnectionNotificationsResponse'),
-    newDeleteVpcEndpointConnectionNotificationsResponse,
-
-    -- ** DeleteNetworkInsightsPath
-    DeleteNetworkInsightsPath (DeleteNetworkInsightsPath'),
-    newDeleteNetworkInsightsPath,
-    DeleteNetworkInsightsPathResponse (DeleteNetworkInsightsPathResponse'),
-    newDeleteNetworkInsightsPathResponse,
-
-    -- ** AuthorizeSecurityGroupEgress
-    AuthorizeSecurityGroupEgress (AuthorizeSecurityGroupEgress'),
-    newAuthorizeSecurityGroupEgress,
-    AuthorizeSecurityGroupEgressResponse (AuthorizeSecurityGroupEgressResponse'),
-    newAuthorizeSecurityGroupEgressResponse,
-
-    -- ** ModifyManagedPrefixList
-    ModifyManagedPrefixList (ModifyManagedPrefixList'),
-    newModifyManagedPrefixList,
-    ModifyManagedPrefixListResponse (ModifyManagedPrefixListResponse'),
-    newModifyManagedPrefixListResponse,
-
-    -- ** DeleteTransitGatewayPrefixListReference
-    DeleteTransitGatewayPrefixListReference (DeleteTransitGatewayPrefixListReference'),
-    newDeleteTransitGatewayPrefixListReference,
-    DeleteTransitGatewayPrefixListReferenceResponse (DeleteTransitGatewayPrefixListReferenceResponse'),
-    newDeleteTransitGatewayPrefixListReferenceResponse,
+    -- ** AssociateTrunkInterface
+    AssociateTrunkInterface (AssociateTrunkInterface'),
+    newAssociateTrunkInterface,
+    AssociateTrunkInterfaceResponse (AssociateTrunkInterfaceResponse'),
+    newAssociateTrunkInterfaceResponse,
 
     -- ** DeleteTransitGatewayRoute
     DeleteTransitGatewayRoute (DeleteTransitGatewayRoute'),
@@ -224,23 +164,23 @@ module Network.AWS.EC2
     DeleteTransitGatewayRouteResponse (DeleteTransitGatewayRouteResponse'),
     newDeleteTransitGatewayRouteResponse,
 
-    -- ** DescribeVpcPeeringConnections (Paginated)
-    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
-    newDescribeVpcPeeringConnections,
-    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
-    newDescribeVpcPeeringConnectionsResponse,
+    -- ** DescribeExportTasks
+    DescribeExportTasks (DescribeExportTasks'),
+    newDescribeExportTasks,
+    DescribeExportTasksResponse (DescribeExportTasksResponse'),
+    newDescribeExportTasksResponse,
 
-    -- ** DescribeInstances (Paginated)
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
+    -- ** DeleteLocalGatewayRouteTableVpcAssociation
+    DeleteLocalGatewayRouteTableVpcAssociation (DeleteLocalGatewayRouteTableVpcAssociation'),
+    newDeleteLocalGatewayRouteTableVpcAssociation,
+    DeleteLocalGatewayRouteTableVpcAssociationResponse (DeleteLocalGatewayRouteTableVpcAssociationResponse'),
+    newDeleteLocalGatewayRouteTableVpcAssociationResponse,
 
-    -- ** DeregisterInstanceEventNotificationAttributes
-    DeregisterInstanceEventNotificationAttributes (DeregisterInstanceEventNotificationAttributes'),
-    newDeregisterInstanceEventNotificationAttributes,
-    DeregisterInstanceEventNotificationAttributesResponse (DeregisterInstanceEventNotificationAttributesResponse'),
-    newDeregisterInstanceEventNotificationAttributesResponse,
+    -- ** DeleteVpcEndpointConnectionNotifications
+    DeleteVpcEndpointConnectionNotifications (DeleteVpcEndpointConnectionNotifications'),
+    newDeleteVpcEndpointConnectionNotifications,
+    DeleteVpcEndpointConnectionNotificationsResponse (DeleteVpcEndpointConnectionNotificationsResponse'),
+    newDeleteVpcEndpointConnectionNotificationsResponse,
 
     -- ** CreateTransitGatewayMulticastDomain
     CreateTransitGatewayMulticastDomain (CreateTransitGatewayMulticastDomain'),
@@ -248,29 +188,29 @@ module Network.AWS.EC2
     CreateTransitGatewayMulticastDomainResponse (CreateTransitGatewayMulticastDomainResponse'),
     newCreateTransitGatewayMulticastDomainResponse,
 
-    -- ** AssociateTransitGatewayMulticastDomain
-    AssociateTransitGatewayMulticastDomain (AssociateTransitGatewayMulticastDomain'),
-    newAssociateTransitGatewayMulticastDomain,
-    AssociateTransitGatewayMulticastDomainResponse (AssociateTransitGatewayMulticastDomainResponse'),
-    newAssociateTransitGatewayMulticastDomainResponse,
+    -- ** CreateVpcEndpointServiceConfiguration
+    CreateVpcEndpointServiceConfiguration (CreateVpcEndpointServiceConfiguration'),
+    newCreateVpcEndpointServiceConfiguration,
+    CreateVpcEndpointServiceConfigurationResponse (CreateVpcEndpointServiceConfigurationResponse'),
+    newCreateVpcEndpointServiceConfigurationResponse,
 
-    -- ** ReleaseAddress
-    ReleaseAddress (ReleaseAddress'),
-    newReleaseAddress,
-    ReleaseAddressResponse (ReleaseAddressResponse'),
-    newReleaseAddressResponse,
+    -- ** DescribeByoipCidrs (Paginated)
+    DescribeByoipCidrs (DescribeByoipCidrs'),
+    newDescribeByoipCidrs,
+    DescribeByoipCidrsResponse (DescribeByoipCidrsResponse'),
+    newDescribeByoipCidrsResponse,
 
-    -- ** DeregisterTransitGatewayMulticastGroupMembers
-    DeregisterTransitGatewayMulticastGroupMembers (DeregisterTransitGatewayMulticastGroupMembers'),
-    newDeregisterTransitGatewayMulticastGroupMembers,
-    DeregisterTransitGatewayMulticastGroupMembersResponse (DeregisterTransitGatewayMulticastGroupMembersResponse'),
-    newDeregisterTransitGatewayMulticastGroupMembersResponse,
+    -- ** DetachVolume
+    DetachVolume (DetachVolume'),
+    newDetachVolume,
+    VolumeAttachment (VolumeAttachment'),
+    newVolumeAttachment,
 
-    -- ** GetHostReservationPurchasePreview
-    GetHostReservationPurchasePreview (GetHostReservationPurchasePreview'),
-    newGetHostReservationPurchasePreview,
-    GetHostReservationPurchasePreviewResponse (GetHostReservationPurchasePreviewResponse'),
-    newGetHostReservationPurchasePreviewResponse,
+    -- ** DeleteNetworkInsightsPath
+    DeleteNetworkInsightsPath (DeleteNetworkInsightsPath'),
+    newDeleteNetworkInsightsPath,
+    DeleteNetworkInsightsPathResponse (DeleteNetworkInsightsPathResponse'),
+    newDeleteNetworkInsightsPathResponse,
 
     -- ** CancelBundleTask
     CancelBundleTask (CancelBundleTask'),
@@ -284,11 +224,23 @@ module Network.AWS.EC2
     GetCapacityReservationUsageResponse (GetCapacityReservationUsageResponse'),
     newGetCapacityReservationUsageResponse,
 
+    -- ** AssociateTransitGatewayMulticastDomain
+    AssociateTransitGatewayMulticastDomain (AssociateTransitGatewayMulticastDomain'),
+    newAssociateTransitGatewayMulticastDomain,
+    AssociateTransitGatewayMulticastDomainResponse (AssociateTransitGatewayMulticastDomainResponse'),
+    newAssociateTransitGatewayMulticastDomainResponse,
+
     -- ** CreateTransitGatewayConnectPeer
     CreateTransitGatewayConnectPeer (CreateTransitGatewayConnectPeer'),
     newCreateTransitGatewayConnectPeer,
     CreateTransitGatewayConnectPeerResponse (CreateTransitGatewayConnectPeerResponse'),
     newCreateTransitGatewayConnectPeerResponse,
+
+    -- ** ReleaseAddress
+    ReleaseAddress (ReleaseAddress'),
+    newReleaseAddress,
+    ReleaseAddressResponse (ReleaseAddressResponse'),
+    newReleaseAddressResponse,
 
     -- ** ModifyVpcTenancy
     ModifyVpcTenancy (ModifyVpcTenancy'),
@@ -296,17 +248,41 @@ module Network.AWS.EC2
     ModifyVpcTenancyResponse (ModifyVpcTenancyResponse'),
     newModifyVpcTenancyResponse,
 
-    -- ** CreateVpcEndpointServiceConfiguration
-    CreateVpcEndpointServiceConfiguration (CreateVpcEndpointServiceConfiguration'),
-    newCreateVpcEndpointServiceConfiguration,
-    CreateVpcEndpointServiceConfigurationResponse (CreateVpcEndpointServiceConfigurationResponse'),
-    newCreateVpcEndpointServiceConfigurationResponse,
+    -- ** DescribeLocalGatewayVirtualInterfaces (Paginated)
+    DescribeLocalGatewayVirtualInterfaces (DescribeLocalGatewayVirtualInterfaces'),
+    newDescribeLocalGatewayVirtualInterfaces,
+    DescribeLocalGatewayVirtualInterfacesResponse (DescribeLocalGatewayVirtualInterfacesResponse'),
+    newDescribeLocalGatewayVirtualInterfacesResponse,
 
-    -- ** DescribeExportTasks
-    DescribeExportTasks (DescribeExportTasks'),
-    newDescribeExportTasks,
-    DescribeExportTasksResponse (DescribeExportTasksResponse'),
-    newDescribeExportTasksResponse,
+    -- ** GetHostReservationPurchasePreview
+    GetHostReservationPurchasePreview (GetHostReservationPurchasePreview'),
+    newGetHostReservationPurchasePreview,
+    GetHostReservationPurchasePreviewResponse (GetHostReservationPurchasePreviewResponse'),
+    newGetHostReservationPurchasePreviewResponse,
+
+    -- ** AuthorizeSecurityGroupEgress
+    AuthorizeSecurityGroupEgress (AuthorizeSecurityGroupEgress'),
+    newAuthorizeSecurityGroupEgress,
+    AuthorizeSecurityGroupEgressResponse (AuthorizeSecurityGroupEgressResponse'),
+    newAuthorizeSecurityGroupEgressResponse,
+
+    -- ** AcceptReservedInstancesExchangeQuote
+    AcceptReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote'),
+    newAcceptReservedInstancesExchangeQuote,
+    AcceptReservedInstancesExchangeQuoteResponse (AcceptReservedInstancesExchangeQuoteResponse'),
+    newAcceptReservedInstancesExchangeQuoteResponse,
+
+    -- ** ModifyManagedPrefixList
+    ModifyManagedPrefixList (ModifyManagedPrefixList'),
+    newModifyManagedPrefixList,
+    ModifyManagedPrefixListResponse (ModifyManagedPrefixListResponse'),
+    newModifyManagedPrefixListResponse,
+
+    -- ** DescribeInstanceCreditSpecifications (Paginated)
+    DescribeInstanceCreditSpecifications (DescribeInstanceCreditSpecifications'),
+    newDescribeInstanceCreditSpecifications,
+    DescribeInstanceCreditSpecificationsResponse (DescribeInstanceCreditSpecificationsResponse'),
+    newDescribeInstanceCreditSpecificationsResponse,
 
     -- ** GetTransitGatewayMulticastDomainAssociations (Paginated)
     GetTransitGatewayMulticastDomainAssociations (GetTransitGatewayMulticastDomainAssociations'),
@@ -314,11 +290,71 @@ module Network.AWS.EC2
     GetTransitGatewayMulticastDomainAssociationsResponse (GetTransitGatewayMulticastDomainAssociationsResponse'),
     newGetTransitGatewayMulticastDomainAssociationsResponse,
 
+    -- ** DescribeInstances (Paginated)
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
+
     -- ** DisableEbsEncryptionByDefault
     DisableEbsEncryptionByDefault (DisableEbsEncryptionByDefault'),
     newDisableEbsEncryptionByDefault,
     DisableEbsEncryptionByDefaultResponse (DisableEbsEncryptionByDefaultResponse'),
     newDisableEbsEncryptionByDefaultResponse,
+
+    -- ** DeregisterInstanceEventNotificationAttributes
+    DeregisterInstanceEventNotificationAttributes (DeregisterInstanceEventNotificationAttributes'),
+    newDeregisterInstanceEventNotificationAttributes,
+    DeregisterInstanceEventNotificationAttributesResponse (DeregisterInstanceEventNotificationAttributesResponse'),
+    newDeregisterInstanceEventNotificationAttributesResponse,
+
+    -- ** CreateTransitGatewayVpcAttachment
+    CreateTransitGatewayVpcAttachment (CreateTransitGatewayVpcAttachment'),
+    newCreateTransitGatewayVpcAttachment,
+    CreateTransitGatewayVpcAttachmentResponse (CreateTransitGatewayVpcAttachmentResponse'),
+    newCreateTransitGatewayVpcAttachmentResponse,
+
+    -- ** DeregisterTransitGatewayMulticastGroupMembers
+    DeregisterTransitGatewayMulticastGroupMembers (DeregisterTransitGatewayMulticastGroupMembers'),
+    newDeregisterTransitGatewayMulticastGroupMembers,
+    DeregisterTransitGatewayMulticastGroupMembersResponse (DeregisterTransitGatewayMulticastGroupMembersResponse'),
+    newDeregisterTransitGatewayMulticastGroupMembersResponse,
+
+    -- ** DeleteTransitGatewayPrefixListReference
+    DeleteTransitGatewayPrefixListReference (DeleteTransitGatewayPrefixListReference'),
+    newDeleteTransitGatewayPrefixListReference,
+    DeleteTransitGatewayPrefixListReferenceResponse (DeleteTransitGatewayPrefixListReferenceResponse'),
+    newDeleteTransitGatewayPrefixListReferenceResponse,
+
+    -- ** CreateTransitGatewayRouteTable
+    CreateTransitGatewayRouteTable (CreateTransitGatewayRouteTable'),
+    newCreateTransitGatewayRouteTable,
+    CreateTransitGatewayRouteTableResponse (CreateTransitGatewayRouteTableResponse'),
+    newCreateTransitGatewayRouteTableResponse,
+
+    -- ** DisassociateAddress
+    DisassociateAddress (DisassociateAddress'),
+    newDisassociateAddress,
+    DisassociateAddressResponse (DisassociateAddressResponse'),
+    newDisassociateAddressResponse,
+
+    -- ** DetachNetworkInterface
+    DetachNetworkInterface (DetachNetworkInterface'),
+    newDetachNetworkInterface,
+    DetachNetworkInterfaceResponse (DetachNetworkInterfaceResponse'),
+    newDetachNetworkInterfaceResponse,
+
+    -- ** DeleteFleets
+    DeleteFleets (DeleteFleets'),
+    newDeleteFleets,
+    DeleteFleetsResponse (DeleteFleetsResponse'),
+    newDeleteFleetsResponse,
+
+    -- ** DeleteVpc
+    DeleteVpc (DeleteVpc'),
+    newDeleteVpc,
+    DeleteVpcResponse (DeleteVpcResponse'),
+    newDeleteVpcResponse,
 
     -- ** AssociateVpcCidrBlock
     AssociateVpcCidrBlock (AssociateVpcCidrBlock'),
@@ -332,11 +368,11 @@ module Network.AWS.EC2
     CreateNetworkAclResponse (CreateNetworkAclResponse'),
     newCreateNetworkAclResponse,
 
-    -- ** AcceptTransitGatewayPeeringAttachment
-    AcceptTransitGatewayPeeringAttachment (AcceptTransitGatewayPeeringAttachment'),
-    newAcceptTransitGatewayPeeringAttachment,
-    AcceptTransitGatewayPeeringAttachmentResponse (AcceptTransitGatewayPeeringAttachmentResponse'),
-    newAcceptTransitGatewayPeeringAttachmentResponse,
+    -- ** DeleteTrafficMirrorTarget
+    DeleteTrafficMirrorTarget (DeleteTrafficMirrorTarget'),
+    newDeleteTrafficMirrorTarget,
+    DeleteTrafficMirrorTargetResponse (DeleteTrafficMirrorTargetResponse'),
+    newDeleteTrafficMirrorTargetResponse,
 
     -- ** DeleteLaunchTemplate
     DeleteLaunchTemplate (DeleteLaunchTemplate'),
@@ -344,83 +380,11 @@ module Network.AWS.EC2
     DeleteLaunchTemplateResponse (DeleteLaunchTemplateResponse'),
     newDeleteLaunchTemplateResponse,
 
-    -- ** DeleteVpc
-    DeleteVpc (DeleteVpc'),
-    newDeleteVpc,
-    DeleteVpcResponse (DeleteVpcResponse'),
-    newDeleteVpcResponse,
-
-    -- ** DeleteFleets
-    DeleteFleets (DeleteFleets'),
-    newDeleteFleets,
-    DeleteFleetsResponse (DeleteFleetsResponse'),
-    newDeleteFleetsResponse,
-
-    -- ** GetAssociatedIpv6PoolCidrs (Paginated)
-    GetAssociatedIpv6PoolCidrs (GetAssociatedIpv6PoolCidrs'),
-    newGetAssociatedIpv6PoolCidrs,
-    GetAssociatedIpv6PoolCidrsResponse (GetAssociatedIpv6PoolCidrsResponse'),
-    newGetAssociatedIpv6PoolCidrsResponse,
-
-    -- ** DescribeTrafficMirrorSessions (Paginated)
-    DescribeTrafficMirrorSessions (DescribeTrafficMirrorSessions'),
-    newDescribeTrafficMirrorSessions,
-    DescribeTrafficMirrorSessionsResponse (DescribeTrafficMirrorSessionsResponse'),
-    newDescribeTrafficMirrorSessionsResponse,
-
-    -- ** ImportInstance
-    ImportInstance (ImportInstance'),
-    newImportInstance,
-    ImportInstanceResponse (ImportInstanceResponse'),
-    newImportInstanceResponse,
-
-    -- ** DescribeLocalGatewayRouteTables (Paginated)
-    DescribeLocalGatewayRouteTables (DescribeLocalGatewayRouteTables'),
-    newDescribeLocalGatewayRouteTables,
-    DescribeLocalGatewayRouteTablesResponse (DescribeLocalGatewayRouteTablesResponse'),
-    newDescribeLocalGatewayRouteTablesResponse,
-
-    -- ** CreateNetworkInterfacePermission
-    CreateNetworkInterfacePermission (CreateNetworkInterfacePermission'),
-    newCreateNetworkInterfacePermission,
-    CreateNetworkInterfacePermissionResponse (CreateNetworkInterfacePermissionResponse'),
-    newCreateNetworkInterfacePermissionResponse,
-
-    -- ** CreateVpnGateway
-    CreateVpnGateway (CreateVpnGateway'),
-    newCreateVpnGateway,
-    CreateVpnGatewayResponse (CreateVpnGatewayResponse'),
-    newCreateVpnGatewayResponse,
-
-    -- ** GetTransitGatewayRouteTableAssociations (Paginated)
-    GetTransitGatewayRouteTableAssociations (GetTransitGatewayRouteTableAssociations'),
-    newGetTransitGatewayRouteTableAssociations,
-    GetTransitGatewayRouteTableAssociationsResponse (GetTransitGatewayRouteTableAssociationsResponse'),
-    newGetTransitGatewayRouteTableAssociationsResponse,
-
-    -- ** RejectTransitGatewayVpcAttachment
-    RejectTransitGatewayVpcAttachment (RejectTransitGatewayVpcAttachment'),
-    newRejectTransitGatewayVpcAttachment,
-    RejectTransitGatewayVpcAttachmentResponse (RejectTransitGatewayVpcAttachmentResponse'),
-    newRejectTransitGatewayVpcAttachmentResponse,
-
-    -- ** ModifyVolumeAttribute
-    ModifyVolumeAttribute (ModifyVolumeAttribute'),
-    newModifyVolumeAttribute,
-    ModifyVolumeAttributeResponse (ModifyVolumeAttributeResponse'),
-    newModifyVolumeAttributeResponse,
-
-    -- ** DescribePrefixLists (Paginated)
-    DescribePrefixLists (DescribePrefixLists'),
-    newDescribePrefixLists,
-    DescribePrefixListsResponse (DescribePrefixListsResponse'),
-    newDescribePrefixListsResponse,
-
-    -- ** DetachNetworkInterface
-    DetachNetworkInterface (DetachNetworkInterface'),
-    newDetachNetworkInterface,
-    DetachNetworkInterfaceResponse (DetachNetworkInterfaceResponse'),
-    newDetachNetworkInterfaceResponse,
+    -- ** ModifySecurityGroupRules
+    ModifySecurityGroupRules (ModifySecurityGroupRules'),
+    newModifySecurityGroupRules,
+    ModifySecurityGroupRulesResponse (ModifySecurityGroupRulesResponse'),
+    newModifySecurityGroupRulesResponse,
 
     -- ** DeleteVpcEndpoints
     DeleteVpcEndpoints (DeleteVpcEndpoints'),
@@ -428,11 +392,11 @@ module Network.AWS.EC2
     DeleteVpcEndpointsResponse (DeleteVpcEndpointsResponse'),
     newDeleteVpcEndpointsResponse,
 
-    -- ** DescribeVpcClassicLink
-    DescribeVpcClassicLink (DescribeVpcClassicLink'),
-    newDescribeVpcClassicLink,
-    DescribeVpcClassicLinkResponse (DescribeVpcClassicLinkResponse'),
-    newDescribeVpcClassicLinkResponse,
+    -- ** DescribeTrafficMirrorSessions (Paginated)
+    DescribeTrafficMirrorSessions (DescribeTrafficMirrorSessions'),
+    newDescribeTrafficMirrorSessions,
+    DescribeTrafficMirrorSessionsResponse (DescribeTrafficMirrorSessionsResponse'),
+    newDescribeTrafficMirrorSessionsResponse,
 
     -- ** UpdateSecurityGroupRuleDescriptionsIngress
     UpdateSecurityGroupRuleDescriptionsIngress (UpdateSecurityGroupRuleDescriptionsIngress'),
@@ -440,17 +404,53 @@ module Network.AWS.EC2
     UpdateSecurityGroupRuleDescriptionsIngressResponse (UpdateSecurityGroupRuleDescriptionsIngressResponse'),
     newUpdateSecurityGroupRuleDescriptionsIngressResponse,
 
-    -- ** DescribeClientVpnEndpoints (Paginated)
-    DescribeClientVpnEndpoints (DescribeClientVpnEndpoints'),
-    newDescribeClientVpnEndpoints,
-    DescribeClientVpnEndpointsResponse (DescribeClientVpnEndpointsResponse'),
-    newDescribeClientVpnEndpointsResponse,
+    -- ** DescribePrefixLists (Paginated)
+    DescribePrefixLists (DescribePrefixLists'),
+    newDescribePrefixLists,
+    DescribePrefixListsResponse (DescribePrefixListsResponse'),
+    newDescribePrefixListsResponse,
 
-    -- ** DisassociateAddress
-    DisassociateAddress (DisassociateAddress'),
-    newDisassociateAddress,
-    DisassociateAddressResponse (DisassociateAddressResponse'),
-    newDisassociateAddressResponse,
+    -- ** DescribeVpcClassicLink
+    DescribeVpcClassicLink (DescribeVpcClassicLink'),
+    newDescribeVpcClassicLink,
+    DescribeVpcClassicLinkResponse (DescribeVpcClassicLinkResponse'),
+    newDescribeVpcClassicLinkResponse,
+
+    -- ** GetAssociatedIpv6PoolCidrs (Paginated)
+    GetAssociatedIpv6PoolCidrs (GetAssociatedIpv6PoolCidrs'),
+    newGetAssociatedIpv6PoolCidrs,
+    GetAssociatedIpv6PoolCidrsResponse (GetAssociatedIpv6PoolCidrsResponse'),
+    newGetAssociatedIpv6PoolCidrsResponse,
+
+    -- ** ImportInstance
+    ImportInstance (ImportInstance'),
+    newImportInstance,
+    ImportInstanceResponse (ImportInstanceResponse'),
+    newImportInstanceResponse,
+
+    -- ** CreateDefaultSubnet
+    CreateDefaultSubnet (CreateDefaultSubnet'),
+    newCreateDefaultSubnet,
+    CreateDefaultSubnetResponse (CreateDefaultSubnetResponse'),
+    newCreateDefaultSubnetResponse,
+
+    -- ** DeleteFlowLogs
+    DeleteFlowLogs (DeleteFlowLogs'),
+    newDeleteFlowLogs,
+    DeleteFlowLogsResponse (DeleteFlowLogsResponse'),
+    newDeleteFlowLogsResponse,
+
+    -- ** ModifyVolumeAttribute
+    ModifyVolumeAttribute (ModifyVolumeAttribute'),
+    newModifyVolumeAttribute,
+    ModifyVolumeAttributeResponse (ModifyVolumeAttributeResponse'),
+    newModifyVolumeAttributeResponse,
+
+    -- ** CreateNetworkInterfacePermission
+    CreateNetworkInterfacePermission (CreateNetworkInterfacePermission'),
+    newCreateNetworkInterfacePermission,
+    CreateNetworkInterfacePermissionResponse (CreateNetworkInterfacePermissionResponse'),
+    newCreateNetworkInterfacePermissionResponse,
 
     -- ** DescribeScheduledInstanceAvailability (Paginated)
     DescribeScheduledInstanceAvailability (DescribeScheduledInstanceAvailability'),
@@ -458,17 +458,17 @@ module Network.AWS.EC2
     DescribeScheduledInstanceAvailabilityResponse (DescribeScheduledInstanceAvailabilityResponse'),
     newDescribeScheduledInstanceAvailabilityResponse,
 
+    -- ** DescribeClientVpnEndpoints (Paginated)
+    DescribeClientVpnEndpoints (DescribeClientVpnEndpoints'),
+    newDescribeClientVpnEndpoints,
+    DescribeClientVpnEndpointsResponse (DescribeClientVpnEndpointsResponse'),
+    newDescribeClientVpnEndpointsResponse,
+
     -- ** RejectVpcEndpointConnections
     RejectVpcEndpointConnections (RejectVpcEndpointConnections'),
     newRejectVpcEndpointConnections,
     RejectVpcEndpointConnectionsResponse (RejectVpcEndpointConnectionsResponse'),
     newRejectVpcEndpointConnectionsResponse,
-
-    -- ** CreateTransitGatewayRouteTable
-    CreateTransitGatewayRouteTable (CreateTransitGatewayRouteTable'),
-    newCreateTransitGatewayRouteTable,
-    CreateTransitGatewayRouteTableResponse (CreateTransitGatewayRouteTableResponse'),
-    newCreateTransitGatewayRouteTableResponse,
 
     -- ** DescribeTags (Paginated)
     DescribeTags (DescribeTags'),
@@ -482,47 +482,35 @@ module Network.AWS.EC2
     AssociateTransitGatewayRouteTableResponse (AssociateTransitGatewayRouteTableResponse'),
     newAssociateTransitGatewayRouteTableResponse,
 
-    -- ** DeleteFlowLogs
-    DeleteFlowLogs (DeleteFlowLogs'),
-    newDeleteFlowLogs,
-    DeleteFlowLogsResponse (DeleteFlowLogsResponse'),
-    newDeleteFlowLogsResponse,
+    -- ** DescribeLocalGatewayRouteTables (Paginated)
+    DescribeLocalGatewayRouteTables (DescribeLocalGatewayRouteTables'),
+    newDescribeLocalGatewayRouteTables,
+    DescribeLocalGatewayRouteTablesResponse (DescribeLocalGatewayRouteTablesResponse'),
+    newDescribeLocalGatewayRouteTablesResponse,
 
-    -- ** CreateDefaultSubnet
-    CreateDefaultSubnet (CreateDefaultSubnet'),
-    newCreateDefaultSubnet,
-    CreateDefaultSubnetResponse (CreateDefaultSubnetResponse'),
-    newCreateDefaultSubnetResponse,
+    -- ** RejectTransitGatewayVpcAttachment
+    RejectTransitGatewayVpcAttachment (RejectTransitGatewayVpcAttachment'),
+    newRejectTransitGatewayVpcAttachment,
+    RejectTransitGatewayVpcAttachmentResponse (RejectTransitGatewayVpcAttachmentResponse'),
+    newRejectTransitGatewayVpcAttachmentResponse,
 
-    -- ** DeleteTrafficMirrorTarget
-    DeleteTrafficMirrorTarget (DeleteTrafficMirrorTarget'),
-    newDeleteTrafficMirrorTarget,
-    DeleteTrafficMirrorTargetResponse (DeleteTrafficMirrorTargetResponse'),
-    newDeleteTrafficMirrorTargetResponse,
+    -- ** CreateVpnGateway
+    CreateVpnGateway (CreateVpnGateway'),
+    newCreateVpnGateway,
+    CreateVpnGatewayResponse (CreateVpnGatewayResponse'),
+    newCreateVpnGatewayResponse,
 
-    -- ** AcceptTransitGatewayMulticastDomainAssociations
-    AcceptTransitGatewayMulticastDomainAssociations (AcceptTransitGatewayMulticastDomainAssociations'),
-    newAcceptTransitGatewayMulticastDomainAssociations,
-    AcceptTransitGatewayMulticastDomainAssociationsResponse (AcceptTransitGatewayMulticastDomainAssociationsResponse'),
-    newAcceptTransitGatewayMulticastDomainAssociationsResponse,
+    -- ** AcceptTransitGatewayPeeringAttachment
+    AcceptTransitGatewayPeeringAttachment (AcceptTransitGatewayPeeringAttachment'),
+    newAcceptTransitGatewayPeeringAttachment,
+    AcceptTransitGatewayPeeringAttachmentResponse (AcceptTransitGatewayPeeringAttachmentResponse'),
+    newAcceptTransitGatewayPeeringAttachmentResponse,
 
-    -- ** DescribeLaunchTemplateVersions (Paginated)
-    DescribeLaunchTemplateVersions (DescribeLaunchTemplateVersions'),
-    newDescribeLaunchTemplateVersions,
-    DescribeLaunchTemplateVersionsResponse (DescribeLaunchTemplateVersionsResponse'),
-    newDescribeLaunchTemplateVersionsResponse,
-
-    -- ** DescribeAvailabilityZones
-    DescribeAvailabilityZones (DescribeAvailabilityZones'),
-    newDescribeAvailabilityZones,
-    DescribeAvailabilityZonesResponse (DescribeAvailabilityZonesResponse'),
-    newDescribeAvailabilityZonesResponse,
-
-    -- ** GetReservedInstancesExchangeQuote
-    GetReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote'),
-    newGetReservedInstancesExchangeQuote,
-    GetReservedInstancesExchangeQuoteResponse (GetReservedInstancesExchangeQuoteResponse'),
-    newGetReservedInstancesExchangeQuoteResponse,
+    -- ** GetTransitGatewayRouteTableAssociations (Paginated)
+    GetTransitGatewayRouteTableAssociations (GetTransitGatewayRouteTableAssociations'),
+    newGetTransitGatewayRouteTableAssociations,
+    GetTransitGatewayRouteTableAssociationsResponse (GetTransitGatewayRouteTableAssociationsResponse'),
+    newGetTransitGatewayRouteTableAssociationsResponse,
 
     -- ** DeleteVpnGateway
     DeleteVpnGateway (DeleteVpnGateway'),
@@ -530,11 +518,11 @@ module Network.AWS.EC2
     DeleteVpnGatewayResponse (DeleteVpnGatewayResponse'),
     newDeleteVpnGatewayResponse,
 
-    -- ** CreateKeyPair
-    CreateKeyPair (CreateKeyPair'),
-    newCreateKeyPair,
-    CreateKeyPairResponse (CreateKeyPairResponse'),
-    newCreateKeyPairResponse,
+    -- ** DescribeImportImageTasks (Paginated)
+    DescribeImportImageTasks (DescribeImportImageTasks'),
+    newDescribeImportImageTasks,
+    DescribeImportImageTasksResponse (DescribeImportImageTasksResponse'),
+    newDescribeImportImageTasksResponse,
 
     -- ** ExportTransitGatewayRoutes
     ExportTransitGatewayRoutes (ExportTransitGatewayRoutes'),
@@ -542,11 +530,29 @@ module Network.AWS.EC2
     ExportTransitGatewayRoutesResponse (ExportTransitGatewayRoutesResponse'),
     newExportTransitGatewayRoutesResponse,
 
-    -- ** CopySnapshot
-    CopySnapshot (CopySnapshot'),
-    newCopySnapshot,
-    CopySnapshotResponse (CopySnapshotResponse'),
-    newCopySnapshotResponse,
+    -- ** DescribeLaunchTemplateVersions (Paginated)
+    DescribeLaunchTemplateVersions (DescribeLaunchTemplateVersions'),
+    newDescribeLaunchTemplateVersions,
+    DescribeLaunchTemplateVersionsResponse (DescribeLaunchTemplateVersionsResponse'),
+    newDescribeLaunchTemplateVersionsResponse,
+
+    -- ** DescribeFpgaImages (Paginated)
+    DescribeFpgaImages (DescribeFpgaImages'),
+    newDescribeFpgaImages,
+    DescribeFpgaImagesResponse (DescribeFpgaImagesResponse'),
+    newDescribeFpgaImagesResponse,
+
+    -- ** GetReservedInstancesExchangeQuote
+    GetReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote'),
+    newGetReservedInstancesExchangeQuote,
+    GetReservedInstancesExchangeQuoteResponse (GetReservedInstancesExchangeQuoteResponse'),
+    newGetReservedInstancesExchangeQuoteResponse,
+
+    -- ** CreateKeyPair
+    CreateKeyPair (CreateKeyPair'),
+    newCreateKeyPair,
+    CreateKeyPairResponse (CreateKeyPairResponse'),
+    newCreateKeyPairResponse,
 
     -- ** DescribeElasticGpus
     DescribeElasticGpus (DescribeElasticGpus'),
@@ -560,35 +566,11 @@ module Network.AWS.EC2
     StartNetworkInsightsAnalysisResponse (StartNetworkInsightsAnalysisResponse'),
     newStartNetworkInsightsAnalysisResponse,
 
-    -- ** DescribeFpgaImages (Paginated)
-    DescribeFpgaImages (DescribeFpgaImages'),
-    newDescribeFpgaImages,
-    DescribeFpgaImagesResponse (DescribeFpgaImagesResponse'),
-    newDescribeFpgaImagesResponse,
-
-    -- ** CreateFlowLogs
-    CreateFlowLogs (CreateFlowLogs'),
-    newCreateFlowLogs,
-    CreateFlowLogsResponse (CreateFlowLogsResponse'),
-    newCreateFlowLogsResponse,
-
-    -- ** CreateLaunchTemplate
-    CreateLaunchTemplate (CreateLaunchTemplate'),
-    newCreateLaunchTemplate,
-    CreateLaunchTemplateResponse (CreateLaunchTemplateResponse'),
-    newCreateLaunchTemplateResponse,
-
-    -- ** DescribeImportImageTasks (Paginated)
-    DescribeImportImageTasks (DescribeImportImageTasks'),
-    newDescribeImportImageTasks,
-    DescribeImportImageTasksResponse (DescribeImportImageTasksResponse'),
-    newDescribeImportImageTasksResponse,
-
-    -- ** DeleteTransitGatewayRouteTable
-    DeleteTransitGatewayRouteTable (DeleteTransitGatewayRouteTable'),
-    newDeleteTransitGatewayRouteTable,
-    DeleteTransitGatewayRouteTableResponse (DeleteTransitGatewayRouteTableResponse'),
-    newDeleteTransitGatewayRouteTableResponse,
+    -- ** DescribeSecurityGroupRules (Paginated)
+    DescribeSecurityGroupRules (DescribeSecurityGroupRules'),
+    newDescribeSecurityGroupRules,
+    DescribeSecurityGroupRulesResponse (DescribeSecurityGroupRulesResponse'),
+    newDescribeSecurityGroupRulesResponse,
 
     -- ** DeleteNetworkAcl
     DeleteNetworkAcl (DeleteNetworkAcl'),
@@ -596,11 +578,11 @@ module Network.AWS.EC2
     DeleteNetworkAclResponse (DeleteNetworkAclResponse'),
     newDeleteNetworkAclResponse,
 
-    -- ** MoveAddressToVpc
-    MoveAddressToVpc (MoveAddressToVpc'),
-    newMoveAddressToVpc,
-    MoveAddressToVpcResponse (MoveAddressToVpcResponse'),
-    newMoveAddressToVpcResponse,
+    -- ** DescribeRouteTables (Paginated)
+    DescribeRouteTables (DescribeRouteTables'),
+    newDescribeRouteTables,
+    DescribeRouteTablesResponse (DescribeRouteTablesResponse'),
+    newDescribeRouteTablesResponse,
 
     -- ** DescribeFleetInstances
     DescribeFleetInstances (DescribeFleetInstances'),
@@ -608,11 +590,59 @@ module Network.AWS.EC2
     DescribeFleetInstancesResponse (DescribeFleetInstancesResponse'),
     newDescribeFleetInstancesResponse,
 
+    -- ** DeleteTransitGatewayRouteTable
+    DeleteTransitGatewayRouteTable (DeleteTransitGatewayRouteTable'),
+    newDeleteTransitGatewayRouteTable,
+    DeleteTransitGatewayRouteTableResponse (DeleteTransitGatewayRouteTableResponse'),
+    newDeleteTransitGatewayRouteTableResponse,
+
+    -- ** CreateLaunchTemplate
+    CreateLaunchTemplate (CreateLaunchTemplate'),
+    newCreateLaunchTemplate,
+    CreateLaunchTemplateResponse (CreateLaunchTemplateResponse'),
+    newCreateLaunchTemplateResponse,
+
+    -- ** ModifyInstanceEventWindow
+    ModifyInstanceEventWindow (ModifyInstanceEventWindow'),
+    newModifyInstanceEventWindow,
+    ModifyInstanceEventWindowResponse (ModifyInstanceEventWindowResponse'),
+    newModifyInstanceEventWindowResponse,
+
+    -- ** MoveAddressToVpc
+    MoveAddressToVpc (MoveAddressToVpc'),
+    newMoveAddressToVpc,
+    MoveAddressToVpcResponse (MoveAddressToVpcResponse'),
+    newMoveAddressToVpcResponse,
+
+    -- ** AcceptTransitGatewayMulticastDomainAssociations
+    AcceptTransitGatewayMulticastDomainAssociations (AcceptTransitGatewayMulticastDomainAssociations'),
+    newAcceptTransitGatewayMulticastDomainAssociations,
+    AcceptTransitGatewayMulticastDomainAssociationsResponse (AcceptTransitGatewayMulticastDomainAssociationsResponse'),
+    newAcceptTransitGatewayMulticastDomainAssociationsResponse,
+
     -- ** RestoreAddressToClassic
     RestoreAddressToClassic (RestoreAddressToClassic'),
     newRestoreAddressToClassic,
     RestoreAddressToClassicResponse (RestoreAddressToClassicResponse'),
     newRestoreAddressToClassicResponse,
+
+    -- ** DescribeAvailabilityZones
+    DescribeAvailabilityZones (DescribeAvailabilityZones'),
+    newDescribeAvailabilityZones,
+    DescribeAvailabilityZonesResponse (DescribeAvailabilityZonesResponse'),
+    newDescribeAvailabilityZonesResponse,
+
+    -- ** CreateStoreImageTask
+    CreateStoreImageTask (CreateStoreImageTask'),
+    newCreateStoreImageTask,
+    CreateStoreImageTaskResponse (CreateStoreImageTaskResponse'),
+    newCreateStoreImageTaskResponse,
+
+    -- ** CopySnapshot
+    CopySnapshot (CopySnapshot'),
+    newCopySnapshot,
+    CopySnapshotResponse (CopySnapshotResponse'),
+    newCopySnapshotResponse,
 
     -- ** DeleteNetworkInterfacePermission
     DeleteNetworkInterfacePermission (DeleteNetworkInterfacePermission'),
@@ -620,11 +650,113 @@ module Network.AWS.EC2
     DeleteNetworkInterfacePermissionResponse (DeleteNetworkInterfacePermissionResponse'),
     newDeleteNetworkInterfacePermissionResponse,
 
-    -- ** DescribeRouteTables (Paginated)
-    DescribeRouteTables (DescribeRouteTables'),
-    newDescribeRouteTables,
-    DescribeRouteTablesResponse (DescribeRouteTablesResponse'),
-    newDescribeRouteTablesResponse,
+    -- ** CreateFlowLogs
+    CreateFlowLogs (CreateFlowLogs'),
+    newCreateFlowLogs,
+    CreateFlowLogsResponse (CreateFlowLogsResponse'),
+    newCreateFlowLogsResponse,
+
+    -- ** DetachClassicLinkVpc
+    DetachClassicLinkVpc (DetachClassicLinkVpc'),
+    newDetachClassicLinkVpc,
+    DetachClassicLinkVpcResponse (DetachClassicLinkVpcResponse'),
+    newDetachClassicLinkVpcResponse,
+
+    -- ** DeleteRouteTable
+    DeleteRouteTable (DeleteRouteTable'),
+    newDeleteRouteTable,
+    DeleteRouteTableResponse (DeleteRouteTableResponse'),
+    newDeleteRouteTableResponse,
+
+    -- ** ModifyVpnConnectionOptions
+    ModifyVpnConnectionOptions (ModifyVpnConnectionOptions'),
+    newModifyVpnConnectionOptions,
+    ModifyVpnConnectionOptionsResponse (ModifyVpnConnectionOptionsResponse'),
+    newModifyVpnConnectionOptionsResponse,
+
+    -- ** MonitorInstances
+    MonitorInstances (MonitorInstances'),
+    newMonitorInstances,
+    MonitorInstancesResponse (MonitorInstancesResponse'),
+    newMonitorInstancesResponse,
+
+    -- ** ModifyIdFormat
+    ModifyIdFormat (ModifyIdFormat'),
+    newModifyIdFormat,
+    ModifyIdFormatResponse (ModifyIdFormatResponse'),
+    newModifyIdFormatResponse,
+
+    -- ** AllocateHosts
+    AllocateHosts (AllocateHosts'),
+    newAllocateHosts,
+    AllocateHostsResponse (AllocateHostsResponse'),
+    newAllocateHostsResponse,
+
+    -- ** DescribeImageAttribute
+    DescribeImageAttribute (DescribeImageAttribute'),
+    newDescribeImageAttribute,
+    DescribeImageAttributeResponse (DescribeImageAttributeResponse'),
+    newDescribeImageAttributeResponse,
+
+    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Paginated)
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'),
+    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse'),
+    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
+
+    -- ** DescribeReservedInstancesModifications (Paginated)
+    DescribeReservedInstancesModifications (DescribeReservedInstancesModifications'),
+    newDescribeReservedInstancesModifications,
+    DescribeReservedInstancesModificationsResponse (DescribeReservedInstancesModificationsResponse'),
+    newDescribeReservedInstancesModificationsResponse,
+
+    -- ** StartVpcEndpointServicePrivateDnsVerification
+    StartVpcEndpointServicePrivateDnsVerification (StartVpcEndpointServicePrivateDnsVerification'),
+    newStartVpcEndpointServicePrivateDnsVerification,
+    StartVpcEndpointServicePrivateDnsVerificationResponse (StartVpcEndpointServicePrivateDnsVerificationResponse'),
+    newStartVpcEndpointServicePrivateDnsVerificationResponse,
+
+    -- ** CreateTrafficMirrorFilterRule
+    CreateTrafficMirrorFilterRule (CreateTrafficMirrorFilterRule'),
+    newCreateTrafficMirrorFilterRule,
+    CreateTrafficMirrorFilterRuleResponse (CreateTrafficMirrorFilterRuleResponse'),
+    newCreateTrafficMirrorFilterRuleResponse,
+
+    -- ** GetEbsDefaultKmsKeyId
+    GetEbsDefaultKmsKeyId (GetEbsDefaultKmsKeyId'),
+    newGetEbsDefaultKmsKeyId,
+    GetEbsDefaultKmsKeyIdResponse (GetEbsDefaultKmsKeyIdResponse'),
+    newGetEbsDefaultKmsKeyIdResponse,
+
+    -- ** DescribeClientVpnRoutes (Paginated)
+    DescribeClientVpnRoutes (DescribeClientVpnRoutes'),
+    newDescribeClientVpnRoutes,
+    DescribeClientVpnRoutesResponse (DescribeClientVpnRoutesResponse'),
+    newDescribeClientVpnRoutesResponse,
+
+    -- ** ModifyVpnConnection
+    ModifyVpnConnection (ModifyVpnConnection'),
+    newModifyVpnConnection,
+    ModifyVpnConnectionResponse (ModifyVpnConnectionResponse'),
+    newModifyVpnConnectionResponse,
+
+    -- ** ModifyFleet
+    ModifyFleet (ModifyFleet'),
+    newModifyFleet,
+    ModifyFleetResponse (ModifyFleetResponse'),
+    newModifyFleetResponse,
+
+    -- ** RegisterImage
+    RegisterImage (RegisterImage'),
+    newRegisterImage,
+    RegisterImageResponse (RegisterImageResponse'),
+    newRegisterImageResponse,
+
+    -- ** RevokeClientVpnIngress
+    RevokeClientVpnIngress (RevokeClientVpnIngress'),
+    newRevokeClientVpnIngress,
+    RevokeClientVpnIngressResponse (RevokeClientVpnIngressResponse'),
+    newRevokeClientVpnIngressResponse,
 
     -- ** UpdateSecurityGroupRuleDescriptionsEgress
     UpdateSecurityGroupRuleDescriptionsEgress (UpdateSecurityGroupRuleDescriptionsEgress'),
@@ -632,17 +764,29 @@ module Network.AWS.EC2
     UpdateSecurityGroupRuleDescriptionsEgressResponse (UpdateSecurityGroupRuleDescriptionsEgressResponse'),
     newUpdateSecurityGroupRuleDescriptionsEgressResponse,
 
-    -- ** ResetFpgaImageAttribute
-    ResetFpgaImageAttribute (ResetFpgaImageAttribute'),
-    newResetFpgaImageAttribute,
-    ResetFpgaImageAttributeResponse (ResetFpgaImageAttributeResponse'),
-    newResetFpgaImageAttributeResponse,
+    -- ** ModifyVpcEndpoint
+    ModifyVpcEndpoint (ModifyVpcEndpoint'),
+    newModifyVpcEndpoint,
+    ModifyVpcEndpointResponse (ModifyVpcEndpointResponse'),
+    newModifyVpcEndpointResponse,
 
-    -- ** StartVpcEndpointServicePrivateDnsVerification
-    StartVpcEndpointServicePrivateDnsVerification (StartVpcEndpointServicePrivateDnsVerification'),
-    newStartVpcEndpointServicePrivateDnsVerification,
-    StartVpcEndpointServicePrivateDnsVerificationResponse (StartVpcEndpointServicePrivateDnsVerificationResponse'),
-    newStartVpcEndpointServicePrivateDnsVerificationResponse,
+    -- ** UnassignPrivateIpAddresses
+    UnassignPrivateIpAddresses (UnassignPrivateIpAddresses'),
+    newUnassignPrivateIpAddresses,
+    UnassignPrivateIpAddressesResponse (UnassignPrivateIpAddressesResponse'),
+    newUnassignPrivateIpAddressesResponse,
+
+    -- ** EnableFastSnapshotRestores
+    EnableFastSnapshotRestores (EnableFastSnapshotRestores'),
+    newEnableFastSnapshotRestores,
+    EnableFastSnapshotRestoresResponse (EnableFastSnapshotRestoresResponse'),
+    newEnableFastSnapshotRestoresResponse,
+
+    -- ** CancelImportTask
+    CancelImportTask (CancelImportTask'),
+    newCancelImportTask,
+    CancelImportTaskResponse (CancelImportTaskResponse'),
+    newCancelImportTaskResponse,
 
     -- ** DescribeVolumes (Paginated)
     DescribeVolumes (DescribeVolumes'),
@@ -656,77 +800,11 @@ module Network.AWS.EC2
     CreateClientVpnEndpointResponse (CreateClientVpnEndpointResponse'),
     newCreateClientVpnEndpointResponse,
 
-    -- ** RevokeClientVpnIngress
-    RevokeClientVpnIngress (RevokeClientVpnIngress'),
-    newRevokeClientVpnIngress,
-    RevokeClientVpnIngressResponse (RevokeClientVpnIngressResponse'),
-    newRevokeClientVpnIngressResponse,
-
-    -- ** DeleteFpgaImage
-    DeleteFpgaImage (DeleteFpgaImage'),
-    newDeleteFpgaImage,
-    DeleteFpgaImageResponse (DeleteFpgaImageResponse'),
-    newDeleteFpgaImageResponse,
-
-    -- ** ModifyVpcEndpoint
-    ModifyVpcEndpoint (ModifyVpcEndpoint'),
-    newModifyVpcEndpoint,
-    ModifyVpcEndpointResponse (ModifyVpcEndpointResponse'),
-    newModifyVpcEndpointResponse,
-
-    -- ** DescribeReservedInstancesModifications (Paginated)
-    DescribeReservedInstancesModifications (DescribeReservedInstancesModifications'),
-    newDescribeReservedInstancesModifications,
-    DescribeReservedInstancesModificationsResponse (DescribeReservedInstancesModificationsResponse'),
-    newDescribeReservedInstancesModificationsResponse,
-
-    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Paginated)
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'),
-    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse'),
-    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
-
-    -- ** EnableFastSnapshotRestores
-    EnableFastSnapshotRestores (EnableFastSnapshotRestores'),
-    newEnableFastSnapshotRestores,
-    EnableFastSnapshotRestoresResponse (EnableFastSnapshotRestoresResponse'),
-    newEnableFastSnapshotRestoresResponse,
-
-    -- ** DescribeClientVpnRoutes (Paginated)
-    DescribeClientVpnRoutes (DescribeClientVpnRoutes'),
-    newDescribeClientVpnRoutes,
-    DescribeClientVpnRoutesResponse (DescribeClientVpnRoutesResponse'),
-    newDescribeClientVpnRoutesResponse,
-
-    -- ** GetEbsDefaultKmsKeyId
-    GetEbsDefaultKmsKeyId (GetEbsDefaultKmsKeyId'),
-    newGetEbsDefaultKmsKeyId,
-    GetEbsDefaultKmsKeyIdResponse (GetEbsDefaultKmsKeyIdResponse'),
-    newGetEbsDefaultKmsKeyIdResponse,
-
-    -- ** ModifyIdFormat
-    ModifyIdFormat (ModifyIdFormat'),
-    newModifyIdFormat,
-    ModifyIdFormatResponse (ModifyIdFormatResponse'),
-    newModifyIdFormatResponse,
-
-    -- ** DetachClassicLinkVpc
-    DetachClassicLinkVpc (DetachClassicLinkVpc'),
-    newDetachClassicLinkVpc,
-    DetachClassicLinkVpcResponse (DetachClassicLinkVpcResponse'),
-    newDetachClassicLinkVpcResponse,
-
-    -- ** UnassignPrivateIpAddresses
-    UnassignPrivateIpAddresses (UnassignPrivateIpAddresses'),
-    newUnassignPrivateIpAddresses,
-    UnassignPrivateIpAddressesResponse (UnassignPrivateIpAddressesResponse'),
-    newUnassignPrivateIpAddressesResponse,
-
-    -- ** AllocateHosts
-    AllocateHosts (AllocateHosts'),
-    newAllocateHosts,
-    AllocateHostsResponse (AllocateHostsResponse'),
-    newAllocateHostsResponse,
+    -- ** ResetFpgaImageAttribute
+    ResetFpgaImageAttribute (ResetFpgaImageAttribute'),
+    newResetFpgaImageAttribute,
+    ResetFpgaImageAttributeResponse (ResetFpgaImageAttributeResponse'),
+    newResetFpgaImageAttributeResponse,
 
     -- ** GetConsoleOutput
     GetConsoleOutput (GetConsoleOutput'),
@@ -734,35 +812,11 @@ module Network.AWS.EC2
     GetConsoleOutputResponse (GetConsoleOutputResponse'),
     newGetConsoleOutputResponse,
 
-    -- ** ModifyVpnConnectionOptions
-    ModifyVpnConnectionOptions (ModifyVpnConnectionOptions'),
-    newModifyVpnConnectionOptions,
-    ModifyVpnConnectionOptionsResponse (ModifyVpnConnectionOptionsResponse'),
-    newModifyVpnConnectionOptionsResponse,
-
-    -- ** CancelImportTask
-    CancelImportTask (CancelImportTask'),
-    newCancelImportTask,
-    CancelImportTaskResponse (CancelImportTaskResponse'),
-    newCancelImportTaskResponse,
-
-    -- ** RegisterImage
-    RegisterImage (RegisterImage'),
-    newRegisterImage,
-    RegisterImageResponse (RegisterImageResponse'),
-    newRegisterImageResponse,
-
-    -- ** ModifyFleet
-    ModifyFleet (ModifyFleet'),
-    newModifyFleet,
-    ModifyFleetResponse (ModifyFleetResponse'),
-    newModifyFleetResponse,
-
-    -- ** DeleteRouteTable
-    DeleteRouteTable (DeleteRouteTable'),
-    newDeleteRouteTable,
-    DeleteRouteTableResponse (DeleteRouteTableResponse'),
-    newDeleteRouteTableResponse,
+    -- ** DeleteFpgaImage
+    DeleteFpgaImage (DeleteFpgaImage'),
+    newDeleteFpgaImage,
+    DeleteFpgaImageResponse (DeleteFpgaImageResponse'),
+    newDeleteFpgaImageResponse,
 
     -- ** ModifyReservedInstances
     ModifyReservedInstances (ModifyReservedInstances'),
@@ -770,35 +824,131 @@ module Network.AWS.EC2
     ModifyReservedInstancesResponse (ModifyReservedInstancesResponse'),
     newModifyReservedInstancesResponse,
 
-    -- ** DescribeImageAttribute
-    DescribeImageAttribute (DescribeImageAttribute'),
-    newDescribeImageAttribute,
-    DescribeImageAttributeResponse (DescribeImageAttributeResponse'),
-    newDescribeImageAttributeResponse,
-
-    -- ** CreateTrafficMirrorFilterRule
-    CreateTrafficMirrorFilterRule (CreateTrafficMirrorFilterRule'),
-    newCreateTrafficMirrorFilterRule,
-    CreateTrafficMirrorFilterRuleResponse (CreateTrafficMirrorFilterRuleResponse'),
-    newCreateTrafficMirrorFilterRuleResponse,
-
-    -- ** MonitorInstances
-    MonitorInstances (MonitorInstances'),
-    newMonitorInstances,
-    MonitorInstancesResponse (MonitorInstancesResponse'),
-    newMonitorInstancesResponse,
-
-    -- ** ModifyVpnConnection
-    ModifyVpnConnection (ModifyVpnConnection'),
-    newModifyVpnConnection,
-    ModifyVpnConnectionResponse (ModifyVpnConnectionResponse'),
-    newModifyVpnConnectionResponse,
+    -- ** CreateRestoreImageTask
+    CreateRestoreImageTask (CreateRestoreImageTask'),
+    newCreateRestoreImageTask,
+    CreateRestoreImageTaskResponse (CreateRestoreImageTaskResponse'),
+    newCreateRestoreImageTaskResponse,
 
     -- ** DescribeSpotInstanceRequests (Paginated)
     DescribeSpotInstanceRequests (DescribeSpotInstanceRequests'),
     newDescribeSpotInstanceRequests,
     DescribeSpotInstanceRequestsResponse (DescribeSpotInstanceRequestsResponse'),
     newDescribeSpotInstanceRequestsResponse,
+
+    -- ** ModifyVpcEndpointServicePermissions
+    ModifyVpcEndpointServicePermissions (ModifyVpcEndpointServicePermissions'),
+    newModifyVpcEndpointServicePermissions,
+    ModifyVpcEndpointServicePermissionsResponse (ModifyVpcEndpointServicePermissionsResponse'),
+    newModifyVpcEndpointServicePermissionsResponse,
+
+    -- ** UnassignIpv6Addresses
+    UnassignIpv6Addresses (UnassignIpv6Addresses'),
+    newUnassignIpv6Addresses,
+    UnassignIpv6AddressesResponse (UnassignIpv6AddressesResponse'),
+    newUnassignIpv6AddressesResponse,
+
+    -- ** DescribeVolumesModifications (Paginated)
+    DescribeVolumesModifications (DescribeVolumesModifications'),
+    newDescribeVolumesModifications,
+    DescribeVolumesModificationsResponse (DescribeVolumesModificationsResponse'),
+    newDescribeVolumesModificationsResponse,
+
+    -- ** DescribeIdFormat
+    DescribeIdFormat (DescribeIdFormat'),
+    newDescribeIdFormat,
+    DescribeIdFormatResponse (DescribeIdFormatResponse'),
+    newDescribeIdFormatResponse,
+
+    -- ** ReportInstanceStatus
+    ReportInstanceStatus (ReportInstanceStatus'),
+    newReportInstanceStatus,
+    ReportInstanceStatusResponse (ReportInstanceStatusResponse'),
+    newReportInstanceStatusResponse,
+
+    -- ** RunInstances
+    RunInstances (RunInstances'),
+    newRunInstances,
+    Reservation (Reservation'),
+    newReservation,
+
+    -- ** ModifyHosts
+    ModifyHosts (ModifyHosts'),
+    newModifyHosts,
+    ModifyHostsResponse (ModifyHostsResponse'),
+    newModifyHostsResponse,
+
+    -- ** AttachVolume
+    AttachVolume (AttachVolume'),
+    newAttachVolume,
+    VolumeAttachment (VolumeAttachment'),
+    newVolumeAttachment,
+
+    -- ** DescribeStoreImageTasks (Paginated)
+    DescribeStoreImageTasks (DescribeStoreImageTasks'),
+    newDescribeStoreImageTasks,
+    DescribeStoreImageTasksResponse (DescribeStoreImageTasksResponse'),
+    newDescribeStoreImageTasksResponse,
+
+    -- ** CreateReplaceRootVolumeTask
+    CreateReplaceRootVolumeTask (CreateReplaceRootVolumeTask'),
+    newCreateReplaceRootVolumeTask,
+    CreateReplaceRootVolumeTaskResponse (CreateReplaceRootVolumeTaskResponse'),
+    newCreateReplaceRootVolumeTaskResponse,
+
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
+    -- ** ModifyImageAttribute
+    ModifyImageAttribute (ModifyImageAttribute'),
+    newModifyImageAttribute,
+    ModifyImageAttributeResponse (ModifyImageAttributeResponse'),
+    newModifyImageAttributeResponse,
+
+    -- ** RegisterTransitGatewayMulticastGroupSources
+    RegisterTransitGatewayMulticastGroupSources (RegisterTransitGatewayMulticastGroupSources'),
+    newRegisterTransitGatewayMulticastGroupSources,
+    RegisterTransitGatewayMulticastGroupSourcesResponse (RegisterTransitGatewayMulticastGroupSourcesResponse'),
+    newRegisterTransitGatewayMulticastGroupSourcesResponse,
+
+    -- ** RebootInstances
+    RebootInstances (RebootInstances'),
+    newRebootInstances,
+    RebootInstancesResponse (RebootInstancesResponse'),
+    newRebootInstancesResponse,
+
+    -- ** AssociateRouteTable
+    AssociateRouteTable (AssociateRouteTable'),
+    newAssociateRouteTable,
+    AssociateRouteTableResponse (AssociateRouteTableResponse'),
+    newAssociateRouteTableResponse,
+
+    -- ** AssociateIamInstanceProfile
+    AssociateIamInstanceProfile (AssociateIamInstanceProfile'),
+    newAssociateIamInstanceProfile,
+    AssociateIamInstanceProfileResponse (AssociateIamInstanceProfileResponse'),
+    newAssociateIamInstanceProfileResponse,
+
+    -- ** PurchaseHostReservation
+    PurchaseHostReservation (PurchaseHostReservation'),
+    newPurchaseHostReservation,
+    PurchaseHostReservationResponse (PurchaseHostReservationResponse'),
+    newPurchaseHostReservationResponse,
+
+    -- ** DescribeTrafficMirrorTargets (Paginated)
+    DescribeTrafficMirrorTargets (DescribeTrafficMirrorTargets'),
+    newDescribeTrafficMirrorTargets,
+    DescribeTrafficMirrorTargetsResponse (DescribeTrafficMirrorTargetsResponse'),
+    newDescribeTrafficMirrorTargetsResponse,
+
+    -- ** GetManagedPrefixListAssociations (Paginated)
+    GetManagedPrefixListAssociations (GetManagedPrefixListAssociations'),
+    newGetManagedPrefixListAssociations,
+    GetManagedPrefixListAssociationsResponse (GetManagedPrefixListAssociationsResponse'),
+    newGetManagedPrefixListAssociationsResponse,
 
     -- ** CancelConversionTask
     CancelConversionTask (CancelConversionTask'),
@@ -812,137 +962,11 @@ module Network.AWS.EC2
     ModifyVpcEndpointServiceConfigurationResponse (ModifyVpcEndpointServiceConfigurationResponse'),
     newModifyVpcEndpointServiceConfigurationResponse,
 
-    -- ** ModifyTransitGatewayVpcAttachment
-    ModifyTransitGatewayVpcAttachment (ModifyTransitGatewayVpcAttachment'),
-    newModifyTransitGatewayVpcAttachment,
-    ModifyTransitGatewayVpcAttachmentResponse (ModifyTransitGatewayVpcAttachmentResponse'),
-    newModifyTransitGatewayVpcAttachmentResponse,
-
-    -- ** AssociateRouteTable
-    AssociateRouteTable (AssociateRouteTable'),
-    newAssociateRouteTable,
-    AssociateRouteTableResponse (AssociateRouteTableResponse'),
-    newAssociateRouteTableResponse,
-
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
-
-    -- ** DescribeLaunchTemplates (Paginated)
-    DescribeLaunchTemplates (DescribeLaunchTemplates'),
-    newDescribeLaunchTemplates,
-    DescribeLaunchTemplatesResponse (DescribeLaunchTemplatesResponse'),
-    newDescribeLaunchTemplatesResponse,
-
-    -- ** DescribeIpv6Pools (Paginated)
-    DescribeIpv6Pools (DescribeIpv6Pools'),
-    newDescribeIpv6Pools,
-    DescribeIpv6PoolsResponse (DescribeIpv6PoolsResponse'),
-    newDescribeIpv6PoolsResponse,
-
-    -- ** DescribeLocalGateways (Paginated)
-    DescribeLocalGateways (DescribeLocalGateways'),
-    newDescribeLocalGateways,
-    DescribeLocalGatewaysResponse (DescribeLocalGatewaysResponse'),
-    newDescribeLocalGatewaysResponse,
-
-    -- ** PurchaseHostReservation
-    PurchaseHostReservation (PurchaseHostReservation'),
-    newPurchaseHostReservation,
-    PurchaseHostReservationResponse (PurchaseHostReservationResponse'),
-    newPurchaseHostReservationResponse,
-
-    -- ** ReportInstanceStatus
-    ReportInstanceStatus (ReportInstanceStatus'),
-    newReportInstanceStatus,
-    ReportInstanceStatusResponse (ReportInstanceStatusResponse'),
-    newReportInstanceStatusResponse,
-
-    -- ** ModifyVpcEndpointServicePermissions
-    ModifyVpcEndpointServicePermissions (ModifyVpcEndpointServicePermissions'),
-    newModifyVpcEndpointServicePermissions,
-    ModifyVpcEndpointServicePermissionsResponse (ModifyVpcEndpointServicePermissionsResponse'),
-    newModifyVpcEndpointServicePermissionsResponse,
-
-    -- ** ModifyHosts
-    ModifyHosts (ModifyHosts'),
-    newModifyHosts,
-    ModifyHostsResponse (ModifyHostsResponse'),
-    newModifyHostsResponse,
-
-    -- ** UnassignIpv6Addresses
-    UnassignIpv6Addresses (UnassignIpv6Addresses'),
-    newUnassignIpv6Addresses,
-    UnassignIpv6AddressesResponse (UnassignIpv6AddressesResponse'),
-    newUnassignIpv6AddressesResponse,
-
-    -- ** GetManagedPrefixListAssociations (Paginated)
-    GetManagedPrefixListAssociations (GetManagedPrefixListAssociations'),
-    newGetManagedPrefixListAssociations,
-    GetManagedPrefixListAssociationsResponse (GetManagedPrefixListAssociationsResponse'),
-    newGetManagedPrefixListAssociationsResponse,
-
-    -- ** DisableFastSnapshotRestores
-    DisableFastSnapshotRestores (DisableFastSnapshotRestores'),
-    newDisableFastSnapshotRestores,
-    DisableFastSnapshotRestoresResponse (DisableFastSnapshotRestoresResponse'),
-    newDisableFastSnapshotRestoresResponse,
-
-    -- ** DeleteEgressOnlyInternetGateway
-    DeleteEgressOnlyInternetGateway (DeleteEgressOnlyInternetGateway'),
-    newDeleteEgressOnlyInternetGateway,
-    DeleteEgressOnlyInternetGatewayResponse (DeleteEgressOnlyInternetGatewayResponse'),
-    newDeleteEgressOnlyInternetGatewayResponse,
-
-    -- ** RequestSpotInstances
-    RequestSpotInstances (RequestSpotInstances'),
-    newRequestSpotInstances,
-    RequestSpotInstancesResponse (RequestSpotInstancesResponse'),
-    newRequestSpotInstancesResponse,
-
-    -- ** RunInstances
-    RunInstances (RunInstances'),
-    newRunInstances,
-    Reservation (Reservation'),
-    newReservation,
-
-    -- ** GetTransitGatewayRouteTablePropagations (Paginated)
-    GetTransitGatewayRouteTablePropagations (GetTransitGatewayRouteTablePropagations'),
-    newGetTransitGatewayRouteTablePropagations,
-    GetTransitGatewayRouteTablePropagationsResponse (GetTransitGatewayRouteTablePropagationsResponse'),
-    newGetTransitGatewayRouteTablePropagationsResponse,
-
-    -- ** AttachVolume
-    AttachVolume (AttachVolume'),
-    newAttachVolume,
-    VolumeAttachment (VolumeAttachment'),
-    newVolumeAttachment,
-
-    -- ** AcceptVpcEndpointConnections
-    AcceptVpcEndpointConnections (AcceptVpcEndpointConnections'),
-    newAcceptVpcEndpointConnections,
-    AcceptVpcEndpointConnectionsResponse (AcceptVpcEndpointConnectionsResponse'),
-    newAcceptVpcEndpointConnectionsResponse,
-
     -- ** CreateDhcpOptions
     CreateDhcpOptions (CreateDhcpOptions'),
     newCreateDhcpOptions,
     CreateDhcpOptionsResponse (CreateDhcpOptionsResponse'),
     newCreateDhcpOptionsResponse,
-
-    -- ** RebootInstances
-    RebootInstances (RebootInstances'),
-    newRebootInstances,
-    RebootInstancesResponse (RebootInstancesResponse'),
-    newRebootInstancesResponse,
-
-    -- ** ModifyImageAttribute
-    ModifyImageAttribute (ModifyImageAttribute'),
-    newModifyImageAttribute,
-    ModifyImageAttributeResponse (ModifyImageAttributeResponse'),
-    newModifyImageAttributeResponse,
 
     -- ** CreateManagedPrefixList
     CreateManagedPrefixList (CreateManagedPrefixList'),
@@ -956,35 +980,23 @@ module Network.AWS.EC2
     SearchTransitGatewayRoutesResponse (SearchTransitGatewayRoutesResponse'),
     newSearchTransitGatewayRoutesResponse,
 
-    -- ** DescribeIdFormat
-    DescribeIdFormat (DescribeIdFormat'),
-    newDescribeIdFormat,
-    DescribeIdFormatResponse (DescribeIdFormatResponse'),
-    newDescribeIdFormatResponse,
-
-    -- ** RegisterTransitGatewayMulticastGroupSources
-    RegisterTransitGatewayMulticastGroupSources (RegisterTransitGatewayMulticastGroupSources'),
-    newRegisterTransitGatewayMulticastGroupSources,
-    RegisterTransitGatewayMulticastGroupSourcesResponse (RegisterTransitGatewayMulticastGroupSourcesResponse'),
-    newRegisterTransitGatewayMulticastGroupSourcesResponse,
-
-    -- ** DescribeVpcEndpointConnectionNotifications (Paginated)
-    DescribeVpcEndpointConnectionNotifications (DescribeVpcEndpointConnectionNotifications'),
-    newDescribeVpcEndpointConnectionNotifications,
-    DescribeVpcEndpointConnectionNotificationsResponse (DescribeVpcEndpointConnectionNotificationsResponse'),
-    newDescribeVpcEndpointConnectionNotificationsResponse,
-
     -- ** DescribeVpcs (Paginated)
     DescribeVpcs (DescribeVpcs'),
     newDescribeVpcs,
     DescribeVpcsResponse (DescribeVpcsResponse'),
     newDescribeVpcsResponse,
 
-    -- ** GetTransitGatewayPrefixListReferences (Paginated)
-    GetTransitGatewayPrefixListReferences (GetTransitGatewayPrefixListReferences'),
-    newGetTransitGatewayPrefixListReferences,
-    GetTransitGatewayPrefixListReferencesResponse (GetTransitGatewayPrefixListReferencesResponse'),
-    newGetTransitGatewayPrefixListReferencesResponse,
+    -- ** DescribeLocalGateways (Paginated)
+    DescribeLocalGateways (DescribeLocalGateways'),
+    newDescribeLocalGateways,
+    DescribeLocalGatewaysResponse (DescribeLocalGatewaysResponse'),
+    newDescribeLocalGatewaysResponse,
+
+    -- ** DescribeIpv6Pools (Paginated)
+    DescribeIpv6Pools (DescribeIpv6Pools'),
+    newDescribeIpv6Pools,
+    DescribeIpv6PoolsResponse (DescribeIpv6PoolsResponse'),
+    newDescribeIpv6PoolsResponse,
 
     -- ** CreateRouteTable
     CreateRouteTable (CreateRouteTable'),
@@ -992,29 +1004,29 @@ module Network.AWS.EC2
     CreateRouteTableResponse (CreateRouteTableResponse'),
     newCreateRouteTableResponse,
 
-    -- ** DescribeVolumesModifications (Paginated)
-    DescribeVolumesModifications (DescribeVolumesModifications'),
-    newDescribeVolumesModifications,
-    DescribeVolumesModificationsResponse (DescribeVolumesModificationsResponse'),
-    newDescribeVolumesModificationsResponse,
+    -- ** DescribeVpcEndpointConnectionNotifications (Paginated)
+    DescribeVpcEndpointConnectionNotifications (DescribeVpcEndpointConnectionNotifications'),
+    newDescribeVpcEndpointConnectionNotifications,
+    DescribeVpcEndpointConnectionNotificationsResponse (DescribeVpcEndpointConnectionNotificationsResponse'),
+    newDescribeVpcEndpointConnectionNotificationsResponse,
 
-    -- ** AssociateIamInstanceProfile
-    AssociateIamInstanceProfile (AssociateIamInstanceProfile'),
-    newAssociateIamInstanceProfile,
-    AssociateIamInstanceProfileResponse (AssociateIamInstanceProfileResponse'),
-    newAssociateIamInstanceProfileResponse,
+    -- ** GetTransitGatewayPrefixListReferences (Paginated)
+    GetTransitGatewayPrefixListReferences (GetTransitGatewayPrefixListReferences'),
+    newGetTransitGatewayPrefixListReferences,
+    GetTransitGatewayPrefixListReferencesResponse (GetTransitGatewayPrefixListReferencesResponse'),
+    newGetTransitGatewayPrefixListReferencesResponse,
 
-    -- ** CreateImage
-    CreateImage (CreateImage'),
-    newCreateImage,
-    CreateImageResponse (CreateImageResponse'),
-    newCreateImageResponse,
+    -- ** AcceptVpcEndpointConnections
+    AcceptVpcEndpointConnections (AcceptVpcEndpointConnections'),
+    newAcceptVpcEndpointConnections,
+    AcceptVpcEndpointConnectionsResponse (AcceptVpcEndpointConnectionsResponse'),
+    newAcceptVpcEndpointConnectionsResponse,
 
-    -- ** DescribeTrafficMirrorTargets (Paginated)
-    DescribeTrafficMirrorTargets (DescribeTrafficMirrorTargets'),
-    newDescribeTrafficMirrorTargets,
-    DescribeTrafficMirrorTargetsResponse (DescribeTrafficMirrorTargetsResponse'),
-    newDescribeTrafficMirrorTargetsResponse,
+    -- ** GetTransitGatewayRouteTablePropagations (Paginated)
+    GetTransitGatewayRouteTablePropagations (GetTransitGatewayRouteTablePropagations'),
+    newGetTransitGatewayRouteTablePropagations,
+    GetTransitGatewayRouteTablePropagationsResponse (GetTransitGatewayRouteTablePropagationsResponse'),
+    newGetTransitGatewayRouteTablePropagationsResponse,
 
     -- ** AssociateDhcpOptions
     AssociateDhcpOptions (AssociateDhcpOptions'),
@@ -1022,17 +1034,113 @@ module Network.AWS.EC2
     AssociateDhcpOptionsResponse (AssociateDhcpOptionsResponse'),
     newAssociateDhcpOptionsResponse,
 
-    -- ** DescribeSpotFleetRequestHistory
-    DescribeSpotFleetRequestHistory (DescribeSpotFleetRequestHistory'),
-    newDescribeSpotFleetRequestHistory,
-    DescribeSpotFleetRequestHistoryResponse (DescribeSpotFleetRequestHistoryResponse'),
-    newDescribeSpotFleetRequestHistoryResponse,
+    -- ** DeleteEgressOnlyInternetGateway
+    DeleteEgressOnlyInternetGateway (DeleteEgressOnlyInternetGateway'),
+    newDeleteEgressOnlyInternetGateway,
+    DeleteEgressOnlyInternetGatewayResponse (DeleteEgressOnlyInternetGatewayResponse'),
+    newDeleteEgressOnlyInternetGatewayResponse,
 
-    -- ** ModifyInstanceEventStartTime
-    ModifyInstanceEventStartTime (ModifyInstanceEventStartTime'),
-    newModifyInstanceEventStartTime,
-    ModifyInstanceEventStartTimeResponse (ModifyInstanceEventStartTimeResponse'),
-    newModifyInstanceEventStartTimeResponse,
+    -- ** GetVpnConnectionDeviceTypes (Paginated)
+    GetVpnConnectionDeviceTypes (GetVpnConnectionDeviceTypes'),
+    newGetVpnConnectionDeviceTypes,
+    GetVpnConnectionDeviceTypesResponse (GetVpnConnectionDeviceTypesResponse'),
+    newGetVpnConnectionDeviceTypesResponse,
+
+    -- ** CreateSubnetCidrReservation
+    CreateSubnetCidrReservation (CreateSubnetCidrReservation'),
+    newCreateSubnetCidrReservation,
+    CreateSubnetCidrReservationResponse (CreateSubnetCidrReservationResponse'),
+    newCreateSubnetCidrReservationResponse,
+
+    -- ** DisableFastSnapshotRestores
+    DisableFastSnapshotRestores (DisableFastSnapshotRestores'),
+    newDisableFastSnapshotRestores,
+    DisableFastSnapshotRestoresResponse (DisableFastSnapshotRestoresResponse'),
+    newDisableFastSnapshotRestoresResponse,
+
+    -- ** RequestSpotInstances
+    RequestSpotInstances (RequestSpotInstances'),
+    newRequestSpotInstances,
+    RequestSpotInstancesResponse (RequestSpotInstancesResponse'),
+    newRequestSpotInstancesResponse,
+
+    -- ** DescribeLaunchTemplates (Paginated)
+    DescribeLaunchTemplates (DescribeLaunchTemplates'),
+    newDescribeLaunchTemplates,
+    DescribeLaunchTemplatesResponse (DescribeLaunchTemplatesResponse'),
+    newDescribeLaunchTemplatesResponse,
+
+    -- ** CreateImage
+    CreateImage (CreateImage'),
+    newCreateImage,
+    CreateImageResponse (CreateImageResponse'),
+    newCreateImageResponse,
+
+    -- ** ModifyTransitGatewayVpcAttachment
+    ModifyTransitGatewayVpcAttachment (ModifyTransitGatewayVpcAttachment'),
+    newModifyTransitGatewayVpcAttachment,
+    ModifyTransitGatewayVpcAttachmentResponse (ModifyTransitGatewayVpcAttachmentResponse'),
+    newModifyTransitGatewayVpcAttachmentResponse,
+
+    -- ** AssignIpv6Addresses
+    AssignIpv6Addresses (AssignIpv6Addresses'),
+    newAssignIpv6Addresses,
+    AssignIpv6AddressesResponse (AssignIpv6AddressesResponse'),
+    newAssignIpv6AddressesResponse,
+
+    -- ** DescribeLocalGatewayVirtualInterfaceGroups (Paginated)
+    DescribeLocalGatewayVirtualInterfaceGroups (DescribeLocalGatewayVirtualInterfaceGroups'),
+    newDescribeLocalGatewayVirtualInterfaceGroups,
+    DescribeLocalGatewayVirtualInterfaceGroupsResponse (DescribeLocalGatewayVirtualInterfaceGroupsResponse'),
+    newDescribeLocalGatewayVirtualInterfaceGroupsResponse,
+
+    -- ** DescribeVpnConnections
+    DescribeVpnConnections (DescribeVpnConnections'),
+    newDescribeVpnConnections,
+    DescribeVpnConnectionsResponse (DescribeVpnConnectionsResponse'),
+    newDescribeVpnConnectionsResponse,
+
+    -- ** CreateNetworkAclEntry
+    CreateNetworkAclEntry (CreateNetworkAclEntry'),
+    newCreateNetworkAclEntry,
+    CreateNetworkAclEntryResponse (CreateNetworkAclEntryResponse'),
+    newCreateNetworkAclEntryResponse,
+
+    -- ** DescribePlacementGroups
+    DescribePlacementGroups (DescribePlacementGroups'),
+    newDescribePlacementGroups,
+    DescribePlacementGroupsResponse (DescribePlacementGroupsResponse'),
+    newDescribePlacementGroupsResponse,
+
+    -- ** ModifySnapshotAttribute
+    ModifySnapshotAttribute (ModifySnapshotAttribute'),
+    newModifySnapshotAttribute,
+    ModifySnapshotAttributeResponse (ModifySnapshotAttributeResponse'),
+    newModifySnapshotAttributeResponse,
+
+    -- ** ModifyIdentityIdFormat
+    ModifyIdentityIdFormat (ModifyIdentityIdFormat'),
+    newModifyIdentityIdFormat,
+    ModifyIdentityIdFormatResponse (ModifyIdentityIdFormatResponse'),
+    newModifyIdentityIdFormatResponse,
+
+    -- ** EnableVgwRoutePropagation
+    EnableVgwRoutePropagation (EnableVgwRoutePropagation'),
+    newEnableVgwRoutePropagation,
+    EnableVgwRoutePropagationResponse (EnableVgwRoutePropagationResponse'),
+    newEnableVgwRoutePropagationResponse,
+
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** ResetInstanceAttribute
+    ResetInstanceAttribute (ResetInstanceAttribute'),
+    newResetInstanceAttribute,
+    ResetInstanceAttributeResponse (ResetInstanceAttributeResponse'),
+    newResetInstanceAttributeResponse,
 
     -- ** DisassociateEnclaveCertificateIamRole
     DisassociateEnclaveCertificateIamRole (DisassociateEnclaveCertificateIamRole'),
@@ -1046,107 +1154,11 @@ module Network.AWS.EC2
     DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
     newDeleteVpcPeeringConnectionResponse,
 
-    -- ** ResetInstanceAttribute
-    ResetInstanceAttribute (ResetInstanceAttribute'),
-    newResetInstanceAttribute,
-    ResetInstanceAttributeResponse (ResetInstanceAttributeResponse'),
-    newResetInstanceAttributeResponse,
-
-    -- ** DescribeInstanceStatus (Paginated)
-    DescribeInstanceStatus (DescribeInstanceStatus'),
-    newDescribeInstanceStatus,
-    DescribeInstanceStatusResponse (DescribeInstanceStatusResponse'),
-    newDescribeInstanceStatusResponse,
-
-    -- ** AttachNetworkInterface
-    AttachNetworkInterface (AttachNetworkInterface'),
-    newAttachNetworkInterface,
-    AttachNetworkInterfaceResponse (AttachNetworkInterfaceResponse'),
-    newAttachNetworkInterfaceResponse,
-
-    -- ** AssignIpv6Addresses
-    AssignIpv6Addresses (AssignIpv6Addresses'),
-    newAssignIpv6Addresses,
-    AssignIpv6AddressesResponse (AssignIpv6AddressesResponse'),
-    newAssignIpv6AddressesResponse,
-
-    -- ** CreateLocalGatewayRoute
-    CreateLocalGatewayRoute (CreateLocalGatewayRoute'),
-    newCreateLocalGatewayRoute,
-    CreateLocalGatewayRouteResponse (CreateLocalGatewayRouteResponse'),
-    newCreateLocalGatewayRouteResponse,
-
-    -- ** EnableVgwRoutePropagation
-    EnableVgwRoutePropagation (EnableVgwRoutePropagation'),
-    newEnableVgwRoutePropagation,
-    EnableVgwRoutePropagationResponse (EnableVgwRoutePropagationResponse'),
-    newEnableVgwRoutePropagationResponse,
-
-    -- ** DescribeVpcEndpoints (Paginated)
-    DescribeVpcEndpoints (DescribeVpcEndpoints'),
-    newDescribeVpcEndpoints,
-    DescribeVpcEndpointsResponse (DescribeVpcEndpointsResponse'),
-    newDescribeVpcEndpointsResponse,
-
-    -- ** CreateNetworkAclEntry
-    CreateNetworkAclEntry (CreateNetworkAclEntry'),
-    newCreateNetworkAclEntry,
-    CreateNetworkAclEntryResponse (CreateNetworkAclEntryResponse'),
-    newCreateNetworkAclEntryResponse,
-
-    -- ** DescribeStaleSecurityGroups (Paginated)
-    DescribeStaleSecurityGroups (DescribeStaleSecurityGroups'),
-    newDescribeStaleSecurityGroups,
-    DescribeStaleSecurityGroupsResponse (DescribeStaleSecurityGroupsResponse'),
-    newDescribeStaleSecurityGroupsResponse,
-
     -- ** DescribeFlowLogs (Paginated)
     DescribeFlowLogs (DescribeFlowLogs'),
     newDescribeFlowLogs,
     DescribeFlowLogsResponse (DescribeFlowLogsResponse'),
     newDescribeFlowLogsResponse,
-
-    -- ** DescribePlacementGroups
-    DescribePlacementGroups (DescribePlacementGroups'),
-    newDescribePlacementGroups,
-    DescribePlacementGroupsResponse (DescribePlacementGroupsResponse'),
-    newDescribePlacementGroupsResponse,
-
-    -- ** DescribeFleets (Paginated)
-    DescribeFleets (DescribeFleets'),
-    newDescribeFleets,
-    DescribeFleetsResponse (DescribeFleetsResponse'),
-    newDescribeFleetsResponse,
-
-    -- ** ModifyIdentityIdFormat
-    ModifyIdentityIdFormat (ModifyIdentityIdFormat'),
-    newModifyIdentityIdFormat,
-    ModifyIdentityIdFormatResponse (ModifyIdentityIdFormatResponse'),
-    newModifyIdentityIdFormatResponse,
-
-    -- ** DescribeLocalGatewayVirtualInterfaceGroups (Paginated)
-    DescribeLocalGatewayVirtualInterfaceGroups (DescribeLocalGatewayVirtualInterfaceGroups'),
-    newDescribeLocalGatewayVirtualInterfaceGroups,
-    DescribeLocalGatewayVirtualInterfaceGroupsResponse (DescribeLocalGatewayVirtualInterfaceGroupsResponse'),
-    newDescribeLocalGatewayVirtualInterfaceGroupsResponse,
-
-    -- ** ReplaceNetworkAclEntry
-    ReplaceNetworkAclEntry (ReplaceNetworkAclEntry'),
-    newReplaceNetworkAclEntry,
-    ReplaceNetworkAclEntryResponse (ReplaceNetworkAclEntryResponse'),
-    newReplaceNetworkAclEntryResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** DescribeTransitGatewayAttachments (Paginated)
-    DescribeTransitGatewayAttachments (DescribeTransitGatewayAttachments'),
-    newDescribeTransitGatewayAttachments,
-    DescribeTransitGatewayAttachmentsResponse (DescribeTransitGatewayAttachmentsResponse'),
-    newDescribeTransitGatewayAttachmentsResponse,
 
     -- ** DescribeReservedInstancesOfferings (Paginated)
     DescribeReservedInstancesOfferings (DescribeReservedInstancesOfferings'),
@@ -1154,11 +1166,17 @@ module Network.AWS.EC2
     DescribeReservedInstancesOfferingsResponse (DescribeReservedInstancesOfferingsResponse'),
     newDescribeReservedInstancesOfferingsResponse,
 
-    -- ** ModifySnapshotAttribute
-    ModifySnapshotAttribute (ModifySnapshotAttribute'),
-    newModifySnapshotAttribute,
-    ModifySnapshotAttributeResponse (ModifySnapshotAttributeResponse'),
-    newModifySnapshotAttributeResponse,
+    -- ** DescribeFleets (Paginated)
+    DescribeFleets (DescribeFleets'),
+    newDescribeFleets,
+    DescribeFleetsResponse (DescribeFleetsResponse'),
+    newDescribeFleetsResponse,
+
+    -- ** AttachNetworkInterface
+    AttachNetworkInterface (AttachNetworkInterface'),
+    newAttachNetworkInterface,
+    AttachNetworkInterfaceResponse (AttachNetworkInterfaceResponse'),
+    newAttachNetworkInterfaceResponse,
 
     -- ** ConfirmProductInstance
     ConfirmProductInstance (ConfirmProductInstance'),
@@ -1166,11 +1184,11 @@ module Network.AWS.EC2
     ConfirmProductInstanceResponse (ConfirmProductInstanceResponse'),
     newConfirmProductInstanceResponse,
 
-    -- ** DescribeVpnConnections
-    DescribeVpnConnections (DescribeVpnConnections'),
-    newDescribeVpnConnections,
-    DescribeVpnConnectionsResponse (DescribeVpnConnectionsResponse'),
-    newDescribeVpnConnectionsResponse,
+    -- ** DescribeTransitGatewayAttachments (Paginated)
+    DescribeTransitGatewayAttachments (DescribeTransitGatewayAttachments'),
+    newDescribeTransitGatewayAttachments,
+    DescribeTransitGatewayAttachmentsResponse (DescribeTransitGatewayAttachmentsResponse'),
+    newDescribeTransitGatewayAttachmentsResponse,
 
     -- ** ModifyAvailabilityZoneGroup
     ModifyAvailabilityZoneGroup (ModifyAvailabilityZoneGroup'),
@@ -1178,23 +1196,149 @@ module Network.AWS.EC2
     ModifyAvailabilityZoneGroupResponse (ModifyAvailabilityZoneGroupResponse'),
     newModifyAvailabilityZoneGroupResponse,
 
-    -- ** DisassociateIamInstanceProfile
-    DisassociateIamInstanceProfile (DisassociateIamInstanceProfile'),
-    newDisassociateIamInstanceProfile,
-    DisassociateIamInstanceProfileResponse (DisassociateIamInstanceProfileResponse'),
-    newDisassociateIamInstanceProfileResponse,
+    -- ** ReplaceNetworkAclEntry
+    ReplaceNetworkAclEntry (ReplaceNetworkAclEntry'),
+    newReplaceNetworkAclEntry,
+    ReplaceNetworkAclEntryResponse (ReplaceNetworkAclEntryResponse'),
+    newReplaceNetworkAclEntryResponse,
 
-    -- ** DisableVpcClassicLink
-    DisableVpcClassicLink (DisableVpcClassicLink'),
-    newDisableVpcClassicLink,
-    DisableVpcClassicLinkResponse (DisableVpcClassicLinkResponse'),
-    newDisableVpcClassicLinkResponse,
+    -- ** DescribeSpotFleetRequestHistory
+    DescribeSpotFleetRequestHistory (DescribeSpotFleetRequestHistory'),
+    newDescribeSpotFleetRequestHistory,
+    DescribeSpotFleetRequestHistoryResponse (DescribeSpotFleetRequestHistoryResponse'),
+    newDescribeSpotFleetRequestHistoryResponse,
+
+    -- ** CreateLocalGatewayRoute
+    CreateLocalGatewayRoute (CreateLocalGatewayRoute'),
+    newCreateLocalGatewayRoute,
+    CreateLocalGatewayRouteResponse (CreateLocalGatewayRouteResponse'),
+    newCreateLocalGatewayRouteResponse,
+
+    -- ** DescribeVpcEndpoints (Paginated)
+    DescribeVpcEndpoints (DescribeVpcEndpoints'),
+    newDescribeVpcEndpoints,
+    DescribeVpcEndpointsResponse (DescribeVpcEndpointsResponse'),
+    newDescribeVpcEndpointsResponse,
+
+    -- ** ModifyInstanceEventStartTime
+    ModifyInstanceEventStartTime (ModifyInstanceEventStartTime'),
+    newModifyInstanceEventStartTime,
+    ModifyInstanceEventStartTimeResponse (ModifyInstanceEventStartTimeResponse'),
+    newModifyInstanceEventStartTimeResponse,
+
+    -- ** DescribeStaleSecurityGroups (Paginated)
+    DescribeStaleSecurityGroups (DescribeStaleSecurityGroups'),
+    newDescribeStaleSecurityGroups,
+    DescribeStaleSecurityGroupsResponse (DescribeStaleSecurityGroupsResponse'),
+    newDescribeStaleSecurityGroupsResponse,
+
+    -- ** DescribeInstanceStatus (Paginated)
+    DescribeInstanceStatus (DescribeInstanceStatus'),
+    newDescribeInstanceStatus,
+    DescribeInstanceStatusResponse (DescribeInstanceStatusResponse'),
+    newDescribeInstanceStatusResponse,
+
+    -- ** DeleteNetworkAclEntry
+    DeleteNetworkAclEntry (DeleteNetworkAclEntry'),
+    newDeleteNetworkAclEntry,
+    DeleteNetworkAclEntryResponse (DeleteNetworkAclEntryResponse'),
+    newDeleteNetworkAclEntryResponse,
+
+    -- ** GetConsoleScreenshot
+    GetConsoleScreenshot (GetConsoleScreenshot'),
+    newGetConsoleScreenshot,
+    GetConsoleScreenshotResponse (GetConsoleScreenshotResponse'),
+    newGetConsoleScreenshotResponse,
 
     -- ** GetGroupsForCapacityReservation (Paginated)
     GetGroupsForCapacityReservation (GetGroupsForCapacityReservation'),
     newGetGroupsForCapacityReservation,
     GetGroupsForCapacityReservationResponse (GetGroupsForCapacityReservationResponse'),
     newGetGroupsForCapacityReservationResponse,
+
+    -- ** DisassociateIamInstanceProfile
+    DisassociateIamInstanceProfile (DisassociateIamInstanceProfile'),
+    newDisassociateIamInstanceProfile,
+    DisassociateIamInstanceProfileResponse (DisassociateIamInstanceProfileResponse'),
+    newDisassociateIamInstanceProfileResponse,
+
+    -- ** DescribeVpcEndpointServiceConfigurations (Paginated)
+    DescribeVpcEndpointServiceConfigurations (DescribeVpcEndpointServiceConfigurations'),
+    newDescribeVpcEndpointServiceConfigurations,
+    DescribeVpcEndpointServiceConfigurationsResponse (DescribeVpcEndpointServiceConfigurationsResponse'),
+    newDescribeVpcEndpointServiceConfigurationsResponse,
+
+    -- ** CancelSpotInstanceRequests
+    CancelSpotInstanceRequests (CancelSpotInstanceRequests'),
+    newCancelSpotInstanceRequests,
+    CancelSpotInstanceRequestsResponse (CancelSpotInstanceRequestsResponse'),
+    newCancelSpotInstanceRequestsResponse,
+
+    -- ** DeleteLocalGatewayRoute
+    DeleteLocalGatewayRoute (DeleteLocalGatewayRoute'),
+    newDeleteLocalGatewayRoute,
+    DeleteLocalGatewayRouteResponse (DeleteLocalGatewayRouteResponse'),
+    newDeleteLocalGatewayRouteResponse,
+
+    -- ** DescribeVpcEndpointServices (Paginated)
+    DescribeVpcEndpointServices (DescribeVpcEndpointServices'),
+    newDescribeVpcEndpointServices,
+    DescribeVpcEndpointServicesResponse (DescribeVpcEndpointServicesResponse'),
+    newDescribeVpcEndpointServicesResponse,
+
+    -- ** DisassociateRouteTable
+    DisassociateRouteTable (DisassociateRouteTable'),
+    newDisassociateRouteTable,
+    DisassociateRouteTableResponse (DisassociateRouteTableResponse'),
+    newDisassociateRouteTableResponse,
+
+    -- ** AssignPrivateIpAddresses
+    AssignPrivateIpAddresses (AssignPrivateIpAddresses'),
+    newAssignPrivateIpAddresses,
+    AssignPrivateIpAddressesResponse (AssignPrivateIpAddressesResponse'),
+    newAssignPrivateIpAddressesResponse,
+
+    -- ** GetFlowLogsIntegrationTemplate
+    GetFlowLogsIntegrationTemplate (GetFlowLogsIntegrationTemplate'),
+    newGetFlowLogsIntegrationTemplate,
+    GetFlowLogsIntegrationTemplateResponse (GetFlowLogsIntegrationTemplateResponse'),
+    newGetFlowLogsIntegrationTemplateResponse,
+
+    -- ** ModifyVpnTunnelCertificate
+    ModifyVpnTunnelCertificate (ModifyVpnTunnelCertificate'),
+    newModifyVpnTunnelCertificate,
+    ModifyVpnTunnelCertificateResponse (ModifyVpnTunnelCertificateResponse'),
+    newModifyVpnTunnelCertificateResponse,
+
+    -- ** DisableVgwRoutePropagation
+    DisableVgwRoutePropagation (DisableVgwRoutePropagation'),
+    newDisableVgwRoutePropagation,
+    DisableVgwRoutePropagationResponse (DisableVgwRoutePropagationResponse'),
+    newDisableVgwRoutePropagationResponse,
+
+    -- ** DeleteSnapshot
+    DeleteSnapshot (DeleteSnapshot'),
+    newDeleteSnapshot,
+    DeleteSnapshotResponse (DeleteSnapshotResponse'),
+    newDeleteSnapshotResponse,
+
+    -- ** DescribeSubnets (Paginated)
+    DescribeSubnets (DescribeSubnets'),
+    newDescribeSubnets,
+    DescribeSubnetsResponse (DescribeSubnetsResponse'),
+    newDescribeSubnetsResponse,
+
+    -- ** CreateSpotDatafeedSubscription
+    CreateSpotDatafeedSubscription (CreateSpotDatafeedSubscription'),
+    newCreateSpotDatafeedSubscription,
+    CreateSpotDatafeedSubscriptionResponse (CreateSpotDatafeedSubscriptionResponse'),
+    newCreateSpotDatafeedSubscriptionResponse,
+
+    -- ** UnmonitorInstances
+    UnmonitorInstances (UnmonitorInstances'),
+    newUnmonitorInstances,
+    UnmonitorInstancesResponse (UnmonitorInstancesResponse'),
+    newUnmonitorInstancesResponse,
 
     -- ** ImportVolume
     ImportVolume (ImportVolume'),
@@ -1208,53 +1352,11 @@ module Network.AWS.EC2
     DescribeAddressesResponse (DescribeAddressesResponse'),
     newDescribeAddressesResponse,
 
-    -- ** DeleteLocalGatewayRoute
-    DeleteLocalGatewayRoute (DeleteLocalGatewayRoute'),
-    newDeleteLocalGatewayRoute,
-    DeleteLocalGatewayRouteResponse (DeleteLocalGatewayRouteResponse'),
-    newDeleteLocalGatewayRouteResponse,
-
-    -- ** DescribeVpcEndpointServiceConfigurations (Paginated)
-    DescribeVpcEndpointServiceConfigurations (DescribeVpcEndpointServiceConfigurations'),
-    newDescribeVpcEndpointServiceConfigurations,
-    DescribeVpcEndpointServiceConfigurationsResponse (DescribeVpcEndpointServiceConfigurationsResponse'),
-    newDescribeVpcEndpointServiceConfigurationsResponse,
-
-    -- ** DescribeNetworkInterfaces (Paginated)
-    DescribeNetworkInterfaces (DescribeNetworkInterfaces'),
-    newDescribeNetworkInterfaces,
-    DescribeNetworkInterfacesResponse (DescribeNetworkInterfacesResponse'),
-    newDescribeNetworkInterfacesResponse,
-
-    -- ** DescribeVpcEndpointServices (Paginated)
-    DescribeVpcEndpointServices (DescribeVpcEndpointServices'),
-    newDescribeVpcEndpointServices,
-    DescribeVpcEndpointServicesResponse (DescribeVpcEndpointServicesResponse'),
-    newDescribeVpcEndpointServicesResponse,
-
-    -- ** DeleteNetworkAclEntry
-    DeleteNetworkAclEntry (DeleteNetworkAclEntry'),
-    newDeleteNetworkAclEntry,
-    DeleteNetworkAclEntryResponse (DeleteNetworkAclEntryResponse'),
-    newDeleteNetworkAclEntryResponse,
-
-    -- ** GetTransitGatewayAttachmentPropagations (Paginated)
-    GetTransitGatewayAttachmentPropagations (GetTransitGatewayAttachmentPropagations'),
-    newGetTransitGatewayAttachmentPropagations,
-    GetTransitGatewayAttachmentPropagationsResponse (GetTransitGatewayAttachmentPropagationsResponse'),
-    newGetTransitGatewayAttachmentPropagationsResponse,
-
-    -- ** AssignPrivateIpAddresses
-    AssignPrivateIpAddresses (AssignPrivateIpAddresses'),
-    newAssignPrivateIpAddresses,
-    AssignPrivateIpAddressesResponse (AssignPrivateIpAddressesResponse'),
-    newAssignPrivateIpAddressesResponse,
-
-    -- ** DescribeNatGateways (Paginated)
-    DescribeNatGateways (DescribeNatGateways'),
-    newDescribeNatGateways,
-    DescribeNatGatewaysResponse (DescribeNatGatewaysResponse'),
-    newDescribeNatGatewaysResponse,
+    -- ** PurchaseReservedInstancesOffering
+    PurchaseReservedInstancesOffering (PurchaseReservedInstancesOffering'),
+    newPurchaseReservedInstancesOffering,
+    PurchaseReservedInstancesOfferingResponse (PurchaseReservedInstancesOfferingResponse'),
+    newPurchaseReservedInstancesOfferingResponse,
 
     -- ** DescribeSnapshotAttribute
     DescribeSnapshotAttribute (DescribeSnapshotAttribute'),
@@ -1262,53 +1364,23 @@ module Network.AWS.EC2
     DescribeSnapshotAttributeResponse (DescribeSnapshotAttributeResponse'),
     newDescribeSnapshotAttributeResponse,
 
-    -- ** DeleteSnapshot
-    DeleteSnapshot (DeleteSnapshot'),
-    newDeleteSnapshot,
-    DeleteSnapshotResponse (DeleteSnapshotResponse'),
-    newDeleteSnapshotResponse,
-
-    -- ** DeleteCarrierGateway
-    DeleteCarrierGateway (DeleteCarrierGateway'),
-    newDeleteCarrierGateway,
-    DeleteCarrierGatewayResponse (DeleteCarrierGatewayResponse'),
-    newDeleteCarrierGatewayResponse,
-
-    -- ** DescribeTransitGatewayVpcAttachments (Paginated)
-    DescribeTransitGatewayVpcAttachments (DescribeTransitGatewayVpcAttachments'),
-    newDescribeTransitGatewayVpcAttachments,
-    DescribeTransitGatewayVpcAttachmentsResponse (DescribeTransitGatewayVpcAttachmentsResponse'),
-    newDescribeTransitGatewayVpcAttachmentsResponse,
-
-    -- ** ModifyVpcEndpointConnectionNotification
-    ModifyVpcEndpointConnectionNotification (ModifyVpcEndpointConnectionNotification'),
-    newModifyVpcEndpointConnectionNotification,
-    ModifyVpcEndpointConnectionNotificationResponse (ModifyVpcEndpointConnectionNotificationResponse'),
-    newModifyVpcEndpointConnectionNotificationResponse,
-
-    -- ** PurchaseReservedInstancesOffering
-    PurchaseReservedInstancesOffering (PurchaseReservedInstancesOffering'),
-    newPurchaseReservedInstancesOffering,
-    PurchaseReservedInstancesOfferingResponse (PurchaseReservedInstancesOfferingResponse'),
-    newPurchaseReservedInstancesOfferingResponse,
-
     -- ** AuthorizeSecurityGroupIngress
     AuthorizeSecurityGroupIngress (AuthorizeSecurityGroupIngress'),
     newAuthorizeSecurityGroupIngress,
     AuthorizeSecurityGroupIngressResponse (AuthorizeSecurityGroupIngressResponse'),
     newAuthorizeSecurityGroupIngressResponse,
 
-    -- ** GetConsoleScreenshot
-    GetConsoleScreenshot (GetConsoleScreenshot'),
-    newGetConsoleScreenshot,
-    GetConsoleScreenshotResponse (GetConsoleScreenshotResponse'),
-    newGetConsoleScreenshotResponse,
+    -- ** DescribeNatGateways (Paginated)
+    DescribeNatGateways (DescribeNatGateways'),
+    newDescribeNatGateways,
+    DescribeNatGatewaysResponse (DescribeNatGatewaysResponse'),
+    newDescribeNatGatewaysResponse,
 
-    -- ** DisableVgwRoutePropagation
-    DisableVgwRoutePropagation (DisableVgwRoutePropagation'),
-    newDisableVgwRoutePropagation,
-    DisableVgwRoutePropagationResponse (DisableVgwRoutePropagationResponse'),
-    newDisableVgwRoutePropagationResponse,
+    -- ** DisableVpcClassicLink
+    DisableVpcClassicLink (DisableVpcClassicLink'),
+    newDisableVpcClassicLink,
+    DisableVpcClassicLinkResponse (DisableVpcClassicLinkResponse'),
+    newDisableVpcClassicLinkResponse,
 
     -- ** DescribeTransitGatewayMulticastDomains (Paginated)
     DescribeTransitGatewayMulticastDomains (DescribeTransitGatewayMulticastDomains'),
@@ -1316,47 +1388,17 @@ module Network.AWS.EC2
     DescribeTransitGatewayMulticastDomainsResponse (DescribeTransitGatewayMulticastDomainsResponse'),
     newDescribeTransitGatewayMulticastDomainsResponse,
 
-    -- ** DescribeSubnets (Paginated)
-    DescribeSubnets (DescribeSubnets'),
-    newDescribeSubnets,
-    DescribeSubnetsResponse (DescribeSubnetsResponse'),
-    newDescribeSubnetsResponse,
+    -- ** GetTransitGatewayAttachmentPropagations (Paginated)
+    GetTransitGatewayAttachmentPropagations (GetTransitGatewayAttachmentPropagations'),
+    newGetTransitGatewayAttachmentPropagations,
+    GetTransitGatewayAttachmentPropagationsResponse (GetTransitGatewayAttachmentPropagationsResponse'),
+    newGetTransitGatewayAttachmentPropagationsResponse,
 
-    -- ** UnmonitorInstances
-    UnmonitorInstances (UnmonitorInstances'),
-    newUnmonitorInstances,
-    UnmonitorInstancesResponse (UnmonitorInstancesResponse'),
-    newUnmonitorInstancesResponse,
-
-    -- ** CancelSpotInstanceRequests
-    CancelSpotInstanceRequests (CancelSpotInstanceRequests'),
-    newCancelSpotInstanceRequests,
-    CancelSpotInstanceRequestsResponse (CancelSpotInstanceRequestsResponse'),
-    newCancelSpotInstanceRequestsResponse,
-
-    -- ** CreateSpotDatafeedSubscription
-    CreateSpotDatafeedSubscription (CreateSpotDatafeedSubscription'),
-    newCreateSpotDatafeedSubscription,
-    CreateSpotDatafeedSubscriptionResponse (CreateSpotDatafeedSubscriptionResponse'),
-    newCreateSpotDatafeedSubscriptionResponse,
-
-    -- ** DisassociateRouteTable
-    DisassociateRouteTable (DisassociateRouteTable'),
-    newDisassociateRouteTable,
-    DisassociateRouteTableResponse (DisassociateRouteTableResponse'),
-    newDisassociateRouteTableResponse,
-
-    -- ** DescribeTransitGatewayConnectPeers (Paginated)
-    DescribeTransitGatewayConnectPeers (DescribeTransitGatewayConnectPeers'),
-    newDescribeTransitGatewayConnectPeers,
-    DescribeTransitGatewayConnectPeersResponse (DescribeTransitGatewayConnectPeersResponse'),
-    newDescribeTransitGatewayConnectPeersResponse,
-
-    -- ** ModifyVpnTunnelCertificate
-    ModifyVpnTunnelCertificate (ModifyVpnTunnelCertificate'),
-    newModifyVpnTunnelCertificate,
-    ModifyVpnTunnelCertificateResponse (ModifyVpnTunnelCertificateResponse'),
-    newModifyVpnTunnelCertificateResponse,
+    -- ** ModifyVpcEndpointConnectionNotification
+    ModifyVpcEndpointConnectionNotification (ModifyVpcEndpointConnectionNotification'),
+    newModifyVpcEndpointConnectionNotification,
+    ModifyVpcEndpointConnectionNotificationResponse (ModifyVpcEndpointConnectionNotificationResponse'),
+    newModifyVpcEndpointConnectionNotificationResponse,
 
     -- ** RestoreManagedPrefixListVersion
     RestoreManagedPrefixListVersion (RestoreManagedPrefixListVersion'),
@@ -1364,53 +1406,41 @@ module Network.AWS.EC2
     RestoreManagedPrefixListVersionResponse (RestoreManagedPrefixListVersionResponse'),
     newRestoreManagedPrefixListVersionResponse,
 
+    -- ** DescribeTransitGatewayConnectPeers (Paginated)
+    DescribeTransitGatewayConnectPeers (DescribeTransitGatewayConnectPeers'),
+    newDescribeTransitGatewayConnectPeers,
+    DescribeTransitGatewayConnectPeersResponse (DescribeTransitGatewayConnectPeersResponse'),
+    newDescribeTransitGatewayConnectPeersResponse,
+
+    -- ** DeleteCarrierGateway
+    DeleteCarrierGateway (DeleteCarrierGateway'),
+    newDeleteCarrierGateway,
+    DeleteCarrierGatewayResponse (DeleteCarrierGatewayResponse'),
+    newDeleteCarrierGatewayResponse,
+
+    -- ** DescribeNetworkInterfaces (Paginated)
+    DescribeNetworkInterfaces (DescribeNetworkInterfaces'),
+    newDescribeNetworkInterfaces,
+    DescribeNetworkInterfacesResponse (DescribeNetworkInterfacesResponse'),
+    newDescribeNetworkInterfacesResponse,
+
+    -- ** DescribeTransitGatewayVpcAttachments (Paginated)
+    DescribeTransitGatewayVpcAttachments (DescribeTransitGatewayVpcAttachments'),
+    newDescribeTransitGatewayVpcAttachments,
+    DescribeTransitGatewayVpcAttachmentsResponse (DescribeTransitGatewayVpcAttachmentsResponse'),
+    newDescribeTransitGatewayVpcAttachmentsResponse,
+
     -- ** ModifyAddressAttribute
     ModifyAddressAttribute (ModifyAddressAttribute'),
     newModifyAddressAttribute,
     ModifyAddressAttributeResponse (ModifyAddressAttributeResponse'),
     newModifyAddressAttributeResponse,
 
-    -- ** CreateVpnConnection
-    CreateVpnConnection (CreateVpnConnection'),
-    newCreateVpnConnection,
-    CreateVpnConnectionResponse (CreateVpnConnectionResponse'),
-    newCreateVpnConnectionResponse,
-
-    -- ** AssociateSubnetCidrBlock
-    AssociateSubnetCidrBlock (AssociateSubnetCidrBlock'),
-    newAssociateSubnetCidrBlock,
-    AssociateSubnetCidrBlockResponse (AssociateSubnetCidrBlockResponse'),
-    newAssociateSubnetCidrBlockResponse,
-
-    -- ** AttachClassicLinkVpc
-    AttachClassicLinkVpc (AttachClassicLinkVpc'),
-    newAttachClassicLinkVpc,
-    AttachClassicLinkVpcResponse (AttachClassicLinkVpcResponse'),
-    newAttachClassicLinkVpcResponse,
-
-    -- ** DescribeSpotPriceHistory (Paginated)
-    DescribeSpotPriceHistory (DescribeSpotPriceHistory'),
-    newDescribeSpotPriceHistory,
-    DescribeSpotPriceHistoryResponse (DescribeSpotPriceHistoryResponse'),
-    newDescribeSpotPriceHistoryResponse,
-
-    -- ** DeleteQueuedReservedInstances
-    DeleteQueuedReservedInstances (DeleteQueuedReservedInstances'),
-    newDeleteQueuedReservedInstances,
-    DeleteQueuedReservedInstancesResponse (DeleteQueuedReservedInstancesResponse'),
-    newDeleteQueuedReservedInstancesResponse,
-
-    -- ** DescribeAggregateIdFormat
-    DescribeAggregateIdFormat (DescribeAggregateIdFormat'),
-    newDescribeAggregateIdFormat,
-    DescribeAggregateIdFormatResponse (DescribeAggregateIdFormatResponse'),
-    newDescribeAggregateIdFormatResponse,
-
-    -- ** DescribeReservedInstancesListings
-    DescribeReservedInstancesListings (DescribeReservedInstancesListings'),
-    newDescribeReservedInstancesListings,
-    DescribeReservedInstancesListingsResponse (DescribeReservedInstancesListingsResponse'),
-    newDescribeReservedInstancesListingsResponse,
+    -- ** DescribeImportSnapshotTasks (Paginated)
+    DescribeImportSnapshotTasks (DescribeImportSnapshotTasks'),
+    newDescribeImportSnapshotTasks,
+    DescribeImportSnapshotTasksResponse (DescribeImportSnapshotTasksResponse'),
+    newDescribeImportSnapshotTasksResponse,
 
     -- ** CopyImage
     CopyImage (CopyImage'),
@@ -1418,11 +1448,23 @@ module Network.AWS.EC2
     CopyImageResponse (CopyImageResponse'),
     newCopyImageResponse,
 
-    -- ** CreateLocalGatewayRouteTableVpcAssociation
-    CreateLocalGatewayRouteTableVpcAssociation (CreateLocalGatewayRouteTableVpcAssociation'),
-    newCreateLocalGatewayRouteTableVpcAssociation,
-    CreateLocalGatewayRouteTableVpcAssociationResponse (CreateLocalGatewayRouteTableVpcAssociationResponse'),
-    newCreateLocalGatewayRouteTableVpcAssociationResponse,
+    -- ** DescribeInstanceEventNotificationAttributes
+    DescribeInstanceEventNotificationAttributes (DescribeInstanceEventNotificationAttributes'),
+    newDescribeInstanceEventNotificationAttributes,
+    DescribeInstanceEventNotificationAttributesResponse (DescribeInstanceEventNotificationAttributesResponse'),
+    newDescribeInstanceEventNotificationAttributesResponse,
+
+    -- ** EnableSerialConsoleAccess
+    EnableSerialConsoleAccess (EnableSerialConsoleAccess'),
+    newEnableSerialConsoleAccess,
+    EnableSerialConsoleAccessResponse (EnableSerialConsoleAccessResponse'),
+    newEnableSerialConsoleAccessResponse,
+
+    -- ** ModifyTrafficMirrorFilterRule
+    ModifyTrafficMirrorFilterRule (ModifyTrafficMirrorFilterRule'),
+    newModifyTrafficMirrorFilterRule,
+    ModifyTrafficMirrorFilterRuleResponse (ModifyTrafficMirrorFilterRuleResponse'),
+    newModifyTrafficMirrorFilterRuleResponse,
 
     -- ** DescribeCarrierGateways (Paginated)
     DescribeCarrierGateways (DescribeCarrierGateways'),
@@ -1436,29 +1478,29 @@ module Network.AWS.EC2
     DeleteInternetGatewayResponse (DeleteInternetGatewayResponse'),
     newDeleteInternetGatewayResponse,
 
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** ModifyClientVpnEndpoint
-    ModifyClientVpnEndpoint (ModifyClientVpnEndpoint'),
-    newModifyClientVpnEndpoint,
-    ModifyClientVpnEndpointResponse (ModifyClientVpnEndpointResponse'),
-    newModifyClientVpnEndpointResponse,
-
     -- ** ModifyInstanceCapacityReservationAttributes
     ModifyInstanceCapacityReservationAttributes (ModifyInstanceCapacityReservationAttributes'),
     newModifyInstanceCapacityReservationAttributes,
     ModifyInstanceCapacityReservationAttributesResponse (ModifyInstanceCapacityReservationAttributesResponse'),
     newModifyInstanceCapacityReservationAttributesResponse,
 
-    -- ** ImportClientVpnClientCertificateRevocationList
-    ImportClientVpnClientCertificateRevocationList (ImportClientVpnClientCertificateRevocationList'),
-    newImportClientVpnClientCertificateRevocationList,
-    ImportClientVpnClientCertificateRevocationListResponse (ImportClientVpnClientCertificateRevocationListResponse'),
-    newImportClientVpnClientCertificateRevocationListResponse,
+    -- ** DescribeNetworkInterfaceAttribute
+    DescribeNetworkInterfaceAttribute (DescribeNetworkInterfaceAttribute'),
+    newDescribeNetworkInterfaceAttribute,
+    DescribeNetworkInterfaceAttributeResponse (DescribeNetworkInterfaceAttributeResponse'),
+    newDescribeNetworkInterfaceAttributeResponse,
+
+    -- ** AttachClassicLinkVpc
+    AttachClassicLinkVpc (AttachClassicLinkVpc'),
+    newAttachClassicLinkVpc,
+    AttachClassicLinkVpcResponse (AttachClassicLinkVpcResponse'),
+    newAttachClassicLinkVpcResponse,
+
+    -- ** GetSubnetCidrReservations
+    GetSubnetCidrReservations (GetSubnetCidrReservations'),
+    newGetSubnetCidrReservations,
+    GetSubnetCidrReservationsResponse (GetSubnetCidrReservationsResponse'),
+    newGetSubnetCidrReservationsResponse,
 
     -- ** AssociateClientVpnTargetNetwork
     AssociateClientVpnTargetNetwork (AssociateClientVpnTargetNetwork'),
@@ -1472,29 +1514,29 @@ module Network.AWS.EC2
     CancelCapacityReservationResponse (CancelCapacityReservationResponse'),
     newCancelCapacityReservationResponse,
 
-    -- ** CancelReservedInstancesListing
-    CancelReservedInstancesListing (CancelReservedInstancesListing'),
-    newCancelReservedInstancesListing,
-    CancelReservedInstancesListingResponse (CancelReservedInstancesListingResponse'),
-    newCancelReservedInstancesListingResponse,
-
     -- ** DisableTransitGatewayRouteTablePropagation
     DisableTransitGatewayRouteTablePropagation (DisableTransitGatewayRouteTablePropagation'),
     newDisableTransitGatewayRouteTablePropagation,
     DisableTransitGatewayRouteTablePropagationResponse (DisableTransitGatewayRouteTablePropagationResponse'),
     newDisableTransitGatewayRouteTablePropagationResponse,
 
-    -- ** DescribeVpcClassicLinkDnsSupport (Paginated)
-    DescribeVpcClassicLinkDnsSupport (DescribeVpcClassicLinkDnsSupport'),
-    newDescribeVpcClassicLinkDnsSupport,
-    DescribeVpcClassicLinkDnsSupportResponse (DescribeVpcClassicLinkDnsSupportResponse'),
-    newDescribeVpcClassicLinkDnsSupportResponse,
+    -- ** CancelReservedInstancesListing
+    CancelReservedInstancesListing (CancelReservedInstancesListing'),
+    newCancelReservedInstancesListing,
+    CancelReservedInstancesListingResponse (CancelReservedInstancesListingResponse'),
+    newCancelReservedInstancesListingResponse,
 
-    -- ** CreateVpcEndpoint
-    CreateVpcEndpoint (CreateVpcEndpoint'),
-    newCreateVpcEndpoint,
-    CreateVpcEndpointResponse (CreateVpcEndpointResponse'),
-    newCreateVpcEndpointResponse,
+    -- ** DeleteQueuedReservedInstances
+    DeleteQueuedReservedInstances (DeleteQueuedReservedInstances'),
+    newDeleteQueuedReservedInstances,
+    DeleteQueuedReservedInstancesResponse (DeleteQueuedReservedInstancesResponse'),
+    newDeleteQueuedReservedInstancesResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
 
     -- ** DescribeSnapshots (Paginated)
     DescribeSnapshots (DescribeSnapshots'),
@@ -1502,23 +1544,47 @@ module Network.AWS.EC2
     DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
     newDescribeSnapshotsResponse,
 
-    -- ** DescribeImportSnapshotTasks (Paginated)
-    DescribeImportSnapshotTasks (DescribeImportSnapshotTasks'),
-    newDescribeImportSnapshotTasks,
-    DescribeImportSnapshotTasksResponse (DescribeImportSnapshotTasksResponse'),
-    newDescribeImportSnapshotTasksResponse,
+    -- ** DescribeReservedInstancesListings
+    DescribeReservedInstancesListings (DescribeReservedInstancesListings'),
+    newDescribeReservedInstancesListings,
+    DescribeReservedInstancesListingsResponse (DescribeReservedInstancesListingsResponse'),
+    newDescribeReservedInstancesListingsResponse,
 
-    -- ** DescribeNetworkInterfaceAttribute
-    DescribeNetworkInterfaceAttribute (DescribeNetworkInterfaceAttribute'),
-    newDescribeNetworkInterfaceAttribute,
-    DescribeNetworkInterfaceAttributeResponse (DescribeNetworkInterfaceAttributeResponse'),
-    newDescribeNetworkInterfaceAttributeResponse,
+    -- ** ModifyClientVpnEndpoint
+    ModifyClientVpnEndpoint (ModifyClientVpnEndpoint'),
+    newModifyClientVpnEndpoint,
+    ModifyClientVpnEndpointResponse (ModifyClientVpnEndpointResponse'),
+    newModifyClientVpnEndpointResponse,
 
-    -- ** DescribeInstanceEventNotificationAttributes
-    DescribeInstanceEventNotificationAttributes (DescribeInstanceEventNotificationAttributes'),
-    newDescribeInstanceEventNotificationAttributes,
-    DescribeInstanceEventNotificationAttributesResponse (DescribeInstanceEventNotificationAttributesResponse'),
-    newDescribeInstanceEventNotificationAttributesResponse,
+    -- ** CreateVpcEndpoint
+    CreateVpcEndpoint (CreateVpcEndpoint'),
+    newCreateVpcEndpoint,
+    CreateVpcEndpointResponse (CreateVpcEndpointResponse'),
+    newCreateVpcEndpointResponse,
+
+    -- ** CreateVpnConnection
+    CreateVpnConnection (CreateVpnConnection'),
+    newCreateVpnConnection,
+    CreateVpnConnectionResponse (CreateVpnConnectionResponse'),
+    newCreateVpnConnectionResponse,
+
+    -- ** ImportClientVpnClientCertificateRevocationList
+    ImportClientVpnClientCertificateRevocationList (ImportClientVpnClientCertificateRevocationList'),
+    newImportClientVpnClientCertificateRevocationList,
+    ImportClientVpnClientCertificateRevocationListResponse (ImportClientVpnClientCertificateRevocationListResponse'),
+    newImportClientVpnClientCertificateRevocationListResponse,
+
+    -- ** AssociateSubnetCidrBlock
+    AssociateSubnetCidrBlock (AssociateSubnetCidrBlock'),
+    newAssociateSubnetCidrBlock,
+    AssociateSubnetCidrBlockResponse (AssociateSubnetCidrBlockResponse'),
+    newAssociateSubnetCidrBlockResponse,
+
+    -- ** DescribeSpotPriceHistory (Paginated)
+    DescribeSpotPriceHistory (DescribeSpotPriceHistory'),
+    newDescribeSpotPriceHistory,
+    DescribeSpotPriceHistoryResponse (DescribeSpotPriceHistoryResponse'),
+    newDescribeSpotPriceHistoryResponse,
 
     -- ** EnableEbsEncryptionByDefault
     EnableEbsEncryptionByDefault (EnableEbsEncryptionByDefault'),
@@ -1526,47 +1592,29 @@ module Network.AWS.EC2
     EnableEbsEncryptionByDefaultResponse (EnableEbsEncryptionByDefaultResponse'),
     newEnableEbsEncryptionByDefaultResponse,
 
-    -- ** ModifyTrafficMirrorFilterRule
-    ModifyTrafficMirrorFilterRule (ModifyTrafficMirrorFilterRule'),
-    newModifyTrafficMirrorFilterRule,
-    ModifyTrafficMirrorFilterRuleResponse (ModifyTrafficMirrorFilterRuleResponse'),
-    newModifyTrafficMirrorFilterRuleResponse,
+    -- ** DescribeVpcClassicLinkDnsSupport (Paginated)
+    DescribeVpcClassicLinkDnsSupport (DescribeVpcClassicLinkDnsSupport'),
+    newDescribeVpcClassicLinkDnsSupport,
+    DescribeVpcClassicLinkDnsSupportResponse (DescribeVpcClassicLinkDnsSupportResponse'),
+    newDescribeVpcClassicLinkDnsSupportResponse,
 
-    -- ** DescribeCoipPools (Paginated)
-    DescribeCoipPools (DescribeCoipPools'),
-    newDescribeCoipPools,
-    DescribeCoipPoolsResponse (DescribeCoipPoolsResponse'),
-    newDescribeCoipPoolsResponse,
+    -- ** CreateLocalGatewayRouteTableVpcAssociation
+    CreateLocalGatewayRouteTableVpcAssociation (CreateLocalGatewayRouteTableVpcAssociation'),
+    newCreateLocalGatewayRouteTableVpcAssociation,
+    CreateLocalGatewayRouteTableVpcAssociationResponse (CreateLocalGatewayRouteTableVpcAssociationResponse'),
+    newCreateLocalGatewayRouteTableVpcAssociationResponse,
 
-    -- ** CancelExportTask
-    CancelExportTask (CancelExportTask'),
-    newCancelExportTask,
-    CancelExportTaskResponse (CancelExportTaskResponse'),
-    newCancelExportTaskResponse,
+    -- ** DescribeAggregateIdFormat
+    DescribeAggregateIdFormat (DescribeAggregateIdFormat'),
+    newDescribeAggregateIdFormat,
+    DescribeAggregateIdFormatResponse (DescribeAggregateIdFormatResponse'),
+    newDescribeAggregateIdFormatResponse,
 
-    -- ** EnableVolumeIO
-    EnableVolumeIO (EnableVolumeIO'),
-    newEnableVolumeIO,
-    EnableVolumeIOResponse (EnableVolumeIOResponse'),
-    newEnableVolumeIOResponse,
-
-    -- ** ModifyTransitGateway
-    ModifyTransitGateway (ModifyTransitGateway'),
-    newModifyTransitGateway,
-    ModifyTransitGatewayResponse (ModifyTransitGatewayResponse'),
-    newModifyTransitGatewayResponse,
-
-    -- ** DescribeInstanceTypeOfferings (Paginated)
-    DescribeInstanceTypeOfferings (DescribeInstanceTypeOfferings'),
-    newDescribeInstanceTypeOfferings,
-    DescribeInstanceTypeOfferingsResponse (DescribeInstanceTypeOfferingsResponse'),
-    newDescribeInstanceTypeOfferingsResponse,
-
-    -- ** CreateSubnet
-    CreateSubnet (CreateSubnet'),
-    newCreateSubnet,
-    CreateSubnetResponse (CreateSubnetResponse'),
-    newCreateSubnetResponse,
+    -- ** EnableTransitGatewayRouteTablePropagation
+    EnableTransitGatewayRouteTablePropagation (EnableTransitGatewayRouteTablePropagation'),
+    newEnableTransitGatewayRouteTablePropagation,
+    EnableTransitGatewayRouteTablePropagationResponse (EnableTransitGatewayRouteTablePropagationResponse'),
+    newEnableTransitGatewayRouteTablePropagationResponse,
 
     -- ** RequestSpotFleet
     RequestSpotFleet (RequestSpotFleet'),
@@ -1574,11 +1622,29 @@ module Network.AWS.EC2
     RequestSpotFleetResponse (RequestSpotFleetResponse'),
     newRequestSpotFleetResponse,
 
-    -- ** DeleteVpnConnection
-    DeleteVpnConnection (DeleteVpnConnection'),
-    newDeleteVpnConnection,
-    DeleteVpnConnectionResponse (DeleteVpnConnectionResponse'),
-    newDeleteVpnConnectionResponse,
+    -- ** DescribeBundleTasks
+    DescribeBundleTasks (DescribeBundleTasks'),
+    newDescribeBundleTasks,
+    DescribeBundleTasksResponse (DescribeBundleTasksResponse'),
+    newDescribeBundleTasksResponse,
+
+    -- ** ModifyNetworkInterfaceAttribute
+    ModifyNetworkInterfaceAttribute (ModifyNetworkInterfaceAttribute'),
+    newModifyNetworkInterfaceAttribute,
+    ModifyNetworkInterfaceAttributeResponse (ModifyNetworkInterfaceAttributeResponse'),
+    newModifyNetworkInterfaceAttributeResponse,
+
+    -- ** DisableSerialConsoleAccess
+    DisableSerialConsoleAccess (DisableSerialConsoleAccess'),
+    newDisableSerialConsoleAccess,
+    DisableSerialConsoleAccessResponse (DisableSerialConsoleAccessResponse'),
+    newDisableSerialConsoleAccessResponse,
+
+    -- ** DescribeInstanceTypeOfferings (Paginated)
+    DescribeInstanceTypeOfferings (DescribeInstanceTypeOfferings'),
+    newDescribeInstanceTypeOfferings,
+    DescribeInstanceTypeOfferingsResponse (DescribeInstanceTypeOfferingsResponse'),
+    newDescribeInstanceTypeOfferingsResponse,
 
     -- ** ModifySpotFleetRequest
     ModifySpotFleetRequest (ModifySpotFleetRequest'),
@@ -1592,23 +1658,47 @@ module Network.AWS.EC2
     DeregisterImageResponse (DeregisterImageResponse'),
     newDeregisterImageResponse,
 
-    -- ** DetachVpnGateway
-    DetachVpnGateway (DetachVpnGateway'),
-    newDetachVpnGateway,
-    DetachVpnGatewayResponse (DetachVpnGatewayResponse'),
-    newDetachVpnGatewayResponse,
+    -- ** ResetAddressAttribute
+    ResetAddressAttribute (ResetAddressAttribute'),
+    newResetAddressAttribute,
+    ResetAddressAttributeResponse (ResetAddressAttributeResponse'),
+    newResetAddressAttributeResponse,
 
-    -- ** CreateNetworkInterface
-    CreateNetworkInterface (CreateNetworkInterface'),
-    newCreateNetworkInterface,
-    CreateNetworkInterfaceResponse (CreateNetworkInterfaceResponse'),
-    newCreateNetworkInterfaceResponse,
+    -- ** DescribeCoipPools (Paginated)
+    DescribeCoipPools (DescribeCoipPools'),
+    newDescribeCoipPools,
+    DescribeCoipPoolsResponse (DescribeCoipPoolsResponse'),
+    newDescribeCoipPoolsResponse,
 
-    -- ** ModifyNetworkInterfaceAttribute
-    ModifyNetworkInterfaceAttribute (ModifyNetworkInterfaceAttribute'),
-    newModifyNetworkInterfaceAttribute,
-    ModifyNetworkInterfaceAttributeResponse (ModifyNetworkInterfaceAttributeResponse'),
-    newModifyNetworkInterfaceAttributeResponse,
+    -- ** DescribeInstanceEventWindows (Paginated)
+    DescribeInstanceEventWindows (DescribeInstanceEventWindows'),
+    newDescribeInstanceEventWindows,
+    DescribeInstanceEventWindowsResponse (DescribeInstanceEventWindowsResponse'),
+    newDescribeInstanceEventWindowsResponse,
+
+    -- ** CreateSubnet
+    CreateSubnet (CreateSubnet'),
+    newCreateSubnet,
+    CreateSubnetResponse (CreateSubnetResponse'),
+    newCreateSubnetResponse,
+
+    -- ** DescribeSecurityGroups (Paginated)
+    DescribeSecurityGroups (DescribeSecurityGroups'),
+    newDescribeSecurityGroups,
+    DescribeSecurityGroupsResponse (DescribeSecurityGroupsResponse'),
+    newDescribeSecurityGroupsResponse,
+
+    -- ** DeletePlacementGroup
+    DeletePlacementGroup (DeletePlacementGroup'),
+    newDeletePlacementGroup,
+    DeletePlacementGroupResponse (DeletePlacementGroupResponse'),
+    newDeletePlacementGroupResponse,
+
+    -- ** EnableVolumeIO
+    EnableVolumeIO (EnableVolumeIO'),
+    newEnableVolumeIO,
+    EnableVolumeIOResponse (EnableVolumeIOResponse'),
+    newEnableVolumeIOResponse,
 
     -- ** CreateNatGateway
     CreateNatGateway (CreateNatGateway'),
@@ -1622,23 +1712,11 @@ module Network.AWS.EC2
     GetAssociatedEnclaveCertificateIamRolesResponse (GetAssociatedEnclaveCertificateIamRolesResponse'),
     newGetAssociatedEnclaveCertificateIamRolesResponse,
 
-    -- ** CreateInternetGateway
-    CreateInternetGateway (CreateInternetGateway'),
-    newCreateInternetGateway,
-    CreateInternetGatewayResponse (CreateInternetGatewayResponse'),
-    newCreateInternetGatewayResponse,
-
-    -- ** EnableTransitGatewayRouteTablePropagation
-    EnableTransitGatewayRouteTablePropagation (EnableTransitGatewayRouteTablePropagation'),
-    newEnableTransitGatewayRouteTablePropagation,
-    EnableTransitGatewayRouteTablePropagationResponse (EnableTransitGatewayRouteTablePropagationResponse'),
-    newEnableTransitGatewayRouteTablePropagationResponse,
-
-    -- ** ResetAddressAttribute
-    ResetAddressAttribute (ResetAddressAttribute'),
-    newResetAddressAttribute,
-    ResetAddressAttributeResponse (ResetAddressAttributeResponse'),
-    newResetAddressAttributeResponse,
+    -- ** ModifySubnetAttribute
+    ModifySubnetAttribute (ModifySubnetAttribute'),
+    newModifySubnetAttribute,
+    ModifySubnetAttributeResponse (ModifySubnetAttributeResponse'),
+    newModifySubnetAttributeResponse,
 
     -- ** DescribeTransitGatewayConnects (Paginated)
     DescribeTransitGatewayConnects (DescribeTransitGatewayConnects'),
@@ -1646,11 +1724,23 @@ module Network.AWS.EC2
     DescribeTransitGatewayConnectsResponse (DescribeTransitGatewayConnectsResponse'),
     newDescribeTransitGatewayConnectsResponse,
 
-    -- ** DeletePlacementGroup
-    DeletePlacementGroup (DeletePlacementGroup'),
-    newDeletePlacementGroup,
-    DeletePlacementGroupResponse (DeletePlacementGroupResponse'),
-    newDeletePlacementGroupResponse,
+    -- ** DetachVpnGateway
+    DetachVpnGateway (DetachVpnGateway'),
+    newDetachVpnGateway,
+    DetachVpnGatewayResponse (DetachVpnGatewayResponse'),
+    newDetachVpnGatewayResponse,
+
+    -- ** CreateNetworkInterface
+    CreateNetworkInterface (CreateNetworkInterface'),
+    newCreateNetworkInterface,
+    CreateNetworkInterfaceResponse (CreateNetworkInterfaceResponse'),
+    newCreateNetworkInterfaceResponse,
+
+    -- ** DeleteVpnConnection
+    DeleteVpnConnection (DeleteVpnConnection'),
+    newDeleteVpnConnection,
+    DeleteVpnConnectionResponse (DeleteVpnConnectionResponse'),
+    newDeleteVpnConnectionResponse,
 
     -- ** DescribeInstanceTypes (Paginated)
     DescribeInstanceTypes (DescribeInstanceTypes'),
@@ -1658,53 +1748,23 @@ module Network.AWS.EC2
     DescribeInstanceTypesResponse (DescribeInstanceTypesResponse'),
     newDescribeInstanceTypesResponse,
 
-    -- ** DescribeBundleTasks
-    DescribeBundleTasks (DescribeBundleTasks'),
-    newDescribeBundleTasks,
-    DescribeBundleTasksResponse (DescribeBundleTasksResponse'),
-    newDescribeBundleTasksResponse,
+    -- ** CancelExportTask
+    CancelExportTask (CancelExportTask'),
+    newCancelExportTask,
+    CancelExportTaskResponse (CancelExportTaskResponse'),
+    newCancelExportTaskResponse,
 
-    -- ** ModifySubnetAttribute
-    ModifySubnetAttribute (ModifySubnetAttribute'),
-    newModifySubnetAttribute,
-    ModifySubnetAttributeResponse (ModifySubnetAttributeResponse'),
-    newModifySubnetAttributeResponse,
+    -- ** ModifyTransitGateway
+    ModifyTransitGateway (ModifyTransitGateway'),
+    newModifyTransitGateway,
+    ModifyTransitGatewayResponse (ModifyTransitGatewayResponse'),
+    newModifyTransitGatewayResponse,
 
-    -- ** DescribeSecurityGroups (Paginated)
-    DescribeSecurityGroups (DescribeSecurityGroups'),
-    newDescribeSecurityGroups,
-    DescribeSecurityGroupsResponse (DescribeSecurityGroupsResponse'),
-    newDescribeSecurityGroupsResponse,
-
-    -- ** CreateClientVpnRoute
-    CreateClientVpnRoute (CreateClientVpnRoute'),
-    newCreateClientVpnRoute,
-    CreateClientVpnRouteResponse (CreateClientVpnRouteResponse'),
-    newCreateClientVpnRouteResponse,
-
-    -- ** DisassociateSubnetCidrBlock
-    DisassociateSubnetCidrBlock (DisassociateSubnetCidrBlock'),
-    newDisassociateSubnetCidrBlock,
-    DisassociateSubnetCidrBlockResponse (DisassociateSubnetCidrBlockResponse'),
-    newDisassociateSubnetCidrBlockResponse,
-
-    -- ** DescribeSpotDatafeedSubscription
-    DescribeSpotDatafeedSubscription (DescribeSpotDatafeedSubscription'),
-    newDescribeSpotDatafeedSubscription,
-    DescribeSpotDatafeedSubscriptionResponse (DescribeSpotDatafeedSubscriptionResponse'),
-    newDescribeSpotDatafeedSubscriptionResponse,
-
-    -- ** CreateInstanceExportTask
-    CreateInstanceExportTask (CreateInstanceExportTask'),
-    newCreateInstanceExportTask,
-    CreateInstanceExportTaskResponse (CreateInstanceExportTaskResponse'),
-    newCreateInstanceExportTaskResponse,
-
-    -- ** DisassociateClientVpnTargetNetwork
-    DisassociateClientVpnTargetNetwork (DisassociateClientVpnTargetNetwork'),
-    newDisassociateClientVpnTargetNetwork,
-    DisassociateClientVpnTargetNetworkResponse (DisassociateClientVpnTargetNetworkResponse'),
-    newDisassociateClientVpnTargetNetworkResponse,
+    -- ** CreateInternetGateway
+    CreateInternetGateway (CreateInternetGateway'),
+    newCreateInternetGateway,
+    CreateInternetGatewayResponse (CreateInternetGatewayResponse'),
+    newCreateInternetGatewayResponse,
 
     -- ** SendDiagnosticInterrupt
     SendDiagnosticInterrupt (SendDiagnosticInterrupt'),
@@ -1712,53 +1772,11 @@ module Network.AWS.EC2
     SendDiagnosticInterruptResponse (SendDiagnosticInterruptResponse'),
     newSendDiagnosticInterruptResponse,
 
-    -- ** DescribeVpcAttribute
-    DescribeVpcAttribute (DescribeVpcAttribute'),
-    newDescribeVpcAttribute,
-    DescribeVpcAttributeResponse (DescribeVpcAttributeResponse'),
-    newDescribeVpcAttributeResponse,
-
-    -- ** DescribeSecurityGroupReferences
-    DescribeSecurityGroupReferences (DescribeSecurityGroupReferences'),
-    newDescribeSecurityGroupReferences,
-    DescribeSecurityGroupReferencesResponse (DescribeSecurityGroupReferencesResponse'),
-    newDescribeSecurityGroupReferencesResponse,
-
-    -- ** ModifyCapacityReservation
-    ModifyCapacityReservation (ModifyCapacityReservation'),
-    newModifyCapacityReservation,
-    ModifyCapacityReservationResponse (ModifyCapacityReservationResponse'),
-    newModifyCapacityReservationResponse,
-
-    -- ** DetachInternetGateway
-    DetachInternetGateway (DetachInternetGateway'),
-    newDetachInternetGateway,
-    DetachInternetGatewayResponse (DetachInternetGatewayResponse'),
-    newDetachInternetGatewayResponse,
-
-    -- ** CreateVolume
-    CreateVolume (CreateVolume'),
-    newCreateVolume,
-    Volume (Volume'),
-    newVolume,
-
-    -- ** ExportClientVpnClientConfiguration
-    ExportClientVpnClientConfiguration (ExportClientVpnClientConfiguration'),
-    newExportClientVpnClientConfiguration,
-    ExportClientVpnClientConfigurationResponse (ExportClientVpnClientConfigurationResponse'),
-    newExportClientVpnClientConfigurationResponse,
-
-    -- ** RevokeSecurityGroupEgress
-    RevokeSecurityGroupEgress (RevokeSecurityGroupEgress'),
-    newRevokeSecurityGroupEgress,
-    RevokeSecurityGroupEgressResponse (RevokeSecurityGroupEgressResponse'),
-    newRevokeSecurityGroupEgressResponse,
-
-    -- ** DeleteKeyPair
-    DeleteKeyPair (DeleteKeyPair'),
-    newDeleteKeyPair,
-    DeleteKeyPairResponse (DeleteKeyPairResponse'),
-    newDeleteKeyPairResponse,
+    -- ** DisassociateClientVpnTargetNetwork
+    DisassociateClientVpnTargetNetwork (DisassociateClientVpnTargetNetwork'),
+    newDisassociateClientVpnTargetNetwork,
+    DisassociateClientVpnTargetNetworkResponse (DisassociateClientVpnTargetNetworkResponse'),
+    newDisassociateClientVpnTargetNetworkResponse,
 
     -- ** ModifyInstanceMetadataOptions
     ModifyInstanceMetadataOptions (ModifyInstanceMetadataOptions'),
@@ -1766,11 +1784,35 @@ module Network.AWS.EC2
     ModifyInstanceMetadataOptionsResponse (ModifyInstanceMetadataOptionsResponse'),
     newModifyInstanceMetadataOptionsResponse,
 
+    -- ** DescribeSpotDatafeedSubscription
+    DescribeSpotDatafeedSubscription (DescribeSpotDatafeedSubscription'),
+    newDescribeSpotDatafeedSubscription,
+    DescribeSpotDatafeedSubscriptionResponse (DescribeSpotDatafeedSubscriptionResponse'),
+    newDescribeSpotDatafeedSubscriptionResponse,
+
+    -- ** ExportClientVpnClientConfiguration
+    ExportClientVpnClientConfiguration (ExportClientVpnClientConfiguration'),
+    newExportClientVpnClientConfiguration,
+    ExportClientVpnClientConfigurationResponse (ExportClientVpnClientConfigurationResponse'),
+    newExportClientVpnClientConfigurationResponse,
+
+    -- ** DeleteKeyPair
+    DeleteKeyPair (DeleteKeyPair'),
+    newDeleteKeyPair,
+    DeleteKeyPairResponse (DeleteKeyPairResponse'),
+    newDeleteKeyPairResponse,
+
     -- ** DescribeEgressOnlyInternetGateways (Paginated)
     DescribeEgressOnlyInternetGateways (DescribeEgressOnlyInternetGateways'),
     newDescribeEgressOnlyInternetGateways,
     DescribeEgressOnlyInternetGatewaysResponse (DescribeEgressOnlyInternetGatewaysResponse'),
     newDescribeEgressOnlyInternetGatewaysResponse,
+
+    -- ** CreateVolume
+    CreateVolume (CreateVolume'),
+    newCreateVolume,
+    Volume (Volume'),
+    newVolume,
 
     -- ** ModifyTrafficMirrorFilterNetworkServices
     ModifyTrafficMirrorFilterNetworkServices (ModifyTrafficMirrorFilterNetworkServices'),
@@ -1778,119 +1820,65 @@ module Network.AWS.EC2
     ModifyTrafficMirrorFilterNetworkServicesResponse (ModifyTrafficMirrorFilterNetworkServicesResponse'),
     newModifyTrafficMirrorFilterNetworkServicesResponse,
 
-    -- ** ImportSnapshot
-    ImportSnapshot (ImportSnapshot'),
-    newImportSnapshot,
-    ImportSnapshotResponse (ImportSnapshotResponse'),
-    newImportSnapshotResponse,
+    -- ** DescribeVpcAttribute
+    DescribeVpcAttribute (DescribeVpcAttribute'),
+    newDescribeVpcAttribute,
+    DescribeVpcAttributeResponse (DescribeVpcAttributeResponse'),
+    newDescribeVpcAttributeResponse,
 
-    -- ** DescribeImages
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
+    -- ** DescribeTrunkInterfaceAssociations (Paginated)
+    DescribeTrunkInterfaceAssociations (DescribeTrunkInterfaceAssociations'),
+    newDescribeTrunkInterfaceAssociations,
+    DescribeTrunkInterfaceAssociationsResponse (DescribeTrunkInterfaceAssociationsResponse'),
+    newDescribeTrunkInterfaceAssociationsResponse,
 
-    -- ** DeprovisionByoipCidr
-    DeprovisionByoipCidr (DeprovisionByoipCidr'),
-    newDeprovisionByoipCidr,
-    DeprovisionByoipCidrResponse (DeprovisionByoipCidrResponse'),
-    newDeprovisionByoipCidrResponse,
+    -- ** CreateInstanceExportTask
+    CreateInstanceExportTask (CreateInstanceExportTask'),
+    newCreateInstanceExportTask,
+    CreateInstanceExportTaskResponse (CreateInstanceExportTaskResponse'),
+    newCreateInstanceExportTaskResponse,
 
-    -- ** DescribeAddressesAttribute (Paginated)
-    DescribeAddressesAttribute (DescribeAddressesAttribute'),
-    newDescribeAddressesAttribute,
-    DescribeAddressesAttributeResponse (DescribeAddressesAttributeResponse'),
-    newDescribeAddressesAttributeResponse,
+    -- ** CreateClientVpnRoute
+    CreateClientVpnRoute (CreateClientVpnRoute'),
+    newCreateClientVpnRoute,
+    CreateClientVpnRouteResponse (CreateClientVpnRouteResponse'),
+    newCreateClientVpnRouteResponse,
 
-    -- ** AcceptVpcPeeringConnection
-    AcceptVpcPeeringConnection (AcceptVpcPeeringConnection'),
-    newAcceptVpcPeeringConnection,
-    AcceptVpcPeeringConnectionResponse (AcceptVpcPeeringConnectionResponse'),
-    newAcceptVpcPeeringConnectionResponse,
+    -- ** ModifyCapacityReservation
+    ModifyCapacityReservation (ModifyCapacityReservation'),
+    newModifyCapacityReservation,
+    ModifyCapacityReservationResponse (ModifyCapacityReservationResponse'),
+    newModifyCapacityReservationResponse,
 
-    -- ** DescribeMovingAddresses (Paginated)
-    DescribeMovingAddresses (DescribeMovingAddresses'),
-    newDescribeMovingAddresses,
-    DescribeMovingAddressesResponse (DescribeMovingAddressesResponse'),
-    newDescribeMovingAddressesResponse,
+    -- ** RevokeSecurityGroupEgress
+    RevokeSecurityGroupEgress (RevokeSecurityGroupEgress'),
+    newRevokeSecurityGroupEgress,
+    RevokeSecurityGroupEgressResponse (RevokeSecurityGroupEgressResponse'),
+    newRevokeSecurityGroupEgressResponse,
 
-    -- ** CreateVpcEndpointConnectionNotification
-    CreateVpcEndpointConnectionNotification (CreateVpcEndpointConnectionNotification'),
-    newCreateVpcEndpointConnectionNotification,
-    CreateVpcEndpointConnectionNotificationResponse (CreateVpcEndpointConnectionNotificationResponse'),
-    newCreateVpcEndpointConnectionNotificationResponse,
+    -- ** DescribeSecurityGroupReferences
+    DescribeSecurityGroupReferences (DescribeSecurityGroupReferences'),
+    newDescribeSecurityGroupReferences,
+    DescribeSecurityGroupReferencesResponse (DescribeSecurityGroupReferencesResponse'),
+    newDescribeSecurityGroupReferencesResponse,
 
-    -- ** DescribeFleetHistory
-    DescribeFleetHistory (DescribeFleetHistory'),
-    newDescribeFleetHistory,
-    DescribeFleetHistoryResponse (DescribeFleetHistoryResponse'),
-    newDescribeFleetHistoryResponse,
+    -- ** DisassociateSubnetCidrBlock
+    DisassociateSubnetCidrBlock (DisassociateSubnetCidrBlock'),
+    newDisassociateSubnetCidrBlock,
+    DisassociateSubnetCidrBlockResponse (DisassociateSubnetCidrBlockResponse'),
+    newDisassociateSubnetCidrBlockResponse,
 
-    -- ** DeleteVpcEndpointServiceConfigurations
-    DeleteVpcEndpointServiceConfigurations (DeleteVpcEndpointServiceConfigurations'),
-    newDeleteVpcEndpointServiceConfigurations,
-    DeleteVpcEndpointServiceConfigurationsResponse (DeleteVpcEndpointServiceConfigurationsResponse'),
-    newDeleteVpcEndpointServiceConfigurationsResponse,
+    -- ** DetachInternetGateway
+    DetachInternetGateway (DetachInternetGateway'),
+    newDetachInternetGateway,
+    DetachInternetGatewayResponse (DetachInternetGatewayResponse'),
+    newDetachInternetGatewayResponse,
 
-    -- ** CreateVpc
-    CreateVpc (CreateVpc'),
-    newCreateVpc,
-    CreateVpcResponse (CreateVpcResponse'),
-    newCreateVpcResponse,
-
-    -- ** SearchLocalGatewayRoutes (Paginated)
-    SearchLocalGatewayRoutes (SearchLocalGatewayRoutes'),
-    newSearchLocalGatewayRoutes,
-    SearchLocalGatewayRoutesResponse (SearchLocalGatewayRoutesResponse'),
-    newSearchLocalGatewayRoutesResponse,
-
-    -- ** CreateTrafficMirrorTarget
-    CreateTrafficMirrorTarget (CreateTrafficMirrorTarget'),
-    newCreateTrafficMirrorTarget,
-    CreateTrafficMirrorTargetResponse (CreateTrafficMirrorTargetResponse'),
-    newCreateTrafficMirrorTargetResponse,
-
-    -- ** DescribeVolumeStatus (Paginated)
-    DescribeVolumeStatus (DescribeVolumeStatus'),
-    newDescribeVolumeStatus,
-    DescribeVolumeStatusResponse (DescribeVolumeStatusResponse'),
-    newDescribeVolumeStatusResponse,
-
-    -- ** DescribeVolumeAttribute
-    DescribeVolumeAttribute (DescribeVolumeAttribute'),
-    newDescribeVolumeAttribute,
-    DescribeVolumeAttributeResponse (DescribeVolumeAttributeResponse'),
-    newDescribeVolumeAttributeResponse,
-
-    -- ** DeleteClientVpnRoute
-    DeleteClientVpnRoute (DeleteClientVpnRoute'),
-    newDeleteClientVpnRoute,
-    DeleteClientVpnRouteResponse (DeleteClientVpnRouteResponse'),
-    newDeleteClientVpnRouteResponse,
-
-    -- ** ModifyVpcPeeringConnectionOptions
-    ModifyVpcPeeringConnectionOptions (ModifyVpcPeeringConnectionOptions'),
-    newModifyVpcPeeringConnectionOptions,
-    ModifyVpcPeeringConnectionOptionsResponse (ModifyVpcPeeringConnectionOptionsResponse'),
-    newModifyVpcPeeringConnectionOptionsResponse,
-
-    -- ** DescribeSpotFleetInstances (Paginated)
-    DescribeSpotFleetInstances (DescribeSpotFleetInstances'),
-    newDescribeSpotFleetInstances,
-    DescribeSpotFleetInstancesResponse (DescribeSpotFleetInstancesResponse'),
-    newDescribeSpotFleetInstancesResponse,
-
-    -- ** DescribePrincipalIdFormat (Paginated)
-    DescribePrincipalIdFormat (DescribePrincipalIdFormat'),
-    newDescribePrincipalIdFormat,
-    DescribePrincipalIdFormatResponse (DescribePrincipalIdFormatResponse'),
-    newDescribePrincipalIdFormatResponse,
-
-    -- ** ModifyInstanceCreditSpecification
-    ModifyInstanceCreditSpecification (ModifyInstanceCreditSpecification'),
-    newModifyInstanceCreditSpecification,
-    ModifyInstanceCreditSpecificationResponse (ModifyInstanceCreditSpecificationResponse'),
-    newModifyInstanceCreditSpecificationResponse,
+    -- ** SearchTransitGatewayMulticastGroups (Paginated)
+    SearchTransitGatewayMulticastGroups (SearchTransitGatewayMulticastGroups'),
+    newSearchTransitGatewayMulticastGroups,
+    SearchTransitGatewayMulticastGroupsResponse (SearchTransitGatewayMulticastGroupsResponse'),
+    newSearchTransitGatewayMulticastGroupsResponse,
 
     -- ** DisassociateTransitGatewayMulticastDomain
     DisassociateTransitGatewayMulticastDomain (DisassociateTransitGatewayMulticastDomain'),
@@ -1910,23 +1898,41 @@ module Network.AWS.EC2
     GetPasswordDataResponse (GetPasswordDataResponse'),
     newGetPasswordDataResponse,
 
-    -- ** DeleteVolume
-    DeleteVolume (DeleteVolume'),
-    newDeleteVolume,
-    DeleteVolumeResponse (DeleteVolumeResponse'),
-    newDeleteVolumeResponse,
+    -- ** ModifyVpcAttribute
+    ModifyVpcAttribute (ModifyVpcAttribute'),
+    newModifyVpcAttribute,
+    ModifyVpcAttributeResponse (ModifyVpcAttributeResponse'),
+    newModifyVpcAttributeResponse,
 
-    -- ** DescribeTransitGateways (Paginated)
-    DescribeTransitGateways (DescribeTransitGateways'),
-    newDescribeTransitGateways,
-    DescribeTransitGatewaysResponse (DescribeTransitGatewaysResponse'),
-    newDescribeTransitGatewaysResponse,
+    -- ** DeleteClientVpnRoute
+    DeleteClientVpnRoute (DeleteClientVpnRoute'),
+    newDeleteClientVpnRoute,
+    DeleteClientVpnRouteResponse (DeleteClientVpnRouteResponse'),
+    newDeleteClientVpnRouteResponse,
 
-    -- ** DescribeSpotFleetRequests (Paginated)
-    DescribeSpotFleetRequests (DescribeSpotFleetRequests'),
-    newDescribeSpotFleetRequests,
-    DescribeSpotFleetRequestsResponse (DescribeSpotFleetRequestsResponse'),
-    newDescribeSpotFleetRequestsResponse,
+    -- ** DeprovisionByoipCidr
+    DeprovisionByoipCidr (DeprovisionByoipCidr'),
+    newDeprovisionByoipCidr,
+    DeprovisionByoipCidrResponse (DeprovisionByoipCidrResponse'),
+    newDeprovisionByoipCidrResponse,
+
+    -- ** DisassociateTrunkInterface
+    DisassociateTrunkInterface (DisassociateTrunkInterface'),
+    newDisassociateTrunkInterface,
+    DisassociateTrunkInterfaceResponse (DisassociateTrunkInterfaceResponse'),
+    newDisassociateTrunkInterfaceResponse,
+
+    -- ** ImportSnapshot
+    ImportSnapshot (ImportSnapshot'),
+    newImportSnapshot,
+    ImportSnapshotResponse (ImportSnapshotResponse'),
+    newImportSnapshotResponse,
+
+    -- ** DescribeSpotFleetInstances (Paginated)
+    DescribeSpotFleetInstances (DescribeSpotFleetInstances'),
+    newDescribeSpotFleetInstances,
+    DescribeSpotFleetInstancesResponse (DescribeSpotFleetInstancesResponse'),
+    newDescribeSpotFleetInstancesResponse,
 
     -- ** DescribeClientVpnConnections (Paginated)
     DescribeClientVpnConnections (DescribeClientVpnConnections'),
@@ -1934,83 +1940,131 @@ module Network.AWS.EC2
     DescribeClientVpnConnectionsResponse (DescribeClientVpnConnectionsResponse'),
     newDescribeClientVpnConnectionsResponse,
 
-    -- ** SearchTransitGatewayMulticastGroups (Paginated)
-    SearchTransitGatewayMulticastGroups (SearchTransitGatewayMulticastGroups'),
-    newSearchTransitGatewayMulticastGroups,
-    SearchTransitGatewayMulticastGroupsResponse (SearchTransitGatewayMulticastGroupsResponse'),
-    newSearchTransitGatewayMulticastGroupsResponse,
+    -- ** CreateTrafficMirrorTarget
+    CreateTrafficMirrorTarget (CreateTrafficMirrorTarget'),
+    newCreateTrafficMirrorTarget,
+    CreateTrafficMirrorTargetResponse (CreateTrafficMirrorTargetResponse'),
+    newCreateTrafficMirrorTargetResponse,
 
-    -- ** ModifyVpcAttribute
-    ModifyVpcAttribute (ModifyVpcAttribute'),
-    newModifyVpcAttribute,
-    ModifyVpcAttributeResponse (ModifyVpcAttributeResponse'),
-    newModifyVpcAttributeResponse,
+    -- ** ModifyInstanceCreditSpecification
+    ModifyInstanceCreditSpecification (ModifyInstanceCreditSpecification'),
+    newModifyInstanceCreditSpecification,
+    ModifyInstanceCreditSpecificationResponse (ModifyInstanceCreditSpecificationResponse'),
+    newModifyInstanceCreditSpecificationResponse,
 
-    -- ** RevokeSecurityGroupIngress
-    RevokeSecurityGroupIngress (RevokeSecurityGroupIngress'),
-    newRevokeSecurityGroupIngress,
-    RevokeSecurityGroupIngressResponse (RevokeSecurityGroupIngressResponse'),
-    newRevokeSecurityGroupIngressResponse,
+    -- ** AcceptVpcPeeringConnection
+    AcceptVpcPeeringConnection (AcceptVpcPeeringConnection'),
+    newAcceptVpcPeeringConnection,
+    AcceptVpcPeeringConnectionResponse (AcceptVpcPeeringConnectionResponse'),
+    newAcceptVpcPeeringConnectionResponse,
 
-    -- ** DescribeHostReservationOfferings (Paginated)
-    DescribeHostReservationOfferings (DescribeHostReservationOfferings'),
-    newDescribeHostReservationOfferings,
-    DescribeHostReservationOfferingsResponse (DescribeHostReservationOfferingsResponse'),
-    newDescribeHostReservationOfferingsResponse,
+    -- ** DescribeVolumeAttribute
+    DescribeVolumeAttribute (DescribeVolumeAttribute'),
+    newDescribeVolumeAttribute,
+    DescribeVolumeAttributeResponse (DescribeVolumeAttributeResponse'),
+    newDescribeVolumeAttributeResponse,
 
-    -- ** DescribeTransitGatewayRouteTables (Paginated)
-    DescribeTransitGatewayRouteTables (DescribeTransitGatewayRouteTables'),
-    newDescribeTransitGatewayRouteTables,
-    DescribeTransitGatewayRouteTablesResponse (DescribeTransitGatewayRouteTablesResponse'),
-    newDescribeTransitGatewayRouteTablesResponse,
+    -- ** DescribeSpotFleetRequests (Paginated)
+    DescribeSpotFleetRequests (DescribeSpotFleetRequests'),
+    newDescribeSpotFleetRequests,
+    DescribeSpotFleetRequestsResponse (DescribeSpotFleetRequestsResponse'),
+    newDescribeSpotFleetRequestsResponse,
 
-    -- ** DescribeNetworkAcls (Paginated)
-    DescribeNetworkAcls (DescribeNetworkAcls'),
-    newDescribeNetworkAcls,
-    DescribeNetworkAclsResponse (DescribeNetworkAclsResponse'),
-    newDescribeNetworkAclsResponse,
+    -- ** DescribeAddressesAttribute (Paginated)
+    DescribeAddressesAttribute (DescribeAddressesAttribute'),
+    newDescribeAddressesAttribute,
+    DescribeAddressesAttributeResponse (DescribeAddressesAttributeResponse'),
+    newDescribeAddressesAttributeResponse,
 
-    -- ** RegisterTransitGatewayMulticastGroupMembers
-    RegisterTransitGatewayMulticastGroupMembers (RegisterTransitGatewayMulticastGroupMembers'),
-    newRegisterTransitGatewayMulticastGroupMembers,
-    RegisterTransitGatewayMulticastGroupMembersResponse (RegisterTransitGatewayMulticastGroupMembersResponse'),
-    newRegisterTransitGatewayMulticastGroupMembersResponse,
+    -- ** DescribePrincipalIdFormat (Paginated)
+    DescribePrincipalIdFormat (DescribePrincipalIdFormat'),
+    newDescribePrincipalIdFormat,
+    DescribePrincipalIdFormatResponse (DescribePrincipalIdFormatResponse'),
+    newDescribePrincipalIdFormatResponse,
 
-    -- ** DescribeHosts (Paginated)
-    DescribeHosts (DescribeHosts'),
-    newDescribeHosts,
-    DescribeHostsResponse (DescribeHostsResponse'),
-    newDescribeHostsResponse,
+    -- ** DescribeTransitGateways (Paginated)
+    DescribeTransitGateways (DescribeTransitGateways'),
+    newDescribeTransitGateways,
+    DescribeTransitGatewaysResponse (DescribeTransitGatewaysResponse'),
+    newDescribeTransitGatewaysResponse,
 
-    -- ** DescribeVpnGateways
-    DescribeVpnGateways (DescribeVpnGateways'),
-    newDescribeVpnGateways,
-    DescribeVpnGatewaysResponse (DescribeVpnGatewaysResponse'),
-    newDescribeVpnGatewaysResponse,
+    -- ** ModifyVpcPeeringConnectionOptions
+    ModifyVpcPeeringConnectionOptions (ModifyVpcPeeringConnectionOptions'),
+    newModifyVpcPeeringConnectionOptions,
+    ModifyVpcPeeringConnectionOptionsResponse (ModifyVpcPeeringConnectionOptionsResponse'),
+    newModifyVpcPeeringConnectionOptionsResponse,
 
-    -- ** DescribeHostReservations (Paginated)
-    DescribeHostReservations (DescribeHostReservations'),
-    newDescribeHostReservations,
-    DescribeHostReservationsResponse (DescribeHostReservationsResponse'),
-    newDescribeHostReservationsResponse,
+    -- ** CreateVpcEndpointConnectionNotification
+    CreateVpcEndpointConnectionNotification (CreateVpcEndpointConnectionNotification'),
+    newCreateVpcEndpointConnectionNotification,
+    CreateVpcEndpointConnectionNotificationResponse (CreateVpcEndpointConnectionNotificationResponse'),
+    newCreateVpcEndpointConnectionNotificationResponse,
 
-    -- ** DeleteManagedPrefixList
-    DeleteManagedPrefixList (DeleteManagedPrefixList'),
-    newDeleteManagedPrefixList,
-    DeleteManagedPrefixListResponse (DeleteManagedPrefixListResponse'),
-    newDeleteManagedPrefixListResponse,
+    -- ** DeleteVpcEndpointServiceConfigurations
+    DeleteVpcEndpointServiceConfigurations (DeleteVpcEndpointServiceConfigurations'),
+    newDeleteVpcEndpointServiceConfigurations,
+    DeleteVpcEndpointServiceConfigurationsResponse (DeleteVpcEndpointServiceConfigurationsResponse'),
+    newDeleteVpcEndpointServiceConfigurationsResponse,
 
-    -- ** RejectVpcPeeringConnection
-    RejectVpcPeeringConnection (RejectVpcPeeringConnection'),
-    newRejectVpcPeeringConnection,
-    RejectVpcPeeringConnectionResponse (RejectVpcPeeringConnectionResponse'),
-    newRejectVpcPeeringConnectionResponse,
+    -- ** DescribeFleetHistory
+    DescribeFleetHistory (DescribeFleetHistory'),
+    newDescribeFleetHistory,
+    DescribeFleetHistoryResponse (DescribeFleetHistoryResponse'),
+    newDescribeFleetHistoryResponse,
 
-    -- ** ResetImageAttribute
-    ResetImageAttribute (ResetImageAttribute'),
-    newResetImageAttribute,
-    ResetImageAttributeResponse (ResetImageAttributeResponse'),
-    newResetImageAttributeResponse,
+    -- ** CreateVpc
+    CreateVpc (CreateVpc'),
+    newCreateVpc,
+    CreateVpcResponse (CreateVpcResponse'),
+    newCreateVpcResponse,
+
+    -- ** DescribeVolumeStatus (Paginated)
+    DescribeVolumeStatus (DescribeVolumeStatus'),
+    newDescribeVolumeStatus,
+    DescribeVolumeStatusResponse (DescribeVolumeStatusResponse'),
+    newDescribeVolumeStatusResponse,
+
+    -- ** GetSerialConsoleAccessStatus
+    GetSerialConsoleAccessStatus (GetSerialConsoleAccessStatus'),
+    newGetSerialConsoleAccessStatus,
+    GetSerialConsoleAccessStatusResponse (GetSerialConsoleAccessStatusResponse'),
+    newGetSerialConsoleAccessStatusResponse,
+
+    -- ** DescribeReplaceRootVolumeTasks (Paginated)
+    DescribeReplaceRootVolumeTasks (DescribeReplaceRootVolumeTasks'),
+    newDescribeReplaceRootVolumeTasks,
+    DescribeReplaceRootVolumeTasksResponse (DescribeReplaceRootVolumeTasksResponse'),
+    newDescribeReplaceRootVolumeTasksResponse,
+
+    -- ** DescribeImages
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
+
+    -- ** DeleteVolume
+    DeleteVolume (DeleteVolume'),
+    newDeleteVolume,
+    DeleteVolumeResponse (DeleteVolumeResponse'),
+    newDeleteVolumeResponse,
+
+    -- ** SearchLocalGatewayRoutes (Paginated)
+    SearchLocalGatewayRoutes (SearchLocalGatewayRoutes'),
+    newSearchLocalGatewayRoutes,
+    SearchLocalGatewayRoutesResponse (SearchLocalGatewayRoutesResponse'),
+    newSearchLocalGatewayRoutesResponse,
+
+    -- ** DescribeMovingAddresses (Paginated)
+    DescribeMovingAddresses (DescribeMovingAddresses'),
+    newDescribeMovingAddresses,
+    DescribeMovingAddressesResponse (DescribeMovingAddressesResponse'),
+    newDescribeMovingAddressesResponse,
+
+    -- ** CreateTrafficMirrorSession
+    CreateTrafficMirrorSession (CreateTrafficMirrorSession'),
+    newCreateTrafficMirrorSession,
+    CreateTrafficMirrorSessionResponse (CreateTrafficMirrorSessionResponse'),
+    newCreateTrafficMirrorSessionResponse,
 
     -- ** DescribeScheduledInstances (Paginated)
     DescribeScheduledInstances (DescribeScheduledInstances'),
@@ -2024,71 +2078,11 @@ module Network.AWS.EC2
     AssociateEnclaveCertificateIamRoleResponse (AssociateEnclaveCertificateIamRoleResponse'),
     newAssociateEnclaveCertificateIamRoleResponse,
 
-    -- ** ModifyTransitGatewayPrefixListReference
-    ModifyTransitGatewayPrefixListReference (ModifyTransitGatewayPrefixListReference'),
-    newModifyTransitGatewayPrefixListReference,
-    ModifyTransitGatewayPrefixListReferenceResponse (ModifyTransitGatewayPrefixListReferenceResponse'),
-    newModifyTransitGatewayPrefixListReferenceResponse,
-
-    -- ** DescribeFpgaImageAttribute
-    DescribeFpgaImageAttribute (DescribeFpgaImageAttribute'),
-    newDescribeFpgaImageAttribute,
-    DescribeFpgaImageAttributeResponse (DescribeFpgaImageAttributeResponse'),
-    newDescribeFpgaImageAttributeResponse,
-
-    -- ** AdvertiseByoipCidr
-    AdvertiseByoipCidr (AdvertiseByoipCidr'),
-    newAdvertiseByoipCidr,
-    AdvertiseByoipCidrResponse (AdvertiseByoipCidrResponse'),
-    newAdvertiseByoipCidrResponse,
-
-    -- ** DeleteVpnConnectionRoute
-    DeleteVpnConnectionRoute (DeleteVpnConnectionRoute'),
-    newDeleteVpnConnectionRoute,
-    DeleteVpnConnectionRouteResponse (DeleteVpnConnectionRouteResponse'),
-    newDeleteVpnConnectionRouteResponse,
-
-    -- ** DescribeVpcEndpointServicePermissions (Paginated)
-    DescribeVpcEndpointServicePermissions (DescribeVpcEndpointServicePermissions'),
-    newDescribeVpcEndpointServicePermissions,
-    DescribeVpcEndpointServicePermissionsResponse (DescribeVpcEndpointServicePermissionsResponse'),
-    newDescribeVpcEndpointServicePermissionsResponse,
-
-    -- ** DescribeVpcEndpointConnections (Paginated)
-    DescribeVpcEndpointConnections (DescribeVpcEndpointConnections'),
-    newDescribeVpcEndpointConnections,
-    DescribeVpcEndpointConnectionsResponse (DescribeVpcEndpointConnectionsResponse'),
-    newDescribeVpcEndpointConnectionsResponse,
-
-    -- ** DescribeNetworkInterfacePermissions (Paginated)
-    DescribeNetworkInterfacePermissions (DescribeNetworkInterfacePermissions'),
-    newDescribeNetworkInterfacePermissions,
-    DescribeNetworkInterfacePermissionsResponse (DescribeNetworkInterfacePermissionsResponse'),
-    newDescribeNetworkInterfacePermissionsResponse,
-
-    -- ** CreateTrafficMirrorSession
-    CreateTrafficMirrorSession (CreateTrafficMirrorSession'),
-    newCreateTrafficMirrorSession,
-    CreateTrafficMirrorSessionResponse (CreateTrafficMirrorSessionResponse'),
-    newCreateTrafficMirrorSessionResponse,
-
-    -- ** RegisterInstanceEventNotificationAttributes
-    RegisterInstanceEventNotificationAttributes (RegisterInstanceEventNotificationAttributes'),
-    newRegisterInstanceEventNotificationAttributes,
-    RegisterInstanceEventNotificationAttributesResponse (RegisterInstanceEventNotificationAttributesResponse'),
-    newRegisterInstanceEventNotificationAttributesResponse,
-
     -- ** RejectTransitGatewayMulticastDomainAssociations
     RejectTransitGatewayMulticastDomainAssociations (RejectTransitGatewayMulticastDomainAssociations'),
     newRejectTransitGatewayMulticastDomainAssociations,
     RejectTransitGatewayMulticastDomainAssociationsResponse (RejectTransitGatewayMulticastDomainAssociationsResponse'),
     newRejectTransitGatewayMulticastDomainAssociationsResponse,
-
-    -- ** DeleteDhcpOptions
-    DeleteDhcpOptions (DeleteDhcpOptions'),
-    newDeleteDhcpOptions,
-    DeleteDhcpOptionsResponse (DeleteDhcpOptionsResponse'),
-    newDeleteDhcpOptionsResponse,
 
     -- ** DeleteTransitGateway
     DeleteTransitGateway (DeleteTransitGateway'),
@@ -2096,11 +2090,89 @@ module Network.AWS.EC2
     DeleteTransitGatewayResponse (DeleteTransitGatewayResponse'),
     newDeleteTransitGatewayResponse,
 
-    -- ** EnableVpcClassicLinkDnsSupport
-    EnableVpcClassicLinkDnsSupport (EnableVpcClassicLinkDnsSupport'),
-    newEnableVpcClassicLinkDnsSupport,
-    EnableVpcClassicLinkDnsSupportResponse (EnableVpcClassicLinkDnsSupportResponse'),
-    newEnableVpcClassicLinkDnsSupportResponse,
+    -- ** DescribeHosts (Paginated)
+    DescribeHosts (DescribeHosts'),
+    newDescribeHosts,
+    DescribeHostsResponse (DescribeHostsResponse'),
+    newDescribeHostsResponse,
+
+    -- ** DescribeNetworkInterfacePermissions (Paginated)
+    DescribeNetworkInterfacePermissions (DescribeNetworkInterfacePermissions'),
+    newDescribeNetworkInterfacePermissions,
+    DescribeNetworkInterfacePermissionsResponse (DescribeNetworkInterfacePermissionsResponse'),
+    newDescribeNetworkInterfacePermissionsResponse,
+
+    -- ** GetVpnConnectionDeviceSampleConfiguration
+    GetVpnConnectionDeviceSampleConfiguration (GetVpnConnectionDeviceSampleConfiguration'),
+    newGetVpnConnectionDeviceSampleConfiguration,
+    GetVpnConnectionDeviceSampleConfigurationResponse (GetVpnConnectionDeviceSampleConfigurationResponse'),
+    newGetVpnConnectionDeviceSampleConfigurationResponse,
+
+    -- ** DescribeVpcEndpointServicePermissions (Paginated)
+    DescribeVpcEndpointServicePermissions (DescribeVpcEndpointServicePermissions'),
+    newDescribeVpcEndpointServicePermissions,
+    DescribeVpcEndpointServicePermissionsResponse (DescribeVpcEndpointServicePermissionsResponse'),
+    newDescribeVpcEndpointServicePermissionsResponse,
+
+    -- ** DescribeHostReservationOfferings (Paginated)
+    DescribeHostReservationOfferings (DescribeHostReservationOfferings'),
+    newDescribeHostReservationOfferings,
+    DescribeHostReservationOfferingsResponse (DescribeHostReservationOfferingsResponse'),
+    newDescribeHostReservationOfferingsResponse,
+
+    -- ** DescribeVpcEndpointConnections (Paginated)
+    DescribeVpcEndpointConnections (DescribeVpcEndpointConnections'),
+    newDescribeVpcEndpointConnections,
+    DescribeVpcEndpointConnectionsResponse (DescribeVpcEndpointConnectionsResponse'),
+    newDescribeVpcEndpointConnectionsResponse,
+
+    -- ** DescribeFpgaImageAttribute
+    DescribeFpgaImageAttribute (DescribeFpgaImageAttribute'),
+    newDescribeFpgaImageAttribute,
+    DescribeFpgaImageAttributeResponse (DescribeFpgaImageAttributeResponse'),
+    newDescribeFpgaImageAttributeResponse,
+
+    -- ** EnableImageDeprecation
+    EnableImageDeprecation (EnableImageDeprecation'),
+    newEnableImageDeprecation,
+    EnableImageDeprecationResponse (EnableImageDeprecationResponse'),
+    newEnableImageDeprecationResponse,
+
+    -- ** ResetImageAttribute
+    ResetImageAttribute (ResetImageAttribute'),
+    newResetImageAttribute,
+    ResetImageAttributeResponse (ResetImageAttributeResponse'),
+    newResetImageAttributeResponse,
+
+    -- ** AdvertiseByoipCidr
+    AdvertiseByoipCidr (AdvertiseByoipCidr'),
+    newAdvertiseByoipCidr,
+    AdvertiseByoipCidrResponse (AdvertiseByoipCidrResponse'),
+    newAdvertiseByoipCidrResponse,
+
+    -- ** DescribeTransitGatewayRouteTables (Paginated)
+    DescribeTransitGatewayRouteTables (DescribeTransitGatewayRouteTables'),
+    newDescribeTransitGatewayRouteTables,
+    DescribeTransitGatewayRouteTablesResponse (DescribeTransitGatewayRouteTablesResponse'),
+    newDescribeTransitGatewayRouteTablesResponse,
+
+    -- ** ModifyTransitGatewayPrefixListReference
+    ModifyTransitGatewayPrefixListReference (ModifyTransitGatewayPrefixListReference'),
+    newModifyTransitGatewayPrefixListReference,
+    ModifyTransitGatewayPrefixListReferenceResponse (ModifyTransitGatewayPrefixListReferenceResponse'),
+    newModifyTransitGatewayPrefixListReferenceResponse,
+
+    -- ** RegisterInstanceEventNotificationAttributes
+    RegisterInstanceEventNotificationAttributes (RegisterInstanceEventNotificationAttributes'),
+    newRegisterInstanceEventNotificationAttributes,
+    RegisterInstanceEventNotificationAttributesResponse (RegisterInstanceEventNotificationAttributesResponse'),
+    newRegisterInstanceEventNotificationAttributesResponse,
+
+    -- ** DeleteManagedPrefixList
+    DeleteManagedPrefixList (DeleteManagedPrefixList'),
+    newDeleteManagedPrefixList,
+    DeleteManagedPrefixListResponse (DeleteManagedPrefixListResponse'),
+    newDeleteManagedPrefixListResponse,
 
     -- ** DescribeRegions
     DescribeRegions (DescribeRegions'),
@@ -2108,95 +2180,77 @@ module Network.AWS.EC2
     DescribeRegionsResponse (DescribeRegionsResponse'),
     newDescribeRegionsResponse,
 
+    -- ** RevokeSecurityGroupIngress
+    RevokeSecurityGroupIngress (RevokeSecurityGroupIngress'),
+    newRevokeSecurityGroupIngress,
+    RevokeSecurityGroupIngressResponse (RevokeSecurityGroupIngressResponse'),
+    newRevokeSecurityGroupIngressResponse,
+
+    -- ** DeleteVpnConnectionRoute
+    DeleteVpnConnectionRoute (DeleteVpnConnectionRoute'),
+    newDeleteVpnConnectionRoute,
+    DeleteVpnConnectionRouteResponse (DeleteVpnConnectionRouteResponse'),
+    newDeleteVpnConnectionRouteResponse,
+
+    -- ** DescribeNetworkAcls (Paginated)
+    DescribeNetworkAcls (DescribeNetworkAcls'),
+    newDescribeNetworkAcls,
+    DescribeNetworkAclsResponse (DescribeNetworkAclsResponse'),
+    newDescribeNetworkAclsResponse,
+
+    -- ** DeleteDhcpOptions
+    DeleteDhcpOptions (DeleteDhcpOptions'),
+    newDeleteDhcpOptions,
+    DeleteDhcpOptionsResponse (DeleteDhcpOptionsResponse'),
+    newDeleteDhcpOptionsResponse,
+
+    -- ** DescribeVpnGateways
+    DescribeVpnGateways (DescribeVpnGateways'),
+    newDescribeVpnGateways,
+    DescribeVpnGatewaysResponse (DescribeVpnGatewaysResponse'),
+    newDescribeVpnGatewaysResponse,
+
+    -- ** RegisterTransitGatewayMulticastGroupMembers
+    RegisterTransitGatewayMulticastGroupMembers (RegisterTransitGatewayMulticastGroupMembers'),
+    newRegisterTransitGatewayMulticastGroupMembers,
+    RegisterTransitGatewayMulticastGroupMembersResponse (RegisterTransitGatewayMulticastGroupMembersResponse'),
+    newRegisterTransitGatewayMulticastGroupMembersResponse,
+
+    -- ** DescribeHostReservations (Paginated)
+    DescribeHostReservations (DescribeHostReservations'),
+    newDescribeHostReservations,
+    DescribeHostReservationsResponse (DescribeHostReservationsResponse'),
+    newDescribeHostReservationsResponse,
+
+    -- ** RejectVpcPeeringConnection
+    RejectVpcPeeringConnection (RejectVpcPeeringConnection'),
+    newRejectVpcPeeringConnection,
+    RejectVpcPeeringConnectionResponse (RejectVpcPeeringConnectionResponse'),
+    newRejectVpcPeeringConnectionResponse,
+
     -- ** CreateEgressOnlyInternetGateway
     CreateEgressOnlyInternetGateway (CreateEgressOnlyInternetGateway'),
     newCreateEgressOnlyInternetGateway,
     CreateEgressOnlyInternetGatewayResponse (CreateEgressOnlyInternetGatewayResponse'),
     newCreateEgressOnlyInternetGatewayResponse,
 
-    -- ** CreateTransitGateway
-    CreateTransitGateway (CreateTransitGateway'),
-    newCreateTransitGateway,
-    CreateTransitGatewayResponse (CreateTransitGatewayResponse'),
-    newCreateTransitGatewayResponse,
+    -- ** DeleteSubnetCidrReservation
+    DeleteSubnetCidrReservation (DeleteSubnetCidrReservation'),
+    newDeleteSubnetCidrReservation,
+    DeleteSubnetCidrReservationResponse (DeleteSubnetCidrReservationResponse'),
+    newDeleteSubnetCidrReservationResponse,
 
-    -- ** DeleteClientVpnEndpoint
-    DeleteClientVpnEndpoint (DeleteClientVpnEndpoint'),
-    newDeleteClientVpnEndpoint,
-    DeleteClientVpnEndpointResponse (DeleteClientVpnEndpointResponse'),
-    newDeleteClientVpnEndpointResponse,
-
-    -- ** ExportClientVpnClientCertificateRevocationList
-    ExportClientVpnClientCertificateRevocationList (ExportClientVpnClientCertificateRevocationList'),
-    newExportClientVpnClientCertificateRevocationList,
-    ExportClientVpnClientCertificateRevocationListResponse (ExportClientVpnClientCertificateRevocationListResponse'),
-    newExportClientVpnClientCertificateRevocationListResponse,
-
-    -- ** CreateLaunchTemplateVersion
-    CreateLaunchTemplateVersion (CreateLaunchTemplateVersion'),
-    newCreateLaunchTemplateVersion,
-    CreateLaunchTemplateVersionResponse (CreateLaunchTemplateVersionResponse'),
-    newCreateLaunchTemplateVersionResponse,
-
-    -- ** CreateSnapshots
-    CreateSnapshots (CreateSnapshots'),
-    newCreateSnapshots,
-    CreateSnapshotsResponse (CreateSnapshotsResponse'),
-    newCreateSnapshotsResponse,
-
-    -- ** ModifyDefaultCreditSpecification
-    ModifyDefaultCreditSpecification (ModifyDefaultCreditSpecification'),
-    newModifyDefaultCreditSpecification,
-    ModifyDefaultCreditSpecificationResponse (ModifyDefaultCreditSpecificationResponse'),
-    newModifyDefaultCreditSpecificationResponse,
-
-    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
-    ApplySecurityGroupsToClientVpnTargetNetwork (ApplySecurityGroupsToClientVpnTargetNetwork'),
-    newApplySecurityGroupsToClientVpnTargetNetwork,
-    ApplySecurityGroupsToClientVpnTargetNetworkResponse (ApplySecurityGroupsToClientVpnTargetNetworkResponse'),
-    newApplySecurityGroupsToClientVpnTargetNetworkResponse,
-
-    -- ** AttachVpnGateway
-    AttachVpnGateway (AttachVpnGateway'),
-    newAttachVpnGateway,
-    AttachVpnGatewayResponse (AttachVpnGatewayResponse'),
-    newAttachVpnGatewayResponse,
-
-    -- ** CreateVpnConnectionRoute
-    CreateVpnConnectionRoute (CreateVpnConnectionRoute'),
-    newCreateVpnConnectionRoute,
-    CreateVpnConnectionRouteResponse (CreateVpnConnectionRouteResponse'),
-    newCreateVpnConnectionRouteResponse,
-
-    -- ** DescribeKeyPairs
-    DescribeKeyPairs (DescribeKeyPairs'),
-    newDescribeKeyPairs,
-    DescribeKeyPairsResponse (DescribeKeyPairsResponse'),
-    newDescribeKeyPairsResponse,
+    -- ** EnableVpcClassicLinkDnsSupport
+    EnableVpcClassicLinkDnsSupport (EnableVpcClassicLinkDnsSupport'),
+    newEnableVpcClassicLinkDnsSupport,
+    EnableVpcClassicLinkDnsSupportResponse (EnableVpcClassicLinkDnsSupportResponse'),
+    newEnableVpcClassicLinkDnsSupportResponse,
 
     -- ** AllocateAddress
     AllocateAddress (AllocateAddress'),
     newAllocateAddress,
     AllocateAddressResponse (AllocateAddressResponse'),
     newAllocateAddressResponse,
-
-    -- ** DeleteTrafficMirrorSession
-    DeleteTrafficMirrorSession (DeleteTrafficMirrorSession'),
-    newDeleteTrafficMirrorSession,
-    DeleteTrafficMirrorSessionResponse (DeleteTrafficMirrorSessionResponse'),
-    newDeleteTrafficMirrorSessionResponse,
-
-    -- ** GetManagedPrefixListEntries (Paginated)
-    GetManagedPrefixListEntries (GetManagedPrefixListEntries'),
-    newGetManagedPrefixListEntries,
-    GetManagedPrefixListEntriesResponse (GetManagedPrefixListEntriesResponse'),
-    newGetManagedPrefixListEntriesResponse,
-
-    -- ** CreateFpgaImage
-    CreateFpgaImage (CreateFpgaImage'),
-    newCreateFpgaImage,
-    CreateFpgaImageResponse (CreateFpgaImageResponse'),
-    newCreateFpgaImageResponse,
 
     -- ** ExportImage
     ExportImage (ExportImage'),
@@ -2210,48 +2264,6 @@ module Network.AWS.EC2
     RejectTransitGatewayPeeringAttachmentResponse (RejectTransitGatewayPeeringAttachmentResponse'),
     newRejectTransitGatewayPeeringAttachmentResponse,
 
-    -- ** DescribeConversionTasks
-    DescribeConversionTasks (DescribeConversionTasks'),
-    newDescribeConversionTasks,
-    DescribeConversionTasksResponse (DescribeConversionTasksResponse'),
-    newDescribeConversionTasksResponse,
-
-    -- ** WithdrawByoipCidr
-    WithdrawByoipCidr (WithdrawByoipCidr'),
-    newWithdrawByoipCidr,
-    WithdrawByoipCidrResponse (WithdrawByoipCidrResponse'),
-    newWithdrawByoipCidrResponse,
-
-    -- ** DeleteTrafficMirrorFilterRule
-    DeleteTrafficMirrorFilterRule (DeleteTrafficMirrorFilterRule'),
-    newDeleteTrafficMirrorFilterRule,
-    DeleteTrafficMirrorFilterRuleResponse (DeleteTrafficMirrorFilterRuleResponse'),
-    newDeleteTrafficMirrorFilterRuleResponse,
-
-    -- ** DescribeClassicLinkInstances (Paginated)
-    DescribeClassicLinkInstances (DescribeClassicLinkInstances'),
-    newDescribeClassicLinkInstances,
-    DescribeClassicLinkInstancesResponse (DescribeClassicLinkInstancesResponse'),
-    newDescribeClassicLinkInstancesResponse,
-
-    -- ** TerminateInstances
-    TerminateInstances (TerminateInstances'),
-    newTerminateInstances,
-    TerminateInstancesResponse (TerminateInstancesResponse'),
-    newTerminateInstancesResponse,
-
-    -- ** AcceptTransitGatewayVpcAttachment
-    AcceptTransitGatewayVpcAttachment (AcceptTransitGatewayVpcAttachment'),
-    newAcceptTransitGatewayVpcAttachment,
-    AcceptTransitGatewayVpcAttachmentResponse (AcceptTransitGatewayVpcAttachmentResponse'),
-    newAcceptTransitGatewayVpcAttachmentResponse,
-
-    -- ** DisableVpcClassicLinkDnsSupport
-    DisableVpcClassicLinkDnsSupport (DisableVpcClassicLinkDnsSupport'),
-    newDisableVpcClassicLinkDnsSupport,
-    DisableVpcClassicLinkDnsSupportResponse (DisableVpcClassicLinkDnsSupportResponse'),
-    newDisableVpcClassicLinkDnsSupportResponse,
-
     -- ** GetLaunchTemplateData
     GetLaunchTemplateData (GetLaunchTemplateData'),
     newGetLaunchTemplateData,
@@ -2264,131 +2276,143 @@ module Network.AWS.EC2
     DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
     newDescribeReservedInstancesResponse,
 
+    -- ** ModifyDefaultCreditSpecification
+    ModifyDefaultCreditSpecification (ModifyDefaultCreditSpecification'),
+    newModifyDefaultCreditSpecification,
+    ModifyDefaultCreditSpecificationResponse (ModifyDefaultCreditSpecificationResponse'),
+    newModifyDefaultCreditSpecificationResponse,
+
+    -- ** GetManagedPrefixListEntries (Paginated)
+    GetManagedPrefixListEntries (GetManagedPrefixListEntries'),
+    newGetManagedPrefixListEntries,
+    GetManagedPrefixListEntriesResponse (GetManagedPrefixListEntriesResponse'),
+    newGetManagedPrefixListEntriesResponse,
+
+    -- ** DisableVpcClassicLinkDnsSupport
+    DisableVpcClassicLinkDnsSupport (DisableVpcClassicLinkDnsSupport'),
+    newDisableVpcClassicLinkDnsSupport,
+    DisableVpcClassicLinkDnsSupportResponse (DisableVpcClassicLinkDnsSupportResponse'),
+    newDisableVpcClassicLinkDnsSupportResponse,
+
+    -- ** DisableImageDeprecation
+    DisableImageDeprecation (DisableImageDeprecation'),
+    newDisableImageDeprecation,
+    DisableImageDeprecationResponse (DisableImageDeprecationResponse'),
+    newDisableImageDeprecationResponse,
+
+    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
+    ApplySecurityGroupsToClientVpnTargetNetwork (ApplySecurityGroupsToClientVpnTargetNetwork'),
+    newApplySecurityGroupsToClientVpnTargetNetwork,
+    ApplySecurityGroupsToClientVpnTargetNetworkResponse (ApplySecurityGroupsToClientVpnTargetNetworkResponse'),
+    newApplySecurityGroupsToClientVpnTargetNetworkResponse,
+
+    -- ** CreateLaunchTemplateVersion
+    CreateLaunchTemplateVersion (CreateLaunchTemplateVersion'),
+    newCreateLaunchTemplateVersion,
+    CreateLaunchTemplateVersionResponse (CreateLaunchTemplateVersionResponse'),
+    newCreateLaunchTemplateVersionResponse,
+
+    -- ** CreateVpnConnectionRoute
+    CreateVpnConnectionRoute (CreateVpnConnectionRoute'),
+    newCreateVpnConnectionRoute,
+    CreateVpnConnectionRouteResponse (CreateVpnConnectionRouteResponse'),
+    newCreateVpnConnectionRouteResponse,
+
+    -- ** DisassociateInstanceEventWindow
+    DisassociateInstanceEventWindow (DisassociateInstanceEventWindow'),
+    newDisassociateInstanceEventWindow,
+    DisassociateInstanceEventWindowResponse (DisassociateInstanceEventWindowResponse'),
+    newDisassociateInstanceEventWindowResponse,
+
+    -- ** DescribeConversionTasks
+    DescribeConversionTasks (DescribeConversionTasks'),
+    newDescribeConversionTasks,
+    DescribeConversionTasksResponse (DescribeConversionTasksResponse'),
+    newDescribeConversionTasksResponse,
+
+    -- ** DeleteTrafficMirrorSession
+    DeleteTrafficMirrorSession (DeleteTrafficMirrorSession'),
+    newDeleteTrafficMirrorSession,
+    DeleteTrafficMirrorSessionResponse (DeleteTrafficMirrorSessionResponse'),
+    newDeleteTrafficMirrorSessionResponse,
+
+    -- ** CreateTransitGateway
+    CreateTransitGateway (CreateTransitGateway'),
+    newCreateTransitGateway,
+    CreateTransitGatewayResponse (CreateTransitGatewayResponse'),
+    newCreateTransitGatewayResponse,
+
+    -- ** CreateSnapshots
+    CreateSnapshots (CreateSnapshots'),
+    newCreateSnapshots,
+    CreateSnapshotsResponse (CreateSnapshotsResponse'),
+    newCreateSnapshotsResponse,
+
+    -- ** DeleteClientVpnEndpoint
+    DeleteClientVpnEndpoint (DeleteClientVpnEndpoint'),
+    newDeleteClientVpnEndpoint,
+    DeleteClientVpnEndpointResponse (DeleteClientVpnEndpointResponse'),
+    newDeleteClientVpnEndpointResponse,
+
+    -- ** ExportClientVpnClientCertificateRevocationList
+    ExportClientVpnClientCertificateRevocationList (ExportClientVpnClientCertificateRevocationList'),
+    newExportClientVpnClientCertificateRevocationList,
+    ExportClientVpnClientCertificateRevocationListResponse (ExportClientVpnClientCertificateRevocationListResponse'),
+    newExportClientVpnClientCertificateRevocationListResponse,
+
+    -- ** DescribeKeyPairs
+    DescribeKeyPairs (DescribeKeyPairs'),
+    newDescribeKeyPairs,
+    DescribeKeyPairsResponse (DescribeKeyPairsResponse'),
+    newDescribeKeyPairsResponse,
+
+    -- ** CreateFpgaImage
+    CreateFpgaImage (CreateFpgaImage'),
+    newCreateFpgaImage,
+    CreateFpgaImageResponse (CreateFpgaImageResponse'),
+    newCreateFpgaImageResponse,
+
+    -- ** DescribeClassicLinkInstances (Paginated)
+    DescribeClassicLinkInstances (DescribeClassicLinkInstances'),
+    newDescribeClassicLinkInstances,
+    DescribeClassicLinkInstancesResponse (DescribeClassicLinkInstancesResponse'),
+    newDescribeClassicLinkInstancesResponse,
+
+    -- ** DeleteTrafficMirrorFilterRule
+    DeleteTrafficMirrorFilterRule (DeleteTrafficMirrorFilterRule'),
+    newDeleteTrafficMirrorFilterRule,
+    DeleteTrafficMirrorFilterRuleResponse (DeleteTrafficMirrorFilterRuleResponse'),
+    newDeleteTrafficMirrorFilterRuleResponse,
+
+    -- ** TerminateInstances
+    TerminateInstances (TerminateInstances'),
+    newTerminateInstances,
+    TerminateInstancesResponse (TerminateInstancesResponse'),
+    newTerminateInstancesResponse,
+
     -- ** ModifyFpgaImageAttribute
     ModifyFpgaImageAttribute (ModifyFpgaImageAttribute'),
     newModifyFpgaImageAttribute,
     ModifyFpgaImageAttributeResponse (ModifyFpgaImageAttributeResponse'),
     newModifyFpgaImageAttributeResponse,
 
-    -- ** EnableVpcClassicLink
-    EnableVpcClassicLink (EnableVpcClassicLink'),
-    newEnableVpcClassicLink,
-    EnableVpcClassicLinkResponse (EnableVpcClassicLinkResponse'),
-    newEnableVpcClassicLinkResponse,
+    -- ** WithdrawByoipCidr
+    WithdrawByoipCidr (WithdrawByoipCidr'),
+    newWithdrawByoipCidr,
+    WithdrawByoipCidrResponse (WithdrawByoipCidrResponse'),
+    newWithdrawByoipCidrResponse,
 
-    -- ** AttachInternetGateway
-    AttachInternetGateway (AttachInternetGateway'),
-    newAttachInternetGateway,
-    AttachInternetGatewayResponse (AttachInternetGatewayResponse'),
-    newAttachInternetGatewayResponse,
+    -- ** AttachVpnGateway
+    AttachVpnGateway (AttachVpnGateway'),
+    newAttachVpnGateway,
+    AttachVpnGatewayResponse (AttachVpnGatewayResponse'),
+    newAttachVpnGatewayResponse,
 
-    -- ** DescribePublicIpv4Pools (Paginated)
-    DescribePublicIpv4Pools (DescribePublicIpv4Pools'),
-    newDescribePublicIpv4Pools,
-    DescribePublicIpv4PoolsResponse (DescribePublicIpv4PoolsResponse'),
-    newDescribePublicIpv4PoolsResponse,
-
-    -- ** CreateCustomerGateway
-    CreateCustomerGateway (CreateCustomerGateway'),
-    newCreateCustomerGateway,
-    CreateCustomerGatewayResponse (CreateCustomerGatewayResponse'),
-    newCreateCustomerGatewayResponse,
-
-    -- ** DescribeIamInstanceProfileAssociations (Paginated)
-    DescribeIamInstanceProfileAssociations (DescribeIamInstanceProfileAssociations'),
-    newDescribeIamInstanceProfileAssociations,
-    DescribeIamInstanceProfileAssociationsResponse (DescribeIamInstanceProfileAssociationsResponse'),
-    newDescribeIamInstanceProfileAssociationsResponse,
-
-    -- ** DescribeExportImageTasks (Paginated)
-    DescribeExportImageTasks (DescribeExportImageTasks'),
-    newDescribeExportImageTasks,
-    DescribeExportImageTasksResponse (DescribeExportImageTasksResponse'),
-    newDescribeExportImageTasksResponse,
-
-    -- ** ProvisionByoipCidr
-    ProvisionByoipCidr (ProvisionByoipCidr'),
-    newProvisionByoipCidr,
-    ProvisionByoipCidrResponse (ProvisionByoipCidrResponse'),
-    newProvisionByoipCidrResponse,
-
-    -- ** CreateReservedInstancesListing
-    CreateReservedInstancesListing (CreateReservedInstancesListing'),
-    newCreateReservedInstancesListing,
-    CreateReservedInstancesListingResponse (CreateReservedInstancesListingResponse'),
-    newCreateReservedInstancesListingResponse,
-
-    -- ** DescribeClientVpnTargetNetworks (Paginated)
-    DescribeClientVpnTargetNetworks (DescribeClientVpnTargetNetworks'),
-    newDescribeClientVpnTargetNetworks,
-    DescribeClientVpnTargetNetworksResponse (DescribeClientVpnTargetNetworksResponse'),
-    newDescribeClientVpnTargetNetworksResponse,
-
-    -- ** ModifyVpnTunnelOptions
-    ModifyVpnTunnelOptions (ModifyVpnTunnelOptions'),
-    newModifyVpnTunnelOptions,
-    ModifyVpnTunnelOptionsResponse (ModifyVpnTunnelOptionsResponse'),
-    newModifyVpnTunnelOptionsResponse,
-
-    -- ** ModifyInstancePlacement
-    ModifyInstancePlacement (ModifyInstancePlacement'),
-    newModifyInstancePlacement,
-    ModifyInstancePlacementResponse (ModifyInstancePlacementResponse'),
-    newModifyInstancePlacementResponse,
-
-    -- ** ImportKeyPair
-    ImportKeyPair (ImportKeyPair'),
-    newImportKeyPair,
-    ImportKeyPairResponse (ImportKeyPairResponse'),
-    newImportKeyPairResponse,
-
-    -- ** DescribeNetworkInsightsAnalyses (Paginated)
-    DescribeNetworkInsightsAnalyses (DescribeNetworkInsightsAnalyses'),
-    newDescribeNetworkInsightsAnalyses,
-    DescribeNetworkInsightsAnalysesResponse (DescribeNetworkInsightsAnalysesResponse'),
-    newDescribeNetworkInsightsAnalysesResponse,
-
-    -- ** DeleteSecurityGroup
-    DeleteSecurityGroup (DeleteSecurityGroup'),
-    newDeleteSecurityGroup,
-    DeleteSecurityGroupResponse (DeleteSecurityGroupResponse'),
-    newDeleteSecurityGroupResponse,
-
-    -- ** CreateCarrierGateway
-    CreateCarrierGateway (CreateCarrierGateway'),
-    newCreateCarrierGateway,
-    CreateCarrierGatewayResponse (CreateCarrierGatewayResponse'),
-    newCreateCarrierGatewayResponse,
-
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    Snapshot (Snapshot'),
-    newSnapshot,
-
-    -- ** ModifyVolume
-    ModifyVolume (ModifyVolume'),
-    newModifyVolume,
-    ModifyVolumeResponse (ModifyVolumeResponse'),
-    newModifyVolumeResponse,
-
-    -- ** DeleteNetworkInsightsAnalysis
-    DeleteNetworkInsightsAnalysis (DeleteNetworkInsightsAnalysis'),
-    newDeleteNetworkInsightsAnalysis,
-    DeleteNetworkInsightsAnalysisResponse (DeleteNetworkInsightsAnalysisResponse'),
-    newDeleteNetworkInsightsAnalysisResponse,
-
-    -- ** DescribeLocalGatewayRouteTableVpcAssociations (Paginated)
-    DescribeLocalGatewayRouteTableVpcAssociations (DescribeLocalGatewayRouteTableVpcAssociations'),
-    newDescribeLocalGatewayRouteTableVpcAssociations,
-    DescribeLocalGatewayRouteTableVpcAssociationsResponse (DescribeLocalGatewayRouteTableVpcAssociationsResponse'),
-    newDescribeLocalGatewayRouteTableVpcAssociationsResponse,
-
-    -- ** CreateTrafficMirrorFilter
-    CreateTrafficMirrorFilter (CreateTrafficMirrorFilter'),
-    newCreateTrafficMirrorFilter,
-    CreateTrafficMirrorFilterResponse (CreateTrafficMirrorFilterResponse'),
-    newCreateTrafficMirrorFilterResponse,
+    -- ** AcceptTransitGatewayVpcAttachment
+    AcceptTransitGatewayVpcAttachment (AcceptTransitGatewayVpcAttachment'),
+    newAcceptTransitGatewayVpcAttachment,
+    AcceptTransitGatewayVpcAttachmentResponse (AcceptTransitGatewayVpcAttachmentResponse'),
+    newAcceptTransitGatewayVpcAttachmentResponse,
 
     -- ** DeleteSpotDatafeedSubscription
     DeleteSpotDatafeedSubscription (DeleteSpotDatafeedSubscription'),
@@ -2396,29 +2420,65 @@ module Network.AWS.EC2
     DeleteSpotDatafeedSubscriptionResponse (DeleteSpotDatafeedSubscriptionResponse'),
     newDeleteSpotDatafeedSubscriptionResponse,
 
-    -- ** DescribeInstanceAttribute
-    DescribeInstanceAttribute (DescribeInstanceAttribute'),
-    newDescribeInstanceAttribute,
-    DescribeInstanceAttributeResponse (DescribeInstanceAttributeResponse'),
-    newDescribeInstanceAttributeResponse,
+    -- ** DescribeExportImageTasks (Paginated)
+    DescribeExportImageTasks (DescribeExportImageTasks'),
+    newDescribeExportImageTasks,
+    DescribeExportImageTasksResponse (DescribeExportImageTasksResponse'),
+    newDescribeExportImageTasksResponse,
 
-    -- ** CreateCapacityReservation
-    CreateCapacityReservation (CreateCapacityReservation'),
-    newCreateCapacityReservation,
-    CreateCapacityReservationResponse (CreateCapacityReservationResponse'),
-    newCreateCapacityReservationResponse,
+    -- ** CreateCarrierGateway
+    CreateCarrierGateway (CreateCarrierGateway'),
+    newCreateCarrierGateway,
+    CreateCarrierGatewayResponse (CreateCarrierGatewayResponse'),
+    newCreateCarrierGatewayResponse,
 
-    -- ** DeleteTransitGatewayConnect
-    DeleteTransitGatewayConnect (DeleteTransitGatewayConnect'),
-    newDeleteTransitGatewayConnect,
-    DeleteTransitGatewayConnectResponse (DeleteTransitGatewayConnectResponse'),
-    newDeleteTransitGatewayConnectResponse,
+    -- ** AttachInternetGateway
+    AttachInternetGateway (AttachInternetGateway'),
+    newAttachInternetGateway,
+    AttachInternetGatewayResponse (AttachInternetGatewayResponse'),
+    newAttachInternetGatewayResponse,
 
-    -- ** ModifyEbsDefaultKmsKeyId
-    ModifyEbsDefaultKmsKeyId (ModifyEbsDefaultKmsKeyId'),
-    newModifyEbsDefaultKmsKeyId,
-    ModifyEbsDefaultKmsKeyIdResponse (ModifyEbsDefaultKmsKeyIdResponse'),
-    newModifyEbsDefaultKmsKeyIdResponse,
+    -- ** DescribeClientVpnTargetNetworks (Paginated)
+    DescribeClientVpnTargetNetworks (DescribeClientVpnTargetNetworks'),
+    newDescribeClientVpnTargetNetworks,
+    DescribeClientVpnTargetNetworksResponse (DescribeClientVpnTargetNetworksResponse'),
+    newDescribeClientVpnTargetNetworksResponse,
+
+    -- ** CreateTrafficMirrorFilter
+    CreateTrafficMirrorFilter (CreateTrafficMirrorFilter'),
+    newCreateTrafficMirrorFilter,
+    CreateTrafficMirrorFilterResponse (CreateTrafficMirrorFilterResponse'),
+    newCreateTrafficMirrorFilterResponse,
+
+    -- ** DeleteNetworkInsightsAnalysis
+    DeleteNetworkInsightsAnalysis (DeleteNetworkInsightsAnalysis'),
+    newDeleteNetworkInsightsAnalysis,
+    DeleteNetworkInsightsAnalysisResponse (DeleteNetworkInsightsAnalysisResponse'),
+    newDeleteNetworkInsightsAnalysisResponse,
+
+    -- ** DescribeIamInstanceProfileAssociations (Paginated)
+    DescribeIamInstanceProfileAssociations (DescribeIamInstanceProfileAssociations'),
+    newDescribeIamInstanceProfileAssociations,
+    DescribeIamInstanceProfileAssociationsResponse (DescribeIamInstanceProfileAssociationsResponse'),
+    newDescribeIamInstanceProfileAssociationsResponse,
+
+    -- ** ImportKeyPair
+    ImportKeyPair (ImportKeyPair'),
+    newImportKeyPair,
+    ImportKeyPairResponse (ImportKeyPairResponse'),
+    newImportKeyPairResponse,
+
+    -- ** EnableVpcClassicLink
+    EnableVpcClassicLink (EnableVpcClassicLink'),
+    newEnableVpcClassicLink,
+    EnableVpcClassicLinkResponse (EnableVpcClassicLinkResponse'),
+    newEnableVpcClassicLinkResponse,
+
+    -- ** DescribeNetworkInsightsAnalyses (Paginated)
+    DescribeNetworkInsightsAnalyses (DescribeNetworkInsightsAnalyses'),
+    newDescribeNetworkInsightsAnalyses,
+    DescribeNetworkInsightsAnalysesResponse (DescribeNetworkInsightsAnalysesResponse'),
+    newDescribeNetworkInsightsAnalysesResponse,
 
     -- ** DeleteRoute
     DeleteRoute (DeleteRoute'),
@@ -2432,11 +2492,41 @@ module Network.AWS.EC2
     DescribeNetworkInsightsPathsResponse (DescribeNetworkInsightsPathsResponse'),
     newDescribeNetworkInsightsPathsResponse,
 
-    -- ** PurchaseScheduledInstances
-    PurchaseScheduledInstances (PurchaseScheduledInstances'),
-    newPurchaseScheduledInstances,
-    PurchaseScheduledInstancesResponse (PurchaseScheduledInstancesResponse'),
-    newPurchaseScheduledInstancesResponse,
+    -- ** CreateCapacityReservation
+    CreateCapacityReservation (CreateCapacityReservation'),
+    newCreateCapacityReservation,
+    CreateCapacityReservationResponse (CreateCapacityReservationResponse'),
+    newCreateCapacityReservationResponse,
+
+    -- ** DeleteInstanceEventWindow
+    DeleteInstanceEventWindow (DeleteInstanceEventWindow'),
+    newDeleteInstanceEventWindow,
+    DeleteInstanceEventWindowResponse (DeleteInstanceEventWindowResponse'),
+    newDeleteInstanceEventWindowResponse,
+
+    -- ** ModifyEbsDefaultKmsKeyId
+    ModifyEbsDefaultKmsKeyId (ModifyEbsDefaultKmsKeyId'),
+    newModifyEbsDefaultKmsKeyId,
+    ModifyEbsDefaultKmsKeyIdResponse (ModifyEbsDefaultKmsKeyIdResponse'),
+    newModifyEbsDefaultKmsKeyIdResponse,
+
+    -- ** ProvisionByoipCidr
+    ProvisionByoipCidr (ProvisionByoipCidr'),
+    newProvisionByoipCidr,
+    ProvisionByoipCidrResponse (ProvisionByoipCidrResponse'),
+    newProvisionByoipCidrResponse,
+
+    -- ** DeleteTransitGatewayConnect
+    DeleteTransitGatewayConnect (DeleteTransitGatewayConnect'),
+    newDeleteTransitGatewayConnect,
+    DeleteTransitGatewayConnectResponse (DeleteTransitGatewayConnectResponse'),
+    newDeleteTransitGatewayConnectResponse,
+
+    -- ** ModifyVpnTunnelOptions
+    ModifyVpnTunnelOptions (ModifyVpnTunnelOptions'),
+    newModifyVpnTunnelOptions,
+    ModifyVpnTunnelOptionsResponse (ModifyVpnTunnelOptionsResponse'),
+    newModifyVpnTunnelOptionsResponse,
 
     -- ** CreateTransitGatewayPeeringAttachment
     CreateTransitGatewayPeeringAttachment (CreateTransitGatewayPeeringAttachment'),
@@ -2444,101 +2534,65 @@ module Network.AWS.EC2
     CreateTransitGatewayPeeringAttachmentResponse (CreateTransitGatewayPeeringAttachmentResponse'),
     newCreateTransitGatewayPeeringAttachmentResponse,
 
-    -- ** GetDefaultCreditSpecification
-    GetDefaultCreditSpecification (GetDefaultCreditSpecification'),
-    newGetDefaultCreditSpecification,
-    GetDefaultCreditSpecificationResponse (GetDefaultCreditSpecificationResponse'),
-    newGetDefaultCreditSpecificationResponse,
+    -- ** CreateCustomerGateway
+    CreateCustomerGateway (CreateCustomerGateway'),
+    newCreateCustomerGateway,
+    CreateCustomerGatewayResponse (CreateCustomerGatewayResponse'),
+    newCreateCustomerGatewayResponse,
 
-    -- ** DescribeInternetGateways (Paginated)
-    DescribeInternetGateways (DescribeInternetGateways'),
-    newDescribeInternetGateways,
-    DescribeInternetGatewaysResponse (DescribeInternetGatewaysResponse'),
-    newDescribeInternetGatewaysResponse,
+    -- ** ModifyVolume
+    ModifyVolume (ModifyVolume'),
+    newModifyVolume,
+    ModifyVolumeResponse (ModifyVolumeResponse'),
+    newModifyVolumeResponse,
 
-    -- ** ModifyInstanceAttribute
-    ModifyInstanceAttribute (ModifyInstanceAttribute'),
-    newModifyInstanceAttribute,
-    ModifyInstanceAttributeResponse (ModifyInstanceAttributeResponse'),
-    newModifyInstanceAttributeResponse,
+    -- ** ModifyInstancePlacement
+    ModifyInstancePlacement (ModifyInstancePlacement'),
+    newModifyInstancePlacement,
+    ModifyInstancePlacementResponse (ModifyInstancePlacementResponse'),
+    newModifyInstancePlacementResponse,
 
-    -- ** CreateSecurityGroup
-    CreateSecurityGroup (CreateSecurityGroup'),
-    newCreateSecurityGroup,
-    CreateSecurityGroupResponse (CreateSecurityGroupResponse'),
-    newCreateSecurityGroupResponse,
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    Snapshot (Snapshot'),
+    newSnapshot,
 
-    -- ** CreateTransitGatewayConnect
-    CreateTransitGatewayConnect (CreateTransitGatewayConnect'),
-    newCreateTransitGatewayConnect,
-    CreateTransitGatewayConnectResponse (CreateTransitGatewayConnectResponse'),
-    newCreateTransitGatewayConnectResponse,
+    -- ** DescribeInstanceAttribute
+    DescribeInstanceAttribute (DescribeInstanceAttribute'),
+    newDescribeInstanceAttribute,
+    DescribeInstanceAttributeResponse (DescribeInstanceAttributeResponse'),
+    newDescribeInstanceAttributeResponse,
 
-    -- ** ReplaceNetworkAclAssociation
-    ReplaceNetworkAclAssociation (ReplaceNetworkAclAssociation'),
-    newReplaceNetworkAclAssociation,
-    ReplaceNetworkAclAssociationResponse (ReplaceNetworkAclAssociationResponse'),
-    newReplaceNetworkAclAssociationResponse,
+    -- ** CreateReservedInstancesListing
+    CreateReservedInstancesListing (CreateReservedInstancesListing'),
+    newCreateReservedInstancesListing,
+    CreateReservedInstancesListingResponse (CreateReservedInstancesListingResponse'),
+    newCreateReservedInstancesListingResponse,
 
-    -- ** CreateRoute
-    CreateRoute (CreateRoute'),
-    newCreateRoute,
-    CreateRouteResponse (CreateRouteResponse'),
-    newCreateRouteResponse,
+    -- ** DeleteSecurityGroup
+    DeleteSecurityGroup (DeleteSecurityGroup'),
+    newDeleteSecurityGroup,
+    DeleteSecurityGroupResponse (DeleteSecurityGroupResponse'),
+    newDeleteSecurityGroupResponse,
 
-    -- ** DeleteLaunchTemplateVersions
-    DeleteLaunchTemplateVersions (DeleteLaunchTemplateVersions'),
-    newDeleteLaunchTemplateVersions,
-    DeleteLaunchTemplateVersionsResponse (DeleteLaunchTemplateVersionsResponse'),
-    newDeleteLaunchTemplateVersionsResponse,
+    -- ** PurchaseScheduledInstances
+    PurchaseScheduledInstances (PurchaseScheduledInstances'),
+    newPurchaseScheduledInstances,
+    PurchaseScheduledInstancesResponse (PurchaseScheduledInstancesResponse'),
+    newPurchaseScheduledInstancesResponse,
 
-    -- ** DescribeIdentityIdFormat
-    DescribeIdentityIdFormat (DescribeIdentityIdFormat'),
-    newDescribeIdentityIdFormat,
-    DescribeIdentityIdFormatResponse (DescribeIdentityIdFormatResponse'),
-    newDescribeIdentityIdFormatResponse,
+    -- ** DescribePublicIpv4Pools (Paginated)
+    DescribePublicIpv4Pools (DescribePublicIpv4Pools'),
+    newDescribePublicIpv4Pools,
+    DescribePublicIpv4PoolsResponse (DescribePublicIpv4PoolsResponse'),
+    newDescribePublicIpv4PoolsResponse,
 
-    -- ** DeleteTrafficMirrorFilter
-    DeleteTrafficMirrorFilter (DeleteTrafficMirrorFilter'),
-    newDeleteTrafficMirrorFilter,
-    DeleteTrafficMirrorFilterResponse (DeleteTrafficMirrorFilterResponse'),
-    newDeleteTrafficMirrorFilterResponse,
-
-    -- ** ReplaceRoute
-    ReplaceRoute (ReplaceRoute'),
-    newReplaceRoute,
-    ReplaceRouteResponse (ReplaceRouteResponse'),
-    newReplaceRouteResponse,
-
-    -- ** ResetSnapshotAttribute
-    ResetSnapshotAttribute (ResetSnapshotAttribute'),
-    newResetSnapshotAttribute,
-    ResetSnapshotAttributeResponse (ResetSnapshotAttributeResponse'),
-    newResetSnapshotAttributeResponse,
-
-    -- ** ResetEbsDefaultKmsKeyId
-    ResetEbsDefaultKmsKeyId (ResetEbsDefaultKmsKeyId'),
-    newResetEbsDefaultKmsKeyId,
-    ResetEbsDefaultKmsKeyIdResponse (ResetEbsDefaultKmsKeyIdResponse'),
-    newResetEbsDefaultKmsKeyIdResponse,
-
-    -- ** CreateTags
-    CreateTags (CreateTags'),
-    newCreateTags,
-    CreateTagsResponse (CreateTagsResponse'),
-    newCreateTagsResponse,
-
-    -- ** BundleInstance
-    BundleInstance (BundleInstance'),
-    newBundleInstance,
-    BundleInstanceResponse (BundleInstanceResponse'),
-    newBundleInstanceResponse,
-
-    -- ** DeleteTransitGatewayPeeringAttachment
-    DeleteTransitGatewayPeeringAttachment (DeleteTransitGatewayPeeringAttachment'),
-    newDeleteTransitGatewayPeeringAttachment,
-    DeleteTransitGatewayPeeringAttachmentResponse (DeleteTransitGatewayPeeringAttachmentResponse'),
-    newDeleteTransitGatewayPeeringAttachmentResponse,
+    -- ** DescribeLocalGatewayRouteTableVpcAssociations (Paginated)
+    DescribeLocalGatewayRouteTableVpcAssociations (DescribeLocalGatewayRouteTableVpcAssociations'),
+    newDescribeLocalGatewayRouteTableVpcAssociations,
+    DescribeLocalGatewayRouteTableVpcAssociationsResponse (DescribeLocalGatewayRouteTableVpcAssociationsResponse'),
+    newDescribeLocalGatewayRouteTableVpcAssociationsResponse,
 
     -- ** AuthorizeClientVpnIngress
     AuthorizeClientVpnIngress (AuthorizeClientVpnIngress'),
@@ -2546,11 +2600,53 @@ module Network.AWS.EC2
     AuthorizeClientVpnIngressResponse (AuthorizeClientVpnIngressResponse'),
     newAuthorizeClientVpnIngressResponse,
 
+    -- ** CreateVpcPeeringConnection
+    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
+    newCreateVpcPeeringConnection,
+    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
+    newCreateVpcPeeringConnectionResponse,
+
+    -- ** CreateInstanceEventWindow
+    CreateInstanceEventWindow (CreateInstanceEventWindow'),
+    newCreateInstanceEventWindow,
+    CreateInstanceEventWindowResponse (CreateInstanceEventWindowResponse'),
+    newCreateInstanceEventWindowResponse,
+
+    -- ** CreateSecurityGroup
+    CreateSecurityGroup (CreateSecurityGroup'),
+    newCreateSecurityGroup,
+    CreateSecurityGroupResponse (CreateSecurityGroupResponse'),
+    newCreateSecurityGroupResponse,
+
+    -- ** DescribeInternetGateways (Paginated)
+    DescribeInternetGateways (DescribeInternetGateways'),
+    newDescribeInternetGateways,
+    DescribeInternetGatewaysResponse (DescribeInternetGatewaysResponse'),
+    newDescribeInternetGatewaysResponse,
+
     -- ** ModifyLaunchTemplate
     ModifyLaunchTemplate (ModifyLaunchTemplate'),
     newModifyLaunchTemplate,
     ModifyLaunchTemplateResponse (ModifyLaunchTemplateResponse'),
     newModifyLaunchTemplateResponse,
+
+    -- ** ModifyInstanceAttribute
+    ModifyInstanceAttribute (ModifyInstanceAttribute'),
+    newModifyInstanceAttribute,
+    ModifyInstanceAttributeResponse (ModifyInstanceAttributeResponse'),
+    newModifyInstanceAttributeResponse,
+
+    -- ** ResetEbsDefaultKmsKeyId
+    ResetEbsDefaultKmsKeyId (ResetEbsDefaultKmsKeyId'),
+    newResetEbsDefaultKmsKeyId,
+    ResetEbsDefaultKmsKeyIdResponse (ResetEbsDefaultKmsKeyIdResponse'),
+    newResetEbsDefaultKmsKeyIdResponse,
+
+    -- ** GetEbsEncryptionByDefault
+    GetEbsEncryptionByDefault (GetEbsEncryptionByDefault'),
+    newGetEbsEncryptionByDefault,
+    GetEbsEncryptionByDefaultResponse (GetEbsEncryptionByDefaultResponse'),
+    newGetEbsEncryptionByDefaultResponse,
 
     -- ** DeleteCustomerGateway
     DeleteCustomerGateway (DeleteCustomerGateway'),
@@ -2564,23 +2660,107 @@ module Network.AWS.EC2
     TerminateClientVpnConnectionsResponse (TerminateClientVpnConnectionsResponse'),
     newTerminateClientVpnConnectionsResponse,
 
-    -- ** GetEbsEncryptionByDefault
-    GetEbsEncryptionByDefault (GetEbsEncryptionByDefault'),
-    newGetEbsEncryptionByDefault,
-    GetEbsEncryptionByDefaultResponse (GetEbsEncryptionByDefaultResponse'),
-    newGetEbsEncryptionByDefaultResponse,
+    -- ** AssociateInstanceEventWindow
+    AssociateInstanceEventWindow (AssociateInstanceEventWindow'),
+    newAssociateInstanceEventWindow,
+    AssociateInstanceEventWindowResponse (AssociateInstanceEventWindowResponse'),
+    newAssociateInstanceEventWindowResponse,
 
-    -- ** CreateVpcPeeringConnection
-    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
-    newCreateVpcPeeringConnection,
-    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
-    newCreateVpcPeeringConnectionResponse,
+    -- ** ReplaceRoute
+    ReplaceRoute (ReplaceRoute'),
+    newReplaceRoute,
+    ReplaceRouteResponse (ReplaceRouteResponse'),
+    newReplaceRouteResponse,
+
+    -- ** CreateTags
+    CreateTags (CreateTags'),
+    newCreateTags,
+    CreateTagsResponse (CreateTagsResponse'),
+    newCreateTagsResponse,
+
+    -- ** CreateTransitGatewayConnect
+    CreateTransitGatewayConnect (CreateTransitGatewayConnect'),
+    newCreateTransitGatewayConnect,
+    CreateTransitGatewayConnectResponse (CreateTransitGatewayConnectResponse'),
+    newCreateTransitGatewayConnectResponse,
+
+    -- ** DeleteLaunchTemplateVersions
+    DeleteLaunchTemplateVersions (DeleteLaunchTemplateVersions'),
+    newDeleteLaunchTemplateVersions,
+    DeleteLaunchTemplateVersionsResponse (DeleteLaunchTemplateVersionsResponse'),
+    newDeleteLaunchTemplateVersionsResponse,
+
+    -- ** GetDefaultCreditSpecification
+    GetDefaultCreditSpecification (GetDefaultCreditSpecification'),
+    newGetDefaultCreditSpecification,
+    GetDefaultCreditSpecificationResponse (GetDefaultCreditSpecificationResponse'),
+    newGetDefaultCreditSpecificationResponse,
+
+    -- ** ResetSnapshotAttribute
+    ResetSnapshotAttribute (ResetSnapshotAttribute'),
+    newResetSnapshotAttribute,
+    ResetSnapshotAttributeResponse (ResetSnapshotAttributeResponse'),
+    newResetSnapshotAttributeResponse,
+
+    -- ** DeleteTransitGatewayPeeringAttachment
+    DeleteTransitGatewayPeeringAttachment (DeleteTransitGatewayPeeringAttachment'),
+    newDeleteTransitGatewayPeeringAttachment,
+    DeleteTransitGatewayPeeringAttachmentResponse (DeleteTransitGatewayPeeringAttachmentResponse'),
+    newDeleteTransitGatewayPeeringAttachmentResponse,
+
+    -- ** CreateRoute
+    CreateRoute (CreateRoute'),
+    newCreateRoute,
+    CreateRouteResponse (CreateRouteResponse'),
+    newCreateRouteResponse,
+
+    -- ** BundleInstance
+    BundleInstance (BundleInstance'),
+    newBundleInstance,
+    BundleInstanceResponse (BundleInstanceResponse'),
+    newBundleInstanceResponse,
+
+    -- ** ReplaceNetworkAclAssociation
+    ReplaceNetworkAclAssociation (ReplaceNetworkAclAssociation'),
+    newReplaceNetworkAclAssociation,
+    ReplaceNetworkAclAssociationResponse (ReplaceNetworkAclAssociationResponse'),
+    newReplaceNetworkAclAssociationResponse,
+
+    -- ** DeleteTrafficMirrorFilter
+    DeleteTrafficMirrorFilter (DeleteTrafficMirrorFilter'),
+    newDeleteTrafficMirrorFilter,
+    DeleteTrafficMirrorFilterResponse (DeleteTrafficMirrorFilterResponse'),
+    newDeleteTrafficMirrorFilterResponse,
+
+    -- ** DescribeIdentityIdFormat
+    DescribeIdentityIdFormat (DescribeIdentityIdFormat'),
+    newDescribeIdentityIdFormat,
+    DescribeIdentityIdFormatResponse (DescribeIdentityIdFormatResponse'),
+    newDescribeIdentityIdFormatResponse,
+
+    -- ** ReplaceTransitGatewayRoute
+    ReplaceTransitGatewayRoute (ReplaceTransitGatewayRoute'),
+    newReplaceTransitGatewayRoute,
+    ReplaceTransitGatewayRouteResponse (ReplaceTransitGatewayRouteResponse'),
+    newReplaceTransitGatewayRouteResponse,
+
+    -- ** GetCoipPoolUsage
+    GetCoipPoolUsage (GetCoipPoolUsage'),
+    newGetCoipPoolUsage,
+    GetCoipPoolUsageResponse (GetCoipPoolUsageResponse'),
+    newGetCoipPoolUsageResponse,
 
     -- ** DeleteTransitGatewayVpcAttachment
     DeleteTransitGatewayVpcAttachment (DeleteTransitGatewayVpcAttachment'),
     newDeleteTransitGatewayVpcAttachment,
     DeleteTransitGatewayVpcAttachmentResponse (DeleteTransitGatewayVpcAttachmentResponse'),
     newDeleteTransitGatewayVpcAttachmentResponse,
+
+    -- ** CreatePlacementGroup
+    CreatePlacementGroup (CreatePlacementGroup'),
+    newCreatePlacementGroup,
+    CreatePlacementGroupResponse (CreatePlacementGroupResponse'),
+    newCreatePlacementGroupResponse,
 
     -- ** ReplaceIamInstanceProfileAssociation
     ReplaceIamInstanceProfileAssociation (ReplaceIamInstanceProfileAssociation'),
@@ -2594,41 +2774,29 @@ module Network.AWS.EC2
     DeleteTransitGatewayConnectPeerResponse (DeleteTransitGatewayConnectPeerResponse'),
     newDeleteTransitGatewayConnectPeerResponse,
 
-    -- ** AssociateAddress
-    AssociateAddress (AssociateAddress'),
-    newAssociateAddress,
-    AssociateAddressResponse (AssociateAddressResponse'),
-    newAssociateAddressResponse,
-
     -- ** CancelSpotFleetRequests
     CancelSpotFleetRequests (CancelSpotFleetRequests'),
     newCancelSpotFleetRequests,
     CancelSpotFleetRequestsResponse (CancelSpotFleetRequestsResponse'),
     newCancelSpotFleetRequestsResponse,
 
-    -- ** ResetNetworkInterfaceAttribute
-    ResetNetworkInterfaceAttribute (ResetNetworkInterfaceAttribute'),
-    newResetNetworkInterfaceAttribute,
-    ResetNetworkInterfaceAttributeResponse (ResetNetworkInterfaceAttributeResponse'),
-    newResetNetworkInterfaceAttributeResponse,
+    -- ** DescribeClientVpnAuthorizationRules (Paginated)
+    DescribeClientVpnAuthorizationRules (DescribeClientVpnAuthorizationRules'),
+    newDescribeClientVpnAuthorizationRules,
+    DescribeClientVpnAuthorizationRulesResponse (DescribeClientVpnAuthorizationRulesResponse'),
+    newDescribeClientVpnAuthorizationRulesResponse,
 
-    -- ** StartInstances
-    StartInstances (StartInstances'),
-    newStartInstances,
-    StartInstancesResponse (StartInstancesResponse'),
-    newStartInstancesResponse,
+    -- ** DeleteSubnet
+    DeleteSubnet (DeleteSubnet'),
+    newDeleteSubnet,
+    DeleteSubnetResponse (DeleteSubnetResponse'),
+    newDeleteSubnetResponse,
 
-    -- ** DisassociateTransitGatewayRouteTable
-    DisassociateTransitGatewayRouteTable (DisassociateTransitGatewayRouteTable'),
-    newDisassociateTransitGatewayRouteTable,
-    DisassociateTransitGatewayRouteTableResponse (DisassociateTransitGatewayRouteTableResponse'),
-    newDisassociateTransitGatewayRouteTableResponse,
-
-    -- ** CopyFpgaImage
-    CopyFpgaImage (CopyFpgaImage'),
-    newCopyFpgaImage,
-    CopyFpgaImageResponse (CopyFpgaImageResponse'),
-    newCopyFpgaImageResponse,
+    -- ** StopInstances
+    StopInstances (StopInstances'),
+    newStopInstances,
+    StopInstancesResponse (StopInstancesResponse'),
+    newStopInstancesResponse,
 
     -- ** ReleaseHosts
     ReleaseHosts (ReleaseHosts'),
@@ -2642,11 +2810,11 @@ module Network.AWS.EC2
     DescribeFastSnapshotRestoresResponse (DescribeFastSnapshotRestoresResponse'),
     newDescribeFastSnapshotRestoresResponse,
 
-    -- ** DescribeTrafficMirrorFilters (Paginated)
-    DescribeTrafficMirrorFilters (DescribeTrafficMirrorFilters'),
-    newDescribeTrafficMirrorFilters,
-    DescribeTrafficMirrorFiltersResponse (DescribeTrafficMirrorFiltersResponse'),
-    newDescribeTrafficMirrorFiltersResponse,
+    -- ** CreateDefaultVpc
+    CreateDefaultVpc (CreateDefaultVpc'),
+    newCreateDefaultVpc,
+    CreateDefaultVpcResponse (CreateDefaultVpcResponse'),
+    newCreateDefaultVpcResponse,
 
     -- ** CreateTransitGatewayPrefixListReference
     CreateTransitGatewayPrefixListReference (CreateTransitGatewayPrefixListReference'),
@@ -2654,11 +2822,11 @@ module Network.AWS.EC2
     CreateTransitGatewayPrefixListReferenceResponse (CreateTransitGatewayPrefixListReferenceResponse'),
     newCreateTransitGatewayPrefixListReferenceResponse,
 
-    -- ** DeleteNetworkInterface
-    DeleteNetworkInterface (DeleteNetworkInterface'),
-    newDeleteNetworkInterface,
-    DeleteNetworkInterfaceResponse (DeleteNetworkInterfaceResponse'),
-    newDeleteNetworkInterfaceResponse,
+    -- ** DescribeDhcpOptions (Paginated)
+    DescribeDhcpOptions (DescribeDhcpOptions'),
+    newDescribeDhcpOptions,
+    DescribeDhcpOptionsResponse (DescribeDhcpOptionsResponse'),
+    newDescribeDhcpOptionsResponse,
 
     -- ** CreateTransitGatewayRoute
     CreateTransitGatewayRoute (CreateTransitGatewayRoute'),
@@ -2666,113 +2834,11 @@ module Network.AWS.EC2
     CreateTransitGatewayRouteResponse (CreateTransitGatewayRouteResponse'),
     newCreateTransitGatewayRouteResponse,
 
-    -- ** DeregisterTransitGatewayMulticastGroupSources
-    DeregisterTransitGatewayMulticastGroupSources (DeregisterTransitGatewayMulticastGroupSources'),
-    newDeregisterTransitGatewayMulticastGroupSources,
-    DeregisterTransitGatewayMulticastGroupSourcesResponse (DeregisterTransitGatewayMulticastGroupSourcesResponse'),
-    newDeregisterTransitGatewayMulticastGroupSourcesResponse,
-
-    -- ** DisassociateVpcCidrBlock
-    DisassociateVpcCidrBlock (DisassociateVpcCidrBlock'),
-    newDisassociateVpcCidrBlock,
-    DisassociateVpcCidrBlockResponse (DisassociateVpcCidrBlockResponse'),
-    newDisassociateVpcCidrBlockResponse,
-
-    -- ** DescribeTransitGatewayPeeringAttachments (Paginated)
-    DescribeTransitGatewayPeeringAttachments (DescribeTransitGatewayPeeringAttachments'),
-    newDescribeTransitGatewayPeeringAttachments,
-    DescribeTransitGatewayPeeringAttachmentsResponse (DescribeTransitGatewayPeeringAttachmentsResponse'),
-    newDescribeTransitGatewayPeeringAttachmentsResponse,
-
-    -- ** GetCoipPoolUsage
-    GetCoipPoolUsage (GetCoipPoolUsage'),
-    newGetCoipPoolUsage,
-    GetCoipPoolUsageResponse (GetCoipPoolUsageResponse'),
-    newGetCoipPoolUsageResponse,
-
-    -- ** ImportImage
-    ImportImage (ImportImage'),
-    newImportImage,
-    ImportImageResponse (ImportImageResponse'),
-    newImportImageResponse,
-
-    -- ** ReplaceTransitGatewayRoute
-    ReplaceTransitGatewayRoute (ReplaceTransitGatewayRoute'),
-    newReplaceTransitGatewayRoute,
-    ReplaceTransitGatewayRouteResponse (ReplaceTransitGatewayRouteResponse'),
-    newReplaceTransitGatewayRouteResponse,
-
-    -- ** CreatePlacementGroup
-    CreatePlacementGroup (CreatePlacementGroup'),
-    newCreatePlacementGroup,
-    CreatePlacementGroupResponse (CreatePlacementGroupResponse'),
-    newCreatePlacementGroupResponse,
-
-    -- ** CreateDefaultVpc
-    CreateDefaultVpc (CreateDefaultVpc'),
-    newCreateDefaultVpc,
-    CreateDefaultVpcResponse (CreateDefaultVpcResponse'),
-    newCreateDefaultVpcResponse,
-
-    -- ** CreateNetworkInsightsPath
-    CreateNetworkInsightsPath (CreateNetworkInsightsPath'),
-    newCreateNetworkInsightsPath,
-    CreateNetworkInsightsPathResponse (CreateNetworkInsightsPathResponse'),
-    newCreateNetworkInsightsPathResponse,
-
-    -- ** ModifyTrafficMirrorSession
-    ModifyTrafficMirrorSession (ModifyTrafficMirrorSession'),
-    newModifyTrafficMirrorSession,
-    ModifyTrafficMirrorSessionResponse (ModifyTrafficMirrorSessionResponse'),
-    newModifyTrafficMirrorSessionResponse,
-
-    -- ** RunScheduledInstances
-    RunScheduledInstances (RunScheduledInstances'),
-    newRunScheduledInstances,
-    RunScheduledInstancesResponse (RunScheduledInstancesResponse'),
-    newRunScheduledInstancesResponse,
-
-    -- ** DescribeDhcpOptions (Paginated)
-    DescribeDhcpOptions (DescribeDhcpOptions'),
-    newDescribeDhcpOptions,
-    DescribeDhcpOptionsResponse (DescribeDhcpOptionsResponse'),
-    newDescribeDhcpOptionsResponse,
-
-    -- ** DescribeCapacityReservations (Paginated)
-    DescribeCapacityReservations (DescribeCapacityReservations'),
-    newDescribeCapacityReservations,
-    DescribeCapacityReservationsResponse (DescribeCapacityReservationsResponse'),
-    newDescribeCapacityReservationsResponse,
-
-    -- ** DescribeCustomerGateways
-    DescribeCustomerGateways (DescribeCustomerGateways'),
-    newDescribeCustomerGateways,
-    DescribeCustomerGatewaysResponse (DescribeCustomerGatewaysResponse'),
-    newDescribeCustomerGatewaysResponse,
-
-    -- ** DeleteNatGateway
-    DeleteNatGateway (DeleteNatGateway'),
-    newDeleteNatGateway,
-    DeleteNatGatewayResponse (DeleteNatGatewayResponse'),
-    newDeleteNatGatewayResponse,
-
-    -- ** DescribeClientVpnAuthorizationRules (Paginated)
-    DescribeClientVpnAuthorizationRules (DescribeClientVpnAuthorizationRules'),
-    newDescribeClientVpnAuthorizationRules,
-    DescribeClientVpnAuthorizationRulesResponse (DescribeClientVpnAuthorizationRulesResponse'),
-    newDescribeClientVpnAuthorizationRulesResponse,
-
-    -- ** StopInstances
-    StopInstances (StopInstances'),
-    newStopInstances,
-    StopInstancesResponse (StopInstancesResponse'),
-    newStopInstancesResponse,
-
-    -- ** ReplaceRouteTableAssociation
-    ReplaceRouteTableAssociation (ReplaceRouteTableAssociation'),
-    newReplaceRouteTableAssociation,
-    ReplaceRouteTableAssociationResponse (ReplaceRouteTableAssociationResponse'),
-    newReplaceRouteTableAssociationResponse,
+    -- ** ResetNetworkInterfaceAttribute
+    ResetNetworkInterfaceAttribute (ResetNetworkInterfaceAttribute'),
+    newResetNetworkInterfaceAttribute,
+    ResetNetworkInterfaceAttributeResponse (ResetNetworkInterfaceAttributeResponse'),
+    newResetNetworkInterfaceAttributeResponse,
 
     -- ** DeleteTransitGatewayMulticastDomain
     DeleteTransitGatewayMulticastDomain (DeleteTransitGatewayMulticastDomain'),
@@ -2780,11 +2846,107 @@ module Network.AWS.EC2
     DeleteTransitGatewayMulticastDomainResponse (DeleteTransitGatewayMulticastDomainResponse'),
     newDeleteTransitGatewayMulticastDomainResponse,
 
-    -- ** DeleteSubnet
-    DeleteSubnet (DeleteSubnet'),
-    newDeleteSubnet,
-    DeleteSubnetResponse (DeleteSubnetResponse'),
-    newDeleteSubnetResponse,
+    -- ** DeleteNetworkInterface
+    DeleteNetworkInterface (DeleteNetworkInterface'),
+    newDeleteNetworkInterface,
+    DeleteNetworkInterfaceResponse (DeleteNetworkInterfaceResponse'),
+    newDeleteNetworkInterfaceResponse,
+
+    -- ** DisassociateVpcCidrBlock
+    DisassociateVpcCidrBlock (DisassociateVpcCidrBlock'),
+    newDisassociateVpcCidrBlock,
+    DisassociateVpcCidrBlockResponse (DisassociateVpcCidrBlockResponse'),
+    newDisassociateVpcCidrBlockResponse,
+
+    -- ** ReplaceRouteTableAssociation
+    ReplaceRouteTableAssociation (ReplaceRouteTableAssociation'),
+    newReplaceRouteTableAssociation,
+    ReplaceRouteTableAssociationResponse (ReplaceRouteTableAssociationResponse'),
+    newReplaceRouteTableAssociationResponse,
+
+    -- ** CreateNetworkInsightsPath
+    CreateNetworkInsightsPath (CreateNetworkInsightsPath'),
+    newCreateNetworkInsightsPath,
+    CreateNetworkInsightsPathResponse (CreateNetworkInsightsPathResponse'),
+    newCreateNetworkInsightsPathResponse,
+
+    -- ** DeregisterTransitGatewayMulticastGroupSources
+    DeregisterTransitGatewayMulticastGroupSources (DeregisterTransitGatewayMulticastGroupSources'),
+    newDeregisterTransitGatewayMulticastGroupSources,
+    DeregisterTransitGatewayMulticastGroupSourcesResponse (DeregisterTransitGatewayMulticastGroupSourcesResponse'),
+    newDeregisterTransitGatewayMulticastGroupSourcesResponse,
+
+    -- ** DescribeCustomerGateways
+    DescribeCustomerGateways (DescribeCustomerGateways'),
+    newDescribeCustomerGateways,
+    DescribeCustomerGatewaysResponse (DescribeCustomerGatewaysResponse'),
+    newDescribeCustomerGatewaysResponse,
+
+    -- ** DescribeCapacityReservations (Paginated)
+    DescribeCapacityReservations (DescribeCapacityReservations'),
+    newDescribeCapacityReservations,
+    DescribeCapacityReservationsResponse (DescribeCapacityReservationsResponse'),
+    newDescribeCapacityReservationsResponse,
+
+    -- ** ModifyTrafficMirrorSession
+    ModifyTrafficMirrorSession (ModifyTrafficMirrorSession'),
+    newModifyTrafficMirrorSession,
+    ModifyTrafficMirrorSessionResponse (ModifyTrafficMirrorSessionResponse'),
+    newModifyTrafficMirrorSessionResponse,
+
+    -- ** DisassociateTransitGatewayRouteTable
+    DisassociateTransitGatewayRouteTable (DisassociateTransitGatewayRouteTable'),
+    newDisassociateTransitGatewayRouteTable,
+    DisassociateTransitGatewayRouteTableResponse (DisassociateTransitGatewayRouteTableResponse'),
+    newDisassociateTransitGatewayRouteTableResponse,
+
+    -- ** StartInstances
+    StartInstances (StartInstances'),
+    newStartInstances,
+    StartInstancesResponse (StartInstancesResponse'),
+    newStartInstancesResponse,
+
+    -- ** DescribeTransitGatewayPeeringAttachments (Paginated)
+    DescribeTransitGatewayPeeringAttachments (DescribeTransitGatewayPeeringAttachments'),
+    newDescribeTransitGatewayPeeringAttachments,
+    DescribeTransitGatewayPeeringAttachmentsResponse (DescribeTransitGatewayPeeringAttachmentsResponse'),
+    newDescribeTransitGatewayPeeringAttachmentsResponse,
+
+    -- ** ImportImage
+    ImportImage (ImportImage'),
+    newImportImage,
+    ImportImageResponse (ImportImageResponse'),
+    newImportImageResponse,
+
+    -- ** DescribeTrafficMirrorFilters (Paginated)
+    DescribeTrafficMirrorFilters (DescribeTrafficMirrorFilters'),
+    newDescribeTrafficMirrorFilters,
+    DescribeTrafficMirrorFiltersResponse (DescribeTrafficMirrorFiltersResponse'),
+    newDescribeTrafficMirrorFiltersResponse,
+
+    -- ** AssociateAddress
+    AssociateAddress (AssociateAddress'),
+    newAssociateAddress,
+    AssociateAddressResponse (AssociateAddressResponse'),
+    newAssociateAddressResponse,
+
+    -- ** RunScheduledInstances
+    RunScheduledInstances (RunScheduledInstances'),
+    newRunScheduledInstances,
+    RunScheduledInstancesResponse (RunScheduledInstancesResponse'),
+    newRunScheduledInstancesResponse,
+
+    -- ** CopyFpgaImage
+    CopyFpgaImage (CopyFpgaImage'),
+    newCopyFpgaImage,
+    CopyFpgaImageResponse (CopyFpgaImageResponse'),
+    newCopyFpgaImageResponse,
+
+    -- ** DeleteNatGateway
+    DeleteNatGateway (DeleteNatGateway'),
+    newDeleteNatGateway,
+    DeleteNatGatewayResponse (DeleteNatGatewayResponse'),
+    newDeleteNatGatewayResponse,
 
     -- * Types
 
@@ -2857,6 +3019,12 @@ module Network.AWS.EC2
     -- ** BgpStatus
     BgpStatus (..),
 
+    -- ** BootModeType
+    BootModeType (..),
+
+    -- ** BootModeValues
+    BootModeValues (..),
+
     -- ** BundleTaskState
     BundleTaskState (..),
 
@@ -2910,6 +3078,9 @@ module Network.AWS.EC2
 
     -- ** ConnectionNotificationType
     ConnectionNotificationType (..),
+
+    -- ** ConnectivityType
+    ConnectivityType (..),
 
     -- ** ContainerFormat
     ContainerFormat (..),
@@ -3067,6 +3238,9 @@ module Network.AWS.EC2
     -- ** InstanceAttributeName
     InstanceAttributeName (..),
 
+    -- ** InstanceEventWindowState
+    InstanceEventWindowState (..),
+
     -- ** InstanceHealthStatus
     InstanceHealthStatus (..),
 
@@ -3088,6 +3262,9 @@ module Network.AWS.EC2
     -- ** InstanceMetadataOptionsState
     InstanceMetadataOptionsState (..),
 
+    -- ** InstanceMetadataProtocolState
+    InstanceMetadataProtocolState (..),
+
     -- ** InstanceStateName
     InstanceStateName (..),
 
@@ -3100,8 +3277,14 @@ module Network.AWS.EC2
     -- ** InterfacePermissionType
     InterfacePermissionType (..),
 
+    -- ** InterfaceProtocolType
+    InterfaceProtocolType (..),
+
     -- ** Ipv6SupportValue
     Ipv6SupportValue (..),
+
+    -- ** KeyType
+    KeyType (..),
 
     -- ** LaunchTemplateErrorCode
     LaunchTemplateErrorCode (..),
@@ -3114,6 +3297,9 @@ module Network.AWS.EC2
 
     -- ** LaunchTemplateInstanceMetadataOptionsState
     LaunchTemplateInstanceMetadataOptionsState (..),
+
+    -- ** LaunchTemplateInstanceMetadataProtocolIpv6
+    LaunchTemplateInstanceMetadataProtocolIpv6 (..),
 
     -- ** ListingState
     ListingState (..),
@@ -3181,6 +3367,9 @@ module Network.AWS.EC2
     -- ** OperationType
     OperationType (..),
 
+    -- ** PartitionLoadFrequency
+    PartitionLoadFrequency (..),
+
     -- ** PaymentOption
     PaymentOption (..),
 
@@ -3219,6 +3408,9 @@ module Network.AWS.EC2
 
     -- ** RecurringChargeFrequency
     RecurringChargeFrequency (..),
+
+    -- ** ReplaceRootVolumeTaskState
+    ReplaceRootVolumeTaskState (..),
 
     -- ** ReplacementStrategy
     ReplacementStrategy (..),
@@ -3306,6 +3498,9 @@ module Network.AWS.EC2
 
     -- ** SubnetCidrBlockStateCode
     SubnetCidrBlockStateCode (..),
+
+    -- ** SubnetCidrReservationType
+    SubnetCidrReservationType (..),
 
     -- ** SubnetState
     SubnetState (..),
@@ -3445,6 +3640,9 @@ module Network.AWS.EC2
     -- ** VpnStaticRouteSource
     VpnStaticRouteSource (..),
 
+    -- ** WeekDay
+    WeekDay (..),
+
     -- ** AccountAttribute
     AccountAttribute (AccountAttribute'),
     newAccountAttribute,
@@ -3520,6 +3718,10 @@ module Network.AWS.EC2
     -- ** AssociationStatus
     AssociationStatus (AssociationStatus'),
     newAssociationStatus,
+
+    -- ** AthenaIntegration
+    AthenaIntegration (AthenaIntegration'),
+    newAthenaIntegration,
 
     -- ** AttributeBooleanValue
     AttributeBooleanValue (AttributeBooleanValue'),
@@ -3897,6 +4099,10 @@ module Network.AWS.EC2
     EbsOptimizedInfo (EbsOptimizedInfo'),
     newEbsOptimizedInfo,
 
+    -- ** EfaInfo
+    EfaInfo (EfaInfo'),
+    newEfaInfo,
+
     -- ** EgressOnlyInternetGateway
     EgressOnlyInternetGateway (EgressOnlyInternetGateway'),
     newEgressOnlyInternetGateway,
@@ -4229,6 +4435,34 @@ module Network.AWS.EC2
     InstanceCreditSpecificationRequest (InstanceCreditSpecificationRequest'),
     newInstanceCreditSpecificationRequest,
 
+    -- ** InstanceEventWindow
+    InstanceEventWindow (InstanceEventWindow'),
+    newInstanceEventWindow,
+
+    -- ** InstanceEventWindowAssociationRequest
+    InstanceEventWindowAssociationRequest (InstanceEventWindowAssociationRequest'),
+    newInstanceEventWindowAssociationRequest,
+
+    -- ** InstanceEventWindowAssociationTarget
+    InstanceEventWindowAssociationTarget (InstanceEventWindowAssociationTarget'),
+    newInstanceEventWindowAssociationTarget,
+
+    -- ** InstanceEventWindowDisassociationRequest
+    InstanceEventWindowDisassociationRequest (InstanceEventWindowDisassociationRequest'),
+    newInstanceEventWindowDisassociationRequest,
+
+    -- ** InstanceEventWindowStateChange
+    InstanceEventWindowStateChange (InstanceEventWindowStateChange'),
+    newInstanceEventWindowStateChange,
+
+    -- ** InstanceEventWindowTimeRange
+    InstanceEventWindowTimeRange (InstanceEventWindowTimeRange'),
+    newInstanceEventWindowTimeRange,
+
+    -- ** InstanceEventWindowTimeRangeRequest
+    InstanceEventWindowTimeRangeRequest (InstanceEventWindowTimeRangeRequest'),
+    newInstanceEventWindowTimeRangeRequest,
+
     -- ** InstanceExportDetails
     InstanceExportDetails (InstanceExportDetails'),
     newInstanceExportDetails,
@@ -4237,6 +4471,10 @@ module Network.AWS.EC2
     InstanceFamilyCreditSpecification (InstanceFamilyCreditSpecification'),
     newInstanceFamilyCreditSpecification,
 
+    -- ** InstanceIpv4Prefix
+    InstanceIpv4Prefix (InstanceIpv4Prefix'),
+    newInstanceIpv4Prefix,
+
     -- ** InstanceIpv6Address
     InstanceIpv6Address (InstanceIpv6Address'),
     newInstanceIpv6Address,
@@ -4244,6 +4482,10 @@ module Network.AWS.EC2
     -- ** InstanceIpv6AddressRequest
     InstanceIpv6AddressRequest (InstanceIpv6AddressRequest'),
     newInstanceIpv6AddressRequest,
+
+    -- ** InstanceIpv6Prefix
+    InstanceIpv6Prefix (InstanceIpv6Prefix'),
+    newInstanceIpv6Prefix,
 
     -- ** InstanceMarketOptionsRequest
     InstanceMarketOptionsRequest (InstanceMarketOptionsRequest'),
@@ -4329,6 +4571,10 @@ module Network.AWS.EC2
     InstanceUsage (InstanceUsage'),
     newInstanceUsage,
 
+    -- ** IntegrateServices
+    IntegrateServices (IntegrateServices'),
+    newIntegrateServices,
+
     -- ** InternetGateway
     InternetGateway (InternetGateway'),
     newInternetGateway,
@@ -4345,6 +4591,18 @@ module Network.AWS.EC2
     IpRange (IpRange'),
     newIpRange,
 
+    -- ** Ipv4PrefixSpecification
+    Ipv4PrefixSpecification (Ipv4PrefixSpecification'),
+    newIpv4PrefixSpecification,
+
+    -- ** Ipv4PrefixSpecificationRequest
+    Ipv4PrefixSpecificationRequest (Ipv4PrefixSpecificationRequest'),
+    newIpv4PrefixSpecificationRequest,
+
+    -- ** Ipv4PrefixSpecificationResponse
+    Ipv4PrefixSpecificationResponse (Ipv4PrefixSpecificationResponse'),
+    newIpv4PrefixSpecificationResponse,
+
     -- ** Ipv6CidrAssociation
     Ipv6CidrAssociation (Ipv6CidrAssociation'),
     newIpv6CidrAssociation,
@@ -4356,6 +4614,18 @@ module Network.AWS.EC2
     -- ** Ipv6Pool
     Ipv6Pool (Ipv6Pool'),
     newIpv6Pool,
+
+    -- ** Ipv6PrefixSpecification
+    Ipv6PrefixSpecification (Ipv6PrefixSpecification'),
+    newIpv6PrefixSpecification,
+
+    -- ** Ipv6PrefixSpecificationRequest
+    Ipv6PrefixSpecificationRequest (Ipv6PrefixSpecificationRequest'),
+    newIpv6PrefixSpecificationRequest,
+
+    -- ** Ipv6PrefixSpecificationResponse
+    Ipv6PrefixSpecificationResponse (Ipv6PrefixSpecificationResponse'),
+    newIpv6PrefixSpecificationResponse,
 
     -- ** Ipv6Range
     Ipv6Range (Ipv6Range'),
@@ -4873,6 +5143,10 @@ module Network.AWS.EC2
     RecurringCharge (RecurringCharge'),
     newRecurringCharge,
 
+    -- ** ReferencedSecurityGroup
+    ReferencedSecurityGroup (ReferencedSecurityGroup'),
+    newReferencedSecurityGroup,
+
     -- ** RegionInfo
     RegionInfo (RegionInfo'),
     newRegionInfo,
@@ -4884,6 +5158,10 @@ module Network.AWS.EC2
     -- ** RemovePrefixListEntry
     RemovePrefixListEntry (RemovePrefixListEntry'),
     newRemovePrefixListEntry,
+
+    -- ** ReplaceRootVolumeTask
+    ReplaceRootVolumeTask (ReplaceRootVolumeTask'),
+    newReplaceRootVolumeTask,
 
     -- ** RequestLaunchTemplateData
     RequestLaunchTemplateData (RequestLaunchTemplateData'),
@@ -4965,6 +5243,10 @@ module Network.AWS.EC2
     RunInstancesMonitoringEnabled (RunInstancesMonitoringEnabled'),
     newRunInstancesMonitoringEnabled,
 
+    -- ** S3ObjectTag
+    S3ObjectTag (S3ObjectTag'),
+    newS3ObjectTag,
+
     -- ** S3Storage
     S3Storage (S3Storage'),
     newS3Storage,
@@ -5032,6 +5314,22 @@ module Network.AWS.EC2
     -- ** SecurityGroupReference
     SecurityGroupReference (SecurityGroupReference'),
     newSecurityGroupReference,
+
+    -- ** SecurityGroupRule
+    SecurityGroupRule (SecurityGroupRule'),
+    newSecurityGroupRule,
+
+    -- ** SecurityGroupRuleDescription
+    SecurityGroupRuleDescription (SecurityGroupRuleDescription'),
+    newSecurityGroupRuleDescription,
+
+    -- ** SecurityGroupRuleRequest
+    SecurityGroupRuleRequest (SecurityGroupRuleRequest'),
+    newSecurityGroupRuleRequest,
+
+    -- ** SecurityGroupRuleUpdate
+    SecurityGroupRuleUpdate (SecurityGroupRuleUpdate'),
+    newSecurityGroupRuleUpdate,
 
     -- ** ServiceConfiguration
     ServiceConfiguration (ServiceConfiguration'),
@@ -5157,6 +5455,10 @@ module Network.AWS.EC2
     StorageLocation (StorageLocation'),
     newStorageLocation,
 
+    -- ** StoreImageTaskResult
+    StoreImageTaskResult (StoreImageTaskResult'),
+    newStoreImageTaskResult,
+
     -- ** Subnet
     Subnet (Subnet'),
     newSubnet,
@@ -5168,6 +5470,10 @@ module Network.AWS.EC2
     -- ** SubnetCidrBlockState
     SubnetCidrBlockState (SubnetCidrBlockState'),
     newSubnetCidrBlockState,
+
+    -- ** SubnetCidrReservation
+    SubnetCidrReservation (SubnetCidrReservation'),
+    newSubnetCidrReservation,
 
     -- ** SubnetIpv6CidrBlockAssociation
     SubnetIpv6CidrBlockAssociation (SubnetIpv6CidrBlockAssociation'),
@@ -5385,6 +5691,10 @@ module Network.AWS.EC2
     TransitGatewayVpcAttachmentOptions (TransitGatewayVpcAttachmentOptions'),
     newTransitGatewayVpcAttachmentOptions,
 
+    -- ** TrunkInterfaceAssociation
+    TrunkInterfaceAssociation (TrunkInterfaceAssociation'),
+    newTrunkInterfaceAssociation,
+
     -- ** TunnelOption
     TunnelOption (TunnelOption'),
     newTunnelOption,
@@ -5529,6 +5839,10 @@ module Network.AWS.EC2
     VpnConnection (VpnConnection'),
     newVpnConnection,
 
+    -- ** VpnConnectionDeviceType
+    VpnConnectionDeviceType (VpnConnectionDeviceType'),
+    newVpnConnectionDeviceType,
+
     -- ** VpnConnectionOptions
     VpnConnectionOptions (VpnConnectionOptions'),
     newVpnConnectionOptions,
@@ -5568,10 +5882,12 @@ import Network.AWS.EC2.AssociateClientVpnTargetNetwork
 import Network.AWS.EC2.AssociateDhcpOptions
 import Network.AWS.EC2.AssociateEnclaveCertificateIamRole
 import Network.AWS.EC2.AssociateIamInstanceProfile
+import Network.AWS.EC2.AssociateInstanceEventWindow
 import Network.AWS.EC2.AssociateRouteTable
 import Network.AWS.EC2.AssociateSubnetCidrBlock
 import Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.AssociateTransitGatewayRouteTable
+import Network.AWS.EC2.AssociateTrunkInterface
 import Network.AWS.EC2.AssociateVpcCidrBlock
 import Network.AWS.EC2.AttachClassicLinkVpc
 import Network.AWS.EC2.AttachInternetGateway
@@ -5607,6 +5923,7 @@ import Network.AWS.EC2.CreateFleet
 import Network.AWS.EC2.CreateFlowLogs
 import Network.AWS.EC2.CreateFpgaImage
 import Network.AWS.EC2.CreateImage
+import Network.AWS.EC2.CreateInstanceEventWindow
 import Network.AWS.EC2.CreateInstanceExportTask
 import Network.AWS.EC2.CreateInternetGateway
 import Network.AWS.EC2.CreateKeyPair
@@ -5622,14 +5939,18 @@ import Network.AWS.EC2.CreateNetworkInsightsPath
 import Network.AWS.EC2.CreateNetworkInterface
 import Network.AWS.EC2.CreateNetworkInterfacePermission
 import Network.AWS.EC2.CreatePlacementGroup
+import Network.AWS.EC2.CreateReplaceRootVolumeTask
 import Network.AWS.EC2.CreateReservedInstancesListing
+import Network.AWS.EC2.CreateRestoreImageTask
 import Network.AWS.EC2.CreateRoute
 import Network.AWS.EC2.CreateRouteTable
 import Network.AWS.EC2.CreateSecurityGroup
 import Network.AWS.EC2.CreateSnapshot
 import Network.AWS.EC2.CreateSnapshots
 import Network.AWS.EC2.CreateSpotDatafeedSubscription
+import Network.AWS.EC2.CreateStoreImageTask
 import Network.AWS.EC2.CreateSubnet
+import Network.AWS.EC2.CreateSubnetCidrReservation
 import Network.AWS.EC2.CreateTags
 import Network.AWS.EC2.CreateTrafficMirrorFilter
 import Network.AWS.EC2.CreateTrafficMirrorFilterRule
@@ -5662,6 +5983,7 @@ import Network.AWS.EC2.DeleteEgressOnlyInternetGateway
 import Network.AWS.EC2.DeleteFleets
 import Network.AWS.EC2.DeleteFlowLogs
 import Network.AWS.EC2.DeleteFpgaImage
+import Network.AWS.EC2.DeleteInstanceEventWindow
 import Network.AWS.EC2.DeleteInternetGateway
 import Network.AWS.EC2.DeleteKeyPair
 import Network.AWS.EC2.DeleteLaunchTemplate
@@ -5684,6 +6006,7 @@ import Network.AWS.EC2.DeleteSecurityGroup
 import Network.AWS.EC2.DeleteSnapshot
 import Network.AWS.EC2.DeleteSpotDatafeedSubscription
 import Network.AWS.EC2.DeleteSubnet
+import Network.AWS.EC2.DeleteSubnetCidrReservation
 import Network.AWS.EC2.DeleteTags
 import Network.AWS.EC2.DeleteTrafficMirrorFilter
 import Network.AWS.EC2.DeleteTrafficMirrorFilterRule
@@ -5755,6 +6078,7 @@ import Network.AWS.EC2.DescribeImportSnapshotTasks
 import Network.AWS.EC2.DescribeInstanceAttribute
 import Network.AWS.EC2.DescribeInstanceCreditSpecifications
 import Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
+import Network.AWS.EC2.DescribeInstanceEventWindows
 import Network.AWS.EC2.DescribeInstanceStatus
 import Network.AWS.EC2.DescribeInstanceTypeOfferings
 import Network.AWS.EC2.DescribeInstanceTypes
@@ -5784,6 +6108,7 @@ import Network.AWS.EC2.DescribePrefixLists
 import Network.AWS.EC2.DescribePrincipalIdFormat
 import Network.AWS.EC2.DescribePublicIpv4Pools
 import Network.AWS.EC2.DescribeRegions
+import Network.AWS.EC2.DescribeReplaceRootVolumeTasks
 import Network.AWS.EC2.DescribeReservedInstances
 import Network.AWS.EC2.DescribeReservedInstancesListings
 import Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -5792,6 +6117,7 @@ import Network.AWS.EC2.DescribeRouteTables
 import Network.AWS.EC2.DescribeScheduledInstanceAvailability
 import Network.AWS.EC2.DescribeScheduledInstances
 import Network.AWS.EC2.DescribeSecurityGroupReferences
+import Network.AWS.EC2.DescribeSecurityGroupRules
 import Network.AWS.EC2.DescribeSecurityGroups
 import Network.AWS.EC2.DescribeSnapshotAttribute
 import Network.AWS.EC2.DescribeSnapshots
@@ -5802,6 +6128,7 @@ import Network.AWS.EC2.DescribeSpotFleetRequests
 import Network.AWS.EC2.DescribeSpotInstanceRequests
 import Network.AWS.EC2.DescribeSpotPriceHistory
 import Network.AWS.EC2.DescribeStaleSecurityGroups
+import Network.AWS.EC2.DescribeStoreImageTasks
 import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeTags
 import Network.AWS.EC2.DescribeTrafficMirrorFilters
@@ -5815,6 +6142,7 @@ import Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
 import Network.AWS.EC2.DescribeTransitGatewayRouteTables
 import Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
 import Network.AWS.EC2.DescribeTransitGateways
+import Network.AWS.EC2.DescribeTrunkInterfaceAssociations
 import Network.AWS.EC2.DescribeVolumeAttribute
 import Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.EC2.DescribeVolumes
@@ -5839,6 +6167,8 @@ import Network.AWS.EC2.DetachVolume
 import Network.AWS.EC2.DetachVpnGateway
 import Network.AWS.EC2.DisableEbsEncryptionByDefault
 import Network.AWS.EC2.DisableFastSnapshotRestores
+import Network.AWS.EC2.DisableImageDeprecation
+import Network.AWS.EC2.DisableSerialConsoleAccess
 import Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
 import Network.AWS.EC2.DisableVgwRoutePropagation
 import Network.AWS.EC2.DisableVpcClassicLink
@@ -5847,13 +6177,17 @@ import Network.AWS.EC2.DisassociateAddress
 import Network.AWS.EC2.DisassociateClientVpnTargetNetwork
 import Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
 import Network.AWS.EC2.DisassociateIamInstanceProfile
+import Network.AWS.EC2.DisassociateInstanceEventWindow
 import Network.AWS.EC2.DisassociateRouteTable
 import Network.AWS.EC2.DisassociateSubnetCidrBlock
 import Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.DisassociateTransitGatewayRouteTable
+import Network.AWS.EC2.DisassociateTrunkInterface
 import Network.AWS.EC2.DisassociateVpcCidrBlock
 import Network.AWS.EC2.EnableEbsEncryptionByDefault
 import Network.AWS.EC2.EnableFastSnapshotRestores
+import Network.AWS.EC2.EnableImageDeprecation
+import Network.AWS.EC2.EnableSerialConsoleAccess
 import Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
 import Network.AWS.EC2.EnableVgwRoutePropagation
 import Network.AWS.EC2.EnableVolumeIO
@@ -5872,6 +6206,7 @@ import Network.AWS.EC2.GetConsoleScreenshot
 import Network.AWS.EC2.GetDefaultCreditSpecification
 import Network.AWS.EC2.GetEbsDefaultKmsKeyId
 import Network.AWS.EC2.GetEbsEncryptionByDefault
+import Network.AWS.EC2.GetFlowLogsIntegrationTemplate
 import Network.AWS.EC2.GetGroupsForCapacityReservation
 import Network.AWS.EC2.GetHostReservationPurchasePreview
 import Network.AWS.EC2.GetLaunchTemplateData
@@ -5879,11 +6214,15 @@ import Network.AWS.EC2.GetManagedPrefixListAssociations
 import Network.AWS.EC2.GetManagedPrefixListEntries
 import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.GetReservedInstancesExchangeQuote
+import Network.AWS.EC2.GetSerialConsoleAccessStatus
+import Network.AWS.EC2.GetSubnetCidrReservations
 import Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
 import Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
 import Network.AWS.EC2.GetTransitGatewayPrefixListReferences
 import Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
 import Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
+import Network.AWS.EC2.GetVpnConnectionDeviceSampleConfiguration
+import Network.AWS.EC2.GetVpnConnectionDeviceTypes
 import Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
 import Network.AWS.EC2.ImportImage
 import Network.AWS.EC2.ImportInstance
@@ -5908,12 +6247,14 @@ import Network.AWS.EC2.ModifyInstanceAttribute
 import Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
 import Network.AWS.EC2.ModifyInstanceCreditSpecification
 import Network.AWS.EC2.ModifyInstanceEventStartTime
+import Network.AWS.EC2.ModifyInstanceEventWindow
 import Network.AWS.EC2.ModifyInstanceMetadataOptions
 import Network.AWS.EC2.ModifyInstancePlacement
 import Network.AWS.EC2.ModifyLaunchTemplate
 import Network.AWS.EC2.ModifyManagedPrefixList
 import Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 import Network.AWS.EC2.ModifyReservedInstances
+import Network.AWS.EC2.ModifySecurityGroupRules
 import Network.AWS.EC2.ModifySnapshotAttribute
 import Network.AWS.EC2.ModifySpotFleetRequest
 import Network.AWS.EC2.ModifySubnetAttribute

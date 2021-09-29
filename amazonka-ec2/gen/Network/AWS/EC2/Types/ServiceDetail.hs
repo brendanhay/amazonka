@@ -41,10 +41,10 @@ data ServiceDetail = ServiceDetail'
     baseEndpointDnsNames :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the endpoint service.
     serviceId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the service supports endpoint policies.
-    vpcEndpointPolicySupported :: Prelude.Maybe Prelude.Bool,
     -- | The private DNS names assigned to the VPC endpoint service.
     privateDnsNames :: Prelude.Maybe [PrivateDnsDetails],
+    -- | Indicates whether the service supports endpoint policies.
+    vpcEndpointPolicySupported :: Prelude.Maybe Prelude.Bool,
     -- | The verification state of the VPC endpoint service.
     --
     -- Consumers of the endpoint service cannot use the private name when the
@@ -83,9 +83,9 @@ data ServiceDetail = ServiceDetail'
 --
 -- 'serviceId', 'serviceDetail_serviceId' - The ID of the endpoint service.
 --
--- 'vpcEndpointPolicySupported', 'serviceDetail_vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
---
 -- 'privateDnsNames', 'serviceDetail_privateDnsNames' - The private DNS names assigned to the VPC endpoint service.
+--
+-- 'vpcEndpointPolicySupported', 'serviceDetail_vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
 --
 -- 'privateDnsNameVerificationState', 'serviceDetail_privateDnsNameVerificationState' - The verification state of the VPC endpoint service.
 --
@@ -113,8 +113,8 @@ newServiceDetail =
       availabilityZones = Prelude.Nothing,
       baseEndpointDnsNames = Prelude.Nothing,
       serviceId = Prelude.Nothing,
-      vpcEndpointPolicySupported = Prelude.Nothing,
       privateDnsNames = Prelude.Nothing,
+      vpcEndpointPolicySupported = Prelude.Nothing,
       privateDnsNameVerificationState = Prelude.Nothing,
       serviceName = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -141,13 +141,13 @@ serviceDetail_baseEndpointDnsNames = Lens.lens (\ServiceDetail' {baseEndpointDns
 serviceDetail_serviceId :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Text)
 serviceDetail_serviceId = Lens.lens (\ServiceDetail' {serviceId} -> serviceId) (\s@ServiceDetail' {} a -> s {serviceId = a} :: ServiceDetail)
 
--- | Indicates whether the service supports endpoint policies.
-serviceDetail_vpcEndpointPolicySupported :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Bool)
-serviceDetail_vpcEndpointPolicySupported = Lens.lens (\ServiceDetail' {vpcEndpointPolicySupported} -> vpcEndpointPolicySupported) (\s@ServiceDetail' {} a -> s {vpcEndpointPolicySupported = a} :: ServiceDetail)
-
 -- | The private DNS names assigned to the VPC endpoint service.
 serviceDetail_privateDnsNames :: Lens.Lens' ServiceDetail (Prelude.Maybe [PrivateDnsDetails])
 serviceDetail_privateDnsNames = Lens.lens (\ServiceDetail' {privateDnsNames} -> privateDnsNames) (\s@ServiceDetail' {} a -> s {privateDnsNames = a} :: ServiceDetail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Indicates whether the service supports endpoint policies.
+serviceDetail_vpcEndpointPolicySupported :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Bool)
+serviceDetail_vpcEndpointPolicySupported = Lens.lens (\ServiceDetail' {vpcEndpointPolicySupported} -> vpcEndpointPolicySupported) (\s@ServiceDetail' {} a -> s {vpcEndpointPolicySupported = a} :: ServiceDetail)
 
 -- | The verification state of the VPC endpoint service.
 --
@@ -194,11 +194,11 @@ instance Core.FromXML ServiceDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "serviceId")
-      Prelude.<*> (x Core..@? "vpcEndpointPolicySupported")
       Prelude.<*> ( x Core..@? "privateDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "vpcEndpointPolicySupported")
       Prelude.<*> (x Core..@? "privateDnsNameVerificationState")
       Prelude.<*> (x Core..@? "serviceName")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty

@@ -49,8 +49,8 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
 
     -- * Request Lenses
     describeSpotInstanceRequests_nextToken,
-    describeSpotInstanceRequests_dryRun,
     describeSpotInstanceRequests_maxResults,
+    describeSpotInstanceRequests_dryRun,
     describeSpotInstanceRequests_spotInstanceRequestIds,
     describeSpotInstanceRequests_filters,
 
@@ -79,15 +79,15 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
   { -- | The token to request the next set of results. This value is @null@ when
     -- there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 5 and 1000. To retrieve the remaining results, make
+    -- another call with the returned @NextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 5 and 1000. To retrieve the remaining results, make
-    -- another call with the returned @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | One or more Spot Instance request IDs.
     spotInstanceRequestIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
@@ -191,7 +191,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     -- -   @status-message@ - The message explaining the status of the Spot
     --     Instance request.
     --
-    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    -- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -222,14 +222,14 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 -- 'nextToken', 'describeSpotInstanceRequests_nextToken' - The token to request the next set of results. This value is @null@ when
 -- there are no more results to return.
 --
+-- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 5 and 1000. To retrieve the remaining results, make
+-- another call with the returned @NextToken@ value.
+--
 -- 'dryRun', 'describeSpotInstanceRequests_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
 --
 -- 'spotInstanceRequestIds', 'describeSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
 --
@@ -334,7 +334,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 -- -   @status-message@ - The message explaining the status of the Spot
 --     Instance request.
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -356,8 +356,8 @@ newDescribeSpotInstanceRequests =
   DescribeSpotInstanceRequests'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       spotInstanceRequestIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -367,18 +367,18 @@ newDescribeSpotInstanceRequests =
 describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Text)
 describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequests' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequests' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
 
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 5 and 1000. To retrieve the remaining results, make
+-- another call with the returned @NextToken@ value.
+describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
+describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
 describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' {dryRun} -> dryRun) (\s@DescribeSpotInstanceRequests' {} a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
-
--- | The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
-describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
-describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
 
 -- | One or more Spot Instance request IDs.
 describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Prelude.Text])
@@ -485,7 +485,7 @@ describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotIn
 -- -   @status-message@ - The message explaining the status of the Spot
 --     Instance request.
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -565,8 +565,8 @@ instance Core.ToQuery DescribeSpotInstanceRequests where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "SpotInstanceRequestId"
               Prelude.<$> spotInstanceRequestIds

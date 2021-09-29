@@ -21,6 +21,7 @@ module Network.AWS.EC2.Types.SpotAllocationStrategy
   ( SpotAllocationStrategy
       ( ..,
         SpotAllocationStrategy_Capacity_optimized,
+        SpotAllocationStrategy_Capacity_optimized_prioritized,
         SpotAllocationStrategy_Diversified,
         SpotAllocationStrategy_Lowest_price
       ),
@@ -62,6 +63,9 @@ newtype SpotAllocationStrategy = SpotAllocationStrategy'
 pattern SpotAllocationStrategy_Capacity_optimized :: SpotAllocationStrategy
 pattern SpotAllocationStrategy_Capacity_optimized = SpotAllocationStrategy' "capacity-optimized"
 
+pattern SpotAllocationStrategy_Capacity_optimized_prioritized :: SpotAllocationStrategy
+pattern SpotAllocationStrategy_Capacity_optimized_prioritized = SpotAllocationStrategy' "capacity-optimized-prioritized"
+
 pattern SpotAllocationStrategy_Diversified :: SpotAllocationStrategy
 pattern SpotAllocationStrategy_Diversified = SpotAllocationStrategy' "diversified"
 
@@ -70,6 +74,7 @@ pattern SpotAllocationStrategy_Lowest_price = SpotAllocationStrategy' "lowest-pr
 
 {-# COMPLETE
   SpotAllocationStrategy_Capacity_optimized,
+  SpotAllocationStrategy_Capacity_optimized_prioritized,
   SpotAllocationStrategy_Diversified,
   SpotAllocationStrategy_Lowest_price,
   SpotAllocationStrategy'

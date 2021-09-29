@@ -24,25 +24,26 @@
 -- snapshots available to you.
 --
 -- The snapshots available to you include public snapshots, private
--- snapshots that you own, and private snapshots owned by other AWS
--- accounts for which you have explicit create volume permissions.
+-- snapshots that you own, and private snapshots owned by other Amazon Web
+-- Services accounts for which you have explicit create volume permissions.
 --
 -- The create volume permissions fall into the following categories:
 --
 -- -   /public/: The owner of the snapshot granted create volume
---     permissions for the snapshot to the @all@ group. All AWS accounts
---     have create volume permissions for these snapshots.
+--     permissions for the snapshot to the @all@ group. All Amazon Web
+--     Services accounts have create volume permissions for these
+--     snapshots.
 --
 -- -   /explicit/: The owner of the snapshot granted create volume
---     permissions to a specific AWS account.
+--     permissions to a specific Amazon Web Services account.
 --
--- -   /implicit/: An AWS account has implicit create volume permissions
---     for all snapshots it owns.
+-- -   /implicit/: An Amazon Web Services account has implicit create
+--     volume permissions for all snapshots it owns.
 --
 -- The list of snapshots returned can be filtered by specifying snapshot
--- IDs, snapshot owners, or AWS accounts with create volume permissions. If
--- no options are specified, Amazon EC2 returns all snapshots for which you
--- have create volume permissions.
+-- IDs, snapshot owners, or Amazon Web Services accounts with create volume
+-- permissions. If no options are specified, Amazon EC2 returns all
+-- snapshots for which you have create volume permissions.
 --
 -- If you specify one or more snapshot IDs, only snapshots that have the
 -- specified IDs are returned. If you specify an invalid snapshot ID, an
@@ -51,14 +52,15 @@
 --
 -- If you specify one or more snapshot owners using the @OwnerIds@ option,
 -- only snapshots from the specified owners and for which you have access
--- are returned. The results can include the AWS account IDs of the
--- specified owners, @amazon@ for snapshots owned by Amazon, or @self@ for
--- snapshots that you own.
+-- are returned. The results can include the Amazon Web Services account
+-- IDs of the specified owners, @amazon@ for snapshots owned by Amazon, or
+-- @self@ for snapshots that you own.
 --
 -- If you specify a list of restorable users, only snapshots with create
--- snapshot permissions for those users are returned. You can specify AWS
--- account IDs (if you own the snapshots), @self@ for snapshots for which
--- you own or have explicit permissions, or @all@ for public snapshots.
+-- snapshot permissions for those users are returned. You can specify
+-- Amazon Web Services account IDs (if you own the snapshots), @self@ for
+-- snapshots for which you own or have explicit permissions, or @all@ for
+-- public snapshots.
 --
 -- If you are describing a long list of snapshots, we recommend that you
 -- paginate the output to make the list more manageable. The @MaxResults@
@@ -84,8 +86,8 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Request Lenses
     describeSnapshots_ownerIds,
     describeSnapshots_nextToken,
-    describeSnapshots_dryRun,
     describeSnapshots_maxResults,
+    describeSnapshots_dryRun,
     describeSnapshots_restorableByUserIds,
     describeSnapshots_snapshotIds,
     describeSnapshots_filters,
@@ -111,7 +113,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
   { -- | Scopes the results to snapshots with the specified owners. You can
-    -- specify a combination of AWS account IDs, @self@, and @amazon@.
+    -- specify a combination of Amazon Web Services account IDs, @self@, and
+    -- @amazon@.
     ownerIds :: Prelude.Maybe [Prelude.Text],
     -- | The @NextToken@ value returned from a previous paginated
     -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
@@ -119,11 +122,6 @@ data DescribeSnapshots = DescribeSnapshots'
     -- of the previous results that returned the @NextToken@ value. This value
     -- is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of snapshot results returned by @DescribeSnapshots@
     -- in paginated output. When this parameter is used, @DescribeSnapshots@
     -- only returns @MaxResults@ results in a single page along with a
@@ -135,7 +133,13 @@ data DescribeSnapshots = DescribeSnapshots'
     -- returns all results. You cannot specify this parameter and the snapshot
     -- IDs parameter in the same request.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The IDs of the AWS accounts that can create volumes from the snapshot.
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IDs of the Amazon Web Services accounts that can create volumes from
+    -- the snapshot.
     restorableByUserIds :: Prelude.Maybe [Prelude.Text],
     -- | The snapshot IDs.
     --
@@ -150,12 +154,12 @@ data DescribeSnapshots = DescribeSnapshots'
     --     @false@)
     --
     -- -   @owner-alias@ - The owner alias, from an Amazon-maintained list
-    --     (@amazon@). This is not the user-configured AWS account alias set
-    --     using the IAM console. We recommend that you use the related
-    --     parameter instead of this filter.
+    --     (@amazon@). This is not the user-configured Amazon Web Services
+    --     account alias set using the IAM console. We recommend that you use
+    --     the related parameter instead of this filter.
     --
-    -- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
-    --     use the related parameter instead of this filter.
+    -- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
+    --     recommend that you use the related parameter instead of this filter.
     --
     -- -   @progress@ - The progress of the snapshot, as a percentage (for
     --     example, 80%).
@@ -193,18 +197,14 @@ data DescribeSnapshots = DescribeSnapshots'
 -- for backwards compatibility:
 --
 -- 'ownerIds', 'describeSnapshots_ownerIds' - Scopes the results to snapshots with the specified owners. You can
--- specify a combination of AWS account IDs, @self@, and @amazon@.
+-- specify a combination of Amazon Web Services account IDs, @self@, and
+-- @amazon@.
 --
 -- 'nextToken', 'describeSnapshots_nextToken' - The @NextToken@ value returned from a previous paginated
 -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
---
--- 'dryRun', 'describeSnapshots_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'maxResults', 'describeSnapshots_maxResults' - The maximum number of snapshot results returned by @DescribeSnapshots@
 -- in paginated output. When this parameter is used, @DescribeSnapshots@
@@ -217,7 +217,13 @@ data DescribeSnapshots = DescribeSnapshots'
 -- returns all results. You cannot specify this parameter and the snapshot
 -- IDs parameter in the same request.
 --
--- 'restorableByUserIds', 'describeSnapshots_restorableByUserIds' - The IDs of the AWS accounts that can create volumes from the snapshot.
+-- 'dryRun', 'describeSnapshots_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'restorableByUserIds', 'describeSnapshots_restorableByUserIds' - The IDs of the Amazon Web Services accounts that can create volumes from
+-- the snapshot.
 --
 -- 'snapshotIds', 'describeSnapshots_snapshotIds' - The snapshot IDs.
 --
@@ -232,12 +238,12 @@ data DescribeSnapshots = DescribeSnapshots'
 --     @false@)
 --
 -- -   @owner-alias@ - The owner alias, from an Amazon-maintained list
---     (@amazon@). This is not the user-configured AWS account alias set
---     using the IAM console. We recommend that you use the related
---     parameter instead of this filter.
+--     (@amazon@). This is not the user-configured Amazon Web Services
+--     account alias set using the IAM console. We recommend that you use
+--     the related parameter instead of this filter.
 --
--- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
---     use the related parameter instead of this filter.
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
+--     recommend that you use the related parameter instead of this filter.
 --
 -- -   @progress@ - The progress of the snapshot, as a percentage (for
 --     example, 80%).
@@ -268,15 +274,16 @@ newDescribeSnapshots =
   DescribeSnapshots'
     { ownerIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       restorableByUserIds = Prelude.Nothing,
       snapshotIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
 -- | Scopes the results to snapshots with the specified owners. You can
--- specify a combination of AWS account IDs, @self@, and @amazon@.
+-- specify a combination of Amazon Web Services account IDs, @self@, and
+-- @amazon@.
 describeSnapshots_ownerIds :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Prelude.Text])
 describeSnapshots_ownerIds = Lens.lens (\DescribeSnapshots' {ownerIds} -> ownerIds) (\s@DescribeSnapshots' {} a -> s {ownerIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
@@ -287,13 +294,6 @@ describeSnapshots_ownerIds = Lens.lens (\DescribeSnapshots' {ownerIds} -> ownerI
 -- is @null@ when there are no more results to return.
 describeSnapshots_nextToken :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> nextToken) (\s@DescribeSnapshots' {} a -> s {nextToken = a} :: DescribeSnapshots)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSnapshots_dryRun :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
-describeSnapshots_dryRun = Lens.lens (\DescribeSnapshots' {dryRun} -> dryRun) (\s@DescribeSnapshots' {} a -> s {dryRun = a} :: DescribeSnapshots)
 
 -- | The maximum number of snapshot results returned by @DescribeSnapshots@
 -- in paginated output. When this parameter is used, @DescribeSnapshots@
@@ -308,7 +308,15 @@ describeSnapshots_dryRun = Lens.lens (\DescribeSnapshots' {dryRun} -> dryRun) (\
 describeSnapshots_maxResults :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
 describeSnapshots_maxResults = Lens.lens (\DescribeSnapshots' {maxResults} -> maxResults) (\s@DescribeSnapshots' {} a -> s {maxResults = a} :: DescribeSnapshots)
 
--- | The IDs of the AWS accounts that can create volumes from the snapshot.
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSnapshots_dryRun :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
+describeSnapshots_dryRun = Lens.lens (\DescribeSnapshots' {dryRun} -> dryRun) (\s@DescribeSnapshots' {} a -> s {dryRun = a} :: DescribeSnapshots)
+
+-- | The IDs of the Amazon Web Services accounts that can create volumes from
+-- the snapshot.
 describeSnapshots_restorableByUserIds :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Prelude.Text])
 describeSnapshots_restorableByUserIds = Lens.lens (\DescribeSnapshots' {restorableByUserIds} -> restorableByUserIds) (\s@DescribeSnapshots' {} a -> s {restorableByUserIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
@@ -327,12 +335,12 @@ describeSnapshots_snapshotIds = Lens.lens (\DescribeSnapshots' {snapshotIds} -> 
 --     @false@)
 --
 -- -   @owner-alias@ - The owner alias, from an Amazon-maintained list
---     (@amazon@). This is not the user-configured AWS account alias set
---     using the IAM console. We recommend that you use the related
---     parameter instead of this filter.
+--     (@amazon@). This is not the user-configured Amazon Web Services
+--     account alias set using the IAM console. We recommend that you use
+--     the related parameter instead of this filter.
 --
--- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
---     use the related parameter instead of this filter.
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
+--     recommend that you use the related parameter instead of this filter.
 --
 -- -   @progress@ - The progress of the snapshot, as a percentage (for
 --     example, 80%).
@@ -418,8 +426,8 @@ instance Core.ToQuery DescribeSnapshots where
         Core.toQuery
           (Core.toQueryList "Owner" Prelude.<$> ownerIds),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "RestorableBy"
               Prelude.<$> restorableByUserIds

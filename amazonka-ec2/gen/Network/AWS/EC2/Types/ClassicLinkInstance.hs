@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClassicLinkInstance' smart constructor.
 data ClassicLinkInstance = ClassicLinkInstance'
-  { -- | A list of security groups.
-    groups :: Prelude.Maybe [GroupIdentifier],
-    -- | The ID of the instance.
+  { -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | A list of security groups.
+    groups :: Prelude.Maybe [GroupIdentifier],
     -- | Any tags assigned to the instance.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the VPC.
@@ -49,9 +49,9 @@ data ClassicLinkInstance = ClassicLinkInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'classicLinkInstance_groups' - A list of security groups.
---
 -- 'instanceId', 'classicLinkInstance_instanceId' - The ID of the instance.
+--
+-- 'groups', 'classicLinkInstance_groups' - A list of security groups.
 --
 -- 'tags', 'classicLinkInstance_tags' - Any tags assigned to the instance.
 --
@@ -60,19 +60,19 @@ newClassicLinkInstance ::
   ClassicLinkInstance
 newClassicLinkInstance =
   ClassicLinkInstance'
-    { groups = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      groups = Prelude.Nothing,
       tags = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | A list of security groups.
-classicLinkInstance_groups :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [GroupIdentifier])
-classicLinkInstance_groups = Lens.lens (\ClassicLinkInstance' {groups} -> groups) (\s@ClassicLinkInstance' {} a -> s {groups = a} :: ClassicLinkInstance) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The ID of the instance.
 classicLinkInstance_instanceId :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe Prelude.Text)
 classicLinkInstance_instanceId = Lens.lens (\ClassicLinkInstance' {instanceId} -> instanceId) (\s@ClassicLinkInstance' {} a -> s {instanceId = a} :: ClassicLinkInstance)
+
+-- | A list of security groups.
+classicLinkInstance_groups :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [GroupIdentifier])
+classicLinkInstance_groups = Lens.lens (\ClassicLinkInstance' {groups} -> groups) (\s@ClassicLinkInstance' {} a -> s {groups = a} :: ClassicLinkInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any tags assigned to the instance.
 classicLinkInstance_tags :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [Tag])
@@ -85,10 +85,10 @@ classicLinkInstance_vpcId = Lens.lens (\ClassicLinkInstance' {vpcId} -> vpcId) (
 instance Core.FromXML ClassicLinkInstance where
   parseXML x =
     ClassicLinkInstance'
-      Prelude.<$> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceId")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

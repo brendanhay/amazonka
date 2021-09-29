@@ -30,22 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSpotMarketOptions' smart constructor.
 data SpotMarketOptions = SpotMarketOptions'
-  { -- | The required duration for the Spot Instances (also known as Spot
-    -- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
-    -- 240, 300, or 360).
-    --
-    -- The duration period starts as soon as your Spot Instance receives its
-    -- instance ID. At the end of the duration period, Amazon EC2 marks the
-    -- Spot Instance for termination and provides a Spot Instance termination
-    -- notice, which gives the instance a two-minute warning before it
-    -- terminates.
-    --
-    -- You can\'t specify an Availability Zone group or a launch group if you
-    -- specify a duration.
-    --
-    -- New accounts or accounts with no previous billing history with AWS are
-    -- not eligible for Spot Instances with a defined duration (also known as
-    -- Spot blocks).
+  { -- | Deprecated.
     blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
@@ -80,22 +65,7 @@ data SpotMarketOptions = SpotMarketOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockDurationMinutes', 'spotMarketOptions_blockDurationMinutes' - The required duration for the Spot Instances (also known as Spot
--- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
--- 240, 300, or 360).
---
--- The duration period starts as soon as your Spot Instance receives its
--- instance ID. At the end of the duration period, Amazon EC2 marks the
--- Spot Instance for termination and provides a Spot Instance termination
--- notice, which gives the instance a two-minute warning before it
--- terminates.
---
--- You can\'t specify an Availability Zone group or a launch group if you
--- specify a duration.
---
--- New accounts or accounts with no previous billing history with AWS are
--- not eligible for Spot Instances with a defined duration (also known as
--- Spot blocks).
+-- 'blockDurationMinutes', 'spotMarketOptions_blockDurationMinutes' - Deprecated.
 --
 -- 'instanceInterruptionBehavior', 'spotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
@@ -130,22 +100,7 @@ newSpotMarketOptions =
       maxPrice = Prelude.Nothing
     }
 
--- | The required duration for the Spot Instances (also known as Spot
--- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
--- 240, 300, or 360).
---
--- The duration period starts as soon as your Spot Instance receives its
--- instance ID. At the end of the duration period, Amazon EC2 marks the
--- Spot Instance for termination and provides a Spot Instance termination
--- notice, which gives the instance a two-minute warning before it
--- terminates.
---
--- You can\'t specify an Availability Zone group or a launch group if you
--- specify a duration.
---
--- New accounts or accounts with no previous billing history with AWS are
--- not eligible for Spot Instances with a defined duration (also known as
--- Spot blocks).
+-- | Deprecated.
 spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Int)
 spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: SpotMarketOptions)
 

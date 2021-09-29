@@ -21,6 +21,7 @@ module Network.AWS.EC2.Types.AllocationStrategy
   ( AllocationStrategy
       ( ..,
         AllocationStrategy_CapacityOptimized,
+        AllocationStrategy_CapacityOptimizedPrioritized,
         AllocationStrategy_Diversified,
         AllocationStrategy_LowestPrice
       ),
@@ -62,6 +63,9 @@ newtype AllocationStrategy = AllocationStrategy'
 pattern AllocationStrategy_CapacityOptimized :: AllocationStrategy
 pattern AllocationStrategy_CapacityOptimized = AllocationStrategy' "capacityOptimized"
 
+pattern AllocationStrategy_CapacityOptimizedPrioritized :: AllocationStrategy
+pattern AllocationStrategy_CapacityOptimizedPrioritized = AllocationStrategy' "capacityOptimizedPrioritized"
+
 pattern AllocationStrategy_Diversified :: AllocationStrategy
 pattern AllocationStrategy_Diversified = AllocationStrategy' "diversified"
 
@@ -70,6 +74,7 @@ pattern AllocationStrategy_LowestPrice = AllocationStrategy' "lowestPrice"
 
 {-# COMPLETE
   AllocationStrategy_CapacityOptimized,
+  AllocationStrategy_CapacityOptimizedPrioritized,
   AllocationStrategy_Diversified,
   AllocationStrategy_LowestPrice,
   AllocationStrategy'

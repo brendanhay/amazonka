@@ -217,7 +217,11 @@ instance
 --
 -- /See:/ 'newPurchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
-  { -- | The IDs of the purchased Reserved Instances.
+  { -- | The IDs of the purchased Reserved Instances. If your purchase crosses
+    -- into a discounted pricing tier, the final Reserved Instances IDs might
+    -- change. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers Crossing pricing tiers>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -232,7 +236,11 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedInstancesId', 'purchaseReservedInstancesOfferingResponse_reservedInstancesId' - The IDs of the purchased Reserved Instances.
+-- 'reservedInstancesId', 'purchaseReservedInstancesOfferingResponse_reservedInstancesId' - The IDs of the purchased Reserved Instances. If your purchase crosses
+-- into a discounted pricing tier, the final Reserved Instances IDs might
+-- change. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers Crossing pricing tiers>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'httpStatus', 'purchaseReservedInstancesOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedInstancesOfferingResponse ::
@@ -247,7 +255,11 @@ newPurchaseReservedInstancesOfferingResponse
         httpStatus = pHttpStatus_
       }
 
--- | The IDs of the purchased Reserved Instances.
+-- | The IDs of the purchased Reserved Instances. If your purchase crosses
+-- into a discounted pricing tier, the final Reserved Instances IDs might
+-- change. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers Crossing pricing tiers>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 purchaseReservedInstancesOfferingResponse_reservedInstancesId :: Lens.Lens' PurchaseReservedInstancesOfferingResponse (Prelude.Maybe Prelude.Text)
 purchaseReservedInstancesOfferingResponse_reservedInstancesId = Lens.lens (\PurchaseReservedInstancesOfferingResponse' {reservedInstancesId} -> reservedInstancesId) (\s@PurchaseReservedInstancesOfferingResponse' {} a -> s {reservedInstancesId = a} :: PurchaseReservedInstancesOfferingResponse)
 

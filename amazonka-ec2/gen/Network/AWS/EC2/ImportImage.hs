@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Import single or multi-volume disk images or EBS snapshots into an
--- Amazon Machine Image (AMI). For more information, see
--- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import\/Export>
+-- Amazon Machine Image (AMI).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an image using VM Import\/Export>
 -- in the /VM Import\/Export User Guide/.
 module Network.AWS.EC2.ImportImage
   ( -- * Creating a Request
@@ -30,14 +32,16 @@ module Network.AWS.EC2.ImportImage
     newImportImage,
 
     -- * Request Lenses
-    importImage_hypervisor,
     importImage_platform,
+    importImage_hypervisor,
     importImage_tagSpecifications,
-    importImage_dryRun,
     importImage_encrypted,
+    importImage_dryRun,
     importImage_roleName,
-    importImage_licenseSpecifications,
+    importImage_usageOperation,
     importImage_architecture,
+    importImage_bootMode,
+    importImage_licenseSpecifications,
     importImage_kmsKeyId,
     importImage_diskContainers,
     importImage_clientData,
@@ -50,15 +54,16 @@ module Network.AWS.EC2.ImportImage
     newImportImageResponse,
 
     -- * Response Lenses
-    importImageResponse_hypervisor,
     importImageResponse_platform,
+    importImageResponse_hypervisor,
     importImageResponse_statusMessage,
     importImageResponse_status,
-    importImageResponse_snapshotDetails,
     importImageResponse_encrypted,
-    importImageResponse_importTaskId,
-    importImageResponse_licenseSpecifications,
+    importImageResponse_snapshotDetails,
+    importImageResponse_usageOperation,
     importImageResponse_architecture,
+    importImageResponse_licenseSpecifications,
+    importImageResponse_importTaskId,
     importImageResponse_imageId,
     importImageResponse_kmsKeyId,
     importImageResponse_tags,
@@ -78,71 +83,78 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportImage' smart constructor.
 data ImportImage = ImportImage'
-  { -- | The target hypervisor platform.
-    --
-    -- Valid values: @xen@
-    hypervisor :: Prelude.Maybe Prelude.Text,
-    -- | The operating system of the virtual machine.
+  { -- | The operating system of the virtual machine.
     --
     -- Valid values: @Windows@ | @Linux@
     platform :: Prelude.Maybe Prelude.Text,
+    -- | The target hypervisor platform.
+    --
+    -- Valid values: @xen@
+    hypervisor :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the import image task during creation.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Specifies whether the destination AMI of the imported image should be
+    -- encrypted. The default KMS key for EBS is used unless you specify a
+    -- non-default KMS key using @KmsKeyId@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the destination AMI of the imported image should be
-    -- encrypted. The default CMK for EBS is used unless you specify a
-    -- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The name of the role to use when not using the default role,
     -- \'vmimport\'.
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | The ARNs of the license configurations.
-    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationRequest],
+    -- | The usage operation value. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    usageOperation :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the virtual machine.
     --
     -- Valid values: @i386@ | @x86_64@ | @arm64@
     architecture :: Prelude.Maybe Prelude.Text,
-    -- | An identifier for the symmetric AWS Key Management Service (AWS KMS)
-    -- customer master key (CMK) to use when creating the encrypted AMI. This
-    -- parameter is only required if you want to use a non-default CMK; if this
-    -- parameter is not specified, the default CMK for EBS is used. If a
-    -- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+    -- | The boot mode of the virtual machine.
+    bootMode :: Prelude.Maybe BootModeValues,
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationRequest],
+    -- | An identifier for the symmetric KMS key to use when creating the
+    -- encrypted AMI. This parameter is only required if you want to use a
+    -- non-default KMS key; if this parameter is not specified, the default KMS
+    -- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag
+    -- must also be set.
     --
-    -- The CMK identifier may be provided in any of the following formats:
+    -- The KMS key identifier may be provided in any of the following formats:
     --
     -- -   Key ID
     --
     -- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
-    --     followed by the Region of the CMK, the AWS account ID of the CMK
-    --     owner, the @alias@ namespace, and then the CMK alias. For example,
+    --     followed by the Region of the key, the Amazon Web Services account
+    --     ID of the key owner, the @alias@ namespace, and then the key alias.
+    --     For example,
     --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
     --
     -- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
-    --     followed by the Region of the CMK, the AWS account ID of the CMK
-    --     owner, the @key@ namespace, and then the CMK ID. For example,
+    --     followed by the Region of the key, the Amazon Web Services account
+    --     ID of the key owner, the @key@ namespace, and then the key ID. For
+    --     example,
     --     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
     --
     -- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
-    --     namespace, followed by the Region of the CMK, the AWS account ID of
-    --     the CMK owner, the @alias@ namespace, and then the CMK alias. For
-    --     example,
+    --     namespace, followed by the Region of the key, the Amazon Web
+    --     Services account ID of the key owner, the @alias@ namespace, and
+    --     then the key alias. For example,
     --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
     --
-    -- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
-    -- may appear to complete even though you provided an invalid identifier.
-    -- This action will eventually report failure.
+    -- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the
+    -- action you call may appear to complete even though you provided an
+    -- invalid identifier. This action will eventually report failure.
     --
-    -- The specified CMK must exist in the Region that the AMI is being copied
-    -- to.
+    -- The specified KMS key must exist in the Region that the AMI is being
+    -- copied to.
     --
-    -- Amazon EBS does not support asymmetric CMKs.
+    -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Information about the disk containers.
     diskContainers :: Prelude.Maybe [ImageDiskContainer],
@@ -155,11 +167,12 @@ data ImportImage = ImportImage'
     --
     -- By default, we detect the source-system operating system (OS) and apply
     -- the appropriate license. Specify @AWS@ to replace the source-system
-    -- license with an AWS license, if appropriate. Specify @BYOL@ to retain
-    -- the source-system license, if appropriate.
+    -- license with an Amazon Web Services license, if appropriate. Specify
+    -- @BYOL@ to retain the source-system license, if appropriate.
     --
     -- To use @BYOL@, you must have existing licenses with rights to use these
-    -- licenses in a third party cloud, such as AWS. For more information, see
+    -- licenses in a third party cloud, such as Amazon Web Services. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
     -- in the VM Import\/Export User Guide.
     licenseType :: Prelude.Maybe Prelude.Text,
@@ -176,71 +189,78 @@ data ImportImage = ImportImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hypervisor', 'importImage_hypervisor' - The target hypervisor platform.
---
--- Valid values: @xen@
---
 -- 'platform', 'importImage_platform' - The operating system of the virtual machine.
 --
 -- Valid values: @Windows@ | @Linux@
 --
+-- 'hypervisor', 'importImage_hypervisor' - The target hypervisor platform.
+--
+-- Valid values: @xen@
+--
 -- 'tagSpecifications', 'importImage_tagSpecifications' - The tags to apply to the import image task during creation.
+--
+-- 'encrypted', 'importImage_encrypted' - Specifies whether the destination AMI of the imported image should be
+-- encrypted. The default KMS key for EBS is used unless you specify a
+-- non-default KMS key using @KmsKeyId@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'dryRun', 'importImage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'encrypted', 'importImage_encrypted' - Specifies whether the destination AMI of the imported image should be
--- encrypted. The default CMK for EBS is used unless you specify a
--- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
 -- 'roleName', 'importImage_roleName' - The name of the role to use when not using the default role,
 -- \'vmimport\'.
 --
--- 'licenseSpecifications', 'importImage_licenseSpecifications' - The ARNs of the license configurations.
+-- 'usageOperation', 'importImage_usageOperation' - The usage operation value. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'architecture', 'importImage_architecture' - The architecture of the virtual machine.
 --
 -- Valid values: @i386@ | @x86_64@ | @arm64@
 --
--- 'kmsKeyId', 'importImage_kmsKeyId' - An identifier for the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) to use when creating the encrypted AMI. This
--- parameter is only required if you want to use a non-default CMK; if this
--- parameter is not specified, the default CMK for EBS is used. If a
--- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+-- 'bootMode', 'importImage_bootMode' - The boot mode of the virtual machine.
 --
--- The CMK identifier may be provided in any of the following formats:
+-- 'licenseSpecifications', 'importImage_licenseSpecifications' - The ARNs of the license configurations.
+--
+-- 'kmsKeyId', 'importImage_kmsKeyId' - An identifier for the symmetric KMS key to use when creating the
+-- encrypted AMI. This parameter is only required if you want to use a
+-- non-default KMS key; if this parameter is not specified, the default KMS
+-- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag
+-- must also be set.
+--
+-- The KMS key identifier may be provided in any of the following formats:
 --
 -- -   Key ID
 --
 -- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
---     followed by the Region of the CMK, the AWS account ID of the CMK
---     owner, the @alias@ namespace, and then the CMK alias. For example,
+--     followed by the Region of the key, the Amazon Web Services account
+--     ID of the key owner, the @alias@ namespace, and then the key alias.
+--     For example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
 --
 -- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
---     followed by the Region of the CMK, the AWS account ID of the CMK
---     owner, the @key@ namespace, and then the CMK ID. For example,
+--     followed by the Region of the key, the Amazon Web Services account
+--     ID of the key owner, the @key@ namespace, and then the key ID. For
+--     example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
 --
 -- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
---     namespace, followed by the Region of the CMK, the AWS account ID of
---     the CMK owner, the @alias@ namespace, and then the CMK alias. For
---     example,
+--     namespace, followed by the Region of the key, the Amazon Web
+--     Services account ID of the key owner, the @alias@ namespace, and
+--     then the key alias. For example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
 --
--- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
--- may appear to complete even though you provided an invalid identifier.
--- This action will eventually report failure.
+-- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the
+-- action you call may appear to complete even though you provided an
+-- invalid identifier. This action will eventually report failure.
 --
--- The specified CMK must exist in the Region that the AMI is being copied
--- to.
+-- The specified KMS key must exist in the Region that the AMI is being
+-- copied to.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 --
 -- 'diskContainers', 'importImage_diskContainers' - Information about the disk containers.
 --
@@ -253,11 +273,12 @@ data ImportImage = ImportImage'
 --
 -- By default, we detect the source-system operating system (OS) and apply
 -- the appropriate license. Specify @AWS@ to replace the source-system
--- license with an AWS license, if appropriate. Specify @BYOL@ to retain
--- the source-system license, if appropriate.
+-- license with an Amazon Web Services license, if appropriate. Specify
+-- @BYOL@ to retain the source-system license, if appropriate.
 --
 -- To use @BYOL@, you must have existing licenses with rights to use these
--- licenses in a third party cloud, such as AWS. For more information, see
+-- licenses in a third party cloud, such as Amazon Web Services. For more
+-- information, see
 -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
 -- in the VM Import\/Export User Guide.
 --
@@ -266,14 +287,16 @@ newImportImage ::
   ImportImage
 newImportImage =
   ImportImage'
-    { hypervisor = Prelude.Nothing,
-      platform = Prelude.Nothing,
+    { platform = Prelude.Nothing,
+      hypervisor = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       encrypted = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       roleName = Prelude.Nothing,
-      licenseSpecifications = Prelude.Nothing,
+      usageOperation = Prelude.Nothing,
       architecture = Prelude.Nothing,
+      bootMode = Prelude.Nothing,
+      licenseSpecifications = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       diskContainers = Prelude.Nothing,
       clientData = Prelude.Nothing,
@@ -282,21 +305,29 @@ newImportImage =
       clientToken = Prelude.Nothing
     }
 
--- | The target hypervisor platform.
---
--- Valid values: @xen@
-importImage_hypervisor :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
-importImage_hypervisor = Lens.lens (\ImportImage' {hypervisor} -> hypervisor) (\s@ImportImage' {} a -> s {hypervisor = a} :: ImportImage)
-
 -- | The operating system of the virtual machine.
 --
 -- Valid values: @Windows@ | @Linux@
 importImage_platform :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
 importImage_platform = Lens.lens (\ImportImage' {platform} -> platform) (\s@ImportImage' {} a -> s {platform = a} :: ImportImage)
 
+-- | The target hypervisor platform.
+--
+-- Valid values: @xen@
+importImage_hypervisor :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_hypervisor = Lens.lens (\ImportImage' {hypervisor} -> hypervisor) (\s@ImportImage' {} a -> s {hypervisor = a} :: ImportImage)
+
 -- | The tags to apply to the import image task during creation.
 importImage_tagSpecifications :: Lens.Lens' ImportImage (Prelude.Maybe [TagSpecification])
 importImage_tagSpecifications = Lens.lens (\ImportImage' {tagSpecifications} -> tagSpecifications) (\s@ImportImage' {} a -> s {tagSpecifications = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies whether the destination AMI of the imported image should be
+-- encrypted. The default KMS key for EBS is used unless you specify a
+-- non-default KMS key using @KmsKeyId@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+importImage_encrypted :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Bool)
+importImage_encrypted = Lens.lens (\ImportImage' {encrypted} -> encrypted) (\s@ImportImage' {} a -> s {encrypted = a} :: ImportImage)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -305,23 +336,16 @@ importImage_tagSpecifications = Lens.lens (\ImportImage' {tagSpecifications} -> 
 importImage_dryRun :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Bool)
 importImage_dryRun = Lens.lens (\ImportImage' {dryRun} -> dryRun) (\s@ImportImage' {} a -> s {dryRun = a} :: ImportImage)
 
--- | Specifies whether the destination AMI of the imported image should be
--- encrypted. The default CMK for EBS is used unless you specify a
--- non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-importImage_encrypted :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Bool)
-importImage_encrypted = Lens.lens (\ImportImage' {encrypted} -> encrypted) (\s@ImportImage' {} a -> s {encrypted = a} :: ImportImage)
-
 -- | The name of the role to use when not using the default role,
 -- \'vmimport\'.
 importImage_roleName :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
 importImage_roleName = Lens.lens (\ImportImage' {roleName} -> roleName) (\s@ImportImage' {} a -> s {roleName = a} :: ImportImage)
 
--- | The ARNs of the license configurations.
-importImage_licenseSpecifications :: Lens.Lens' ImportImage (Prelude.Maybe [ImportImageLicenseConfigurationRequest])
-importImage_licenseSpecifications = Lens.lens (\ImportImage' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImage' {} a -> s {licenseSpecifications = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
+-- | The usage operation value. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+importImage_usageOperation :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
+importImage_usageOperation = Lens.lens (\ImportImage' {usageOperation} -> usageOperation) (\s@ImportImage' {} a -> s {usageOperation = a} :: ImportImage)
 
 -- | The architecture of the virtual machine.
 --
@@ -329,40 +353,50 @@ importImage_licenseSpecifications = Lens.lens (\ImportImage' {licenseSpecificati
 importImage_architecture :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
 importImage_architecture = Lens.lens (\ImportImage' {architecture} -> architecture) (\s@ImportImage' {} a -> s {architecture = a} :: ImportImage)
 
--- | An identifier for the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) to use when creating the encrypted AMI. This
--- parameter is only required if you want to use a non-default CMK; if this
--- parameter is not specified, the default CMK for EBS is used. If a
--- @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+-- | The boot mode of the virtual machine.
+importImage_bootMode :: Lens.Lens' ImportImage (Prelude.Maybe BootModeValues)
+importImage_bootMode = Lens.lens (\ImportImage' {bootMode} -> bootMode) (\s@ImportImage' {} a -> s {bootMode = a} :: ImportImage)
+
+-- | The ARNs of the license configurations.
+importImage_licenseSpecifications :: Lens.Lens' ImportImage (Prelude.Maybe [ImportImageLicenseConfigurationRequest])
+importImage_licenseSpecifications = Lens.lens (\ImportImage' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImage' {} a -> s {licenseSpecifications = a} :: ImportImage) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An identifier for the symmetric KMS key to use when creating the
+-- encrypted AMI. This parameter is only required if you want to use a
+-- non-default KMS key; if this parameter is not specified, the default KMS
+-- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag
+-- must also be set.
 --
--- The CMK identifier may be provided in any of the following formats:
+-- The KMS key identifier may be provided in any of the following formats:
 --
 -- -   Key ID
 --
 -- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,
---     followed by the Region of the CMK, the AWS account ID of the CMK
---     owner, the @alias@ namespace, and then the CMK alias. For example,
+--     followed by the Region of the key, the Amazon Web Services account
+--     ID of the key owner, the @alias@ namespace, and then the key alias.
+--     For example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
 --
 -- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,
---     followed by the Region of the CMK, the AWS account ID of the CMK
---     owner, the @key@ namespace, and then the CMK ID. For example,
+--     followed by the Region of the key, the Amazon Web Services account
+--     ID of the key owner, the @key@ namespace, and then the key ID. For
+--     example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
 --
 -- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@
---     namespace, followed by the Region of the CMK, the AWS account ID of
---     the CMK owner, the @alias@ namespace, and then the CMK alias. For
---     example,
+--     namespace, followed by the Region of the key, the Amazon Web
+--     Services account ID of the key owner, the @alias@ namespace, and
+--     then the key alias. For example,
 --     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.
 --
--- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call
--- may appear to complete even though you provided an invalid identifier.
--- This action will eventually report failure.
+-- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the
+-- action you call may appear to complete even though you provided an
+-- invalid identifier. This action will eventually report failure.
 --
--- The specified CMK must exist in the Region that the AMI is being copied
--- to.
+-- The specified KMS key must exist in the Region that the AMI is being
+-- copied to.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 importImage_kmsKeyId :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
 importImage_kmsKeyId = Lens.lens (\ImportImage' {kmsKeyId} -> kmsKeyId) (\s@ImportImage' {} a -> s {kmsKeyId = a} :: ImportImage)
 
@@ -383,11 +417,12 @@ importImage_description = Lens.lens (\ImportImage' {description} -> description)
 --
 -- By default, we detect the source-system operating system (OS) and apply
 -- the appropriate license. Specify @AWS@ to replace the source-system
--- license with an AWS license, if appropriate. Specify @BYOL@ to retain
--- the source-system license, if appropriate.
+-- license with an Amazon Web Services license, if appropriate. Specify
+-- @BYOL@ to retain the source-system license, if appropriate.
 --
 -- To use @BYOL@, you must have existing licenses with rights to use these
--- licenses in a third party cloud, such as AWS. For more information, see
+-- licenses in a third party cloud, such as Amazon Web Services. For more
+-- information, see
 -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites>
 -- in the VM Import\/Export User Guide.
 importImage_licenseType :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
@@ -404,21 +439,22 @@ instance Core.AWSRequest ImportImage where
     Response.receiveXML
       ( \s h x ->
           ImportImageResponse'
-            Prelude.<$> (x Core..@? "hypervisor")
-            Prelude.<*> (x Core..@? "platform")
+            Prelude.<$> (x Core..@? "platform")
+            Prelude.<*> (x Core..@? "hypervisor")
             Prelude.<*> (x Core..@? "statusMessage")
             Prelude.<*> (x Core..@? "status")
+            Prelude.<*> (x Core..@? "encrypted")
             Prelude.<*> ( x Core..@? "snapshotDetailSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "encrypted")
-            Prelude.<*> (x Core..@? "importTaskId")
+            Prelude.<*> (x Core..@? "usageOperation")
+            Prelude.<*> (x Core..@? "architecture")
             Prelude.<*> ( x Core..@? "licenseSpecifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "architecture")
+            Prelude.<*> (x Core..@? "importTaskId")
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (x Core..@? "kmsKeyId")
             Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
@@ -447,20 +483,22 @@ instance Core.ToQuery ImportImage where
           Core.=: ("ImportImage" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Hypervisor" Core.=: hypervisor,
         "Platform" Core.=: platform,
+        "Hypervisor" Core.=: hypervisor,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Encrypted" Core.=: encrypted,
+        "DryRun" Core.=: dryRun,
         "RoleName" Core.=: roleName,
+        "UsageOperation" Core.=: usageOperation,
+        "Architecture" Core.=: architecture,
+        "BootMode" Core.=: bootMode,
         Core.toQuery
           ( Core.toQueryList "LicenseSpecifications"
               Prelude.<$> licenseSpecifications
           ),
-        "Architecture" Core.=: architecture,
         "KmsKeyId" Core.=: kmsKeyId,
         Core.toQuery
           ( Core.toQueryList "DiskContainer"
@@ -474,28 +512,30 @@ instance Core.ToQuery ImportImage where
 
 -- | /See:/ 'newImportImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-  { -- | The target hypervisor of the import task.
-    hypervisor :: Prelude.Maybe Prelude.Text,
-    -- | The operating system of the virtual machine.
+  { -- | The operating system of the virtual machine.
     platform :: Prelude.Maybe Prelude.Text,
+    -- | The target hypervisor of the import task.
+    hypervisor :: Prelude.Maybe Prelude.Text,
     -- | A detailed status message of the import task.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief status of the task.
     status :: Prelude.Maybe Prelude.Text,
-    -- | Information about the snapshots.
-    snapshotDetails :: Prelude.Maybe [SnapshotDetail],
     -- | Indicates whether the AMI is encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The task ID of the import image task.
-    importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The ARNs of the license configurations.
-    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | Information about the snapshots.
+    snapshotDetails :: Prelude.Maybe [SnapshotDetail],
+    -- | The usage operation value.
+    usageOperation :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the virtual machine.
     architecture :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Prelude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | The task ID of the import image task.
+    importTaskId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Machine Image (AMI) created by the import task.
     imageId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the symmetric AWS Key Management Service (AWS KMS)
-    -- customer master key (CMK) that was used to create the encrypted AMI.
+    -- | The identifier for the symmetric KMS key that was used to create the
+    -- encrypted AMI.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the import image task.
     tags :: Prelude.Maybe [Tag],
@@ -518,28 +558,30 @@ data ImportImageResponse = ImportImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hypervisor', 'importImageResponse_hypervisor' - The target hypervisor of the import task.
---
 -- 'platform', 'importImageResponse_platform' - The operating system of the virtual machine.
+--
+-- 'hypervisor', 'importImageResponse_hypervisor' - The target hypervisor of the import task.
 --
 -- 'statusMessage', 'importImageResponse_statusMessage' - A detailed status message of the import task.
 --
 -- 'status', 'importImageResponse_status' - A brief status of the task.
 --
--- 'snapshotDetails', 'importImageResponse_snapshotDetails' - Information about the snapshots.
---
 -- 'encrypted', 'importImageResponse_encrypted' - Indicates whether the AMI is encrypted.
 --
--- 'importTaskId', 'importImageResponse_importTaskId' - The task ID of the import image task.
+-- 'snapshotDetails', 'importImageResponse_snapshotDetails' - Information about the snapshots.
 --
--- 'licenseSpecifications', 'importImageResponse_licenseSpecifications' - The ARNs of the license configurations.
+-- 'usageOperation', 'importImageResponse_usageOperation' - The usage operation value.
 --
 -- 'architecture', 'importImageResponse_architecture' - The architecture of the virtual machine.
 --
+-- 'licenseSpecifications', 'importImageResponse_licenseSpecifications' - The ARNs of the license configurations.
+--
+-- 'importTaskId', 'importImageResponse_importTaskId' - The task ID of the import image task.
+--
 -- 'imageId', 'importImageResponse_imageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
 --
--- 'kmsKeyId', 'importImageResponse_kmsKeyId' - The identifier for the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) that was used to create the encrypted AMI.
+-- 'kmsKeyId', 'importImageResponse_kmsKeyId' - The identifier for the symmetric KMS key that was used to create the
+-- encrypted AMI.
 --
 -- 'tags', 'importImageResponse_tags' - Any tags assigned to the import image task.
 --
@@ -556,15 +598,16 @@ newImportImageResponse ::
   ImportImageResponse
 newImportImageResponse pHttpStatus_ =
   ImportImageResponse'
-    { hypervisor = Prelude.Nothing,
-      platform = Prelude.Nothing,
+    { platform = Prelude.Nothing,
+      hypervisor = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
-      snapshotDetails = Prelude.Nothing,
       encrypted = Prelude.Nothing,
-      importTaskId = Prelude.Nothing,
-      licenseSpecifications = Prelude.Nothing,
+      snapshotDetails = Prelude.Nothing,
+      usageOperation = Prelude.Nothing,
       architecture = Prelude.Nothing,
+      licenseSpecifications = Prelude.Nothing,
+      importTaskId = Prelude.Nothing,
       imageId = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -574,13 +617,13 @@ newImportImageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The target hypervisor of the import task.
-importImageResponse_hypervisor :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
-importImageResponse_hypervisor = Lens.lens (\ImportImageResponse' {hypervisor} -> hypervisor) (\s@ImportImageResponse' {} a -> s {hypervisor = a} :: ImportImageResponse)
-
 -- | The operating system of the virtual machine.
 importImageResponse_platform :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
 importImageResponse_platform = Lens.lens (\ImportImageResponse' {platform} -> platform) (\s@ImportImageResponse' {} a -> s {platform = a} :: ImportImageResponse)
+
+-- | The target hypervisor of the import task.
+importImageResponse_hypervisor :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_hypervisor = Lens.lens (\ImportImageResponse' {hypervisor} -> hypervisor) (\s@ImportImageResponse' {} a -> s {hypervisor = a} :: ImportImageResponse)
 
 -- | A detailed status message of the import task.
 importImageResponse_statusMessage :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
@@ -590,32 +633,36 @@ importImageResponse_statusMessage = Lens.lens (\ImportImageResponse' {statusMess
 importImageResponse_status :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
 importImageResponse_status = Lens.lens (\ImportImageResponse' {status} -> status) (\s@ImportImageResponse' {} a -> s {status = a} :: ImportImageResponse)
 
--- | Information about the snapshots.
-importImageResponse_snapshotDetails :: Lens.Lens' ImportImageResponse (Prelude.Maybe [SnapshotDetail])
-importImageResponse_snapshotDetails = Lens.lens (\ImportImageResponse' {snapshotDetails} -> snapshotDetails) (\s@ImportImageResponse' {} a -> s {snapshotDetails = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Indicates whether the AMI is encrypted.
 importImageResponse_encrypted :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Bool)
 importImageResponse_encrypted = Lens.lens (\ImportImageResponse' {encrypted} -> encrypted) (\s@ImportImageResponse' {} a -> s {encrypted = a} :: ImportImageResponse)
 
--- | The task ID of the import image task.
-importImageResponse_importTaskId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
-importImageResponse_importTaskId = Lens.lens (\ImportImageResponse' {importTaskId} -> importTaskId) (\s@ImportImageResponse' {} a -> s {importTaskId = a} :: ImportImageResponse)
+-- | Information about the snapshots.
+importImageResponse_snapshotDetails :: Lens.Lens' ImportImageResponse (Prelude.Maybe [SnapshotDetail])
+importImageResponse_snapshotDetails = Lens.lens (\ImportImageResponse' {snapshotDetails} -> snapshotDetails) (\s@ImportImageResponse' {} a -> s {snapshotDetails = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ARNs of the license configurations.
-importImageResponse_licenseSpecifications :: Lens.Lens' ImportImageResponse (Prelude.Maybe [ImportImageLicenseConfigurationResponse])
-importImageResponse_licenseSpecifications = Lens.lens (\ImportImageResponse' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImageResponse' {} a -> s {licenseSpecifications = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The usage operation value.
+importImageResponse_usageOperation :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_usageOperation = Lens.lens (\ImportImageResponse' {usageOperation} -> usageOperation) (\s@ImportImageResponse' {} a -> s {usageOperation = a} :: ImportImageResponse)
 
 -- | The architecture of the virtual machine.
 importImageResponse_architecture :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
 importImageResponse_architecture = Lens.lens (\ImportImageResponse' {architecture} -> architecture) (\s@ImportImageResponse' {} a -> s {architecture = a} :: ImportImageResponse)
 
+-- | The ARNs of the license configurations.
+importImageResponse_licenseSpecifications :: Lens.Lens' ImportImageResponse (Prelude.Maybe [ImportImageLicenseConfigurationResponse])
+importImageResponse_licenseSpecifications = Lens.lens (\ImportImageResponse' {licenseSpecifications} -> licenseSpecifications) (\s@ImportImageResponse' {} a -> s {licenseSpecifications = a} :: ImportImageResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The task ID of the import image task.
+importImageResponse_importTaskId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
+importImageResponse_importTaskId = Lens.lens (\ImportImageResponse' {importTaskId} -> importTaskId) (\s@ImportImageResponse' {} a -> s {importTaskId = a} :: ImportImageResponse)
+
 -- | The ID of the Amazon Machine Image (AMI) created by the import task.
 importImageResponse_imageId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
 importImageResponse_imageId = Lens.lens (\ImportImageResponse' {imageId} -> imageId) (\s@ImportImageResponse' {} a -> s {imageId = a} :: ImportImageResponse)
 
--- | The identifier for the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) that was used to create the encrypted AMI.
+-- | The identifier for the symmetric KMS key that was used to create the
+-- encrypted AMI.
 importImageResponse_kmsKeyId :: Lens.Lens' ImportImageResponse (Prelude.Maybe Prelude.Text)
 importImageResponse_kmsKeyId = Lens.lens (\ImportImageResponse' {kmsKeyId} -> kmsKeyId) (\s@ImportImageResponse' {} a -> s {kmsKeyId = a} :: ImportImageResponse)
 

@@ -22,6 +22,8 @@ module Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceIpv6AddressRequest
+import Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest
+import Network.AWS.EC2.Types.Ipv6PrefixSpecificationRequest
 import Network.AWS.EC2.Types.PrivateIpAddressSpecification
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -50,36 +52,50 @@ data LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = LaunchTemplate
     interfaceType :: Prelude.Maybe Prelude.Text,
     -- | Associates a public IPv4 address with eth0 for a new network interface.
     associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
+    -- | The number of IPv6 prefixes to be automatically assigned to the network
+    -- interface. You cannot use this option if you use the @Ipv6Prefix@
+    -- option.
+    ipv6PrefixCount :: Prelude.Maybe Prelude.Int,
+    -- | One or more IPv6 prefixes to be assigned to the network interface. You
+    -- cannot use this option if you use the @Ipv6PrefixCount@ option.
+    ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
     -- | Associates a Carrier IP address with eth0 for a new network interface.
     --
     -- Use this option when you launch an instance in a Wavelength Zone and
     -- want to associate a Carrier IP address with the network interface. For
     -- more information about Carrier IP addresses, see
     -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses>
-    -- in the /AWS Wavelength Developer Guide/.
+    -- in the /Wavelength Developer Guide/.
     associateCarrierIpAddress :: Prelude.Maybe Prelude.Bool,
     -- | The number of IPv6 addresses to assign to a network interface. Amazon
     -- EC2 automatically selects the IPv6 addresses from the subnet range. You
     -- can\'t use this option if specifying specific IPv6 addresses.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the network interface is deleted when the instance is
+    -- terminated.
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The index of the network card. Some instance types support multiple
     -- network cards. The primary network interface must be assigned to network
     -- card index 0. The default is network card index 0.
     networkCardIndex :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the network interface is deleted when the instance is
-    -- terminated.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet for the network interface.
-    subnetId :: Prelude.Maybe Prelude.Text,
     -- | A description for the network interface.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet for the network interface.
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The device index for the network interface attachment.
     deviceIndex :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The number of secondary private IPv4 addresses to assign to a network
     -- interface.
     secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of IPv4 prefixes to be automatically assigned to the network
+    -- interface. You cannot use this option if you use the @Ipv4Prefix@
+    -- option.
+    ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
+    -- | One or more IPv4 prefixes to be assigned to the network interface. You
+    -- cannot use this option if you use the @Ipv4PrefixCount@ option.
+    ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
     -- | The primary private IPv4 address of the network interface.
     privateIpAddress :: Prelude.Maybe Prelude.Text
   }
@@ -113,35 +129,49 @@ data LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = LaunchTemplate
 --
 -- 'associatePublicIpAddress', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_associatePublicIpAddress' - Associates a public IPv4 address with eth0 for a new network interface.
 --
+-- 'ipv6PrefixCount', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6PrefixCount' - The number of IPv6 prefixes to be automatically assigned to the network
+-- interface. You cannot use this option if you use the @Ipv6Prefix@
+-- option.
+--
+-- 'ipv6Prefixes', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Prefixes' - One or more IPv6 prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv6PrefixCount@ option.
+--
 -- 'associateCarrierIpAddress', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAddress' - Associates a Carrier IP address with eth0 for a new network interface.
 --
 -- Use this option when you launch an instance in a Wavelength Zone and
 -- want to associate a Carrier IP address with the network interface. For
 -- more information about Carrier IP addresses, see
 -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses>
--- in the /AWS Wavelength Developer Guide/.
+-- in the /Wavelength Developer Guide/.
 --
 -- 'ipv6AddressCount', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon
 -- EC2 automatically selects the IPv6 addresses from the subnet range. You
 -- can\'t use this option if specifying specific IPv6 addresses.
 --
+-- 'deleteOnTermination', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
+-- terminated.
+--
 -- 'networkCardIndex', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex' - The index of the network card. Some instance types support multiple
 -- network cards. The primary network interface must be assigned to network
 -- card index 0. The default is network card index 0.
 --
--- 'deleteOnTermination', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
--- terminated.
---
--- 'networkInterfaceId', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId' - The ID of the network interface.
+-- 'description', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_description' - A description for the network interface.
 --
 -- 'subnetId', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId' - The ID of the subnet for the network interface.
 --
--- 'description', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_description' - A description for the network interface.
---
 -- 'deviceIndex', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_deviceIndex' - The device index for the network interface attachment.
+--
+-- 'networkInterfaceId', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId' - The ID of the network interface.
 --
 -- 'secondaryPrivateIpAddressCount', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_secondaryPrivateIpAddressCount' - The number of secondary private IPv4 addresses to assign to a network
 -- interface.
+--
+-- 'ipv4PrefixCount', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4PrefixCount' - The number of IPv4 prefixes to be automatically assigned to the network
+-- interface. You cannot use this option if you use the @Ipv4Prefix@
+-- option.
+--
+-- 'ipv4Prefixes', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4Prefixes' - One or more IPv4 prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv4PrefixCount@ option.
 --
 -- 'privateIpAddress', 'launchTemplateInstanceNetworkInterfaceSpecificationRequest_privateIpAddress' - The primary private IPv4 address of the network interface.
 newLaunchTemplateInstanceNetworkInterfaceSpecificationRequest ::
@@ -158,23 +188,31 @@ newLaunchTemplateInstanceNetworkInterfaceSpecificationRequest =
         Prelude.Nothing,
       associatePublicIpAddress =
         Prelude.Nothing,
+      ipv6PrefixCount =
+        Prelude.Nothing,
+      ipv6Prefixes =
+        Prelude.Nothing,
       associateCarrierIpAddress =
         Prelude.Nothing,
       ipv6AddressCount =
         Prelude.Nothing,
-      networkCardIndex =
-        Prelude.Nothing,
       deleteOnTermination =
         Prelude.Nothing,
-      networkInterfaceId =
-        Prelude.Nothing,
-      subnetId =
+      networkCardIndex =
         Prelude.Nothing,
       description =
         Prelude.Nothing,
+      subnetId =
+        Prelude.Nothing,
       deviceIndex =
         Prelude.Nothing,
+      networkInterfaceId =
+        Prelude.Nothing,
       secondaryPrivateIpAddressCount =
+        Prelude.Nothing,
+      ipv4PrefixCount =
+        Prelude.Nothing,
+      ipv4Prefixes =
         Prelude.Nothing,
       privateIpAddress =
         Prelude.Nothing
@@ -210,13 +248,24 @@ launchTemplateInstanceNetworkInterfaceSpecificationRequest_interfaceType = Lens.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_associatePublicIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Bool)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_associatePublicIpAddress = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {associatePublicIpAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
+-- | The number of IPv6 prefixes to be automatically assigned to the network
+-- interface. You cannot use this option if you use the @Ipv6Prefix@
+-- option.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6PrefixCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6PrefixCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {ipv6PrefixCount} -> ipv6PrefixCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {ipv6PrefixCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+
+-- | One or more IPv6 prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv6PrefixCount@ option.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Prefixes :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Prefixes = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {ipv6Prefixes} -> ipv6Prefixes) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {ipv6Prefixes = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Associates a Carrier IP address with eth0 for a new network interface.
 --
 -- Use this option when you launch an instance in a Wavelength Zone and
 -- want to associate a Carrier IP address with the network interface. For
 -- more information about Carrier IP addresses, see
 -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses>
--- in the /AWS Wavelength Developer Guide/.
+-- in the /Wavelength Developer Guide/.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Bool)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAddress = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {associateCarrierIpAddress} -> associateCarrierIpAddress) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {associateCarrierIpAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
@@ -226,37 +275,48 @@ launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAdd
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6AddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6AddressCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {ipv6AddressCount} -> ipv6AddressCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {ipv6AddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
+-- | Indicates whether the network interface is deleted when the instance is
+-- terminated.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Bool)
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {deleteOnTermination} -> deleteOnTermination) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {deleteOnTermination = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+
 -- | The index of the network card. Some instance types support multiple
 -- network cards. The primary network interface must be assigned to network
 -- card index 0. The default is network card index 0.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {networkCardIndex} -> networkCardIndex) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {networkCardIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Bool)
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {deleteOnTermination} -> deleteOnTermination) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {deleteOnTermination = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
-
--- | The ID of the network interface.
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {networkInterfaceId} -> networkInterfaceId) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {networkInterfaceId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+-- | A description for the network interface.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_description :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_description = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {description} -> description) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {description = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
 -- | The ID of the subnet for the network interface.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {subnetId} -> subnetId) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {subnetId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
--- | A description for the network interface.
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_description :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
-launchTemplateInstanceNetworkInterfaceSpecificationRequest_description = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {description} -> description) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {description = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
-
 -- | The device index for the network interface attachment.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_deviceIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_deviceIndex = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {deviceIndex} -> deviceIndex) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {deviceIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+
+-- | The ID of the network interface.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {networkInterfaceId} -> networkInterfaceId) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {networkInterfaceId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
 
 -- | The number of secondary private IPv4 addresses to assign to a network
 -- interface.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_secondaryPrivateIpAddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_secondaryPrivateIpAddressCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {secondaryPrivateIpAddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+
+-- | The number of IPv4 prefixes to be automatically assigned to the network
+-- interface. You cannot use this option if you use the @Ipv4Prefix@
+-- option.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4PrefixCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4PrefixCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {ipv4PrefixCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+
+-- | One or more IPv4 prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv4PrefixCount@ option.
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4Prefixes :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
+launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4Prefixes = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {ipv4Prefixes} -> ipv4Prefixes) (\s@LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {} a -> s {ipv4Prefixes = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The primary private IPv4 address of the network interface.
 launchTemplateInstanceNetworkInterfaceSpecificationRequest_privateIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Prelude.Maybe Prelude.Text)
@@ -292,16 +352,26 @@ instance
           "InterfaceType" Core.=: interfaceType,
           "AssociatePublicIpAddress"
             Core.=: associatePublicIpAddress,
+          "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
+          Core.toQuery
+            ( Core.toQueryList "Ipv6Prefix"
+                Prelude.<$> ipv6Prefixes
+            ),
           "AssociateCarrierIpAddress"
             Core.=: associateCarrierIpAddress,
           "Ipv6AddressCount" Core.=: ipv6AddressCount,
-          "NetworkCardIndex" Core.=: networkCardIndex,
           "DeleteOnTermination" Core.=: deleteOnTermination,
-          "NetworkInterfaceId" Core.=: networkInterfaceId,
-          "SubnetId" Core.=: subnetId,
+          "NetworkCardIndex" Core.=: networkCardIndex,
           "Description" Core.=: description,
+          "SubnetId" Core.=: subnetId,
           "DeviceIndex" Core.=: deviceIndex,
+          "NetworkInterfaceId" Core.=: networkInterfaceId,
           "SecondaryPrivateIpAddressCount"
             Core.=: secondaryPrivateIpAddressCount,
+          "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
+          Core.toQuery
+            ( Core.toQueryList "Ipv4Prefix"
+                Prelude.<$> ipv4Prefixes
+            ),
           "PrivateIpAddress" Core.=: privateIpAddress
         ]

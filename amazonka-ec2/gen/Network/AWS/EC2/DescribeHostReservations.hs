@@ -74,7 +74,7 @@ data DescribeHostReservations = DescribeHostReservations'
     -- -   @state@ - The state of the reservation (@payment-pending@ |
     --     @payment-failed@ | @active@ | @retired@).
     --
-    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    -- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -114,7 +114,7 @@ data DescribeHostReservations = DescribeHostReservations'
 -- -   @state@ - The state of the reservation (@payment-pending@ |
 --     @payment-failed@ | @active@ | @retired@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -159,7 +159,7 @@ describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservat
 -- -   @state@ - The state of the reservation (@payment-pending@ |
 --     @payment-failed@ | @active@ | @retired@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for

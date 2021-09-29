@@ -42,9 +42,9 @@ data VpnConnection = VpnConnection'
     customerGatewayConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The VPN connection options.
     options :: Prelude.Maybe VpnConnectionOptions,
-    -- | The category of the VPN connection. A value of @VPN@ indicates an AWS
-    -- VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN
-    -- connection.
+    -- | The category of the VPN connection. A value of @VPN@ indicates an Amazon
+    -- Web Services VPN connection. A value of @VPN-Classic@ indicates an
+    -- Amazon Web Services Classic VPN connection.
     category :: Prelude.Maybe Prelude.Text,
     -- | The static routes associated with the VPN connection.
     routes :: Prelude.Maybe [VpnStaticRoute],
@@ -52,8 +52,8 @@ data VpnConnection = VpnConnection'
     tags :: Prelude.Maybe [Tag],
     -- | Information about the VPN tunnel.
     vgwTelemetry :: Prelude.Maybe [VgwTelemetry],
-    -- | The ID of the virtual private gateway at the AWS side of the VPN
-    -- connection.
+    -- | The ID of the virtual private gateway at the Amazon Web Services side of
+    -- the VPN connection.
     vpnGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway associated with the VPN connection.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
@@ -84,9 +84,9 @@ data VpnConnection = VpnConnection'
 --
 -- 'options', 'vpnConnection_options' - The VPN connection options.
 --
--- 'category', 'vpnConnection_category' - The category of the VPN connection. A value of @VPN@ indicates an AWS
--- VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN
--- connection.
+-- 'category', 'vpnConnection_category' - The category of the VPN connection. A value of @VPN@ indicates an Amazon
+-- Web Services VPN connection. A value of @VPN-Classic@ indicates an
+-- Amazon Web Services Classic VPN connection.
 --
 -- 'routes', 'vpnConnection_routes' - The static routes associated with the VPN connection.
 --
@@ -94,8 +94,8 @@ data VpnConnection = VpnConnection'
 --
 -- 'vgwTelemetry', 'vpnConnection_vgwTelemetry' - Information about the VPN tunnel.
 --
--- 'vpnGatewayId', 'vpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN
--- connection.
+-- 'vpnGatewayId', 'vpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of
+-- the VPN connection.
 --
 -- 'transitGatewayId', 'vpnConnection_transitGatewayId' - The ID of the transit gateway associated with the VPN connection.
 --
@@ -149,9 +149,9 @@ vpnConnection_customerGatewayConfiguration = Lens.lens (\VpnConnection' {custome
 vpnConnection_options :: Lens.Lens' VpnConnection (Prelude.Maybe VpnConnectionOptions)
 vpnConnection_options = Lens.lens (\VpnConnection' {options} -> options) (\s@VpnConnection' {} a -> s {options = a} :: VpnConnection)
 
--- | The category of the VPN connection. A value of @VPN@ indicates an AWS
--- VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN
--- connection.
+-- | The category of the VPN connection. A value of @VPN@ indicates an Amazon
+-- Web Services VPN connection. A value of @VPN-Classic@ indicates an
+-- Amazon Web Services Classic VPN connection.
 vpnConnection_category :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
 vpnConnection_category = Lens.lens (\VpnConnection' {category} -> category) (\s@VpnConnection' {} a -> s {category = a} :: VpnConnection)
 
@@ -167,8 +167,8 @@ vpnConnection_tags = Lens.lens (\VpnConnection' {tags} -> tags) (\s@VpnConnectio
 vpnConnection_vgwTelemetry :: Lens.Lens' VpnConnection (Prelude.Maybe [VgwTelemetry])
 vpnConnection_vgwTelemetry = Lens.lens (\VpnConnection' {vgwTelemetry} -> vgwTelemetry) (\s@VpnConnection' {} a -> s {vgwTelemetry = a} :: VpnConnection) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the virtual private gateway at the AWS side of the VPN
--- connection.
+-- | The ID of the virtual private gateway at the Amazon Web Services side of
+-- the VPN connection.
 vpnConnection_vpnGatewayId :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
 vpnConnection_vpnGatewayId = Lens.lens (\VpnConnection' {vpnGatewayId} -> vpnGatewayId) (\s@VpnConnection' {} a -> s {vpnGatewayId = a} :: VpnConnection)
 

@@ -25,7 +25,8 @@ import Network.AWS.EC2.Types.EbsBlockDevice
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a block device mapping.
+-- | Describes a block device mapping, which defines the EBS volumes and
+-- instance store volumes to attach to an instance at launch.
 --
 -- /See:/ 'newBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
@@ -33,7 +34,8 @@ data BlockDeviceMapping = BlockDeviceMapping'
     -- launched.
     ebs :: Prelude.Maybe EbsBlockDevice,
     -- | To omit the device from the block device mapping, specify an empty
-    -- string.
+    -- string. When this property is specified, the device is removed from the
+    -- block device mapping regardless of the assigned value.
     noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name (@ephemeral@N). Instance store volumes are
     -- numbered starting from 0. An instance type with 2 available instance
@@ -66,7 +68,8 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- launched.
 --
 -- 'noDevice', 'blockDeviceMapping_noDevice' - To omit the device from the block device mapping, specify an empty
--- string.
+-- string. When this property is specified, the device is removed from the
+-- block device mapping regardless of the assigned value.
 --
 -- 'virtualName', 'blockDeviceMapping_virtualName' - The virtual device name (@ephemeral@N). Instance store volumes are
 -- numbered starting from 0. An instance type with 2 available instance
@@ -101,7 +104,8 @@ blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockD
 blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
--- string.
+-- string. When this property is specified, the device is removed from the
+-- block device mapping regardless of the assigned value.
 blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 

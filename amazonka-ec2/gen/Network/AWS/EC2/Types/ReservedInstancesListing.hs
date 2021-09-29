@@ -37,16 +37,16 @@ data ReservedInstancesListing = ReservedInstancesListing'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the Reserved Instance listing.
     status :: Prelude.Maybe ListingStatus,
-    -- | The price of the Reserved Instance listing.
-    priceSchedules :: Prelude.Maybe [PriceSchedule],
     -- | The ID of the Reserved Instance.
     reservedInstancesId :: Prelude.Maybe Prelude.Text,
+    -- | The price of the Reserved Instance listing.
+    priceSchedules :: Prelude.Maybe [PriceSchedule],
     -- | The time the listing was created.
     createDate :: Prelude.Maybe Core.ISO8601,
-    -- | Any tags assigned to the resource.
-    tags :: Prelude.Maybe [Tag],
     -- | The number of instances in this state.
     instanceCounts :: Prelude.Maybe [InstanceCount],
+    -- | Any tags assigned to the resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the Reserved Instance listing.
     reservedInstancesListingId :: Prelude.Maybe Prelude.Text,
     -- | The last modified timestamp of the listing.
@@ -71,15 +71,15 @@ data ReservedInstancesListing = ReservedInstancesListing'
 --
 -- 'status', 'reservedInstancesListing_status' - The status of the Reserved Instance listing.
 --
--- 'priceSchedules', 'reservedInstancesListing_priceSchedules' - The price of the Reserved Instance listing.
---
 -- 'reservedInstancesId', 'reservedInstancesListing_reservedInstancesId' - The ID of the Reserved Instance.
+--
+-- 'priceSchedules', 'reservedInstancesListing_priceSchedules' - The price of the Reserved Instance listing.
 --
 -- 'createDate', 'reservedInstancesListing_createDate' - The time the listing was created.
 --
--- 'tags', 'reservedInstancesListing_tags' - Any tags assigned to the resource.
---
 -- 'instanceCounts', 'reservedInstancesListing_instanceCounts' - The number of instances in this state.
+--
+-- 'tags', 'reservedInstancesListing_tags' - Any tags assigned to the resource.
 --
 -- 'reservedInstancesListingId', 'reservedInstancesListing_reservedInstancesListingId' - The ID of the Reserved Instance listing.
 --
@@ -95,11 +95,11 @@ newReservedInstancesListing =
     { statusMessage =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      priceSchedules = Prelude.Nothing,
       reservedInstancesId = Prelude.Nothing,
+      priceSchedules = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      tags = Prelude.Nothing,
       instanceCounts = Prelude.Nothing,
+      tags = Prelude.Nothing,
       reservedInstancesListingId = Prelude.Nothing,
       updateDate = Prelude.Nothing,
       clientToken = Prelude.Nothing
@@ -114,25 +114,25 @@ reservedInstancesListing_statusMessage = Lens.lens (\ReservedInstancesListing' {
 reservedInstancesListing_status :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe ListingStatus)
 reservedInstancesListing_status = Lens.lens (\ReservedInstancesListing' {status} -> status) (\s@ReservedInstancesListing' {} a -> s {status = a} :: ReservedInstancesListing)
 
--- | The price of the Reserved Instance listing.
-reservedInstancesListing_priceSchedules :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [PriceSchedule])
-reservedInstancesListing_priceSchedules = Lens.lens (\ReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@ReservedInstancesListing' {} a -> s {priceSchedules = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The ID of the Reserved Instance.
 reservedInstancesListing_reservedInstancesId :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_reservedInstancesId = Lens.lens (\ReservedInstancesListing' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesListing' {} a -> s {reservedInstancesId = a} :: ReservedInstancesListing)
+
+-- | The price of the Reserved Instance listing.
+reservedInstancesListing_priceSchedules :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [PriceSchedule])
+reservedInstancesListing_priceSchedules = Lens.lens (\ReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@ReservedInstancesListing' {} a -> s {priceSchedules = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time the listing was created.
 reservedInstancesListing_createDate :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.UTCTime)
 reservedInstancesListing_createDate = Lens.lens (\ReservedInstancesListing' {createDate} -> createDate) (\s@ReservedInstancesListing' {} a -> s {createDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Core._Time
 
--- | Any tags assigned to the resource.
-reservedInstancesListing_tags :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [Tag])
-reservedInstancesListing_tags = Lens.lens (\ReservedInstancesListing' {tags} -> tags) (\s@ReservedInstancesListing' {} a -> s {tags = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The number of instances in this state.
 reservedInstancesListing_instanceCounts :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [InstanceCount])
 reservedInstancesListing_instanceCounts = Lens.lens (\ReservedInstancesListing' {instanceCounts} -> instanceCounts) (\s@ReservedInstancesListing' {} a -> s {instanceCounts = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Any tags assigned to the resource.
+reservedInstancesListing_tags :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [Tag])
+reservedInstancesListing_tags = Lens.lens (\ReservedInstancesListing' {tags} -> tags) (\s@ReservedInstancesListing' {} a -> s {tags = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Reserved Instance listing.
 reservedInstancesListing_reservedInstancesListingId :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
@@ -153,15 +153,15 @@ instance Core.FromXML ReservedInstancesListing where
     ReservedInstancesListing'
       Prelude.<$> (x Core..@? "statusMessage")
       Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "reservedInstancesId")
       Prelude.<*> ( x Core..@? "priceSchedules" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "reservedInstancesId")
       Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "instanceCounts" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "instanceCounts" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "reservedInstancesListingId")

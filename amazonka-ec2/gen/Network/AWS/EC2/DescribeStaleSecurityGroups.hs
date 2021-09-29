@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeStaleSecurityGroups
 
     -- * Request Lenses
     describeStaleSecurityGroups_nextToken,
-    describeStaleSecurityGroups_dryRun,
     describeStaleSecurityGroups_maxResults,
+    describeStaleSecurityGroups_dryRun,
     describeStaleSecurityGroups_vpcId,
 
     -- * Destructuring the Response
@@ -60,15 +60,15 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
   { -- | The token for the next set of items to return. (You received this token
     -- from a prior call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this request. The request
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of items to return for this request. The request
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -85,14 +85,14 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
 -- 'nextToken', 'describeStaleSecurityGroups_nextToken' - The token for the next set of items to return. (You received this token
 -- from a prior call.)
 --
+-- 'maxResults', 'describeStaleSecurityGroups_maxResults' - The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
 -- 'dryRun', 'describeStaleSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeStaleSecurityGroups_maxResults' - The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
 --
 -- 'vpcId', 'describeStaleSecurityGroups_vpcId' - The ID of the VPC.
 newDescribeStaleSecurityGroups ::
@@ -103,8 +103,8 @@ newDescribeStaleSecurityGroups pVpcId_ =
   DescribeStaleSecurityGroups'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
@@ -113,18 +113,18 @@ newDescribeStaleSecurityGroups pVpcId_ =
 describeStaleSecurityGroups_nextToken :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Text)
 describeStaleSecurityGroups_nextToken = Lens.lens (\DescribeStaleSecurityGroups' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroups' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroups)
 
+-- | The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeStaleSecurityGroups_maxResults :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Natural)
+describeStaleSecurityGroups_maxResults = Lens.lens (\DescribeStaleSecurityGroups' {maxResults} -> maxResults) (\s@DescribeStaleSecurityGroups' {} a -> s {maxResults = a} :: DescribeStaleSecurityGroups)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeStaleSecurityGroups_dryRun :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Bool)
 describeStaleSecurityGroups_dryRun = Lens.lens (\DescribeStaleSecurityGroups' {dryRun} -> dryRun) (\s@DescribeStaleSecurityGroups' {} a -> s {dryRun = a} :: DescribeStaleSecurityGroups)
-
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-describeStaleSecurityGroups_maxResults :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Natural)
-describeStaleSecurityGroups_maxResults = Lens.lens (\DescribeStaleSecurityGroups' {maxResults} -> maxResults) (\s@DescribeStaleSecurityGroups' {} a -> s {maxResults = a} :: DescribeStaleSecurityGroups)
 
 -- | The ID of the VPC.
 describeStaleSecurityGroups_vpcId :: Lens.Lens' DescribeStaleSecurityGroups Prelude.Text
@@ -189,8 +189,8 @@ instance Core.ToQuery DescribeStaleSecurityGroups where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
       ]
 

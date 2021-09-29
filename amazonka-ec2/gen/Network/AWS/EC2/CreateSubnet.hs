@@ -31,8 +31,8 @@
 -- If you\'ve associated an IPv6 CIDR block with your VPC, you can create a
 -- subnet with an IPv6 CIDR block that uses a \/64 prefix length.
 --
--- AWS reserves both the first four and the last IPv4 address in each
--- subnet\'s CIDR block. They\'re not available for use.
+-- Amazon Web Services reserves both the first four and the last IPv4
+-- address in each subnet\'s CIDR block. They\'re not available for use.
 --
 -- If you add more than one subnet to a VPC, they\'re set up in a star
 -- topology with a logical router in the middle.
@@ -43,7 +43,7 @@
 -- available.
 --
 -- For more information about subnets, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and Subnets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateSubnet
   ( -- * Creating a Request
@@ -57,8 +57,8 @@ module Network.AWS.EC2.CreateSubnet
     createSubnet_availabilityZoneId,
     createSubnet_availabilityZone,
     createSubnet_ipv6CidrBlock,
-    createSubnet_cidrBlock,
     createSubnet_vpcId,
+    createSubnet_cidrBlock,
 
     -- * Destructuring the Response
     CreateSubnetResponse (..),
@@ -93,8 +93,9 @@ data CreateSubnet = CreateSubnet'
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone or Local Zone for the subnet.
     --
-    -- Default: AWS selects one for you. If you create more than one subnet in
-    -- your VPC, we do not necessarily select a different zone for each subnet.
+    -- Default: Amazon Web Services selects one for you. If you create more
+    -- than one subnet in your VPC, we do not necessarily select a different
+    -- zone for each subnet.
     --
     -- To create a subnet in a Local Zone, set this value to the Local Zone ID,
     -- for example @us-west-2-lax-1a@. For information about the Regions that
@@ -108,13 +109,13 @@ data CreateSubnet = CreateSubnet'
     -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size
     -- must use a \/64 prefix length.
     ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Prelude.Text,
     -- | The IPv4 network range for the subnet, in CIDR notation. For example,
     -- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical
     -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
     -- @100.68.0.0\/18@.
-    cidrBlock :: Prelude.Text,
-    -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    cidrBlock :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -140,8 +141,9 @@ data CreateSubnet = CreateSubnet'
 --
 -- 'availabilityZone', 'createSubnet_availabilityZone' - The Availability Zone or Local Zone for the subnet.
 --
--- Default: AWS selects one for you. If you create more than one subnet in
--- your VPC, we do not necessarily select a different zone for each subnet.
+-- Default: Amazon Web Services selects one for you. If you create more
+-- than one subnet in your VPC, we do not necessarily select a different
+-- zone for each subnet.
 --
 -- To create a subnet in a Local Zone, set this value to the Local Zone ID,
 -- for example @us-west-2-lax-1a@. For information about the Regions that
@@ -155,19 +157,19 @@ data CreateSubnet = CreateSubnet'
 -- 'ipv6CidrBlock', 'createSubnet_ipv6CidrBlock' - The IPv6 network range for the subnet, in CIDR notation. The subnet size
 -- must use a \/64 prefix length.
 --
+-- 'vpcId', 'createSubnet_vpcId' - The ID of the VPC.
+--
 -- 'cidrBlock', 'createSubnet_cidrBlock' - The IPv4 network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
---
--- 'vpcId', 'createSubnet_vpcId' - The ID of the VPC.
 newCreateSubnet ::
-  -- | 'cidrBlock'
-  Prelude.Text ->
   -- | 'vpcId'
   Prelude.Text ->
+  -- | 'cidrBlock'
+  Prelude.Text ->
   CreateSubnet
-newCreateSubnet pCidrBlock_ pVpcId_ =
+newCreateSubnet pVpcId_ pCidrBlock_ =
   CreateSubnet'
     { tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
@@ -175,8 +177,8 @@ newCreateSubnet pCidrBlock_ pVpcId_ =
       availabilityZoneId = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       ipv6CidrBlock = Prelude.Nothing,
-      cidrBlock = pCidrBlock_,
-      vpcId = pVpcId_
+      vpcId = pVpcId_,
+      cidrBlock = pCidrBlock_
     }
 
 -- | The tags to assign to the subnet.
@@ -201,8 +203,9 @@ createSubnet_availabilityZoneId = Lens.lens (\CreateSubnet' {availabilityZoneId}
 
 -- | The Availability Zone or Local Zone for the subnet.
 --
--- Default: AWS selects one for you. If you create more than one subnet in
--- your VPC, we do not necessarily select a different zone for each subnet.
+-- Default: Amazon Web Services selects one for you. If you create more
+-- than one subnet in your VPC, we do not necessarily select a different
+-- zone for each subnet.
 --
 -- To create a subnet in a Local Zone, set this value to the Local Zone ID,
 -- for example @us-west-2-lax-1a@. For information about the Regions that
@@ -220,16 +223,16 @@ createSubnet_availabilityZone = Lens.lens (\CreateSubnet' {availabilityZone} -> 
 createSubnet_ipv6CidrBlock :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Text)
 createSubnet_ipv6CidrBlock = Lens.lens (\CreateSubnet' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateSubnet' {} a -> s {ipv6CidrBlock = a} :: CreateSubnet)
 
+-- | The ID of the VPC.
+createSubnet_vpcId :: Lens.Lens' CreateSubnet Prelude.Text
+createSubnet_vpcId = Lens.lens (\CreateSubnet' {vpcId} -> vpcId) (\s@CreateSubnet' {} a -> s {vpcId = a} :: CreateSubnet)
+
 -- | The IPv4 network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
 createSubnet_cidrBlock :: Lens.Lens' CreateSubnet Prelude.Text
 createSubnet_cidrBlock = Lens.lens (\CreateSubnet' {cidrBlock} -> cidrBlock) (\s@CreateSubnet' {} a -> s {cidrBlock = a} :: CreateSubnet)
-
--- | The ID of the VPC.
-createSubnet_vpcId :: Lens.Lens' CreateSubnet Prelude.Text
-createSubnet_vpcId = Lens.lens (\CreateSubnet' {vpcId} -> vpcId) (\s@CreateSubnet' {} a -> s {vpcId = a} :: CreateSubnet)
 
 instance Core.AWSRequest CreateSubnet where
   type AWSResponse CreateSubnet = CreateSubnetResponse
@@ -268,8 +271,8 @@ instance Core.ToQuery CreateSubnet where
         "AvailabilityZoneId" Core.=: availabilityZoneId,
         "AvailabilityZone" Core.=: availabilityZone,
         "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "CidrBlock" Core.=: cidrBlock,
-        "VpcId" Core.=: vpcId
+        "VpcId" Core.=: vpcId,
+        "CidrBlock" Core.=: cidrBlock
       ]
 
 -- | /See:/ 'newCreateSubnetResponse' smart constructor.

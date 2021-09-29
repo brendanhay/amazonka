@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeInternetGateways
 
     -- * Request Lenses
     describeInternetGateways_nextToken,
-    describeInternetGateways_dryRun,
     describeInternetGateways_maxResults,
+    describeInternetGateways_dryRun,
     describeInternetGateways_internetGatewayIds,
     describeInternetGateways_filters,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeInternetGateways = DescribeInternetGateways'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more internet gateway IDs.
     --
     -- Default: Describes all your internet gateways.
@@ -80,8 +80,8 @@ data DescribeInternetGateways = DescribeInternetGateways'
     --
     -- -   @internet-gateway-id@ - The ID of the Internet gateway.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the internet
-    --     gateway.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     internet gateway.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
@@ -106,14 +106,14 @@ data DescribeInternetGateways = DescribeInternetGateways'
 --
 -- 'nextToken', 'describeInternetGateways_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeInternetGateways_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'internetGatewayIds', 'describeInternetGateways_internetGatewayIds' - One or more internet gateway IDs.
 --
@@ -129,8 +129,8 @@ data DescribeInternetGateways = DescribeInternetGateways'
 --
 -- -   @internet-gateway-id@ - The ID of the Internet gateway.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the internet
---     gateway.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     internet gateway.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -147,8 +147,8 @@ newDescribeInternetGateways =
   DescribeInternetGateways'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       internetGatewayIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -157,18 +157,18 @@ newDescribeInternetGateways =
 describeInternetGateways_nextToken :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Text)
 describeInternetGateways_nextToken = Lens.lens (\DescribeInternetGateways' {nextToken} -> nextToken) (\s@DescribeInternetGateways' {} a -> s {nextToken = a} :: DescribeInternetGateways)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Natural)
+describeInternetGateways_maxResults = Lens.lens (\DescribeInternetGateways' {maxResults} -> maxResults) (\s@DescribeInternetGateways' {} a -> s {maxResults = a} :: DescribeInternetGateways)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeInternetGateways_dryRun :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Bool)
 describeInternetGateways_dryRun = Lens.lens (\DescribeInternetGateways' {dryRun} -> dryRun) (\s@DescribeInternetGateways' {} a -> s {dryRun = a} :: DescribeInternetGateways)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Natural)
-describeInternetGateways_maxResults = Lens.lens (\DescribeInternetGateways' {maxResults} -> maxResults) (\s@DescribeInternetGateways' {} a -> s {maxResults = a} :: DescribeInternetGateways)
 
 -- | One or more internet gateway IDs.
 --
@@ -186,8 +186,8 @@ describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGatewa
 --
 -- -   @internet-gateway-id@ - The ID of the Internet gateway.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the internet
---     gateway.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     internet gateway.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -258,8 +258,8 @@ instance Core.ToQuery DescribeInternetGateways where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "InternetGatewayId"
               Prelude.<$> internetGatewayIds

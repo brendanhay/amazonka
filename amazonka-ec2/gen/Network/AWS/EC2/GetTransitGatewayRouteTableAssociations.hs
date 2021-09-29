@@ -31,8 +31,8 @@ module Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
 
     -- * Request Lenses
     getTransitGatewayRouteTableAssociations_nextToken,
-    getTransitGatewayRouteTableAssociations_dryRun,
     getTransitGatewayRouteTableAssociations_maxResults,
+    getTransitGatewayRouteTableAssociations_dryRun,
     getTransitGatewayRouteTableAssociations_filters,
     getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId,
 
@@ -58,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssociations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @resource-id@ - The ID of the resource.
@@ -91,14 +91,14 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
 --
 -- 'nextToken', 'getTransitGatewayRouteTableAssociations_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'getTransitGatewayRouteTableAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'getTransitGatewayRouteTableAssociations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'getTransitGatewayRouteTableAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'getTransitGatewayRouteTableAssociations_filters' - One or more filters. The possible values are:
 --
@@ -119,8 +119,8 @@ newGetTransitGatewayRouteTableAssociations
     GetTransitGatewayRouteTableAssociations'
       { nextToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         filters = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
@@ -130,18 +130,18 @@ newGetTransitGatewayRouteTableAssociations
 getTransitGatewayRouteTableAssociations_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Text)
 getTransitGatewayRouteTableAssociations_nextToken = Lens.lens (\GetTransitGatewayRouteTableAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociations)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getTransitGatewayRouteTableAssociations_maxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Natural)
+getTransitGatewayRouteTableAssociations_maxResults = Lens.lens (\GetTransitGatewayRouteTableAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayRouteTableAssociations)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getTransitGatewayRouteTableAssociations_dryRun :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Bool)
 getTransitGatewayRouteTableAssociations_dryRun = Lens.lens (\GetTransitGatewayRouteTableAssociations' {dryRun} -> dryRun) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {dryRun = a} :: GetTransitGatewayRouteTableAssociations)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getTransitGatewayRouteTableAssociations_maxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Natural)
-getTransitGatewayRouteTableAssociations_maxResults = Lens.lens (\GetTransitGatewayRouteTableAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | One or more filters. The possible values are:
 --
@@ -236,8 +236,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "TransitGatewayRouteTableId"

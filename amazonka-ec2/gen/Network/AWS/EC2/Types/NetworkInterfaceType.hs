@@ -22,7 +22,8 @@ module Network.AWS.EC2.Types.NetworkInterfaceType
       ( ..,
         NetworkInterfaceType_Efa,
         NetworkInterfaceType_Interface,
-        NetworkInterfaceType_NatGateway
+        NetworkInterfaceType_NatGateway,
+        NetworkInterfaceType_Trunk
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern NetworkInterfaceType_Interface = NetworkInterfaceType' "interface"
 pattern NetworkInterfaceType_NatGateway :: NetworkInterfaceType
 pattern NetworkInterfaceType_NatGateway = NetworkInterfaceType' "natGateway"
 
+pattern NetworkInterfaceType_Trunk :: NetworkInterfaceType
+pattern NetworkInterfaceType_Trunk = NetworkInterfaceType' "trunk"
+
 {-# COMPLETE
   NetworkInterfaceType_Efa,
   NetworkInterfaceType_Interface,
   NetworkInterfaceType_NatGateway,
+  NetworkInterfaceType_Trunk,
   NetworkInterfaceType'
   #-}

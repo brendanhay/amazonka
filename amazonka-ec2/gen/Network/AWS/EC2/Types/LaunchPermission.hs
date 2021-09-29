@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchPermission = LaunchPermission'
   { -- | The name of the group.
     group' :: Prelude.Maybe PermissionGroup,
-    -- | The AWS account ID.
+    -- | The Amazon Web Services account ID.
     --
     -- Constraints: Up to 10 000 account IDs can be specified in a single
     -- request.
@@ -49,7 +49,7 @@ data LaunchPermission = LaunchPermission'
 --
 -- 'group'', 'launchPermission_group' - The name of the group.
 --
--- 'userId', 'launchPermission_userId' - The AWS account ID.
+-- 'userId', 'launchPermission_userId' - The Amazon Web Services account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.
@@ -65,7 +65,7 @@ newLaunchPermission =
 launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
 launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.

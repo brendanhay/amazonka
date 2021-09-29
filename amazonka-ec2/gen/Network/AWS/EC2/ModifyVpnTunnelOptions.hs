@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN
--- connection. You can modify multiple options for a tunnel in a single
--- request, but you can only modify one tunnel at a time. For more
--- information, see
--- <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN Connection>
--- in the /AWS Site-to-Site VPN User Guide/.
+-- Modifies the options for a VPN tunnel in an Amazon Web Services
+-- Site-to-Site VPN connection. You can modify multiple options for a
+-- tunnel in a single request, but you can only modify one tunnel at a
+-- time. For more information, see
+-- <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html Site-to-Site VPN tunnel options for your Site-to-Site VPN connection>
+-- in the /Amazon Web Services Site-to-Site VPN User Guide/.
 module Network.AWS.EC2.ModifyVpnTunnelOptions
   ( -- * Creating a Request
     ModifyVpnTunnelOptions (..),
@@ -61,7 +61,7 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the AWS Site-to-Site VPN connection.
+    -- | The ID of the Amazon Web Services Site-to-Site VPN connection.
     vpnConnectionId :: Prelude.Text,
     -- | The external IP address of the VPN tunnel.
     vpnTunnelOutsideIpAddress :: Prelude.Text,
@@ -83,7 +83,7 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'vpnConnectionId', 'modifyVpnTunnelOptions_vpnConnectionId' - The ID of the AWS Site-to-Site VPN connection.
+-- 'vpnConnectionId', 'modifyVpnTunnelOptions_vpnConnectionId' - The ID of the Amazon Web Services Site-to-Site VPN connection.
 --
 -- 'vpnTunnelOutsideIpAddress', 'modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress' - The external IP address of the VPN tunnel.
 --
@@ -115,7 +115,7 @@ newModifyVpnTunnelOptions
 modifyVpnTunnelOptions_dryRun :: Lens.Lens' ModifyVpnTunnelOptions (Prelude.Maybe Prelude.Bool)
 modifyVpnTunnelOptions_dryRun = Lens.lens (\ModifyVpnTunnelOptions' {dryRun} -> dryRun) (\s@ModifyVpnTunnelOptions' {} a -> s {dryRun = a} :: ModifyVpnTunnelOptions)
 
--- | The ID of the AWS Site-to-Site VPN connection.
+-- | The ID of the Amazon Web Services Site-to-Site VPN connection.
 modifyVpnTunnelOptions_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelOptions Prelude.Text
 modifyVpnTunnelOptions_vpnConnectionId = Lens.lens (\ModifyVpnTunnelOptions' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnTunnelOptions' {} a -> s {vpnConnectionId = a} :: ModifyVpnTunnelOptions)
 

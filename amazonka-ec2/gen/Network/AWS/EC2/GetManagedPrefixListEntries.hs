@@ -30,8 +30,8 @@ module Network.AWS.EC2.GetManagedPrefixListEntries
 
     -- * Request Lenses
     getManagedPrefixListEntries_nextToken,
-    getManagedPrefixListEntries_dryRun,
     getManagedPrefixListEntries_maxResults,
+    getManagedPrefixListEntries_dryRun,
     getManagedPrefixListEntries_targetVersion,
     getManagedPrefixListEntries_prefixListId,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data GetManagedPrefixListEntries = GetManagedPrefixListEntries'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The version of the prefix list for which to return the entries. The
     -- default is the current version.
     targetVersion :: Prelude.Maybe Prelude.Integer,
@@ -84,14 +84,14 @@ data GetManagedPrefixListEntries = GetManagedPrefixListEntries'
 --
 -- 'nextToken', 'getManagedPrefixListEntries_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'getManagedPrefixListEntries_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'getManagedPrefixListEntries_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'getManagedPrefixListEntries_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'targetVersion', 'getManagedPrefixListEntries_targetVersion' - The version of the prefix list for which to return the entries. The
 -- default is the current version.
@@ -105,8 +105,8 @@ newGetManagedPrefixListEntries pPrefixListId_ =
   GetManagedPrefixListEntries'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
       prefixListId = pPrefixListId_
     }
@@ -115,18 +115,18 @@ newGetManagedPrefixListEntries pPrefixListId_ =
 getManagedPrefixListEntries_nextToken :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Text)
 getManagedPrefixListEntries_nextToken = Lens.lens (\GetManagedPrefixListEntries' {nextToken} -> nextToken) (\s@GetManagedPrefixListEntries' {} a -> s {nextToken = a} :: GetManagedPrefixListEntries)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getManagedPrefixListEntries_maxResults :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Natural)
+getManagedPrefixListEntries_maxResults = Lens.lens (\GetManagedPrefixListEntries' {maxResults} -> maxResults) (\s@GetManagedPrefixListEntries' {} a -> s {maxResults = a} :: GetManagedPrefixListEntries)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getManagedPrefixListEntries_dryRun :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Bool)
 getManagedPrefixListEntries_dryRun = Lens.lens (\GetManagedPrefixListEntries' {dryRun} -> dryRun) (\s@GetManagedPrefixListEntries' {} a -> s {dryRun = a} :: GetManagedPrefixListEntries)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getManagedPrefixListEntries_maxResults :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Natural)
-getManagedPrefixListEntries_maxResults = Lens.lens (\GetManagedPrefixListEntries' {maxResults} -> maxResults) (\s@GetManagedPrefixListEntries' {} a -> s {maxResults = a} :: GetManagedPrefixListEntries)
 
 -- | The version of the prefix list for which to return the entries. The
 -- default is the current version.
@@ -195,8 +195,8 @@ instance Core.ToQuery GetManagedPrefixListEntries where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "TargetVersion" Core.=: targetVersion,
         "PrefixListId" Core.=: prefixListId
       ]

@@ -75,21 +75,6 @@ data EbsBlockDevice = EbsBlockDevice'
     -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
     -- you must specify the IOPS that the volume supports.
     volumeType :: Prelude.Maybe VolumeType,
-    -- | The size of the volume, in GiBs. You must specify either a snapshot ID
-    -- or a volume size. If you specify a snapshot, the default is the snapshot
-    -- size. You can specify a volume size that is equal to or larger than the
-    -- snapshot size.
-    --
-    -- The following are the supported volumes sizes for each volume type:
-    --
-    -- -   @gp2@ and @gp3@:1-16,384
-    --
-    -- -   @io1@ and @io2@: 4-16,384
-    --
-    -- -   @st1@ and @sc1@: 125-16,384
-    --
-    -- -   @standard@: 1-1,024
-    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
     -- @io2@ volumes, this represents the number of IOPS that are provisioned
     -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -111,7 +96,22 @@ data EbsBlockDevice = EbsBlockDevice'
     -- This parameter is required for @io1@ and @io2@ volumes. The default for
     -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
     -- @st1@, @sc1@, or @standard@ volumes.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The size of the volume, in GiBs. You must specify either a snapshot ID
+    -- or a volume size. If you specify a snapshot, the default is the snapshot
+    -- size. You can specify a volume size that is equal to or larger than the
+    -- snapshot size.
+    --
+    -- The following are the supported volumes sizes for each volume type:
+    --
+    -- -   @gp2@ and @gp3@:1-16,384
+    --
+    -- -   @io1@ and @io2@: 4-16,384
+    --
+    -- -   @st1@ and @sc1@: 125-16,384
+    --
+    -- -   @standard@: 1-1,024
+    volumeSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -169,21 +169,6 @@ data EbsBlockDevice = EbsBlockDevice'
 -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
 -- you must specify the IOPS that the volume supports.
 --
--- 'volumeSize', 'ebsBlockDevice_volumeSize' - The size of the volume, in GiBs. You must specify either a snapshot ID
--- or a volume size. If you specify a snapshot, the default is the snapshot
--- size. You can specify a volume size that is equal to or larger than the
--- snapshot size.
---
--- The following are the supported volumes sizes for each volume type:
---
--- -   @gp2@ and @gp3@:1-16,384
---
--- -   @io1@ and @io2@: 4-16,384
---
--- -   @st1@ and @sc1@: 125-16,384
---
--- -   @standard@: 1-1,024
---
 -- 'iops', 'ebsBlockDevice_iops' - The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
 -- @io2@ volumes, this represents the number of IOPS that are provisioned
 -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -205,6 +190,21 @@ data EbsBlockDevice = EbsBlockDevice'
 -- This parameter is required for @io1@ and @io2@ volumes. The default for
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
 -- @st1@, @sc1@, or @standard@ volumes.
+--
+-- 'volumeSize', 'ebsBlockDevice_volumeSize' - The size of the volume, in GiBs. You must specify either a snapshot ID
+-- or a volume size. If you specify a snapshot, the default is the snapshot
+-- size. You can specify a volume size that is equal to or larger than the
+-- snapshot size.
+--
+-- The following are the supported volumes sizes for each volume type:
+--
+-- -   @gp2@ and @gp3@:1-16,384
+--
+-- -   @io1@ and @io2@: 4-16,384
+--
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
 newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
@@ -216,8 +216,8 @@ newEbsBlockDevice =
       deleteOnTermination = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iops = Prelude.Nothing,
+      volumeSize = Prelude.Nothing
     }
 
 -- | Indicates whether the encryption state of an EBS volume is changed while
@@ -280,23 +280,6 @@ ebsBlockDevice_snapshotId = Lens.lens (\EbsBlockDevice' {snapshotId} -> snapshot
 ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeType)
 ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeType) (\s@EbsBlockDevice' {} a -> s {volumeType = a} :: EbsBlockDevice)
 
--- | The size of the volume, in GiBs. You must specify either a snapshot ID
--- or a volume size. If you specify a snapshot, the default is the snapshot
--- size. You can specify a volume size that is equal to or larger than the
--- snapshot size.
---
--- The following are the supported volumes sizes for each volume type:
---
--- -   @gp2@ and @gp3@:1-16,384
---
--- -   @io1@ and @io2@: 4-16,384
---
--- -   @st1@ and @sc1@: 125-16,384
---
--- -   @standard@: 1-1,024
-ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
-ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
-
 -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
 -- @io2@ volumes, this represents the number of IOPS that are provisioned
 -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -321,6 +304,23 @@ ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSi
 ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
 
+-- | The size of the volume, in GiBs. You must specify either a snapshot ID
+-- or a volume size. If you specify a snapshot, the default is the snapshot
+-- size. You can specify a volume size that is equal to or larger than the
+-- snapshot size.
+--
+-- The following are the supported volumes sizes for each volume type:
+--
+-- -   @gp2@ and @gp3@:1-16,384
+--
+-- -   @io1@ and @io2@: 4-16,384
+--
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
+ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
+ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
+
 instance Core.FromXML EbsBlockDevice where
   parseXML x =
     EbsBlockDevice'
@@ -331,8 +331,8 @@ instance Core.FromXML EbsBlockDevice where
       Prelude.<*> (x Core..@? "deleteOnTermination")
       Prelude.<*> (x Core..@? "snapshotId")
       Prelude.<*> (x Core..@? "volumeType")
-      Prelude.<*> (x Core..@? "volumeSize")
       Prelude.<*> (x Core..@? "iops")
+      Prelude.<*> (x Core..@? "volumeSize")
 
 instance Prelude.Hashable EbsBlockDevice
 
@@ -348,6 +348,6 @@ instance Core.ToQuery EbsBlockDevice where
         "DeleteOnTermination" Core.=: deleteOnTermination,
         "SnapshotId" Core.=: snapshotId,
         "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Iops" Core.=: iops
+        "Iops" Core.=: iops,
+        "VolumeSize" Core.=: volumeSize
       ]

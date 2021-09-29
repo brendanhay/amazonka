@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeFlowLogs
 
     -- * Request Lenses
     describeFlowLogs_nextToken,
-    describeFlowLogs_dryRun,
     describeFlowLogs_maxResults,
+    describeFlowLogs_dryRun,
     describeFlowLogs_flowLogIds,
     describeFlowLogs_filter,
 
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 data DescribeFlowLogs = DescribeFlowLogs'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | One or more flow log IDs.
     --
     -- Constraint: Maximum of 1000 flow log IDs.
@@ -112,14 +112,14 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- 'nextToken', 'describeFlowLogs_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.
 --
@@ -156,8 +156,8 @@ newDescribeFlowLogs ::
 newDescribeFlowLogs =
   DescribeFlowLogs'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       flowLogIds = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
@@ -166,18 +166,18 @@ newDescribeFlowLogs =
 describeFlowLogs_nextToken :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Text)
 describeFlowLogs_nextToken = Lens.lens (\DescribeFlowLogs' {nextToken} -> nextToken) (\s@DescribeFlowLogs' {} a -> s {nextToken = a} :: DescribeFlowLogs)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeFlowLogs_maxResults :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Int)
+describeFlowLogs_maxResults = Lens.lens (\DescribeFlowLogs' {maxResults} -> maxResults) (\s@DescribeFlowLogs' {} a -> s {maxResults = a} :: DescribeFlowLogs)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeFlowLogs_dryRun :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Bool)
 describeFlowLogs_dryRun = Lens.lens (\DescribeFlowLogs' {dryRun} -> dryRun) (\s@DescribeFlowLogs' {} a -> s {dryRun = a} :: DescribeFlowLogs)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeFlowLogs_maxResults :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Int)
-describeFlowLogs_maxResults = Lens.lens (\DescribeFlowLogs' {maxResults} -> maxResults) (\s@DescribeFlowLogs' {} a -> s {maxResults = a} :: DescribeFlowLogs)
 
 -- | One or more flow log IDs.
 --
@@ -270,8 +270,8 @@ instance Core.ToQuery DescribeFlowLogs where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "FlowLogId"
               Prelude.<$> flowLogIds

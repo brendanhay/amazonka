@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newManagedPrefixList' smart constructor.
 data ManagedPrefixList = ManagedPrefixList'
-  { -- | The state message.
-    stateMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the owner of the prefix list.
+  { -- | The ID of the owner of the prefix list.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The state message.
+    stateMessage :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of entries for the prefix list.
     maxEntries :: Prelude.Maybe Prelude.Int,
     -- | The name of the prefix list.
@@ -44,7 +44,7 @@ data ManagedPrefixList = ManagedPrefixList'
     prefixListId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the prefix list.
     prefixListArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the prefix list.
+    -- | The current state of the prefix list.
     state :: Prelude.Maybe PrefixListState,
     -- | The tags for the prefix list.
     tags :: Prelude.Maybe [Tag],
@@ -61,9 +61,9 @@ data ManagedPrefixList = ManagedPrefixList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stateMessage', 'managedPrefixList_stateMessage' - The state message.
---
 -- 'ownerId', 'managedPrefixList_ownerId' - The ID of the owner of the prefix list.
+--
+-- 'stateMessage', 'managedPrefixList_stateMessage' - The state message.
 --
 -- 'maxEntries', 'managedPrefixList_maxEntries' - The maximum number of entries for the prefix list.
 --
@@ -75,7 +75,7 @@ data ManagedPrefixList = ManagedPrefixList'
 --
 -- 'prefixListArn', 'managedPrefixList_prefixListArn' - The Amazon Resource Name (ARN) for the prefix list.
 --
--- 'state', 'managedPrefixList_state' - The state of the prefix list.
+-- 'state', 'managedPrefixList_state' - The current state of the prefix list.
 --
 -- 'tags', 'managedPrefixList_tags' - The tags for the prefix list.
 --
@@ -84,8 +84,8 @@ newManagedPrefixList ::
   ManagedPrefixList
 newManagedPrefixList =
   ManagedPrefixList'
-    { stateMessage = Prelude.Nothing,
-      ownerId = Prelude.Nothing,
+    { ownerId = Prelude.Nothing,
+      stateMessage = Prelude.Nothing,
       maxEntries = Prelude.Nothing,
       prefixListName = Prelude.Nothing,
       version = Prelude.Nothing,
@@ -96,13 +96,13 @@ newManagedPrefixList =
       addressFamily = Prelude.Nothing
     }
 
--- | The state message.
-managedPrefixList_stateMessage :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Text)
-managedPrefixList_stateMessage = Lens.lens (\ManagedPrefixList' {stateMessage} -> stateMessage) (\s@ManagedPrefixList' {} a -> s {stateMessage = a} :: ManagedPrefixList)
-
 -- | The ID of the owner of the prefix list.
 managedPrefixList_ownerId :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Text)
 managedPrefixList_ownerId = Lens.lens (\ManagedPrefixList' {ownerId} -> ownerId) (\s@ManagedPrefixList' {} a -> s {ownerId = a} :: ManagedPrefixList)
+
+-- | The state message.
+managedPrefixList_stateMessage :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Text)
+managedPrefixList_stateMessage = Lens.lens (\ManagedPrefixList' {stateMessage} -> stateMessage) (\s@ManagedPrefixList' {} a -> s {stateMessage = a} :: ManagedPrefixList)
 
 -- | The maximum number of entries for the prefix list.
 managedPrefixList_maxEntries :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Int)
@@ -124,7 +124,7 @@ managedPrefixList_prefixListId = Lens.lens (\ManagedPrefixList' {prefixListId} -
 managedPrefixList_prefixListArn :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Text)
 managedPrefixList_prefixListArn = Lens.lens (\ManagedPrefixList' {prefixListArn} -> prefixListArn) (\s@ManagedPrefixList' {} a -> s {prefixListArn = a} :: ManagedPrefixList)
 
--- | The state of the prefix list.
+-- | The current state of the prefix list.
 managedPrefixList_state :: Lens.Lens' ManagedPrefixList (Prelude.Maybe PrefixListState)
 managedPrefixList_state = Lens.lens (\ManagedPrefixList' {state} -> state) (\s@ManagedPrefixList' {} a -> s {state = a} :: ManagedPrefixList)
 
@@ -139,8 +139,8 @@ managedPrefixList_addressFamily = Lens.lens (\ManagedPrefixList' {addressFamily}
 instance Core.FromXML ManagedPrefixList where
   parseXML x =
     ManagedPrefixList'
-      Prelude.<$> (x Core..@? "stateMessage")
-      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "stateMessage")
       Prelude.<*> (x Core..@? "maxEntries")
       Prelude.<*> (x Core..@? "prefixListName")
       Prelude.<*> (x Core..@? "version")

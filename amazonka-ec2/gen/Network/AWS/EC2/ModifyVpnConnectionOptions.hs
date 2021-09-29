@@ -23,9 +23,9 @@
 -- Modifies the connection options for your Site-to-Site VPN connection.
 --
 -- When you modify the VPN connection options, the VPN endpoint IP
--- addresses on the AWS side do not change, and the tunnel options do not
--- change. Your VPN connection will be temporarily unavailable for a brief
--- period while the VPN connection is updated.
+-- addresses on the Amazon Web Services side do not change, and the tunnel
+-- options do not change. Your VPN connection will be temporarily
+-- unavailable for a brief period while the VPN connection is updated.
 module Network.AWS.EC2.ModifyVpnConnectionOptions
   ( -- * Creating a Request
     ModifyVpnConnectionOptions (..),
@@ -33,8 +33,8 @@ module Network.AWS.EC2.ModifyVpnConnectionOptions
 
     -- * Request Lenses
     modifyVpnConnectionOptions_remoteIpv6NetworkCidr,
-    modifyVpnConnectionOptions_dryRun,
     modifyVpnConnectionOptions_localIpv6NetworkCidr,
+    modifyVpnConnectionOptions_dryRun,
     modifyVpnConnectionOptions_remoteIpv4NetworkCidr,
     modifyVpnConnectionOptions_localIpv4NetworkCidr,
     modifyVpnConnectionOptions_vpnConnectionId,
@@ -58,21 +58,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyVpnConnectionOptions' smart constructor.
 data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'
-  { -- | The IPv6 CIDR on the AWS side of the VPN connection.
+  { -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
     --
     -- Default: @::\/0@
     remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
     -- connection.
     --
     -- Default: @::\/0@
     localIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
-    -- | The IPv4 CIDR on the AWS side of the VPN connection.
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
     --
     -- Default: @0.0.0.0\/0@
     remoteIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
@@ -94,7 +94,12 @@ data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteIpv6NetworkCidr', 'modifyVpnConnectionOptions_remoteIpv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv6NetworkCidr', 'modifyVpnConnectionOptions_remoteIpv6NetworkCidr' - The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
+--
+-- Default: @::\/0@
+--
+-- 'localIpv6NetworkCidr', 'modifyVpnConnectionOptions_localIpv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
+-- connection.
 --
 -- Default: @::\/0@
 --
@@ -103,12 +108,7 @@ data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'localIpv6NetworkCidr', 'modifyVpnConnectionOptions_localIpv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
--- connection.
---
--- Default: @::\/0@
---
--- 'remoteIpv4NetworkCidr', 'modifyVpnConnectionOptions_remoteIpv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv4NetworkCidr', 'modifyVpnConnectionOptions_remoteIpv4NetworkCidr' - The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
 --
@@ -126,25 +126,18 @@ newModifyVpnConnectionOptions pVpnConnectionId_ =
   ModifyVpnConnectionOptions'
     { remoteIpv6NetworkCidr =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       localIpv6NetworkCidr = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       remoteIpv4NetworkCidr = Prelude.Nothing,
       localIpv4NetworkCidr = Prelude.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
--- | The IPv6 CIDR on the AWS side of the VPN connection.
+-- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @::\/0@
 modifyVpnConnectionOptions_remoteIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_remoteIpv6NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {remoteIpv6NetworkCidr} -> remoteIpv6NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {remoteIpv6NetworkCidr = a} :: ModifyVpnConnectionOptions)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyVpnConnectionOptions_dryRun :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Bool)
-modifyVpnConnectionOptions_dryRun = Lens.lens (\ModifyVpnConnectionOptions' {dryRun} -> dryRun) (\s@ModifyVpnConnectionOptions' {} a -> s {dryRun = a} :: ModifyVpnConnectionOptions)
 
 -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
 -- connection.
@@ -153,7 +146,14 @@ modifyVpnConnectionOptions_dryRun = Lens.lens (\ModifyVpnConnectionOptions' {dry
 modifyVpnConnectionOptions_localIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_localIpv6NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {localIpv6NetworkCidr} -> localIpv6NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {localIpv6NetworkCidr = a} :: ModifyVpnConnectionOptions)
 
--- | The IPv4 CIDR on the AWS side of the VPN connection.
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyVpnConnectionOptions_dryRun :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Bool)
+modifyVpnConnectionOptions_dryRun = Lens.lens (\ModifyVpnConnectionOptions' {dryRun} -> dryRun) (\s@ModifyVpnConnectionOptions' {} a -> s {dryRun = a} :: ModifyVpnConnectionOptions)
+
+-- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
 modifyVpnConnectionOptions_remoteIpv4NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
@@ -202,8 +202,8 @@ instance Core.ToQuery ModifyVpnConnectionOptions where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "RemoteIpv6NetworkCidr"
           Core.=: remoteIpv6NetworkCidr,
-        "DryRun" Core.=: dryRun,
         "LocalIpv6NetworkCidr" Core.=: localIpv6NetworkCidr,
+        "DryRun" Core.=: dryRun,
         "RemoteIpv4NetworkCidr"
           Core.=: remoteIpv4NetworkCidr,
         "LocalIpv4NetworkCidr" Core.=: localIpv4NetworkCidr,

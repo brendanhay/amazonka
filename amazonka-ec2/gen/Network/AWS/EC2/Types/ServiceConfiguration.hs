@@ -35,11 +35,11 @@ data ServiceConfiguration = ServiceConfiguration'
   { -- | Indicates whether the service manages its VPC endpoints. Management of
     -- the service VPC endpoints using the VPC endpoint API is restricted.
     managesVpcEndpoints :: Prelude.Maybe Prelude.Bool,
+    -- | The Availability Zones in which the service is available.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
     -- service.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Availability Zones in which the service is available.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | Information about the endpoint service private DNS name configuration.
     privateDnsNameConfiguration :: Prelude.Maybe PrivateDnsNameConfiguration,
     -- | The DNS names for the service.
@@ -57,11 +57,11 @@ data ServiceConfiguration = ServiceConfiguration'
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
     -- | The type of service.
     serviceType :: Prelude.Maybe [ServiceTypeDetail],
+    -- | The service state.
+    serviceState :: Prelude.Maybe ServiceState,
     -- | The Amazon Resource Names (ARNs) of the Network Load Balancers for the
     -- service.
-    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | The service state.
-    serviceState :: Prelude.Maybe ServiceState
+    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,10 +76,10 @@ data ServiceConfiguration = ServiceConfiguration'
 -- 'managesVpcEndpoints', 'serviceConfiguration_managesVpcEndpoints' - Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
 --
+-- 'availabilityZones', 'serviceConfiguration_availabilityZones' - The Availability Zones in which the service is available.
+--
 -- 'gatewayLoadBalancerArns', 'serviceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
---
--- 'availabilityZones', 'serviceConfiguration_availabilityZones' - The Availability Zones in which the service is available.
 --
 -- 'privateDnsNameConfiguration', 'serviceConfiguration_privateDnsNameConfiguration' - Information about the endpoint service private DNS name configuration.
 --
@@ -98,18 +98,18 @@ data ServiceConfiguration = ServiceConfiguration'
 --
 -- 'serviceType', 'serviceConfiguration_serviceType' - The type of service.
 --
+-- 'serviceState', 'serviceConfiguration_serviceState' - The service state.
+--
 -- 'networkLoadBalancerArns', 'serviceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Network Load Balancers for the
 -- service.
---
--- 'serviceState', 'serviceConfiguration_serviceState' - The service state.
 newServiceConfiguration ::
   ServiceConfiguration
 newServiceConfiguration =
   ServiceConfiguration'
     { managesVpcEndpoints =
         Prelude.Nothing,
-      gatewayLoadBalancerArns = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
+      gatewayLoadBalancerArns = Prelude.Nothing,
       privateDnsNameConfiguration = Prelude.Nothing,
       baseEndpointDnsNames = Prelude.Nothing,
       serviceId = Prelude.Nothing,
@@ -118,8 +118,8 @@ newServiceConfiguration =
       privateDnsName = Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
       serviceType = Prelude.Nothing,
-      networkLoadBalancerArns = Prelude.Nothing,
-      serviceState = Prelude.Nothing
+      serviceState = Prelude.Nothing,
+      networkLoadBalancerArns = Prelude.Nothing
     }
 
 -- | Indicates whether the service manages its VPC endpoints. Management of
@@ -127,14 +127,14 @@ newServiceConfiguration =
 serviceConfiguration_managesVpcEndpoints :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Bool)
 serviceConfiguration_managesVpcEndpoints = Lens.lens (\ServiceConfiguration' {managesVpcEndpoints} -> managesVpcEndpoints) (\s@ServiceConfiguration' {} a -> s {managesVpcEndpoints = a} :: ServiceConfiguration)
 
+-- | The Availability Zones in which the service is available.
+serviceConfiguration_availabilityZones :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
+serviceConfiguration_availabilityZones = Lens.lens (\ServiceConfiguration' {availabilityZones} -> availabilityZones) (\s@ServiceConfiguration' {} a -> s {availabilityZones = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
 serviceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
 serviceConfiguration_gatewayLoadBalancerArns = Lens.lens (\ServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Availability Zones in which the service is available.
-serviceConfiguration_availabilityZones :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
-serviceConfiguration_availabilityZones = Lens.lens (\ServiceConfiguration' {availabilityZones} -> availabilityZones) (\s@ServiceConfiguration' {} a -> s {availabilityZones = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the endpoint service private DNS name configuration.
 serviceConfiguration_privateDnsNameConfiguration :: Lens.Lens' ServiceConfiguration (Prelude.Maybe PrivateDnsNameConfiguration)
@@ -169,24 +169,24 @@ serviceConfiguration_acceptanceRequired = Lens.lens (\ServiceConfiguration' {acc
 serviceConfiguration_serviceType :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [ServiceTypeDetail])
 serviceConfiguration_serviceType = Lens.lens (\ServiceConfiguration' {serviceType} -> serviceType) (\s@ServiceConfiguration' {} a -> s {serviceType = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The service state.
+serviceConfiguration_serviceState :: Lens.Lens' ServiceConfiguration (Prelude.Maybe ServiceState)
+serviceConfiguration_serviceState = Lens.lens (\ServiceConfiguration' {serviceState} -> serviceState) (\s@ServiceConfiguration' {} a -> s {serviceState = a} :: ServiceConfiguration)
+
 -- | The Amazon Resource Names (ARNs) of the Network Load Balancers for the
 -- service.
 serviceConfiguration_networkLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
 serviceConfiguration_networkLoadBalancerArns = Lens.lens (\ServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
--- | The service state.
-serviceConfiguration_serviceState :: Lens.Lens' ServiceConfiguration (Prelude.Maybe ServiceState)
-serviceConfiguration_serviceState = Lens.lens (\ServiceConfiguration' {serviceState} -> serviceState) (\s@ServiceConfiguration' {} a -> s {serviceState = a} :: ServiceConfiguration)
-
 instance Core.FromXML ServiceConfiguration where
   parseXML x =
     ServiceConfiguration'
       Prelude.<$> (x Core..@? "managesVpcEndpoints")
-      Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
+      Prelude.<*> ( x Core..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "availabilityZoneSet"
+      Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
@@ -205,11 +205,11 @@ instance Core.FromXML ServiceConfiguration where
       Prelude.<*> ( x Core..@? "serviceType" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "serviceState")
       Prelude.<*> ( x Core..@? "networkLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "serviceState")
 
 instance Prelude.Hashable ServiceConfiguration
 

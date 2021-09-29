@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeInstanceTypes
 
     -- * Request Lenses
     describeInstanceTypes_nextToken,
-    describeInstanceTypes_dryRun,
     describeInstanceTypes_maxResults,
+    describeInstanceTypes_dryRun,
     describeInstanceTypes_filters,
     describeInstanceTypes_instanceTypes,
 
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 data DescribeInstanceTypes = DescribeInstanceTypes'
   { -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the next token value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the next token value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @auto-recovery-supported@ - Indicates whether auto recovery is
@@ -148,12 +148,19 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     --
     -- -   @memory-info.size-in-mib@ - The memory size.
     --
+    -- -   @network-info.efa-info.maximum-efa-interfaces@ - The maximum number
+    --     of Elastic Fabric Adapters (EFAs) per instance.
+    --
     -- -   @network-info.efa-supported@ - Indicates whether the instance type
     --     supports Elastic Fabric Adapter (EFA) (@true@ | @false@).
     --
     -- -   @network-info.ena-support@ - Indicates whether Elastic Network
     --     Adapter (ENA) is supported or required (@required@ | @supported@ |
     --     @unsupported@).
+    --
+    -- -   @network-info.encryption-in-transit-supported@ - Indicates whether
+    --     the instance type automatically encrypts in-transit traffic between
+    --     instances (@true@ | @false@).
     --
     -- -   @network-info.ipv4-addresses-per-interface@ - The maximum number of
     --     private IPv4 addresses per network interface.
@@ -175,6 +182,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     --
     -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
     --     in GHz.
+    --
+    -- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
     --
     -- -   @supported-root-device-type@ - The root device type (@ebs@ |
     --     @instance-store@).
@@ -217,14 +226,14 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- 'nextToken', 'describeInstanceTypes_nextToken' - The token to retrieve the next page of results.
 --
+-- 'maxResults', 'describeInstanceTypes_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
+--
 -- 'dryRun', 'describeInstanceTypes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeInstanceTypes_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
 --
 -- 'filters', 'describeInstanceTypes_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -306,12 +315,19 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- -   @memory-info.size-in-mib@ - The memory size.
 --
+-- -   @network-info.efa-info.maximum-efa-interfaces@ - The maximum number
+--     of Elastic Fabric Adapters (EFAs) per instance.
+--
 -- -   @network-info.efa-supported@ - Indicates whether the instance type
 --     supports Elastic Fabric Adapter (EFA) (@true@ | @false@).
 --
 -- -   @network-info.ena-support@ - Indicates whether Elastic Network
 --     Adapter (ENA) is supported or required (@required@ | @supported@ |
 --     @unsupported@).
+--
+-- -   @network-info.encryption-in-transit-supported@ - Indicates whether
+--     the instance type automatically encrypts in-transit traffic between
+--     instances (@true@ | @false@).
 --
 -- -   @network-info.ipv4-addresses-per-interface@ - The maximum number of
 --     private IPv4 addresses per network interface.
@@ -333,6 +349,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
 --     in GHz.
+--
+-- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
 --
 -- -   @supported-root-device-type@ - The root device type (@ebs@ |
 --     @instance-store@).
@@ -366,8 +384,8 @@ newDescribeInstanceTypes ::
 newDescribeInstanceTypes =
   DescribeInstanceTypes'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       instanceTypes = Prelude.Nothing
     }
@@ -376,18 +394,18 @@ newDescribeInstanceTypes =
 describeInstanceTypes_nextToken :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Text)
 describeInstanceTypes_nextToken = Lens.lens (\DescribeInstanceTypes' {nextToken} -> nextToken) (\s@DescribeInstanceTypes' {} a -> s {nextToken = a} :: DescribeInstanceTypes)
 
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
+describeInstanceTypes_maxResults :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Natural)
+describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResults} -> maxResults) (\s@DescribeInstanceTypes' {} a -> s {maxResults = a} :: DescribeInstanceTypes)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeInstanceTypes_dryRun :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Bool)
 describeInstanceTypes_dryRun = Lens.lens (\DescribeInstanceTypes' {dryRun} -> dryRun) (\s@DescribeInstanceTypes' {} a -> s {dryRun = a} :: DescribeInstanceTypes)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
-describeInstanceTypes_maxResults :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Natural)
-describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResults} -> maxResults) (\s@DescribeInstanceTypes' {} a -> s {maxResults = a} :: DescribeInstanceTypes)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -469,12 +487,19 @@ describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResult
 --
 -- -   @memory-info.size-in-mib@ - The memory size.
 --
+-- -   @network-info.efa-info.maximum-efa-interfaces@ - The maximum number
+--     of Elastic Fabric Adapters (EFAs) per instance.
+--
 -- -   @network-info.efa-supported@ - Indicates whether the instance type
 --     supports Elastic Fabric Adapter (EFA) (@true@ | @false@).
 --
 -- -   @network-info.ena-support@ - Indicates whether Elastic Network
 --     Adapter (ENA) is supported or required (@required@ | @supported@ |
 --     @unsupported@).
+--
+-- -   @network-info.encryption-in-transit-supported@ - Indicates whether
+--     the instance type automatically encrypts in-transit traffic between
+--     instances (@true@ | @false@).
 --
 -- -   @network-info.ipv4-addresses-per-interface@ - The maximum number of
 --     private IPv4 addresses per network interface.
@@ -496,6 +521,8 @@ describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResult
 --
 -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
 --     in GHz.
+--
+-- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
 --
 -- -   @supported-root-device-type@ - The root device type (@ebs@ |
 --     @instance-store@).
@@ -585,8 +612,8 @@ instance Core.ToQuery DescribeInstanceTypes where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery

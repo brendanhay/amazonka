@@ -27,7 +27,7 @@
 -- you specify different address ranges each time.
 --
 -- It can take a few minutes before traffic to the specified addresses
--- stops routing to AWS because of BGP propagation delays.
+-- stops routing to Amazon Web Services because of BGP propagation delays.
 module Network.AWS.EC2.WithdrawByoipCidr
   ( -- * Creating a Request
     WithdrawByoipCidr (..),

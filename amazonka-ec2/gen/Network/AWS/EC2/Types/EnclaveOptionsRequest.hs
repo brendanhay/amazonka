@@ -24,15 +24,15 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
--- more information, see
--- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is AWS Nitro Enclaves?>
--- in the /AWS Nitro Enclaves User Guide/.
+-- | Indicates whether the instance is enabled for Amazon Web Services Nitro
+-- Enclaves. For more information, see
+-- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is Amazon Web Services Nitro Enclaves?>
+-- in the /Amazon Web Services Nitro Enclaves User Guide/.
 --
 -- /See:/ 'newEnclaveOptionsRequest' smart constructor.
 data EnclaveOptionsRequest = EnclaveOptionsRequest'
-  { -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
-    -- @true@.
+  { -- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
+    -- parameter to @true@.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,15 +45,15 @@ data EnclaveOptionsRequest = EnclaveOptionsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'enclaveOptionsRequest_enabled' - To enable the instance for AWS Nitro Enclaves, set this parameter to
--- @true@.
+-- 'enabled', 'enclaveOptionsRequest_enabled' - To enable the instance for Amazon Web Services Nitro Enclaves, set this
+-- parameter to @true@.
 newEnclaveOptionsRequest ::
   EnclaveOptionsRequest
 newEnclaveOptionsRequest =
   EnclaveOptionsRequest' {enabled = Prelude.Nothing}
 
--- | To enable the instance for AWS Nitro Enclaves, set this parameter to
--- @true@.
+-- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
+-- parameter to @true@.
 enclaveOptionsRequest_enabled :: Lens.Lens' EnclaveOptionsRequest (Prelude.Maybe Prelude.Bool)
 enclaveOptionsRequest_enabled = Lens.lens (\EnclaveOptionsRequest' {enabled} -> enabled) (\s@EnclaveOptionsRequest' {} a -> s {enabled = a} :: EnclaveOptionsRequest)
 

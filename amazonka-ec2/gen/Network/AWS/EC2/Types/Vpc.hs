@@ -33,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpc' smart constructor.
 data Vpc = Vpc'
-  { -- | The ID of the AWS account that owns the VPC.
+  { -- | The ID of the Amazon Web Services account that owns the VPC.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the VPC is the default VPC.
     isDefault :: Prelude.Maybe Prelude.Bool,
@@ -64,7 +64,7 @@ data Vpc = Vpc'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'vpc_ownerId' - The ID of the AWS account that owns the VPC.
+-- 'ownerId', 'vpc_ownerId' - The ID of the Amazon Web Services account that owns the VPC.
 --
 -- 'isDefault', 'vpc_isDefault' - Indicates whether the VPC is the default VPC.
 --
@@ -114,7 +114,7 @@ newVpc
         vpcId = pVpcId_
       }
 
--- | The ID of the AWS account that owns the VPC.
+-- | The ID of the Amazon Web Services account that owns the VPC.
 vpc_ownerId :: Lens.Lens' Vpc (Prelude.Maybe Prelude.Text)
 vpc_ownerId = Lens.lens (\Vpc' {ownerId} -> ownerId) (\s@Vpc' {} a -> s {ownerId = a} :: Vpc)
 

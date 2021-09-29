@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the customer gateway or the target gateway of an AWS
--- Site-to-Site VPN connection. To modify the target gateway, the following
--- migration options are available:
+-- Modifies the customer gateway or the target gateway of an Amazon Web
+-- Services Site-to-Site VPN connection. To modify the target gateway, the
+-- following migration options are available:
 --
 -- -   An existing virtual private gateway to a new virtual private gateway
 --
@@ -48,20 +48,21 @@
 -- After you migrate to the new gateway, you might need to modify your VPC
 -- route table. Use CreateRoute and DeleteRoute to make the changes
 -- described in
--- <https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing VPN Gateway Target Modification Required VPC Route Table Updates>
--- in the /AWS Site-to-Site VPN User Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing Update VPC route tables>
+-- in the /Amazon Web Services Site-to-Site VPN User Guide/.
 --
 -- When the new gateway is a transit gateway, modify the transit gateway
--- route table to allow traffic between the VPC and the AWS Site-to-Site
--- VPN connection. Use CreateTransitGatewayRoute to add the routes.
+-- route table to allow traffic between the VPC and the Amazon Web Services
+-- Site-to-Site VPN connection. Use CreateTransitGatewayRoute to add the
+-- routes.
 --
 -- If you deleted VPN static routes, you must add the static routes to the
 -- transit gateway route table.
 --
--- After you perform this operation, the AWS VPN endpoint\'s IP addresses
--- on the AWS side and the tunnel options remain intact. Your AWS
--- Site-to-Site VPN connection will be temporarily unavailable for a brief
--- period while we provision the new endpoints.
+-- After you perform this operation, the VPN endpoint\'s IP addresses on
+-- the Amazon Web Services side and the tunnel options remain intact. Your
+-- Amazon Web Services Site-to-Site VPN connection will be temporarily
+-- unavailable for a brief period while we provision the new endpoints.
 module Network.AWS.EC2.ModifyVpnConnection
   ( -- * Creating a Request
     ModifyVpnConnection (..),
@@ -100,8 +101,8 @@ data ModifyVpnConnection = ModifyVpnConnection'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the customer gateway at your end of the VPN connection.
     customerGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the virtual private gateway at the AWS side of the VPN
-    -- connection.
+    -- | The ID of the virtual private gateway at the Amazon Web Services side of
+    -- the VPN connection.
     vpnGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
@@ -125,8 +126,8 @@ data ModifyVpnConnection = ModifyVpnConnection'
 --
 -- 'customerGatewayId', 'modifyVpnConnection_customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.
 --
--- 'vpnGatewayId', 'modifyVpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN
--- connection.
+-- 'vpnGatewayId', 'modifyVpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of
+-- the VPN connection.
 --
 -- 'transitGatewayId', 'modifyVpnConnection_transitGatewayId' - The ID of the transit gateway.
 --
@@ -155,8 +156,8 @@ modifyVpnConnection_dryRun = Lens.lens (\ModifyVpnConnection' {dryRun} -> dryRun
 modifyVpnConnection_customerGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
 modifyVpnConnection_customerGatewayId = Lens.lens (\ModifyVpnConnection' {customerGatewayId} -> customerGatewayId) (\s@ModifyVpnConnection' {} a -> s {customerGatewayId = a} :: ModifyVpnConnection)
 
--- | The ID of the virtual private gateway at the AWS side of the VPN
--- connection.
+-- | The ID of the virtual private gateway at the Amazon Web Services side of
+-- the VPN connection.
 modifyVpnConnection_vpnGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
 modifyVpnConnection_vpnGatewayId = Lens.lens (\ModifyVpnConnection' {vpnGatewayId} -> vpnGatewayId) (\s@ModifyVpnConnection' {} a -> s {vpnGatewayId = a} :: ModifyVpnConnection)
 

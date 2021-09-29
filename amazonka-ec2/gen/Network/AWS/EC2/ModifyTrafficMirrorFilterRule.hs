@@ -33,9 +33,9 @@ module Network.AWS.EC2.ModifyTrafficMirrorFilterRule
     modifyTrafficMirrorFilterRule_removeFields,
     modifyTrafficMirrorFilterRule_dryRun,
     modifyTrafficMirrorFilterRule_sourcePortRange,
-    modifyTrafficMirrorFilterRule_trafficDirection,
     modifyTrafficMirrorFilterRule_ruleAction,
     modifyTrafficMirrorFilterRule_sourceCidrBlock,
+    modifyTrafficMirrorFilterRule_trafficDirection,
     modifyTrafficMirrorFilterRule_destinationCidrBlock,
     modifyTrafficMirrorFilterRule_protocol,
     modifyTrafficMirrorFilterRule_description,
@@ -75,12 +75,12 @@ data ModifyTrafficMirrorFilterRule = ModifyTrafficMirrorFilterRule'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The port range to assign to the Traffic Mirror rule.
     sourcePortRange :: Prelude.Maybe TrafficMirrorPortRangeRequest,
-    -- | The type of traffic (@ingress@ | @egress@) to assign to the rule.
-    trafficDirection :: Prelude.Maybe TrafficDirection,
     -- | The action to assign to the rule.
     ruleAction :: Prelude.Maybe TrafficMirrorRuleAction,
     -- | The source CIDR block to assign to the Traffic Mirror rule.
     sourceCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The type of traffic (@ingress@ | @egress@) to assign to the rule.
+    trafficDirection :: Prelude.Maybe TrafficDirection,
     -- | The destination CIDR block to assign to the Traffic Mirror rule.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The protocol, for example TCP, to assign to the Traffic Mirror rule.
@@ -119,11 +119,11 @@ data ModifyTrafficMirrorFilterRule = ModifyTrafficMirrorFilterRule'
 --
 -- 'sourcePortRange', 'modifyTrafficMirrorFilterRule_sourcePortRange' - The port range to assign to the Traffic Mirror rule.
 --
--- 'trafficDirection', 'modifyTrafficMirrorFilterRule_trafficDirection' - The type of traffic (@ingress@ | @egress@) to assign to the rule.
---
 -- 'ruleAction', 'modifyTrafficMirrorFilterRule_ruleAction' - The action to assign to the rule.
 --
 -- 'sourceCidrBlock', 'modifyTrafficMirrorFilterRule_sourceCidrBlock' - The source CIDR block to assign to the Traffic Mirror rule.
+--
+-- 'trafficDirection', 'modifyTrafficMirrorFilterRule_trafficDirection' - The type of traffic (@ingress@ | @egress@) to assign to the rule.
 --
 -- 'destinationCidrBlock', 'modifyTrafficMirrorFilterRule_destinationCidrBlock' - The destination CIDR block to assign to the Traffic Mirror rule.
 --
@@ -149,9 +149,9 @@ newModifyTrafficMirrorFilterRule
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
         sourcePortRange = Prelude.Nothing,
-        trafficDirection = Prelude.Nothing,
         ruleAction = Prelude.Nothing,
         sourceCidrBlock = Prelude.Nothing,
+        trafficDirection = Prelude.Nothing,
         destinationCidrBlock = Prelude.Nothing,
         protocol = Prelude.Nothing,
         description = Prelude.Nothing,
@@ -180,10 +180,6 @@ modifyTrafficMirrorFilterRule_dryRun = Lens.lens (\ModifyTrafficMirrorFilterRule
 modifyTrafficMirrorFilterRule_sourcePortRange :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRangeRequest)
 modifyTrafficMirrorFilterRule_sourcePortRange = Lens.lens (\ModifyTrafficMirrorFilterRule' {sourcePortRange} -> sourcePortRange) (\s@ModifyTrafficMirrorFilterRule' {} a -> s {sourcePortRange = a} :: ModifyTrafficMirrorFilterRule)
 
--- | The type of traffic (@ingress@ | @egress@) to assign to the rule.
-modifyTrafficMirrorFilterRule_trafficDirection :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe TrafficDirection)
-modifyTrafficMirrorFilterRule_trafficDirection = Lens.lens (\ModifyTrafficMirrorFilterRule' {trafficDirection} -> trafficDirection) (\s@ModifyTrafficMirrorFilterRule' {} a -> s {trafficDirection = a} :: ModifyTrafficMirrorFilterRule)
-
 -- | The action to assign to the rule.
 modifyTrafficMirrorFilterRule_ruleAction :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorRuleAction)
 modifyTrafficMirrorFilterRule_ruleAction = Lens.lens (\ModifyTrafficMirrorFilterRule' {ruleAction} -> ruleAction) (\s@ModifyTrafficMirrorFilterRule' {} a -> s {ruleAction = a} :: ModifyTrafficMirrorFilterRule)
@@ -191,6 +187,10 @@ modifyTrafficMirrorFilterRule_ruleAction = Lens.lens (\ModifyTrafficMirrorFilter
 -- | The source CIDR block to assign to the Traffic Mirror rule.
 modifyTrafficMirrorFilterRule_sourceCidrBlock :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
 modifyTrafficMirrorFilterRule_sourceCidrBlock = Lens.lens (\ModifyTrafficMirrorFilterRule' {sourceCidrBlock} -> sourceCidrBlock) (\s@ModifyTrafficMirrorFilterRule' {} a -> s {sourceCidrBlock = a} :: ModifyTrafficMirrorFilterRule)
+
+-- | The type of traffic (@ingress@ | @egress@) to assign to the rule.
+modifyTrafficMirrorFilterRule_trafficDirection :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe TrafficDirection)
+modifyTrafficMirrorFilterRule_trafficDirection = Lens.lens (\ModifyTrafficMirrorFilterRule' {trafficDirection} -> trafficDirection) (\s@ModifyTrafficMirrorFilterRule' {} a -> s {trafficDirection = a} :: ModifyTrafficMirrorFilterRule)
 
 -- | The destination CIDR block to assign to the Traffic Mirror rule.
 modifyTrafficMirrorFilterRule_destinationCidrBlock :: Lens.Lens' ModifyTrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
@@ -261,9 +261,9 @@ instance Core.ToQuery ModifyTrafficMirrorFilterRule where
           ),
         "DryRun" Core.=: dryRun,
         "SourcePortRange" Core.=: sourcePortRange,
-        "TrafficDirection" Core.=: trafficDirection,
         "RuleAction" Core.=: ruleAction,
         "SourceCidrBlock" Core.=: sourceCidrBlock,
+        "TrafficDirection" Core.=: trafficDirection,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "Protocol" Core.=: protocol,
         "Description" Core.=: description,

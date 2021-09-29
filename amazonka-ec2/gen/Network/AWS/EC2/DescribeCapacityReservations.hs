@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your Capacity Reservations. The results
--- describe only the Capacity Reservations in the AWS Region that you\'re
--- currently using.
+-- describe only the Capacity Reservations in the Amazon Web Services
+-- Region that you\'re currently using.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeCapacityReservations
@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeCapacityReservations
 
     -- * Request Lenses
     describeCapacityReservations_nextToken,
-    describeCapacityReservations_dryRun,
     describeCapacityReservations_maxResults,
+    describeCapacityReservations_dryRun,
     describeCapacityReservations_capacityReservationIds,
     describeCapacityReservations_filters,
 
@@ -59,16 +59,16 @@ import qualified Network.AWS.Response as Response
 data DescribeCapacityReservations = DescribeCapacityReservations'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Capacity Reservation.
     capacityReservationIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
@@ -76,8 +76,8 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     -- -   @instance-type@ - The type of instance for which the Capacity
     --     Reservation reserves capacity.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the Capacity
-    --     Reservation.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     Capacity Reservation.
     --
     -- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
     --     Reservation.
@@ -92,11 +92,14 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     --     Capacity Reservation can have one of the following tenancy settings:
     --
     --     -   @default@ - The Capacity Reservation is created on hardware that
-    --         is shared with other AWS accounts.
+    --         is shared with other Amazon Web Services accounts.
     --
     --     -   @dedicated@ - The Capacity Reservation is created on
-    --         single-tenant hardware that is dedicated to a single AWS
-    --         account.
+    --         single-tenant hardware that is dedicated to a single Amazon Web
+    --         Services account.
+    --
+    -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost on
+    --     which the Capacity Reservation was created.
     --
     -- -   @state@ - The current state of the Capacity Reservation. A Capacity
     --     Reservation can be in one of the following states:
@@ -118,6 +121,9 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     --         request might fail due to invalid request parameters, capacity
     --         constraints, or instance limit constraints. Failed requests are
     --         retained for 60 minutes.
+    --
+    -- -   @start-date@ - The date and time at which the Capacity Reservation
+    --     was started.
     --
     -- -   @end-date@ - The date and time at which the Capacity Reservation
     --     expires. When a Capacity Reservation expires, the reserved capacity
@@ -163,15 +169,15 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --
 -- 'nextToken', 'describeCapacityReservations_nextToken' - The token to use to retrieve the next page of results.
 --
--- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeCapacityReservations_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
+--
+-- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'capacityReservationIds', 'describeCapacityReservations_capacityReservationIds' - The ID of the Capacity Reservation.
 --
@@ -180,8 +186,8 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 -- -   @instance-type@ - The type of instance for which the Capacity
 --     Reservation reserves capacity.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the Capacity
---     Reservation.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     Capacity Reservation.
 --
 -- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
 --     Reservation.
@@ -196,11 +202,14 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --     Capacity Reservation can have one of the following tenancy settings:
 --
 --     -   @default@ - The Capacity Reservation is created on hardware that
---         is shared with other AWS accounts.
+--         is shared with other Amazon Web Services accounts.
 --
 --     -   @dedicated@ - The Capacity Reservation is created on
---         single-tenant hardware that is dedicated to a single AWS
---         account.
+--         single-tenant hardware that is dedicated to a single Amazon Web
+--         Services account.
+--
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost on
+--     which the Capacity Reservation was created.
 --
 -- -   @state@ - The current state of the Capacity Reservation. A Capacity
 --     Reservation can be in one of the following states:
@@ -222,6 +231,9 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --         request might fail due to invalid request parameters, capacity
 --         constraints, or instance limit constraints. Failed requests are
 --         retained for 60 minutes.
+--
+-- -   @start-date@ - The date and time at which the Capacity Reservation
+--     was started.
 --
 -- -   @end-date@ - The date and time at which the Capacity Reservation
 --     expires. When a Capacity Reservation expires, the reserved capacity
@@ -259,8 +271,8 @@ newDescribeCapacityReservations =
   DescribeCapacityReservations'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       capacityReservationIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -269,19 +281,19 @@ newDescribeCapacityReservations =
 describeCapacityReservations_nextToken :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Text)
 describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservations' {nextToken} -> nextToken) (\s@DescribeCapacityReservations' {} a -> s {nextToken = a} :: DescribeCapacityReservations)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
-describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
-
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 describeCapacityReservations_maxResults :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Natural)
 describeCapacityReservations_maxResults = Lens.lens (\DescribeCapacityReservations' {maxResults} -> maxResults) (\s@DescribeCapacityReservations' {} a -> s {maxResults = a} :: DescribeCapacityReservations)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
+describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
 
 -- | The ID of the Capacity Reservation.
 describeCapacityReservations_capacityReservationIds :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Prelude.Text])
@@ -292,8 +304,8 @@ describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapaci
 -- -   @instance-type@ - The type of instance for which the Capacity
 --     Reservation reserves capacity.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the Capacity
---     Reservation.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     Capacity Reservation.
 --
 -- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
 --     Reservation.
@@ -308,11 +320,14 @@ describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapaci
 --     Capacity Reservation can have one of the following tenancy settings:
 --
 --     -   @default@ - The Capacity Reservation is created on hardware that
---         is shared with other AWS accounts.
+--         is shared with other Amazon Web Services accounts.
 --
 --     -   @dedicated@ - The Capacity Reservation is created on
---         single-tenant hardware that is dedicated to a single AWS
---         account.
+--         single-tenant hardware that is dedicated to a single Amazon Web
+--         Services account.
+--
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost on
+--     which the Capacity Reservation was created.
 --
 -- -   @state@ - The current state of the Capacity Reservation. A Capacity
 --     Reservation can be in one of the following states:
@@ -334,6 +349,9 @@ describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapaci
 --         request might fail due to invalid request parameters, capacity
 --         constraints, or instance limit constraints. Failed requests are
 --         retained for 60 minutes.
+--
+-- -   @start-date@ - The date and time at which the Capacity Reservation
+--     was started.
 --
 -- -   @end-date@ - The date and time at which the Capacity Reservation
 --     expires. When a Capacity Reservation expires, the reserved capacity
@@ -429,8 +447,8 @@ instance Core.ToQuery DescribeCapacityReservations where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "CapacityReservationId"
               Prelude.<$> capacityReservationIds

@@ -24,8 +24,8 @@
 -- Availability Zone.
 --
 -- You can create a new empty volume or restore a volume from an EBS
--- snapshot. Any AWS Marketplace product codes from the snapshot are
--- propagated to the volume.
+-- snapshot. Any Amazon Web Services Marketplace product codes from the
+-- snapshot are propagated to the volume.
 --
 -- You can create encrypted volumes. Encrypted volumes must be attached to
 -- instances that support Amazon EBS encryption. Volumes that are created
@@ -35,11 +35,11 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- You can tag your volumes during creation. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging your Amazon EC2 resources>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tag your Amazon EC2 resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating an Amazon EBS volume>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Create an Amazon EBS volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CreateVolume
   ( -- * Creating a Request
@@ -49,8 +49,8 @@ module Network.AWS.EC2.CreateVolume
     -- * Request Lenses
     createVolume_multiAttachEnabled,
     createVolume_tagSpecifications,
-    createVolume_dryRun,
     createVolume_encrypted,
+    createVolume_dryRun,
     createVolume_outpostArn,
     createVolume_throughput,
     createVolume_kmsKeyId,
@@ -58,6 +58,7 @@ module Network.AWS.EC2.CreateVolume
     createVolume_volumeType,
     createVolume_iops,
     createVolume_size,
+    createVolume_clientToken,
     createVolume_availabilityZone,
 
     -- * Destructuring the Response
@@ -103,11 +104,6 @@ data CreateVolume = CreateVolume'
     multiAttachEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The tags to apply to the volume during creation.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the volume should be encrypted. The effect of setting
     -- the encryption state to @true@ depends on the volume origin (new or from
     -- a snapshot), starting encryption state, ownership, and whether
@@ -119,6 +115,11 @@ data CreateVolume = CreateVolume'
     -- Amazon EBS encryption. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
     encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The throughput to provision for a volume, with a maximum of 1,000
@@ -128,12 +129,12 @@ data CreateVolume = CreateVolume'
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
     throughput :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the AWS Key Management Service (AWS KMS) customer
-    -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
-    -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
-    -- specified, the encrypted state must be @true@.
+    -- | The identifier of the Key Management Service (KMS) KMS key to use for
+    -- Amazon EBS encryption. If this parameter is not specified, your KMS key
+    -- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+    -- must be @true@.
     --
-    -- You can specify the CMK using any of the following:
+    -- You can specify the KMS key using any of the following:
     --
     -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
     --
@@ -145,9 +146,9 @@ data CreateVolume = CreateVolume'
     -- -   Alias ARN. For example,
     --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
     --
-    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
-    -- ID, alias, or ARN that is not valid, the action can appear to complete,
-    -- but eventually fails.
+    -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+    -- if you specify an ID, alias, or ARN that is not valid, the action can
+    -- appear to complete, but eventually fails.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The snapshot from which to create the volume. You must specify either a
     -- snapshot ID or a volume size.
@@ -184,9 +185,9 @@ data CreateVolume = CreateVolume'
     --
     -- -   @io2@: 100-64,000 IOPS
     --
-    -- For @io1@ and @io2@ volumes, we guarantee 64,000 IOPS only for
+    -- @io1@ and @io2@ volumes support up to 64,000 IOPS only on
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System>.
-    -- Other instance families guarantee performance up to 32,000 IOPS.
+    -- Other instance families support performance up to 32,000 IOPS.
     --
     -- This parameter is required for @io1@ and @io2@ volumes. The default for
     -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
@@ -207,6 +208,10 @@ data CreateVolume = CreateVolume'
     --
     -- -   @standard@: 1-1,024
     size :: Prelude.Maybe Prelude.Int,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which to create the volume.
     availabilityZone :: Prelude.Text
   }
@@ -230,11 +235,6 @@ data CreateVolume = CreateVolume'
 --
 -- 'tagSpecifications', 'createVolume_tagSpecifications' - The tags to apply to the volume during creation.
 --
--- 'dryRun', 'createVolume_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'encrypted', 'createVolume_encrypted' - Indicates whether the volume should be encrypted. The effect of setting
 -- the encryption state to @true@ depends on the volume origin (new or from
 -- a snapshot), starting encryption state, ownership, and whether
@@ -246,6 +246,11 @@ data CreateVolume = CreateVolume'
 -- Amazon EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
+-- 'dryRun', 'createVolume_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'outpostArn', 'createVolume_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.
 --
 -- 'throughput', 'createVolume_throughput' - The throughput to provision for a volume, with a maximum of 1,000
@@ -255,12 +260,12 @@ data CreateVolume = CreateVolume'
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
 --
--- 'kmsKeyId', 'createVolume_kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) to use for Amazon EBS encryption. If this parameter is
--- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
--- specified, the encrypted state must be @true@.
+-- 'kmsKeyId', 'createVolume_kmsKeyId' - The identifier of the Key Management Service (KMS) KMS key to use for
+-- Amazon EBS encryption. If this parameter is not specified, your KMS key
+-- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+-- must be @true@.
 --
--- You can specify the CMK using any of the following:
+-- You can specify the KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -272,9 +277,9 @@ data CreateVolume = CreateVolume'
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- ID, alias, or ARN that is not valid, the action can appear to complete,
--- but eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an ID, alias, or ARN that is not valid, the action can
+-- appear to complete, but eventually fails.
 --
 -- 'snapshotId', 'createVolume_snapshotId' - The snapshot from which to create the volume. You must specify either a
 -- snapshot ID or a volume size.
@@ -311,9 +316,9 @@ data CreateVolume = CreateVolume'
 --
 -- -   @io2@: 100-64,000 IOPS
 --
--- For @io1@ and @io2@ volumes, we guarantee 64,000 IOPS only for
+-- @io1@ and @io2@ volumes support up to 64,000 IOPS only on
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System>.
--- Other instance families guarantee performance up to 32,000 IOPS.
+-- Other instance families support performance up to 32,000 IOPS.
 --
 -- This parameter is required for @io1@ and @io2@ volumes. The default for
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
@@ -334,6 +339,10 @@ data CreateVolume = CreateVolume'
 --
 -- -   @standard@: 1-1,024
 --
+-- 'clientToken', 'createVolume_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+--
 -- 'availabilityZone', 'createVolume_availabilityZone' - The Availability Zone in which to create the volume.
 newCreateVolume ::
   -- | 'availabilityZone'
@@ -343,8 +352,8 @@ newCreateVolume pAvailabilityZone_ =
   CreateVolume'
     { multiAttachEnabled = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       encrypted = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       throughput = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
@@ -352,6 +361,7 @@ newCreateVolume pAvailabilityZone_ =
       volumeType = Prelude.Nothing,
       iops = Prelude.Nothing,
       size = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       availabilityZone = pAvailabilityZone_
     }
 
@@ -369,13 +379,6 @@ createVolume_multiAttachEnabled = Lens.lens (\CreateVolume' {multiAttachEnabled}
 createVolume_tagSpecifications :: Lens.Lens' CreateVolume (Prelude.Maybe [TagSpecification])
 createVolume_tagSpecifications = Lens.lens (\CreateVolume' {tagSpecifications} -> tagSpecifications) (\s@CreateVolume' {} a -> s {tagSpecifications = a} :: CreateVolume) Prelude.. Lens.mapping Lens._Coerce
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createVolume_dryRun :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
-createVolume_dryRun = Lens.lens (\CreateVolume' {dryRun} -> dryRun) (\s@CreateVolume' {} a -> s {dryRun = a} :: CreateVolume)
-
 -- | Indicates whether the volume should be encrypted. The effect of setting
 -- the encryption state to @true@ depends on the volume origin (new or from
 -- a snapshot), starting encryption state, ownership, and whether
@@ -388,6 +391,13 @@ createVolume_dryRun = Lens.lens (\CreateVolume' {dryRun} -> dryRun) (\s@CreateVo
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 createVolume_encrypted :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
 createVolume_encrypted = Lens.lens (\CreateVolume' {encrypted} -> encrypted) (\s@CreateVolume' {} a -> s {encrypted = a} :: CreateVolume)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createVolume_dryRun :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
+createVolume_dryRun = Lens.lens (\CreateVolume' {dryRun} -> dryRun) (\s@CreateVolume' {} a -> s {dryRun = a} :: CreateVolume)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
 createVolume_outpostArn :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
@@ -402,12 +412,12 @@ createVolume_outpostArn = Lens.lens (\CreateVolume' {outpostArn} -> outpostArn) 
 createVolume_throughput :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Int)
 createVolume_throughput = Lens.lens (\CreateVolume' {throughput} -> throughput) (\s@CreateVolume' {} a -> s {throughput = a} :: CreateVolume)
 
--- | The identifier of the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) to use for Amazon EBS encryption. If this parameter is
--- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
--- specified, the encrypted state must be @true@.
+-- | The identifier of the Key Management Service (KMS) KMS key to use for
+-- Amazon EBS encryption. If this parameter is not specified, your KMS key
+-- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+-- must be @true@.
 --
--- You can specify the CMK using any of the following:
+-- You can specify the KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -419,9 +429,9 @@ createVolume_throughput = Lens.lens (\CreateVolume' {throughput} -> throughput) 
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- ID, alias, or ARN that is not valid, the action can appear to complete,
--- but eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an ID, alias, or ARN that is not valid, the action can
+-- appear to complete, but eventually fails.
 createVolume_kmsKeyId :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
 createVolume_kmsKeyId = Lens.lens (\CreateVolume' {kmsKeyId} -> kmsKeyId) (\s@CreateVolume' {} a -> s {kmsKeyId = a} :: CreateVolume)
 
@@ -464,9 +474,9 @@ createVolume_volumeType = Lens.lens (\CreateVolume' {volumeType} -> volumeType) 
 --
 -- -   @io2@: 100-64,000 IOPS
 --
--- For @io1@ and @io2@ volumes, we guarantee 64,000 IOPS only for
+-- @io1@ and @io2@ volumes support up to 64,000 IOPS only on
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System>.
--- Other instance families guarantee performance up to 32,000 IOPS.
+-- Other instance families support performance up to 32,000 IOPS.
 --
 -- This parameter is required for @io1@ and @io2@ volumes. The default for
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
@@ -490,6 +500,12 @@ createVolume_iops = Lens.lens (\CreateVolume' {iops} -> iops) (\s@CreateVolume' 
 -- -   @standard@: 1-1,024
 createVolume_size :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Int)
 createVolume_size = Lens.lens (\CreateVolume' {size} -> size) (\s@CreateVolume' {} a -> s {size = a} :: CreateVolume)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+createVolume_clientToken :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
+createVolume_clientToken = Lens.lens (\CreateVolume' {clientToken} -> clientToken) (\s@CreateVolume' {} a -> s {clientToken = a} :: CreateVolume)
 
 -- | The Availability Zone in which to create the volume.
 createVolume_availabilityZone :: Lens.Lens' CreateVolume Prelude.Text
@@ -523,8 +539,8 @@ instance Core.ToQuery CreateVolume where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Encrypted" Core.=: encrypted,
+        "DryRun" Core.=: dryRun,
         "OutpostArn" Core.=: outpostArn,
         "Throughput" Core.=: throughput,
         "KmsKeyId" Core.=: kmsKeyId,
@@ -532,5 +548,6 @@ instance Core.ToQuery CreateVolume where
         "VolumeType" Core.=: volumeType,
         "Iops" Core.=: iops,
         "Size" Core.=: size,
+        "ClientToken" Core.=: clientToken,
         "AvailabilityZone" Core.=: availabilityZone
       ]

@@ -32,7 +32,7 @@
 --
 -- For more information about associating CIDR blocks with your VPC and
 -- applicable restrictions, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing VPC and Subnet Sizing>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing VPC and subnet sizing>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.AssociateVpcCidrBlock
   ( -- * Creating a Request

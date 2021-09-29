@@ -73,9 +73,10 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
     -- -   @network-interface-permission.network-interface-id@ - The ID of the
     --     network interface.
     --
-    -- -   @network-interface-permission.aws-account-id@ - The AWS account ID.
+    -- -   @network-interface-permission.aws-account-id@ - The Amazon Web
+    --     Services account ID.
     --
-    -- -   @network-interface-permission.aws-service@ - The AWS service.
+    -- -   @network-interface-permission.aws-service@ - The Amazon Web Service.
     --
     -- -   @network-interface-permission.permission@ - The type of permission
     --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).
@@ -108,9 +109,10 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 -- -   @network-interface-permission.network-interface-id@ - The ID of the
 --     network interface.
 --
--- -   @network-interface-permission.aws-account-id@ - The AWS account ID.
+-- -   @network-interface-permission.aws-account-id@ - The Amazon Web
+--     Services account ID.
 --
--- -   @network-interface-permission.aws-service@ - The AWS service.
+-- -   @network-interface-permission.aws-service@ - The Amazon Web Service.
 --
 -- -   @network-interface-permission.permission@ - The type of permission
 --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).
@@ -149,9 +151,10 @@ describeNetworkInterfacePermissions_networkInterfacePermissionIds = Lens.lens (\
 -- -   @network-interface-permission.network-interface-id@ - The ID of the
 --     network interface.
 --
--- -   @network-interface-permission.aws-account-id@ - The AWS account ID.
+-- -   @network-interface-permission.aws-account-id@ - The Amazon Web
+--     Services account ID.
 --
--- -   @network-interface-permission.aws-service@ - The AWS service.
+-- -   @network-interface-permission.aws-service@ - The Amazon Web Service.
 --
 -- -   @network-interface-permission.permission@ - The type of permission
 --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).

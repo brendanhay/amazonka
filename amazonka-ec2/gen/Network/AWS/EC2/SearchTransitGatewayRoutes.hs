@@ -27,8 +27,8 @@ module Network.AWS.EC2.SearchTransitGatewayRoutes
     newSearchTransitGatewayRoutes,
 
     -- * Request Lenses
-    searchTransitGatewayRoutes_dryRun,
     searchTransitGatewayRoutes_maxResults,
+    searchTransitGatewayRoutes_dryRun,
     searchTransitGatewayRoutes_transitGatewayRouteTableId,
     searchTransitGatewayRoutes_filters,
 
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchTransitGatewayRoutes' smart constructor.
 data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The maximum number of routes to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of routes to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Text,
     -- | One or more filters. The possible values are:
@@ -105,12 +105,12 @@ data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchTransitGatewayRoutes_maxResults' - The maximum number of routes to return.
+--
 -- 'dryRun', 'searchTransitGatewayRoutes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'searchTransitGatewayRoutes_maxResults' - The maximum number of routes to return.
 --
 -- 'transitGatewayRouteTableId', 'searchTransitGatewayRoutes_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 --
@@ -153,13 +153,17 @@ newSearchTransitGatewayRoutes ::
 newSearchTransitGatewayRoutes
   pTransitGatewayRouteTableId_ =
     SearchTransitGatewayRoutes'
-      { dryRun =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         filters = Prelude.mempty
       }
+
+-- | The maximum number of routes to return.
+searchTransitGatewayRoutes_maxResults :: Lens.Lens' SearchTransitGatewayRoutes (Prelude.Maybe Prelude.Natural)
+searchTransitGatewayRoutes_maxResults = Lens.lens (\SearchTransitGatewayRoutes' {maxResults} -> maxResults) (\s@SearchTransitGatewayRoutes' {} a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -167,10 +171,6 @@ newSearchTransitGatewayRoutes
 -- Otherwise, it is @UnauthorizedOperation@.
 searchTransitGatewayRoutes_dryRun :: Lens.Lens' SearchTransitGatewayRoutes (Prelude.Maybe Prelude.Bool)
 searchTransitGatewayRoutes_dryRun = Lens.lens (\SearchTransitGatewayRoutes' {dryRun} -> dryRun) (\s@SearchTransitGatewayRoutes' {} a -> s {dryRun = a} :: SearchTransitGatewayRoutes)
-
--- | The maximum number of routes to return.
-searchTransitGatewayRoutes_maxResults :: Lens.Lens' SearchTransitGatewayRoutes (Prelude.Maybe Prelude.Natural)
-searchTransitGatewayRoutes_maxResults = Lens.lens (\SearchTransitGatewayRoutes' {maxResults} -> maxResults) (\s@SearchTransitGatewayRoutes' {} a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
 
 -- | The ID of the transit gateway route table.
 searchTransitGatewayRoutes_transitGatewayRouteTableId :: Lens.Lens' SearchTransitGatewayRoutes Prelude.Text
@@ -244,8 +244,8 @@ instance Core.ToQuery SearchTransitGatewayRoutes where
           Core.=: ("SearchTransitGatewayRoutes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId,
         Core.toQueryList "Filter" filters

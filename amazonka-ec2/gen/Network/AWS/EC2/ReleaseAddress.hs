@@ -35,7 +35,7 @@
 -- pool. Be sure to update your DNS records and any servers or devices that
 -- communicate with the address. If you attempt to release an Elastic IP
 -- address that you already released, you\'ll get an @AuthFailure@ error if
--- the address is already allocated to another AWS account.
+-- the address is already allocated to another Amazon Web Services account.
 --
 -- [EC2-VPC] After you release an Elastic IP address for use in a VPC, you
 -- might be able to recover it. For more information, see AllocateAddress.

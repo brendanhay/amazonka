@@ -45,8 +45,8 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     newCreateNetworkAclEntry,
 
     -- * Request Lenses
-    createNetworkAclEntry_dryRun,
     createNetworkAclEntry_portRange,
+    createNetworkAclEntry_dryRun,
     createNetworkAclEntry_icmpTypeCode,
     createNetworkAclEntry_ipv6CidrBlock,
     createNetworkAclEntry_cidrBlock,
@@ -71,14 +71,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNetworkAclEntry' smart constructor.
 data CreateNetworkAclEntry = CreateNetworkAclEntry'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | TCP or UDP protocols: The range of ports the rule applies to. Required
+    -- if specifying protocol 6 (TCP) or 17 (UDP).
+    portRange :: Prelude.Maybe PortRange,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | TCP or UDP protocols: The range of ports the rule applies to. Required
-    -- if specifying protocol 6 (TCP) or 17 (UDP).
-    portRange :: Prelude.Maybe PortRange,
     -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
     -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
     icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
@@ -123,13 +123,13 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'portRange', 'createNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
+--
 -- 'dryRun', 'createNetworkAclEntry_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'portRange', 'createNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
 --
 -- 'icmpTypeCode', 'createNetworkAclEntry_icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
@@ -182,8 +182,8 @@ newCreateNetworkAclEntry
   pRuleAction_
   pRuleNumber_ =
     CreateNetworkAclEntry'
-      { dryRun = Prelude.Nothing,
-        portRange = Prelude.Nothing,
+      { portRange = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         icmpTypeCode = Prelude.Nothing,
         ipv6CidrBlock = Prelude.Nothing,
         cidrBlock = Prelude.Nothing,
@@ -194,17 +194,17 @@ newCreateNetworkAclEntry
         ruleNumber = pRuleNumber_
       }
 
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
+createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe PortRange)
+createNetworkAclEntry_portRange = Lens.lens (\CreateNetworkAclEntry' {portRange} -> portRange) (\s@CreateNetworkAclEntry' {} a -> s {portRange = a} :: CreateNetworkAclEntry)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createNetworkAclEntry_dryRun :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Bool)
 createNetworkAclEntry_dryRun = Lens.lens (\CreateNetworkAclEntry' {dryRun} -> dryRun) (\s@CreateNetworkAclEntry' {} a -> s {dryRun = a} :: CreateNetworkAclEntry)
-
--- | TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
-createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe PortRange)
-createNetworkAclEntry_portRange = Lens.lens (\CreateNetworkAclEntry' {portRange} -> portRange) (\s@CreateNetworkAclEntry' {} a -> s {portRange = a} :: CreateNetworkAclEntry)
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
@@ -280,8 +280,8 @@ instance Core.ToQuery CreateNetworkAclEntry where
           Core.=: ("CreateNetworkAclEntry" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "PortRange" Core.=: portRange,
+        "DryRun" Core.=: dryRun,
         "Icmp" Core.=: icmpTypeCode,
         "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
         "CidrBlock" Core.=: cidrBlock,

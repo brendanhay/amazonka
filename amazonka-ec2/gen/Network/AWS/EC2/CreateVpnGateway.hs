@@ -25,8 +25,8 @@
 -- virtual private gateway before creating the VPC itself.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html AWS Site-to-Site VPN>
--- in the /AWS Site-to-Site VPN User Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html Amazon Web Services Site-to-Site VPN>
+-- in the /Amazon Web Services Site-to-Site VPN User Guide/.
 module Network.AWS.EC2.CreateVpnGateway
   ( -- * Creating a Request
     CreateVpnGateway (..),

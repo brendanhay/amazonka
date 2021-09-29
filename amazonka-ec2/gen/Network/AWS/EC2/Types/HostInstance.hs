@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHostInstance' smart constructor.
 data HostInstance = HostInstance'
-  { -- | The ID of the AWS account that owns the instance.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of instance that is running on the Dedicated Host.
+  { -- | The ID of instance that is running on the Dedicated Host.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the instance.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The instance type (for example, @m3.medium@) of the running instance.
     instanceType :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data HostInstance = HostInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'hostInstance_ownerId' - The ID of the AWS account that owns the instance.
---
 -- 'instanceId', 'hostInstance_instanceId' - The ID of instance that is running on the Dedicated Host.
+--
+-- 'ownerId', 'hostInstance_ownerId' - The ID of the Amazon Web Services account that owns the instance.
 --
 -- 'instanceType', 'hostInstance_instanceType' - The instance type (for example, @m3.medium@) of the running instance.
 newHostInstance ::
   HostInstance
 newHostInstance =
   HostInstance'
-    { ownerId = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       instanceType = Prelude.Nothing
     }
-
--- | The ID of the AWS account that owns the instance.
-hostInstance_ownerId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
-hostInstance_ownerId = Lens.lens (\HostInstance' {ownerId} -> ownerId) (\s@HostInstance' {} a -> s {ownerId = a} :: HostInstance)
 
 -- | The ID of instance that is running on the Dedicated Host.
 hostInstance_instanceId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
 hostInstance_instanceId = Lens.lens (\HostInstance' {instanceId} -> instanceId) (\s@HostInstance' {} a -> s {instanceId = a} :: HostInstance)
+
+-- | The ID of the Amazon Web Services account that owns the instance.
+hostInstance_ownerId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_ownerId = Lens.lens (\HostInstance' {ownerId} -> ownerId) (\s@HostInstance' {} a -> s {ownerId = a} :: HostInstance)
 
 -- | The instance type (for example, @m3.medium@) of the running instance.
 hostInstance_instanceType :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
@@ -74,8 +74,8 @@ hostInstance_instanceType = Lens.lens (\HostInstance' {instanceType} -> instance
 instance Core.FromXML HostInstance where
   parseXML x =
     HostInstance'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "instanceType")
 
 instance Prelude.Hashable HostInstance

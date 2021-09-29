@@ -34,6 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
   { -- | The state of the Spot Fleet request.
     spotFleetRequestState :: Prelude.Maybe BatchState,
+    -- | The creation date and time of the request.
+    createTime :: Prelude.Maybe Core.ISO8601,
+    -- | The tags for a Spot Fleet resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The progress of the Spot Fleet request. If there is an error, the status
     -- is @error@. After all requests are placed, the status is
     -- @pending_fulfillment@. If the size of the fleet is equal to or greater
@@ -41,10 +45,6 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     -- fleet is decreased, the status is @pending_termination@ while Spot
     -- Instances are terminating.
     activityStatus :: Prelude.Maybe ActivityStatus,
-    -- | The tags for a Spot Fleet resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | The creation date and time of the request.
-    createTime :: Prelude.Maybe Core.ISO8601,
     -- | The configuration of the Spot Fleet request.
     spotFleetRequestConfig :: Prelude.Maybe SpotFleetRequestConfigData,
     -- | The ID of the Spot Fleet request.
@@ -62,16 +62,16 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 --
 -- 'spotFleetRequestState', 'spotFleetRequestConfig_spotFleetRequestState' - The state of the Spot Fleet request.
 --
+-- 'createTime', 'spotFleetRequestConfig_createTime' - The creation date and time of the request.
+--
+-- 'tags', 'spotFleetRequestConfig_tags' - The tags for a Spot Fleet resource.
+--
 -- 'activityStatus', 'spotFleetRequestConfig_activityStatus' - The progress of the Spot Fleet request. If there is an error, the status
 -- is @error@. After all requests are placed, the status is
 -- @pending_fulfillment@. If the size of the fleet is equal to or greater
 -- than its target capacity, the status is @fulfilled@. If the size of the
 -- fleet is decreased, the status is @pending_termination@ while Spot
 -- Instances are terminating.
---
--- 'tags', 'spotFleetRequestConfig_tags' - The tags for a Spot Fleet resource.
---
--- 'createTime', 'spotFleetRequestConfig_createTime' - The creation date and time of the request.
 --
 -- 'spotFleetRequestConfig', 'spotFleetRequestConfig_spotFleetRequestConfig' - The configuration of the Spot Fleet request.
 --
@@ -82,9 +82,9 @@ newSpotFleetRequestConfig =
   SpotFleetRequestConfig'
     { spotFleetRequestState =
         Prelude.Nothing,
-      activityStatus = Prelude.Nothing,
-      tags = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      activityStatus = Prelude.Nothing,
       spotFleetRequestConfig = Prelude.Nothing,
       spotFleetRequestId = Prelude.Nothing
     }
@@ -92,6 +92,14 @@ newSpotFleetRequestConfig =
 -- | The state of the Spot Fleet request.
 spotFleetRequestConfig_spotFleetRequestState :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe BatchState)
 spotFleetRequestConfig_spotFleetRequestState = Lens.lens (\SpotFleetRequestConfig' {spotFleetRequestState} -> spotFleetRequestState) (\s@SpotFleetRequestConfig' {} a -> s {spotFleetRequestState = a} :: SpotFleetRequestConfig)
+
+-- | The creation date and time of the request.
+spotFleetRequestConfig_createTime :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe Prelude.UTCTime)
+spotFleetRequestConfig_createTime = Lens.lens (\SpotFleetRequestConfig' {createTime} -> createTime) (\s@SpotFleetRequestConfig' {} a -> s {createTime = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Core._Time
+
+-- | The tags for a Spot Fleet resource.
+spotFleetRequestConfig_tags :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe [Tag])
+spotFleetRequestConfig_tags = Lens.lens (\SpotFleetRequestConfig' {tags} -> tags) (\s@SpotFleetRequestConfig' {} a -> s {tags = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The progress of the Spot Fleet request. If there is an error, the status
 -- is @error@. After all requests are placed, the status is
@@ -101,14 +109,6 @@ spotFleetRequestConfig_spotFleetRequestState = Lens.lens (\SpotFleetRequestConfi
 -- Instances are terminating.
 spotFleetRequestConfig_activityStatus :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe ActivityStatus)
 spotFleetRequestConfig_activityStatus = Lens.lens (\SpotFleetRequestConfig' {activityStatus} -> activityStatus) (\s@SpotFleetRequestConfig' {} a -> s {activityStatus = a} :: SpotFleetRequestConfig)
-
--- | The tags for a Spot Fleet resource.
-spotFleetRequestConfig_tags :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe [Tag])
-spotFleetRequestConfig_tags = Lens.lens (\SpotFleetRequestConfig' {tags} -> tags) (\s@SpotFleetRequestConfig' {} a -> s {tags = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Lens._Coerce
-
--- | The creation date and time of the request.
-spotFleetRequestConfig_createTime :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe Prelude.UTCTime)
-spotFleetRequestConfig_createTime = Lens.lens (\SpotFleetRequestConfig' {createTime} -> createTime) (\s@SpotFleetRequestConfig' {} a -> s {createTime = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Core._Time
 
 -- | The configuration of the Spot Fleet request.
 spotFleetRequestConfig_spotFleetRequestConfig :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe SpotFleetRequestConfigData)
@@ -122,11 +122,11 @@ instance Core.FromXML SpotFleetRequestConfig where
   parseXML x =
     SpotFleetRequestConfig'
       Prelude.<$> (x Core..@? "spotFleetRequestState")
-      Prelude.<*> (x Core..@? "activityStatus")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Core..@? "activityStatus")
       Prelude.<*> (x Core..@? "spotFleetRequestConfig")
       Prelude.<*> (x Core..@? "spotFleetRequestId")
 

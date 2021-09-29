@@ -29,8 +29,8 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     newReplaceNetworkAclEntry,
 
     -- * Request Lenses
-    replaceNetworkAclEntry_dryRun,
     replaceNetworkAclEntry_portRange,
+    replaceNetworkAclEntry_dryRun,
     replaceNetworkAclEntry_icmpTypeCode,
     replaceNetworkAclEntry_ipv6CidrBlock,
     replaceNetworkAclEntry_cidrBlock,
@@ -55,14 +55,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newReplaceNetworkAclEntry' smart constructor.
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | TCP or UDP protocols: The range of ports the rule applies to. Required
+    -- if specifying protocol 6 (TCP) or 17 (UDP).
+    portRange :: Prelude.Maybe PortRange,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | TCP or UDP protocols: The range of ports the rule applies to. Required
-    -- if specifying protocol 6 (TCP) or 17 (UDP).
-    portRange :: Prelude.Maybe PortRange,
     -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
     -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
     icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
@@ -102,13 +102,13 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'portRange', 'replaceNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
+--
 -- 'dryRun', 'replaceNetworkAclEntry_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'portRange', 'replaceNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
 --
 -- 'icmpTypeCode', 'replaceNetworkAclEntry_icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
@@ -156,8 +156,9 @@ newReplaceNetworkAclEntry
   pRuleAction_
   pRuleNumber_ =
     ReplaceNetworkAclEntry'
-      { dryRun = Prelude.Nothing,
-        portRange = Prelude.Nothing,
+      { portRange =
+          Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         icmpTypeCode = Prelude.Nothing,
         ipv6CidrBlock = Prelude.Nothing,
         cidrBlock = Prelude.Nothing,
@@ -168,17 +169,17 @@ newReplaceNetworkAclEntry
         ruleNumber = pRuleNumber_
       }
 
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
+replaceNetworkAclEntry_portRange :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe PortRange)
+replaceNetworkAclEntry_portRange = Lens.lens (\ReplaceNetworkAclEntry' {portRange} -> portRange) (\s@ReplaceNetworkAclEntry' {} a -> s {portRange = a} :: ReplaceNetworkAclEntry)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 replaceNetworkAclEntry_dryRun :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe Prelude.Bool)
 replaceNetworkAclEntry_dryRun = Lens.lens (\ReplaceNetworkAclEntry' {dryRun} -> dryRun) (\s@ReplaceNetworkAclEntry' {} a -> s {dryRun = a} :: ReplaceNetworkAclEntry)
-
--- | TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
-replaceNetworkAclEntry_portRange :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe PortRange)
-replaceNetworkAclEntry_portRange = Lens.lens (\ReplaceNetworkAclEntry' {portRange} -> portRange) (\s@ReplaceNetworkAclEntry' {} a -> s {portRange = a} :: ReplaceNetworkAclEntry)
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
@@ -250,8 +251,8 @@ instance Core.ToQuery ReplaceNetworkAclEntry where
           Core.=: ("ReplaceNetworkAclEntry" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "PortRange" Core.=: portRange,
+        "DryRun" Core.=: dryRun,
         "Icmp" Core.=: icmpTypeCode,
         "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
         "CidrBlock" Core.=: cidrBlock,

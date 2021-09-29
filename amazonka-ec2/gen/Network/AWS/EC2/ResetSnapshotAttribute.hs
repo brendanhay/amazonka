@@ -23,7 +23,7 @@
 -- Resets permission settings for the specified snapshot.
 --
 -- For more information about modifying snapshot permissions, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing snapshots>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Share a snapshot>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.ResetSnapshotAttribute
   ( -- * Creating a Request

@@ -32,7 +32,7 @@ data ClientConnectOptions = ClientConnectOptions'
   { -- | Indicates whether client connect options are enabled. The default is
     -- @false@ (not enabled).
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
+    -- | The Amazon Resource Name (ARN) of the Lambda function used for
     -- connection authorization.
     lambdaFunctionArn :: Prelude.Maybe Prelude.Text
   }
@@ -49,7 +49,7 @@ data ClientConnectOptions = ClientConnectOptions'
 -- 'enabled', 'clientConnectOptions_enabled' - Indicates whether client connect options are enabled. The default is
 -- @false@ (not enabled).
 --
--- 'lambdaFunctionArn', 'clientConnectOptions_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the AWS Lambda function used for
+-- 'lambdaFunctionArn', 'clientConnectOptions_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
 newClientConnectOptions ::
   ClientConnectOptions
@@ -64,7 +64,7 @@ newClientConnectOptions =
 clientConnectOptions_enabled :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Bool)
 clientConnectOptions_enabled = Lens.lens (\ClientConnectOptions' {enabled} -> enabled) (\s@ClientConnectOptions' {} a -> s {enabled = a} :: ClientConnectOptions)
 
--- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
+-- | The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
 clientConnectOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Text)
 clientConnectOptions_lambdaFunctionArn = Lens.lens (\ClientConnectOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectOptions)

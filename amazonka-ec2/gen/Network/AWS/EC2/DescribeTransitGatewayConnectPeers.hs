@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeTransitGatewayConnectPeers
 
     -- * Request Lenses
     describeTransitGatewayConnectPeers_nextToken,
-    describeTransitGatewayConnectPeers_dryRun,
     describeTransitGatewayConnectPeers_maxResults,
+    describeTransitGatewayConnectPeers_dryRun,
     describeTransitGatewayConnectPeers_filters,
     describeTransitGatewayConnectPeers_transitGatewayConnectPeerIds,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeTransitGatewayConnectPeers = DescribeTransitGatewayConnectPeers'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @state@ - The state of the Connect peer (@pending@ | @available@ |
@@ -90,14 +90,14 @@ data DescribeTransitGatewayConnectPeers = DescribeTransitGatewayConnectPeers'
 --
 -- 'nextToken', 'describeTransitGatewayConnectPeers_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeTransitGatewayConnectPeers_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeTransitGatewayConnectPeers_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeTransitGatewayConnectPeers_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeTransitGatewayConnectPeers_filters' - One or more filters. The possible values are:
 --
@@ -115,8 +115,8 @@ newDescribeTransitGatewayConnectPeers =
   DescribeTransitGatewayConnectPeers'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       transitGatewayConnectPeerIds =
         Prelude.Nothing
@@ -126,18 +126,18 @@ newDescribeTransitGatewayConnectPeers =
 describeTransitGatewayConnectPeers_nextToken :: Lens.Lens' DescribeTransitGatewayConnectPeers (Prelude.Maybe Prelude.Text)
 describeTransitGatewayConnectPeers_nextToken = Lens.lens (\DescribeTransitGatewayConnectPeers' {nextToken} -> nextToken) (\s@DescribeTransitGatewayConnectPeers' {} a -> s {nextToken = a} :: DescribeTransitGatewayConnectPeers)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeTransitGatewayConnectPeers_maxResults :: Lens.Lens' DescribeTransitGatewayConnectPeers (Prelude.Maybe Prelude.Natural)
+describeTransitGatewayConnectPeers_maxResults = Lens.lens (\DescribeTransitGatewayConnectPeers' {maxResults} -> maxResults) (\s@DescribeTransitGatewayConnectPeers' {} a -> s {maxResults = a} :: DescribeTransitGatewayConnectPeers)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeTransitGatewayConnectPeers_dryRun :: Lens.Lens' DescribeTransitGatewayConnectPeers (Prelude.Maybe Prelude.Bool)
 describeTransitGatewayConnectPeers_dryRun = Lens.lens (\DescribeTransitGatewayConnectPeers' {dryRun} -> dryRun) (\s@DescribeTransitGatewayConnectPeers' {} a -> s {dryRun = a} :: DescribeTransitGatewayConnectPeers)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeTransitGatewayConnectPeers_maxResults :: Lens.Lens' DescribeTransitGatewayConnectPeers (Prelude.Maybe Prelude.Natural)
-describeTransitGatewayConnectPeers_maxResults = Lens.lens (\DescribeTransitGatewayConnectPeers' {maxResults} -> maxResults) (\s@DescribeTransitGatewayConnectPeers' {} a -> s {maxResults = a} :: DescribeTransitGatewayConnectPeers)
 
 -- | One or more filters. The possible values are:
 --
@@ -232,8 +232,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery

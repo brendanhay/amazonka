@@ -36,17 +36,17 @@ data TransitGatewayMulticastGroup = TransitGatewayMulticastGroup'
     groupMember :: Prelude.Maybe Prelude.Bool,
     -- | The member type (for example, @static@).
     memberType :: Prelude.Maybe MembershipType,
-    -- | Indicates that the resource is a transit gateway multicast group member.
-    groupSource :: Prelude.Maybe Prelude.Bool,
     -- | The type of resource, for example a VPC attachment.
     resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
-    -- | The ID of the AWS account that owns the transit gateway multicast domain
-    -- group resource.
+    -- | Indicates that the resource is a transit gateway multicast group member.
+    groupSource :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the transit gateway
+    -- multicast domain group resource.
     resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway attachment.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the transit gateway multicast group.
@@ -70,16 +70,16 @@ data TransitGatewayMulticastGroup = TransitGatewayMulticastGroup'
 --
 -- 'memberType', 'transitGatewayMulticastGroup_memberType' - The member type (for example, @static@).
 --
--- 'groupSource', 'transitGatewayMulticastGroup_groupSource' - Indicates that the resource is a transit gateway multicast group member.
---
 -- 'resourceType', 'transitGatewayMulticastGroup_resourceType' - The type of resource, for example a VPC attachment.
 --
--- 'resourceOwnerId', 'transitGatewayMulticastGroup_resourceOwnerId' - The ID of the AWS account that owns the transit gateway multicast domain
--- group resource.
---
--- 'networkInterfaceId', 'transitGatewayMulticastGroup_networkInterfaceId' - The ID of the transit gateway attachment.
+-- 'groupSource', 'transitGatewayMulticastGroup_groupSource' - Indicates that the resource is a transit gateway multicast group member.
 --
 -- 'subnetId', 'transitGatewayMulticastGroup_subnetId' - The ID of the subnet.
+--
+-- 'resourceOwnerId', 'transitGatewayMulticastGroup_resourceOwnerId' - The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain group resource.
+--
+-- 'networkInterfaceId', 'transitGatewayMulticastGroup_networkInterfaceId' - The ID of the transit gateway attachment.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayMulticastGroup_transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 --
@@ -94,11 +94,11 @@ newTransitGatewayMulticastGroup =
         Prelude.Nothing,
       groupMember = Prelude.Nothing,
       memberType = Prelude.Nothing,
-      groupSource = Prelude.Nothing,
       resourceType = Prelude.Nothing,
+      groupSource = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       resourceOwnerId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
       transitGatewayAttachmentId = Prelude.Nothing,
       groupIpAddress = Prelude.Nothing,
       sourceType = Prelude.Nothing
@@ -116,26 +116,26 @@ transitGatewayMulticastGroup_groupMember = Lens.lens (\TransitGatewayMulticastGr
 transitGatewayMulticastGroup_memberType :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe MembershipType)
 transitGatewayMulticastGroup_memberType = Lens.lens (\TransitGatewayMulticastGroup' {memberType} -> memberType) (\s@TransitGatewayMulticastGroup' {} a -> s {memberType = a} :: TransitGatewayMulticastGroup)
 
--- | Indicates that the resource is a transit gateway multicast group member.
-transitGatewayMulticastGroup_groupSource :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Bool)
-transitGatewayMulticastGroup_groupSource = Lens.lens (\TransitGatewayMulticastGroup' {groupSource} -> groupSource) (\s@TransitGatewayMulticastGroup' {} a -> s {groupSource = a} :: TransitGatewayMulticastGroup)
-
 -- | The type of resource, for example a VPC attachment.
 transitGatewayMulticastGroup_resourceType :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayMulticastGroup_resourceType = Lens.lens (\TransitGatewayMulticastGroup' {resourceType} -> resourceType) (\s@TransitGatewayMulticastGroup' {} a -> s {resourceType = a} :: TransitGatewayMulticastGroup)
 
--- | The ID of the AWS account that owns the transit gateway multicast domain
--- group resource.
+-- | Indicates that the resource is a transit gateway multicast group member.
+transitGatewayMulticastGroup_groupSource :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Bool)
+transitGatewayMulticastGroup_groupSource = Lens.lens (\TransitGatewayMulticastGroup' {groupSource} -> groupSource) (\s@TransitGatewayMulticastGroup' {} a -> s {groupSource = a} :: TransitGatewayMulticastGroup)
+
+-- | The ID of the subnet.
+transitGatewayMulticastGroup_subnetId :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Text)
+transitGatewayMulticastGroup_subnetId = Lens.lens (\TransitGatewayMulticastGroup' {subnetId} -> subnetId) (\s@TransitGatewayMulticastGroup' {} a -> s {subnetId = a} :: TransitGatewayMulticastGroup)
+
+-- | The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain group resource.
 transitGatewayMulticastGroup_resourceOwnerId :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastGroup_resourceOwnerId = Lens.lens (\TransitGatewayMulticastGroup' {resourceOwnerId} -> resourceOwnerId) (\s@TransitGatewayMulticastGroup' {} a -> s {resourceOwnerId = a} :: TransitGatewayMulticastGroup)
 
 -- | The ID of the transit gateway attachment.
 transitGatewayMulticastGroup_networkInterfaceId :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastGroup_networkInterfaceId = Lens.lens (\TransitGatewayMulticastGroup' {networkInterfaceId} -> networkInterfaceId) (\s@TransitGatewayMulticastGroup' {} a -> s {networkInterfaceId = a} :: TransitGatewayMulticastGroup)
-
--- | The ID of the subnet.
-transitGatewayMulticastGroup_subnetId :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Text)
-transitGatewayMulticastGroup_subnetId = Lens.lens (\TransitGatewayMulticastGroup' {subnetId} -> subnetId) (\s@TransitGatewayMulticastGroup' {} a -> s {subnetId = a} :: TransitGatewayMulticastGroup)
 
 -- | The ID of the transit gateway attachment.
 transitGatewayMulticastGroup_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Text)
@@ -155,11 +155,11 @@ instance Core.FromXML TransitGatewayMulticastGroup where
       Prelude.<$> (x Core..@? "resourceId")
       Prelude.<*> (x Core..@? "groupMember")
       Prelude.<*> (x Core..@? "memberType")
-      Prelude.<*> (x Core..@? "groupSource")
       Prelude.<*> (x Core..@? "resourceType")
+      Prelude.<*> (x Core..@? "groupSource")
+      Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "resourceOwnerId")
       Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
       Prelude.<*> (x Core..@? "groupIpAddress")
       Prelude.<*> (x Core..@? "sourceType")

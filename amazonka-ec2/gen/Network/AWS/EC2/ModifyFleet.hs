@@ -59,6 +59,7 @@ module Network.AWS.EC2.ModifyFleet
     -- * Request Lenses
     modifyFleet_launchTemplateConfigs,
     modifyFleet_dryRun,
+    modifyFleet_context,
     modifyFleet_excessCapacityTerminationPolicy,
     modifyFleet_targetCapacitySpecification,
     modifyFleet_fleetId,
@@ -89,6 +90,8 @@ data ModifyFleet = ModifyFleet'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether running instances should be terminated if the total
     -- target capacity of the EC2 Fleet is decreased below the current size of
     -- the EC2 Fleet.
@@ -115,6 +118,8 @@ data ModifyFleet = ModifyFleet'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'context', 'modifyFleet_context' - Reserved.
+--
 -- 'excessCapacityTerminationPolicy', 'modifyFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
@@ -131,6 +136,7 @@ newModifyFleet pFleetId_ =
     { launchTemplateConfigs =
         Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      context = Prelude.Nothing,
       excessCapacityTerminationPolicy = Prelude.Nothing,
       targetCapacitySpecification = Prelude.Nothing,
       fleetId = pFleetId_
@@ -146,6 +152,10 @@ modifyFleet_launchTemplateConfigs = Lens.lens (\ModifyFleet' {launchTemplateConf
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyFleet_dryRun :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Bool)
 modifyFleet_dryRun = Lens.lens (\ModifyFleet' {dryRun} -> dryRun) (\s@ModifyFleet' {} a -> s {dryRun = a} :: ModifyFleet)
+
+-- | Reserved.
+modifyFleet_context :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Text)
+modifyFleet_context = Lens.lens (\ModifyFleet' {context} -> context) (\s@ModifyFleet' {} a -> s {context = a} :: ModifyFleet)
 
 -- | Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
@@ -194,6 +204,7 @@ instance Core.ToQuery ModifyFleet where
               Prelude.<$> launchTemplateConfigs
           ),
         "DryRun" Core.=: dryRun,
+        "Context" Core.=: context,
         "ExcessCapacityTerminationPolicy"
           Core.=: excessCapacityTerminationPolicy,
         "TargetCapacitySpecification"

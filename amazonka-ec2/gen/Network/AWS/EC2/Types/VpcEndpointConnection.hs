@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpcEndpointConnection' smart constructor.
 data VpcEndpointConnection = VpcEndpointConnection'
-  { -- | The date and time that the VPC endpoint was created.
-    creationTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The AWS account ID of the owner of the VPC endpoint.
+  { -- | The AWS account ID of the owner of the VPC endpoint.
     vpcEndpointOwner :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the VPC endpoint was created.
+    creationTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
     -- service.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
@@ -59,9 +59,9 @@ data VpcEndpointConnection = VpcEndpointConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'vpcEndpointConnection_creationTimestamp' - The date and time that the VPC endpoint was created.
---
 -- 'vpcEndpointOwner', 'vpcEndpointConnection_vpcEndpointOwner' - The AWS account ID of the owner of the VPC endpoint.
+--
+-- 'creationTimestamp', 'vpcEndpointConnection_creationTimestamp' - The date and time that the VPC endpoint was created.
 --
 -- 'gatewayLoadBalancerArns', 'vpcEndpointConnection_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
@@ -80,9 +80,9 @@ newVpcEndpointConnection ::
   VpcEndpointConnection
 newVpcEndpointConnection =
   VpcEndpointConnection'
-    { creationTimestamp =
+    { vpcEndpointOwner =
         Prelude.Nothing,
-      vpcEndpointOwner = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
       gatewayLoadBalancerArns = Prelude.Nothing,
       vpcEndpointState = Prelude.Nothing,
       dnsEntries = Prelude.Nothing,
@@ -91,13 +91,13 @@ newVpcEndpointConnection =
       networkLoadBalancerArns = Prelude.Nothing
     }
 
--- | The date and time that the VPC endpoint was created.
-vpcEndpointConnection_creationTimestamp :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.UTCTime)
-vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Core._Time
-
 -- | The AWS account ID of the owner of the VPC endpoint.
 vpcEndpointConnection_vpcEndpointOwner :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
 vpcEndpointConnection_vpcEndpointOwner = Lens.lens (\VpcEndpointConnection' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointOwner = a} :: VpcEndpointConnection)
+
+-- | The date and time that the VPC endpoint was created.
+vpcEndpointConnection_creationTimestamp :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.UTCTime)
+vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
@@ -128,8 +128,8 @@ vpcEndpointConnection_networkLoadBalancerArns = Lens.lens (\VpcEndpointConnectio
 instance Core.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
-      Prelude.<$> (x Core..@? "creationTimestamp")
-      Prelude.<*> (x Core..@? "vpcEndpointOwner")
+      Prelude.<$> (x Core..@? "vpcEndpointOwner")
+      Prelude.<*> (x Core..@? "creationTimestamp")
       Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")

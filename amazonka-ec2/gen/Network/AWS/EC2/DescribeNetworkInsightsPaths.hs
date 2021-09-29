@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeNetworkInsightsPaths
 
     -- * Request Lenses
     describeNetworkInsightsPaths_nextToken,
-    describeNetworkInsightsPaths_dryRun,
     describeNetworkInsightsPaths_maxResults,
+    describeNetworkInsightsPaths_dryRun,
     describeNetworkInsightsPaths_networkInsightsPathIds,
     describeNetworkInsightsPaths_filters,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The IDs of the paths.
     networkInsightsPathIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters. The following are possible values:
@@ -93,14 +93,14 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
 --
 -- 'nextToken', 'describeNetworkInsightsPaths_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeNetworkInsightsPaths_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeNetworkInsightsPaths_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeNetworkInsightsPaths_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'networkInsightsPathIds', 'describeNetworkInsightsPaths_networkInsightsPathIds' - The IDs of the paths.
 --
@@ -121,8 +121,8 @@ newDescribeNetworkInsightsPaths =
   DescribeNetworkInsightsPaths'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       networkInsightsPathIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -131,18 +131,18 @@ newDescribeNetworkInsightsPaths =
 describeNetworkInsightsPaths_nextToken :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsPaths_nextToken = Lens.lens (\DescribeNetworkInsightsPaths' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsPaths' {} a -> s {nextToken = a} :: DescribeNetworkInsightsPaths)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeNetworkInsightsPaths_maxResults :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe Prelude.Natural)
+describeNetworkInsightsPaths_maxResults = Lens.lens (\DescribeNetworkInsightsPaths' {maxResults} -> maxResults) (\s@DescribeNetworkInsightsPaths' {} a -> s {maxResults = a} :: DescribeNetworkInsightsPaths)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeNetworkInsightsPaths_dryRun :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe Prelude.Bool)
 describeNetworkInsightsPaths_dryRun = Lens.lens (\DescribeNetworkInsightsPaths' {dryRun} -> dryRun) (\s@DescribeNetworkInsightsPaths' {} a -> s {dryRun = a} :: DescribeNetworkInsightsPaths)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeNetworkInsightsPaths_maxResults :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe Prelude.Natural)
-describeNetworkInsightsPaths_maxResults = Lens.lens (\DescribeNetworkInsightsPaths' {maxResults} -> maxResults) (\s@DescribeNetworkInsightsPaths' {} a -> s {maxResults = a} :: DescribeNetworkInsightsPaths)
 
 -- | The IDs of the paths.
 describeNetworkInsightsPaths_networkInsightsPathIds :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe [Prelude.Text])
@@ -223,8 +223,8 @@ instance Core.ToQuery DescribeNetworkInsightsPaths where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkInsightsPathId"
               Prelude.<$> networkInsightsPathIds

@@ -44,12 +44,12 @@ data TransitGatewayOptions = TransitGatewayOptions'
     associationDefaultRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether attachment requests are automatically accepted.
     autoAcceptSharedAttachments :: Prelude.Maybe AutoAcceptSharedAttachmentsValue,
+    -- | The transit gateway CIDR blocks.
+    transitGatewayCidrBlocks :: Prelude.Maybe [Prelude.Text],
     -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
     -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
     -- 4294967294 for 32-bit ASNs.
     amazonSideAsn :: Prelude.Maybe Prelude.Integer,
-    -- | The transit gateway CIDR blocks.
-    transitGatewayCidrBlocks :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether multicast is enabled on the transit gateway
     multicastSupport :: Prelude.Maybe MulticastSupportValue,
     -- | Indicates whether resource attachments are automatically associated with
@@ -79,11 +79,11 @@ data TransitGatewayOptions = TransitGatewayOptions'
 --
 -- 'autoAcceptSharedAttachments', 'transitGatewayOptions_autoAcceptSharedAttachments' - Indicates whether attachment requests are automatically accepted.
 --
+-- 'transitGatewayCidrBlocks', 'transitGatewayOptions_transitGatewayCidrBlocks' - The transit gateway CIDR blocks.
+--
 -- 'amazonSideAsn', 'transitGatewayOptions_amazonSideAsn' - A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
 -- 4294967294 for 32-bit ASNs.
---
--- 'transitGatewayCidrBlocks', 'transitGatewayOptions_transitGatewayCidrBlocks' - The transit gateway CIDR blocks.
 --
 -- 'multicastSupport', 'transitGatewayOptions_multicastSupport' - Indicates whether multicast is enabled on the transit gateway
 --
@@ -102,8 +102,8 @@ newTransitGatewayOptions =
       dnsSupport = Prelude.Nothing,
       associationDefaultRouteTableId = Prelude.Nothing,
       autoAcceptSharedAttachments = Prelude.Nothing,
-      amazonSideAsn = Prelude.Nothing,
       transitGatewayCidrBlocks = Prelude.Nothing,
+      amazonSideAsn = Prelude.Nothing,
       multicastSupport = Prelude.Nothing,
       defaultRouteTableAssociation = Prelude.Nothing,
       defaultRouteTablePropagation = Prelude.Nothing
@@ -129,15 +129,15 @@ transitGatewayOptions_associationDefaultRouteTableId = Lens.lens (\TransitGatewa
 transitGatewayOptions_autoAcceptSharedAttachments :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe AutoAcceptSharedAttachmentsValue)
 transitGatewayOptions_autoAcceptSharedAttachments = Lens.lens (\TransitGatewayOptions' {autoAcceptSharedAttachments} -> autoAcceptSharedAttachments) (\s@TransitGatewayOptions' {} a -> s {autoAcceptSharedAttachments = a} :: TransitGatewayOptions)
 
+-- | The transit gateway CIDR blocks.
+transitGatewayOptions_transitGatewayCidrBlocks :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe [Prelude.Text])
+transitGatewayOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatewayOptions' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@TransitGatewayOptions' {} a -> s {transitGatewayCidrBlocks = a} :: TransitGatewayOptions) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
 -- 4294967294 for 32-bit ASNs.
 transitGatewayOptions_amazonSideAsn :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe Prelude.Integer)
 transitGatewayOptions_amazonSideAsn = Lens.lens (\TransitGatewayOptions' {amazonSideAsn} -> amazonSideAsn) (\s@TransitGatewayOptions' {} a -> s {amazonSideAsn = a} :: TransitGatewayOptions)
-
--- | The transit gateway CIDR blocks.
-transitGatewayOptions_transitGatewayCidrBlocks :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe [Prelude.Text])
-transitGatewayOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatewayOptions' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@TransitGatewayOptions' {} a -> s {transitGatewayCidrBlocks = a} :: TransitGatewayOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether multicast is enabled on the transit gateway
 transitGatewayOptions_multicastSupport :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe MulticastSupportValue)
@@ -161,11 +161,11 @@ instance Core.FromXML TransitGatewayOptions where
       Prelude.<*> (x Core..@? "dnsSupport")
       Prelude.<*> (x Core..@? "associationDefaultRouteTableId")
       Prelude.<*> (x Core..@? "autoAcceptSharedAttachments")
-      Prelude.<*> (x Core..@? "amazonSideAsn")
       Prelude.<*> ( x Core..@? "transitGatewayCidrBlocks"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "amazonSideAsn")
       Prelude.<*> (x Core..@? "multicastSupport")
       Prelude.<*> (x Core..@? "defaultRouteTableAssociation")
       Prelude.<*> (x Core..@? "defaultRouteTablePropagation")

@@ -30,16 +30,26 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFleetLaunchTemplateOverrides' smart constructor.
 data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
-  { -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
-    -- | The location where the instance launched, if applicable.
+  { -- | The location where the instance launched, if applicable.
     placement :: Prelude.Maybe PlacementResponse,
-    -- | The priority for the launch template override. If __AllocationStrategy__
-    -- is set to @prioritized@, EC2 Fleet uses priority to determine which
-    -- launch template override to use first in fulfilling On-Demand capacity.
-    -- The highest priority is launched first. Valid values are whole numbers
-    -- starting at @0@. The lower the number, the higher the priority. If no
-    -- number is set, the override has the lowest priority.
+    -- | The instance type.
+    instanceType :: Prelude.Maybe InstanceType,
+    -- | The priority for the launch template override. The highest priority is
+    -- launched first.
+    --
+    -- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet
+    -- uses priority to determine which launch template override to use first
+    -- in fulfilling On-Demand capacity.
+    --
+    -- If the Spot @AllocationStrategy@ is set to
+    -- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a
+    -- best-effort basis to determine which launch template override to use in
+    -- fulfilling Spot capacity, but optimizes for capacity first.
+    --
+    -- Valid values are whole numbers starting at @0@. The lower the number,
+    -- the higher the priority. If no number is set, the override has the
+    -- lowest priority. You can set the same priority for different launch
+    -- template overrides.
     priority :: Prelude.Maybe Prelude.Double,
     -- | The Availability Zone in which to launch the instances.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -61,16 +71,26 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.
---
 -- 'placement', 'fleetLaunchTemplateOverrides_placement' - The location where the instance launched, if applicable.
 --
--- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. If __AllocationStrategy__
--- is set to @prioritized@, EC2 Fleet uses priority to determine which
--- launch template override to use first in fulfilling On-Demand capacity.
--- The highest priority is launched first. Valid values are whole numbers
--- starting at @0@. The lower the number, the higher the priority. If no
--- number is set, the override has the lowest priority.
+-- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.
+--
+-- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is
+-- launched first.
+--
+-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet
+-- uses priority to determine which launch template override to use first
+-- in fulfilling On-Demand capacity.
+--
+-- If the Spot @AllocationStrategy@ is set to
+-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a
+-- best-effort basis to determine which launch template override to use in
+-- fulfilling Spot capacity, but optimizes for capacity first.
+--
+-- Valid values are whole numbers starting at @0@. The lower the number,
+-- the higher the priority. If no number is set, the override has the
+-- lowest priority. You can set the same priority for different launch
+-- template overrides.
 --
 -- 'availabilityZone', 'fleetLaunchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.
 --
@@ -84,9 +104,9 @@ newFleetLaunchTemplateOverrides ::
   FleetLaunchTemplateOverrides
 newFleetLaunchTemplateOverrides =
   FleetLaunchTemplateOverrides'
-    { instanceType =
+    { placement =
         Prelude.Nothing,
-      placement = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       priority = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       maxPrice = Prelude.Nothing,
@@ -94,20 +114,30 @@ newFleetLaunchTemplateOverrides =
       weightedCapacity = Prelude.Nothing
     }
 
--- | The instance type.
-fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
-fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
-
 -- | The location where the instance launched, if applicable.
 fleetLaunchTemplateOverrides_placement :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe PlacementResponse)
 fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverrides' {placement} -> placement) (\s@FleetLaunchTemplateOverrides' {} a -> s {placement = a} :: FleetLaunchTemplateOverrides)
 
--- | The priority for the launch template override. If __AllocationStrategy__
--- is set to @prioritized@, EC2 Fleet uses priority to determine which
--- launch template override to use first in fulfilling On-Demand capacity.
--- The highest priority is launched first. Valid values are whole numbers
--- starting at @0@. The lower the number, the higher the priority. If no
--- number is set, the override has the lowest priority.
+-- | The instance type.
+fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
+fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
+
+-- | The priority for the launch template override. The highest priority is
+-- launched first.
+--
+-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet
+-- uses priority to determine which launch template override to use first
+-- in fulfilling On-Demand capacity.
+--
+-- If the Spot @AllocationStrategy@ is set to
+-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a
+-- best-effort basis to determine which launch template override to use in
+-- fulfilling Spot capacity, but optimizes for capacity first.
+--
+-- Valid values are whole numbers starting at @0@. The lower the number,
+-- the higher the priority. If no number is set, the override has the
+-- lowest priority. You can set the same priority for different launch
+-- template overrides.
 fleetLaunchTemplateOverrides_priority :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_priority = Lens.lens (\FleetLaunchTemplateOverrides' {priority} -> priority) (\s@FleetLaunchTemplateOverrides' {} a -> s {priority = a} :: FleetLaunchTemplateOverrides)
 
@@ -131,8 +161,8 @@ fleetLaunchTemplateOverrides_weightedCapacity = Lens.lens (\FleetLaunchTemplateO
 instance Core.FromXML FleetLaunchTemplateOverrides where
   parseXML x =
     FleetLaunchTemplateOverrides'
-      Prelude.<$> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "placement")
+      Prelude.<$> (x Core..@? "placement")
+      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "priority")
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> (x Core..@? "maxPrice")

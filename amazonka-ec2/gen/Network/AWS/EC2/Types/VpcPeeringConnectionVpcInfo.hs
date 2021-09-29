@@ -33,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo'
   { -- | Information about the IPv4 CIDR blocks for the VPC.
     cidrBlockSet :: Prelude.Maybe [CidrBlock],
-    -- | The AWS account ID of the VPC owner.
+    -- | The ID of the Amazon Web Services account that owns the VPC.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block for the VPC.
     ipv6CidrBlockSet :: Prelude.Maybe [Ipv6CidrBlock],
@@ -59,7 +59,7 @@ data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo'
 --
 -- 'cidrBlockSet', 'vpcPeeringConnectionVpcInfo_cidrBlockSet' - Information about the IPv4 CIDR blocks for the VPC.
 --
--- 'ownerId', 'vpcPeeringConnectionVpcInfo_ownerId' - The AWS account ID of the VPC owner.
+-- 'ownerId', 'vpcPeeringConnectionVpcInfo_ownerId' - The ID of the Amazon Web Services account that owns the VPC.
 --
 -- 'ipv6CidrBlockSet', 'vpcPeeringConnectionVpcInfo_ipv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
 --
@@ -89,7 +89,7 @@ newVpcPeeringConnectionVpcInfo =
 vpcPeeringConnectionVpcInfo_cidrBlockSet :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe [CidrBlock])
 vpcPeeringConnectionVpcInfo_cidrBlockSet = Lens.lens (\VpcPeeringConnectionVpcInfo' {cidrBlockSet} -> cidrBlockSet) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {cidrBlockSet = a} :: VpcPeeringConnectionVpcInfo) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS account ID of the VPC owner.
+-- | The ID of the Amazon Web Services account that owns the VPC.
 vpcPeeringConnectionVpcInfo_ownerId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionVpcInfo_ownerId = Lens.lens (\VpcPeeringConnectionVpcInfo' {ownerId} -> ownerId) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {ownerId = a} :: VpcPeeringConnectionVpcInfo)
 

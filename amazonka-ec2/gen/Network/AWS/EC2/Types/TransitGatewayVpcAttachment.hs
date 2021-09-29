@@ -40,10 +40,10 @@ data TransitGatewayVpcAttachment = TransitGatewayVpcAttachment'
     -- | The state of the VPC attachment. Note that the @initiating@ state has
     -- been deprecated.
     state :: Prelude.Maybe TransitGatewayAttachmentState,
-    -- | The ID of the AWS account that owns the VPC.
-    vpcOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The tags for the VPC attachment.
     tags :: Prelude.Maybe [Tag],
+    -- | The ID of the Amazon Web Services account that owns the VPC.
+    vpcOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
@@ -70,9 +70,9 @@ data TransitGatewayVpcAttachment = TransitGatewayVpcAttachment'
 -- 'state', 'transitGatewayVpcAttachment_state' - The state of the VPC attachment. Note that the @initiating@ state has
 -- been deprecated.
 --
--- 'vpcOwnerId', 'transitGatewayVpcAttachment_vpcOwnerId' - The ID of the AWS account that owns the VPC.
---
 -- 'tags', 'transitGatewayVpcAttachment_tags' - The tags for the VPC attachment.
+--
+-- 'vpcOwnerId', 'transitGatewayVpcAttachment_vpcOwnerId' - The ID of the Amazon Web Services account that owns the VPC.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayVpcAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 --
@@ -88,8 +88,8 @@ newTransitGatewayVpcAttachment =
       options = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       state = Prelude.Nothing,
-      vpcOwnerId = Prelude.Nothing,
       tags = Prelude.Nothing,
+      vpcOwnerId = Prelude.Nothing,
       transitGatewayAttachmentId = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       transitGatewayId = Prelude.Nothing
@@ -112,13 +112,13 @@ transitGatewayVpcAttachment_subnetIds = Lens.lens (\TransitGatewayVpcAttachment'
 transitGatewayVpcAttachment_state :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe TransitGatewayAttachmentState)
 transitGatewayVpcAttachment_state = Lens.lens (\TransitGatewayVpcAttachment' {state} -> state) (\s@TransitGatewayVpcAttachment' {} a -> s {state = a} :: TransitGatewayVpcAttachment)
 
--- | The ID of the AWS account that owns the VPC.
-transitGatewayVpcAttachment_vpcOwnerId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
-transitGatewayVpcAttachment_vpcOwnerId = Lens.lens (\TransitGatewayVpcAttachment' {vpcOwnerId} -> vpcOwnerId) (\s@TransitGatewayVpcAttachment' {} a -> s {vpcOwnerId = a} :: TransitGatewayVpcAttachment)
-
 -- | The tags for the VPC attachment.
 transitGatewayVpcAttachment_tags :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe [Tag])
 transitGatewayVpcAttachment_tags = Lens.lens (\TransitGatewayVpcAttachment' {tags} -> tags) (\s@TransitGatewayVpcAttachment' {} a -> s {tags = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ID of the Amazon Web Services account that owns the VPC.
+transitGatewayVpcAttachment_vpcOwnerId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayVpcAttachment_vpcOwnerId = Lens.lens (\TransitGatewayVpcAttachment' {vpcOwnerId} -> vpcOwnerId) (\s@TransitGatewayVpcAttachment' {} a -> s {vpcOwnerId = a} :: TransitGatewayVpcAttachment)
 
 -- | The ID of the attachment.
 transitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
@@ -141,10 +141,10 @@ instance Core.FromXML TransitGatewayVpcAttachment where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "vpcOwnerId")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "vpcOwnerId")
       Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
       Prelude.<*> (x Core..@? "vpcId")
       Prelude.<*> (x Core..@? "transitGatewayId")

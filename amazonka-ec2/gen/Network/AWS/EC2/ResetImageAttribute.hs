@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resets an attribute of an AMI to its default value.
---
--- The productCodes attribute can\'t be reset.
 module Network.AWS.EC2.ResetImageAttribute
   ( -- * Creating a Request
     ResetImageAttribute (..),

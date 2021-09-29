@@ -31,20 +31,20 @@ import qualified Network.AWS.Prelude as Prelude
 data ScheduledInstance = ScheduledInstance'
   { -- | The platform (@Linux\/UNIX@ or @Windows@).
     platform :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
     networkPlatform :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The number of hours in the schedule.
     slotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | The date when the Scheduled Instance was purchased.
     createDate :: Prelude.Maybe Core.ISO8601,
     -- | The Scheduled Instance ID.
     scheduledInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | The time that the previous schedule ended or will end.
-    previousSlotEndTime :: Prelude.Maybe Core.ISO8601,
     -- | The Availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The time that the previous schedule ended or will end.
+    previousSlotEndTime :: Prelude.Maybe Core.ISO8601,
     -- | The schedule recurrence.
     recurrence :: Prelude.Maybe ScheduledInstanceRecurrence,
     -- | The total number of hours for a single instance for the entire term.
@@ -72,9 +72,9 @@ data ScheduledInstance = ScheduledInstance'
 --
 -- 'platform', 'scheduledInstance_platform' - The platform (@Linux\/UNIX@ or @Windows@).
 --
--- 'instanceType', 'scheduledInstance_instanceType' - The instance type.
---
 -- 'networkPlatform', 'scheduledInstance_networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@).
+--
+-- 'instanceType', 'scheduledInstance_instanceType' - The instance type.
 --
 -- 'slotDurationInHours', 'scheduledInstance_slotDurationInHours' - The number of hours in the schedule.
 --
@@ -82,9 +82,9 @@ data ScheduledInstance = ScheduledInstance'
 --
 -- 'scheduledInstanceId', 'scheduledInstance_scheduledInstanceId' - The Scheduled Instance ID.
 --
--- 'previousSlotEndTime', 'scheduledInstance_previousSlotEndTime' - The time that the previous schedule ended or will end.
---
 -- 'availabilityZone', 'scheduledInstance_availabilityZone' - The Availability Zone.
+--
+-- 'previousSlotEndTime', 'scheduledInstance_previousSlotEndTime' - The time that the previous schedule ended or will end.
 --
 -- 'recurrence', 'scheduledInstance_recurrence' - The schedule recurrence.
 --
@@ -104,13 +104,13 @@ newScheduledInstance ::
 newScheduledInstance =
   ScheduledInstance'
     { platform = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       networkPlatform = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       slotDurationInHours = Prelude.Nothing,
       createDate = Prelude.Nothing,
       scheduledInstanceId = Prelude.Nothing,
-      previousSlotEndTime = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      previousSlotEndTime = Prelude.Nothing,
       recurrence = Prelude.Nothing,
       totalScheduledInstanceHours = Prelude.Nothing,
       nextSlotStartTime = Prelude.Nothing,
@@ -124,13 +124,13 @@ newScheduledInstance =
 scheduledInstance_platform :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_platform = Lens.lens (\ScheduledInstance' {platform} -> platform) (\s@ScheduledInstance' {} a -> s {platform = a} :: ScheduledInstance)
 
--- | The instance type.
-scheduledInstance_instanceType :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
-scheduledInstance_instanceType = Lens.lens (\ScheduledInstance' {instanceType} -> instanceType) (\s@ScheduledInstance' {} a -> s {instanceType = a} :: ScheduledInstance)
-
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
 scheduledInstance_networkPlatform :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_networkPlatform = Lens.lens (\ScheduledInstance' {networkPlatform} -> networkPlatform) (\s@ScheduledInstance' {} a -> s {networkPlatform = a} :: ScheduledInstance)
+
+-- | The instance type.
+scheduledInstance_instanceType :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
+scheduledInstance_instanceType = Lens.lens (\ScheduledInstance' {instanceType} -> instanceType) (\s@ScheduledInstance' {} a -> s {instanceType = a} :: ScheduledInstance)
 
 -- | The number of hours in the schedule.
 scheduledInstance_slotDurationInHours :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Int)
@@ -144,13 +144,13 @@ scheduledInstance_createDate = Lens.lens (\ScheduledInstance' {createDate} -> cr
 scheduledInstance_scheduledInstanceId :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_scheduledInstanceId = Lens.lens (\ScheduledInstance' {scheduledInstanceId} -> scheduledInstanceId) (\s@ScheduledInstance' {} a -> s {scheduledInstanceId = a} :: ScheduledInstance)
 
--- | The time that the previous schedule ended or will end.
-scheduledInstance_previousSlotEndTime :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.UTCTime)
-scheduledInstance_previousSlotEndTime = Lens.lens (\ScheduledInstance' {previousSlotEndTime} -> previousSlotEndTime) (\s@ScheduledInstance' {} a -> s {previousSlotEndTime = a} :: ScheduledInstance) Prelude.. Lens.mapping Core._Time
-
 -- | The Availability Zone.
 scheduledInstance_availabilityZone :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_availabilityZone = Lens.lens (\ScheduledInstance' {availabilityZone} -> availabilityZone) (\s@ScheduledInstance' {} a -> s {availabilityZone = a} :: ScheduledInstance)
+
+-- | The time that the previous schedule ended or will end.
+scheduledInstance_previousSlotEndTime :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.UTCTime)
+scheduledInstance_previousSlotEndTime = Lens.lens (\ScheduledInstance' {previousSlotEndTime} -> previousSlotEndTime) (\s@ScheduledInstance' {} a -> s {previousSlotEndTime = a} :: ScheduledInstance) Prelude.. Lens.mapping Core._Time
 
 -- | The schedule recurrence.
 scheduledInstance_recurrence :: Lens.Lens' ScheduledInstance (Prelude.Maybe ScheduledInstanceRecurrence)
@@ -184,13 +184,13 @@ instance Core.FromXML ScheduledInstance where
   parseXML x =
     ScheduledInstance'
       Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "networkPlatform")
+      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "slotDurationInHours")
       Prelude.<*> (x Core..@? "createDate")
       Prelude.<*> (x Core..@? "scheduledInstanceId")
-      Prelude.<*> (x Core..@? "previousSlotEndTime")
       Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "previousSlotEndTime")
       Prelude.<*> (x Core..@? "recurrence")
       Prelude.<*> (x Core..@? "totalScheduledInstanceHours")
       Prelude.<*> (x Core..@? "nextSlotStartTime")

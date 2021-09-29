@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterfacePermission' smart constructor.
 data NetworkInterfacePermission = NetworkInterfacePermission'
-  { -- | The AWS account ID.
+  { -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Information about the state of the permission.
     permissionState :: Prelude.Maybe NetworkInterfacePermissionState,
@@ -38,7 +38,7 @@ data NetworkInterfacePermission = NetworkInterfacePermission'
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The type of permission.
     permission :: Prelude.Maybe InterfacePermissionType,
-    -- | The AWS service.
+    -- | The Amazon Web Service.
     awsService :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface permission.
     networkInterfacePermissionId :: Prelude.Maybe Prelude.Text
@@ -53,7 +53,7 @@ data NetworkInterfacePermission = NetworkInterfacePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'networkInterfacePermission_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'networkInterfacePermission_awsAccountId' - The Amazon Web Services account ID.
 --
 -- 'permissionState', 'networkInterfacePermission_permissionState' - Information about the state of the permission.
 --
@@ -61,7 +61,7 @@ data NetworkInterfacePermission = NetworkInterfacePermission'
 --
 -- 'permission', 'networkInterfacePermission_permission' - The type of permission.
 --
--- 'awsService', 'networkInterfacePermission_awsService' - The AWS service.
+-- 'awsService', 'networkInterfacePermission_awsService' - The Amazon Web Service.
 --
 -- 'networkInterfacePermissionId', 'networkInterfacePermission_networkInterfacePermissionId' - The ID of the network interface permission.
 newNetworkInterfacePermission ::
@@ -77,7 +77,7 @@ newNetworkInterfacePermission =
       networkInterfacePermissionId = Prelude.Nothing
     }
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 networkInterfacePermission_awsAccountId :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_awsAccountId = Lens.lens (\NetworkInterfacePermission' {awsAccountId} -> awsAccountId) (\s@NetworkInterfacePermission' {} a -> s {awsAccountId = a} :: NetworkInterfacePermission)
 
@@ -93,7 +93,7 @@ networkInterfacePermission_networkInterfaceId = Lens.lens (\NetworkInterfacePerm
 networkInterfacePermission_permission :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe InterfacePermissionType)
 networkInterfacePermission_permission = Lens.lens (\NetworkInterfacePermission' {permission} -> permission) (\s@NetworkInterfacePermission' {} a -> s {permission = a} :: NetworkInterfacePermission)
 
--- | The AWS service.
+-- | The Amazon Web Service.
 networkInterfacePermission_awsService :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_awsService = Lens.lens (\NetworkInterfacePermission' {awsService} -> awsService) (\s@NetworkInterfacePermission' {} a -> s {awsService = a} :: NetworkInterfacePermission)
 

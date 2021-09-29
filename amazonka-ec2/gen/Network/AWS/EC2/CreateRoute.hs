@@ -41,7 +41,7 @@
 -- target the traffic.
 --
 -- For more information about route tables, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route Tables>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateRoute
   ( -- * Creating a Request
@@ -57,10 +57,10 @@ module Network.AWS.EC2.CreateRoute
     createRoute_destinationIpv6CidrBlock,
     createRoute_localGatewayId,
     createRoute_egressOnlyInternetGatewayId,
-    createRoute_carrierGatewayId,
     createRoute_destinationCidrBlock,
-    createRoute_networkInterfaceId,
+    createRoute_carrierGatewayId,
     createRoute_natGatewayId,
+    createRoute_networkInterfaceId,
     createRoute_gatewayId,
     createRoute_transitGatewayId,
     createRoute_routeTableId,
@@ -106,20 +106,20 @@ data CreateRoute = CreateRoute'
     localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
     egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the carrier gateway.
-    --
-    -- You can only use this option when the VPC contains a subnet which is
-    -- associated with a Wavelength Zone.
-    carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR address block used for the destination match. Routing
     -- decisions are based on the most specific match. We modify the specified
     -- CIDR block to its canonical form; for example, if you specify
     -- @100.68.0.18\/18@, we modify it to @100.68.0.0\/18@.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the carrier gateway.
+    --
+    -- You can only use this option when the VPC contains a subnet which is
+    -- associated with a Wavelength Zone.
+    carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | [IPv4 traffic only] The ID of a NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of an internet gateway or virtual private gateway attached to
     -- your VPC.
     gatewayId :: Prelude.Maybe Prelude.Text,
@@ -160,19 +160,19 @@ data CreateRoute = CreateRoute'
 --
 -- 'egressOnlyInternetGatewayId', 'createRoute_egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
 --
--- 'carrierGatewayId', 'createRoute_carrierGatewayId' - The ID of the carrier gateway.
---
--- You can only use this option when the VPC contains a subnet which is
--- associated with a Wavelength Zone.
---
 -- 'destinationCidrBlock', 'createRoute_destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. Routing
 -- decisions are based on the most specific match. We modify the specified
 -- CIDR block to its canonical form; for example, if you specify
 -- @100.68.0.18\/18@, we modify it to @100.68.0.0\/18@.
 --
--- 'networkInterfaceId', 'createRoute_networkInterfaceId' - The ID of a network interface.
+-- 'carrierGatewayId', 'createRoute_carrierGatewayId' - The ID of the carrier gateway.
+--
+-- You can only use this option when the VPC contains a subnet which is
+-- associated with a Wavelength Zone.
 --
 -- 'natGatewayId', 'createRoute_natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
+--
+-- 'networkInterfaceId', 'createRoute_networkInterfaceId' - The ID of a network interface.
 --
 -- 'gatewayId', 'createRoute_gatewayId' - The ID of an internet gateway or virtual private gateway attached to
 -- your VPC.
@@ -194,10 +194,10 @@ newCreateRoute pRouteTableId_ =
       destinationIpv6CidrBlock = Prelude.Nothing,
       localGatewayId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
-      carrierGatewayId = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
+      carrierGatewayId = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
       transitGatewayId = Prelude.Nothing,
       routeTableId = pRouteTableId_
@@ -241,13 +241,6 @@ createRoute_localGatewayId = Lens.lens (\CreateRoute' {localGatewayId} -> localG
 createRoute_egressOnlyInternetGatewayId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
 createRoute_egressOnlyInternetGatewayId = Lens.lens (\CreateRoute' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@CreateRoute' {} a -> s {egressOnlyInternetGatewayId = a} :: CreateRoute)
 
--- | The ID of the carrier gateway.
---
--- You can only use this option when the VPC contains a subnet which is
--- associated with a Wavelength Zone.
-createRoute_carrierGatewayId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
-createRoute_carrierGatewayId = Lens.lens (\CreateRoute' {carrierGatewayId} -> carrierGatewayId) (\s@CreateRoute' {} a -> s {carrierGatewayId = a} :: CreateRoute)
-
 -- | The IPv4 CIDR address block used for the destination match. Routing
 -- decisions are based on the most specific match. We modify the specified
 -- CIDR block to its canonical form; for example, if you specify
@@ -255,13 +248,20 @@ createRoute_carrierGatewayId = Lens.lens (\CreateRoute' {carrierGatewayId} -> ca
 createRoute_destinationCidrBlock :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
 createRoute_destinationCidrBlock = Lens.lens (\CreateRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateRoute' {} a -> s {destinationCidrBlock = a} :: CreateRoute)
 
--- | The ID of a network interface.
-createRoute_networkInterfaceId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
-createRoute_networkInterfaceId = Lens.lens (\CreateRoute' {networkInterfaceId} -> networkInterfaceId) (\s@CreateRoute' {} a -> s {networkInterfaceId = a} :: CreateRoute)
+-- | The ID of the carrier gateway.
+--
+-- You can only use this option when the VPC contains a subnet which is
+-- associated with a Wavelength Zone.
+createRoute_carrierGatewayId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
+createRoute_carrierGatewayId = Lens.lens (\CreateRoute' {carrierGatewayId} -> carrierGatewayId) (\s@CreateRoute' {} a -> s {carrierGatewayId = a} :: CreateRoute)
 
 -- | [IPv4 traffic only] The ID of a NAT gateway.
 createRoute_natGatewayId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
 createRoute_natGatewayId = Lens.lens (\CreateRoute' {natGatewayId} -> natGatewayId) (\s@CreateRoute' {} a -> s {natGatewayId = a} :: CreateRoute)
+
+-- | The ID of a network interface.
+createRoute_networkInterfaceId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
+createRoute_networkInterfaceId = Lens.lens (\CreateRoute' {networkInterfaceId} -> networkInterfaceId) (\s@CreateRoute' {} a -> s {networkInterfaceId = a} :: CreateRoute)
 
 -- | The ID of an internet gateway or virtual private gateway attached to
 -- your VPC.
@@ -316,10 +316,10 @@ instance Core.ToQuery CreateRoute where
         "LocalGatewayId" Core.=: localGatewayId,
         "EgressOnlyInternetGatewayId"
           Core.=: egressOnlyInternetGatewayId,
-        "CarrierGatewayId" Core.=: carrierGatewayId,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
+        "CarrierGatewayId" Core.=: carrierGatewayId,
         "NatGatewayId" Core.=: natGatewayId,
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
         "GatewayId" Core.=: gatewayId,
         "TransitGatewayId" Core.=: transitGatewayId,
         "RouteTableId" Core.=: routeTableId

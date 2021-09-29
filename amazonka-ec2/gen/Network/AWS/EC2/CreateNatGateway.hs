@@ -20,13 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a NAT gateway in the specified public subnet. This action
--- creates a network interface in the specified subnet with a private IP
--- address from the IP address range of the subnet. Internet-bound traffic
--- from a private subnet can be routed to the NAT gateway, therefore
--- enabling instances in the private subnet to connect to the internet. For
--- more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html NAT Gateways>
+-- Creates a NAT gateway in the specified subnet. This action creates a
+-- network interface in the specified subnet with a private IP address from
+-- the IP address range of the subnet. You can create either a public NAT
+-- gateway or a private NAT gateway.
+--
+-- With a public NAT gateway, internet-bound traffic from a private subnet
+-- can be routed to the NAT gateway, so that instances in a private subnet
+-- can connect to the internet.
+--
+-- With a private NAT gateway, private communication is routed across VPCs
+-- and on-premises networks through a transit gateway or virtual private
+-- gateway. Common use cases include running large workloads behind a small
+-- pool of allowlisted IPv4 addresses, preserving private IPv4 addresses,
+-- and communicating between overlapping networks.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html NAT gateways>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateNatGateway
   ( -- * Creating a Request
@@ -36,8 +46,9 @@ module Network.AWS.EC2.CreateNatGateway
     -- * Request Lenses
     createNatGateway_tagSpecifications,
     createNatGateway_dryRun,
-    createNatGateway_clientToken,
     createNatGateway_allocationId,
+    createNatGateway_connectivityType,
+    createNatGateway_clientToken,
     createNatGateway_subnetId,
 
     -- * Destructuring the Response
@@ -67,16 +78,20 @@ data CreateNatGateway = CreateNatGateway'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
+    -- associate with the NAT gateway. You cannot specify an Elastic IP address
+    -- with a private NAT gateway. If the Elastic IP address is associated with
+    -- another resource, you must first disassociate it.
+    allocationId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the NAT gateway supports public or private
+    -- connectivity. The default is public connectivity.
+    connectivityType :: Prelude.Maybe ConnectivityType,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     --
     -- Constraint: Maximum 64 ASCII characters.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The allocation ID of an Elastic IP address to associate with the NAT
-    -- gateway. If the Elastic IP address is associated with another resource,
-    -- you must first disassociate it.
-    allocationId :: Prelude.Text,
     -- | The subnet in which to create the NAT gateway.
     subnetId :: Prelude.Text
   }
@@ -97,30 +112,33 @@ data CreateNatGateway = CreateNatGateway'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'allocationId', 'createNatGateway_allocationId' - [Public NAT gateways only] The allocation ID of an Elastic IP address to
+-- associate with the NAT gateway. You cannot specify an Elastic IP address
+-- with a private NAT gateway. If the Elastic IP address is associated with
+-- another resource, you must first disassociate it.
+--
+-- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
+-- connectivity. The default is public connectivity.
+--
 -- 'clientToken', 'createNatGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- Constraint: Maximum 64 ASCII characters.
 --
--- 'allocationId', 'createNatGateway_allocationId' - The allocation ID of an Elastic IP address to associate with the NAT
--- gateway. If the Elastic IP address is associated with another resource,
--- you must first disassociate it.
---
 -- 'subnetId', 'createNatGateway_subnetId' - The subnet in which to create the NAT gateway.
 newCreateNatGateway ::
-  -- | 'allocationId'
-  Prelude.Text ->
   -- | 'subnetId'
   Prelude.Text ->
   CreateNatGateway
-newCreateNatGateway pAllocationId_ pSubnetId_ =
+newCreateNatGateway pSubnetId_ =
   CreateNatGateway'
     { tagSpecifications =
         Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      allocationId = Prelude.Nothing,
+      connectivityType = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      allocationId = pAllocationId_,
       subnetId = pSubnetId_
     }
 
@@ -135,19 +153,25 @@ createNatGateway_tagSpecifications = Lens.lens (\CreateNatGateway' {tagSpecifica
 createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Bool)
 createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@CreateNatGateway' {} a -> s {dryRun = a} :: CreateNatGateway)
 
+-- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
+-- associate with the NAT gateway. You cannot specify an Elastic IP address
+-- with a private NAT gateway. If the Elastic IP address is associated with
+-- another resource, you must first disassociate it.
+createNatGateway_allocationId :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
+createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
+
+-- | Indicates whether the NAT gateway supports public or private
+-- connectivity. The default is public connectivity.
+createNatGateway_connectivityType :: Lens.Lens' CreateNatGateway (Prelude.Maybe ConnectivityType)
+createNatGateway_connectivityType = Lens.lens (\CreateNatGateway' {connectivityType} -> connectivityType) (\s@CreateNatGateway' {} a -> s {connectivityType = a} :: CreateNatGateway)
+
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- Constraint: Maximum 64 ASCII characters.
 createNatGateway_clientToken :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_clientToken = Lens.lens (\CreateNatGateway' {clientToken} -> clientToken) (\s@CreateNatGateway' {} a -> s {clientToken = a} :: CreateNatGateway)
-
--- | The allocation ID of an Elastic IP address to associate with the NAT
--- gateway. If the Elastic IP address is associated with another resource,
--- you must first disassociate it.
-createNatGateway_allocationId :: Lens.Lens' CreateNatGateway Prelude.Text
-createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
 
 -- | The subnet in which to create the NAT gateway.
 createNatGateway_subnetId :: Lens.Lens' CreateNatGateway Prelude.Text
@@ -189,8 +213,9 @@ instance Core.ToQuery CreateNatGateway where
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "ClientToken" Core.=: clientToken,
         "AllocationId" Core.=: allocationId,
+        "ConnectivityType" Core.=: connectivityType,
+        "ClientToken" Core.=: clientToken,
         "SubnetId" Core.=: subnetId
       ]
 

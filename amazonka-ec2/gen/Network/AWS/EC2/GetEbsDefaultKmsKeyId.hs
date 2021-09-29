@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the default customer master key (CMK) for EBS encryption by
--- default for your account in this Region. You can change the default CMK
--- for encryption by default using ModifyEbsDefaultKmsKeyId or
+-- Describes the default KMS key for EBS encryption by default for your
+-- account in this Region. You can change the default KMS key for
+-- encryption by default using ModifyEbsDefaultKmsKeyId or
 -- ResetEbsDefaultKmsKeyId.
 --
 -- For more information, see
@@ -122,7 +122,7 @@ instance Core.ToQuery GetEbsDefaultKmsKeyId where
 
 -- | /See:/ 'newGetEbsDefaultKmsKeyIdResponse' smart constructor.
 data GetEbsDefaultKmsKeyIdResponse = GetEbsDefaultKmsKeyIdResponse'
-  { -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
+  { -- | The Amazon Resource Name (ARN) of the default KMS key for encryption by
     -- default.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -138,7 +138,7 @@ data GetEbsDefaultKmsKeyIdResponse = GetEbsDefaultKmsKeyIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'getEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default CMK for encryption by
+-- 'kmsKeyId', 'getEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default KMS key for encryption by
 -- default.
 --
 -- 'httpStatus', 'getEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.
@@ -153,7 +153,7 @@ newGetEbsDefaultKmsKeyIdResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the default CMK for encryption by
+-- | The Amazon Resource Name (ARN) of the default KMS key for encryption by
 -- default.
 getEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse (Prelude.Maybe Prelude.Text)
 getEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\GetEbsDefaultKmsKeyIdResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEbsDefaultKmsKeyIdResponse' {} a -> s {kmsKeyId = a} :: GetEbsDefaultKmsKeyIdResponse)

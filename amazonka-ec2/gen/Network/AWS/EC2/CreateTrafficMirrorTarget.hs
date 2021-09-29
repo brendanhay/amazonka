@@ -41,8 +41,8 @@ module Network.AWS.EC2.CreateTrafficMirrorTarget
     createTrafficMirrorTarget_tagSpecifications,
     createTrafficMirrorTarget_networkLoadBalancerArn,
     createTrafficMirrorTarget_dryRun,
-    createTrafficMirrorTarget_networkInterfaceId,
     createTrafficMirrorTarget_description,
+    createTrafficMirrorTarget_networkInterfaceId,
     createTrafficMirrorTarget_clientToken,
 
     -- * Destructuring the Response
@@ -75,10 +75,10 @@ data CreateTrafficMirrorTarget = CreateTrafficMirrorTarget'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The network interface ID that is associated with the target.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The description of the Traffic Mirror target.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The network interface ID that is associated with the target.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
@@ -104,9 +104,9 @@ data CreateTrafficMirrorTarget = CreateTrafficMirrorTarget'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'networkInterfaceId', 'createTrafficMirrorTarget_networkInterfaceId' - The network interface ID that is associated with the target.
---
 -- 'description', 'createTrafficMirrorTarget_description' - The description of the Traffic Mirror target.
+--
+-- 'networkInterfaceId', 'createTrafficMirrorTarget_networkInterfaceId' - The network interface ID that is associated with the target.
 --
 -- 'clientToken', 'createTrafficMirrorTarget_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -119,8 +119,8 @@ newCreateTrafficMirrorTarget =
         Prelude.Nothing,
       networkLoadBalancerArn = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
       description = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       clientToken = Prelude.Nothing
     }
 
@@ -140,13 +140,13 @@ createTrafficMirrorTarget_networkLoadBalancerArn = Lens.lens (\CreateTrafficMirr
 createTrafficMirrorTarget_dryRun :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Bool)
 createTrafficMirrorTarget_dryRun = Lens.lens (\CreateTrafficMirrorTarget' {dryRun} -> dryRun) (\s@CreateTrafficMirrorTarget' {} a -> s {dryRun = a} :: CreateTrafficMirrorTarget)
 
--- | The network interface ID that is associated with the target.
-createTrafficMirrorTarget_networkInterfaceId :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Text)
-createTrafficMirrorTarget_networkInterfaceId = Lens.lens (\CreateTrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@CreateTrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: CreateTrafficMirrorTarget)
-
 -- | The description of the Traffic Mirror target.
 createTrafficMirrorTarget_description :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 createTrafficMirrorTarget_description = Lens.lens (\CreateTrafficMirrorTarget' {description} -> description) (\s@CreateTrafficMirrorTarget' {} a -> s {description = a} :: CreateTrafficMirrorTarget)
+
+-- | The network interface ID that is associated with the target.
+createTrafficMirrorTarget_networkInterfaceId :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Text)
+createTrafficMirrorTarget_networkInterfaceId = Lens.lens (\CreateTrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@CreateTrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: CreateTrafficMirrorTarget)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -192,8 +192,8 @@ instance Core.ToQuery CreateTrafficMirrorTarget where
         "NetworkLoadBalancerArn"
           Core.=: networkLoadBalancerArn,
         "DryRun" Core.=: dryRun,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
         "Description" Core.=: description,
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
         "ClientToken" Core.=: clientToken
       ]
 

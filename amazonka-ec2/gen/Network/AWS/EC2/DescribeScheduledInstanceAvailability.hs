@@ -41,8 +41,8 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     -- * Request Lenses
     describeScheduledInstanceAvailability_minSlotDurationInHours,
     describeScheduledInstanceAvailability_nextToken,
-    describeScheduledInstanceAvailability_dryRun,
     describeScheduledInstanceAvailability_maxResults,
+    describeScheduledInstanceAvailability_dryRun,
     describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_maxSlotDurationInHours,
     describeScheduledInstanceAvailability_firstSlotStartTimeRange,
@@ -77,16 +77,16 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     minSlotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. This value can
     -- be between 5 and 300. The default value is 300. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone (for example,
@@ -124,15 +124,15 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --
 -- 'nextToken', 'describeScheduledInstanceAvailability_nextToken' - The token for the next set of results.
 --
--- 'dryRun', 'describeScheduledInstanceAvailability_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeScheduledInstanceAvailability_maxResults' - The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 300. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeScheduledInstanceAvailability_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeScheduledInstanceAvailability_filters' - The filters.
 --
@@ -165,8 +165,8 @@ newDescribeScheduledInstanceAvailability
       { minSlotDurationInHours =
           Prelude.Nothing,
         nextToken = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         filters = Prelude.Nothing,
         maxSlotDurationInHours =
           Prelude.Nothing,
@@ -186,19 +186,19 @@ describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\Descr
 describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
 describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Bool)
-describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInstanceAvailability' {dryRun} -> dryRun) (\s@DescribeScheduledInstanceAvailability' {} a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
-
 -- | The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 300. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
 describeScheduledInstanceAvailability_maxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Natural)
 describeScheduledInstanceAvailability_maxResults = Lens.lens (\DescribeScheduledInstanceAvailability' {maxResults} -> maxResults) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxResults = a} :: DescribeScheduledInstanceAvailability)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Bool)
+describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInstanceAvailability' {dryRun} -> dryRun) (\s@DescribeScheduledInstanceAvailability' {} a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The filters.
 --
@@ -308,8 +308,8 @@ instance
         "MinSlotDurationInHours"
           Core.=: minSlotDurationInHours,
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "MaxSlotDurationInHours"

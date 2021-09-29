@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeClientVpnConnections
 
     -- * Request Lenses
     describeClientVpnConnections_nextToken,
-    describeClientVpnConnections_dryRun,
     describeClientVpnConnections_maxResults,
+    describeClientVpnConnections_dryRun,
     describeClientVpnConnections_filters,
     describeClientVpnConnections_clientVpnEndpointId,
 
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 data DescribeClientVpnConnections = DescribeClientVpnConnections'
   { -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the nextToken value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the nextToken value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @connection-id@ - The ID of the connection.
@@ -90,14 +90,14 @@ data DescribeClientVpnConnections = DescribeClientVpnConnections'
 --
 -- 'nextToken', 'describeClientVpnConnections_nextToken' - The token to retrieve the next page of results.
 --
+-- 'maxResults', 'describeClientVpnConnections_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the nextToken value.
+--
 -- 'dryRun', 'describeClientVpnConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeClientVpnConnections_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the nextToken value.
 --
 -- 'filters', 'describeClientVpnConnections_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -115,8 +115,8 @@ newDescribeClientVpnConnections pClientVpnEndpointId_ =
   DescribeClientVpnConnections'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       clientVpnEndpointId = pClientVpnEndpointId_
     }
@@ -125,18 +125,18 @@ newDescribeClientVpnConnections pClientVpnEndpointId_ =
 describeClientVpnConnections_nextToken :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Text)
 describeClientVpnConnections_nextToken = Lens.lens (\DescribeClientVpnConnections' {nextToken} -> nextToken) (\s@DescribeClientVpnConnections' {} a -> s {nextToken = a} :: DescribeClientVpnConnections)
 
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the nextToken value.
+describeClientVpnConnections_maxResults :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Natural)
+describeClientVpnConnections_maxResults = Lens.lens (\DescribeClientVpnConnections' {maxResults} -> maxResults) (\s@DescribeClientVpnConnections' {} a -> s {maxResults = a} :: DescribeClientVpnConnections)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeClientVpnConnections_dryRun :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Bool)
 describeClientVpnConnections_dryRun = Lens.lens (\DescribeClientVpnConnections' {dryRun} -> dryRun) (\s@DescribeClientVpnConnections' {} a -> s {dryRun = a} :: DescribeClientVpnConnections)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the nextToken value.
-describeClientVpnConnections_maxResults :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Natural)
-describeClientVpnConnections_maxResults = Lens.lens (\DescribeClientVpnConnections' {maxResults} -> maxResults) (\s@DescribeClientVpnConnections' {} a -> s {maxResults = a} :: DescribeClientVpnConnections)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -211,8 +211,8 @@ instance Core.ToQuery DescribeClientVpnConnections where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId

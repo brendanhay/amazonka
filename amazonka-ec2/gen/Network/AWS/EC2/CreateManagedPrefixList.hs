@@ -23,9 +23,6 @@
 -- Creates a managed prefix list. You can specify one or more entries for
 -- the prefix list. Each entry consists of a CIDR block and an optional
 -- description.
---
--- You must specify the maximum number of entries for the prefix list. The
--- maximum number of entries cannot be changed later.
 module Network.AWS.EC2.CreateManagedPrefixList
   ( -- * Creating a Request
     CreateManagedPrefixList (..),
@@ -34,8 +31,8 @@ module Network.AWS.EC2.CreateManagedPrefixList
     -- * Request Lenses
     createManagedPrefixList_tagSpecifications,
     createManagedPrefixList_dryRun,
-    createManagedPrefixList_clientToken,
     createManagedPrefixList_entries,
+    createManagedPrefixList_clientToken,
     createManagedPrefixList_prefixListName,
     createManagedPrefixList_maxEntries,
     createManagedPrefixList_addressFamily,
@@ -66,14 +63,14 @@ data CreateManagedPrefixList = CreateManagedPrefixList'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more entries for the prefix list.
+    entries :: Prelude.Maybe [AddPrefixListEntry],
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraints: Up to 255 UTF-8 characters in length.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more entries for the prefix list.
-    entries :: Prelude.Maybe [AddPrefixListEntry],
     -- | A name for the prefix list.
     --
     -- Constraints: Up to 255 characters in length. The name cannot start with
@@ -103,13 +100,13 @@ data CreateManagedPrefixList = CreateManagedPrefixList'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'entries', 'createManagedPrefixList_entries' - One or more entries for the prefix list.
+--
 -- 'clientToken', 'createManagedPrefixList_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraints: Up to 255 UTF-8 characters in length.
---
--- 'entries', 'createManagedPrefixList_entries' - One or more entries for the prefix list.
 --
 -- 'prefixListName', 'createManagedPrefixList_prefixListName' - A name for the prefix list.
 --
@@ -137,8 +134,8 @@ newCreateManagedPrefixList
       { tagSpecifications =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         entries = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         prefixListName = pPrefixListName_,
         maxEntries = pMaxEntries_,
         addressFamily = pAddressFamily_
@@ -155,6 +152,10 @@ createManagedPrefixList_tagSpecifications = Lens.lens (\CreateManagedPrefixList'
 createManagedPrefixList_dryRun :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Bool)
 createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -> dryRun) (\s@CreateManagedPrefixList' {} a -> s {dryRun = a} :: CreateManagedPrefixList)
 
+-- | One or more entries for the prefix list.
+createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
+createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
@@ -162,10 +163,6 @@ createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -
 -- Constraints: Up to 255 UTF-8 characters in length.
 createManagedPrefixList_clientToken :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Text)
 createManagedPrefixList_clientToken = Lens.lens (\CreateManagedPrefixList' {clientToken} -> clientToken) (\s@CreateManagedPrefixList' {} a -> s {clientToken = a} :: CreateManagedPrefixList)
-
--- | One or more entries for the prefix list.
-createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
-createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the prefix list.
 --
@@ -219,9 +216,9 @@ instance Core.ToQuery CreateManagedPrefixList where
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "ClientToken" Core.=: clientToken,
         Core.toQuery
           (Core.toQueryList "Entry" Prelude.<$> entries),
+        "ClientToken" Core.=: clientToken,
         "PrefixListName" Core.=: prefixListName,
         "MaxEntries" Core.=: maxEntries,
         "AddressFamily" Core.=: addressFamily

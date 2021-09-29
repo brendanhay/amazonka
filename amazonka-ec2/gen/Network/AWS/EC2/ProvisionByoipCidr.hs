@@ -20,16 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions an IPv4 or IPv6 address range for use with your AWS resources
--- through bring your own IP addresses (BYOIP) and creates a corresponding
--- address pool. After the address range is provisioned, it is ready to be
--- advertised using AdvertiseByoipCidr.
+-- Provisions an IPv4 or IPv6 address range for use with your Amazon Web
+-- Services resources through bring your own IP addresses (BYOIP) and
+-- creates a corresponding address pool. After the address range is
+-- provisioned, it is ready to be advertised using AdvertiseByoipCidr.
 --
--- AWS verifies that you own the address range and are authorized to
--- advertise it. You must ensure that the address range is registered to
--- you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and
--- 14618 to advertise the address range. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html Bring Your Own IP Addresses (BYOIP)>
+-- Amazon Web Services verifies that you own the address range and are
+-- authorized to advertise it. You must ensure that the address range is
+-- registered to you and that you created an RPKI ROA to authorize Amazon
+-- ASNs 16509 and 14618 to advertise the address range. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html Bring your own IP addresses (BYOIP)>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Provisioning an address range is an asynchronous operation, so the call
@@ -45,6 +46,7 @@ module Network.AWS.EC2.ProvisionByoipCidr
     newProvisionByoipCidr,
 
     -- * Request Lenses
+    provisionByoipCidr_multiRegion,
     provisionByoipCidr_dryRun,
     provisionByoipCidr_cidrAuthorizationContext,
     provisionByoipCidr_publiclyAdvertisable,
@@ -71,7 +73,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newProvisionByoipCidr' smart constructor.
 data ProvisionByoipCidr = ProvisionByoipCidr'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Reserved.
+    multiRegion :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -105,6 +109,8 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'multiRegion', 'provisionByoipCidr_multiRegion' - Reserved.
+--
 -- 'dryRun', 'provisionByoipCidr_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -133,13 +139,18 @@ newProvisionByoipCidr ::
   ProvisionByoipCidr
 newProvisionByoipCidr pCidr_ =
   ProvisionByoipCidr'
-    { dryRun = Prelude.Nothing,
+    { multiRegion = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       cidrAuthorizationContext = Prelude.Nothing,
       publiclyAdvertisable = Prelude.Nothing,
       description = Prelude.Nothing,
       poolTagSpecifications = Prelude.Nothing,
       cidr = pCidr_
     }
+
+-- | Reserved.
+provisionByoipCidr_multiRegion :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
+provisionByoipCidr_multiRegion = Lens.lens (\ProvisionByoipCidr' {multiRegion} -> multiRegion) (\s@ProvisionByoipCidr' {} a -> s {multiRegion = a} :: ProvisionByoipCidr)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -206,6 +217,7 @@ instance Core.ToQuery ProvisionByoipCidr where
           Core.=: ("ProvisionByoipCidr" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "MultiRegion" Core.=: multiRegion,
         "DryRun" Core.=: dryRun,
         "CidrAuthorizationContext"
           Core.=: cidrAuthorizationContext,

@@ -36,14 +36,14 @@ data TrafficMirrorTarget = TrafficMirrorTarget'
     networkLoadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the Traffic Mirror target.
     tags :: Prelude.Maybe [Tag],
-    -- | The network interface ID that is attached to the target.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the Traffic Mirror target.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The type of Traffic Mirror target.
-    type' :: Prelude.Maybe TrafficMirrorTargetType,
+    -- | The network interface ID that is attached to the target.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Traffic Mirror target.
-    trafficMirrorTargetId :: Prelude.Maybe Prelude.Text
+    trafficMirrorTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The type of Traffic Mirror target.
+    type' :: Prelude.Maybe TrafficMirrorTargetType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,13 +61,13 @@ data TrafficMirrorTarget = TrafficMirrorTarget'
 --
 -- 'tags', 'trafficMirrorTarget_tags' - The tags assigned to the Traffic Mirror target.
 --
--- 'networkInterfaceId', 'trafficMirrorTarget_networkInterfaceId' - The network interface ID that is attached to the target.
---
 -- 'description', 'trafficMirrorTarget_description' - Information about the Traffic Mirror target.
 --
--- 'type'', 'trafficMirrorTarget_type' - The type of Traffic Mirror target.
+-- 'networkInterfaceId', 'trafficMirrorTarget_networkInterfaceId' - The network interface ID that is attached to the target.
 --
 -- 'trafficMirrorTargetId', 'trafficMirrorTarget_trafficMirrorTargetId' - The ID of the Traffic Mirror target.
+--
+-- 'type'', 'trafficMirrorTarget_type' - The type of Traffic Mirror target.
 newTrafficMirrorTarget ::
   TrafficMirrorTarget
 newTrafficMirrorTarget =
@@ -75,10 +75,10 @@ newTrafficMirrorTarget =
     { ownerId = Prelude.Nothing,
       networkLoadBalancerArn = Prelude.Nothing,
       tags = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
       description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      trafficMirrorTargetId = Prelude.Nothing
+      networkInterfaceId = Prelude.Nothing,
+      trafficMirrorTargetId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The ID of the account that owns the Traffic Mirror target.
@@ -93,21 +93,21 @@ trafficMirrorTarget_networkLoadBalancerArn = Lens.lens (\TrafficMirrorTarget' {n
 trafficMirrorTarget_tags :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe [Tag])
 trafficMirrorTarget_tags = Lens.lens (\TrafficMirrorTarget' {tags} -> tags) (\s@TrafficMirrorTarget' {} a -> s {tags = a} :: TrafficMirrorTarget) Prelude.. Lens.mapping Lens._Coerce
 
--- | The network interface ID that is attached to the target.
-trafficMirrorTarget_networkInterfaceId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
-trafficMirrorTarget_networkInterfaceId = Lens.lens (\TrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: TrafficMirrorTarget)
-
 -- | Information about the Traffic Mirror target.
 trafficMirrorTarget_description :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_description = Lens.lens (\TrafficMirrorTarget' {description} -> description) (\s@TrafficMirrorTarget' {} a -> s {description = a} :: TrafficMirrorTarget)
 
--- | The type of Traffic Mirror target.
-trafficMirrorTarget_type :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe TrafficMirrorTargetType)
-trafficMirrorTarget_type = Lens.lens (\TrafficMirrorTarget' {type'} -> type') (\s@TrafficMirrorTarget' {} a -> s {type' = a} :: TrafficMirrorTarget)
+-- | The network interface ID that is attached to the target.
+trafficMirrorTarget_networkInterfaceId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
+trafficMirrorTarget_networkInterfaceId = Lens.lens (\TrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: TrafficMirrorTarget)
 
 -- | The ID of the Traffic Mirror target.
 trafficMirrorTarget_trafficMirrorTargetId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_trafficMirrorTargetId = Lens.lens (\TrafficMirrorTarget' {trafficMirrorTargetId} -> trafficMirrorTargetId) (\s@TrafficMirrorTarget' {} a -> s {trafficMirrorTargetId = a} :: TrafficMirrorTarget)
+
+-- | The type of Traffic Mirror target.
+trafficMirrorTarget_type :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe TrafficMirrorTargetType)
+trafficMirrorTarget_type = Lens.lens (\TrafficMirrorTarget' {type'} -> type') (\s@TrafficMirrorTarget' {} a -> s {type' = a} :: TrafficMirrorTarget)
 
 instance Core.FromXML TrafficMirrorTarget where
   parseXML x =
@@ -117,10 +117,10 @@ instance Core.FromXML TrafficMirrorTarget where
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "type")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "trafficMirrorTargetId")
+      Prelude.<*> (x Core..@? "type")
 
 instance Prelude.Hashable TrafficMirrorTarget
 

@@ -38,13 +38,13 @@ data PublicIpv4Pool = PublicIpv4Pool'
     totalAddressCount :: Prelude.Maybe Prelude.Int,
     -- | Any tags for the address pool.
     tags :: Prelude.Maybe [Tag],
-    -- | The total number of available addresses.
-    totalAvailableAddressCount :: Prelude.Maybe Prelude.Int,
     -- | A description of the address pool.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The total number of available addresses.
+    totalAvailableAddressCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the location from which the address pool is advertised. A
     -- network border group is a unique set of Availability Zones or Local
-    -- Zones from where AWS advertises public IP addresses.
+    -- Zones from where Amazon Web Services advertises public IP addresses.
     networkBorderGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,13 +65,13 @@ data PublicIpv4Pool = PublicIpv4Pool'
 --
 -- 'tags', 'publicIpv4Pool_tags' - Any tags for the address pool.
 --
--- 'totalAvailableAddressCount', 'publicIpv4Pool_totalAvailableAddressCount' - The total number of available addresses.
---
 -- 'description', 'publicIpv4Pool_description' - A description of the address pool.
+--
+-- 'totalAvailableAddressCount', 'publicIpv4Pool_totalAvailableAddressCount' - The total number of available addresses.
 --
 -- 'networkBorderGroup', 'publicIpv4Pool_networkBorderGroup' - The name of the location from which the address pool is advertised. A
 -- network border group is a unique set of Availability Zones or Local
--- Zones from where AWS advertises public IP addresses.
+-- Zones from where Amazon Web Services advertises public IP addresses.
 newPublicIpv4Pool ::
   PublicIpv4Pool
 newPublicIpv4Pool =
@@ -80,8 +80,8 @@ newPublicIpv4Pool =
       poolAddressRanges = Prelude.Nothing,
       totalAddressCount = Prelude.Nothing,
       tags = Prelude.Nothing,
-      totalAvailableAddressCount = Prelude.Nothing,
       description = Prelude.Nothing,
+      totalAvailableAddressCount = Prelude.Nothing,
       networkBorderGroup = Prelude.Nothing
     }
 
@@ -101,17 +101,17 @@ publicIpv4Pool_totalAddressCount = Lens.lens (\PublicIpv4Pool' {totalAddressCoun
 publicIpv4Pool_tags :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe [Tag])
 publicIpv4Pool_tags = Lens.lens (\PublicIpv4Pool' {tags} -> tags) (\s@PublicIpv4Pool' {} a -> s {tags = a} :: PublicIpv4Pool) Prelude.. Lens.mapping Lens._Coerce
 
--- | The total number of available addresses.
-publicIpv4Pool_totalAvailableAddressCount :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe Prelude.Int)
-publicIpv4Pool_totalAvailableAddressCount = Lens.lens (\PublicIpv4Pool' {totalAvailableAddressCount} -> totalAvailableAddressCount) (\s@PublicIpv4Pool' {} a -> s {totalAvailableAddressCount = a} :: PublicIpv4Pool)
-
 -- | A description of the address pool.
 publicIpv4Pool_description :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe Prelude.Text)
 publicIpv4Pool_description = Lens.lens (\PublicIpv4Pool' {description} -> description) (\s@PublicIpv4Pool' {} a -> s {description = a} :: PublicIpv4Pool)
 
+-- | The total number of available addresses.
+publicIpv4Pool_totalAvailableAddressCount :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe Prelude.Int)
+publicIpv4Pool_totalAvailableAddressCount = Lens.lens (\PublicIpv4Pool' {totalAvailableAddressCount} -> totalAvailableAddressCount) (\s@PublicIpv4Pool' {} a -> s {totalAvailableAddressCount = a} :: PublicIpv4Pool)
+
 -- | The name of the location from which the address pool is advertised. A
 -- network border group is a unique set of Availability Zones or Local
--- Zones from where AWS advertises public IP addresses.
+-- Zones from where Amazon Web Services advertises public IP addresses.
 publicIpv4Pool_networkBorderGroup :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe Prelude.Text)
 publicIpv4Pool_networkBorderGroup = Lens.lens (\PublicIpv4Pool' {networkBorderGroup} -> networkBorderGroup) (\s@PublicIpv4Pool' {} a -> s {networkBorderGroup = a} :: PublicIpv4Pool)
 
@@ -127,8 +127,8 @@ instance Core.FromXML PublicIpv4Pool where
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "totalAvailableAddressCount")
       Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "totalAvailableAddressCount")
       Prelude.<*> (x Core..@? "networkBorderGroup")
 
 instance Prelude.Hashable PublicIpv4Pool

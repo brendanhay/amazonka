@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template.
     --
     -- Default: The default version for the launch template.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,34 +50,34 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
 --
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
---
 -- 'version', 'launchTemplateSpecification_version' - The version number of the launch template.
 --
 -- Default: The default version for the launch template.
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { launchTemplateId =
         Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing,
-      version = Prelude.Nothing
+      version = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing
     }
 
 -- | The ID of the launch template.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
 
--- | The name of the launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
-
 -- | The version number of the launch template.
 --
 -- Default: The default version for the launch template.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
+
+-- | The name of the launch template.
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 instance Prelude.Hashable LaunchTemplateSpecification
 
@@ -87,6 +87,6 @@ instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
     Prelude.mconcat
       [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "LaunchTemplateName" Core.=: launchTemplateName,
-        "Version" Core.=: version
+        "Version" Core.=: version,
+        "LaunchTemplateName" Core.=: launchTemplateName
       ]

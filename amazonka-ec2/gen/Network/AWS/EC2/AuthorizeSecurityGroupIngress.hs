@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified ingress rules to a security group.
+-- Adds the specified inbound (ingress) rules to a security group.
 --
 -- An inbound rule permits instances to receive traffic from the specified
--- IPv4 or IPv6 CIDR address ranges, or from the instances associated with
--- the specified destination security groups.
+-- IPv4 or IPv6 CIDR address range, or from the instances that are
+-- associated with the specified destination security groups.
 --
 -- You specify a protocol for each rule (for example, TCP). For TCP and
 -- UDP, you must also specify the destination port or port range. For
@@ -34,8 +34,8 @@
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
 --
--- For more information about VPC security group limits, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC Limits>.
+-- For more information about VPC security group quotas, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC quotas>.
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
   ( -- * Creating a Request
     AuthorizeSecurityGroupIngress (..),
@@ -43,6 +43,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
 
     -- * Request Lenses
     authorizeSecurityGroupIngress_fromPort,
+    authorizeSecurityGroupIngress_tagSpecifications,
     authorizeSecurityGroupIngress_dryRun,
     authorizeSecurityGroupIngress_sourceSecurityGroupName,
     authorizeSecurityGroupIngress_groupName,
@@ -56,6 +57,11 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     -- * Destructuring the Response
     AuthorizeSecurityGroupIngressResponse (..),
     newAuthorizeSecurityGroupIngressResponse,
+
+    -- * Response Lenses
+    authorizeSecurityGroupIngressResponse_return,
+    authorizeSecurityGroupIngressResponse_securityGroupRules,
+    authorizeSecurityGroupIngressResponse_httpStatus,
   )
 where
 
@@ -75,6 +81,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     -- Alternatively, use a set of IP permissions to specify multiple rules and
     -- a description for the rule.
     fromPort :: Prelude.Maybe Prelude.Int,
+    -- | [VPC Only] The tags applied to the security group rule.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -116,13 +124,13 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     ipProtocol :: Prelude.Maybe Prelude.Text,
     -- | The sets of IP permissions.
     ipPermissions :: Prelude.Maybe [IpPermission],
-    -- | [nondefault VPC] The AWS account ID for the source security group, if
-    -- the source security group is in a different account. You can\'t specify
-    -- this parameter in combination with the following parameters: the CIDR IP
-    -- address range, the IP protocol, the start of the port range, and the end
-    -- of the port range. Creates rules that grant full ICMP, UDP, and TCP
-    -- access. To create a rule with a specific IP protocol and port range, use
-    -- a set of IP permissions instead.
+    -- | [nondefault VPC] The Amazon Web Services account ID for the source
+    -- security group, if the source security group is in a different account.
+    -- You can\'t specify this parameter in combination with the following
+    -- parameters: the CIDR IP address range, the IP protocol, the start of the
+    -- port range, and the end of the port range. Creates rules that grant full
+    -- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
+    -- and port range, use a set of IP permissions instead.
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The end of port range for the TCP and UDP protocols, or an ICMP code
     -- number. For the ICMP code number, use @-1@ to specify all codes. If you
@@ -148,6 +156,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
+--
+-- 'tagSpecifications', 'authorizeSecurityGroupIngress_tagSpecifications' - [VPC Only] The tags applied to the security group rule.
 --
 -- 'dryRun', 'authorizeSecurityGroupIngress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -190,13 +200,13 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- 'ipPermissions', 'authorizeSecurityGroupIngress_ipPermissions' - The sets of IP permissions.
 --
--- 'sourceSecurityGroupOwnerId', 'authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId' - [nondefault VPC] The AWS account ID for the source security group, if
--- the source security group is in a different account. You can\'t specify
--- this parameter in combination with the following parameters: the CIDR IP
--- address range, the IP protocol, the start of the port range, and the end
--- of the port range. Creates rules that grant full ICMP, UDP, and TCP
--- access. To create a rule with a specific IP protocol and port range, use
--- a set of IP permissions instead.
+-- 'sourceSecurityGroupOwnerId', 'authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId' - [nondefault VPC] The Amazon Web Services account ID for the source
+-- security group, if the source security group is in a different account.
+-- You can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the IP protocol, the start of the
+-- port range, and the end of the port range. Creates rules that grant full
+-- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
+-- and port range, use a set of IP permissions instead.
 --
 -- 'toPort', 'authorizeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use @-1@ to specify all codes. If you
@@ -210,6 +220,7 @@ newAuthorizeSecurityGroupIngress =
   AuthorizeSecurityGroupIngress'
     { fromPort =
         Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       sourceSecurityGroupName = Prelude.Nothing,
       groupName = Prelude.Nothing,
@@ -229,6 +240,10 @@ newAuthorizeSecurityGroupIngress =
 -- a description for the rule.
 authorizeSecurityGroupIngress_fromPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
 authorizeSecurityGroupIngress_fromPort = Lens.lens (\AuthorizeSecurityGroupIngress' {fromPort} -> fromPort) (\s@AuthorizeSecurityGroupIngress' {} a -> s {fromPort = a} :: AuthorizeSecurityGroupIngress)
+
+-- | [VPC Only] The tags applied to the security group rule.
+authorizeSecurityGroupIngress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [TagSpecification])
+authorizeSecurityGroupIngress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupIngress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupIngress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -285,13 +300,13 @@ authorizeSecurityGroupIngress_ipProtocol = Lens.lens (\AuthorizeSecurityGroupIng
 authorizeSecurityGroupIngress_ipPermissions :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [IpPermission])
 authorizeSecurityGroupIngress_ipPermissions = Lens.lens (\AuthorizeSecurityGroupIngress' {ipPermissions} -> ipPermissions) (\s@AuthorizeSecurityGroupIngress' {} a -> s {ipPermissions = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens._Coerce
 
--- | [nondefault VPC] The AWS account ID for the source security group, if
--- the source security group is in a different account. You can\'t specify
--- this parameter in combination with the following parameters: the CIDR IP
--- address range, the IP protocol, the start of the port range, and the end
--- of the port range. Creates rules that grant full ICMP, UDP, and TCP
--- access. To create a rule with a specific IP protocol and port range, use
--- a set of IP permissions instead.
+-- | [nondefault VPC] The Amazon Web Services account ID for the source
+-- security group, if the source security group is in a different account.
+-- You can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the IP protocol, the start of the
+-- port range, and the end of the port range. Creates rules that grant full
+-- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
+-- and port range, use a set of IP permissions instead.
 authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId = Lens.lens (\AuthorizeSecurityGroupIngress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@AuthorizeSecurityGroupIngress' {} a -> s {sourceSecurityGroupOwnerId = a} :: AuthorizeSecurityGroupIngress)
 
@@ -313,8 +328,16 @@ instance
       AuthorizeSecurityGroupIngressResponse
   request = Request.postQuery defaultService
   response =
-    Response.receiveNull
-      AuthorizeSecurityGroupIngressResponse'
+    Response.receiveXML
+      ( \s h x ->
+          AuthorizeSecurityGroupIngressResponse'
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> ( x Core..@? "securityGroupRuleSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
 instance
   Prelude.Hashable
@@ -338,6 +361,10 @@ instance Core.ToQuery AuthorizeSecurityGroupIngress where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "FromPort" Core.=: fromPort,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
         "DryRun" Core.=: dryRun,
         "SourceSecurityGroupName"
           Core.=: sourceSecurityGroupName,
@@ -356,7 +383,13 @@ instance Core.ToQuery AuthorizeSecurityGroupIngress where
 
 -- | /See:/ 'newAuthorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse'
-  {
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    return' :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the inbound (ingress) security group rules that were
+    -- added.
+    securityGroupRules :: Prelude.Maybe [SecurityGroupRule],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -364,10 +397,40 @@ data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressRespon
 -- Create a value of 'AuthorizeSecurityGroupIngressResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'return'', 'authorizeSecurityGroupIngressResponse_return' - Returns @true@ if the request succeeds; otherwise, returns an error.
+--
+-- 'securityGroupRules', 'authorizeSecurityGroupIngressResponse_securityGroupRules' - Information about the inbound (ingress) security group rules that were
+-- added.
+--
+-- 'httpStatus', 'authorizeSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newAuthorizeSecurityGroupIngressResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
   AuthorizeSecurityGroupIngressResponse
-newAuthorizeSecurityGroupIngressResponse =
+newAuthorizeSecurityGroupIngressResponse pHttpStatus_ =
   AuthorizeSecurityGroupIngressResponse'
+    { return' =
+        Prelude.Nothing,
+      securityGroupRules = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Returns @true@ if the request succeeds; otherwise, returns an error.
+authorizeSecurityGroupIngressResponse_return :: Lens.Lens' AuthorizeSecurityGroupIngressResponse (Prelude.Maybe Prelude.Bool)
+authorizeSecurityGroupIngressResponse_return = Lens.lens (\AuthorizeSecurityGroupIngressResponse' {return'} -> return') (\s@AuthorizeSecurityGroupIngressResponse' {} a -> s {return' = a} :: AuthorizeSecurityGroupIngressResponse)
+
+-- | Information about the inbound (ingress) security group rules that were
+-- added.
+authorizeSecurityGroupIngressResponse_securityGroupRules :: Lens.Lens' AuthorizeSecurityGroupIngressResponse (Prelude.Maybe [SecurityGroupRule])
+authorizeSecurityGroupIngressResponse_securityGroupRules = Lens.lens (\AuthorizeSecurityGroupIngressResponse' {securityGroupRules} -> securityGroupRules) (\s@AuthorizeSecurityGroupIngressResponse' {} a -> s {securityGroupRules = a} :: AuthorizeSecurityGroupIngressResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+authorizeSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeSecurityGroupIngressResponse Prelude.Int
+authorizeSecurityGroupIngressResponse_httpStatus = Lens.lens (\AuthorizeSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: AuthorizeSecurityGroupIngressResponse)
 
 instance
   Prelude.NFData

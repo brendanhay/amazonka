@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 data HostOffering = HostOffering'
   { -- | The instance family of the offering.
     instanceFamily :: Prelude.Maybe Prelude.Text,
+    -- | The available payment option.
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The upfront price of the offering. Does not apply to No Upfront
     -- offerings.
     upfrontPrice :: Prelude.Maybe Prelude.Text,
-    -- | The available payment option.
-    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The duration of the offering (in seconds).
     duration :: Prelude.Maybe Prelude.Int,
     -- | The ID of the offering.
@@ -58,10 +58,10 @@ data HostOffering = HostOffering'
 --
 -- 'instanceFamily', 'hostOffering_instanceFamily' - The instance family of the offering.
 --
+-- 'paymentOption', 'hostOffering_paymentOption' - The available payment option.
+--
 -- 'upfrontPrice', 'hostOffering_upfrontPrice' - The upfront price of the offering. Does not apply to No Upfront
 -- offerings.
---
--- 'paymentOption', 'hostOffering_paymentOption' - The available payment option.
 --
 -- 'duration', 'hostOffering_duration' - The duration of the offering (in seconds).
 --
@@ -75,8 +75,8 @@ newHostOffering ::
 newHostOffering =
   HostOffering'
     { instanceFamily = Prelude.Nothing,
-      upfrontPrice = Prelude.Nothing,
       paymentOption = Prelude.Nothing,
+      upfrontPrice = Prelude.Nothing,
       duration = Prelude.Nothing,
       offeringId = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
@@ -87,14 +87,14 @@ newHostOffering =
 hostOffering_instanceFamily :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_instanceFamily = Lens.lens (\HostOffering' {instanceFamily} -> instanceFamily) (\s@HostOffering' {} a -> s {instanceFamily = a} :: HostOffering)
 
+-- | The available payment option.
+hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
+hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
+
 -- | The upfront price of the offering. Does not apply to No Upfront
 -- offerings.
 hostOffering_upfrontPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_upfrontPrice = Lens.lens (\HostOffering' {upfrontPrice} -> upfrontPrice) (\s@HostOffering' {} a -> s {upfrontPrice = a} :: HostOffering)
-
--- | The available payment option.
-hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
-hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
 
 -- | The duration of the offering (in seconds).
 hostOffering_duration :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Int)
@@ -116,8 +116,8 @@ instance Core.FromXML HostOffering where
   parseXML x =
     HostOffering'
       Prelude.<$> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "upfrontPrice")
       Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Core..@? "upfrontPrice")
       Prelude.<*> (x Core..@? "duration")
       Prelude.<*> (x Core..@? "offeringId")
       Prelude.<*> (x Core..@? "currencyCode")

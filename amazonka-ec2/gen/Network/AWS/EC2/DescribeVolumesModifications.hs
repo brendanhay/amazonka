@@ -31,7 +31,7 @@
 -- to an EBS volume. For information about CloudWatch Events, see the
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ Amazon CloudWatch Events User Guide>.
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods Monitoring volume modifications>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html Monitor the progress of volume modifications>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -42,9 +42,9 @@ module Network.AWS.EC2.DescribeVolumesModifications
 
     -- * Request Lenses
     describeVolumesModifications_nextToken,
-    describeVolumesModifications_dryRun,
-    describeVolumesModifications_volumeIds,
     describeVolumesModifications_maxResults,
+    describeVolumesModifications_volumeIds,
+    describeVolumesModifications_dryRun,
     describeVolumesModifications_filters,
 
     -- * Destructuring the Response
@@ -69,16 +69,16 @@ import qualified Network.AWS.Response as Response
 data DescribeVolumesModifications = DescribeVolumesModifications'
   { -- | The @nextToken@ value returned by a previous paginated request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results (up to a limit of 500) to be returned in a
+    -- paginated request.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The IDs of the volumes.
+    volumeIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the volumes.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results (up to a limit of 500) to be returned in a
-    -- paginated request.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The filters.
     --
     -- -   @modification-state@ - The current modification state (modifying |
@@ -121,15 +121,15 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 --
 -- 'nextToken', 'describeVolumesModifications_nextToken' - The @nextToken@ value returned by a previous paginated request.
 --
+-- 'maxResults', 'describeVolumesModifications_maxResults' - The maximum number of results (up to a limit of 500) to be returned in a
+-- paginated request.
+--
+-- 'volumeIds', 'describeVolumesModifications_volumeIds' - The IDs of the volumes.
+--
 -- 'dryRun', 'describeVolumesModifications_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'volumeIds', 'describeVolumesModifications_volumeIds' - The IDs of the volumes.
---
--- 'maxResults', 'describeVolumesModifications_maxResults' - The maximum number of results (up to a limit of 500) to be returned in a
--- paginated request.
 --
 -- 'filters', 'describeVolumesModifications_filters' - The filters.
 --
@@ -165,9 +165,9 @@ newDescribeVolumesModifications =
   DescribeVolumesModifications'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      volumeIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -175,21 +175,21 @@ newDescribeVolumesModifications =
 describeVolumesModifications_nextToken :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Text)
 describeVolumesModifications_nextToken = Lens.lens (\DescribeVolumesModifications' {nextToken} -> nextToken) (\s@DescribeVolumesModifications' {} a -> s {nextToken = a} :: DescribeVolumesModifications)
 
+-- | The maximum number of results (up to a limit of 500) to be returned in a
+-- paginated request.
+describeVolumesModifications_maxResults :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Int)
+describeVolumesModifications_maxResults = Lens.lens (\DescribeVolumesModifications' {maxResults} -> maxResults) (\s@DescribeVolumesModifications' {} a -> s {maxResults = a} :: DescribeVolumesModifications)
+
+-- | The IDs of the volumes.
+describeVolumesModifications_volumeIds :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe [Prelude.Text])
+describeVolumesModifications_volumeIds = Lens.lens (\DescribeVolumesModifications' {volumeIds} -> volumeIds) (\s@DescribeVolumesModifications' {} a -> s {volumeIds = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeVolumesModifications_dryRun :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Bool)
 describeVolumesModifications_dryRun = Lens.lens (\DescribeVolumesModifications' {dryRun} -> dryRun) (\s@DescribeVolumesModifications' {} a -> s {dryRun = a} :: DescribeVolumesModifications)
-
--- | The IDs of the volumes.
-describeVolumesModifications_volumeIds :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe [Prelude.Text])
-describeVolumesModifications_volumeIds = Lens.lens (\DescribeVolumesModifications' {volumeIds} -> volumeIds) (\s@DescribeVolumesModifications' {} a -> s {volumeIds = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results (up to a limit of 500) to be returned in a
--- paginated request.
-describeVolumesModifications_maxResults :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Int)
-describeVolumesModifications_maxResults = Lens.lens (\DescribeVolumesModifications' {maxResults} -> maxResults) (\s@DescribeVolumesModifications' {} a -> s {maxResults = a} :: DescribeVolumesModifications)
 
 -- | The filters.
 --
@@ -283,10 +283,10 @@ instance Core.ToQuery DescribeVolumesModifications where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
-        "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

@@ -22,7 +22,8 @@ module Network.AWS.EC2.Types.ArchitectureValues
       ( ..,
         ArchitectureValues_Arm64,
         ArchitectureValues_I386,
-        ArchitectureValues_X86_64
+        ArchitectureValues_X86_64,
+        ArchitectureValues_X86_64_mac
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ArchitectureValues_I386 = ArchitectureValues' "i386"
 pattern ArchitectureValues_X86_64 :: ArchitectureValues
 pattern ArchitectureValues_X86_64 = ArchitectureValues' "x86_64"
 
+pattern ArchitectureValues_X86_64_mac :: ArchitectureValues
+pattern ArchitectureValues_X86_64_mac = ArchitectureValues' "x86_64_mac"
+
 {-# COMPLETE
   ArchitectureValues_Arm64,
   ArchitectureValues_I386,
   ArchitectureValues_X86_64,
+  ArchitectureValues_X86_64_mac,
   ArchitectureValues'
   #-}

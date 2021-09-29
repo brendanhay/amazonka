@@ -35,6 +35,7 @@ module Network.AWS.EC2.ModifyInstanceMetadataOptions
     newModifyInstanceMetadataOptions,
 
     -- * Request Lenses
+    modifyInstanceMetadataOptions_httpProtocolIpv6,
     modifyInstanceMetadataOptions_dryRun,
     modifyInstanceMetadataOptions_httpEndpoint,
     modifyInstanceMetadataOptions_httpPutResponseHopLimit,
@@ -61,7 +62,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyInstanceMetadataOptions' smart constructor.
 data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -107,6 +110,8 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpProtocolIpv6', 'modifyInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+--
 -- 'dryRun', 'modifyInstanceMetadataOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -147,13 +152,18 @@ newModifyInstanceMetadataOptions ::
   ModifyInstanceMetadataOptions
 newModifyInstanceMetadataOptions pInstanceId_ =
   ModifyInstanceMetadataOptions'
-    { dryRun =
+    { httpProtocolIpv6 =
         Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       httpEndpoint = Prelude.Nothing,
       httpPutResponseHopLimit = Prelude.Nothing,
       httpTokens = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+modifyInstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe InstanceMetadataProtocolState)
+modifyInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\ModifyInstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: ModifyInstanceMetadataOptions)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -238,6 +248,7 @@ instance Core.ToQuery ModifyInstanceMetadataOptions where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
         "DryRun" Core.=: dryRun,
         "HttpEndpoint" Core.=: httpEndpoint,
         "HttpPutResponseHopLimit"

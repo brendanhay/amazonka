@@ -24,12 +24,14 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
+-- | Indicates whether the instance is enabled for Amazon Web Services Nitro
+-- Enclaves.
 --
 -- /See:/ 'newLaunchTemplateEnclaveOptions' smart constructor.
 data LaunchTemplateEnclaveOptions = LaunchTemplateEnclaveOptions'
-  { -- | If this parameter is set to @true@, the instance is enabled for AWS
-    -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+  { -- | If this parameter is set to @true@, the instance is enabled for Amazon
+    -- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+    -- Services Nitro Enclaves.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +44,9 @@ data LaunchTemplateEnclaveOptions = LaunchTemplateEnclaveOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'launchTemplateEnclaveOptions_enabled' - If this parameter is set to @true@, the instance is enabled for AWS
--- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- 'enabled', 'launchTemplateEnclaveOptions_enabled' - If this parameter is set to @true@, the instance is enabled for Amazon
+-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+-- Services Nitro Enclaves.
 newLaunchTemplateEnclaveOptions ::
   LaunchTemplateEnclaveOptions
 newLaunchTemplateEnclaveOptions =
@@ -52,8 +55,9 @@ newLaunchTemplateEnclaveOptions =
         Prelude.Nothing
     }
 
--- | If this parameter is set to @true@, the instance is enabled for AWS
--- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- | If this parameter is set to @true@, the instance is enabled for Amazon
+-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+-- Services Nitro Enclaves.
 launchTemplateEnclaveOptions_enabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Prelude.Maybe Prelude.Bool)
 launchTemplateEnclaveOptions_enabled = Lens.lens (\LaunchTemplateEnclaveOptions' {enabled} -> enabled) (\s@LaunchTemplateEnclaveOptions' {} a -> s {enabled = a} :: LaunchTemplateEnclaveOptions)
 

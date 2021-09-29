@@ -71,7 +71,7 @@ data CreateSnapshots = CreateSnapshots'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
+    -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
     -- local snapshots.
     --
     -- -   To create snapshots from an instance in a Region, omit this
@@ -87,7 +87,7 @@ data CreateSnapshots = CreateSnapshots'
     --     The snapshots must be created on the same Outpost as the instance.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Creating multi-volume local snapshots from instances on an Outpost>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Create multi-volume local snapshots from instances on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Copies the tags from the specified volume to corresponding snapshot.
@@ -115,7 +115,7 @@ data CreateSnapshots = CreateSnapshots'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'outpostArn', 'createSnapshots_outpostArn' - The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
+-- 'outpostArn', 'createSnapshots_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- local snapshots.
 --
 -- -   To create snapshots from an instance in a Region, omit this
@@ -131,7 +131,7 @@ data CreateSnapshots = CreateSnapshots'
 --     The snapshots must be created on the same Outpost as the instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Creating multi-volume local snapshots from instances on an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Create multi-volume local snapshots from instances on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'copyTagsFromSource', 'createSnapshots_copyTagsFromSource' - Copies the tags from the specified volume to corresponding snapshot.
@@ -166,7 +166,7 @@ createSnapshots_tagSpecifications = Lens.lens (\CreateSnapshots' {tagSpecificati
 createSnapshots_dryRun :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Bool)
 createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@CreateSnapshots' {} a -> s {dryRun = a} :: CreateSnapshots)
 
--- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
+-- | The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- local snapshots.
 --
 -- -   To create snapshots from an instance in a Region, omit this
@@ -182,7 +182,7 @@ createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@Cr
 --     The snapshots must be created on the same Outpost as the instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Creating multi-volume local snapshots from instances on an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Create multi-volume local snapshots from instances on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 createSnapshots_outpostArn :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
 createSnapshots_outpostArn = Lens.lens (\CreateSnapshots' {outpostArn} -> outpostArn) (\s@CreateSnapshots' {} a -> s {outpostArn = a} :: CreateSnapshots)

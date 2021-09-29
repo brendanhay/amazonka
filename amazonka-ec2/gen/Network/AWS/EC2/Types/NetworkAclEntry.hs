@@ -44,11 +44,11 @@ data NetworkAclEntry = NetworkAclEntry'
     ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The protocol number. A value of \"-1\" means all protocols.
     protocol :: Prelude.Maybe Prelude.Text,
+    -- | The IPv4 network range to allow or deny, in CIDR notation.
+    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The rule number for the entry. ACL entries are processed in ascending
     -- order by rule number.
-    ruleNumber :: Prelude.Maybe Prelude.Int,
-    -- | The IPv4 network range to allow or deny, in CIDR notation.
-    cidrBlock :: Prelude.Maybe Prelude.Text
+    ruleNumber :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,10 +73,10 @@ data NetworkAclEntry = NetworkAclEntry'
 --
 -- 'protocol', 'networkAclEntry_protocol' - The protocol number. A value of \"-1\" means all protocols.
 --
+-- 'cidrBlock', 'networkAclEntry_cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation.
+--
 -- 'ruleNumber', 'networkAclEntry_ruleNumber' - The rule number for the entry. ACL entries are processed in ascending
 -- order by rule number.
---
--- 'cidrBlock', 'networkAclEntry_cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation.
 newNetworkAclEntry ::
   NetworkAclEntry
 newNetworkAclEntry =
@@ -87,8 +87,8 @@ newNetworkAclEntry =
       icmpTypeCode = Prelude.Nothing,
       ipv6CidrBlock = Prelude.Nothing,
       protocol = Prelude.Nothing,
-      ruleNumber = Prelude.Nothing,
-      cidrBlock = Prelude.Nothing
+      cidrBlock = Prelude.Nothing,
+      ruleNumber = Prelude.Nothing
     }
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
@@ -116,14 +116,14 @@ networkAclEntry_ipv6CidrBlock = Lens.lens (\NetworkAclEntry' {ipv6CidrBlock} -> 
 networkAclEntry_protocol :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
 networkAclEntry_protocol = Lens.lens (\NetworkAclEntry' {protocol} -> protocol) (\s@NetworkAclEntry' {} a -> s {protocol = a} :: NetworkAclEntry)
 
+-- | The IPv4 network range to allow or deny, in CIDR notation.
+networkAclEntry_cidrBlock :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
+networkAclEntry_cidrBlock = Lens.lens (\NetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@NetworkAclEntry' {} a -> s {cidrBlock = a} :: NetworkAclEntry)
+
 -- | The rule number for the entry. ACL entries are processed in ascending
 -- order by rule number.
 networkAclEntry_ruleNumber :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Int)
 networkAclEntry_ruleNumber = Lens.lens (\NetworkAclEntry' {ruleNumber} -> ruleNumber) (\s@NetworkAclEntry' {} a -> s {ruleNumber = a} :: NetworkAclEntry)
-
--- | The IPv4 network range to allow or deny, in CIDR notation.
-networkAclEntry_cidrBlock :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
-networkAclEntry_cidrBlock = Lens.lens (\NetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@NetworkAclEntry' {} a -> s {cidrBlock = a} :: NetworkAclEntry)
 
 instance Core.FromXML NetworkAclEntry where
   parseXML x =
@@ -134,8 +134,8 @@ instance Core.FromXML NetworkAclEntry where
       Prelude.<*> (x Core..@? "icmpTypeCode")
       Prelude.<*> (x Core..@? "ipv6CidrBlock")
       Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "ruleNumber")
       Prelude.<*> (x Core..@? "cidrBlock")
+      Prelude.<*> (x Core..@? "ruleNumber")
 
 instance Prelude.Hashable NetworkAclEntry
 

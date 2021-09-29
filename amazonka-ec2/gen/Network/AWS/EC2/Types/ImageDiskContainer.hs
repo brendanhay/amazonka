@@ -33,10 +33,10 @@ data ImageDiskContainer = ImageDiskContainer'
     --
     -- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@
     format :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket for the disk image.
-    userBucket :: Prelude.Maybe UserBucket,
     -- | The block device mapping for the disk.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket for the disk image.
+    userBucket :: Prelude.Maybe UserBucket,
     -- | The ID of the EBS snapshot to be used for importing the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The description of the disk image.
@@ -59,9 +59,9 @@ data ImageDiskContainer = ImageDiskContainer'
 --
 -- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@
 --
--- 'userBucket', 'imageDiskContainer_userBucket' - The S3 bucket for the disk image.
---
 -- 'deviceName', 'imageDiskContainer_deviceName' - The block device mapping for the disk.
+--
+-- 'userBucket', 'imageDiskContainer_userBucket' - The S3 bucket for the disk image.
 --
 -- 'snapshotId', 'imageDiskContainer_snapshotId' - The ID of the EBS snapshot to be used for importing the snapshot.
 --
@@ -74,8 +74,8 @@ newImageDiskContainer ::
 newImageDiskContainer =
   ImageDiskContainer'
     { format = Prelude.Nothing,
-      userBucket = Prelude.Nothing,
       deviceName = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       description = Prelude.Nothing,
       url = Prelude.Nothing
@@ -87,13 +87,13 @@ newImageDiskContainer =
 imageDiskContainer_format :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_format = Lens.lens (\ImageDiskContainer' {format} -> format) (\s@ImageDiskContainer' {} a -> s {format = a} :: ImageDiskContainer)
 
--- | The S3 bucket for the disk image.
-imageDiskContainer_userBucket :: Lens.Lens' ImageDiskContainer (Prelude.Maybe UserBucket)
-imageDiskContainer_userBucket = Lens.lens (\ImageDiskContainer' {userBucket} -> userBucket) (\s@ImageDiskContainer' {} a -> s {userBucket = a} :: ImageDiskContainer)
-
 -- | The block device mapping for the disk.
 imageDiskContainer_deviceName :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_deviceName = Lens.lens (\ImageDiskContainer' {deviceName} -> deviceName) (\s@ImageDiskContainer' {} a -> s {deviceName = a} :: ImageDiskContainer)
+
+-- | The S3 bucket for the disk image.
+imageDiskContainer_userBucket :: Lens.Lens' ImageDiskContainer (Prelude.Maybe UserBucket)
+imageDiskContainer_userBucket = Lens.lens (\ImageDiskContainer' {userBucket} -> userBucket) (\s@ImageDiskContainer' {} a -> s {userBucket = a} :: ImageDiskContainer)
 
 -- | The ID of the EBS snapshot to be used for importing the snapshot.
 imageDiskContainer_snapshotId :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
@@ -116,8 +116,8 @@ instance Core.ToQuery ImageDiskContainer where
   toQuery ImageDiskContainer' {..} =
     Prelude.mconcat
       [ "Format" Core.=: format,
-        "UserBucket" Core.=: userBucket,
         "DeviceName" Core.=: deviceName,
+        "UserBucket" Core.=: userBucket,
         "SnapshotId" Core.=: snapshotId,
         "Description" Core.=: description,
         "Url" Core.=: url

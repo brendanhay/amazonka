@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeFleetInstances
 
     -- * Request Lenses
     describeFleetInstances_nextToken,
-    describeFleetInstances_dryRun,
     describeFleetInstances_maxResults,
+    describeFleetInstances_dryRun,
     describeFleetInstances_filters,
     describeFleetInstances_fleetId,
 
@@ -60,16 +60,16 @@ import qualified Network.AWS.Response as Response
 data DescribeFleetInstances = DescribeFleetInstances'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @instance-type@ - The instance type.
@@ -89,15 +89,15 @@ data DescribeFleetInstances = DescribeFleetInstances'
 --
 -- 'nextToken', 'describeFleetInstances_nextToken' - The token for the next set of results.
 --
--- 'dryRun', 'describeFleetInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeFleetInstances_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeFleetInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeFleetInstances_filters' - The filters.
 --
@@ -112,8 +112,8 @@ newDescribeFleetInstances pFleetId_ =
   DescribeFleetInstances'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       fleetId = pFleetId_
     }
@@ -122,19 +122,19 @@ newDescribeFleetInstances pFleetId_ =
 describeFleetInstances_nextToken :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Text)
 describeFleetInstances_nextToken = Lens.lens (\DescribeFleetInstances' {nextToken} -> nextToken) (\s@DescribeFleetInstances' {} a -> s {nextToken = a} :: DescribeFleetInstances)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeFleetInstances_dryRun :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Bool)
-describeFleetInstances_dryRun = Lens.lens (\DescribeFleetInstances' {dryRun} -> dryRun) (\s@DescribeFleetInstances' {} a -> s {dryRun = a} :: DescribeFleetInstances)
-
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
 describeFleetInstances_maxResults :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Int)
 describeFleetInstances_maxResults = Lens.lens (\DescribeFleetInstances' {maxResults} -> maxResults) (\s@DescribeFleetInstances' {} a -> s {maxResults = a} :: DescribeFleetInstances)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeFleetInstances_dryRun :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Bool)
+describeFleetInstances_dryRun = Lens.lens (\DescribeFleetInstances' {dryRun} -> dryRun) (\s@DescribeFleetInstances' {} a -> s {dryRun = a} :: DescribeFleetInstances)
 
 -- | The filters.
 --
@@ -182,8 +182,8 @@ instance Core.ToQuery DescribeFleetInstances where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "FleetId" Core.=: fleetId

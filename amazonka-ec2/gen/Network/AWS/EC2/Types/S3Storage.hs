@@ -24,8 +24,8 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the storage parameters for S3 and S3 buckets for an instance
--- store-backed AMI.
+-- | Describes the storage parameters for Amazon S3 and Amazon S3 buckets for
+-- an instance store-backed AMI.
 --
 -- /See:/ 'newS3Storage' smart constructor.
 data S3Storage = S3Storage'
@@ -43,7 +43,7 @@ data S3Storage = S3Storage'
     bucket :: Prelude.Maybe Prelude.Text,
     -- | The access key ID of the owner of the bucket. Before you specify a value
     -- for your access key ID, review and follow the guidance in
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
     aWSAccessKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data S3Storage = S3Storage'
 --
 -- 'aWSAccessKeyId', 's3Storage_aWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
 newS3Storage ::
   S3Storage
 newS3Storage =
@@ -112,7 +112,7 @@ s3Storage_bucket = Lens.lens (\S3Storage' {bucket} -> bucket) (\s@S3Storage' {} 
 
 -- | The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
 s3Storage_aWSAccessKeyId :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.Text)
 s3Storage_aWSAccessKeyId = Lens.lens (\S3Storage' {aWSAccessKeyId} -> aWSAccessKeyId) (\s@S3Storage' {} a -> s {aWSAccessKeyId = a} :: S3Storage)
 

@@ -31,8 +31,8 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Request Lenses
     describeVpcPeeringConnections_vpcPeeringConnectionIds,
     describeVpcPeeringConnections_nextToken,
-    describeVpcPeeringConnections_dryRun,
     describeVpcPeeringConnections_maxResults,
+    describeVpcPeeringConnections_dryRun,
     describeVpcPeeringConnections_filters,
 
     -- * Destructuring the Response
@@ -61,22 +61,22 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
     vpcPeeringConnectionIds :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter
     --     VPC.
     --
-    -- -   @accepter-vpc-info.owner-id@ - The AWS account ID of the owner of
-    --     the accepter VPC.
+    -- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services
+    --     account that owns the accepter VPC.
     --
     -- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.
     --
@@ -86,8 +86,8 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
     -- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the
     --     requester\'s VPC.
     --
-    -- -   @requester-vpc-info.owner-id@ - The AWS account ID of the owner of
-    --     the requester VPC.
+    -- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services
+    --     account that owns the requester VPC.
     --
     -- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.
     --
@@ -127,22 +127,22 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
 --
 -- 'nextToken', 'describeVpcPeeringConnections_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeVpcPeeringConnections_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeVpcPeeringConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeVpcPeeringConnections_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeVpcPeeringConnections_filters' - One or more filters.
 --
 -- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter
 --     VPC.
 --
--- -   @accepter-vpc-info.owner-id@ - The AWS account ID of the owner of
---     the accepter VPC.
+-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services
+--     account that owns the accepter VPC.
 --
 -- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.
 --
@@ -152,8 +152,8 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
 -- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the
 --     requester\'s VPC.
 --
--- -   @requester-vpc-info.owner-id@ - The AWS account ID of the owner of
---     the requester VPC.
+-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services
+--     account that owns the requester VPC.
 --
 -- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.
 --
@@ -182,8 +182,8 @@ newDescribeVpcPeeringConnections =
     { vpcPeeringConnectionIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -197,6 +197,12 @@ describeVpcPeeringConnections_vpcPeeringConnectionIds = Lens.lens (\DescribeVpcP
 describeVpcPeeringConnections_nextToken :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Text)
 describeVpcPeeringConnections_nextToken = Lens.lens (\DescribeVpcPeeringConnections' {nextToken} -> nextToken) (\s@DescribeVpcPeeringConnections' {} a -> s {nextToken = a} :: DescribeVpcPeeringConnections)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeVpcPeeringConnections_maxResults :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Natural)
+describeVpcPeeringConnections_maxResults = Lens.lens (\DescribeVpcPeeringConnections' {maxResults} -> maxResults) (\s@DescribeVpcPeeringConnections' {} a -> s {maxResults = a} :: DescribeVpcPeeringConnections)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -204,19 +210,13 @@ describeVpcPeeringConnections_nextToken = Lens.lens (\DescribeVpcPeeringConnecti
 describeVpcPeeringConnections_dryRun :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Bool)
 describeVpcPeeringConnections_dryRun = Lens.lens (\DescribeVpcPeeringConnections' {dryRun} -> dryRun) (\s@DescribeVpcPeeringConnections' {} a -> s {dryRun = a} :: DescribeVpcPeeringConnections)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeVpcPeeringConnections_maxResults :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Natural)
-describeVpcPeeringConnections_maxResults = Lens.lens (\DescribeVpcPeeringConnections' {maxResults} -> maxResults) (\s@DescribeVpcPeeringConnections' {} a -> s {maxResults = a} :: DescribeVpcPeeringConnections)
-
 -- | One or more filters.
 --
 -- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter
 --     VPC.
 --
--- -   @accepter-vpc-info.owner-id@ - The AWS account ID of the owner of
---     the accepter VPC.
+-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services
+--     account that owns the accepter VPC.
 --
 -- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.
 --
@@ -226,8 +226,8 @@ describeVpcPeeringConnections_maxResults = Lens.lens (\DescribeVpcPeeringConnect
 -- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the
 --     requester\'s VPC.
 --
--- -   @requester-vpc-info.owner-id@ - The AWS account ID of the owner of
---     the requester VPC.
+-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services
+--     account that owns the requester VPC.
 --
 -- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.
 --
@@ -320,8 +320,8 @@ instance Core.ToQuery DescribeVpcPeeringConnections where
               Prelude.<$> vpcPeeringConnectionIds
           ),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

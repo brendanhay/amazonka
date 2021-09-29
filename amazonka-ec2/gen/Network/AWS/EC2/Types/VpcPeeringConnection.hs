@@ -33,11 +33,11 @@ import qualified Network.AWS.Prelude as Prelude
 data VpcPeeringConnection = VpcPeeringConnection'
   { -- | The status of the VPC peering connection.
     status :: Prelude.Maybe VpcPeeringConnectionStateReason,
+    -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | Information about the accepter VPC. CIDR block information is only
     -- returned when describing an active VPC peering connection.
     accepterVpcInfo :: Prelude.Maybe VpcPeeringConnectionVpcInfo,
-    -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | The time that an unaccepted VPC peering connection will expire.
     expirationTime :: Prelude.Maybe Core.ISO8601,
     -- | Information about the requester VPC. CIDR block information is only
@@ -58,10 +58,10 @@ data VpcPeeringConnection = VpcPeeringConnection'
 --
 -- 'status', 'vpcPeeringConnection_status' - The status of the VPC peering connection.
 --
+-- 'vpcPeeringConnectionId', 'vpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection.
+--
 -- 'accepterVpcInfo', 'vpcPeeringConnection_accepterVpcInfo' - Information about the accepter VPC. CIDR block information is only
 -- returned when describing an active VPC peering connection.
---
--- 'vpcPeeringConnectionId', 'vpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 --
 -- 'expirationTime', 'vpcPeeringConnection_expirationTime' - The time that an unaccepted VPC peering connection will expire.
 --
@@ -74,8 +74,8 @@ newVpcPeeringConnection ::
 newVpcPeeringConnection =
   VpcPeeringConnection'
     { status = Prelude.Nothing,
-      accepterVpcInfo = Prelude.Nothing,
       vpcPeeringConnectionId = Prelude.Nothing,
+      accepterVpcInfo = Prelude.Nothing,
       expirationTime = Prelude.Nothing,
       requesterVpcInfo = Prelude.Nothing,
       tags = Prelude.Nothing
@@ -85,14 +85,14 @@ newVpcPeeringConnection =
 vpcPeeringConnection_status :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionStateReason)
 vpcPeeringConnection_status = Lens.lens (\VpcPeeringConnection' {status} -> status) (\s@VpcPeeringConnection' {} a -> s {status = a} :: VpcPeeringConnection)
 
+-- | The ID of the VPC peering connection.
+vpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
+vpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\VpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@VpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: VpcPeeringConnection)
+
 -- | Information about the accepter VPC. CIDR block information is only
 -- returned when describing an active VPC peering connection.
 vpcPeeringConnection_accepterVpcInfo :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionVpcInfo)
 vpcPeeringConnection_accepterVpcInfo = Lens.lens (\VpcPeeringConnection' {accepterVpcInfo} -> accepterVpcInfo) (\s@VpcPeeringConnection' {} a -> s {accepterVpcInfo = a} :: VpcPeeringConnection)
-
--- | The ID of the VPC peering connection.
-vpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
-vpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\VpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@VpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: VpcPeeringConnection)
 
 -- | The time that an unaccepted VPC peering connection will expire.
 vpcPeeringConnection_expirationTime :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.UTCTime)
@@ -111,8 +111,8 @@ instance Core.FromXML VpcPeeringConnection where
   parseXML x =
     VpcPeeringConnection'
       Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "accepterVpcInfo")
       Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Core..@? "accepterVpcInfo")
       Prelude.<*> (x Core..@? "expirationTime")
       Prelude.<*> (x Core..@? "requesterVpcInfo")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty

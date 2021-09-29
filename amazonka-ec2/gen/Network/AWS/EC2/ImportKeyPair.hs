@@ -20,14 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports the public key from an RSA key pair that you created with a
--- third-party tool. Compare this with CreateKeyPair, in which AWS creates
--- the key pair and gives the keys to you (AWS keeps a copy of the public
--- key). With ImportKeyPair, you create the key pair and give AWS just the
--- public key. The private key is never transferred between you and AWS.
+-- Imports the public key from an RSA or ED25519 key pair that you created
+-- with a third-party tool. Compare this with CreateKeyPair, in which
+-- Amazon Web Services creates the key pair and gives the keys to you
+-- (Amazon Web Services keeps a copy of the public key). With
+-- ImportKeyPair, you create the key pair and give Amazon Web Services just
+-- the public key. The private key is never transferred between you and
+-- Amazon Web Services.
 --
 -- For more information about key pairs, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.ImportKeyPair
   ( -- * Creating a Request
@@ -191,7 +193,7 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
     keyPairId :: Prelude.Maybe Prelude.Text,
     -- | The tags applied to the imported key pair.
     tags :: Prelude.Maybe [Tag],
-    -- | The key pair name you provided.
+    -- | The key pair name that you provided.
     keyName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -212,7 +214,7 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 --
 -- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.
 --
--- 'keyName', 'importKeyPairResponse_keyName' - The key pair name you provided.
+-- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.
 --
 -- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.
 newImportKeyPairResponse ::
@@ -241,7 +243,7 @@ importKeyPairResponse_keyPairId = Lens.lens (\ImportKeyPairResponse' {keyPairId}
 importKeyPairResponse_tags :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe [Tag])
 importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The key pair name you provided.
+-- | The key pair name that you provided.
 importKeyPairResponse_keyName :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
 importKeyPairResponse_keyName = Lens.lens (\ImportKeyPairResponse' {keyName} -> keyName) (\s@ImportKeyPairResponse' {} a -> s {keyName = a} :: ImportKeyPairResponse)
 

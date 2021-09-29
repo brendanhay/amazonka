@@ -23,7 +23,7 @@
 -- Requests a transit gateway peering attachment between the specified
 -- transit gateway (requester) and a peer transit gateway (accepter). The
 -- transit gateways must be in different Regions. The peer transit gateway
--- can be in your account or a different AWS account.
+-- can be in your account or a different Amazon Web Services account.
 --
 -- After you create the peering attachment, the owner of the accepter
 -- transit gateway must accept the attachment request.
@@ -71,7 +71,8 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
     -- | The ID of the peer transit gateway with which to create the peering
     -- attachment.
     peerTransitGatewayId :: Prelude.Text,
-    -- | The AWS account ID of the owner of the peer transit gateway.
+    -- | The ID of the Amazon Web Services account that owns the peer transit
+    -- gateway.
     peerAccountId :: Prelude.Text,
     -- | The Region where the peer transit gateway is located.
     peerRegion :: Prelude.Text
@@ -98,7 +99,8 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
 -- 'peerTransitGatewayId', 'createTransitGatewayPeeringAttachment_peerTransitGatewayId' - The ID of the peer transit gateway with which to create the peering
 -- attachment.
 --
--- 'peerAccountId', 'createTransitGatewayPeeringAttachment_peerAccountId' - The AWS account ID of the owner of the peer transit gateway.
+-- 'peerAccountId', 'createTransitGatewayPeeringAttachment_peerAccountId' - The ID of the Amazon Web Services account that owns the peer transit
+-- gateway.
 --
 -- 'peerRegion', 'createTransitGatewayPeeringAttachment_peerRegion' - The Region where the peer transit gateway is located.
 newCreateTransitGatewayPeeringAttachment ::
@@ -148,7 +150,8 @@ createTransitGatewayPeeringAttachment_transitGatewayId = Lens.lens (\CreateTrans
 createTransitGatewayPeeringAttachment_peerTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
 createTransitGatewayPeeringAttachment_peerTransitGatewayId = Lens.lens (\CreateTransitGatewayPeeringAttachment' {peerTransitGatewayId} -> peerTransitGatewayId) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {peerTransitGatewayId = a} :: CreateTransitGatewayPeeringAttachment)
 
--- | The AWS account ID of the owner of the peer transit gateway.
+-- | The ID of the Amazon Web Services account that owns the peer transit
+-- gateway.
 createTransitGatewayPeeringAttachment_peerAccountId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
 createTransitGatewayPeeringAttachment_peerAccountId = Lens.lens (\CreateTransitGatewayPeeringAttachment' {peerAccountId} -> peerAccountId) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {peerAccountId = a} :: CreateTransitGatewayPeeringAttachment)
 

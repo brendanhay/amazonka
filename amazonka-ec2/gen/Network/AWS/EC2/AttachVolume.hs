@@ -30,14 +30,14 @@
 --
 -- After you attach an EBS volume, you must make it available. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html Making an EBS volume available for use>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html Make an EBS volume available for use>.
 --
--- If a volume has an AWS Marketplace product code:
+-- If a volume has an Amazon Web Services Marketplace product code:
 --
 -- -   The volume can be attached only to a stopped instance.
 --
--- -   AWS Marketplace product codes are copied from the volume to the
---     instance.
+-- -   Amazon Web Services Marketplace product codes are copied from the
+--     volume to the instance.
 --
 -- -   You must be subscribed to the product.
 --
@@ -46,7 +46,7 @@
 --     instance and attach it to a Linux instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS volumes>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attach an Amazon EBS volume to an instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.AttachVolume
   ( -- * Creating a Request

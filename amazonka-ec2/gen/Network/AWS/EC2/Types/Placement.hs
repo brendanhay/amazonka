@@ -44,6 +44,9 @@ data Placement = Placement'
     --
     -- This parameter is not supported by
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+    --
+    -- T3 instances that use the @unlimited@ CPU credit option do not support
+    -- @host@ tenancy.
     tenancy :: Prelude.Maybe Tenancy,
     -- | The affinity setting for the instance on the Dedicated Host. This
     -- parameter is not supported for the
@@ -108,6 +111,9 @@ data Placement = Placement'
 --
 -- This parameter is not supported by
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+--
+-- T3 instances that use the @unlimited@ CPU credit option do not support
+-- @host@ tenancy.
 --
 -- 'affinity', 'placement_affinity' - The affinity setting for the instance on the Dedicated Host. This
 -- parameter is not supported for the
@@ -178,6 +184,9 @@ placement_groupName = Lens.lens (\Placement' {groupName} -> groupName) (\s@Place
 --
 -- This parameter is not supported by
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+--
+-- T3 instances that use the @unlimited@ CPU credit option do not support
+-- @host@ tenancy.
 placement_tenancy :: Lens.Lens' Placement (Prelude.Maybe Tenancy)
 placement_tenancy = Lens.lens (\Placement' {tenancy} -> tenancy) (\s@Placement' {} a -> s {tenancy = a} :: Placement)
 

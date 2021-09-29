@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
 
     -- * Request Lenses
     describeSpotFleetRequests_nextToken,
-    describeSpotFleetRequests_dryRun,
     describeSpotFleetRequests_maxResults,
+    describeSpotFleetRequests_dryRun,
     describeSpotFleetRequests_spotFleetRequestIds,
 
     -- * Destructuring the Response
@@ -61,16 +61,16 @@ import qualified Network.AWS.Response as Response
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the Spot Fleet requests.
     spotFleetRequestIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -86,15 +86,15 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
 --
 -- 'nextToken', 'describeSpotFleetRequests_nextToken' - The token for the next set of results.
 --
--- 'dryRun', 'describeSpotFleetRequests_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeSpotFleetRequests_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeSpotFleetRequests_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'spotFleetRequestIds', 'describeSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 newDescribeSpotFleetRequests ::
@@ -103,8 +103,8 @@ newDescribeSpotFleetRequests =
   DescribeSpotFleetRequests'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       spotFleetRequestIds = Prelude.Nothing
     }
 
@@ -112,19 +112,19 @@ newDescribeSpotFleetRequests =
 describeSpotFleetRequests_nextToken :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Text)
 describeSpotFleetRequests_nextToken = Lens.lens (\DescribeSpotFleetRequests' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequests' {} a -> s {nextToken = a} :: DescribeSpotFleetRequests)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSpotFleetRequests_dryRun :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Bool)
-describeSpotFleetRequests_dryRun = Lens.lens (\DescribeSpotFleetRequests' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequests' {} a -> s {dryRun = a} :: DescribeSpotFleetRequests)
-
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
 describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Int)
 describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequests' {} a -> s {maxResults = a} :: DescribeSpotFleetRequests)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotFleetRequests_dryRun :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Bool)
+describeSpotFleetRequests_dryRun = Lens.lens (\DescribeSpotFleetRequests' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequests' {} a -> s {dryRun = a} :: DescribeSpotFleetRequests)
 
 -- | The IDs of the Spot Fleet requests.
 describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
@@ -187,8 +187,8 @@ instance Core.ToQuery DescribeSpotFleetRequests where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "SpotFleetRequestId"
               Prelude.<$> spotFleetRequestIds

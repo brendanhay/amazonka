@@ -22,11 +22,8 @@
 --
 -- Updates the description of an ingress (inbound) security group rule. You
 -- can replace an existing description, or add a description to a rule that
--- did not have one previously.
---
--- You specify the description as part of the IP permissions structure. You
--- can remove a description for a security group rule by omitting the
--- description parameter in the request.
+-- did not have one previously. You can remove a description for a security
+-- group rule by omitting the description parameter in the request.
 module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
   ( -- * Creating a Request
     UpdateSecurityGroupRuleDescriptionsIngress (..),
@@ -37,6 +34,7 @@ module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
     updateSecurityGroupRuleDescriptionsIngress_groupName,
     updateSecurityGroupRuleDescriptionsIngress_groupId,
     updateSecurityGroupRuleDescriptionsIngress_ipPermissions,
+    updateSecurityGroupRuleDescriptionsIngress_securityGroupRuleDescriptions,
 
     -- * Destructuring the Response
     UpdateSecurityGroupRuleDescriptionsIngressResponse (..),
@@ -70,8 +68,12 @@ data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescrip
     -- ID or the security group name in the request. For security groups in a
     -- nondefault VPC, you must specify the security group ID.
     groupId :: Prelude.Maybe Prelude.Text,
-    -- | The IP permissions for the security group rule.
-    ipPermissions :: [IpPermission]
+    -- | The IP permissions for the security group rule. You must specify either
+    -- IP permissions or a description.
+    ipPermissions :: Prelude.Maybe [IpPermission],
+    -- | [VPC only] The description for the ingress security group rules. You
+    -- must specify either a description or IP permissions.
+    securityGroupRuleDescriptions :: Prelude.Maybe [SecurityGroupRuleDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +98,11 @@ data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescrip
 -- ID or the security group name in the request. For security groups in a
 -- nondefault VPC, you must specify the security group ID.
 --
--- 'ipPermissions', 'updateSecurityGroupRuleDescriptionsIngress_ipPermissions' - The IP permissions for the security group rule.
+-- 'ipPermissions', 'updateSecurityGroupRuleDescriptionsIngress_ipPermissions' - The IP permissions for the security group rule. You must specify either
+-- IP permissions or a description.
+--
+-- 'securityGroupRuleDescriptions', 'updateSecurityGroupRuleDescriptionsIngress_securityGroupRuleDescriptions' - [VPC only] The description for the ingress security group rules. You
+-- must specify either a description or IP permissions.
 newUpdateSecurityGroupRuleDescriptionsIngress ::
   UpdateSecurityGroupRuleDescriptionsIngress
 newUpdateSecurityGroupRuleDescriptionsIngress =
@@ -105,7 +111,9 @@ newUpdateSecurityGroupRuleDescriptionsIngress =
         Prelude.Nothing,
       groupName = Prelude.Nothing,
       groupId = Prelude.Nothing,
-      ipPermissions = Prelude.mempty
+      ipPermissions = Prelude.Nothing,
+      securityGroupRuleDescriptions =
+        Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -127,9 +135,15 @@ updateSecurityGroupRuleDescriptionsIngress_groupName = Lens.lens (\UpdateSecurit
 updateSecurityGroupRuleDescriptionsIngress_groupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Prelude.Maybe Prelude.Text)
 updateSecurityGroupRuleDescriptionsIngress_groupId = Lens.lens (\UpdateSecurityGroupRuleDescriptionsIngress' {groupId} -> groupId) (\s@UpdateSecurityGroupRuleDescriptionsIngress' {} a -> s {groupId = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
 
--- | The IP permissions for the security group rule.
-updateSecurityGroupRuleDescriptionsIngress_ipPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress [IpPermission]
-updateSecurityGroupRuleDescriptionsIngress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsIngress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsIngress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsIngress) Prelude.. Lens._Coerce
+-- | The IP permissions for the security group rule. You must specify either
+-- IP permissions or a description.
+updateSecurityGroupRuleDescriptionsIngress_ipPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Prelude.Maybe [IpPermission])
+updateSecurityGroupRuleDescriptionsIngress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsIngress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsIngress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsIngress) Prelude.. Lens.mapping Lens._Coerce
+
+-- | [VPC only] The description for the ingress security group rules. You
+-- must specify either a description or IP permissions.
+updateSecurityGroupRuleDescriptionsIngress_securityGroupRuleDescriptions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Prelude.Maybe [SecurityGroupRuleDescription])
+updateSecurityGroupRuleDescriptionsIngress_securityGroupRuleDescriptions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsIngress' {securityGroupRuleDescriptions} -> securityGroupRuleDescriptions) (\s@UpdateSecurityGroupRuleDescriptionsIngress' {} a -> s {securityGroupRuleDescriptions = a} :: UpdateSecurityGroupRuleDescriptionsIngress) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -184,7 +198,14 @@ instance
           "DryRun" Core.=: dryRun,
           "GroupName" Core.=: groupName,
           "GroupId" Core.=: groupId,
-          Core.toQueryList "IpPermissions" ipPermissions
+          Core.toQuery
+            ( Core.toQueryList "IpPermissions"
+                Prelude.<$> ipPermissions
+            ),
+          Core.toQuery
+            ( Core.toQueryList "SecurityGroupRuleDescription"
+                Prelude.<$> securityGroupRuleDescriptions
+            )
         ]
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsIngressResponse' smart constructor.

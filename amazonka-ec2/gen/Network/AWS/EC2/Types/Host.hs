@@ -36,27 +36,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHost' smart constructor.
 data Host = Host'
-  { -- | The ID of the AWS account that owns the Dedicated Host.
+  { -- | The ID of the Amazon Web Services account that owns the Dedicated Host.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The hardware specifications of the Dedicated Host.
     hostProperties :: Prelude.Maybe HostProperties,
-    -- | Information about the instances running on the Dedicated Host.
-    availableCapacity :: Prelude.Maybe AvailableCapacity,
     -- | The reservation ID of the Dedicated Host. This returns a @null@ response
     -- if the Dedicated Host doesn\'t have an associated reservation.
     hostReservationId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the instances running on the Dedicated Host.
+    availableCapacity :: Prelude.Maybe AvailableCapacity,
     -- | The time that the Dedicated Host was allocated.
     allocationTime :: Prelude.Maybe Core.ISO8601,
-    -- | The IDs and instance type that are currently running on the Dedicated
-    -- Host.
-    instances :: Prelude.Maybe [HostInstance],
     -- | The ID of the Availability Zone in which the Dedicated Host is
     -- allocated.
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The Dedicated Host\'s state.
-    state :: Prelude.Maybe AllocationState,
+    -- | The IDs and instance type that are currently running on the Dedicated
+    -- Host.
+    instances :: Prelude.Maybe [HostInstance],
     -- | The Availability Zone of the Dedicated Host.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The Dedicated Host\'s state.
+    state :: Prelude.Maybe AllocationState,
     -- | The time that the Dedicated Host was released.
     releaseTime :: Prelude.Maybe Core.ISO8601,
     -- | Any tags assigned to the Dedicated Host.
@@ -92,26 +92,26 @@ data Host = Host'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'host_ownerId' - The ID of the AWS account that owns the Dedicated Host.
+-- 'ownerId', 'host_ownerId' - The ID of the Amazon Web Services account that owns the Dedicated Host.
 --
 -- 'hostProperties', 'host_hostProperties' - The hardware specifications of the Dedicated Host.
---
--- 'availableCapacity', 'host_availableCapacity' - Information about the instances running on the Dedicated Host.
 --
 -- 'hostReservationId', 'host_hostReservationId' - The reservation ID of the Dedicated Host. This returns a @null@ response
 -- if the Dedicated Host doesn\'t have an associated reservation.
 --
--- 'allocationTime', 'host_allocationTime' - The time that the Dedicated Host was allocated.
+-- 'availableCapacity', 'host_availableCapacity' - Information about the instances running on the Dedicated Host.
 --
--- 'instances', 'host_instances' - The IDs and instance type that are currently running on the Dedicated
--- Host.
+-- 'allocationTime', 'host_allocationTime' - The time that the Dedicated Host was allocated.
 --
 -- 'availabilityZoneId', 'host_availabilityZoneId' - The ID of the Availability Zone in which the Dedicated Host is
 -- allocated.
 --
--- 'state', 'host_state' - The Dedicated Host\'s state.
+-- 'instances', 'host_instances' - The IDs and instance type that are currently running on the Dedicated
+-- Host.
 --
 -- 'availabilityZone', 'host_availabilityZone' - The Availability Zone of the Dedicated Host.
+--
+-- 'state', 'host_state' - The Dedicated Host\'s state.
 --
 -- 'releaseTime', 'host_releaseTime' - The time that the Dedicated Host was released.
 --
@@ -142,13 +142,13 @@ newHost =
   Host'
     { ownerId = Prelude.Nothing,
       hostProperties = Prelude.Nothing,
-      availableCapacity = Prelude.Nothing,
       hostReservationId = Prelude.Nothing,
+      availableCapacity = Prelude.Nothing,
       allocationTime = Prelude.Nothing,
-      instances = Prelude.Nothing,
       availabilityZoneId = Prelude.Nothing,
-      state = Prelude.Nothing,
+      instances = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      state = Prelude.Nothing,
       releaseTime = Prelude.Nothing,
       tags = Prelude.Nothing,
       autoPlacement = Prelude.Nothing,
@@ -159,7 +159,7 @@ newHost =
       clientToken = Prelude.Nothing
     }
 
--- | The ID of the AWS account that owns the Dedicated Host.
+-- | The ID of the Amazon Web Services account that owns the Dedicated Host.
 host_ownerId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_ownerId = Lens.lens (\Host' {ownerId} -> ownerId) (\s@Host' {} a -> s {ownerId = a} :: Host)
 
@@ -167,36 +167,36 @@ host_ownerId = Lens.lens (\Host' {ownerId} -> ownerId) (\s@Host' {} a -> s {owne
 host_hostProperties :: Lens.Lens' Host (Prelude.Maybe HostProperties)
 host_hostProperties = Lens.lens (\Host' {hostProperties} -> hostProperties) (\s@Host' {} a -> s {hostProperties = a} :: Host)
 
--- | Information about the instances running on the Dedicated Host.
-host_availableCapacity :: Lens.Lens' Host (Prelude.Maybe AvailableCapacity)
-host_availableCapacity = Lens.lens (\Host' {availableCapacity} -> availableCapacity) (\s@Host' {} a -> s {availableCapacity = a} :: Host)
-
 -- | The reservation ID of the Dedicated Host. This returns a @null@ response
 -- if the Dedicated Host doesn\'t have an associated reservation.
 host_hostReservationId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostReservationId = Lens.lens (\Host' {hostReservationId} -> hostReservationId) (\s@Host' {} a -> s {hostReservationId = a} :: Host)
 
+-- | Information about the instances running on the Dedicated Host.
+host_availableCapacity :: Lens.Lens' Host (Prelude.Maybe AvailableCapacity)
+host_availableCapacity = Lens.lens (\Host' {availableCapacity} -> availableCapacity) (\s@Host' {} a -> s {availableCapacity = a} :: Host)
+
 -- | The time that the Dedicated Host was allocated.
 host_allocationTime :: Lens.Lens' Host (Prelude.Maybe Prelude.UTCTime)
 host_allocationTime = Lens.lens (\Host' {allocationTime} -> allocationTime) (\s@Host' {} a -> s {allocationTime = a} :: Host) Prelude.. Lens.mapping Core._Time
-
--- | The IDs and instance type that are currently running on the Dedicated
--- Host.
-host_instances :: Lens.Lens' Host (Prelude.Maybe [HostInstance])
-host_instances = Lens.lens (\Host' {instances} -> instances) (\s@Host' {} a -> s {instances = a} :: Host) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Availability Zone in which the Dedicated Host is
 -- allocated.
 host_availabilityZoneId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_availabilityZoneId = Lens.lens (\Host' {availabilityZoneId} -> availabilityZoneId) (\s@Host' {} a -> s {availabilityZoneId = a} :: Host)
 
--- | The Dedicated Host\'s state.
-host_state :: Lens.Lens' Host (Prelude.Maybe AllocationState)
-host_state = Lens.lens (\Host' {state} -> state) (\s@Host' {} a -> s {state = a} :: Host)
+-- | The IDs and instance type that are currently running on the Dedicated
+-- Host.
+host_instances :: Lens.Lens' Host (Prelude.Maybe [HostInstance])
+host_instances = Lens.lens (\Host' {instances} -> instances) (\s@Host' {} a -> s {instances = a} :: Host) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone of the Dedicated Host.
 host_availabilityZone :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_availabilityZone = Lens.lens (\Host' {availabilityZone} -> availabilityZone) (\s@Host' {} a -> s {availabilityZone = a} :: Host)
+
+-- | The Dedicated Host\'s state.
+host_state :: Lens.Lens' Host (Prelude.Maybe AllocationState)
+host_state = Lens.lens (\Host' {state} -> state) (\s@Host' {} a -> s {state = a} :: Host)
 
 -- | The time that the Dedicated Host was released.
 host_releaseTime :: Lens.Lens' Host (Prelude.Maybe Prelude.UTCTime)
@@ -243,15 +243,15 @@ instance Core.FromXML Host where
     Host'
       Prelude.<$> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "hostProperties")
-      Prelude.<*> (x Core..@? "availableCapacity")
       Prelude.<*> (x Core..@? "hostReservationId")
+      Prelude.<*> (x Core..@? "availableCapacity")
       Prelude.<*> (x Core..@? "allocationTime")
+      Prelude.<*> (x Core..@? "availabilityZoneId")
       Prelude.<*> ( x Core..@? "instances" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "availabilityZoneId")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "releaseTime")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")

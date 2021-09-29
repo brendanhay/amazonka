@@ -35,12 +35,12 @@ data TrafficMirrorFilterRule = TrafficMirrorFilterRule'
     trafficMirrorFilterRuleId :: Prelude.Maybe Prelude.Text,
     -- | The source port range assigned to the Traffic Mirror rule.
     sourcePortRange :: Prelude.Maybe TrafficMirrorPortRange,
-    -- | The traffic direction assigned to the Traffic Mirror rule.
-    trafficDirection :: Prelude.Maybe TrafficDirection,
     -- | The action assigned to the Traffic Mirror rule.
     ruleAction :: Prelude.Maybe TrafficMirrorRuleAction,
     -- | The source CIDR block assigned to the Traffic Mirror rule.
     sourceCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The traffic direction assigned to the Traffic Mirror rule.
+    trafficDirection :: Prelude.Maybe TrafficDirection,
     -- | The ID of the Traffic Mirror filter that the rule is associated with.
     trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
     -- | The destination CIDR block assigned to the Traffic Mirror rule.
@@ -68,11 +68,11 @@ data TrafficMirrorFilterRule = TrafficMirrorFilterRule'
 --
 -- 'sourcePortRange', 'trafficMirrorFilterRule_sourcePortRange' - The source port range assigned to the Traffic Mirror rule.
 --
--- 'trafficDirection', 'trafficMirrorFilterRule_trafficDirection' - The traffic direction assigned to the Traffic Mirror rule.
---
 -- 'ruleAction', 'trafficMirrorFilterRule_ruleAction' - The action assigned to the Traffic Mirror rule.
 --
 -- 'sourceCidrBlock', 'trafficMirrorFilterRule_sourceCidrBlock' - The source CIDR block assigned to the Traffic Mirror rule.
+--
+-- 'trafficDirection', 'trafficMirrorFilterRule_trafficDirection' - The traffic direction assigned to the Traffic Mirror rule.
 --
 -- 'trafficMirrorFilterId', 'trafficMirrorFilterRule_trafficMirrorFilterId' - The ID of the Traffic Mirror filter that the rule is associated with.
 --
@@ -92,9 +92,9 @@ newTrafficMirrorFilterRule =
     { trafficMirrorFilterRuleId =
         Prelude.Nothing,
       sourcePortRange = Prelude.Nothing,
-      trafficDirection = Prelude.Nothing,
       ruleAction = Prelude.Nothing,
       sourceCidrBlock = Prelude.Nothing,
+      trafficDirection = Prelude.Nothing,
       trafficMirrorFilterId = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
       protocol = Prelude.Nothing,
@@ -111,10 +111,6 @@ trafficMirrorFilterRule_trafficMirrorFilterRuleId = Lens.lens (\TrafficMirrorFil
 trafficMirrorFilterRule_sourcePortRange :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRange)
 trafficMirrorFilterRule_sourcePortRange = Lens.lens (\TrafficMirrorFilterRule' {sourcePortRange} -> sourcePortRange) (\s@TrafficMirrorFilterRule' {} a -> s {sourcePortRange = a} :: TrafficMirrorFilterRule)
 
--- | The traffic direction assigned to the Traffic Mirror rule.
-trafficMirrorFilterRule_trafficDirection :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe TrafficDirection)
-trafficMirrorFilterRule_trafficDirection = Lens.lens (\TrafficMirrorFilterRule' {trafficDirection} -> trafficDirection) (\s@TrafficMirrorFilterRule' {} a -> s {trafficDirection = a} :: TrafficMirrorFilterRule)
-
 -- | The action assigned to the Traffic Mirror rule.
 trafficMirrorFilterRule_ruleAction :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorRuleAction)
 trafficMirrorFilterRule_ruleAction = Lens.lens (\TrafficMirrorFilterRule' {ruleAction} -> ruleAction) (\s@TrafficMirrorFilterRule' {} a -> s {ruleAction = a} :: TrafficMirrorFilterRule)
@@ -122,6 +118,10 @@ trafficMirrorFilterRule_ruleAction = Lens.lens (\TrafficMirrorFilterRule' {ruleA
 -- | The source CIDR block assigned to the Traffic Mirror rule.
 trafficMirrorFilterRule_sourceCidrBlock :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
 trafficMirrorFilterRule_sourceCidrBlock = Lens.lens (\TrafficMirrorFilterRule' {sourceCidrBlock} -> sourceCidrBlock) (\s@TrafficMirrorFilterRule' {} a -> s {sourceCidrBlock = a} :: TrafficMirrorFilterRule)
+
+-- | The traffic direction assigned to the Traffic Mirror rule.
+trafficMirrorFilterRule_trafficDirection :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe TrafficDirection)
+trafficMirrorFilterRule_trafficDirection = Lens.lens (\TrafficMirrorFilterRule' {trafficDirection} -> trafficDirection) (\s@TrafficMirrorFilterRule' {} a -> s {trafficDirection = a} :: TrafficMirrorFilterRule)
 
 -- | The ID of the Traffic Mirror filter that the rule is associated with.
 trafficMirrorFilterRule_trafficMirrorFilterId :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
@@ -152,9 +152,9 @@ instance Core.FromXML TrafficMirrorFilterRule where
     TrafficMirrorFilterRule'
       Prelude.<$> (x Core..@? "trafficMirrorFilterRuleId")
       Prelude.<*> (x Core..@? "sourcePortRange")
-      Prelude.<*> (x Core..@? "trafficDirection")
       Prelude.<*> (x Core..@? "ruleAction")
       Prelude.<*> (x Core..@? "sourceCidrBlock")
+      Prelude.<*> (x Core..@? "trafficDirection")
       Prelude.<*> (x Core..@? "trafficMirrorFilterId")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
       Prelude.<*> (x Core..@? "protocol")

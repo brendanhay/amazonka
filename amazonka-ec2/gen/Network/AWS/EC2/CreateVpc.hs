@@ -24,7 +24,7 @@
 -- can create uses a \/28 netmask (16 IPv4 addresses), and the largest uses
 -- a \/16 netmask (65,536 IPv4 addresses). For more information about how
 -- large to make your VPC, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and Subnets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- You can optionally request an IPv6 CIDR block for the VPC. You can
@@ -36,7 +36,7 @@
 -- By default, each instance you launch in the VPC has the default DHCP
 -- options, which include only a default DNS server that we provide
 -- (AmazonProvidedDNS). For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP Options Sets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP options sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- You can specify the instance tenancy value for the VPC when you create

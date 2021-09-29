@@ -50,8 +50,8 @@ module Network.AWS.EC2.CreateVpcEndpointServiceConfiguration
     newCreateVpcEndpointServiceConfiguration,
 
     -- * Request Lenses
-    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_tagSpecifications,
+    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_dryRun,
     createVpcEndpointServiceConfiguration_privateDnsName,
     createVpcEndpointServiceConfiguration_acceptanceRequired,
@@ -78,10 +78,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfiguration' smart constructor.
 data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfiguration'
-  { -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | The tags to associate with the service.
+  { -- | The tags to associate with the service.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -112,9 +112,9 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
---
 -- 'tagSpecifications', 'createVpcEndpointServiceConfiguration_tagSpecifications' - The tags to associate with the service.
+--
+-- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 --
 -- 'dryRun', 'createVpcEndpointServiceConfiguration_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -138,9 +138,10 @@ newCreateVpcEndpointServiceConfiguration ::
   CreateVpcEndpointServiceConfiguration
 newCreateVpcEndpointServiceConfiguration =
   CreateVpcEndpointServiceConfiguration'
-    { gatewayLoadBalancerArns =
+    { tagSpecifications =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
+      gatewayLoadBalancerArns =
+        Prelude.Nothing,
       dryRun = Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
@@ -149,13 +150,13 @@ newCreateVpcEndpointServiceConfiguration =
       clientToken = Prelude.Nothing
     }
 
--- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The tags to associate with the service.
 createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [TagSpecification])
 createVpcEndpointServiceConfiguration_tagSpecifications = Lens.lens (\CreateVpcEndpointServiceConfiguration' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {tagSpecifications = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -237,12 +238,12 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          ( Core.toQueryList "GatewayLoadBalancerArn"
-              Prelude.<$> gatewayLoadBalancerArns
-          ),
-        Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
+          ),
+        Core.toQuery
+          ( Core.toQueryList "GatewayLoadBalancerArn"
+              Prelude.<$> gatewayLoadBalancerArns
           ),
         "DryRun" Core.=: dryRun,
         "PrivateDnsName" Core.=: privateDnsName,

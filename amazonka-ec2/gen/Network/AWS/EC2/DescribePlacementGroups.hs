@@ -76,7 +76,7 @@ data DescribePlacementGroups = DescribePlacementGroups'
     -- -   @strategy@ - The strategy of the placement group (@cluster@ |
     --     @spread@ | @partition@).
     --
-    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    -- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -119,7 +119,7 @@ data DescribePlacementGroups = DescribePlacementGroups'
 -- -   @strategy@ - The strategy of the placement group (@cluster@ |
 --     @spread@ | @partition@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -167,7 +167,7 @@ describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {group
 -- -   @strategy@ - The strategy of the placement group (@cluster@ |
 --     @spread@ | @partition@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for

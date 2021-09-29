@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeNetworkAcls
 
     -- * Request Lenses
     describeNetworkAcls_nextToken,
-    describeNetworkAcls_dryRun,
     describeNetworkAcls_maxResults,
+    describeNetworkAcls_dryRun,
     describeNetworkAcls_networkAclIds,
     describeNetworkAcls_filters,
 
@@ -61,15 +61,15 @@ import qualified Network.AWS.Response as Response
 data DescribeNetworkAcls = DescribeNetworkAcls'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more network ACL IDs.
     --
     -- Default: Describes all your network ACLs.
@@ -113,7 +113,8 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
     --
     -- -   @network-acl-id@ - The ID of the network ACL.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the network ACL.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     network ACL.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
@@ -140,14 +141,14 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- 'nextToken', 'describeNetworkAcls_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeNetworkAcls_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeNetworkAcls_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeNetworkAcls_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'networkAclIds', 'describeNetworkAcls_networkAclIds' - One or more network ACL IDs.
 --
@@ -192,7 +193,8 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- -   @network-acl-id@ - The ID of the network ACL.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the network ACL.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     network ACL.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -210,8 +212,8 @@ newDescribeNetworkAcls ::
 newDescribeNetworkAcls =
   DescribeNetworkAcls'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       networkAclIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -220,18 +222,18 @@ newDescribeNetworkAcls =
 describeNetworkAcls_nextToken :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Text)
 describeNetworkAcls_nextToken = Lens.lens (\DescribeNetworkAcls' {nextToken} -> nextToken) (\s@DescribeNetworkAcls' {} a -> s {nextToken = a} :: DescribeNetworkAcls)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeNetworkAcls_maxResults :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Natural)
+describeNetworkAcls_maxResults = Lens.lens (\DescribeNetworkAcls' {maxResults} -> maxResults) (\s@DescribeNetworkAcls' {} a -> s {maxResults = a} :: DescribeNetworkAcls)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeNetworkAcls_dryRun :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Bool)
 describeNetworkAcls_dryRun = Lens.lens (\DescribeNetworkAcls' {dryRun} -> dryRun) (\s@DescribeNetworkAcls' {} a -> s {dryRun = a} :: DescribeNetworkAcls)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeNetworkAcls_maxResults :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Natural)
-describeNetworkAcls_maxResults = Lens.lens (\DescribeNetworkAcls' {maxResults} -> maxResults) (\s@DescribeNetworkAcls' {} a -> s {maxResults = a} :: DescribeNetworkAcls)
 
 -- | One or more network ACL IDs.
 --
@@ -278,7 +280,8 @@ describeNetworkAcls_networkAclIds = Lens.lens (\DescribeNetworkAcls' {networkAcl
 --
 -- -   @network-acl-id@ - The ID of the network ACL.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the network ACL.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     network ACL.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -350,8 +353,8 @@ instance Core.ToQuery DescribeNetworkAcls where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkAclId"
               Prelude.<$> networkAclIds

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Grants an AWS-authorized account permission to attach the specified
--- network interface to an instance in their account.
+-- Grants an Amazon Web Services-authorized account permission to attach
+-- the specified network interface to an instance in their account.
 --
--- You can grant permission to a single AWS account only, and only one
--- account at a time.
+-- You can grant permission to a single Amazon Web Services account only,
+-- and only one account at a time.
 module Network.AWS.EC2.CreateNetworkInterfacePermission
   ( -- * Creating a Request
     CreateNetworkInterfacePermission (..),
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateNetworkInterfacePermission' smart constructor.
 data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
-  { -- | The AWS account ID.
+  { -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS service. Currently not supported.
+    -- | The Amazon Web Service. Currently not supported.
     awsService :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text,
@@ -82,14 +82,14 @@ data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'createNetworkInterfacePermission_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'createNetworkInterfacePermission_awsAccountId' - The Amazon Web Services account ID.
 --
 -- 'dryRun', 'createNetworkInterfacePermission_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'awsService', 'createNetworkInterfacePermission_awsService' - The AWS service. Currently not supported.
+-- 'awsService', 'createNetworkInterfacePermission_awsService' - The Amazon Web Service. Currently not supported.
 --
 -- 'networkInterfaceId', 'createNetworkInterfacePermission_networkInterfaceId' - The ID of the network interface.
 --
@@ -112,7 +112,7 @@ newCreateNetworkInterfacePermission
         permission = pPermission_
       }
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 createNetworkInterfacePermission_awsAccountId :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 createNetworkInterfacePermission_awsAccountId = Lens.lens (\CreateNetworkInterfacePermission' {awsAccountId} -> awsAccountId) (\s@CreateNetworkInterfacePermission' {} a -> s {awsAccountId = a} :: CreateNetworkInterfacePermission)
 
@@ -123,7 +123,7 @@ createNetworkInterfacePermission_awsAccountId = Lens.lens (\CreateNetworkInterfa
 createNetworkInterfacePermission_dryRun :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Bool)
 createNetworkInterfacePermission_dryRun = Lens.lens (\CreateNetworkInterfacePermission' {dryRun} -> dryRun) (\s@CreateNetworkInterfacePermission' {} a -> s {dryRun = a} :: CreateNetworkInterfacePermission)
 
--- | The AWS service. Currently not supported.
+-- | The Amazon Web Service. Currently not supported.
 createNetworkInterfacePermission_awsService :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 createNetworkInterfacePermission_awsService = Lens.lens (\CreateNetworkInterfacePermission' {awsService} -> awsService) (\s@CreateNetworkInterfacePermission' {} a -> s {awsService = a} :: CreateNetworkInterfacePermission)
 

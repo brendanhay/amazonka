@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpnConnectionOptions' smart constructor.
 data VpnConnectionOptions = VpnConnectionOptions'
-  { -- | The IPv6 CIDR on the AWS side of the VPN connection.
+  { -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
     remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the VPN connection uses static routes only. Static
     -- routes must be used for devices that don\'t support BGP.
@@ -42,7 +42,7 @@ data VpnConnectionOptions = VpnConnectionOptions'
     enableAcceleration :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the VPN tunnel options.
     tunnelOptions :: Prelude.Maybe [TunnelOption],
-    -- | The IPv4 CIDR on the AWS side of the VPN connection.
+    -- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
     remoteIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.
     tunnelInsideIpVersion :: Prelude.Maybe TunnelInsideIpVersion,
@@ -60,7 +60,7 @@ data VpnConnectionOptions = VpnConnectionOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteIpv6NetworkCidr', 'vpnConnectionOptions_remoteIpv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv6NetworkCidr', 'vpnConnectionOptions_remoteIpv6NetworkCidr' - The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- 'staticRoutesOnly', 'vpnConnectionOptions_staticRoutesOnly' - Indicates whether the VPN connection uses static routes only. Static
 -- routes must be used for devices that don\'t support BGP.
@@ -72,7 +72,7 @@ data VpnConnectionOptions = VpnConnectionOptions'
 --
 -- 'tunnelOptions', 'vpnConnectionOptions_tunnelOptions' - Indicates the VPN tunnel options.
 --
--- 'remoteIpv4NetworkCidr', 'vpnConnectionOptions_remoteIpv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv4NetworkCidr', 'vpnConnectionOptions_remoteIpv4NetworkCidr' - The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- 'tunnelInsideIpVersion', 'vpnConnectionOptions_tunnelInsideIpVersion' - Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.
 --
@@ -93,7 +93,7 @@ newVpnConnectionOptions =
       localIpv4NetworkCidr = Prelude.Nothing
     }
 
--- | The IPv6 CIDR on the AWS side of the VPN connection.
+-- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 vpnConnectionOptions_remoteIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptions (Prelude.Maybe Prelude.Text)
 vpnConnectionOptions_remoteIpv6NetworkCidr = Lens.lens (\VpnConnectionOptions' {remoteIpv6NetworkCidr} -> remoteIpv6NetworkCidr) (\s@VpnConnectionOptions' {} a -> s {remoteIpv6NetworkCidr = a} :: VpnConnectionOptions)
 
@@ -115,7 +115,7 @@ vpnConnectionOptions_enableAcceleration = Lens.lens (\VpnConnectionOptions' {ena
 vpnConnectionOptions_tunnelOptions :: Lens.Lens' VpnConnectionOptions (Prelude.Maybe [TunnelOption])
 vpnConnectionOptions_tunnelOptions = Lens.lens (\VpnConnectionOptions' {tunnelOptions} -> tunnelOptions) (\s@VpnConnectionOptions' {} a -> s {tunnelOptions = a} :: VpnConnectionOptions) Prelude.. Lens.mapping Lens._Coerce
 
--- | The IPv4 CIDR on the AWS side of the VPN connection.
+-- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 vpnConnectionOptions_remoteIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptions (Prelude.Maybe Prelude.Text)
 vpnConnectionOptions_remoteIpv4NetworkCidr = Lens.lens (\VpnConnectionOptions' {remoteIpv4NetworkCidr} -> remoteIpv4NetworkCidr) (\s@VpnConnectionOptions' {} a -> s {remoteIpv4NetworkCidr = a} :: VpnConnectionOptions)
 

@@ -40,13 +40,13 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
     clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the security groups for the target network.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The date and time the Client VPN endpoint was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address range, in CIDR notation, from which client IP addresses
     -- are assigned.
     clientCidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The current state of the Client VPN endpoint.
     status :: Prelude.Maybe ClientVpnEndpointStatus,
-    -- | The date and time the Client VPN endpoint was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
     -- | Information about the associated target networks. A target network is a
     -- subnet in a VPC.
     associatedTargetNetworks :: Prelude.Maybe [AssociatedTargetNetwork],
@@ -57,10 +57,10 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
     -- | Information about the authentication method used by the Client VPN
     -- endpoint.
     authenticationOptions :: Prelude.Maybe [ClientVpnAuthentication],
-    -- | The ARN of the server certificate.
-    serverCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The transport protocol used by the Client VPN endpoint.
     transportProtocol :: Prelude.Maybe TransportProtocol,
+    -- | The ARN of the server certificate.
+    serverCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the client connection logging options for the Client
     -- VPN endpoint.
     connectionLogOptions :: Prelude.Maybe ConnectionLogResponseOptions,
@@ -73,21 +73,20 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
     tags :: Prelude.Maybe [Tag],
     -- | The port number for the Client VPN endpoint.
     vpnPort :: Prelude.Maybe Prelude.Int,
+    -- | The protocol used by the VPN session.
+    vpnProtocol :: Prelude.Maybe VpnProtocol,
     -- | The DNS name to be used by clients when connecting to the Client VPN
     -- endpoint.
     dnsName :: Prelude.Maybe Prelude.Text,
-    -- | The protocol used by the VPN session.
-    vpnProtocol :: Prelude.Maybe VpnProtocol,
     -- | A brief description of the endpoint.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether split-tunnel is enabled in the AWS Client VPN
-    -- endpoint.
+    -- | Indicates whether split-tunnel is enabled in the Client VPN endpoint.
     --
     -- For information about split-tunnel VPN endpoints, see
-    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
-    -- in the /AWS Client VPN Administrator Guide/.
+    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel Client VPN endpoint>
+    -- in the /Client VPN Administrator Guide/.
     splitTunnel :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,12 +103,12 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
 --
 -- 'securityGroupIds', 'clientVpnEndpoint_securityGroupIds' - The IDs of the security groups for the target network.
 --
+-- 'creationTime', 'clientVpnEndpoint_creationTime' - The date and time the Client VPN endpoint was created.
+--
 -- 'clientCidrBlock', 'clientVpnEndpoint_clientCidrBlock' - The IPv4 address range, in CIDR notation, from which client IP addresses
 -- are assigned.
 --
 -- 'status', 'clientVpnEndpoint_status' - The current state of the Client VPN endpoint.
---
--- 'creationTime', 'clientVpnEndpoint_creationTime' - The date and time the Client VPN endpoint was created.
 --
 -- 'associatedTargetNetworks', 'clientVpnEndpoint_associatedTargetNetworks' - Information about the associated target networks. A target network is a
 -- subnet in a VPC.
@@ -121,9 +120,9 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
 -- 'authenticationOptions', 'clientVpnEndpoint_authenticationOptions' - Information about the authentication method used by the Client VPN
 -- endpoint.
 --
--- 'serverCertificateArn', 'clientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate.
---
 -- 'transportProtocol', 'clientVpnEndpoint_transportProtocol' - The transport protocol used by the Client VPN endpoint.
+--
+-- 'serverCertificateArn', 'clientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate.
 --
 -- 'connectionLogOptions', 'clientVpnEndpoint_connectionLogOptions' - Information about the client connection logging options for the Client
 -- VPN endpoint.
@@ -137,21 +136,20 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
 --
 -- 'vpnPort', 'clientVpnEndpoint_vpnPort' - The port number for the Client VPN endpoint.
 --
+-- 'vpnProtocol', 'clientVpnEndpoint_vpnProtocol' - The protocol used by the VPN session.
+--
 -- 'dnsName', 'clientVpnEndpoint_dnsName' - The DNS name to be used by clients when connecting to the Client VPN
 -- endpoint.
---
--- 'vpnProtocol', 'clientVpnEndpoint_vpnProtocol' - The protocol used by the VPN session.
 --
 -- 'description', 'clientVpnEndpoint_description' - A brief description of the endpoint.
 --
 -- 'vpcId', 'clientVpnEndpoint_vpcId' - The ID of the VPC.
 --
--- 'splitTunnel', 'clientVpnEndpoint_splitTunnel' - Indicates whether split-tunnel is enabled in the AWS Client VPN
--- endpoint.
+-- 'splitTunnel', 'clientVpnEndpoint_splitTunnel' - Indicates whether split-tunnel is enabled in the Client VPN endpoint.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
 newClientVpnEndpoint ::
   ClientVpnEndpoint
 newClientVpnEndpoint =
@@ -159,22 +157,22 @@ newClientVpnEndpoint =
     { clientVpnEndpointId =
         Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       clientCidrBlock = Prelude.Nothing,
       status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       associatedTargetNetworks = Prelude.Nothing,
       deletionTime = Prelude.Nothing,
       selfServicePortalUrl = Prelude.Nothing,
       authenticationOptions = Prelude.Nothing,
-      serverCertificateArn = Prelude.Nothing,
       transportProtocol = Prelude.Nothing,
+      serverCertificateArn = Prelude.Nothing,
       connectionLogOptions = Prelude.Nothing,
       clientConnectOptions = Prelude.Nothing,
       dnsServers = Prelude.Nothing,
       tags = Prelude.Nothing,
       vpnPort = Prelude.Nothing,
-      dnsName = Prelude.Nothing,
       vpnProtocol = Prelude.Nothing,
+      dnsName = Prelude.Nothing,
       description = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       splitTunnel = Prelude.Nothing
@@ -188,6 +186,10 @@ clientVpnEndpoint_clientVpnEndpointId = Lens.lens (\ClientVpnEndpoint' {clientVp
 clientVpnEndpoint_securityGroupIds :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
 clientVpnEndpoint_securityGroupIds = Lens.lens (\ClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@ClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: ClientVpnEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The date and time the Client VPN endpoint was created.
+clientVpnEndpoint_creationTime :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
+clientVpnEndpoint_creationTime = Lens.lens (\ClientVpnEndpoint' {creationTime} -> creationTime) (\s@ClientVpnEndpoint' {} a -> s {creationTime = a} :: ClientVpnEndpoint)
+
 -- | The IPv4 address range, in CIDR notation, from which client IP addresses
 -- are assigned.
 clientVpnEndpoint_clientCidrBlock :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
@@ -196,10 +198,6 @@ clientVpnEndpoint_clientCidrBlock = Lens.lens (\ClientVpnEndpoint' {clientCidrBl
 -- | The current state of the Client VPN endpoint.
 clientVpnEndpoint_status :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe ClientVpnEndpointStatus)
 clientVpnEndpoint_status = Lens.lens (\ClientVpnEndpoint' {status} -> status) (\s@ClientVpnEndpoint' {} a -> s {status = a} :: ClientVpnEndpoint)
-
--- | The date and time the Client VPN endpoint was created.
-clientVpnEndpoint_creationTime :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
-clientVpnEndpoint_creationTime = Lens.lens (\ClientVpnEndpoint' {creationTime} -> creationTime) (\s@ClientVpnEndpoint' {} a -> s {creationTime = a} :: ClientVpnEndpoint)
 
 -- | Information about the associated target networks. A target network is a
 -- subnet in a VPC.
@@ -219,13 +217,13 @@ clientVpnEndpoint_selfServicePortalUrl = Lens.lens (\ClientVpnEndpoint' {selfSer
 clientVpnEndpoint_authenticationOptions :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe [ClientVpnAuthentication])
 clientVpnEndpoint_authenticationOptions = Lens.lens (\ClientVpnEndpoint' {authenticationOptions} -> authenticationOptions) (\s@ClientVpnEndpoint' {} a -> s {authenticationOptions = a} :: ClientVpnEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ARN of the server certificate.
-clientVpnEndpoint_serverCertificateArn :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
-clientVpnEndpoint_serverCertificateArn = Lens.lens (\ClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ClientVpnEndpoint)
-
 -- | The transport protocol used by the Client VPN endpoint.
 clientVpnEndpoint_transportProtocol :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe TransportProtocol)
 clientVpnEndpoint_transportProtocol = Lens.lens (\ClientVpnEndpoint' {transportProtocol} -> transportProtocol) (\s@ClientVpnEndpoint' {} a -> s {transportProtocol = a} :: ClientVpnEndpoint)
+
+-- | The ARN of the server certificate.
+clientVpnEndpoint_serverCertificateArn :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
+clientVpnEndpoint_serverCertificateArn = Lens.lens (\ClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ClientVpnEndpoint)
 
 -- | Information about the client connection logging options for the Client
 -- VPN endpoint.
@@ -249,14 +247,14 @@ clientVpnEndpoint_tags = Lens.lens (\ClientVpnEndpoint' {tags} -> tags) (\s@Clie
 clientVpnEndpoint_vpnPort :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Int)
 clientVpnEndpoint_vpnPort = Lens.lens (\ClientVpnEndpoint' {vpnPort} -> vpnPort) (\s@ClientVpnEndpoint' {} a -> s {vpnPort = a} :: ClientVpnEndpoint)
 
+-- | The protocol used by the VPN session.
+clientVpnEndpoint_vpnProtocol :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe VpnProtocol)
+clientVpnEndpoint_vpnProtocol = Lens.lens (\ClientVpnEndpoint' {vpnProtocol} -> vpnProtocol) (\s@ClientVpnEndpoint' {} a -> s {vpnProtocol = a} :: ClientVpnEndpoint)
+
 -- | The DNS name to be used by clients when connecting to the Client VPN
 -- endpoint.
 clientVpnEndpoint_dnsName :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 clientVpnEndpoint_dnsName = Lens.lens (\ClientVpnEndpoint' {dnsName} -> dnsName) (\s@ClientVpnEndpoint' {} a -> s {dnsName = a} :: ClientVpnEndpoint)
-
--- | The protocol used by the VPN session.
-clientVpnEndpoint_vpnProtocol :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe VpnProtocol)
-clientVpnEndpoint_vpnProtocol = Lens.lens (\ClientVpnEndpoint' {vpnProtocol} -> vpnProtocol) (\s@ClientVpnEndpoint' {} a -> s {vpnProtocol = a} :: ClientVpnEndpoint)
 
 -- | A brief description of the endpoint.
 clientVpnEndpoint_description :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
@@ -266,12 +264,11 @@ clientVpnEndpoint_description = Lens.lens (\ClientVpnEndpoint' {description} -> 
 clientVpnEndpoint_vpcId :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 clientVpnEndpoint_vpcId = Lens.lens (\ClientVpnEndpoint' {vpcId} -> vpcId) (\s@ClientVpnEndpoint' {} a -> s {vpcId = a} :: ClientVpnEndpoint)
 
--- | Indicates whether split-tunnel is enabled in the AWS Client VPN
--- endpoint.
+-- | Indicates whether split-tunnel is enabled in the Client VPN endpoint.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
 clientVpnEndpoint_splitTunnel :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 clientVpnEndpoint_splitTunnel = Lens.lens (\ClientVpnEndpoint' {splitTunnel} -> splitTunnel) (\s@ClientVpnEndpoint' {} a -> s {splitTunnel = a} :: ClientVpnEndpoint)
 
@@ -283,9 +280,9 @@ instance Core.FromXML ClientVpnEndpoint where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "creationTime")
       Prelude.<*> (x Core..@? "clientCidrBlock")
       Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "creationTime")
       Prelude.<*> ( x Core..@? "associatedTargetNetwork"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -296,8 +293,8 @@ instance Core.FromXML ClientVpnEndpoint where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "serverCertificateArn")
       Prelude.<*> (x Core..@? "transportProtocol")
+      Prelude.<*> (x Core..@? "serverCertificateArn")
       Prelude.<*> (x Core..@? "connectionLogOptions")
       Prelude.<*> (x Core..@? "clientConnectOptions")
       Prelude.<*> ( x Core..@? "dnsServer" Core..!@ Prelude.mempty
@@ -307,8 +304,8 @@ instance Core.FromXML ClientVpnEndpoint where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "vpnPort")
-      Prelude.<*> (x Core..@? "dnsName")
       Prelude.<*> (x Core..@? "vpnProtocol")
+      Prelude.<*> (x Core..@? "dnsName")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "vpcId")
       Prelude.<*> (x Core..@? "splitTunnel")

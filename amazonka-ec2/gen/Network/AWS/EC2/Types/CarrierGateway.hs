@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCarrierGateway' smart constructor.
 data CarrierGateway = CarrierGateway'
-  { -- | The AWS account ID of the owner of the carrier gateway.
+  { -- | The Amazon Web Services account ID of the owner of the carrier gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The state of the carrier gateway.
     state :: Prelude.Maybe CarrierGatewayState,
@@ -51,7 +51,7 @@ data CarrierGateway = CarrierGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'carrierGateway_ownerId' - The AWS account ID of the owner of the carrier gateway.
+-- 'ownerId', 'carrierGateway_ownerId' - The Amazon Web Services account ID of the owner of the carrier gateway.
 --
 -- 'state', 'carrierGateway_state' - The state of the carrier gateway.
 --
@@ -71,7 +71,7 @@ newCarrierGateway =
       vpcId = Prelude.Nothing
     }
 
--- | The AWS account ID of the owner of the carrier gateway.
+-- | The Amazon Web Services account ID of the owner of the carrier gateway.
 carrierGateway_ownerId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_ownerId = Lens.lens (\CarrierGateway' {ownerId} -> ownerId) (\s@CarrierGateway' {} a -> s {ownerId = a} :: CarrierGateway)
 

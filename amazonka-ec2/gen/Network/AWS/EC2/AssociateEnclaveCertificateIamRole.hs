@@ -20,26 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an AWS Identity and Access Management (IAM) role with an AWS
+-- Associates an Identity and Access Management (IAM) role with an
 -- Certificate Manager (ACM) certificate. This enables the certificate to
 -- be used by the ACM for Nitro Enclaves application inside an enclave. For
 -- more information, see
--- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html AWS Certificate Manager for Nitro Enclaves>
--- in the /AWS Nitro Enclaves User Guide/.
+-- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html Certificate Manager for Nitro Enclaves>
+-- in the /Amazon Web Services Nitro Enclaves User Guide/.
 --
--- When the IAM role is associated with the ACM certificate, places the
--- certificate, certificate chain, and encrypted private key in an Amazon
--- S3 bucket that only the associated IAM role can access. The private key
--- of the certificate is encrypted with an AWS-managed KMS customer master
--- (CMK) that has an attached attestation-based CMK policy.
+-- When the IAM role is associated with the ACM certificate, the
+-- certificate, certificate chain, and encrypted private key are placed in
+-- an Amazon S3 bucket that only the associated IAM role can access. The
+-- private key of the certificate is encrypted with an Amazon Web Services
+-- managed key that has an attached attestation-based key policy.
 --
 -- To enable the IAM role to access the Amazon S3 object, you must grant it
 -- permission to call @s3:GetObject@ on the Amazon S3 bucket returned by
--- the command. To enable the IAM role to access the AWS KMS CMK, you must
--- grant it permission to call @kms:Decrypt@ on AWS KMS CMK returned by the
+-- the command. To enable the IAM role to access the KMS key, you must
+-- grant it permission to call @kms:Decrypt@ on the KMS key returned by the
 -- command. For more information, see
 -- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy Grant the role permission to access the certificate and encryption key>
--- in the /AWS Nitro Enclaves User Guide/.
+-- in the /Amazon Web Services Nitro Enclaves User Guide/.
 module Network.AWS.EC2.AssociateEnclaveCertificateIamRole
   ( -- * Creating a Request
     AssociateEnclaveCertificateIamRole (..),
@@ -188,7 +188,7 @@ data AssociateEnclaveCertificateIamRoleResponse = AssociateEnclaveCertificateIam
     -- encrypted private key bundle are stored. The object key is formatted as
     -- follows: @role_arn@\/@certificate_arn@.
     certificateS3ObjectKey :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS KMS CMK used to encrypt the private key of the
+    -- | The ID of the KMS key used to encrypt the private key of the
     -- certificate.
     encryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket to which the certificate was uploaded.
@@ -210,7 +210,7 @@ data AssociateEnclaveCertificateIamRoleResponse = AssociateEnclaveCertificateIam
 -- encrypted private key bundle are stored. The object key is formatted as
 -- follows: @role_arn@\/@certificate_arn@.
 --
--- 'encryptionKmsKeyId', 'associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId' - The ID of the AWS KMS CMK used to encrypt the private key of the
+-- 'encryptionKmsKeyId', 'associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId' - The ID of the KMS key used to encrypt the private key of the
 -- certificate.
 --
 -- 'certificateS3BucketName', 'associateEnclaveCertificateIamRoleResponse_certificateS3BucketName' - The name of the Amazon S3 bucket to which the certificate was uploaded.
@@ -238,7 +238,7 @@ newAssociateEnclaveCertificateIamRoleResponse
 associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {certificateS3ObjectKey} -> certificateS3ObjectKey) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {certificateS3ObjectKey = a} :: AssociateEnclaveCertificateIamRoleResponse)
 
--- | The ID of the AWS KMS CMK used to encrypt the private key of the
+-- | The ID of the KMS key used to encrypt the private key of the
 -- certificate.
 associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {encryptionKmsKeyId} -> encryptionKmsKeyId) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {encryptionKmsKeyId = a} :: AssociateEnclaveCertificateIamRoleResponse)

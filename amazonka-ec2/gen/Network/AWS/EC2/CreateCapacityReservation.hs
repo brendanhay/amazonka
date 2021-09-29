@@ -56,9 +56,10 @@ module Network.AWS.EC2.CreateCapacityReservation
     createCapacityReservation_tagSpecifications,
     createCapacityReservation_ebsOptimized,
     createCapacityReservation_dryRun,
+    createCapacityReservation_outpostArn,
     createCapacityReservation_endDateType,
-    createCapacityReservation_tenancy,
     createCapacityReservation_availabilityZoneId,
+    createCapacityReservation_tenancy,
     createCapacityReservation_availabilityZone,
     createCapacityReservation_instanceMatchCriteria,
     createCapacityReservation_ephemeralStorage,
@@ -100,6 +101,9 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
+    -- Capacity Reservation.
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the way in which the Capacity Reservation ends. A Capacity
     -- Reservation can have one of the following end types:
     --
@@ -111,18 +115,18 @@ data CreateCapacityReservation = CreateCapacityReservation'
     --     specified date and time. You must provide an @EndDate@ value if the
     --     @EndDateType@ value is @limited@.
     endDateType :: Prelude.Maybe EndDateType,
+    -- | The ID of the Availability Zone in which to create the Capacity
+    -- Reservation.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the tenancy of the Capacity Reservation. A Capacity
     -- Reservation can have one of the following tenancy settings:
     --
     -- -   @default@ - The Capacity Reservation is created on hardware that is
-    --     shared with other AWS accounts.
+    --     shared with other Amazon Web Services accounts.
     --
     -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
-    --     hardware that is dedicated to a single AWS account.
+    --     hardware that is dedicated to a single Amazon Web Services account.
     tenancy :: Prelude.Maybe CapacityReservationTenancy,
-    -- | The ID of the Availability Zone in which to create the Capacity
-    -- Reservation.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which to create the Capacity Reservation.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of instance launches that the Capacity Reservation
@@ -169,6 +173,8 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- | The type of operating system for which to reserve capacity.
     instancePlatform :: CapacityReservationInstancePlatform,
     -- | The number of instances for which to reserve capacity.
+    --
+    -- Valid range: 1 - 1000
     instanceCount :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -194,6 +200,9 @@ data CreateCapacityReservation = CreateCapacityReservation'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'outpostArn', 'createCapacityReservation_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
+-- Capacity Reservation.
+--
 -- 'endDateType', 'createCapacityReservation_endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity
 -- Reservation can have one of the following end types:
 --
@@ -205,17 +214,17 @@ data CreateCapacityReservation = CreateCapacityReservation'
 --     specified date and time. You must provide an @EndDate@ value if the
 --     @EndDateType@ value is @limited@.
 --
+-- 'availabilityZoneId', 'createCapacityReservation_availabilityZoneId' - The ID of the Availability Zone in which to create the Capacity
+-- Reservation.
+--
 -- 'tenancy', 'createCapacityReservation_tenancy' - Indicates the tenancy of the Capacity Reservation. A Capacity
 -- Reservation can have one of the following tenancy settings:
 --
 -- -   @default@ - The Capacity Reservation is created on hardware that is
---     shared with other AWS accounts.
+--     shared with other Amazon Web Services accounts.
 --
 -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
---     hardware that is dedicated to a single AWS account.
---
--- 'availabilityZoneId', 'createCapacityReservation_availabilityZoneId' - The ID of the Availability Zone in which to create the Capacity
--- Reservation.
+--     hardware that is dedicated to a single Amazon Web Services account.
 --
 -- 'availabilityZone', 'createCapacityReservation_availabilityZone' - The Availability Zone in which to create the Capacity Reservation.
 --
@@ -263,6 +272,8 @@ data CreateCapacityReservation = CreateCapacityReservation'
 -- 'instancePlatform', 'createCapacityReservation_instancePlatform' - The type of operating system for which to reserve capacity.
 --
 -- 'instanceCount', 'createCapacityReservation_instanceCount' - The number of instances for which to reserve capacity.
+--
+-- Valid range: 1 - 1000
 newCreateCapacityReservation ::
   -- | 'instanceType'
   Prelude.Text ->
@@ -280,9 +291,10 @@ newCreateCapacityReservation
           Prelude.Nothing,
         ebsOptimized = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        outpostArn = Prelude.Nothing,
         endDateType = Prelude.Nothing,
-        tenancy = Prelude.Nothing,
         availabilityZoneId = Prelude.Nothing,
+        tenancy = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         instanceMatchCriteria = Prelude.Nothing,
         ephemeralStorage = Prelude.Nothing,
@@ -312,6 +324,11 @@ createCapacityReservation_ebsOptimized = Lens.lens (\CreateCapacityReservation' 
 createCapacityReservation_dryRun :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
 createCapacityReservation_dryRun = Lens.lens (\CreateCapacityReservation' {dryRun} -> dryRun) (\s@CreateCapacityReservation' {} a -> s {dryRun = a} :: CreateCapacityReservation)
 
+-- | The Amazon Resource Name (ARN) of the Outpost on which to create the
+-- Capacity Reservation.
+createCapacityReservation_outpostArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_outpostArn = Lens.lens (\CreateCapacityReservation' {outpostArn} -> outpostArn) (\s@CreateCapacityReservation' {} a -> s {outpostArn = a} :: CreateCapacityReservation)
+
 -- | Indicates the way in which the Capacity Reservation ends. A Capacity
 -- Reservation can have one of the following end types:
 --
@@ -325,21 +342,21 @@ createCapacityReservation_dryRun = Lens.lens (\CreateCapacityReservation' {dryRu
 createCapacityReservation_endDateType :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe EndDateType)
 createCapacityReservation_endDateType = Lens.lens (\CreateCapacityReservation' {endDateType} -> endDateType) (\s@CreateCapacityReservation' {} a -> s {endDateType = a} :: CreateCapacityReservation)
 
--- | Indicates the tenancy of the Capacity Reservation. A Capacity
--- Reservation can have one of the following tenancy settings:
---
--- -   @default@ - The Capacity Reservation is created on hardware that is
---     shared with other AWS accounts.
---
--- -   @dedicated@ - The Capacity Reservation is created on single-tenant
---     hardware that is dedicated to a single AWS account.
-createCapacityReservation_tenancy :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe CapacityReservationTenancy)
-createCapacityReservation_tenancy = Lens.lens (\CreateCapacityReservation' {tenancy} -> tenancy) (\s@CreateCapacityReservation' {} a -> s {tenancy = a} :: CreateCapacityReservation)
-
 -- | The ID of the Availability Zone in which to create the Capacity
 -- Reservation.
 createCapacityReservation_availabilityZoneId :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
 createCapacityReservation_availabilityZoneId = Lens.lens (\CreateCapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@CreateCapacityReservation' {} a -> s {availabilityZoneId = a} :: CreateCapacityReservation)
+
+-- | Indicates the tenancy of the Capacity Reservation. A Capacity
+-- Reservation can have one of the following tenancy settings:
+--
+-- -   @default@ - The Capacity Reservation is created on hardware that is
+--     shared with other Amazon Web Services accounts.
+--
+-- -   @dedicated@ - The Capacity Reservation is created on single-tenant
+--     hardware that is dedicated to a single Amazon Web Services account.
+createCapacityReservation_tenancy :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe CapacityReservationTenancy)
+createCapacityReservation_tenancy = Lens.lens (\CreateCapacityReservation' {tenancy} -> tenancy) (\s@CreateCapacityReservation' {} a -> s {tenancy = a} :: CreateCapacityReservation)
 
 -- | The Availability Zone in which to create the Capacity Reservation.
 createCapacityReservation_availabilityZone :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
@@ -401,6 +418,8 @@ createCapacityReservation_instancePlatform :: Lens.Lens' CreateCapacityReservati
 createCapacityReservation_instancePlatform = Lens.lens (\CreateCapacityReservation' {instancePlatform} -> instancePlatform) (\s@CreateCapacityReservation' {} a -> s {instancePlatform = a} :: CreateCapacityReservation)
 
 -- | The number of instances for which to reserve capacity.
+--
+-- Valid range: 1 - 1000
 createCapacityReservation_instanceCount :: Lens.Lens' CreateCapacityReservation Prelude.Int
 createCapacityReservation_instanceCount = Lens.lens (\CreateCapacityReservation' {instanceCount} -> instanceCount) (\s@CreateCapacityReservation' {} a -> s {instanceCount = a} :: CreateCapacityReservation)
 
@@ -440,9 +459,10 @@ instance Core.ToQuery CreateCapacityReservation where
           ),
         "EbsOptimized" Core.=: ebsOptimized,
         "DryRun" Core.=: dryRun,
+        "OutpostArn" Core.=: outpostArn,
         "EndDateType" Core.=: endDateType,
-        "Tenancy" Core.=: tenancy,
         "AvailabilityZoneId" Core.=: availabilityZoneId,
+        "Tenancy" Core.=: tenancy,
         "AvailabilityZone" Core.=: availabilityZone,
         "InstanceMatchCriteria"
           Core.=: instanceMatchCriteria,

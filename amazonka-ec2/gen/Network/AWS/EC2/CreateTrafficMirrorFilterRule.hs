@@ -36,8 +36,8 @@ module Network.AWS.EC2.CreateTrafficMirrorFilterRule
     createTrafficMirrorFilterRule_sourcePortRange,
     createTrafficMirrorFilterRule_protocol,
     createTrafficMirrorFilterRule_description,
-    createTrafficMirrorFilterRule_clientToken,
     createTrafficMirrorFilterRule_destinationPortRange,
+    createTrafficMirrorFilterRule_clientToken,
     createTrafficMirrorFilterRule_trafficMirrorFilterId,
     createTrafficMirrorFilterRule_trafficDirection,
     createTrafficMirrorFilterRule_ruleNumber,
@@ -50,8 +50,8 @@ module Network.AWS.EC2.CreateTrafficMirrorFilterRule
     newCreateTrafficMirrorFilterRuleResponse,
 
     -- * Response Lenses
-    createTrafficMirrorFilterRuleResponse_clientToken,
     createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule,
+    createTrafficMirrorFilterRuleResponse_clientToken,
     createTrafficMirrorFilterRuleResponse_httpStatus,
   )
 where
@@ -80,12 +80,12 @@ data CreateTrafficMirrorFilterRule = CreateTrafficMirrorFilterRule'
     protocol :: Prelude.Maybe Prelude.Int,
     -- | The description of the Traffic Mirror rule.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The destination port range.
+    destinationPortRange :: Prelude.Maybe TrafficMirrorPortRangeRequest,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The destination port range.
-    destinationPortRange :: Prelude.Maybe TrafficMirrorPortRangeRequest,
     -- | The ID of the filter that this rule is associated with.
     trafficMirrorFilterId :: Prelude.Text,
     -- | The type of traffic (@ingress@ | @egress@).
@@ -126,11 +126,11 @@ data CreateTrafficMirrorFilterRule = CreateTrafficMirrorFilterRule'
 --
 -- 'description', 'createTrafficMirrorFilterRule_description' - The description of the Traffic Mirror rule.
 --
+-- 'destinationPortRange', 'createTrafficMirrorFilterRule_destinationPortRange' - The destination port range.
+--
 -- 'clientToken', 'createTrafficMirrorFilterRule_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
---
--- 'destinationPortRange', 'createTrafficMirrorFilterRule_destinationPortRange' - The destination port range.
 --
 -- 'trafficMirrorFilterId', 'createTrafficMirrorFilterRule_trafficMirrorFilterId' - The ID of the filter that this rule is associated with.
 --
@@ -172,8 +172,8 @@ newCreateTrafficMirrorFilterRule
         sourcePortRange = Prelude.Nothing,
         protocol = Prelude.Nothing,
         description = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         destinationPortRange = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         trafficMirrorFilterId =
           pTrafficMirrorFilterId_,
         trafficDirection = pTrafficDirection_,
@@ -207,15 +207,15 @@ createTrafficMirrorFilterRule_protocol = Lens.lens (\CreateTrafficMirrorFilterRu
 createTrafficMirrorFilterRule_description :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
 createTrafficMirrorFilterRule_description = Lens.lens (\CreateTrafficMirrorFilterRule' {description} -> description) (\s@CreateTrafficMirrorFilterRule' {} a -> s {description = a} :: CreateTrafficMirrorFilterRule)
 
+-- | The destination port range.
+createTrafficMirrorFilterRule_destinationPortRange :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRangeRequest)
+createTrafficMirrorFilterRule_destinationPortRange = Lens.lens (\CreateTrafficMirrorFilterRule' {destinationPortRange} -> destinationPortRange) (\s@CreateTrafficMirrorFilterRule' {} a -> s {destinationPortRange = a} :: CreateTrafficMirrorFilterRule)
+
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 createTrafficMirrorFilterRule_clientToken :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
 createTrafficMirrorFilterRule_clientToken = Lens.lens (\CreateTrafficMirrorFilterRule' {clientToken} -> clientToken) (\s@CreateTrafficMirrorFilterRule' {} a -> s {clientToken = a} :: CreateTrafficMirrorFilterRule)
-
--- | The destination port range.
-createTrafficMirrorFilterRule_destinationPortRange :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRangeRequest)
-createTrafficMirrorFilterRule_destinationPortRange = Lens.lens (\CreateTrafficMirrorFilterRule' {destinationPortRange} -> destinationPortRange) (\s@CreateTrafficMirrorFilterRule' {} a -> s {destinationPortRange = a} :: CreateTrafficMirrorFilterRule)
 
 -- | The ID of the filter that this rule is associated with.
 createTrafficMirrorFilterRule_trafficMirrorFilterId :: Lens.Lens' CreateTrafficMirrorFilterRule Prelude.Text
@@ -255,8 +255,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorFilterRuleResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "trafficMirrorFilterRule")
+            Prelude.<$> (x Core..@? "trafficMirrorFilterRule")
+            Prelude.<*> (x Core..@? "clientToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -285,8 +285,8 @@ instance Core.ToQuery CreateTrafficMirrorFilterRule where
         "SourcePortRange" Core.=: sourcePortRange,
         "Protocol" Core.=: protocol,
         "Description" Core.=: description,
-        "ClientToken" Core.=: clientToken,
         "DestinationPortRange" Core.=: destinationPortRange,
+        "ClientToken" Core.=: clientToken,
         "TrafficMirrorFilterId"
           Core.=: trafficMirrorFilterId,
         "TrafficDirection" Core.=: trafficDirection,
@@ -298,12 +298,12 @@ instance Core.ToQuery CreateTrafficMirrorFilterRule where
 
 -- | /See:/ 'newCreateTrafficMirrorFilterRuleResponse' smart constructor.
 data CreateTrafficMirrorFilterRuleResponse = CreateTrafficMirrorFilterRuleResponse'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | The Traffic Mirror rule.
+    trafficMirrorFilterRule :: Prelude.Maybe TrafficMirrorFilterRule,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Traffic Mirror rule.
-    trafficMirrorFilterRule :: Prelude.Maybe TrafficMirrorFilterRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -317,11 +317,11 @@ data CreateTrafficMirrorFilterRuleResponse = CreateTrafficMirrorFilterRuleRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'trafficMirrorFilterRule', 'createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule' - The Traffic Mirror rule.
+--
 -- 'clientToken', 'createTrafficMirrorFilterRuleResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
---
--- 'trafficMirrorFilterRule', 'createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule' - The Traffic Mirror rule.
 --
 -- 'httpStatus', 'createTrafficMirrorFilterRuleResponse_httpStatus' - The response's http status code.
 newCreateTrafficMirrorFilterRuleResponse ::
@@ -330,22 +330,21 @@ newCreateTrafficMirrorFilterRuleResponse ::
   CreateTrafficMirrorFilterRuleResponse
 newCreateTrafficMirrorFilterRuleResponse pHttpStatus_ =
   CreateTrafficMirrorFilterRuleResponse'
-    { clientToken =
+    { trafficMirrorFilterRule =
         Prelude.Nothing,
-      trafficMirrorFilterRule =
-        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Traffic Mirror rule.
+createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule :: Lens.Lens' CreateTrafficMirrorFilterRuleResponse (Prelude.Maybe TrafficMirrorFilterRule)
+createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule = Lens.lens (\CreateTrafficMirrorFilterRuleResponse' {trafficMirrorFilterRule} -> trafficMirrorFilterRule) (\s@CreateTrafficMirrorFilterRuleResponse' {} a -> s {trafficMirrorFilterRule = a} :: CreateTrafficMirrorFilterRuleResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 createTrafficMirrorFilterRuleResponse_clientToken :: Lens.Lens' CreateTrafficMirrorFilterRuleResponse (Prelude.Maybe Prelude.Text)
 createTrafficMirrorFilterRuleResponse_clientToken = Lens.lens (\CreateTrafficMirrorFilterRuleResponse' {clientToken} -> clientToken) (\s@CreateTrafficMirrorFilterRuleResponse' {} a -> s {clientToken = a} :: CreateTrafficMirrorFilterRuleResponse)
-
--- | The Traffic Mirror rule.
-createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule :: Lens.Lens' CreateTrafficMirrorFilterRuleResponse (Prelude.Maybe TrafficMirrorFilterRule)
-createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule = Lens.lens (\CreateTrafficMirrorFilterRuleResponse' {trafficMirrorFilterRule} -> trafficMirrorFilterRule) (\s@CreateTrafficMirrorFilterRuleResponse' {} a -> s {trafficMirrorFilterRule = a} :: CreateTrafficMirrorFilterRuleResponse)
 
 -- | The response's http status code.
 createTrafficMirrorFilterRuleResponse_httpStatus :: Lens.Lens' CreateTrafficMirrorFilterRuleResponse Prelude.Int

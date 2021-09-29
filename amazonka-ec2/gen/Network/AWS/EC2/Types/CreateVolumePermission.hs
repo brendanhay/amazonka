@@ -32,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data CreateVolumePermission = CreateVolumePermission'
   { -- | The group to be added or removed. The possible value is @all@.
     group' :: Prelude.Maybe PermissionGroup,
-    -- | The AWS account ID to be added or removed.
+    -- | The ID of the Amazon Web Services account to be added or removed.
     userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data CreateVolumePermission = CreateVolumePermission'
 --
 -- 'group'', 'createVolumePermission_group' - The group to be added or removed. The possible value is @all@.
 --
--- 'userId', 'createVolumePermission_userId' - The AWS account ID to be added or removed.
+-- 'userId', 'createVolumePermission_userId' - The ID of the Amazon Web Services account to be added or removed.
 newCreateVolumePermission ::
   CreateVolumePermission
 newCreateVolumePermission =
@@ -60,7 +60,7 @@ newCreateVolumePermission =
 createVolumePermission_group :: Lens.Lens' CreateVolumePermission (Prelude.Maybe PermissionGroup)
 createVolumePermission_group = Lens.lens (\CreateVolumePermission' {group'} -> group') (\s@CreateVolumePermission' {} a -> s {group' = a} :: CreateVolumePermission)
 
--- | The AWS account ID to be added or removed.
+-- | The ID of the Amazon Web Services account to be added or removed.
 createVolumePermission_userId :: Lens.Lens' CreateVolumePermission (Prelude.Maybe Prelude.Text)
 createVolumePermission_userId = Lens.lens (\CreateVolumePermission' {userId} -> userId) (\s@CreateVolumePermission' {} a -> s {userId = a} :: CreateVolumePermission)
 

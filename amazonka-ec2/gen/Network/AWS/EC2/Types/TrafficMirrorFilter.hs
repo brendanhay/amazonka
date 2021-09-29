@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTrafficMirrorFilter' smart constructor.
 data TrafficMirrorFilter = TrafficMirrorFilter'
-  { -- | Information about the egress rules that are associated with the Traffic
-    -- Mirror filter.
-    egressFilterRules :: Prelude.Maybe [TrafficMirrorFilterRule],
-    -- | The network service traffic that is associated with the Traffic Mirror
+  { -- | The network service traffic that is associated with the Traffic Mirror
     -- filter.
     networkServices :: Prelude.Maybe [TrafficMirrorNetworkService],
+    -- | Information about the egress rules that are associated with the Traffic
+    -- Mirror filter.
+    egressFilterRules :: Prelude.Maybe [TrafficMirrorFilterRule],
     -- | The tags assigned to the Traffic Mirror filter.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the Traffic Mirror filter.
@@ -57,11 +57,11 @@ data TrafficMirrorFilter = TrafficMirrorFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'egressFilterRules', 'trafficMirrorFilter_egressFilterRules' - Information about the egress rules that are associated with the Traffic
--- Mirror filter.
---
 -- 'networkServices', 'trafficMirrorFilter_networkServices' - The network service traffic that is associated with the Traffic Mirror
 -- filter.
+--
+-- 'egressFilterRules', 'trafficMirrorFilter_egressFilterRules' - Information about the egress rules that are associated with the Traffic
+-- Mirror filter.
 --
 -- 'tags', 'trafficMirrorFilter_tags' - The tags assigned to the Traffic Mirror filter.
 --
@@ -75,24 +75,24 @@ newTrafficMirrorFilter ::
   TrafficMirrorFilter
 newTrafficMirrorFilter =
   TrafficMirrorFilter'
-    { egressFilterRules =
+    { networkServices =
         Prelude.Nothing,
-      networkServices = Prelude.Nothing,
+      egressFilterRules = Prelude.Nothing,
       tags = Prelude.Nothing,
       trafficMirrorFilterId = Prelude.Nothing,
       description = Prelude.Nothing,
       ingressFilterRules = Prelude.Nothing
     }
 
--- | Information about the egress rules that are associated with the Traffic
--- Mirror filter.
-trafficMirrorFilter_egressFilterRules :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorFilterRule])
-trafficMirrorFilter_egressFilterRules = Lens.lens (\TrafficMirrorFilter' {egressFilterRules} -> egressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {egressFilterRules = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The network service traffic that is associated with the Traffic Mirror
 -- filter.
 trafficMirrorFilter_networkServices :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorNetworkService])
 trafficMirrorFilter_networkServices = Lens.lens (\TrafficMirrorFilter' {networkServices} -> networkServices) (\s@TrafficMirrorFilter' {} a -> s {networkServices = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Information about the egress rules that are associated with the Traffic
+-- Mirror filter.
+trafficMirrorFilter_egressFilterRules :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorFilterRule])
+trafficMirrorFilter_egressFilterRules = Lens.lens (\TrafficMirrorFilter' {egressFilterRules} -> egressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {egressFilterRules = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tags assigned to the Traffic Mirror filter.
 trafficMirrorFilter_tags :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [Tag])
@@ -114,11 +114,11 @@ trafficMirrorFilter_ingressFilterRules = Lens.lens (\TrafficMirrorFilter' {ingre
 instance Core.FromXML TrafficMirrorFilter where
   parseXML x =
     TrafficMirrorFilter'
-      Prelude.<$> ( x Core..@? "egressFilterRuleSet"
+      Prelude.<$> ( x Core..@? "networkServiceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "networkServiceSet"
+      Prelude.<*> ( x Core..@? "egressFilterRuleSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

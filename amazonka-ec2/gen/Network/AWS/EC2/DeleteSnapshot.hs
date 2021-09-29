@@ -35,7 +35,7 @@
 -- delete the snapshot.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS snapshot>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Delete an Amazon EBS snapshot>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DeleteSnapshot
   ( -- * Creating a Request

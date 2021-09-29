@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets the default customer master key (CMK) for EBS encryption for your
--- account in this Region to the AWS managed CMK for EBS.
+-- Resets the default KMS key for EBS encryption for your account in this
+-- Region to the Amazon Web Services managed KMS key for EBS.
 --
--- After resetting the default CMK to the AWS managed CMK, you can continue
--- to encrypt by a customer managed CMK by specifying it when you create
--- the volume. For more information, see
+-- After resetting the default KMS key to the Amazon Web Services managed
+-- KMS key, you can continue to encrypt by a customer managed KMS key by
+-- specifying it when you create the volume. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.ResetEbsDefaultKmsKeyId
@@ -122,8 +122,8 @@ instance Core.ToQuery ResetEbsDefaultKmsKeyId where
 
 -- | /See:/ 'newResetEbsDefaultKmsKeyIdResponse' smart constructor.
 data ResetEbsDefaultKmsKeyIdResponse = ResetEbsDefaultKmsKeyIdResponse'
-  { -- | The Amazon Resource Name (ARN) of the default CMK for EBS encryption by
-    -- default.
+  { -- | The Amazon Resource Name (ARN) of the default KMS key for EBS encryption
+    -- by default.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,8 +138,8 @@ data ResetEbsDefaultKmsKeyIdResponse = ResetEbsDefaultKmsKeyIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'resetEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default CMK for EBS encryption by
--- default.
+-- 'kmsKeyId', 'resetEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default KMS key for EBS encryption
+-- by default.
 --
 -- 'httpStatus', 'resetEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.
 newResetEbsDefaultKmsKeyIdResponse ::
@@ -153,8 +153,8 @@ newResetEbsDefaultKmsKeyIdResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the default CMK for EBS encryption by
--- default.
+-- | The Amazon Resource Name (ARN) of the default KMS key for EBS encryption
+-- by default.
 resetEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' ResetEbsDefaultKmsKeyIdResponse (Prelude.Maybe Prelude.Text)
 resetEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\ResetEbsDefaultKmsKeyIdResponse' {kmsKeyId} -> kmsKeyId) (\s@ResetEbsDefaultKmsKeyIdResponse' {} a -> s {kmsKeyId = a} :: ResetEbsDefaultKmsKeyIdResponse)
 

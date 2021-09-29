@@ -65,7 +65,7 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
     description :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint to which to add the route.
     clientVpnEndpointId :: Prelude.Text,
@@ -77,8 +77,8 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
     -- -   To add a route for a peered VPC, enter the peered VPC\'s IPv4 CIDR
     --     range
     --
-    -- -   To add a route for an on-premises network, enter the AWS
-    --     Site-to-Site VPN connection\'s IPv4 CIDR range
+    -- -   To add a route for an on-premises network, enter the Amazon Web
+    --     Services Site-to-Site VPN connection\'s IPv4 CIDR range
     --
     -- -   To add a route for the local network, enter the client CIDR range
     destinationCidrBlock :: Prelude.Text,
@@ -109,7 +109,7 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
 --
 -- 'clientToken', 'createClientVpnRoute_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'clientVpnEndpointId', 'createClientVpnRoute_clientVpnEndpointId' - The ID of the Client VPN endpoint to which to add the route.
 --
@@ -121,8 +121,8 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
 -- -   To add a route for a peered VPC, enter the peered VPC\'s IPv4 CIDR
 --     range
 --
--- -   To add a route for an on-premises network, enter the AWS
---     Site-to-Site VPN connection\'s IPv4 CIDR range
+-- -   To add a route for an on-premises network, enter the Amazon Web
+--     Services Site-to-Site VPN connection\'s IPv4 CIDR range
 --
 -- -   To add a route for the local network, enter the client CIDR range
 --
@@ -166,7 +166,7 @@ createClientVpnRoute_description = Lens.lens (\CreateClientVpnRoute' {descriptio
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 createClientVpnRoute_clientToken :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
 createClientVpnRoute_clientToken = Lens.lens (\CreateClientVpnRoute' {clientToken} -> clientToken) (\s@CreateClientVpnRoute' {} a -> s {clientToken = a} :: CreateClientVpnRoute)
 
@@ -182,8 +182,8 @@ createClientVpnRoute_clientVpnEndpointId = Lens.lens (\CreateClientVpnRoute' {cl
 -- -   To add a route for a peered VPC, enter the peered VPC\'s IPv4 CIDR
 --     range
 --
--- -   To add a route for an on-premises network, enter the AWS
---     Site-to-Site VPN connection\'s IPv4 CIDR range
+-- -   To add a route for an on-premises network, enter the Amazon Web
+--     Services Site-to-Site VPN connection\'s IPv4 CIDR range
 --
 -- -   To add a route for the local network, enter the client CIDR range
 createClientVpnRoute_destinationCidrBlock :: Lens.Lens' CreateClientVpnRoute Prelude.Text

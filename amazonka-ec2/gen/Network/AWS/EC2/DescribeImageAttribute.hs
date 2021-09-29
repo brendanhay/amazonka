@@ -38,13 +38,14 @@ module Network.AWS.EC2.DescribeImageAttribute
 
     -- * Response Lenses
     describeImageAttributeResponse_ramdiskId,
-    describeImageAttributeResponse_productCodes,
     describeImageAttributeResponse_launchPermissions,
+    describeImageAttributeResponse_bootMode,
+    describeImageAttributeResponse_productCodes,
     describeImageAttributeResponse_imageId,
     describeImageAttributeResponse_sriovNetSupport,
     describeImageAttributeResponse_blockDeviceMappings,
-    describeImageAttributeResponse_kernelId,
     describeImageAttributeResponse_description,
+    describeImageAttributeResponse_kernelId,
     describeImageAttributeResponse_httpStatus,
   )
 where
@@ -67,10 +68,10 @@ data DescribeImageAttribute = DescribeImageAttribute'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The AMI attribute.
     --
-    -- __Note__: Depending on your account privileges, the @blockDeviceMapping@
-    -- attribute may return a @Client.AuthFailure@ error. If this happens, use
-    -- DescribeImages to get information about the block device mapping for the
-    -- AMI.
+    -- __Note__: The @blockDeviceMapping@ attribute is deprecated. Using this
+    -- attribute returns the @Client.AuthFailure@ error. To get information
+    -- about the block device mappings for an AMI, use the DescribeImages
+    -- action.
     attribute :: ImageAttributeName,
     -- | The ID of the AMI.
     imageId :: Prelude.Text
@@ -92,10 +93,10 @@ data DescribeImageAttribute = DescribeImageAttribute'
 --
 -- 'attribute', 'describeImageAttribute_attribute' - The AMI attribute.
 --
--- __Note__: Depending on your account privileges, the @blockDeviceMapping@
--- attribute may return a @Client.AuthFailure@ error. If this happens, use
--- DescribeImages to get information about the block device mapping for the
--- AMI.
+-- __Note__: The @blockDeviceMapping@ attribute is deprecated. Using this
+-- attribute returns the @Client.AuthFailure@ error. To get information
+-- about the block device mappings for an AMI, use the DescribeImages
+-- action.
 --
 -- 'imageId', 'describeImageAttribute_imageId' - The ID of the AMI.
 newDescribeImageAttribute ::
@@ -120,10 +121,10 @@ describeImageAttribute_dryRun = Lens.lens (\DescribeImageAttribute' {dryRun} -> 
 
 -- | The AMI attribute.
 --
--- __Note__: Depending on your account privileges, the @blockDeviceMapping@
--- attribute may return a @Client.AuthFailure@ error. If this happens, use
--- DescribeImages to get information about the block device mapping for the
--- AMI.
+-- __Note__: The @blockDeviceMapping@ attribute is deprecated. Using this
+-- attribute returns the @Client.AuthFailure@ error. To get information
+-- about the block device mappings for an AMI, use the DescribeImages
+-- action.
 describeImageAttribute_attribute :: Lens.Lens' DescribeImageAttribute ImageAttributeName
 describeImageAttribute_attribute = Lens.lens (\DescribeImageAttribute' {attribute} -> attribute) (\s@DescribeImageAttribute' {} a -> s {attribute = a} :: DescribeImageAttribute)
 
@@ -141,11 +142,12 @@ instance Core.AWSRequest DescribeImageAttribute where
       ( \s h x ->
           DescribeImageAttributeResponse'
             Prelude.<$> (x Core..@? "ramdisk")
-            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
             Prelude.<*> ( x Core..@? "launchPermission"
                             Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "bootMode")
+            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
             Prelude.<*> (x Core..@? "imageId")
@@ -154,8 +156,8 @@ instance Core.AWSRequest DescribeImageAttribute where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "kernel")
             Prelude.<*> (x Core..@? "description")
+            Prelude.<*> (x Core..@? "kernel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,10 +189,11 @@ instance Core.ToQuery DescribeImageAttribute where
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
   { -- | The RAM disk ID.
     ramdiskId :: Prelude.Maybe AttributeValue,
-    -- | The product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
     -- | The launch permissions.
     launchPermissions :: Prelude.Maybe [LaunchPermission],
+    bootMode :: Prelude.Maybe AttributeValue,
+    -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The ID of the AMI.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether enhanced networking with the Intel 82599 Virtual
@@ -198,10 +201,10 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     sriovNetSupport :: Prelude.Maybe AttributeValue,
     -- | The block device mapping entries.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
-    -- | The kernel ID.
-    kernelId :: Prelude.Maybe AttributeValue,
     -- | A description for the AMI.
     description :: Prelude.Maybe AttributeValue,
+    -- | The kernel ID.
+    kernelId :: Prelude.Maybe AttributeValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,9 +220,11 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- 'ramdiskId', 'describeImageAttributeResponse_ramdiskId' - The RAM disk ID.
 --
--- 'productCodes', 'describeImageAttributeResponse_productCodes' - The product codes.
---
 -- 'launchPermissions', 'describeImageAttributeResponse_launchPermissions' - The launch permissions.
+--
+-- 'bootMode', 'describeImageAttributeResponse_bootMode' - Undocumented member.
+--
+-- 'productCodes', 'describeImageAttributeResponse_productCodes' - The product codes.
 --
 -- 'imageId', 'describeImageAttributeResponse_imageId' - The ID of the AMI.
 --
@@ -228,9 +233,9 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- 'blockDeviceMappings', 'describeImageAttributeResponse_blockDeviceMappings' - The block device mapping entries.
 --
--- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
---
 -- 'description', 'describeImageAttributeResponse_description' - A description for the AMI.
+--
+-- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
 --
 -- 'httpStatus', 'describeImageAttributeResponse_httpStatus' - The response's http status code.
 newDescribeImageAttributeResponse ::
@@ -241,13 +246,14 @@ newDescribeImageAttributeResponse pHttpStatus_ =
   DescribeImageAttributeResponse'
     { ramdiskId =
         Prelude.Nothing,
-      productCodes = Prelude.Nothing,
       launchPermissions = Prelude.Nothing,
+      bootMode = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       imageId = Prelude.Nothing,
       sriovNetSupport = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
       description = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -255,13 +261,17 @@ newDescribeImageAttributeResponse pHttpStatus_ =
 describeImageAttributeResponse_ramdiskId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_ramdiskId = Lens.lens (\DescribeImageAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeImageAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeImageAttributeResponse)
 
--- | The product codes.
-describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [ProductCode])
-describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The launch permissions.
 describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [LaunchPermission])
 describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Undocumented member.
+describeImageAttributeResponse_bootMode :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_bootMode = Lens.lens (\DescribeImageAttributeResponse' {bootMode} -> bootMode) (\s@DescribeImageAttributeResponse' {} a -> s {bootMode = a} :: DescribeImageAttributeResponse)
+
+-- | The product codes.
+describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [ProductCode])
+describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AMI.
 describeImageAttributeResponse_imageId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe Prelude.Text)
@@ -276,13 +286,13 @@ describeImageAttributeResponse_sriovNetSupport = Lens.lens (\DescribeImageAttrib
 describeImageAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [BlockDeviceMapping])
 describeImageAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeImageAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeImageAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The kernel ID.
-describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
-describeImageAttributeResponse_kernelId = Lens.lens (\DescribeImageAttributeResponse' {kernelId} -> kernelId) (\s@DescribeImageAttributeResponse' {} a -> s {kernelId = a} :: DescribeImageAttributeResponse)
-
 -- | A description for the AMI.
 describeImageAttributeResponse_description :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_description = Lens.lens (\DescribeImageAttributeResponse' {description} -> description) (\s@DescribeImageAttributeResponse' {} a -> s {description = a} :: DescribeImageAttributeResponse)
+
+-- | The kernel ID.
+describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_kernelId = Lens.lens (\DescribeImageAttributeResponse' {kernelId} -> kernelId) (\s@DescribeImageAttributeResponse' {} a -> s {kernelId = a} :: DescribeImageAttributeResponse)
 
 -- | The response's http status code.
 describeImageAttributeResponse_httpStatus :: Lens.Lens' DescribeImageAttributeResponse Prelude.Int

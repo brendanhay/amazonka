@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeFastSnapshotRestores
 
     -- * Request Lenses
     describeFastSnapshotRestores_nextToken,
-    describeFastSnapshotRestores_dryRun,
     describeFastSnapshotRestores_maxResults,
+    describeFastSnapshotRestores_dryRun,
     describeFastSnapshotRestores_filters,
 
     -- * Destructuring the Response
@@ -56,21 +56,21 @@ import qualified Network.AWS.Response as Response
 data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters. The possible values are:
     --
     -- -   @availability-zone@: The Availability Zone of the snapshot.
     --
-    -- -   @owner-id@: The ID of the AWS account that enabled fast snapshot
-    --     restore on the snapshot.
+    -- -   @owner-id@: The ID of the Amazon Web Services account that enabled
+    --     fast snapshot restore on the snapshot.
     --
     -- -   @snapshot-id@: The ID of the snapshot.
     --
@@ -90,21 +90,21 @@ data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
 --
 -- 'nextToken', 'describeFastSnapshotRestores_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeFastSnapshotRestores_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeFastSnapshotRestores_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'describeFastSnapshotRestores_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
 -- 'filters', 'describeFastSnapshotRestores_filters' - The filters. The possible values are:
 --
 -- -   @availability-zone@: The Availability Zone of the snapshot.
 --
--- -   @owner-id@: The ID of the AWS account that enabled fast snapshot
---     restore on the snapshot.
+-- -   @owner-id@: The ID of the Amazon Web Services account that enabled
+--     fast snapshot restore on the snapshot.
 --
 -- -   @snapshot-id@: The ID of the snapshot.
 --
@@ -116,14 +116,20 @@ newDescribeFastSnapshotRestores =
   DescribeFastSnapshotRestores'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
 describeFastSnapshotRestores_nextToken :: Lens.Lens' DescribeFastSnapshotRestores (Prelude.Maybe Prelude.Text)
 describeFastSnapshotRestores_nextToken = Lens.lens (\DescribeFastSnapshotRestores' {nextToken} -> nextToken) (\s@DescribeFastSnapshotRestores' {} a -> s {nextToken = a} :: DescribeFastSnapshotRestores)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeFastSnapshotRestores_maxResults :: Lens.Lens' DescribeFastSnapshotRestores (Prelude.Maybe Prelude.Natural)
+describeFastSnapshotRestores_maxResults = Lens.lens (\DescribeFastSnapshotRestores' {maxResults} -> maxResults) (\s@DescribeFastSnapshotRestores' {} a -> s {maxResults = a} :: DescribeFastSnapshotRestores)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -132,18 +138,12 @@ describeFastSnapshotRestores_nextToken = Lens.lens (\DescribeFastSnapshotRestore
 describeFastSnapshotRestores_dryRun :: Lens.Lens' DescribeFastSnapshotRestores (Prelude.Maybe Prelude.Bool)
 describeFastSnapshotRestores_dryRun = Lens.lens (\DescribeFastSnapshotRestores' {dryRun} -> dryRun) (\s@DescribeFastSnapshotRestores' {} a -> s {dryRun = a} :: DescribeFastSnapshotRestores)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeFastSnapshotRestores_maxResults :: Lens.Lens' DescribeFastSnapshotRestores (Prelude.Maybe Prelude.Natural)
-describeFastSnapshotRestores_maxResults = Lens.lens (\DescribeFastSnapshotRestores' {maxResults} -> maxResults) (\s@DescribeFastSnapshotRestores' {} a -> s {maxResults = a} :: DescribeFastSnapshotRestores)
-
 -- | The filters. The possible values are:
 --
 -- -   @availability-zone@: The Availability Zone of the snapshot.
 --
--- -   @owner-id@: The ID of the AWS account that enabled fast snapshot
---     restore on the snapshot.
+-- -   @owner-id@: The ID of the Amazon Web Services account that enabled
+--     fast snapshot restore on the snapshot.
 --
 -- -   @snapshot-id@: The ID of the snapshot.
 --
@@ -213,8 +213,8 @@ instance Core.ToQuery DescribeFastSnapshotRestores where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

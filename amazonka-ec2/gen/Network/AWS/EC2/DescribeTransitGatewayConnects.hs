@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeTransitGatewayConnects
 
     -- * Request Lenses
     describeTransitGatewayConnects_nextToken,
-    describeTransitGatewayConnects_dryRun,
     describeTransitGatewayConnects_maxResults,
+    describeTransitGatewayConnects_dryRun,
     describeTransitGatewayConnects_transitGatewayAttachmentIds,
     describeTransitGatewayConnects_filters,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeTransitGatewayConnects = DescribeTransitGatewayConnects'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The IDs of the attachments.
     transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters. The possible values are:
@@ -97,14 +97,14 @@ data DescribeTransitGatewayConnects = DescribeTransitGatewayConnects'
 --
 -- 'nextToken', 'describeTransitGatewayConnects_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeTransitGatewayConnects_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeTransitGatewayConnects_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeTransitGatewayConnects_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'transitGatewayAttachmentIds', 'describeTransitGatewayConnects_transitGatewayAttachmentIds' - The IDs of the attachments.
 --
@@ -129,8 +129,8 @@ newDescribeTransitGatewayConnects =
   DescribeTransitGatewayConnects'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       transitGatewayAttachmentIds =
         Prelude.Nothing,
       filters = Prelude.Nothing
@@ -140,18 +140,18 @@ newDescribeTransitGatewayConnects =
 describeTransitGatewayConnects_nextToken :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Text)
 describeTransitGatewayConnects_nextToken = Lens.lens (\DescribeTransitGatewayConnects' {nextToken} -> nextToken) (\s@DescribeTransitGatewayConnects' {} a -> s {nextToken = a} :: DescribeTransitGatewayConnects)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeTransitGatewayConnects_maxResults :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Natural)
+describeTransitGatewayConnects_maxResults = Lens.lens (\DescribeTransitGatewayConnects' {maxResults} -> maxResults) (\s@DescribeTransitGatewayConnects' {} a -> s {maxResults = a} :: DescribeTransitGatewayConnects)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeTransitGatewayConnects_dryRun :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Bool)
 describeTransitGatewayConnects_dryRun = Lens.lens (\DescribeTransitGatewayConnects' {dryRun} -> dryRun) (\s@DescribeTransitGatewayConnects' {} a -> s {dryRun = a} :: DescribeTransitGatewayConnects)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeTransitGatewayConnects_maxResults :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Natural)
-describeTransitGatewayConnects_maxResults = Lens.lens (\DescribeTransitGatewayConnects' {maxResults} -> maxResults) (\s@DescribeTransitGatewayConnects' {} a -> s {maxResults = a} :: DescribeTransitGatewayConnects)
 
 -- | The IDs of the attachments.
 describeTransitGatewayConnects_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe [Prelude.Text])
@@ -244,8 +244,8 @@ instance Core.ToQuery DescribeTransitGatewayConnects where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds

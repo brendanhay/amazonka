@@ -25,9 +25,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides authorization for Amazon to bring a specific IP address range
--- to a specific AWS account using bring your own IP addresses (BYOIP). For
--- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip Prepare to Bring Your Address Range to Your AWS Account>
+-- to a specific Amazon Web Services account using bring your own IP
+-- addresses (BYOIP). For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip Configuring your BYOIP address range>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ 'newCidrAuthorizationContext' smart constructor.

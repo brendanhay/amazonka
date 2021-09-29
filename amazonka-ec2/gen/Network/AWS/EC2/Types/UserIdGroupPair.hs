@@ -24,7 +24,7 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a security group and AWS account ID pair.
+-- | Describes a security group and Amazon Web Services account ID pair.
 --
 -- /See:/ 'newUserIdGroupPair' smart constructor.
 data UserIdGroupPair = UserIdGroupPair'
@@ -39,14 +39,14 @@ data UserIdGroupPair = UserIdGroupPair'
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the security group.
     groupId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an AWS account.
+    -- | The ID of an Amazon Web Services account.
     --
     -- For a referenced security group in another VPC, the account ID of the
     -- referenced security group is returned in the response. If the referenced
     -- security group is deleted, this value is not returned.
     --
     -- [EC2-Classic] Required when adding or removing rules that reference a
-    -- security group in another AWS account.
+    -- security group in another Amazon Web Services account.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The status of a VPC peering connection, if applicable.
     peeringStatus :: Prelude.Maybe Prelude.Text,
@@ -80,14 +80,14 @@ data UserIdGroupPair = UserIdGroupPair'
 --
 -- 'groupId', 'userIdGroupPair_groupId' - The ID of the security group.
 --
--- 'userId', 'userIdGroupPair_userId' - The ID of an AWS account.
+-- 'userId', 'userIdGroupPair_userId' - The ID of an Amazon Web Services account.
 --
 -- For a referenced security group in another VPC, the account ID of the
 -- referenced security group is returned in the response. If the referenced
 -- security group is deleted, this value is not returned.
 --
 -- [EC2-Classic] Required when adding or removing rules that reference a
--- security group in another AWS account.
+-- security group in another Amazon Web Services account.
 --
 -- 'peeringStatus', 'userIdGroupPair_peeringStatus' - The status of a VPC peering connection, if applicable.
 --
@@ -129,14 +129,14 @@ userIdGroupPair_groupName = Lens.lens (\UserIdGroupPair' {groupName} -> groupNam
 userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s@UserIdGroupPair' {} a -> s {groupId = a} :: UserIdGroupPair)
 
--- | The ID of an AWS account.
+-- | The ID of an Amazon Web Services account.
 --
 -- For a referenced security group in another VPC, the account ID of the
 -- referenced security group is returned in the response. If the referenced
 -- security group is deleted, this value is not returned.
 --
 -- [EC2-Classic] Required when adding or removing rules that reference a
--- security group in another AWS account.
+-- security group in another Amazon Web Services account.
 userIdGroupPair_userId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_userId = Lens.lens (\UserIdGroupPair' {userId} -> userId) (\s@UserIdGroupPair' {} a -> s {userId = a} :: UserIdGroupPair)
 

@@ -52,8 +52,8 @@ module Network.AWS.EC2.DescribeInstances
     -- * Request Lenses
     describeInstances_instanceIds,
     describeInstances_nextToken,
-    describeInstances_dryRun,
     describeInstances_maxResults,
+    describeInstances_dryRun,
     describeInstances_filters,
 
     -- * Destructuring the Response
@@ -82,16 +82,16 @@ data DescribeInstances = DescribeInstances'
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 5 and 1000. You cannot specify this
     -- parameter and the instance IDs parameter in the same call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @affinity@ - The affinity setting for an instance running on a
@@ -271,7 +271,7 @@ data DescribeInstances = DescribeInstances'
     --     interface.
     --
     -- -   @network-interface.requester-managed@ - Indicates whether the
-    --     network interface is being managed by AWS.
+    --     network interface is being managed by Amazon Web Services.
     --
     -- -   @network-interface.status@ - The status of the network interface
     --     (@available@) | @in-use@).
@@ -288,7 +288,10 @@ data DescribeInstances = DescribeInstances'
     -- -   @network-interface.vpc-id@ - The ID of the VPC for the network
     --     interface.
     --
-    -- -   @owner-id@ - The AWS account ID of the instance owner.
+    -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+    --
+    -- -   @owner-id@ - The Amazon Web Services account ID of the instance
+    --     owner.
     --
     -- -   @placement-group-name@ - The name of the placement group for the
     --     instance.
@@ -316,8 +319,8 @@ data DescribeInstances = DescribeInstances'
     --     the instance). Similar to the state-reason-code filter.
     --
     -- -   @requester-id@ - The ID of the entity that launched the instance on
-    --     your behalf (for example, AWS Management Console, Auto Scaling, and
-    --     so on).
+    --     your behalf (for example, Amazon Web Services Management Console,
+    --     Auto Scaling, and so on).
     --
     -- -   @reservation-id@ - The ID of the instance\'s reservation. A
     --     reservation ID is created any time you launch an instance. A
@@ -348,7 +351,7 @@ data DescribeInstances = DescribeInstances'
     --
     -- -   @subnet-id@ - The ID of the subnet for the instance.
     --
-    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    -- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -383,15 +386,15 @@ data DescribeInstances = DescribeInstances'
 --
 -- 'nextToken', 'describeInstances_nextToken' - The token to request the next page of results.
 --
--- 'dryRun', 'describeInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeInstances_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
+--
+-- 'dryRun', 'describeInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeInstances_filters' - The filters.
 --
@@ -572,7 +575,7 @@ data DescribeInstances = DescribeInstances'
 --     interface.
 --
 -- -   @network-interface.requester-managed@ - Indicates whether the
---     network interface is being managed by AWS.
+--     network interface is being managed by Amazon Web Services.
 --
 -- -   @network-interface.status@ - The status of the network interface
 --     (@available@) | @in-use@).
@@ -589,7 +592,10 @@ data DescribeInstances = DescribeInstances'
 -- -   @network-interface.vpc-id@ - The ID of the VPC for the network
 --     interface.
 --
--- -   @owner-id@ - The AWS account ID of the instance owner.
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+-- -   @owner-id@ - The Amazon Web Services account ID of the instance
+--     owner.
 --
 -- -   @placement-group-name@ - The name of the placement group for the
 --     instance.
@@ -617,8 +623,8 @@ data DescribeInstances = DescribeInstances'
 --     the instance). Similar to the state-reason-code filter.
 --
 -- -   @requester-id@ - The ID of the entity that launched the instance on
---     your behalf (for example, AWS Management Console, Auto Scaling, and
---     so on).
+--     your behalf (for example, Amazon Web Services Management Console,
+--     Auto Scaling, and so on).
 --
 -- -   @reservation-id@ - The ID of the instance\'s reservation. A
 --     reservation ID is created any time you launch an instance. A
@@ -649,7 +655,7 @@ data DescribeInstances = DescribeInstances'
 --
 -- -   @subnet-id@ - The ID of the subnet for the instance.
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -672,8 +678,8 @@ newDescribeInstances =
   DescribeInstances'
     { instanceIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -687,19 +693,19 @@ describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> 
 describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstances_dryRun :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Bool)
-describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\s@DescribeInstances' {} a -> s {dryRun = a} :: DescribeInstances)
-
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
 describeInstances_maxResults :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Int)
 describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> maxResults) (\s@DescribeInstances' {} a -> s {maxResults = a} :: DescribeInstances)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstances_dryRun :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Bool)
+describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\s@DescribeInstances' {} a -> s {dryRun = a} :: DescribeInstances)
 
 -- | The filters.
 --
@@ -880,7 +886,7 @@ describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> ma
 --     interface.
 --
 -- -   @network-interface.requester-managed@ - Indicates whether the
---     network interface is being managed by AWS.
+--     network interface is being managed by Amazon Web Services.
 --
 -- -   @network-interface.status@ - The status of the network interface
 --     (@available@) | @in-use@).
@@ -897,7 +903,10 @@ describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> ma
 -- -   @network-interface.vpc-id@ - The ID of the VPC for the network
 --     interface.
 --
--- -   @owner-id@ - The AWS account ID of the instance owner.
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+-- -   @owner-id@ - The Amazon Web Services account ID of the instance
+--     owner.
 --
 -- -   @placement-group-name@ - The name of the placement group for the
 --     instance.
@@ -925,8 +934,8 @@ describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> ma
 --     the instance). Similar to the state-reason-code filter.
 --
 -- -   @requester-id@ - The ID of the entity that launched the instance on
---     your behalf (for example, AWS Management Console, Auto Scaling, and
---     so on).
+--     your behalf (for example, Amazon Web Services Management Console,
+--     Auto Scaling, and so on).
 --
 -- -   @reservation-id@ - The ID of the instance\'s reservation. A
 --     reservation ID is created any time you launch an instance. A
@@ -957,7 +966,7 @@ describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> ma
 --
 -- -   @subnet-id@ - The ID of the subnet for the instance.
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -1037,8 +1046,8 @@ instance Core.ToQuery DescribeInstances where
               Prelude.<$> instanceIds
           ),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

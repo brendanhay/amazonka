@@ -26,7 +26,8 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an address range that is provisioned for use with your
--- AWS resources through bring your own IP addresses (BYOIP).
+-- Amazon Web Services resources through bring your own IP addresses
+-- (BYOIP).
 --
 -- /See:/ 'newByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'

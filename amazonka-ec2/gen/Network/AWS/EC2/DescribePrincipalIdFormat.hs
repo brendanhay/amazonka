@@ -48,8 +48,8 @@ module Network.AWS.EC2.DescribePrincipalIdFormat
 
     -- * Request Lenses
     describePrincipalIdFormat_nextToken,
-    describePrincipalIdFormat_dryRun,
     describePrincipalIdFormat_maxResults,
+    describePrincipalIdFormat_dryRun,
     describePrincipalIdFormat_resources,
 
     -- * Destructuring the Response
@@ -74,15 +74,15 @@ import qualified Network.AWS.Response as Response
 data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
   { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned NextToken
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned NextToken
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
     -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
     -- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
@@ -107,14 +107,14 @@ data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
 --
 -- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.
 --
+-- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned NextToken
+-- value.
+--
 -- 'dryRun', 'describePrincipalIdFormat_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned NextToken
--- value.
 --
 -- 'resources', 'describePrincipalIdFormat_resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
 -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
@@ -132,8 +132,8 @@ newDescribePrincipalIdFormat =
   DescribePrincipalIdFormat'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       resources = Prelude.Nothing
     }
 
@@ -141,18 +141,18 @@ newDescribePrincipalIdFormat =
 describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Text)
 describePrincipalIdFormat_nextToken = Lens.lens (\DescribePrincipalIdFormat' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormat' {} a -> s {nextToken = a} :: DescribePrincipalIdFormat)
 
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned NextToken
+-- value.
+describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Natural)
+describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {maxResults} -> maxResults) (\s@DescribePrincipalIdFormat' {} a -> s {maxResults = a} :: DescribePrincipalIdFormat)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describePrincipalIdFormat_dryRun :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Bool)
 describePrincipalIdFormat_dryRun = Lens.lens (\DescribePrincipalIdFormat' {dryRun} -> dryRun) (\s@DescribePrincipalIdFormat' {} a -> s {dryRun = a} :: DescribePrincipalIdFormat)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned NextToken
--- value.
-describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Natural)
-describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {maxResults} -> maxResults) (\s@DescribePrincipalIdFormat' {} a -> s {maxResults = a} :: DescribePrincipalIdFormat)
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
 -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
@@ -223,8 +223,8 @@ instance Core.ToQuery DescribePrincipalIdFormat where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Resource" Prelude.<$> resources)
       ]

@@ -22,7 +22,7 @@
 --
 -- Exports an Amazon Machine Image (AMI) to a VM file. For more
 -- information, see
--- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html Exporting a VM Directory from an Amazon Machine Image (AMI)>
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html Exporting a VM directly from an Amazon Machine Image (AMI)>
 -- in the /VM Import\/Export User Guide/.
 module Network.AWS.EC2.ExportImage
   ( -- * Creating a Request
@@ -88,8 +88,8 @@ data ExportImage = ExportImage'
     -- | The ID of the image.
     imageId :: Prelude.Text,
     -- | Information about the destination Amazon S3 bucket. The bucket must
-    -- exist and grant WRITE and READ_ACP permissions to the AWS account
-    -- vm-import-export\@amazon.com.
+    -- exist and grant WRITE and READ_ACP permissions to the Amazon Web
+    -- Services account vm-import-export\@amazon.com.
     s3ExportLocation :: ExportTaskS3LocationRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -123,8 +123,8 @@ data ExportImage = ExportImage'
 -- 'imageId', 'exportImage_imageId' - The ID of the image.
 --
 -- 's3ExportLocation', 'exportImage_s3ExportLocation' - Information about the destination Amazon S3 bucket. The bucket must
--- exist and grant WRITE and READ_ACP permissions to the AWS account
--- vm-import-export\@amazon.com.
+-- exist and grant WRITE and READ_ACP permissions to the Amazon Web
+-- Services account vm-import-export\@amazon.com.
 newExportImage ::
   -- | 'diskImageFormat'
   DiskImageFormat ->
@@ -183,8 +183,8 @@ exportImage_imageId :: Lens.Lens' ExportImage Prelude.Text
 exportImage_imageId = Lens.lens (\ExportImage' {imageId} -> imageId) (\s@ExportImage' {} a -> s {imageId = a} :: ExportImage)
 
 -- | Information about the destination Amazon S3 bucket. The bucket must
--- exist and grant WRITE and READ_ACP permissions to the AWS account
--- vm-import-export\@amazon.com.
+-- exist and grant WRITE and READ_ACP permissions to the Amazon Web
+-- Services account vm-import-export\@amazon.com.
 exportImage_s3ExportLocation :: Lens.Lens' ExportImage ExportTaskS3LocationRequest
 exportImage_s3ExportLocation = Lens.lens (\ExportImage' {s3ExportLocation} -> s3ExportLocation) (\s@ExportImage' {} a -> s {s3ExportLocation = a} :: ExportImage)
 

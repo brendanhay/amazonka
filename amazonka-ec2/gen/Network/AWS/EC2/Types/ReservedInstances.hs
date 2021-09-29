@@ -54,10 +54,10 @@ data ReservedInstances = ReservedInstances'
     currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The scope of the Reserved Instance.
     scope :: Prelude.Maybe Scope,
-    -- | The state of the Reserved Instance purchase.
-    state :: Prelude.Maybe ReservedInstanceState,
     -- | The Availability Zone in which the Reserved Instance can be used.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The state of the Reserved Instance purchase.
+    state :: Prelude.Maybe ReservedInstanceState,
     -- | Any tags assigned to the resource.
     tags :: Prelude.Maybe [Tag],
     -- | The offering class of the Reserved Instance.
@@ -103,9 +103,9 @@ data ReservedInstances = ReservedInstances'
 --
 -- 'scope', 'reservedInstances_scope' - The scope of the Reserved Instance.
 --
--- 'state', 'reservedInstances_state' - The state of the Reserved Instance purchase.
---
 -- 'availabilityZone', 'reservedInstances_availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+--
+-- 'state', 'reservedInstances_state' - The state of the Reserved Instance purchase.
 --
 -- 'tags', 'reservedInstances_tags' - Any tags assigned to the resource.
 --
@@ -135,8 +135,8 @@ newReservedInstances =
       instanceTenancy = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
       scope = Prelude.Nothing,
-      state = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       offeringClass = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
@@ -178,13 +178,13 @@ reservedInstances_currencyCode = Lens.lens (\ReservedInstances' {currencyCode} -
 reservedInstances_scope :: Lens.Lens' ReservedInstances (Prelude.Maybe Scope)
 reservedInstances_scope = Lens.lens (\ReservedInstances' {scope} -> scope) (\s@ReservedInstances' {} a -> s {scope = a} :: ReservedInstances)
 
--- | The state of the Reserved Instance purchase.
-reservedInstances_state :: Lens.Lens' ReservedInstances (Prelude.Maybe ReservedInstanceState)
-reservedInstances_state = Lens.lens (\ReservedInstances' {state} -> state) (\s@ReservedInstances' {} a -> s {state = a} :: ReservedInstances)
-
 -- | The Availability Zone in which the Reserved Instance can be used.
 reservedInstances_availabilityZone :: Lens.Lens' ReservedInstances (Prelude.Maybe Prelude.Text)
 reservedInstances_availabilityZone = Lens.lens (\ReservedInstances' {availabilityZone} -> availabilityZone) (\s@ReservedInstances' {} a -> s {availabilityZone = a} :: ReservedInstances)
+
+-- | The state of the Reserved Instance purchase.
+reservedInstances_state :: Lens.Lens' ReservedInstances (Prelude.Maybe ReservedInstanceState)
+reservedInstances_state = Lens.lens (\ReservedInstances' {state} -> state) (\s@ReservedInstances' {} a -> s {state = a} :: ReservedInstances)
 
 -- | Any tags assigned to the resource.
 reservedInstances_tags :: Lens.Lens' ReservedInstances (Prelude.Maybe [Tag])
@@ -232,8 +232,8 @@ instance Core.FromXML ReservedInstances where
       Prelude.<*> (x Core..@? "instanceTenancy")
       Prelude.<*> (x Core..@? "currencyCode")
       Prelude.<*> (x Core..@? "scope")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

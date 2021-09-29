@@ -20,7 +20,9 @@
 module Network.AWS.EC2.Types.NetworkInterfaceCreationType
   ( NetworkInterfaceCreationType
       ( ..,
-        NetworkInterfaceCreationType_Efa
+        NetworkInterfaceCreationType_Branch,
+        NetworkInterfaceCreationType_Efa,
+        NetworkInterfaceCreationType_Trunk
       ),
   )
 where
@@ -57,10 +59,18 @@ newtype NetworkInterfaceCreationType = NetworkInterfaceCreationType'
       Core.ToXML
     )
 
+pattern NetworkInterfaceCreationType_Branch :: NetworkInterfaceCreationType
+pattern NetworkInterfaceCreationType_Branch = NetworkInterfaceCreationType' "branch"
+
 pattern NetworkInterfaceCreationType_Efa :: NetworkInterfaceCreationType
 pattern NetworkInterfaceCreationType_Efa = NetworkInterfaceCreationType' "efa"
 
+pattern NetworkInterfaceCreationType_Trunk :: NetworkInterfaceCreationType
+pattern NetworkInterfaceCreationType_Trunk = NetworkInterfaceCreationType' "trunk"
+
 {-# COMPLETE
+  NetworkInterfaceCreationType_Branch,
   NetworkInterfaceCreationType_Efa,
+  NetworkInterfaceCreationType_Trunk,
   NetworkInterfaceCreationType'
   #-}

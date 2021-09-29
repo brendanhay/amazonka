@@ -49,12 +49,12 @@ module Network.AWS.EC2.CreateVpcEndpoint
     newCreateVpcEndpoint,
 
     -- * Request Lenses
-    createVpcEndpoint_securityGroupIds,
     createVpcEndpoint_policyDocument,
+    createVpcEndpoint_securityGroupIds,
     createVpcEndpoint_tagSpecifications,
     createVpcEndpoint_routeTableIds,
-    createVpcEndpoint_dryRun,
     createVpcEndpoint_vpcEndpointType,
+    createVpcEndpoint_dryRun,
     createVpcEndpoint_subnetIds,
     createVpcEndpoint_privateDnsEnabled,
     createVpcEndpoint_clientToken,
@@ -83,27 +83,27 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateVpcEndpoint' smart constructor.
 data CreateVpcEndpoint = CreateVpcEndpoint'
-  { -- | (Interface endpoint) The ID of one or more security groups to associate
-    -- with the endpoint network interface.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface and gateway endpoints) A policy to attach to the endpoint
+  { -- | (Interface and gateway endpoints) A policy to attach to the endpoint
     -- that controls access to the service. The policy must be in valid JSON
     -- format. If this parameter is not specified, we attach a default policy
     -- that allows full access to the service.
     policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | (Interface endpoint) The ID of one or more security groups to associate
+    -- with the endpoint network interface.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The tags to associate with the endpoint.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | (Gateway endpoint) One or more route table IDs.
     routeTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | The type of endpoint.
+    --
+    -- Default: Gateway
+    vpcEndpointType :: Prelude.Maybe VpcEndpointType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The type of endpoint.
-    --
-    -- Default: Gateway
-    vpcEndpointType :: Prelude.Maybe VpcEndpointType,
     -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
     -- subnets in which to create an endpoint network interface. For a Gateway
     -- Load Balancer endpoint, you can specify one subnet only.
@@ -144,26 +144,26 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'createVpcEndpoint_securityGroupIds' - (Interface endpoint) The ID of one or more security groups to associate
--- with the endpoint network interface.
---
 -- 'policyDocument', 'createVpcEndpoint_policyDocument' - (Interface and gateway endpoints) A policy to attach to the endpoint
 -- that controls access to the service. The policy must be in valid JSON
 -- format. If this parameter is not specified, we attach a default policy
 -- that allows full access to the service.
 --
+-- 'securityGroupIds', 'createVpcEndpoint_securityGroupIds' - (Interface endpoint) The ID of one or more security groups to associate
+-- with the endpoint network interface.
+--
 -- 'tagSpecifications', 'createVpcEndpoint_tagSpecifications' - The tags to associate with the endpoint.
 --
 -- 'routeTableIds', 'createVpcEndpoint_routeTableIds' - (Gateway endpoint) One or more route table IDs.
+--
+-- 'vpcEndpointType', 'createVpcEndpoint_vpcEndpointType' - The type of endpoint.
+--
+-- Default: Gateway
 --
 -- 'dryRun', 'createVpcEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'vpcEndpointType', 'createVpcEndpoint_vpcEndpointType' - The type of endpoint.
---
--- Default: Gateway
 --
 -- 'subnetIds', 'createVpcEndpoint_subnetIds' - (Interface and Gateway Load Balancer endpoints) The ID of one or more
 -- subnets in which to create an endpoint network interface. For a Gateway
@@ -201,13 +201,13 @@ newCreateVpcEndpoint ::
   CreateVpcEndpoint
 newCreateVpcEndpoint pVpcId_ pServiceName_ =
   CreateVpcEndpoint'
-    { securityGroupIds =
+    { policyDocument =
         Prelude.Nothing,
-      policyDocument = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       routeTableIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       vpcEndpointType = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       privateDnsEnabled = Prelude.Nothing,
       clientToken = Prelude.Nothing,
@@ -215,17 +215,17 @@ newCreateVpcEndpoint pVpcId_ pServiceName_ =
       serviceName = pServiceName_
     }
 
--- | (Interface endpoint) The ID of one or more security groups to associate
--- with the endpoint network interface.
-createVpcEndpoint_securityGroupIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
-createVpcEndpoint_securityGroupIds = Lens.lens (\CreateVpcEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVpcEndpoint' {} a -> s {securityGroupIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
-
 -- | (Interface and gateway endpoints) A policy to attach to the endpoint
 -- that controls access to the service. The policy must be in valid JSON
 -- format. If this parameter is not specified, we attach a default policy
 -- that allows full access to the service.
 createVpcEndpoint_policyDocument :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Text)
 createVpcEndpoint_policyDocument = Lens.lens (\CreateVpcEndpoint' {policyDocument} -> policyDocument) (\s@CreateVpcEndpoint' {} a -> s {policyDocument = a} :: CreateVpcEndpoint)
+
+-- | (Interface endpoint) The ID of one or more security groups to associate
+-- with the endpoint network interface.
+createVpcEndpoint_securityGroupIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
+createVpcEndpoint_securityGroupIds = Lens.lens (\CreateVpcEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVpcEndpoint' {} a -> s {securityGroupIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tags to associate with the endpoint.
 createVpcEndpoint_tagSpecifications :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [TagSpecification])
@@ -235,18 +235,18 @@ createVpcEndpoint_tagSpecifications = Lens.lens (\CreateVpcEndpoint' {tagSpecifi
 createVpcEndpoint_routeTableIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
 createVpcEndpoint_routeTableIds = Lens.lens (\CreateVpcEndpoint' {routeTableIds} -> routeTableIds) (\s@CreateVpcEndpoint' {} a -> s {routeTableIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The type of endpoint.
+--
+-- Default: Gateway
+createVpcEndpoint_vpcEndpointType :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe VpcEndpointType)
+createVpcEndpoint_vpcEndpointType = Lens.lens (\CreateVpcEndpoint' {vpcEndpointType} -> vpcEndpointType) (\s@CreateVpcEndpoint' {} a -> s {vpcEndpointType = a} :: CreateVpcEndpoint)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createVpcEndpoint_dryRun :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Bool)
 createVpcEndpoint_dryRun = Lens.lens (\CreateVpcEndpoint' {dryRun} -> dryRun) (\s@CreateVpcEndpoint' {} a -> s {dryRun = a} :: CreateVpcEndpoint)
-
--- | The type of endpoint.
---
--- Default: Gateway
-createVpcEndpoint_vpcEndpointType :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe VpcEndpointType)
-createVpcEndpoint_vpcEndpointType = Lens.lens (\CreateVpcEndpoint' {vpcEndpointType} -> vpcEndpointType) (\s@CreateVpcEndpoint' {} a -> s {vpcEndpointType = a} :: CreateVpcEndpoint)
 
 -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
 -- subnets in which to create an endpoint network interface. For a Gateway
@@ -318,11 +318,11 @@ instance Core.ToQuery CreateVpcEndpoint where
           Core.=: ("CreateVpcEndpoint" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "PolicyDocument" Core.=: policyDocument,
         Core.toQuery
           ( Core.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "PolicyDocument" Core.=: policyDocument,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
@@ -331,8 +331,8 @@ instance Core.ToQuery CreateVpcEndpoint where
           ( Core.toQueryList "RouteTableId"
               Prelude.<$> routeTableIds
           ),
-        "DryRun" Core.=: dryRun,
         "VpcEndpointType" Core.=: vpcEndpointType,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
         "PrivateDnsEnabled" Core.=: privateDnsEnabled,

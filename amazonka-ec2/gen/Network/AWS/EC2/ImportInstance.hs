@@ -21,9 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an import instance task using metadata from the specified disk
--- image. @ImportInstance@ only supports single-volume VMs. To import
--- multi-volume VMs, use ImportImage. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
+-- image.
+--
+-- This API action supports only single-volume VMs. To import multi-volume
+-- VMs, use ImportImage instead.
+--
+-- This API action is not supported by the Command Line Interface (CLI).
+-- For information about using the Amazon EC2 CLI, which is deprecated, see
+-- <https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2 Importing a VM to Amazon EC2>
+-- in the /Amazon EC2 CLI Reference/ PDF file.
 --
 -- For information about the import manifest referenced by this API action,
 -- see

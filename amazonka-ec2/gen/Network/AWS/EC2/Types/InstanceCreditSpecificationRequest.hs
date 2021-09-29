@@ -33,6 +33,9 @@ data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The credit option for CPU usage of the instance. Valid values are
     -- @standard@ and @unlimited@.
+    --
+    -- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
+    -- credit option.
     cpuCredits :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,6 +52,9 @@ data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
 --
 -- 'cpuCredits', 'instanceCreditSpecificationRequest_cpuCredits' - The credit option for CPU usage of the instance. Valid values are
 -- @standard@ and @unlimited@.
+--
+-- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
+-- credit option.
 newInstanceCreditSpecificationRequest ::
   InstanceCreditSpecificationRequest
 newInstanceCreditSpecificationRequest =
@@ -64,6 +70,9 @@ instanceCreditSpecificationRequest_instanceId = Lens.lens (\InstanceCreditSpecif
 
 -- | The credit option for CPU usage of the instance. Valid values are
 -- @standard@ and @unlimited@.
+--
+-- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
+-- credit option.
 instanceCreditSpecificationRequest_cpuCredits :: Lens.Lens' InstanceCreditSpecificationRequest (Prelude.Maybe Prelude.Text)
 instanceCreditSpecificationRequest_cpuCredits = Lens.lens (\InstanceCreditSpecificationRequest' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecificationRequest' {} a -> s {cpuCredits = a} :: InstanceCreditSpecificationRequest)
 

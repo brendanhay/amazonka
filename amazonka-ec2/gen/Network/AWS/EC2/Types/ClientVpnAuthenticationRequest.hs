@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Describes the authentication method to be used by a Client VPN endpoint.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication Authentication>
--- in the /AWS Client VPN Administrator Guide/.
+-- in the /Client VPN Administrator Guide/.
 --
 -- /See:/ 'newClientVpnAuthenticationRequest' smart constructor.
 data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'

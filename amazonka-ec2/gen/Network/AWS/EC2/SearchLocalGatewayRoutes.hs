@@ -30,8 +30,8 @@ module Network.AWS.EC2.SearchLocalGatewayRoutes
 
     -- * Request Lenses
     searchLocalGatewayRoutes_nextToken,
-    searchLocalGatewayRoutes_dryRun,
     searchLocalGatewayRoutes_maxResults,
+    searchLocalGatewayRoutes_dryRun,
     searchLocalGatewayRoutes_localGatewayRouteTableId,
     searchLocalGatewayRoutes_filters,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data SearchLocalGatewayRoutes = SearchLocalGatewayRoutes'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Text,
     -- | One or more filters.
@@ -83,14 +83,14 @@ data SearchLocalGatewayRoutes = SearchLocalGatewayRoutes'
 --
 -- 'nextToken', 'searchLocalGatewayRoutes_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'searchLocalGatewayRoutes_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'searchLocalGatewayRoutes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'searchLocalGatewayRoutes_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'localGatewayRouteTableId', 'searchLocalGatewayRoutes_localGatewayRouteTableId' - The ID of the local gateway route table.
 --
@@ -104,8 +104,8 @@ newSearchLocalGatewayRoutes
     SearchLocalGatewayRoutes'
       { nextToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         localGatewayRouteTableId =
           pLocalGatewayRouteTableId_,
         filters = Prelude.mempty
@@ -115,18 +115,18 @@ newSearchLocalGatewayRoutes
 searchLocalGatewayRoutes_nextToken :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe Prelude.Text)
 searchLocalGatewayRoutes_nextToken = Lens.lens (\SearchLocalGatewayRoutes' {nextToken} -> nextToken) (\s@SearchLocalGatewayRoutes' {} a -> s {nextToken = a} :: SearchLocalGatewayRoutes)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+searchLocalGatewayRoutes_maxResults :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe Prelude.Int)
+searchLocalGatewayRoutes_maxResults = Lens.lens (\SearchLocalGatewayRoutes' {maxResults} -> maxResults) (\s@SearchLocalGatewayRoutes' {} a -> s {maxResults = a} :: SearchLocalGatewayRoutes)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 searchLocalGatewayRoutes_dryRun :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe Prelude.Bool)
 searchLocalGatewayRoutes_dryRun = Lens.lens (\SearchLocalGatewayRoutes' {dryRun} -> dryRun) (\s@SearchLocalGatewayRoutes' {} a -> s {dryRun = a} :: SearchLocalGatewayRoutes)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-searchLocalGatewayRoutes_maxResults :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe Prelude.Int)
-searchLocalGatewayRoutes_maxResults = Lens.lens (\SearchLocalGatewayRoutes' {maxResults} -> maxResults) (\s@SearchLocalGatewayRoutes' {} a -> s {maxResults = a} :: SearchLocalGatewayRoutes)
 
 -- | The ID of the local gateway route table.
 searchLocalGatewayRoutes_localGatewayRouteTableId :: Lens.Lens' SearchLocalGatewayRoutes Prelude.Text
@@ -192,8 +192,8 @@ instance Core.ToQuery SearchLocalGatewayRoutes where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "LocalGatewayRouteTableId"
           Core.=: localGatewayRouteTableId,
         Core.toQueryList "Filter" filters

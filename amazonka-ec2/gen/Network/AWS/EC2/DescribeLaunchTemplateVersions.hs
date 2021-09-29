@@ -34,10 +34,10 @@ module Network.AWS.EC2.DescribeLaunchTemplateVersions
     -- * Request Lenses
     describeLaunchTemplateVersions_nextToken,
     describeLaunchTemplateVersions_versions,
-    describeLaunchTemplateVersions_dryRun,
     describeLaunchTemplateVersions_maxResults,
-    describeLaunchTemplateVersions_minVersion,
+    describeLaunchTemplateVersions_dryRun,
     describeLaunchTemplateVersions_launchTemplateId,
+    describeLaunchTemplateVersions_minVersion,
     describeLaunchTemplateVersions_launchTemplateName,
     describeLaunchTemplateVersions_maxVersion,
     describeLaunchTemplateVersions_filters,
@@ -77,23 +77,23 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
     -- valid value is @$Default@. You can specify @$Latest@ and @$Default@ in
     -- the same call. You cannot specify numbers.
     versions :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 1 and 200.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 1 and 200.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The version number after which to describe launch template versions.
-    minVersion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the launch template. To describe one or more versions of a
     -- specified launch template, you must specify either the launch template
     -- ID or the launch template name in the request. To describe all the
     -- latest or default launch template versions in your account, you must
     -- omit this parameter.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The version number after which to describe launch template versions.
+    minVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template. To describe one or more versions of a
     -- specified launch template, you must specify either the launch template
     -- ID or the launch template name in the request. To describe all the
@@ -148,22 +148,22 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
 -- valid value is @$Default@. You can specify @$Latest@ and @$Default@ in
 -- the same call. You cannot specify numbers.
 --
--- 'dryRun', 'describeLaunchTemplateVersions_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeLaunchTemplateVersions_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 1 and 200.
 --
--- 'minVersion', 'describeLaunchTemplateVersions_minVersion' - The version number after which to describe launch template versions.
+-- 'dryRun', 'describeLaunchTemplateVersions_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'launchTemplateId', 'describeLaunchTemplateVersions_launchTemplateId' - The ID of the launch template. To describe one or more versions of a
 -- specified launch template, you must specify either the launch template
 -- ID or the launch template name in the request. To describe all the
 -- latest or default launch template versions in your account, you must
 -- omit this parameter.
+--
+-- 'minVersion', 'describeLaunchTemplateVersions_minVersion' - The version number after which to describe launch template versions.
 --
 -- 'launchTemplateName', 'describeLaunchTemplateVersions_launchTemplateName' - The name of the launch template. To describe one or more versions of a
 -- specified launch template, you must specify either the launch template
@@ -199,10 +199,10 @@ newDescribeLaunchTemplateVersions =
     { nextToken =
         Prelude.Nothing,
       versions = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      minVersion = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       launchTemplateId = Prelude.Nothing,
+      minVersion = Prelude.Nothing,
       launchTemplateName = Prelude.Nothing,
       maxVersion = Prelude.Nothing,
       filters = Prelude.Nothing
@@ -227,22 +227,18 @@ describeLaunchTemplateVersions_nextToken = Lens.lens (\DescribeLaunchTemplateVer
 describeLaunchTemplateVersions_versions :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe [Prelude.Text])
 describeLaunchTemplateVersions_versions = Lens.lens (\DescribeLaunchTemplateVersions' {versions} -> versions) (\s@DescribeLaunchTemplateVersions' {} a -> s {versions = a} :: DescribeLaunchTemplateVersions) Prelude.. Lens.mapping Lens._Coerce
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeLaunchTemplateVersions_dryRun :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Bool)
-describeLaunchTemplateVersions_dryRun = Lens.lens (\DescribeLaunchTemplateVersions' {dryRun} -> dryRun) (\s@DescribeLaunchTemplateVersions' {} a -> s {dryRun = a} :: DescribeLaunchTemplateVersions)
-
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 1 and 200.
 describeLaunchTemplateVersions_maxResults :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Int)
 describeLaunchTemplateVersions_maxResults = Lens.lens (\DescribeLaunchTemplateVersions' {maxResults} -> maxResults) (\s@DescribeLaunchTemplateVersions' {} a -> s {maxResults = a} :: DescribeLaunchTemplateVersions)
 
--- | The version number after which to describe launch template versions.
-describeLaunchTemplateVersions_minVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
-describeLaunchTemplateVersions_minVersion = Lens.lens (\DescribeLaunchTemplateVersions' {minVersion} -> minVersion) (\s@DescribeLaunchTemplateVersions' {} a -> s {minVersion = a} :: DescribeLaunchTemplateVersions)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeLaunchTemplateVersions_dryRun :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Bool)
+describeLaunchTemplateVersions_dryRun = Lens.lens (\DescribeLaunchTemplateVersions' {dryRun} -> dryRun) (\s@DescribeLaunchTemplateVersions' {} a -> s {dryRun = a} :: DescribeLaunchTemplateVersions)
 
 -- | The ID of the launch template. To describe one or more versions of a
 -- specified launch template, you must specify either the launch template
@@ -251,6 +247,10 @@ describeLaunchTemplateVersions_minVersion = Lens.lens (\DescribeLaunchTemplateVe
 -- omit this parameter.
 describeLaunchTemplateVersions_launchTemplateId :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
 describeLaunchTemplateVersions_launchTemplateId = Lens.lens (\DescribeLaunchTemplateVersions' {launchTemplateId} -> launchTemplateId) (\s@DescribeLaunchTemplateVersions' {} a -> s {launchTemplateId = a} :: DescribeLaunchTemplateVersions)
+
+-- | The version number after which to describe launch template versions.
+describeLaunchTemplateVersions_minVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
+describeLaunchTemplateVersions_minVersion = Lens.lens (\DescribeLaunchTemplateVersions' {minVersion} -> minVersion) (\s@DescribeLaunchTemplateVersions' {} a -> s {minVersion = a} :: DescribeLaunchTemplateVersions)
 
 -- | The name of the launch template. To describe one or more versions of a
 -- specified launch template, you must specify either the launch template
@@ -359,10 +359,10 @@ instance Core.ToQuery DescribeLaunchTemplateVersions where
           ( Core.toQueryList "LaunchTemplateVersion"
               Prelude.<$> versions
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
-        "MinVersion" Core.=: minVersion,
+        "DryRun" Core.=: dryRun,
         "LaunchTemplateId" Core.=: launchTemplateId,
+        "MinVersion" Core.=: minVersion,
         "LaunchTemplateName" Core.=: launchTemplateName,
         "MaxVersion" Core.=: maxVersion,
         Core.toQuery

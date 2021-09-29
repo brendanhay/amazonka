@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeNatGateways
 
     -- * Request Lenses
     describeNatGateways_nextToken,
-    describeNatGateways_dryRun,
     describeNatGateways_maxResults,
+    describeNatGateways_dryRun,
     describeNatGateways_natGatewayIds,
     describeNatGateways_filter,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeNatGateways = DescribeNatGateways'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more NAT gateway IDs.
     natGatewayIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
@@ -102,14 +102,14 @@ data DescribeNatGateways = DescribeNatGateways'
 --
 -- 'nextToken', 'describeNatGateways_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeNatGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeNatGateways_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeNatGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'natGatewayIds', 'describeNatGateways_natGatewayIds' - One or more NAT gateway IDs.
 --
@@ -138,8 +138,8 @@ newDescribeNatGateways ::
 newDescribeNatGateways =
   DescribeNatGateways'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       natGatewayIds = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
@@ -148,18 +148,18 @@ newDescribeNatGateways =
 describeNatGateways_nextToken :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Text)
 describeNatGateways_nextToken = Lens.lens (\DescribeNatGateways' {nextToken} -> nextToken) (\s@DescribeNatGateways' {} a -> s {nextToken = a} :: DescribeNatGateways)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeNatGateways_maxResults :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Natural)
+describeNatGateways_maxResults = Lens.lens (\DescribeNatGateways' {maxResults} -> maxResults) (\s@DescribeNatGateways' {} a -> s {maxResults = a} :: DescribeNatGateways)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeNatGateways_dryRun :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Bool)
 describeNatGateways_dryRun = Lens.lens (\DescribeNatGateways' {dryRun} -> dryRun) (\s@DescribeNatGateways' {} a -> s {dryRun = a} :: DescribeNatGateways)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeNatGateways_maxResults :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Natural)
-describeNatGateways_maxResults = Lens.lens (\DescribeNatGateways' {maxResults} -> maxResults) (\s@DescribeNatGateways' {} a -> s {maxResults = a} :: DescribeNatGateways)
 
 -- | One or more NAT gateway IDs.
 describeNatGateways_natGatewayIds :: Lens.Lens' DescribeNatGateways (Prelude.Maybe [Prelude.Text])
@@ -244,8 +244,8 @@ instance Core.ToQuery DescribeNatGateways where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NatGatewayId"
               Prelude.<$> natGatewayIds

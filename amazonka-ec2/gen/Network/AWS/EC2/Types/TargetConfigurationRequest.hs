@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetConfigurationRequest' smart constructor.
 data TargetConfigurationRequest = TargetConfigurationRequest'
-  { -- | The number of instances the Covertible Reserved Instance offering can be
-    -- applied to. This parameter is reserved and cannot be specified in a
+  { -- | The number of instances the Convertible Reserved Instance offering can
+    -- be applied to. This parameter is reserved and cannot be specified in a
     -- request
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The Convertible Reserved Instance offering ID.
@@ -45,8 +45,8 @@ data TargetConfigurationRequest = TargetConfigurationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceCount', 'targetConfigurationRequest_instanceCount' - The number of instances the Covertible Reserved Instance offering can be
--- applied to. This parameter is reserved and cannot be specified in a
+-- 'instanceCount', 'targetConfigurationRequest_instanceCount' - The number of instances the Convertible Reserved Instance offering can
+-- be applied to. This parameter is reserved and cannot be specified in a
 -- request
 --
 -- 'offeringId', 'targetConfigurationRequest_offeringId' - The Convertible Reserved Instance offering ID.
@@ -61,8 +61,8 @@ newTargetConfigurationRequest pOfferingId_ =
       offeringId = pOfferingId_
     }
 
--- | The number of instances the Covertible Reserved Instance offering can be
--- applied to. This parameter is reserved and cannot be specified in a
+-- | The number of instances the Convertible Reserved Instance offering can
+-- be applied to. This parameter is reserved and cannot be specified in a
 -- request
 targetConfigurationRequest_instanceCount :: Lens.Lens' TargetConfigurationRequest (Prelude.Maybe Prelude.Int)
 targetConfigurationRequest_instanceCount = Lens.lens (\TargetConfigurationRequest' {instanceCount} -> instanceCount) (\s@TargetConfigurationRequest' {} a -> s {instanceCount = a} :: TargetConfigurationRequest)

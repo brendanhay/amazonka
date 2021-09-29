@@ -20,17 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the default customer master key (CMK) for EBS encryption by
--- default for your account in this Region.
+-- Changes the default KMS key for EBS encryption by default for your
+-- account in this Region.
 --
--- AWS creates a unique AWS managed CMK in each Region for use with
--- encryption by default. If you change the default CMK to a symmetric
--- customer managed CMK, it is used instead of the AWS managed CMK. To
--- reset the default CMK to the AWS managed CMK for EBS, use
--- ResetEbsDefaultKmsKeyId. Amazon EBS does not support asymmetric CMKs.
+-- Amazon Web Services creates a unique Amazon Web Services managed KMS key
+-- in each Region for use with encryption by default. If you change the
+-- default KMS key to a symmetric customer managed KMS key, it is used
+-- instead of the Amazon Web Services managed KMS key. To reset the default
+-- KMS key to the Amazon Web Services managed KMS key for EBS, use
+-- ResetEbsDefaultKmsKeyId. Amazon EBS does not support asymmetric KMS
+-- keys.
 --
--- If you delete or disable the customer managed CMK that you specified for
--- use with encryption by default, your instances will fail to launch.
+-- If you delete or disable the customer managed KMS key that you specified
+-- for use with encryption by default, your instances will fail to launch.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
@@ -68,12 +70,12 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of the AWS Key Management Service (AWS KMS) customer
-    -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
-    -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
-    -- specified, the encrypted state must be @true@.
+    -- | The identifier of the Key Management Service (KMS) KMS key to use for
+    -- Amazon EBS encryption. If this parameter is not specified, your KMS key
+    -- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+    -- must be @true@.
     --
-    -- You can specify the CMK using any of the following:
+    -- You can specify the KMS key using any of the following:
     --
     -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
     --
@@ -85,11 +87,11 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
     -- -   Alias ARN. For example,
     --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
     --
-    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
-    -- ID, alias, or ARN that is not valid, the action can appear to complete,
-    -- but eventually fails.
+    -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+    -- if you specify an ID, alias, or ARN that is not valid, the action can
+    -- appear to complete, but eventually fails.
     --
-    -- Amazon EBS does not support asymmetric CMKs.
+    -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,12 +109,12 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'kmsKeyId', 'modifyEbsDefaultKmsKeyId_kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) to use for Amazon EBS encryption. If this parameter is
--- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
--- specified, the encrypted state must be @true@.
+-- 'kmsKeyId', 'modifyEbsDefaultKmsKeyId_kmsKeyId' - The identifier of the Key Management Service (KMS) KMS key to use for
+-- Amazon EBS encryption. If this parameter is not specified, your KMS key
+-- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+-- must be @true@.
 --
--- You can specify the CMK using any of the following:
+-- You can specify the KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -124,11 +126,11 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- ID, alias, or ARN that is not valid, the action can appear to complete,
--- but eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an ID, alias, or ARN that is not valid, the action can
+-- appear to complete, but eventually fails.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 newModifyEbsDefaultKmsKeyId ::
   -- | 'kmsKeyId'
   Prelude.Text ->
@@ -146,12 +148,12 @@ newModifyEbsDefaultKmsKeyId pKmsKeyId_ =
 modifyEbsDefaultKmsKeyId_dryRun :: Lens.Lens' ModifyEbsDefaultKmsKeyId (Prelude.Maybe Prelude.Bool)
 modifyEbsDefaultKmsKeyId_dryRun = Lens.lens (\ModifyEbsDefaultKmsKeyId' {dryRun} -> dryRun) (\s@ModifyEbsDefaultKmsKeyId' {} a -> s {dryRun = a} :: ModifyEbsDefaultKmsKeyId)
 
--- | The identifier of the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) to use for Amazon EBS encryption. If this parameter is
--- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
--- specified, the encrypted state must be @true@.
+-- | The identifier of the Key Management Service (KMS) KMS key to use for
+-- Amazon EBS encryption. If this parameter is not specified, your KMS key
+-- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+-- must be @true@.
 --
--- You can specify the CMK using any of the following:
+-- You can specify the KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -163,11 +165,11 @@ modifyEbsDefaultKmsKeyId_dryRun = Lens.lens (\ModifyEbsDefaultKmsKeyId' {dryRun}
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- ID, alias, or ARN that is not valid, the action can appear to complete,
--- but eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an ID, alias, or ARN that is not valid, the action can
+-- appear to complete, but eventually fails.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 modifyEbsDefaultKmsKeyId_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyId Prelude.Text
 modifyEbsDefaultKmsKeyId_kmsKeyId = Lens.lens (\ModifyEbsDefaultKmsKeyId' {kmsKeyId} -> kmsKeyId) (\s@ModifyEbsDefaultKmsKeyId' {} a -> s {kmsKeyId = a} :: ModifyEbsDefaultKmsKeyId)
 
@@ -207,7 +209,7 @@ instance Core.ToQuery ModifyEbsDefaultKmsKeyId where
 
 -- | /See:/ 'newModifyEbsDefaultKmsKeyIdResponse' smart constructor.
 data ModifyEbsDefaultKmsKeyIdResponse = ModifyEbsDefaultKmsKeyIdResponse'
-  { -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
+  { -- | The Amazon Resource Name (ARN) of the default KMS key for encryption by
     -- default.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -223,7 +225,7 @@ data ModifyEbsDefaultKmsKeyIdResponse = ModifyEbsDefaultKmsKeyIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'modifyEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default CMK for encryption by
+-- 'kmsKeyId', 'modifyEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default KMS key for encryption by
 -- default.
 --
 -- 'httpStatus', 'modifyEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.
@@ -238,7 +240,7 @@ newModifyEbsDefaultKmsKeyIdResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the default CMK for encryption by
+-- | The Amazon Resource Name (ARN) of the default KMS key for encryption by
 -- default.
 modifyEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyIdResponse (Prelude.Maybe Prelude.Text)
 modifyEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\ModifyEbsDefaultKmsKeyIdResponse' {kmsKeyId} -> kmsKeyId) (\s@ModifyEbsDefaultKmsKeyIdResponse' {} a -> s {kmsKeyId = a} :: ModifyEbsDefaultKmsKeyIdResponse)

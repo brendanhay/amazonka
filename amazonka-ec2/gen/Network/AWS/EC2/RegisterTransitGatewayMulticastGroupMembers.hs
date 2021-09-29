@@ -37,8 +37,8 @@ module Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers
     newRegisterTransitGatewayMulticastGroupMembers,
 
     -- * Request Lenses
-    registerTransitGatewayMulticastGroupMembers_dryRun,
     registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
+    registerTransitGatewayMulticastGroupMembers_dryRun,
     registerTransitGatewayMulticastGroupMembers_networkInterfaceIds,
     registerTransitGatewayMulticastGroupMembers_groupIpAddress,
 
@@ -61,13 +61,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterTransitGatewayMulticastGroupMembers' smart constructor.
 data RegisterTransitGatewayMulticastGroupMembers = RegisterTransitGatewayMulticastGroupMembers'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | The group members\' network interface IDs to register with the transit
     -- gateway multicast group.
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
@@ -84,12 +84,12 @@ data RegisterTransitGatewayMulticastGroupMembers = RegisterTransitGatewayMultica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'transitGatewayMulticastDomainId', 'registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--
 -- 'dryRun', 'registerTransitGatewayMulticastGroupMembers_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'transitGatewayMulticastDomainId', 'registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
 --
 -- 'networkInterfaceIds', 'registerTransitGatewayMulticastGroupMembers_networkInterfaceIds' - The group members\' network interface IDs to register with the transit
 -- gateway multicast group.
@@ -99,15 +99,18 @@ newRegisterTransitGatewayMulticastGroupMembers ::
   RegisterTransitGatewayMulticastGroupMembers
 newRegisterTransitGatewayMulticastGroupMembers =
   RegisterTransitGatewayMulticastGroupMembers'
-    { dryRun =
+    { transitGatewayMulticastDomainId =
         Prelude.Nothing,
-      transitGatewayMulticastDomainId =
-        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       networkInterfaceIds =
         Prelude.Nothing,
       groupIpAddress =
         Prelude.Nothing
     }
+
+-- | The ID of the transit gateway multicast domain.
+registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupMembers (Prelude.Maybe Prelude.Text)
+registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId = Lens.lens (\RegisterTransitGatewayMulticastGroupMembers' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@RegisterTransitGatewayMulticastGroupMembers' {} a -> s {transitGatewayMulticastDomainId = a} :: RegisterTransitGatewayMulticastGroupMembers)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -115,10 +118,6 @@ newRegisterTransitGatewayMulticastGroupMembers =
 -- Otherwise, it is @UnauthorizedOperation@.
 registerTransitGatewayMulticastGroupMembers_dryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupMembers (Prelude.Maybe Prelude.Bool)
 registerTransitGatewayMulticastGroupMembers_dryRun = Lens.lens (\RegisterTransitGatewayMulticastGroupMembers' {dryRun} -> dryRun) (\s@RegisterTransitGatewayMulticastGroupMembers' {} a -> s {dryRun = a} :: RegisterTransitGatewayMulticastGroupMembers)
-
--- | The ID of the transit gateway multicast domain.
-registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupMembers (Prelude.Maybe Prelude.Text)
-registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId = Lens.lens (\RegisterTransitGatewayMulticastGroupMembers' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@RegisterTransitGatewayMulticastGroupMembers' {} a -> s {transitGatewayMulticastDomainId = a} :: RegisterTransitGatewayMulticastGroupMembers)
 
 -- | The group members\' network interface IDs to register with the transit
 -- gateway multicast group.
@@ -179,9 +178,9 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
           "TransitGatewayMulticastDomainId"
             Core.=: transitGatewayMulticastDomainId,
+          "DryRun" Core.=: dryRun,
           Core.toQuery
             ( Core.toQueryList "NetworkInterfaceIds"
                 Prelude.<$> networkInterfaceIds

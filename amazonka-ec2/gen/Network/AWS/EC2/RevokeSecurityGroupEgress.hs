@@ -20,24 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [VPC only] Removes the specified egress rules from a security group for
--- EC2-VPC. This action does not apply to security groups for use in
--- EC2-Classic. To remove a rule, the values that you specify (for example,
--- ports) must match the existing rule\'s values exactly.
+-- [VPC only] Removes the specified outbound (egress) rules from a security
+-- group for EC2-VPC. This action does not apply to security groups for use
+-- in EC2-Classic.
+--
+-- You can specify rules using either rule IDs or security group rule
+-- properties. If you use rule properties, the values that you specify (for
+-- example, ports) must match the existing rule\'s values exactly. Each
+-- rule has a protocol, from and to ports, and destination (CIDR range,
+-- security group, or prefix list). For the TCP and UDP protocols, you must
+-- also specify the destination port or range of ports. For the ICMP
+-- protocol, you must also specify the ICMP type and code. If the security
+-- group rule has a description, you do not need to specify the description
+-- to revoke the rule.
 --
 -- [Default VPC] If the values you specify do not match the existing
 -- rule\'s values, no error is returned, and the output describes the
 -- security group rules that were not revoked.
 --
--- AWS recommends that you use DescribeSecurityGroups to verify that the
--- rule has been removed.
---
--- Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or
--- source security group. For the TCP and UDP protocols, you must also
--- specify the destination port or range of ports. For the ICMP protocol,
--- you must also specify the ICMP type and code. If the security group rule
--- has a description, you do not have to specify the description to revoke
--- the rule.
+-- Amazon Web Services recommends that you describe the security group to
+-- verify that the rules were removed.
 --
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
@@ -53,6 +55,7 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     revokeSecurityGroupEgress_cidrIp,
     revokeSecurityGroupEgress_ipProtocol,
     revokeSecurityGroupEgress_ipPermissions,
+    revokeSecurityGroupEgress_securityGroupRuleIds,
     revokeSecurityGroupEgress_sourceSecurityGroupOwnerId,
     revokeSecurityGroupEgress_toPort,
     revokeSecurityGroupEgress_groupId,
@@ -95,6 +98,8 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     -- | The sets of IP permissions. You can\'t specify a destination security
     -- group and a CIDR IP address range in the same set of permissions.
     ipPermissions :: Prelude.Maybe [IpPermission],
+    -- | The IDs of the security group rules.
+    securityGroupRuleIds :: Prelude.Maybe [Prelude.Text],
     -- | Not supported. Use a set of IP permissions to specify a destination
     -- security group.
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
@@ -131,6 +136,8 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 -- 'ipPermissions', 'revokeSecurityGroupEgress_ipPermissions' - The sets of IP permissions. You can\'t specify a destination security
 -- group and a CIDR IP address range in the same set of permissions.
 --
+-- 'securityGroupRuleIds', 'revokeSecurityGroupEgress_securityGroupRuleIds' - The IDs of the security group rules.
+--
 -- 'sourceSecurityGroupOwnerId', 'revokeSecurityGroupEgress_sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination
 -- security group.
 --
@@ -150,6 +157,7 @@ newRevokeSecurityGroupEgress pGroupId_ =
       cidrIp = Prelude.Nothing,
       ipProtocol = Prelude.Nothing,
       ipPermissions = Prelude.Nothing,
+      securityGroupRuleIds = Prelude.Nothing,
       sourceSecurityGroupOwnerId = Prelude.Nothing,
       toPort = Prelude.Nothing,
       groupId = pGroupId_
@@ -184,6 +192,10 @@ revokeSecurityGroupEgress_ipProtocol = Lens.lens (\RevokeSecurityGroupEgress' {i
 -- group and a CIDR IP address range in the same set of permissions.
 revokeSecurityGroupEgress_ipPermissions :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe [IpPermission])
 revokeSecurityGroupEgress_ipPermissions = Lens.lens (\RevokeSecurityGroupEgress' {ipPermissions} -> ipPermissions) (\s@RevokeSecurityGroupEgress' {} a -> s {ipPermissions = a} :: RevokeSecurityGroupEgress) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The IDs of the security group rules.
+revokeSecurityGroupEgress_securityGroupRuleIds :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe [Prelude.Text])
+revokeSecurityGroupEgress_securityGroupRuleIds = Lens.lens (\RevokeSecurityGroupEgress' {securityGroupRuleIds} -> securityGroupRuleIds) (\s@RevokeSecurityGroupEgress' {} a -> s {securityGroupRuleIds = a} :: RevokeSecurityGroupEgress) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Not supported. Use a set of IP permissions to specify a destination
 -- security group.
@@ -241,6 +253,10 @@ instance Core.ToQuery RevokeSecurityGroupEgress where
         Core.toQuery
           ( Core.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
+          ),
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroupRuleId"
+              Prelude.<$> securityGroupRuleIds
           ),
         "SourceSecurityGroupOwnerId"
           Core.=: sourceSecurityGroupOwnerId,

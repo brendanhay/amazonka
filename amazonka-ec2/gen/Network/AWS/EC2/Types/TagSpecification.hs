@@ -30,25 +30,25 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTagSpecification' smart constructor.
 data TagSpecification = TagSpecification'
-  { -- | The type of resource to tag. Currently, the resource types that support
-    -- tagging on creation are: @capacity-reservation@ | @carrier-gateway@ |
-    -- @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ |
-    -- @dhcp-options@ | @egress-only-internet-gateway@ | @elastic-ip@ |
-    -- @elastic-gpu@ | @export-image-task@ | @export-instance-task@ | @fleet@ |
-    -- @fpga-image@ | @host-reservation@ | @image@| @import-image-task@ |
-    -- @import-snapshot-task@ | @instance@ | @internet-gateway@ |
-    -- @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ |
-    -- @local-gateway-route-table-vpc-association@ | @placement-group@ |
-    -- @prefix-list@ | @natgateway@ | @network-acl@ | @network-interface@ |
-    -- @reserved-instances@ |@route-table@ | @security-group@| @snapshot@ |
-    -- @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@
-    -- | @traffic-mirror-filter@ | @traffic-mirror-session@ |
-    -- @traffic-mirror-target@ | @transit-gateway@ |
+  { -- | The type of resource to tag on creation. The possible values are:
+    -- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |
+    -- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |
+    -- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |
+    -- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |
+    -- @host-reservation@ | @image@ | @import-image-task@ |
+    -- @import-snapshot-task@ | @instance@ | @instance-event-window@ |
+    -- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |
+    -- @launch-template@ | @local-gateway-route-table-vpc-association@ |
+    -- @natgateway@ | @network-acl@ | @network-insights-analysis@ |
+    -- @network-insights-path@ | @network-interface@ | @placement-group@ |
+    -- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@
+    -- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |
+    -- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |
+    -- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |
     -- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |
-    -- @transit-gateway-route-table@ | @volume@ |@vpc@ |
-    -- @ vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway
-    -- endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) |
-    -- @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@.
+    -- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |
+    -- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |
+    -- @vpn-connection@ | @vpn-gateway@.
     --
     -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
@@ -66,25 +66,25 @@ data TagSpecification = TagSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag. Currently, the resource types that support
--- tagging on creation are: @capacity-reservation@ | @carrier-gateway@ |
--- @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ |
--- @dhcp-options@ | @egress-only-internet-gateway@ | @elastic-ip@ |
--- @elastic-gpu@ | @export-image-task@ | @export-instance-task@ | @fleet@ |
--- @fpga-image@ | @host-reservation@ | @image@| @import-image-task@ |
--- @import-snapshot-task@ | @instance@ | @internet-gateway@ |
--- @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ |
--- @local-gateway-route-table-vpc-association@ | @placement-group@ |
--- @prefix-list@ | @natgateway@ | @network-acl@ | @network-interface@ |
--- @reserved-instances@ |@route-table@ | @security-group@| @snapshot@ |
--- @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@
--- | @traffic-mirror-filter@ | @traffic-mirror-session@ |
--- @traffic-mirror-target@ | @transit-gateway@ |
+-- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag on creation. The possible values are:
+-- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |
+-- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |
+-- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |
+-- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |
+-- @host-reservation@ | @image@ | @import-image-task@ |
+-- @import-snapshot-task@ | @instance@ | @instance-event-window@ |
+-- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |
+-- @launch-template@ | @local-gateway-route-table-vpc-association@ |
+-- @natgateway@ | @network-acl@ | @network-insights-analysis@ |
+-- @network-insights-path@ | @network-interface@ | @placement-group@ |
+-- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@
+-- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |
+-- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |
+-- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |
 -- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |
--- @transit-gateway-route-table@ | @volume@ |@vpc@ |
--- @ vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway
--- endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) |
--- @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@.
+-- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |
+-- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |
+-- @vpn-connection@ | @vpn-gateway@.
 --
 -- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
@@ -98,25 +98,25 @@ newTagSpecification =
       tags = Prelude.Nothing
     }
 
--- | The type of resource to tag. Currently, the resource types that support
--- tagging on creation are: @capacity-reservation@ | @carrier-gateway@ |
--- @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ |
--- @dhcp-options@ | @egress-only-internet-gateway@ | @elastic-ip@ |
--- @elastic-gpu@ | @export-image-task@ | @export-instance-task@ | @fleet@ |
--- @fpga-image@ | @host-reservation@ | @image@| @import-image-task@ |
--- @import-snapshot-task@ | @instance@ | @internet-gateway@ |
--- @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ |
--- @local-gateway-route-table-vpc-association@ | @placement-group@ |
--- @prefix-list@ | @natgateway@ | @network-acl@ | @network-interface@ |
--- @reserved-instances@ |@route-table@ | @security-group@| @snapshot@ |
--- @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@
--- | @traffic-mirror-filter@ | @traffic-mirror-session@ |
--- @traffic-mirror-target@ | @transit-gateway@ |
+-- | The type of resource to tag on creation. The possible values are:
+-- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |
+-- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |
+-- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |
+-- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |
+-- @host-reservation@ | @image@ | @import-image-task@ |
+-- @import-snapshot-task@ | @instance@ | @instance-event-window@ |
+-- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |
+-- @launch-template@ | @local-gateway-route-table-vpc-association@ |
+-- @natgateway@ | @network-acl@ | @network-insights-analysis@ |
+-- @network-insights-path@ | @network-interface@ | @placement-group@ |
+-- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@
+-- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |
+-- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |
+-- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |
 -- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |
--- @transit-gateway-route-table@ | @volume@ |@vpc@ |
--- @ vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway
--- endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) |
--- @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@.
+-- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |
+-- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |
+-- @vpn-connection@ | @vpn-gateway@.
 --
 -- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.

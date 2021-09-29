@@ -41,15 +41,15 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     newDescribeInstanceAttributeResponse,
 
     -- * Response Lenses
-    describeInstanceAttributeResponse_groups,
     describeInstanceAttributeResponse_instanceId,
-    describeInstanceAttributeResponse_instanceType,
-    describeInstanceAttributeResponse_rootDeviceName,
+    describeInstanceAttributeResponse_groups,
     describeInstanceAttributeResponse_ebsOptimized,
     describeInstanceAttributeResponse_userData,
+    describeInstanceAttributeResponse_instanceType,
+    describeInstanceAttributeResponse_rootDeviceName,
     describeInstanceAttributeResponse_ramdiskId,
-    describeInstanceAttributeResponse_sourceDestCheck,
     describeInstanceAttributeResponse_productCodes,
+    describeInstanceAttributeResponse_sourceDestCheck,
     describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior,
     describeInstanceAttributeResponse_sriovNetSupport,
     describeInstanceAttributeResponse_blockDeviceMappings,
@@ -142,19 +142,19 @@ instance Core.AWSRequest DescribeInstanceAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Prelude.<$> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "instanceId")
+            Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "instanceType")
-            Prelude.<*> (x Core..@? "rootDeviceName")
             Prelude.<*> (x Core..@? "ebsOptimized")
             Prelude.<*> (x Core..@? "userData")
+            Prelude.<*> (x Core..@? "instanceType")
+            Prelude.<*> (x Core..@? "rootDeviceName")
             Prelude.<*> (x Core..@? "ramdisk")
-            Prelude.<*> (x Core..@? "sourceDestCheck")
             Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "sourceDestCheck")
             Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
             Prelude.<*> (x Core..@? "sriovNetSupport")
             Prelude.<*> ( x Core..@? "blockDeviceMapping"
@@ -194,27 +194,29 @@ instance Core.ToQuery DescribeInstanceAttribute where
 --
 -- /See:/ 'newDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-  { -- | The security groups associated with the instance.
-    groups :: Prelude.Maybe [GroupIdentifier],
-    -- | The ID of the instance.
+  { -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe AttributeValue,
-    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Prelude.Maybe AttributeValue,
+    -- | The security groups associated with the instance.
+    groups :: Prelude.Maybe [GroupIdentifier],
     -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
     ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
     -- | The user data.
     userData :: Prelude.Maybe AttributeValue,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe AttributeValue,
+    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
+    rootDeviceName :: Prelude.Maybe AttributeValue,
     -- | The RAM disk ID.
     ramdiskId :: Prelude.Maybe AttributeValue,
-    -- | Indicates whether source\/destination checking is enabled. A value of
-    -- @true@ means that checking is enabled, and @false@ means that checking
-    -- is disabled. This value must be @false@ for a NAT instance to perform
-    -- NAT.
-    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
     -- | A list of product codes.
     productCodes :: Prelude.Maybe [ProductCode],
+    -- | Enable or disable source\/destination checks, which ensure that the
+    -- instance is either the source or the destination of any traffic that it
+    -- receives. If the value is @true@, source\/destination checks are
+    -- enabled; otherwise, they are disabled. The default value is @true@. You
+    -- must disable source\/destination checks if the instance runs services
+    -- such as network address translation, routing, or firewalls.
+    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
@@ -224,8 +226,8 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     sriovNetSupport :: Prelude.Maybe AttributeValue,
     -- | The block device mapping of the instance.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
-    -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
-    -- @true@; otherwise, set it to @false@.
+    -- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
+    -- parameter to @true@; otherwise, set it to @false@.
     enclaveOptions :: Prelude.Maybe EnclaveOptions,
     -- | The kernel ID.
     kernelId :: Prelude.Maybe AttributeValue,
@@ -247,26 +249,28 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'describeInstanceAttributeResponse_groups' - The security groups associated with the instance.
---
 -- 'instanceId', 'describeInstanceAttributeResponse_instanceId' - The ID of the instance.
 --
--- 'instanceType', 'describeInstanceAttributeResponse_instanceType' - The instance type.
---
--- 'rootDeviceName', 'describeInstanceAttributeResponse_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
+-- 'groups', 'describeInstanceAttributeResponse_groups' - The security groups associated with the instance.
 --
 -- 'ebsOptimized', 'describeInstanceAttributeResponse_ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I\/O.
 --
 -- 'userData', 'describeInstanceAttributeResponse_userData' - The user data.
 --
+-- 'instanceType', 'describeInstanceAttributeResponse_instanceType' - The instance type.
+--
+-- 'rootDeviceName', 'describeInstanceAttributeResponse_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
+--
 -- 'ramdiskId', 'describeInstanceAttributeResponse_ramdiskId' - The RAM disk ID.
 --
--- 'sourceDestCheck', 'describeInstanceAttributeResponse_sourceDestCheck' - Indicates whether source\/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means that checking
--- is disabled. This value must be @false@ for a NAT instance to perform
--- NAT.
---
 -- 'productCodes', 'describeInstanceAttributeResponse_productCodes' - A list of product codes.
+--
+-- 'sourceDestCheck', 'describeInstanceAttributeResponse_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
 --
 -- 'instanceInitiatedShutdownBehavior', 'describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -277,8 +281,8 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- 'blockDeviceMappings', 'describeInstanceAttributeResponse_blockDeviceMappings' - The block device mapping of the instance.
 --
--- 'enclaveOptions', 'describeInstanceAttributeResponse_enclaveOptions' - To enable the instance for AWS Nitro Enclaves, set this parameter to
--- @true@; otherwise, set it to @false@.
+-- 'enclaveOptions', 'describeInstanceAttributeResponse_enclaveOptions' - To enable the instance for Amazon Web Services Nitro Enclaves, set this
+-- parameter to @true@; otherwise, set it to @false@.
 --
 -- 'kernelId', 'describeInstanceAttributeResponse_kernelId' - The kernel ID.
 --
@@ -294,16 +298,16 @@ newDescribeInstanceAttributeResponse ::
   DescribeInstanceAttributeResponse
 newDescribeInstanceAttributeResponse pHttpStatus_ =
   DescribeInstanceAttributeResponse'
-    { groups =
+    { instanceId =
         Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      rootDeviceName = Prelude.Nothing,
+      groups = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
       userData = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      rootDeviceName = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
-      sourceDestCheck = Prelude.Nothing,
       productCodes = Prelude.Nothing,
+      sourceDestCheck = Prelude.Nothing,
       instanceInitiatedShutdownBehavior =
         Prelude.Nothing,
       sriovNetSupport = Prelude.Nothing,
@@ -315,21 +319,13 @@ newDescribeInstanceAttributeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The security groups associated with the instance.
-describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [GroupIdentifier])
-describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The ID of the instance.
 describeInstanceAttributeResponse_instanceId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe Prelude.Text)
 describeInstanceAttributeResponse_instanceId = Lens.lens (\DescribeInstanceAttributeResponse' {instanceId} -> instanceId) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceId = a} :: DescribeInstanceAttributeResponse)
 
--- | The instance type.
-describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_instanceType = Lens.lens (\DescribeInstanceAttributeResponse' {instanceType} -> instanceType) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
-
--- | The device name of the root device volume (for example, @\/dev\/sda1@).
-describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_rootDeviceName = Lens.lens (\DescribeInstanceAttributeResponse' {rootDeviceName} -> rootDeviceName) (\s@DescribeInstanceAttributeResponse' {} a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
+-- | The security groups associated with the instance.
+describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [GroupIdentifier])
+describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
 describeInstanceAttributeResponse_ebsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
@@ -339,20 +335,30 @@ describeInstanceAttributeResponse_ebsOptimized = Lens.lens (\DescribeInstanceAtt
 describeInstanceAttributeResponse_userData :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_userData = Lens.lens (\DescribeInstanceAttributeResponse' {userData} -> userData) (\s@DescribeInstanceAttributeResponse' {} a -> s {userData = a} :: DescribeInstanceAttributeResponse)
 
+-- | The instance type.
+describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_instanceType = Lens.lens (\DescribeInstanceAttributeResponse' {instanceType} -> instanceType) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
+
+-- | The device name of the root device volume (for example, @\/dev\/sda1@).
+describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_rootDeviceName = Lens.lens (\DescribeInstanceAttributeResponse' {rootDeviceName} -> rootDeviceName) (\s@DescribeInstanceAttributeResponse' {} a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
+
 -- | The RAM disk ID.
 describeInstanceAttributeResponse_ramdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_ramdiskId = Lens.lens (\DescribeInstanceAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeInstanceAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeInstanceAttributeResponse)
 
--- | Indicates whether source\/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means that checking
--- is disabled. This value must be @false@ for a NAT instance to perform
--- NAT.
-describeInstanceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeInstanceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeInstanceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeInstanceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeInstanceAttributeResponse)
-
 -- | A list of product codes.
 describeInstanceAttributeResponse_productCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [ProductCode])
 describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAttributeResponse' {productCodes} -> productCodes) (\s@DescribeInstanceAttributeResponse' {} a -> s {productCodes = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
+describeInstanceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeInstanceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeInstanceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeInstanceAttributeResponse)
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -369,8 +375,8 @@ describeInstanceAttributeResponse_sriovNetSupport = Lens.lens (\DescribeInstance
 describeInstanceAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [InstanceBlockDeviceMapping])
 describeInstanceAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeInstanceAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeInstanceAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | To enable the instance for AWS Nitro Enclaves, set this parameter to
--- @true@; otherwise, set it to @false@.
+-- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
+-- parameter to @true@; otherwise, set it to @false@.
 describeInstanceAttributeResponse_enclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe EnclaveOptions)
 describeInstanceAttributeResponse_enclaveOptions = Lens.lens (\DescribeInstanceAttributeResponse' {enclaveOptions} -> enclaveOptions) (\s@DescribeInstanceAttributeResponse' {} a -> s {enclaveOptions = a} :: DescribeInstanceAttributeResponse)
 

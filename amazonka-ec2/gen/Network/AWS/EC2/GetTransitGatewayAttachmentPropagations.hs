@@ -31,8 +31,8 @@ module Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
 
     -- * Request Lenses
     getTransitGatewayAttachmentPropagations_nextToken,
-    getTransitGatewayAttachmentPropagations_dryRun,
     getTransitGatewayAttachmentPropagations_maxResults,
+    getTransitGatewayAttachmentPropagations_dryRun,
     getTransitGatewayAttachmentPropagations_filters,
     getTransitGatewayAttachmentPropagations_transitGatewayAttachmentId,
 
@@ -58,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data GetTransitGatewayAttachmentPropagations = GetTransitGatewayAttachmentPropagations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
@@ -87,14 +87,14 @@ data GetTransitGatewayAttachmentPropagations = GetTransitGatewayAttachmentPropag
 --
 -- 'nextToken', 'getTransitGatewayAttachmentPropagations_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'getTransitGatewayAttachmentPropagations_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'getTransitGatewayAttachmentPropagations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'getTransitGatewayAttachmentPropagations_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'getTransitGatewayAttachmentPropagations_filters' - One or more filters. The possible values are:
 --
@@ -111,8 +111,8 @@ newGetTransitGatewayAttachmentPropagations
     GetTransitGatewayAttachmentPropagations'
       { nextToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         filters = Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
@@ -122,18 +122,18 @@ newGetTransitGatewayAttachmentPropagations
 getTransitGatewayAttachmentPropagations_nextToken :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Text)
 getTransitGatewayAttachmentPropagations_nextToken = Lens.lens (\GetTransitGatewayAttachmentPropagations' {nextToken} -> nextToken) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {nextToken = a} :: GetTransitGatewayAttachmentPropagations)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getTransitGatewayAttachmentPropagations_maxResults :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Natural)
+getTransitGatewayAttachmentPropagations_maxResults = Lens.lens (\GetTransitGatewayAttachmentPropagations' {maxResults} -> maxResults) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {maxResults = a} :: GetTransitGatewayAttachmentPropagations)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getTransitGatewayAttachmentPropagations_dryRun :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Bool)
 getTransitGatewayAttachmentPropagations_dryRun = Lens.lens (\GetTransitGatewayAttachmentPropagations' {dryRun} -> dryRun) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {dryRun = a} :: GetTransitGatewayAttachmentPropagations)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getTransitGatewayAttachmentPropagations_maxResults :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Natural)
-getTransitGatewayAttachmentPropagations_maxResults = Lens.lens (\GetTransitGatewayAttachmentPropagations' {maxResults} -> maxResults) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {maxResults = a} :: GetTransitGatewayAttachmentPropagations)
 
 -- | One or more filters. The possible values are:
 --
@@ -225,8 +225,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "TransitGatewayAttachmentId"

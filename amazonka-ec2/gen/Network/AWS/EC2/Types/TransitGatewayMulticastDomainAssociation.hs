@@ -37,8 +37,8 @@ data TransitGatewayMulticastDomainAssociation = TransitGatewayMulticastDomainAss
     subnet :: Prelude.Maybe SubnetAssociation,
     -- | The type of resource, for example a VPC attachment.
     resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
-    -- | The ID of the AWS account that owns the transit gateway multicast domain
-    -- association resource.
+    -- | The ID of the Amazon Web Services account that owns the transit gateway
+    -- multicast domain association resource.
     resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
@@ -59,8 +59,8 @@ data TransitGatewayMulticastDomainAssociation = TransitGatewayMulticastDomainAss
 --
 -- 'resourceType', 'transitGatewayMulticastDomainAssociation_resourceType' - The type of resource, for example a VPC attachment.
 --
--- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociation_resourceOwnerId' - The ID of the AWS account that owns the transit gateway multicast domain
--- association resource.
+-- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociation_resourceOwnerId' - The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain association resource.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 newTransitGatewayMulticastDomainAssociation ::
@@ -88,8 +88,8 @@ transitGatewayMulticastDomainAssociation_subnet = Lens.lens (\TransitGatewayMult
 transitGatewayMulticastDomainAssociation_resourceType :: Lens.Lens' TransitGatewayMulticastDomainAssociation (Prelude.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayMulticastDomainAssociation_resourceType = Lens.lens (\TransitGatewayMulticastDomainAssociation' {resourceType} -> resourceType) (\s@TransitGatewayMulticastDomainAssociation' {} a -> s {resourceType = a} :: TransitGatewayMulticastDomainAssociation)
 
--- | The ID of the AWS account that owns the transit gateway multicast domain
--- association resource.
+-- | The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain association resource.
 transitGatewayMulticastDomainAssociation_resourceOwnerId :: Lens.Lens' TransitGatewayMulticastDomainAssociation (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomainAssociation_resourceOwnerId = Lens.lens (\TransitGatewayMulticastDomainAssociation' {resourceOwnerId} -> resourceOwnerId) (\s@TransitGatewayMulticastDomainAssociation' {} a -> s {resourceOwnerId = a} :: TransitGatewayMulticastDomainAssociation)
 

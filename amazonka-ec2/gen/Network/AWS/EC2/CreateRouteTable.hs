@@ -24,7 +24,7 @@
 -- table, you can add routes and associate the table with a subnet.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route Tables>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateRouteTable
   ( -- * Creating a Request

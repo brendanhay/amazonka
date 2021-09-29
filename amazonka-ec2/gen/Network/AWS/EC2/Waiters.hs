@@ -40,6 +40,29 @@ import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newExportTaskCompleted :: Core.Wait DescribeExportTasks
+newExportTaskCompleted =
+  Core.Wait
+    { Core._waitName = "ExportTaskCompleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "completed"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeExportTasksResponse_exportTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. exportTask_state
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
@@ -132,24 +155,36 @@ newVpcPeeringConnectionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newExportTaskCompleted :: Core.Wait DescribeExportTasks
-newExportTaskCompleted =
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newVolumeAvailable :: Core.Wait DescribeVolumes
+newVolumeAvailable =
   Core.Wait
-    { Core._waitName = "ExportTaskCompleted",
+    { Core._waitName = "VolumeAvailable",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchAll
-            "completed"
+            "available"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeExportTasksResponse_exportTasks
+                    ( describeVolumesResponse_volumes
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. exportTask_state
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleted"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. volume_state
                 Prelude.. Lens.to Core.toTextCI
             )
         ]
@@ -283,72 +318,6 @@ newSpotInstanceRequestFulfilled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVolumeAvailable :: Core.Wait DescribeVolumes
-newVolumeAvailable =
-  Core.Wait
-    { Core._waitName = "VolumeAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "available"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "deleted"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newImageAvailable :: Core.Wait DescribeImages
-newImageAvailable =
-  Core.Wait
-    { Core._waitName = "ImageAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "available"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeImagesResponse_images Prelude.. Lens._Just)
-                )
-                Prelude.. image_state
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "deregistered"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeImagesResponse_images Prelude.. Lens._Just)
-                )
-                Prelude.. image_state
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newPasswordDataAvailable :: Core.Wait GetPasswordData
 newPasswordDataAvailable =
@@ -448,6 +417,37 @@ newInstanceRunning =
         ]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newImageAvailable :: Core.Wait DescribeImages
+newImageAvailable =
+  Core.Wait
+    { Core._waitName = "ImageAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "available"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeImagesResponse_images Prelude.. Lens._Just)
+                )
+                Prelude.. image_state
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deregistered"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeImagesResponse_images Prelude.. Lens._Just)
+                )
+                Prelude.. image_state
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
 newKeyPairExists :: Core.Wait DescribeKeyPairs
 newKeyPairExists =
@@ -497,6 +497,30 @@ newExportTaskCancelled =
         ]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newImageExists :: Core.Wait DescribeImages
+newImageExists =
+  Core.Wait
+    { Core._waitName = "ImageExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeImagesResponse_images
+                        Prelude.. Lens._Just
+                    )
+                )
+            ),
+          Core.matchError
+            "InvalidAMIID.NotFound"
+            Core.AcceptRetry
+        ]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpnConnectionAvailable :: Core.Wait DescribeVpnConnections
 newVpnConnectionAvailable =
@@ -542,30 +566,6 @@ newVpnConnectionAvailable =
                 Prelude.. vpnConnection_state
                 Prelude.. Lens.to Core.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newImageExists :: Core.Wait DescribeImages
-newImageExists =
-  Core.Wait
-    { Core._waitName = "ImageExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeImagesResponse_images
-                        Prelude.. Lens._Just
-                    )
-                )
-            ),
-          Core.matchError
-            "InvalidAMIID.NotFound"
-            Core.AcceptRetry
         ]
     }
 
@@ -625,6 +625,22 @@ newVolumeInUse =
         ]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newVpcPeeringConnectionExists :: Core.Wait DescribeVpcPeeringConnections
+newVpcPeeringConnectionExists =
+  Core.Wait
+    { Core._waitName =
+        "VpcPeeringConnectionExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
+            "InvalidVpcPeeringConnectionID.NotFound"
+            Core.AcceptRetry
+        ]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceExists :: Core.Wait DescribeInstances
 newInstanceExists =
@@ -640,18 +656,27 @@ newInstanceExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpcPeeringConnectionExists :: Core.Wait DescribeVpcPeeringConnections
-newVpcPeeringConnectionExists =
+-- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
+newSecurityGroupExists :: Core.Wait DescribeSecurityGroups
+newSecurityGroupExists =
   Core.Wait
-    { Core._waitName =
-        "VpcPeeringConnectionExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
+    { Core._waitName = "SecurityGroupExists",
+      Core._waitAttempts = 6,
+      Core._waitDelay = 5,
       Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeSecurityGroupsResponse_securityGroups
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. securityGroup_groupId
+            ),
           Core.matchError
-            "InvalidVpcPeeringConnectionID.NotFound"
+            "InvalidGroup.NotFound"
             Core.AcceptRetry
         ]
     }
@@ -680,31 +705,6 @@ newInstanceStatusOk =
             ),
           Core.matchError
             "InvalidInstanceID.NotFound"
-            Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
-newSecurityGroupExists :: Core.Wait DescribeSecurityGroups
-newSecurityGroupExists =
-  Core.Wait
-    { Core._waitName = "SecurityGroupExists",
-      Core._waitAttempts = 6,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeSecurityGroupsResponse_securityGroups
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. securityGroup_groupId
-            ),
-          Core.matchError
-            "InvalidGroupNotFound"
             Core.AcceptRetry
         ]
     }
@@ -764,6 +764,92 @@ newVpnConnectionDeleted =
                     )
                 )
                 Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newBundleTaskComplete :: Core.Wait DescribeBundleTasks
+newBundleTaskComplete =
+  Core.Wait
+    { Core._waitName = "BundleTaskComplete",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "complete"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBundleTasksResponse_bundleTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. bundleTask_state
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBundleTasksResponse_bundleTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. bundleTask_state
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newConversionTaskCompleted :: Core.Wait DescribeConversionTasks
+newConversionTaskCompleted =
+  Core.Wait
+    { Core._waitName =
+        "ConversionTaskCompleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "completed"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeConversionTasksResponse_conversionTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "cancelled"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeConversionTasksResponse_conversionTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "cancelling"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeConversionTasksResponse_conversionTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
         ]
@@ -832,92 +918,6 @@ newInstanceStopped =
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newConversionTaskCompleted :: Core.Wait DescribeConversionTasks
-newConversionTaskCompleted =
-  Core.Wait
-    { Core._waitName =
-        "ConversionTaskCompleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "completed"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "cancelled"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "cancelling"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newBundleTaskComplete :: Core.Wait DescribeBundleTasks
-newBundleTaskComplete =
-  Core.Wait
-    { Core._waitName = "BundleTaskComplete",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "complete"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBundleTasksResponse_bundleTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. bundleTask_state
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBundleTasksResponse_bundleTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. bundleTask_state
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newConversionTaskDeleted :: Core.Wait DescribeConversionTasks
 newConversionTaskDeleted =
   Core.Wait
@@ -938,6 +938,21 @@ newConversionTaskDeleted =
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
+        ]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeVpcs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
+newVpcExists :: Core.Wait DescribeVpcs
+newVpcExists =
+  Core.Wait
+    { Core._waitName = "VpcExists",
+      Core._waitAttempts = 5,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
+            "InvalidVpcID.NotFound"
+            Core.AcceptRetry
         ]
     }
 
@@ -1012,21 +1027,6 @@ newCustomerGatewayAvailable =
                 Prelude.. customerGateway_state
                 Prelude.. Lens.to Core.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeVpcs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
-newVpcExists :: Core.Wait DescribeVpcs
-newVpcExists =
-  Core.Wait
-    { Core._waitName = "VpcExists",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError
-            "InvalidVpcID.NotFound"
-            Core.AcceptRetry
         ]
     }
 

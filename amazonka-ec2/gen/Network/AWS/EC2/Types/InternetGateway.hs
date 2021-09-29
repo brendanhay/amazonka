@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInternetGateway' smart constructor.
 data InternetGateway = InternetGateway'
-  { -- | The ID of the AWS account that owns the internet gateway.
+  { -- | The ID of the Amazon Web Services account that owns the internet
+    -- gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the internet gateway.
     tags :: Prelude.Maybe [Tag],
@@ -49,7 +50,8 @@ data InternetGateway = InternetGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'internetGateway_ownerId' - The ID of the AWS account that owns the internet gateway.
+-- 'ownerId', 'internetGateway_ownerId' - The ID of the Amazon Web Services account that owns the internet
+-- gateway.
 --
 -- 'tags', 'internetGateway_tags' - Any tags assigned to the internet gateway.
 --
@@ -68,7 +70,8 @@ newInternetGateway pInternetGatewayId_ =
       internetGatewayId = pInternetGatewayId_
     }
 
--- | The ID of the AWS account that owns the internet gateway.
+-- | The ID of the Amazon Web Services account that owns the internet
+-- gateway.
 internetGateway_ownerId :: Lens.Lens' InternetGateway (Prelude.Maybe Prelude.Text)
 internetGateway_ownerId = Lens.lens (\InternetGateway' {ownerId} -> ownerId) (\s@InternetGateway' {} a -> s {ownerId = a} :: InternetGateway)
 

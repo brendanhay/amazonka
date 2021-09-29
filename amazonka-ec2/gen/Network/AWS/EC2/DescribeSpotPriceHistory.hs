@@ -24,11 +24,10 @@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance pricing history>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- When you specify a start and end time, this operation returns the prices
--- of the instance types within the time range that you specified and the
--- time when the price changed. The price is valid within the time period
--- that you specified; the response merely indicates the last time that the
--- price changed.
+-- When you specify a start and end time, the operation returns the prices
+-- of the instance types within that time range. It also returns the last
+-- price change before the start time, which is the effective price as of
+-- the start time.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotPriceHistory
@@ -38,8 +37,8 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
 
     -- * Request Lenses
     describeSpotPriceHistory_nextToken,
-    describeSpotPriceHistory_dryRun,
     describeSpotPriceHistory_maxResults,
+    describeSpotPriceHistory_dryRun,
     describeSpotPriceHistory_startTime,
     describeSpotPriceHistory_endTime,
     describeSpotPriceHistory_availabilityZone,
@@ -71,16 +70,16 @@ import qualified Network.AWS.Response as Response
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The date and time, up to the past 90 days, from which to start
     -- retrieving the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -129,15 +128,15 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 --
 -- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token for the next set of results.
 --
--- 'dryRun', 'describeSpotPriceHistory_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeSpotPriceHistory_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeSpotPriceHistory_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'startTime', 'describeSpotPriceHistory_startTime' - The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -179,8 +178,8 @@ newDescribeSpotPriceHistory =
   DescribeSpotPriceHistory'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
@@ -193,19 +192,19 @@ newDescribeSpotPriceHistory =
 describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
 describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
-describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
-
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
 describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Int)
 describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {maxResults} -> maxResults) (\s@DescribeSpotPriceHistory' {} a -> s {maxResults = a} :: DescribeSpotPriceHistory)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
+describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -311,8 +310,8 @@ instance Core.ToQuery DescribeSpotPriceHistory where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "AvailabilityZone" Core.=: availabilityZone,

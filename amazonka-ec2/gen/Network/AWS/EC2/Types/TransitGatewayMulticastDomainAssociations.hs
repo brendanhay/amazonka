@@ -36,7 +36,7 @@ data TransitGatewayMulticastDomainAssociations = TransitGatewayMulticastDomainAs
     transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource, for example a VPC attachment.
     resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
-    -- | The ID of the AWS account that owns the resource.
+    -- | The ID of the Amazon Web Services account that owns the resource.
     resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
@@ -59,7 +59,7 @@ data TransitGatewayMulticastDomainAssociations = TransitGatewayMulticastDomainAs
 --
 -- 'resourceType', 'transitGatewayMulticastDomainAssociations_resourceType' - The type of resource, for example a VPC attachment.
 --
--- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociations_resourceOwnerId' - The ID of the AWS account that owns the resource.
+-- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociations_resourceOwnerId' - The ID of the Amazon Web Services account that owns the resource.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayMulticastDomainAssociations_transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 --
@@ -92,7 +92,7 @@ transitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens
 transitGatewayMulticastDomainAssociations_resourceType :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Prelude.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayMulticastDomainAssociations_resourceType = Lens.lens (\TransitGatewayMulticastDomainAssociations' {resourceType} -> resourceType) (\s@TransitGatewayMulticastDomainAssociations' {} a -> s {resourceType = a} :: TransitGatewayMulticastDomainAssociations)
 
--- | The ID of the AWS account that owns the resource.
+-- | The ID of the Amazon Web Services account that owns the resource.
 transitGatewayMulticastDomainAssociations_resourceOwnerId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomainAssociations_resourceOwnerId = Lens.lens (\TransitGatewayMulticastDomainAssociations' {resourceOwnerId} -> resourceOwnerId) (\s@TransitGatewayMulticastDomainAssociations' {} a -> s {resourceOwnerId = a} :: TransitGatewayMulticastDomainAssociations)
 

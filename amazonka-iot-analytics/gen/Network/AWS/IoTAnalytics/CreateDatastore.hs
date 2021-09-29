@@ -28,6 +28,7 @@ module Network.AWS.IoTAnalytics.CreateDatastore
 
     -- * Request Lenses
     createDatastore_datastoreStorage,
+    createDatastore_datastorePartitions,
     createDatastore_fileFormatConfiguration,
     createDatastore_retentionPeriod,
     createDatastore_tags,
@@ -54,14 +55,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDatastore' smart constructor.
 data CreateDatastore = CreateDatastore'
-  { -- | Where data store data is stored. You can choose one of
-    -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
-    -- default is @serviceManagedS3@. You cannot change this storage option
-    -- after the data store is created.
+  { -- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+    -- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+    -- storage. The default is @serviceManagedS3@. You can\'t change the choice
+    -- of Amazon S3 storage after your data store is created.
     datastoreStorage :: Prelude.Maybe DatastoreStorage,
-    -- | Contains the configuration information of file formats. AWS IoT
-    -- Analytics data stores support JSON and
-    -- <https://parquet.apache.org/ Parquet>.
+    -- | Contains information about the partition dimensions in a data store.
+    datastorePartitions :: Prelude.Maybe DatastorePartitions,
+    -- | Contains the configuration information of file formats. IoT Analytics
+    -- data stores support JSON and <https://parquet.apache.org/ Parquet>.
     --
     -- The default file format is JSON. You can specify only one format.
     --
@@ -85,14 +87,15 @@ data CreateDatastore = CreateDatastore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datastoreStorage', 'createDatastore_datastoreStorage' - Where data store data is stored. You can choose one of
--- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
--- default is @serviceManagedS3@. You cannot change this storage option
--- after the data store is created.
+-- 'datastoreStorage', 'createDatastore_datastoreStorage' - Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
 --
--- 'fileFormatConfiguration', 'createDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. AWS IoT
--- Analytics data stores support JSON and
--- <https://parquet.apache.org/ Parquet>.
+-- 'datastorePartitions', 'createDatastore_datastorePartitions' - Contains information about the partition dimensions in a data store.
+--
+-- 'fileFormatConfiguration', 'createDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. IoT Analytics
+-- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
 -- The default file format is JSON. You can specify only one format.
 --
@@ -112,22 +115,26 @@ newCreateDatastore pDatastoreName_ =
   CreateDatastore'
     { datastoreStorage =
         Prelude.Nothing,
+      datastorePartitions = Prelude.Nothing,
       fileFormatConfiguration = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
       tags = Prelude.Nothing,
       datastoreName = pDatastoreName_
     }
 
--- | Where data store data is stored. You can choose one of
--- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
--- default is @serviceManagedS3@. You cannot change this storage option
--- after the data store is created.
+-- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
 createDatastore_datastoreStorage :: Lens.Lens' CreateDatastore (Prelude.Maybe DatastoreStorage)
 createDatastore_datastoreStorage = Lens.lens (\CreateDatastore' {datastoreStorage} -> datastoreStorage) (\s@CreateDatastore' {} a -> s {datastoreStorage = a} :: CreateDatastore)
 
--- | Contains the configuration information of file formats. AWS IoT
--- Analytics data stores support JSON and
--- <https://parquet.apache.org/ Parquet>.
+-- | Contains information about the partition dimensions in a data store.
+createDatastore_datastorePartitions :: Lens.Lens' CreateDatastore (Prelude.Maybe DatastorePartitions)
+createDatastore_datastorePartitions = Lens.lens (\CreateDatastore' {datastorePartitions} -> datastorePartitions) (\s@CreateDatastore' {} a -> s {datastorePartitions = a} :: CreateDatastore)
+
+-- | Contains the configuration information of file formats. IoT Analytics
+-- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
 -- The default file format is JSON. You can specify only one format.
 --
@@ -176,6 +183,8 @@ instance Core.ToJSON CreateDatastore where
       ( Prelude.catMaybes
           [ ("datastoreStorage" Core..=)
               Prelude.<$> datastoreStorage,
+            ("datastorePartitions" Core..=)
+              Prelude.<$> datastorePartitions,
             ("fileFormatConfiguration" Core..=)
               Prelude.<$> fileFormatConfiguration,
             ("retentionPeriod" Core..=)

@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An activity that adds information from the AWS IoT Device Shadow service
--- to a message.
+-- | An activity that adds information from the IoT Device Shadow service to
+-- a message.
 --
 -- /See:/ 'newDeviceShadowEnrichActivity' smart constructor.
 data DeviceShadowEnrichActivity = DeviceShadowEnrichActivity'

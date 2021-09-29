@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the content of a data set by applying a @queryAction@ (a SQL
+-- Creates the content of a dataset by applying a @queryAction@ (a SQL
 -- query) or a @containerAction@ (executing a containerized application).
 module Network.AWS.IoTAnalytics.CreateDatasetContent
   ( -- * Creating a Request

@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Use this to store data store data in an S3 bucket managed by AWS IoT
--- Analytics. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the data store is created.
+-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
+-- can\'t change the choice of Amazon S3 storage after your data store is
+-- created.
 --
 -- /See:/ 'newServiceManagedDatastoreS3Storage' smart constructor.
 data ServiceManagedDatastoreS3Storage = ServiceManagedDatastoreS3Storage'

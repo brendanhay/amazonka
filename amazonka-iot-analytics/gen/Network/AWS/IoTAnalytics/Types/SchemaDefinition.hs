@@ -31,7 +31,7 @@ data SchemaDefinition = SchemaDefinition'
   { -- | Specifies one or more columns that store your data.
     --
     -- Each schema can have up to 100 columns. Each column can have up to 100
-    -- nested types
+    -- nested types.
     columns :: Prelude.Maybe [Column]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data SchemaDefinition = SchemaDefinition'
 -- 'columns', 'schemaDefinition_columns' - Specifies one or more columns that store your data.
 --
 -- Each schema can have up to 100 columns. Each column can have up to 100
--- nested types
+-- nested types.
 newSchemaDefinition ::
   SchemaDefinition
 newSchemaDefinition =
@@ -56,7 +56,7 @@ newSchemaDefinition =
 -- | Specifies one or more columns that store your data.
 --
 -- Each schema can have up to 100 columns. Each column can have up to 100
--- nested types
+-- nested types.
 schemaDefinition_columns :: Lens.Lens' SchemaDefinition (Prelude.Maybe [Column])
 schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (\s@SchemaDefinition' {} a -> s {columns = a} :: SchemaDefinition) Prelude.. Lens.mapping Lens._Coerce
 

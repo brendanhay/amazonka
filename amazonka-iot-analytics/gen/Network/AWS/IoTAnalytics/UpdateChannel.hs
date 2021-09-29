@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the settings of a channel.
+-- Used to update the settings of a channel.
 module Network.AWS.IoTAnalytics.UpdateChannel
   ( -- * Creating a Request
     UpdateChannel (..),
@@ -47,12 +47,12 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
   { -- | How long, in days, message data is kept for the channel. The retention
-    -- period cannot be updated if the channel\'s S3 storage is
+    -- period can\'t be updated if the channel\'s Amazon S3 storage is
     -- customer-managed.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
-    -- @serviceManagedS3@. You cannot change this storage option after the
+    -- @serviceManagedS3@. You can\'t change this storage option after the
     -- channel is created.
     channelStorage :: Prelude.Maybe ChannelStorage,
     -- | The name of the channel to be updated.
@@ -69,12 +69,12 @@ data UpdateChannel = UpdateChannel'
 -- for backwards compatibility:
 --
 -- 'retentionPeriod', 'updateChannel_retentionPeriod' - How long, in days, message data is kept for the channel. The retention
--- period cannot be updated if the channel\'s S3 storage is
+-- period can\'t be updated if the channel\'s Amazon S3 storage is
 -- customer-managed.
 --
 -- 'channelStorage', 'updateChannel_channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 --
 -- 'channelName', 'updateChannel_channelName' - The name of the channel to be updated.
@@ -90,14 +90,14 @@ newUpdateChannel pChannelName_ =
     }
 
 -- | How long, in days, message data is kept for the channel. The retention
--- period cannot be updated if the channel\'s S3 storage is
+-- period can\'t be updated if the channel\'s Amazon S3 storage is
 -- customer-managed.
 updateChannel_retentionPeriod :: Lens.Lens' UpdateChannel (Prelude.Maybe RetentionPeriod)
 updateChannel_retentionPeriod = Lens.lens (\UpdateChannel' {retentionPeriod} -> retentionPeriod) (\s@UpdateChannel' {} a -> s {retentionPeriod = a} :: UpdateChannel)
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 updateChannel_channelStorage :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelStorage)
 updateChannel_channelStorage = Lens.lens (\UpdateChannel' {channelStorage} -> channelStorage) (\s@UpdateChannel' {} a -> s {channelStorage = a} :: UpdateChannel)

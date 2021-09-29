@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about data sets.
+-- Retrieves information about datasets.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListDatasets

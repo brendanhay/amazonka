@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeChannel' smart constructor.
 data DescribeChannel = DescribeChannel'
   { -- | If true, additional statistical information about the channel is
-    -- included in the response. This feature cannot be used with a channel
+    -- included in the response. This feature can\'t be used with a channel
     -- whose S3 storage is customer-managed.
     includeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | The name of the channel whose information is retrieved.
@@ -68,7 +68,7 @@ data DescribeChannel = DescribeChannel'
 -- for backwards compatibility:
 --
 -- 'includeStatistics', 'describeChannel_includeStatistics' - If true, additional statistical information about the channel is
--- included in the response. This feature cannot be used with a channel
+-- included in the response. This feature can\'t be used with a channel
 -- whose S3 storage is customer-managed.
 --
 -- 'channelName', 'describeChannel_channelName' - The name of the channel whose information is retrieved.
@@ -84,7 +84,7 @@ newDescribeChannel pChannelName_ =
     }
 
 -- | If true, additional statistical information about the channel is
--- included in the response. This feature cannot be used with a channel
+-- included in the response. This feature can\'t be used with a channel
 -- whose S3 storage is customer-managed.
 describeChannel_includeStatistics :: Lens.Lens' DescribeChannel (Prelude.Maybe Prelude.Bool)
 describeChannel_includeStatistics = Lens.lens (\DescribeChannel' {includeStatistics} -> includeStatistics) (\s@DescribeChannel' {} a -> s {includeStatistics = a} :: DescribeChannel)

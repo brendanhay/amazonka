@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Creates a new message using only the specified attributes from the
--- original message.
+-- | Used to create a new message using only the specified attributes from
+-- the original message.
 --
 -- /See:/ 'newSelectAttributesActivity' smart constructor.
 data SelectAttributesActivity = SelectAttributesActivity'

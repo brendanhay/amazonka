@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeDatastore' smart constructor.
 data DescribeDatastore = DescribeDatastore'
   { -- | If true, additional statistical information about the data store is
-    -- included in the response. This feature cannot be used with a data store
+    -- included in the response. This feature can\'t be used with a data store
     -- whose S3 storage is customer-managed.
     includeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | The name of the data store
@@ -68,7 +68,7 @@ data DescribeDatastore = DescribeDatastore'
 -- for backwards compatibility:
 --
 -- 'includeStatistics', 'describeDatastore_includeStatistics' - If true, additional statistical information about the data store is
--- included in the response. This feature cannot be used with a data store
+-- included in the response. This feature can\'t be used with a data store
 -- whose S3 storage is customer-managed.
 --
 -- 'datastoreName', 'describeDatastore_datastoreName' - The name of the data store
@@ -84,7 +84,7 @@ newDescribeDatastore pDatastoreName_ =
     }
 
 -- | If true, additional statistical information about the data store is
--- included in the response. This feature cannot be used with a data store
+-- included in the response. This feature can\'t be used with a data store
 -- whose S3 storage is customer-managed.
 describeDatastore_includeStatistics :: Lens.Lens' DescribeDatastore (Prelude.Maybe Prelude.Bool)
 describeDatastore_includeStatistics = Lens.lens (\DescribeDatastore' {includeStatistics} -> includeStatistics) (\s@DescribeDatastore' {} a -> s {includeStatistics = a} :: DescribeDatastore)

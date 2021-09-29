@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLoggingOptions' smart constructor.
 data LoggingOptions = LoggingOptions'
-  { -- | The ARN of the role that grants permission to AWS IoT Analytics to
-    -- perform logging.
+  { -- | The ARN of the role that grants permission to IoT Analytics to perform
+    -- logging.
     roleArn :: Prelude.Text,
     -- | The logging level. Currently, only ERROR is supported.
     level :: LoggingLevel,
-    -- | If true, logging is enabled for AWS IoT Analytics.
+    -- | If true, logging is enabled for IoT Analytics.
     enabled :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,12 +46,12 @@ data LoggingOptions = LoggingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'loggingOptions_roleArn' - The ARN of the role that grants permission to AWS IoT Analytics to
--- perform logging.
+-- 'roleArn', 'loggingOptions_roleArn' - The ARN of the role that grants permission to IoT Analytics to perform
+-- logging.
 --
 -- 'level', 'loggingOptions_level' - The logging level. Currently, only ERROR is supported.
 --
--- 'enabled', 'loggingOptions_enabled' - If true, logging is enabled for AWS IoT Analytics.
+-- 'enabled', 'loggingOptions_enabled' - If true, logging is enabled for IoT Analytics.
 newLoggingOptions ::
   -- | 'roleArn'
   Prelude.Text ->
@@ -67,8 +67,8 @@ newLoggingOptions pRoleArn_ pLevel_ pEnabled_ =
       enabled = pEnabled_
     }
 
--- | The ARN of the role that grants permission to AWS IoT Analytics to
--- perform logging.
+-- | The ARN of the role that grants permission to IoT Analytics to perform
+-- logging.
 loggingOptions_roleArn :: Lens.Lens' LoggingOptions Prelude.Text
 loggingOptions_roleArn = Lens.lens (\LoggingOptions' {roleArn} -> roleArn) (\s@LoggingOptions' {} a -> s {roleArn = a} :: LoggingOptions)
 
@@ -76,7 +76,7 @@ loggingOptions_roleArn = Lens.lens (\LoggingOptions' {roleArn} -> roleArn) (\s@L
 loggingOptions_level :: Lens.Lens' LoggingOptions LoggingLevel
 loggingOptions_level = Lens.lens (\LoggingOptions' {level} -> level) (\s@LoggingOptions' {} a -> s {level = a} :: LoggingOptions)
 
--- | If true, logging is enabled for AWS IoT Analytics.
+-- | If true, logging is enabled for IoT Analytics.
 loggingOptions_enabled :: Lens.Lens' LoggingOptions Prelude.Bool
 loggingOptions_enabled = Lens.lens (\LoggingOptions' {enabled} -> enabled) (\s@LoggingOptions' {} a -> s {enabled = a} :: LoggingOptions)
 

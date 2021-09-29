@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the settings of a data store.
+-- Used to update the settings of a data store.
 module Network.AWS.IoTAnalytics.UpdateDatastore
   ( -- * Creating a Request
     UpdateDatastore (..),
@@ -47,22 +47,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDatastore' smart constructor.
 data UpdateDatastore = UpdateDatastore'
-  { -- | Where data store data is stored. You can choose one of
-    -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
-    -- default is@serviceManagedS3@. You cannot change this storage option
-    -- after the data store is created.
+  { -- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+    -- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+    -- storage. The default is @serviceManagedS3@. You can\'t change the choice
+    -- of Amazon S3 storage after your data store is created.
     datastoreStorage :: Prelude.Maybe DatastoreStorage,
-    -- | Contains the configuration information of file formats. AWS IoT
-    -- Analytics data stores support JSON and
-    -- <https://parquet.apache.org/ Parquet>.
+    -- | Contains the configuration information of file formats. IoT Analytics
+    -- data stores support JSON and <https://parquet.apache.org/ Parquet>.
     --
     -- The default file format is JSON. You can specify only one format.
     --
     -- You can\'t change the file format after you create the data store.
     fileFormatConfiguration :: Prelude.Maybe FileFormatConfiguration,
     -- | How long, in days, message data is kept for the data store. The
-    -- retention period cannot be updated if the data store\'s S3 storage is
-    -- customer-managed.
+    -- retention period can\'t be updated if the data store\'s Amazon S3
+    -- storage is customer-managed.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The name of the data store to be updated.
     datastoreName :: Prelude.Text
@@ -77,22 +76,21 @@ data UpdateDatastore = UpdateDatastore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datastoreStorage', 'updateDatastore_datastoreStorage' - Where data store data is stored. You can choose one of
--- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
--- default is@serviceManagedS3@. You cannot change this storage option
--- after the data store is created.
+-- 'datastoreStorage', 'updateDatastore_datastoreStorage' - Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
 --
--- 'fileFormatConfiguration', 'updateDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. AWS IoT
--- Analytics data stores support JSON and
--- <https://parquet.apache.org/ Parquet>.
+-- 'fileFormatConfiguration', 'updateDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. IoT Analytics
+-- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
 -- The default file format is JSON. You can specify only one format.
 --
 -- You can\'t change the file format after you create the data store.
 --
 -- 'retentionPeriod', 'updateDatastore_retentionPeriod' - How long, in days, message data is kept for the data store. The
--- retention period cannot be updated if the data store\'s S3 storage is
--- customer-managed.
+-- retention period can\'t be updated if the data store\'s Amazon S3
+-- storage is customer-managed.
 --
 -- 'datastoreName', 'updateDatastore_datastoreName' - The name of the data store to be updated.
 newUpdateDatastore ::
@@ -108,16 +106,15 @@ newUpdateDatastore pDatastoreName_ =
       datastoreName = pDatastoreName_
     }
 
--- | Where data store data is stored. You can choose one of
--- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
--- default is@serviceManagedS3@. You cannot change this storage option
--- after the data store is created.
+-- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
 updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Prelude.Maybe DatastoreStorage)
 updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorage} -> datastoreStorage) (\s@UpdateDatastore' {} a -> s {datastoreStorage = a} :: UpdateDatastore)
 
--- | Contains the configuration information of file formats. AWS IoT
--- Analytics data stores support JSON and
--- <https://parquet.apache.org/ Parquet>.
+-- | Contains the configuration information of file formats. IoT Analytics
+-- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
 -- The default file format is JSON. You can specify only one format.
 --
@@ -126,8 +123,8 @@ updateDatastore_fileFormatConfiguration :: Lens.Lens' UpdateDatastore (Prelude.M
 updateDatastore_fileFormatConfiguration = Lens.lens (\UpdateDatastore' {fileFormatConfiguration} -> fileFormatConfiguration) (\s@UpdateDatastore' {} a -> s {fileFormatConfiguration = a} :: UpdateDatastore)
 
 -- | How long, in days, message data is kept for the data store. The
--- retention period cannot be updated if the data store\'s S3 storage is
--- customer-managed.
+-- retention period can\'t be updated if the data store\'s Amazon S3
+-- storage is customer-managed.
 updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Prelude.Maybe RetentionPeriod)
 updateDatastore_retentionPeriod = Lens.lens (\UpdateDatastore' {retentionPeriod} -> retentionPeriod) (\s@UpdateDatastore' {} a -> s {retentionPeriod = a} :: UpdateDatastore)
 

@@ -25,16 +25,16 @@ import Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A @DatasetAction@ object that specifies how data set contents are
+-- | A @DatasetAction@ object that specifies how dataset contents are
 -- automatically created.
 --
 -- /See:/ 'newDatasetAction' smart constructor.
 data DatasetAction = DatasetAction'
-  { -- | The name of the data set action by which data set contents are
+  { -- | The name of the dataset action by which dataset contents are
     -- automatically created.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
-    -- automatically create data set contents.
+    -- automatically create dataset contents.
     queryAction :: Prelude.Maybe SqlQueryDatasetAction,
     -- | Information that allows the system to run a containerized application to
     -- create the dataset contents. The application must be in a Docker
@@ -51,11 +51,11 @@ data DatasetAction = DatasetAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionName', 'datasetAction_actionName' - The name of the data set action by which data set contents are
+-- 'actionName', 'datasetAction_actionName' - The name of the dataset action by which dataset contents are
 -- automatically created.
 --
 -- 'queryAction', 'datasetAction_queryAction' - An @SqlQueryDatasetAction@ object that uses an SQL query to
--- automatically create data set contents.
+-- automatically create dataset contents.
 --
 -- 'containerAction', 'datasetAction_containerAction' - Information that allows the system to run a containerized application to
 -- create the dataset contents. The application must be in a Docker
@@ -69,13 +69,13 @@ newDatasetAction =
       containerAction = Prelude.Nothing
     }
 
--- | The name of the data set action by which data set contents are
+-- | The name of the dataset action by which dataset contents are
 -- automatically created.
 datasetAction_actionName :: Lens.Lens' DatasetAction (Prelude.Maybe Prelude.Text)
 datasetAction_actionName = Lens.lens (\DatasetAction' {actionName} -> actionName) (\s@DatasetAction' {} a -> s {actionName = a} :: DatasetAction)
 
 -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
--- automatically create data set contents.
+-- automatically create dataset contents.
 datasetAction_queryAction :: Lens.Lens' DatasetAction (Prelude.Maybe SqlQueryDatasetAction)
 datasetAction_queryAction = Lens.lens (\DatasetAction' {queryAction} -> queryAction) (\s@DatasetAction' {} a -> s {queryAction = a} :: DatasetAction)
 

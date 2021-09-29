@@ -23,21 +23,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Use this to store channel data in an S3 bucket that you manage. If
--- customer managed storage is selected, the @retentionPeriod@ parameter is
--- ignored. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the channel is created.
+-- | Used to store channel data in an S3 bucket that you manage. If
+-- customer-managed storage is selected, the @retentionPeriod@ parameter is
+-- ignored. You can\'t change the choice of S3 storage after the data store
+-- is created.
 --
 -- /See:/ 'newCustomerManagedChannelS3Storage' smart constructor.
 data CustomerManagedChannelS3Storage = CustomerManagedChannelS3Storage'
-  { -- | Optional. The prefix used to create the keys of the channel data
+  { -- | (Optional) The prefix used to create the keys of the channel data
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
     keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket in which channel data is stored.
     bucket :: Prelude.Text,
-    -- | The ARN of the role that grants AWS IoT Analytics permission to interact
+    -- | The ARN of the role that grants IoT Analytics permission to interact
     -- with your Amazon S3 resources.
     roleArn :: Prelude.Text
   }
@@ -51,14 +51,14 @@ data CustomerManagedChannelS3Storage = CustomerManagedChannelS3Storage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPrefix', 'customerManagedChannelS3Storage_keyPrefix' - Optional. The prefix used to create the keys of the channel data
+-- 'keyPrefix', 'customerManagedChannelS3Storage_keyPrefix' - (Optional) The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
 --
 -- 'bucket', 'customerManagedChannelS3Storage_bucket' - The name of the S3 bucket in which channel data is stored.
 --
--- 'roleArn', 'customerManagedChannelS3Storage_roleArn' - The ARN of the role that grants AWS IoT Analytics permission to interact
+-- 'roleArn', 'customerManagedChannelS3Storage_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
 -- with your Amazon S3 resources.
 newCustomerManagedChannelS3Storage ::
   -- | 'bucket'
@@ -74,7 +74,7 @@ newCustomerManagedChannelS3Storage pBucket_ pRoleArn_ =
       roleArn = pRoleArn_
     }
 
--- | Optional. The prefix used to create the keys of the channel data
+-- | (Optional) The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
@@ -85,7 +85,7 @@ customerManagedChannelS3Storage_keyPrefix = Lens.lens (\CustomerManagedChannelS3
 customerManagedChannelS3Storage_bucket :: Lens.Lens' CustomerManagedChannelS3Storage Prelude.Text
 customerManagedChannelS3Storage_bucket = Lens.lens (\CustomerManagedChannelS3Storage' {bucket} -> bucket) (\s@CustomerManagedChannelS3Storage' {} a -> s {bucket = a} :: CustomerManagedChannelS3Storage)
 
--- | The ARN of the role that grants AWS IoT Analytics permission to interact
+-- | The ARN of the role that grants IoT Analytics permission to interact
 -- with your Amazon S3 resources.
 customerManagedChannelS3Storage_roleArn :: Lens.Lens' CustomerManagedChannelS3Storage Prelude.Text
 customerManagedChannelS3Storage_roleArn = Lens.lens (\CustomerManagedChannelS3Storage' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3Storage' {} a -> s {roleArn = a} :: CustomerManagedChannelS3Storage)

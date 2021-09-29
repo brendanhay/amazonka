@@ -110,6 +110,10 @@ library
     Network.AWS.IoTAnalytics.Types.DatasetTrigger
     Network.AWS.IoTAnalytics.Types.Datastore
     Network.AWS.IoTAnalytics.Types.DatastoreActivity
+    Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
+    Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary
+    Network.AWS.IoTAnalytics.Types.DatastorePartition
+    Network.AWS.IoTAnalytics.Types.DatastorePartitions
     Network.AWS.IoTAnalytics.Types.DatastoreStatistics
     Network.AWS.IoTAnalytics.Types.DatastoreStatus
     Network.AWS.IoTAnalytics.Types.DatastoreStorage
@@ -125,6 +129,8 @@ library
     Network.AWS.IoTAnalytics.Types.FilterActivity
     Network.AWS.IoTAnalytics.Types.GlueConfiguration
     Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
+    Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3Storage
+    Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary
     Network.AWS.IoTAnalytics.Types.JsonConfiguration
     Network.AWS.IoTAnalytics.Types.LambdaActivity
     Network.AWS.IoTAnalytics.Types.LateDataRule
@@ -135,6 +141,7 @@ library
     Network.AWS.IoTAnalytics.Types.Message
     Network.AWS.IoTAnalytics.Types.OutputFileUriValue
     Network.AWS.IoTAnalytics.Types.ParquetConfiguration
+    Network.AWS.IoTAnalytics.Types.Partition
     Network.AWS.IoTAnalytics.Types.Pipeline
     Network.AWS.IoTAnalytics.Types.PipelineActivity
     Network.AWS.IoTAnalytics.Types.PipelineSummary
@@ -154,6 +161,7 @@ library
     Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
     Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
     Network.AWS.IoTAnalytics.Types.Tag
+    Network.AWS.IoTAnalytics.Types.TimestampPartition
     Network.AWS.IoTAnalytics.Types.TriggeringDataset
     Network.AWS.IoTAnalytics.Types.Variable
     Network.AWS.IoTAnalytics.Types.VersioningConfiguration

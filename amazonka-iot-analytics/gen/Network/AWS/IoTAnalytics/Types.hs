@@ -111,8 +111,8 @@ module Network.AWS.IoTAnalytics.Types
     ChannelSummary (..),
     newChannelSummary,
     channelSummary_lastMessageArrivalTime,
-    channelSummary_channelName,
     channelSummary_status,
+    channelSummary_channelName,
     channelSummary_creationTime,
     channelSummary_lastUpdateTime,
     channelSummary_channelStorage,
@@ -166,11 +166,11 @@ module Network.AWS.IoTAnalytics.Types
     dataset_creationTime,
     dataset_lastUpdateTime,
     dataset_triggers,
-    dataset_actions,
     dataset_arn,
+    dataset_actions,
     dataset_name,
-    dataset_retentionPeriod,
     dataset_lateDataRules,
+    dataset_retentionPeriod,
     dataset_contentDeliveryRules,
     dataset_versioningConfiguration,
 
@@ -247,9 +247,10 @@ module Network.AWS.IoTAnalytics.Types
     datastore_lastMessageArrivalTime,
     datastore_status,
     datastore_creationTime,
+    datastore_datastorePartitions,
     datastore_lastUpdateTime,
-    datastore_arn,
     datastore_fileFormatConfiguration,
+    datastore_arn,
     datastore_name,
     datastore_retentionPeriod,
     datastore_storage,
@@ -259,6 +260,27 @@ module Network.AWS.IoTAnalytics.Types
     newDatastoreActivity,
     datastoreActivity_name,
     datastoreActivity_datastoreName,
+
+    -- * DatastoreIotSiteWiseMultiLayerStorage
+    DatastoreIotSiteWiseMultiLayerStorage (..),
+    newDatastoreIotSiteWiseMultiLayerStorage,
+    datastoreIotSiteWiseMultiLayerStorage_customerManagedS3Storage,
+
+    -- * DatastoreIotSiteWiseMultiLayerStorageSummary
+    DatastoreIotSiteWiseMultiLayerStorageSummary (..),
+    newDatastoreIotSiteWiseMultiLayerStorageSummary,
+    datastoreIotSiteWiseMultiLayerStorageSummary_customerManagedS3Storage,
+
+    -- * DatastorePartition
+    DatastorePartition (..),
+    newDatastorePartition,
+    datastorePartition_timestampPartition,
+    datastorePartition_attributePartition,
+
+    -- * DatastorePartitions
+    DatastorePartitions (..),
+    newDatastorePartitions,
+    datastorePartitions_partitions,
 
     -- * DatastoreStatistics
     DatastoreStatistics (..),
@@ -270,12 +292,14 @@ module Network.AWS.IoTAnalytics.Types
     newDatastoreStorage,
     datastoreStorage_serviceManagedS3,
     datastoreStorage_customerManagedS3,
+    datastoreStorage_iotSiteWiseMultiLayerStorage,
 
     -- * DatastoreStorageSummary
     DatastoreStorageSummary (..),
     newDatastoreStorageSummary,
     datastoreStorageSummary_serviceManagedS3,
     datastoreStorageSummary_customerManagedS3,
+    datastoreStorageSummary_iotSiteWiseMultiLayerStorage,
 
     -- * DatastoreSummary
     DatastoreSummary (..),
@@ -284,6 +308,7 @@ module Network.AWS.IoTAnalytics.Types
     datastoreSummary_status,
     datastoreSummary_creationTime,
     datastoreSummary_datastoreStorage,
+    datastoreSummary_datastorePartitions,
     datastoreSummary_lastUpdateTime,
     datastoreSummary_fileFormatType,
     datastoreSummary_datastoreName,
@@ -348,6 +373,18 @@ module Network.AWS.IoTAnalytics.Types
     iotEventsDestinationConfiguration_inputName,
     iotEventsDestinationConfiguration_roleArn,
 
+    -- * IotSiteWiseCustomerManagedDatastoreS3Storage
+    IotSiteWiseCustomerManagedDatastoreS3Storage (..),
+    newIotSiteWiseCustomerManagedDatastoreS3Storage,
+    iotSiteWiseCustomerManagedDatastoreS3Storage_keyPrefix,
+    iotSiteWiseCustomerManagedDatastoreS3Storage_bucket,
+
+    -- * IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+    IotSiteWiseCustomerManagedDatastoreS3StorageSummary (..),
+    newIotSiteWiseCustomerManagedDatastoreS3StorageSummary,
+    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix,
+    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket,
+
     -- * JsonConfiguration
     JsonConfiguration (..),
     newJsonConfiguration,
@@ -402,6 +439,11 @@ module Network.AWS.IoTAnalytics.Types
     newParquetConfiguration,
     parquetConfiguration_schemaDefinition,
 
+    -- * Partition
+    Partition (..),
+    newPartition,
+    partition_attributeName,
+
     -- * Pipeline
     Pipeline (..),
     newPipeline,
@@ -423,8 +465,8 @@ module Network.AWS.IoTAnalytics.Types
     pipelineActivity_lambda,
     pipelineActivity_deviceRegistryEnrich,
     pipelineActivity_channel,
-    pipelineActivity_filter,
     pipelineActivity_math,
+    pipelineActivity_filter,
 
     -- * PipelineSummary
     PipelineSummary (..),
@@ -518,6 +560,12 @@ module Network.AWS.IoTAnalytics.Types
     tag_key,
     tag_value,
 
+    -- * TimestampPartition
+    TimestampPartition (..),
+    newTimestampPartition,
+    timestampPartition_timestampFormat,
+    timestampPartition_attributeName,
+
     -- * TriggeringDataset
     TriggeringDataset (..),
     newTriggeringDataset,
@@ -527,8 +575,8 @@ module Network.AWS.IoTAnalytics.Types
     Variable (..),
     newVariable,
     variable_outputFileUriValue,
-    variable_doubleValue,
     variable_stringValue,
+    variable_doubleValue,
     variable_datasetContentVersionValue,
     variable_name,
 
@@ -574,6 +622,10 @@ import Network.AWS.IoTAnalytics.Types.DatasetSummary
 import Network.AWS.IoTAnalytics.Types.DatasetTrigger
 import Network.AWS.IoTAnalytics.Types.Datastore
 import Network.AWS.IoTAnalytics.Types.DatastoreActivity
+import Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
+import Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary
+import Network.AWS.IoTAnalytics.Types.DatastorePartition
+import Network.AWS.IoTAnalytics.Types.DatastorePartitions
 import Network.AWS.IoTAnalytics.Types.DatastoreStatistics
 import Network.AWS.IoTAnalytics.Types.DatastoreStatus
 import Network.AWS.IoTAnalytics.Types.DatastoreStorage
@@ -589,6 +641,8 @@ import Network.AWS.IoTAnalytics.Types.FileFormatType
 import Network.AWS.IoTAnalytics.Types.FilterActivity
 import Network.AWS.IoTAnalytics.Types.GlueConfiguration
 import Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
+import Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3Storage
+import Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary
 import Network.AWS.IoTAnalytics.Types.JsonConfiguration
 import Network.AWS.IoTAnalytics.Types.LambdaActivity
 import Network.AWS.IoTAnalytics.Types.LateDataRule
@@ -599,6 +653,7 @@ import Network.AWS.IoTAnalytics.Types.MathActivity
 import Network.AWS.IoTAnalytics.Types.Message
 import Network.AWS.IoTAnalytics.Types.OutputFileUriValue
 import Network.AWS.IoTAnalytics.Types.ParquetConfiguration
+import Network.AWS.IoTAnalytics.Types.Partition
 import Network.AWS.IoTAnalytics.Types.Pipeline
 import Network.AWS.IoTAnalytics.Types.PipelineActivity
 import Network.AWS.IoTAnalytics.Types.PipelineSummary
@@ -618,6 +673,7 @@ import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
 import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
 import Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
 import Network.AWS.IoTAnalytics.Types.Tag
+import Network.AWS.IoTAnalytics.Types.TimestampPartition
 import Network.AWS.IoTAnalytics.Types.TriggeringDataset
 import Network.AWS.IoTAnalytics.Types.Variable
 import Network.AWS.IoTAnalytics.Types.VersioningConfiguration

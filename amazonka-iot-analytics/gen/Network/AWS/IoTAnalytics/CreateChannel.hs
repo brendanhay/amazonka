@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a channel. A channel collects data from an MQTT topic and
+-- Used to create a channel. A channel collects data from an MQTT topic and
 -- archives the raw, unprocessed messages before publishing the data to a
 -- pipeline.
 module Network.AWS.IoTAnalytics.CreateChannel
@@ -62,7 +62,7 @@ data CreateChannel = CreateChannel'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
-    -- @serviceManagedS3@. You cannot change this storage option after the
+    -- @serviceManagedS3@. You can\'t change this storage option after the
     -- channel is created.
     channelStorage :: Prelude.Maybe ChannelStorage,
     -- | The name of the channel.
@@ -85,7 +85,7 @@ data CreateChannel = CreateChannel'
 --
 -- 'channelStorage', 'createChannel_channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 --
 -- 'channelName', 'createChannel_channelName' - The name of the channel.
@@ -112,7 +112,7 @@ createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChanne
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 createChannel_channelStorage :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelStorage)
 createChannel_channelStorage = Lens.lens (\CreateChannel' {channelStorage} -> channelStorage) (\s@CreateChannel' {} a -> s {channelStorage = a} :: CreateChannel)

@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Used to store data store data in an S3 bucket managed by AWS IoT
+-- | Contains information about the data store that is managed by IoT
 -- Analytics.
 --
 -- /See:/ 'newServiceManagedDatastoreS3StorageSummary' smart constructor.

@@ -23,16 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Configuration information for delivery of dataset contents to AWS IoT
+-- | Configuration information for delivery of dataset contents to IoT
 -- Events.
 --
 -- /See:/ 'newIotEventsDestinationConfiguration' smart constructor.
 data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
-  { -- | The name of the AWS IoT Events input to which dataset contents are
+  { -- | The name of the IoT Events input to which dataset contents are
     -- delivered.
     inputName :: Prelude.Text,
-    -- | The ARN of the role that grants AWS IoT Analytics permission to deliver
-    -- dataset contents to an AWS IoT Events input.
+    -- | The ARN of the role that grants IoT Analytics permission to deliver
+    -- dataset contents to an IoT Events input.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputName', 'iotEventsDestinationConfiguration_inputName' - The name of the AWS IoT Events input to which dataset contents are
+-- 'inputName', 'iotEventsDestinationConfiguration_inputName' - The name of the IoT Events input to which dataset contents are
 -- delivered.
 --
--- 'roleArn', 'iotEventsDestinationConfiguration_roleArn' - The ARN of the role that grants AWS IoT Analytics permission to deliver
--- dataset contents to an AWS IoT Events input.
+-- 'roleArn', 'iotEventsDestinationConfiguration_roleArn' - The ARN of the role that grants IoT Analytics permission to deliver
+-- dataset contents to an IoT Events input.
 newIotEventsDestinationConfiguration ::
   -- | 'inputName'
   Prelude.Text ->
@@ -65,13 +65,13 @@ newIotEventsDestinationConfiguration
         roleArn = pRoleArn_
       }
 
--- | The name of the AWS IoT Events input to which dataset contents are
+-- | The name of the IoT Events input to which dataset contents are
 -- delivered.
 iotEventsDestinationConfiguration_inputName :: Lens.Lens' IotEventsDestinationConfiguration Prelude.Text
 iotEventsDestinationConfiguration_inputName = Lens.lens (\IotEventsDestinationConfiguration' {inputName} -> inputName) (\s@IotEventsDestinationConfiguration' {} a -> s {inputName = a} :: IotEventsDestinationConfiguration)
 
--- | The ARN of the role that grants AWS IoT Analytics permission to deliver
--- dataset contents to an AWS IoT Events input.
+-- | The ARN of the role that grants IoT Analytics permission to deliver
+-- dataset contents to an IoT Events input.
 iotEventsDestinationConfiguration_roleArn :: Lens.Lens' IotEventsDestinationConfiguration Prelude.Text
 iotEventsDestinationConfiguration_roleArn = Lens.lens (\IotEventsDestinationConfiguration' {roleArn} -> roleArn) (\s@IotEventsDestinationConfiguration' {} a -> s {roleArn = a} :: IotEventsDestinationConfiguration)
 

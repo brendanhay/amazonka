@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-  { -- | Configuration information for coordination with AWS Glue, a fully
-    -- managed extract, transform and load (ETL) service.
+  { -- | Configuration information for coordination with Glue, a fully managed
+    -- extract, transform and load (ETL) service.
     glueConfiguration :: Prelude.Maybe GlueConfiguration,
     -- | The name of the S3 bucket to which dataset contents are delivered.
     bucket :: Prelude.Text,
@@ -56,8 +56,8 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
     -- contents with the same @scheduleTime@ but different @versionId@s. This
     -- means that one dataset content overwrites the other.
     key :: Prelude.Text,
-    -- | The ARN of the role that grants AWS IoT Analytics permission to interact
-    -- with your Amazon S3 and AWS Glue resources.
+    -- | The ARN of the role that grants IoT Analytics permission to interact
+    -- with your Amazon S3 and Glue resources.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,8 +70,8 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'glueConfiguration', 's3DestinationConfiguration_glueConfiguration' - Configuration information for coordination with AWS Glue, a fully
--- managed extract, transform and load (ETL) service.
+-- 'glueConfiguration', 's3DestinationConfiguration_glueConfiguration' - Configuration information for coordination with Glue, a fully managed
+-- extract, transform and load (ETL) service.
 --
 -- 'bucket', 's3DestinationConfiguration_bucket' - The name of the S3 bucket to which dataset contents are delivered.
 --
@@ -97,8 +97,8 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
 -- contents with the same @scheduleTime@ but different @versionId@s. This
 -- means that one dataset content overwrites the other.
 --
--- 'roleArn', 's3DestinationConfiguration_roleArn' - The ARN of the role that grants AWS IoT Analytics permission to interact
--- with your Amazon S3 and AWS Glue resources.
+-- 'roleArn', 's3DestinationConfiguration_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 and Glue resources.
 newS3DestinationConfiguration ::
   -- | 'bucket'
   Prelude.Text ->
@@ -119,8 +119,8 @@ newS3DestinationConfiguration
         roleArn = pRoleArn_
       }
 
--- | Configuration information for coordination with AWS Glue, a fully
--- managed extract, transform and load (ETL) service.
+-- | Configuration information for coordination with Glue, a fully managed
+-- extract, transform and load (ETL) service.
 s3DestinationConfiguration_glueConfiguration :: Lens.Lens' S3DestinationConfiguration (Prelude.Maybe GlueConfiguration)
 s3DestinationConfiguration_glueConfiguration = Lens.lens (\S3DestinationConfiguration' {glueConfiguration} -> glueConfiguration) (\s@S3DestinationConfiguration' {} a -> s {glueConfiguration = a} :: S3DestinationConfiguration)
 
@@ -152,8 +152,8 @@ s3DestinationConfiguration_bucket = Lens.lens (\S3DestinationConfiguration' {buc
 s3DestinationConfiguration_key :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_key = Lens.lens (\S3DestinationConfiguration' {key} -> key) (\s@S3DestinationConfiguration' {} a -> s {key = a} :: S3DestinationConfiguration)
 
--- | The ARN of the role that grants AWS IoT Analytics permission to interact
--- with your Amazon S3 and AWS Glue resources.
+-- | The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 and Glue resources.
 s3DestinationConfiguration_roleArn :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_roleArn = Lens.lens (\S3DestinationConfiguration' {roleArn} -> roleArn) (\s@S3DestinationConfiguration' {} a -> s {roleArn = a} :: S3DestinationConfiguration)
 

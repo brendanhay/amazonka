@@ -31,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- contents with data that has arrived in the data store since the last
 -- execution. For an example of @DeltaTime@, see
 -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6 Creating a SQL dataset with a delta window (CLI)>
--- in the /AWS IoT Analytics User Guide/.
+-- in the /IoT Analytics User Guide/.
 --
 -- /See:/ 'newDeltaTimeSessionWindowConfiguration' smart constructor.
 data DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguration'
-  { -- | A time interval. You can use @timeoutInMinutes@ so that AWS IoT
-    -- Analytics can batch up late data notifications that have been generated
-    -- since the last execution. AWS IoT Analytics sends one batch of
-    -- notifications to Amazon CloudWatch Events at one time.
+  { -- | A time interval. You can use @timeoutInMinutes@ so that IoT Analytics
+    -- can batch up late data notifications that have been generated since the
+    -- last execution. IoT Analytics sends one batch of notifications to Amazon
+    -- CloudWatch Events at one time.
     --
     -- For more information about how to write a timestamp expression, see
     -- <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators>,
@@ -55,10 +55,10 @@ data DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutInMinutes', 'deltaTimeSessionWindowConfiguration_timeoutInMinutes' - A time interval. You can use @timeoutInMinutes@ so that AWS IoT
--- Analytics can batch up late data notifications that have been generated
--- since the last execution. AWS IoT Analytics sends one batch of
--- notifications to Amazon CloudWatch Events at one time.
+-- 'timeoutInMinutes', 'deltaTimeSessionWindowConfiguration_timeoutInMinutes' - A time interval. You can use @timeoutInMinutes@ so that IoT Analytics
+-- can batch up late data notifications that have been generated since the
+-- last execution. IoT Analytics sends one batch of notifications to Amazon
+-- CloudWatch Events at one time.
 --
 -- For more information about how to write a timestamp expression, see
 -- <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators>,
@@ -74,10 +74,10 @@ newDeltaTimeSessionWindowConfiguration
           pTimeoutInMinutes_
       }
 
--- | A time interval. You can use @timeoutInMinutes@ so that AWS IoT
--- Analytics can batch up late data notifications that have been generated
--- since the last execution. AWS IoT Analytics sends one batch of
--- notifications to Amazon CloudWatch Events at one time.
+-- | A time interval. You can use @timeoutInMinutes@ so that IoT Analytics
+-- can batch up late data notifications that have been generated since the
+-- last execution. IoT Analytics sends one batch of notifications to Amazon
+-- CloudWatch Events at one time.
 --
 -- For more information about how to write a timestamp expression, see
 -- <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators>,

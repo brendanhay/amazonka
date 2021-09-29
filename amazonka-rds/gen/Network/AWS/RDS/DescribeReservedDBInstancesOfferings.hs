@@ -36,8 +36,8 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     describeReservedDBInstancesOfferings_offeringType,
     describeReservedDBInstancesOfferings_productDescription,
     describeReservedDBInstancesOfferings_reservedDBInstancesOfferingId,
-    describeReservedDBInstancesOfferings_marker,
     describeReservedDBInstancesOfferings_maxRecords,
+    describeReservedDBInstancesOfferings_marker,
 
     -- * Destructuring the Response
     DescribeReservedDBInstancesOfferingsResponse (..),
@@ -90,10 +90,6 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
     reservedDBInstancesOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more than
     -- the @MaxRecords@ value is available, a pagination token called a marker
     -- is included in the response so you can retrieve the remaining results.
@@ -101,7 +97,11 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,10 +142,6 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
 --
--- 'marker', 'describeReservedDBInstancesOfferings_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReservedDBInstancesOfferings_maxRecords' - The maximum number of records to include in the response. If more than
 -- the @MaxRecords@ value is available, a pagination token called a marker
 -- is included in the response so you can retrieve the remaining results.
@@ -153,6 +149,10 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeReservedDBInstancesOfferings_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeReservedDBInstancesOfferings ::
   DescribeReservedDBInstancesOfferings
 newDescribeReservedDBInstancesOfferings =
@@ -166,8 +166,8 @@ newDescribeReservedDBInstancesOfferings =
       productDescription = Prelude.Nothing,
       reservedDBInstancesOfferingId =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Duration filter value, specified in years or seconds. Specify this
@@ -213,12 +213,6 @@ describeReservedDBInstancesOfferings_productDescription = Lens.lens (\DescribeRe
 describeReservedDBInstancesOfferings_reservedDBInstancesOfferingId :: Lens.Lens' DescribeReservedDBInstancesOfferings (Prelude.Maybe Prelude.Text)
 describeReservedDBInstancesOfferings_reservedDBInstancesOfferingId = Lens.lens (\DescribeReservedDBInstancesOfferings' {reservedDBInstancesOfferingId} -> reservedDBInstancesOfferingId) (\s@DescribeReservedDBInstancesOfferings' {} a -> s {reservedDBInstancesOfferingId = a} :: DescribeReservedDBInstancesOfferings)
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReservedDBInstancesOfferings_marker :: Lens.Lens' DescribeReservedDBInstancesOfferings (Prelude.Maybe Prelude.Text)
-describeReservedDBInstancesOfferings_marker = Lens.lens (\DescribeReservedDBInstancesOfferings' {marker} -> marker) (\s@DescribeReservedDBInstancesOfferings' {} a -> s {marker = a} :: DescribeReservedDBInstancesOfferings)
-
 -- | The maximum number of records to include in the response. If more than
 -- the @MaxRecords@ value is available, a pagination token called a marker
 -- is included in the response so you can retrieve the remaining results.
@@ -228,6 +222,12 @@ describeReservedDBInstancesOfferings_marker = Lens.lens (\DescribeReservedDBInst
 -- Constraints: Minimum 20, maximum 100.
 describeReservedDBInstancesOfferings_maxRecords :: Lens.Lens' DescribeReservedDBInstancesOfferings (Prelude.Maybe Prelude.Int)
 describeReservedDBInstancesOfferings_maxRecords = Lens.lens (\DescribeReservedDBInstancesOfferings' {maxRecords} -> maxRecords) (\s@DescribeReservedDBInstancesOfferings' {} a -> s {maxRecords = a} :: DescribeReservedDBInstancesOfferings)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReservedDBInstancesOfferings_marker :: Lens.Lens' DescribeReservedDBInstancesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedDBInstancesOfferings_marker = Lens.lens (\DescribeReservedDBInstancesOfferings' {marker} -> marker) (\s@DescribeReservedDBInstancesOfferings' {} a -> s {marker = a} :: DescribeReservedDBInstancesOfferings)
 
 instance
   Core.AWSPager
@@ -318,8 +318,8 @@ instance
         "ProductDescription" Core.=: productDescription,
         "ReservedDBInstancesOfferingId"
           Core.=: reservedDBInstancesOfferingId,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the result of a successful invocation of the

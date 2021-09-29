@@ -26,7 +26,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | A data type that represents an Outpost.
 --
 -- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide./
 --
 -- /See:/ 'newOutpost' smart constructor.

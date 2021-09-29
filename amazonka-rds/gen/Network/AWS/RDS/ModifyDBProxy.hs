@@ -31,8 +31,8 @@ module Network.AWS.RDS.ModifyDBProxy
     modifyDBProxy_newDBProxyName,
     modifyDBProxy_idleClientTimeout,
     modifyDBProxy_auth,
-    modifyDBProxy_securityGroups,
     modifyDBProxy_debugLogging,
+    modifyDBProxy_securityGroups,
     modifyDBProxy_requireTLS,
     modifyDBProxy_dbProxyName,
 
@@ -56,7 +56,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newModifyDBProxy' smart constructor.
 data ModifyDBProxy = ModifyDBProxy'
   { -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
-    -- access secrets in AWS Secrets Manager.
+    -- access secrets in Amazon Web Services Secrets Manager.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The new identifier for the @DBProxy@. An identifier must begin with a
     -- letter and must contain only ASCII letters, digits, and hyphens; it
@@ -68,8 +68,6 @@ data ModifyDBProxy = ModifyDBProxy'
     idleClientTimeout :: Prelude.Maybe Prelude.Int,
     -- | The new authentication settings for the @DBProxy@.
     auth :: Prelude.Maybe [UserAuthConfig],
-    -- | The new list of security groups for the @DBProxy@.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Whether the proxy includes detailed information about SQL statements in
     -- its logs. This information helps you to debug issues involving SQL
     -- behavior or the performance and scalability of the proxy connections.
@@ -78,6 +76,8 @@ data ModifyDBProxy = ModifyDBProxy'
     -- debugging, and only when you have security measures in place to
     -- safeguard any sensitive information that appears in the logs.
     debugLogging :: Prelude.Maybe Prelude.Bool,
+    -- | The new list of security groups for the @DBProxy@.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Whether Transport Layer Security (TLS) encryption is required for
     -- connections to the proxy. By enabling this setting, you can enforce
     -- encrypted TLS connections to the proxy, even if the associated database
@@ -97,7 +97,7 @@ data ModifyDBProxy = ModifyDBProxy'
 -- for backwards compatibility:
 --
 -- 'roleArn', 'modifyDBProxy_roleArn' - The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
--- access secrets in AWS Secrets Manager.
+-- access secrets in Amazon Web Services Secrets Manager.
 --
 -- 'newDBProxyName'', 'modifyDBProxy_newDBProxyName' - The new identifier for the @DBProxy@. An identifier must begin with a
 -- letter and must contain only ASCII letters, digits, and hyphens; it
@@ -109,8 +109,6 @@ data ModifyDBProxy = ModifyDBProxy'
 --
 -- 'auth', 'modifyDBProxy_auth' - The new authentication settings for the @DBProxy@.
 --
--- 'securityGroups', 'modifyDBProxy_securityGroups' - The new list of security groups for the @DBProxy@.
---
 -- 'debugLogging', 'modifyDBProxy_debugLogging' - Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
 -- behavior or the performance and scalability of the proxy connections.
@@ -118,6 +116,8 @@ data ModifyDBProxy = ModifyDBProxy'
 -- submit through the proxy. Thus, only enable this setting when needed for
 -- debugging, and only when you have security measures in place to
 -- safeguard any sensitive information that appears in the logs.
+--
+-- 'securityGroups', 'modifyDBProxy_securityGroups' - The new list of security groups for the @DBProxy@.
 --
 -- 'requireTLS', 'modifyDBProxy_requireTLS' - Whether Transport Layer Security (TLS) encryption is required for
 -- connections to the proxy. By enabling this setting, you can enforce
@@ -135,14 +135,14 @@ newModifyDBProxy pDBProxyName_ =
       newDBProxyName' = Prelude.Nothing,
       idleClientTimeout = Prelude.Nothing,
       auth = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
       debugLogging = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       requireTLS = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
--- access secrets in AWS Secrets Manager.
+-- access secrets in Amazon Web Services Secrets Manager.
 modifyDBProxy_roleArn :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Text)
 modifyDBProxy_roleArn = Lens.lens (\ModifyDBProxy' {roleArn} -> roleArn) (\s@ModifyDBProxy' {} a -> s {roleArn = a} :: ModifyDBProxy)
 
@@ -162,10 +162,6 @@ modifyDBProxy_idleClientTimeout = Lens.lens (\ModifyDBProxy' {idleClientTimeout}
 modifyDBProxy_auth :: Lens.Lens' ModifyDBProxy (Prelude.Maybe [UserAuthConfig])
 modifyDBProxy_auth = Lens.lens (\ModifyDBProxy' {auth} -> auth) (\s@ModifyDBProxy' {} a -> s {auth = a} :: ModifyDBProxy) Prelude.. Lens.mapping Lens._Coerce
 
--- | The new list of security groups for the @DBProxy@.
-modifyDBProxy_securityGroups :: Lens.Lens' ModifyDBProxy (Prelude.Maybe [Prelude.Text])
-modifyDBProxy_securityGroups = Lens.lens (\ModifyDBProxy' {securityGroups} -> securityGroups) (\s@ModifyDBProxy' {} a -> s {securityGroups = a} :: ModifyDBProxy) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
 -- behavior or the performance and scalability of the proxy connections.
@@ -175,6 +171,10 @@ modifyDBProxy_securityGroups = Lens.lens (\ModifyDBProxy' {securityGroups} -> se
 -- safeguard any sensitive information that appears in the logs.
 modifyDBProxy_debugLogging :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Bool)
 modifyDBProxy_debugLogging = Lens.lens (\ModifyDBProxy' {debugLogging} -> debugLogging) (\s@ModifyDBProxy' {} a -> s {debugLogging = a} :: ModifyDBProxy)
+
+-- | The new list of security groups for the @DBProxy@.
+modifyDBProxy_securityGroups :: Lens.Lens' ModifyDBProxy (Prelude.Maybe [Prelude.Text])
+modifyDBProxy_securityGroups = Lens.lens (\ModifyDBProxy' {securityGroups} -> securityGroups) (\s@ModifyDBProxy' {} a -> s {securityGroups = a} :: ModifyDBProxy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Whether Transport Layer Security (TLS) encryption is required for
 -- connections to the proxy. By enabling this setting, you can enforce
@@ -224,12 +224,12 @@ instance Core.ToQuery ModifyDBProxy where
         "Auth"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> auth),
+        "DebugLogging" Core.=: debugLogging,
         "SecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> securityGroups
             ),
-        "DebugLogging" Core.=: debugLogging,
         "RequireTLS" Core.=: requireTLS,
         "DBProxyName" Core.=: dbProxyName
       ]

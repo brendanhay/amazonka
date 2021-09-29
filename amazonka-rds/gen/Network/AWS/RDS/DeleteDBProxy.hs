@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing proxy.
+-- Deletes an existing DB proxy.
 module Network.AWS.RDS.DeleteDBProxy
   ( -- * Creating a Request
     DeleteDBProxy (..),

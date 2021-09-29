@@ -44,18 +44,19 @@ data GlobalCluster = GlobalCluster'
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the global database cluster.
     globalClusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region-unique, immutable identifier for the
+    -- global database cluster. This identifier is found in Amazon Web Services
+    -- CloudTrail log entries whenever the Amazon Web Services KMS customer
+    -- master key (CMK) for the DB cluster is accessed.
+    globalClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | The Aurora database engine used by the global database cluster.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region-unique, immutable identifier for the global database
-    -- cluster. This identifier is found in AWS CloudTrail log entries whenever
-    -- the AWS KMS customer master key (CMK) for the DB cluster is accessed.
-    globalClusterResourceId :: Prelude.Maybe Prelude.Text,
-    -- | The list of cluster IDs for secondary clusters within the global
-    -- database cluster. Currently limited to 1 item.
-    globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
     -- | Contains a user-supplied global database cluster identifier. This
     -- identifier is the unique key that identifies a global database cluster.
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The list of cluster IDs for secondary clusters within the global
+    -- database cluster. Currently limited to 1 item.
+    globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
     -- | The default database name within the new global database cluster.
     databaseName :: Prelude.Maybe Prelude.Text
   }
@@ -84,17 +85,18 @@ data GlobalCluster = GlobalCluster'
 --
 -- 'globalClusterArn', 'globalCluster_globalClusterArn' - The Amazon Resource Name (ARN) for the global database cluster.
 --
+-- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
+-- global database cluster. This identifier is found in Amazon Web Services
+-- CloudTrail log entries whenever the Amazon Web Services KMS customer
+-- master key (CMK) for the DB cluster is accessed.
+--
 -- 'engine', 'globalCluster_engine' - The Aurora database engine used by the global database cluster.
---
--- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The AWS Region-unique, immutable identifier for the global database
--- cluster. This identifier is found in AWS CloudTrail log entries whenever
--- the AWS KMS customer master key (CMK) for the DB cluster is accessed.
---
--- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global
--- database cluster. Currently limited to 1 item.
 --
 -- 'globalClusterIdentifier', 'globalCluster_globalClusterIdentifier' - Contains a user-supplied global database cluster identifier. This
 -- identifier is the unique key that identifies a global database cluster.
+--
+-- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global
+-- database cluster. Currently limited to 1 item.
 --
 -- 'databaseName', 'globalCluster_databaseName' - The default database name within the new global database cluster.
 newGlobalCluster ::
@@ -108,10 +110,10 @@ newGlobalCluster =
       failoverState = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       globalClusterArn = Prelude.Nothing,
-      engine = Prelude.Nothing,
       globalClusterResourceId = Prelude.Nothing,
-      globalClusterMembers = Prelude.Nothing,
+      engine = Prelude.Nothing,
       globalClusterIdentifier = Prelude.Nothing,
+      globalClusterMembers = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
 
@@ -142,25 +144,26 @@ globalCluster_engineVersion = Lens.lens (\GlobalCluster' {engineVersion} -> engi
 globalCluster_globalClusterArn :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterArn = Lens.lens (\GlobalCluster' {globalClusterArn} -> globalClusterArn) (\s@GlobalCluster' {} a -> s {globalClusterArn = a} :: GlobalCluster)
 
--- | The Aurora database engine used by the global database cluster.
-globalCluster_engine :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
-globalCluster_engine = Lens.lens (\GlobalCluster' {engine} -> engine) (\s@GlobalCluster' {} a -> s {engine = a} :: GlobalCluster)
-
--- | The AWS Region-unique, immutable identifier for the global database
--- cluster. This identifier is found in AWS CloudTrail log entries whenever
--- the AWS KMS customer master key (CMK) for the DB cluster is accessed.
+-- | The Amazon Web Services Region-unique, immutable identifier for the
+-- global database cluster. This identifier is found in Amazon Web Services
+-- CloudTrail log entries whenever the Amazon Web Services KMS customer
+-- master key (CMK) for the DB cluster is accessed.
 globalCluster_globalClusterResourceId :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalClusterResourceId} -> globalClusterResourceId) (\s@GlobalCluster' {} a -> s {globalClusterResourceId = a} :: GlobalCluster)
 
--- | The list of cluster IDs for secondary clusters within the global
--- database cluster. Currently limited to 1 item.
-globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [GlobalClusterMember])
-globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens._Coerce
+-- | The Aurora database engine used by the global database cluster.
+globalCluster_engine :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
+globalCluster_engine = Lens.lens (\GlobalCluster' {engine} -> engine) (\s@GlobalCluster' {} a -> s {engine = a} :: GlobalCluster)
 
 -- | Contains a user-supplied global database cluster identifier. This
 -- identifier is the unique key that identifies a global database cluster.
 globalCluster_globalClusterIdentifier :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterIdentifier = Lens.lens (\GlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@GlobalCluster' {} a -> s {globalClusterIdentifier = a} :: GlobalCluster)
+
+-- | The list of cluster IDs for secondary clusters within the global
+-- database cluster. Currently limited to 1 item.
+globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [GlobalClusterMember])
+globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default database name within the new global database cluster.
 globalCluster_databaseName :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
@@ -175,13 +178,13 @@ instance Core.FromXML GlobalCluster where
       Prelude.<*> (x Core..@? "FailoverState")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "GlobalClusterArn")
-      Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "GlobalClusterResourceId")
+      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "GlobalClusterIdentifier")
       Prelude.<*> ( x Core..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "GlobalClusterMember")
                   )
-      Prelude.<*> (x Core..@? "GlobalClusterIdentifier")
       Prelude.<*> (x Core..@? "DatabaseName")
 
 instance Prelude.Hashable GlobalCluster

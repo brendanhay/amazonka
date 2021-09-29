@@ -33,8 +33,8 @@ module Network.AWS.RDS.DescribeOptionGroups
     describeOptionGroups_optionGroupName,
     describeOptionGroups_majorEngineVersion,
     describeOptionGroups_filters,
-    describeOptionGroups_marker,
     describeOptionGroups_maxRecords,
+    describeOptionGroups_marker,
 
     -- * Destructuring the Response
     DescribeOptionGroupsResponse (..),
@@ -69,11 +69,11 @@ data DescribeOptionGroups = DescribeOptionGroups'
     --
     -- -   @oracle-ee@
     --
+    -- -   @oracle-ee-cdb@
+    --
     -- -   @oracle-se2@
     --
-    -- -   @oracle-se1@
-    --
-    -- -   @oracle-se@
+    -- -   @oracle-se2-cdb@
     --
     -- -   @postgres@
     --
@@ -94,10 +94,6 @@ data DescribeOptionGroups = DescribeOptionGroups'
     majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous DescribeOptionGroups
-    -- request. If this parameter is specified, the response includes only
-    -- records beyond the marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -106,7 +102,11 @@ data DescribeOptionGroups = DescribeOptionGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous DescribeOptionGroups
+    -- request. If this parameter is specified, the response includes only
+    -- records beyond the marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,11 +129,11 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -154,10 +154,6 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- 'filters', 'describeOptionGroups_filters' - This parameter isn\'t currently supported.
 --
--- 'marker', 'describeOptionGroups_marker' - An optional pagination token provided by a previous DescribeOptionGroups
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeOptionGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -166,6 +162,10 @@ data DescribeOptionGroups = DescribeOptionGroups'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeOptionGroups_marker' - An optional pagination token provided by a previous DescribeOptionGroups
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
 newDescribeOptionGroups ::
   DescribeOptionGroups
 newDescribeOptionGroups =
@@ -174,8 +174,8 @@ newDescribeOptionGroups =
       optionGroupName = Prelude.Nothing,
       majorEngineVersion = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Filters the list of option groups to only include groups associated with
@@ -189,11 +189,11 @@ newDescribeOptionGroups =
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -222,12 +222,6 @@ describeOptionGroups_majorEngineVersion = Lens.lens (\DescribeOptionGroups' {maj
 describeOptionGroups_filters :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe [Filter])
 describeOptionGroups_filters = Lens.lens (\DescribeOptionGroups' {filters} -> filters) (\s@DescribeOptionGroups' {} a -> s {filters = a} :: DescribeOptionGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous DescribeOptionGroups
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
-describeOptionGroups_marker :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
-describeOptionGroups_marker = Lens.lens (\DescribeOptionGroups' {marker} -> marker) (\s@DescribeOptionGroups' {} a -> s {marker = a} :: DescribeOptionGroups)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -238,6 +232,12 @@ describeOptionGroups_marker = Lens.lens (\DescribeOptionGroups' {marker} -> mark
 -- Constraints: Minimum 20, maximum 100.
 describeOptionGroups_maxRecords :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Int)
 describeOptionGroups_maxRecords = Lens.lens (\DescribeOptionGroups' {maxRecords} -> maxRecords) (\s@DescribeOptionGroups' {} a -> s {maxRecords = a} :: DescribeOptionGroups)
+
+-- | An optional pagination token provided by a previous DescribeOptionGroups
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
+describeOptionGroups_marker :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
+describeOptionGroups_marker = Lens.lens (\DescribeOptionGroups' {marker} -> marker) (\s@DescribeOptionGroups' {} a -> s {marker = a} :: DescribeOptionGroups)
 
 instance Core.AWSPager DescribeOptionGroups where
   page rq rs
@@ -302,8 +302,8 @@ instance Core.ToQuery DescribeOptionGroups where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | List of option groups.

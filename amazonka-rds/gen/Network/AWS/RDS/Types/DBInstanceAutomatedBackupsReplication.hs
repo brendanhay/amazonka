@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Automated backups of a DB instance replicated to another AWS Region.
--- They consist of system backups, transaction logs, and database instance
--- properties.
+-- | Automated backups of a DB instance replicated to another Amazon Web
+-- Services Region. They consist of system backups, transaction logs, and
+-- database instance properties.
 --
 -- /See:/ 'newDBInstanceAutomatedBackupsReplication' smart constructor.
 data DBInstanceAutomatedBackupsReplication = DBInstanceAutomatedBackupsReplication'

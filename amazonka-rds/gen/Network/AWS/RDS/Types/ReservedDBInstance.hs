@@ -53,8 +53,8 @@ data ReservedDBInstance = ReservedDBInstance'
     -- | The unique identifier for the lease associated with the reserved DB
     -- instance.
     --
-    -- AWS Support might request the lease ID for an issue related to a
-    -- reserved DB instance.
+    -- Amazon Web Services Support might request the lease ID for an issue
+    -- related to a reserved DB instance.
     leaseId :: Prelude.Maybe Prelude.Text,
     -- | The hourly price charged for this reserved DB instance.
     usagePrice :: Prelude.Maybe Prelude.Double,
@@ -100,8 +100,8 @@ data ReservedDBInstance = ReservedDBInstance'
 -- 'leaseId', 'reservedDBInstance_leaseId' - The unique identifier for the lease associated with the reserved DB
 -- instance.
 --
--- AWS Support might request the lease ID for an issue related to a
--- reserved DB instance.
+-- Amazon Web Services Support might request the lease ID for an issue
+-- related to a reserved DB instance.
 --
 -- 'usagePrice', 'reservedDBInstance_usagePrice' - The hourly price charged for this reserved DB instance.
 --
@@ -177,8 +177,8 @@ reservedDBInstance_fixedPrice = Lens.lens (\ReservedDBInstance' {fixedPrice} -> 
 -- | The unique identifier for the lease associated with the reserved DB
 -- instance.
 --
--- AWS Support might request the lease ID for an issue related to a
--- reserved DB instance.
+-- Amazon Web Services Support might request the lease ID for an issue
+-- related to a reserved DB instance.
 reservedDBInstance_leaseId :: Lens.Lens' ReservedDBInstance (Prelude.Maybe Prelude.Text)
 reservedDBInstance_leaseId = Lens.lens (\ReservedDBInstance' {leaseId} -> leaseId) (\s@ReservedDBInstance' {} a -> s {leaseId = a} :: ReservedDBInstance)
 

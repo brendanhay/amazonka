@@ -43,13 +43,13 @@ data OptionSetting = OptionSetting'
     description :: Prelude.Maybe Prelude.Text,
     -- | The current value of the option setting.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The default value of the option setting.
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The data type of the option setting.
     dataType :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that, when true, indicates the option setting can be
     -- modified from the default.
-    isModifiable :: Prelude.Maybe Prelude.Bool,
-    -- | The default value of the option setting.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    isModifiable :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +73,12 @@ data OptionSetting = OptionSetting'
 --
 -- 'value', 'optionSetting_value' - The current value of the option setting.
 --
+-- 'defaultValue', 'optionSetting_defaultValue' - The default value of the option setting.
+--
 -- 'dataType', 'optionSetting_dataType' - The data type of the option setting.
 --
 -- 'isModifiable', 'optionSetting_isModifiable' - A Boolean value that, when true, indicates the option setting can be
 -- modified from the default.
---
--- 'defaultValue', 'optionSetting_defaultValue' - The default value of the option setting.
 newOptionSetting ::
   OptionSetting
 newOptionSetting =
@@ -89,9 +89,9 @@ newOptionSetting =
       applyType = Prelude.Nothing,
       description = Prelude.Nothing,
       value = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
       dataType = Prelude.Nothing,
-      isModifiable = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      isModifiable = Prelude.Nothing
     }
 
 -- | Indicates if the option setting is part of a collection.
@@ -118,6 +118,10 @@ optionSetting_description = Lens.lens (\OptionSetting' {description} -> descript
 optionSetting_value :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_value = Lens.lens (\OptionSetting' {value} -> value) (\s@OptionSetting' {} a -> s {value = a} :: OptionSetting)
 
+-- | The default value of the option setting.
+optionSetting_defaultValue :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
+optionSetting_defaultValue = Lens.lens (\OptionSetting' {defaultValue} -> defaultValue) (\s@OptionSetting' {} a -> s {defaultValue = a} :: OptionSetting)
+
 -- | The data type of the option setting.
 optionSetting_dataType :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_dataType = Lens.lens (\OptionSetting' {dataType} -> dataType) (\s@OptionSetting' {} a -> s {dataType = a} :: OptionSetting)
@@ -126,10 +130,6 @@ optionSetting_dataType = Lens.lens (\OptionSetting' {dataType} -> dataType) (\s@
 -- modified from the default.
 optionSetting_isModifiable :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Bool)
 optionSetting_isModifiable = Lens.lens (\OptionSetting' {isModifiable} -> isModifiable) (\s@OptionSetting' {} a -> s {isModifiable = a} :: OptionSetting)
-
--- | The default value of the option setting.
-optionSetting_defaultValue :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
-optionSetting_defaultValue = Lens.lens (\OptionSetting' {defaultValue} -> defaultValue) (\s@OptionSetting' {} a -> s {defaultValue = a} :: OptionSetting)
 
 instance Core.FromXML OptionSetting where
   parseXML x =
@@ -140,9 +140,9 @@ instance Core.FromXML OptionSetting where
       Prelude.<*> (x Core..@? "ApplyType")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "Value")
+      Prelude.<*> (x Core..@? "DefaultValue")
       Prelude.<*> (x Core..@? "DataType")
       Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "DefaultValue")
 
 instance Prelude.Hashable OptionSetting
 
@@ -157,7 +157,7 @@ instance Core.ToQuery OptionSetting where
         "ApplyType" Core.=: applyType,
         "Description" Core.=: description,
         "Value" Core.=: value,
+        "DefaultValue" Core.=: defaultValue,
         "DataType" Core.=: dataType,
-        "IsModifiable" Core.=: isModifiable,
-        "DefaultValue" Core.=: defaultValue
+        "IsModifiable" Core.=: isModifiable
       ]

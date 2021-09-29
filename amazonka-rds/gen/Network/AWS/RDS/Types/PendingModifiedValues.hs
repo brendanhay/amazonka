@@ -57,17 +57,18 @@ data PendingModifiedValues = PendingModifiedValues'
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
     processorFeatures :: Prelude.Maybe [ProcessorFeature],
-    -- | The port for the DB instance.
-    port :: Prelude.Maybe Prelude.Int,
     -- | The name of the compute and memory capacity class for the DB instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | The allocated storage size for the DB instance specified in gibibytes .
+    -- | The port for the DB instance.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The allocated storage size for the DB instance specified in gibibytes
+    -- (GiB).
     allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | Whether mapping of AWS Identity and Access Management (IAM) accounts to
-    -- database accounts is enabled.
-    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Provisioned IOPS value for the DB instance.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | Whether mapping of Amazon Web Services Identity and Access Management
+    -- (IAM) accounts to database accounts is enabled.
+    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,16 +107,17 @@ data PendingModifiedValues = PendingModifiedValues'
 -- 'processorFeatures', 'pendingModifiedValues_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
 --
--- 'port', 'pendingModifiedValues_port' - The port for the DB instance.
---
 -- 'dbInstanceClass', 'pendingModifiedValues_dbInstanceClass' - The name of the compute and memory capacity class for the DB instance.
 --
--- 'allocatedStorage', 'pendingModifiedValues_allocatedStorage' - The allocated storage size for the DB instance specified in gibibytes .
+-- 'port', 'pendingModifiedValues_port' - The port for the DB instance.
 --
--- 'iAMDatabaseAuthenticationEnabled', 'pendingModifiedValues_iAMDatabaseAuthenticationEnabled' - Whether mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled.
+-- 'allocatedStorage', 'pendingModifiedValues_allocatedStorage' - The allocated storage size for the DB instance specified in gibibytes
+-- (GiB).
 --
 -- 'iops', 'pendingModifiedValues_iops' - The Provisioned IOPS value for the DB instance.
+--
+-- 'iAMDatabaseAuthenticationEnabled', 'pendingModifiedValues_iAMDatabaseAuthenticationEnabled' - Whether mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled.
 newPendingModifiedValues ::
   PendingModifiedValues
 newPendingModifiedValues =
@@ -132,11 +134,11 @@ newPendingModifiedValues =
       licenseModel = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
       processorFeatures = Prelude.Nothing,
-      port = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
+      port = Prelude.Nothing,
       allocatedStorage = Prelude.Nothing,
-      iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iops = Prelude.Nothing,
+      iAMDatabaseAuthenticationEnabled = Prelude.Nothing
     }
 
 -- | The number of days for which automated backups are retained.
@@ -188,26 +190,27 @@ pendingModifiedValues_dbInstanceIdentifier = Lens.lens (\PendingModifiedValues' 
 pendingModifiedValues_processorFeatures :: Lens.Lens' PendingModifiedValues (Prelude.Maybe [ProcessorFeature])
 pendingModifiedValues_processorFeatures = Lens.lens (\PendingModifiedValues' {processorFeatures} -> processorFeatures) (\s@PendingModifiedValues' {} a -> s {processorFeatures = a} :: PendingModifiedValues) Prelude.. Lens.mapping Lens._Coerce
 
--- | The port for the DB instance.
-pendingModifiedValues_port :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
-pendingModifiedValues_port = Lens.lens (\PendingModifiedValues' {port} -> port) (\s@PendingModifiedValues' {} a -> s {port = a} :: PendingModifiedValues)
-
 -- | The name of the compute and memory capacity class for the DB instance.
 pendingModifiedValues_dbInstanceClass :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_dbInstanceClass = Lens.lens (\PendingModifiedValues' {dbInstanceClass} -> dbInstanceClass) (\s@PendingModifiedValues' {} a -> s {dbInstanceClass = a} :: PendingModifiedValues)
 
--- | The allocated storage size for the DB instance specified in gibibytes .
+-- | The port for the DB instance.
+pendingModifiedValues_port :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
+pendingModifiedValues_port = Lens.lens (\PendingModifiedValues' {port} -> port) (\s@PendingModifiedValues' {} a -> s {port = a} :: PendingModifiedValues)
+
+-- | The allocated storage size for the DB instance specified in gibibytes
+-- (GiB).
 pendingModifiedValues_allocatedStorage :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_allocatedStorage = Lens.lens (\PendingModifiedValues' {allocatedStorage} -> allocatedStorage) (\s@PendingModifiedValues' {} a -> s {allocatedStorage = a} :: PendingModifiedValues)
-
--- | Whether mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled.
-pendingModifiedValues_iAMDatabaseAuthenticationEnabled :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Bool)
-pendingModifiedValues_iAMDatabaseAuthenticationEnabled = Lens.lens (\PendingModifiedValues' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@PendingModifiedValues' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: PendingModifiedValues)
 
 -- | The Provisioned IOPS value for the DB instance.
 pendingModifiedValues_iops :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_iops = Lens.lens (\PendingModifiedValues' {iops} -> iops) (\s@PendingModifiedValues' {} a -> s {iops = a} :: PendingModifiedValues)
+
+-- | Whether mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled.
+pendingModifiedValues_iAMDatabaseAuthenticationEnabled :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Bool)
+pendingModifiedValues_iAMDatabaseAuthenticationEnabled = Lens.lens (\PendingModifiedValues' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@PendingModifiedValues' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: PendingModifiedValues)
 
 instance Core.FromXML PendingModifiedValues where
   parseXML x =
@@ -226,11 +229,11 @@ instance Core.FromXML PendingModifiedValues where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ProcessorFeature")
                   )
-      Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "DBInstanceClass")
+      Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Core..@? "Iops")
+      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
 
 instance Prelude.Hashable PendingModifiedValues
 

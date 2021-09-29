@@ -36,28 +36,33 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     minIopsPerDbInstance :: Prelude.Maybe Prelude.Int,
     -- | A list of Availability Zones for a DB instance.
     availabilityZones :: Prelude.Maybe [AvailabilityZone],
-    -- | Whether a DB instance supports Kerberos Authentication.
-    supportsKerberosAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a DB instance supports provisioned IOPS.
     supportsIops :: Prelude.Maybe Prelude.Bool,
+    -- | Whether a DB instance supports Kerberos Authentication.
+    supportsKerberosAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the storage type for a DB instance.
     storageType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a DB instance supports Enhanced Monitoring at
     -- intervals from 1 to 60 seconds.
     supportsEnhancedMonitoring :: Prelude.Maybe Prelude.Bool,
+    -- | A list of the supported DB engine modes.
+    supportedEngineModes :: Prelude.Maybe [Prelude.Text],
+    -- | Maximum storage size for a DB instance.
+    maxStorageSize :: Prelude.Maybe Prelude.Int,
     -- | A list of the available processor features for the DB instance class of
     -- a DB instance.
     availableProcessorFeatures :: Prelude.Maybe [AvailableProcessorFeature],
-    -- | Maximum storage size for a DB instance.
-    maxStorageSize :: Prelude.Maybe Prelude.Int,
-    -- | A list of the supported DB engine modes.
-    supportedEngineModes :: Prelude.Maybe [Prelude.Text],
     -- | Maximum provisioned IOPS per GiB for a DB instance.
     maxIopsPerGib :: Prelude.Maybe Prelude.Double,
     -- | Indicates whether a DB instance supports encrypted storage.
     supportsStorageEncryption :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a DB instance is Multi-AZ capable.
     multiAZCapable :: Prelude.Maybe Prelude.Bool,
+    -- | The list of supported modes for Database Activity Streams. Aurora
+    -- PostgreSQL returns the value @[sync, async]@. Aurora MySQL and RDS for
+    -- Oracle return @[async]@ only. If Database Activity Streams isn\'t
+    -- supported, the return value is an empty list.
+    supportedActivityStreamModes :: Prelude.Maybe [Prelude.Text],
     -- | Whether Amazon RDS can automatically scale storage for DB instances that
     -- use the specified DB instance class.
     supportsStorageAutoscaling :: Prelude.Maybe Prelude.Bool,
@@ -69,25 +74,25 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     supportsIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | The license model for a DB instance.
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | Maximum total provisioned IOPS for a DB instance.
+    maxIopsPerDbInstance :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether you can use Aurora global databases with
     -- a specific combination of other DB engine attributes.
     supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
     -- | True if a DB instance supports Performance Insights, otherwise false.
     supportsPerformanceInsights :: Prelude.Maybe Prelude.Bool,
-    -- | Maximum total provisioned IOPS for a DB instance.
-    maxIopsPerDbInstance :: Prelude.Maybe Prelude.Int,
     -- | The DB instance class for a DB instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | Whether a DB instance supports RDS on Outposts.
-    --
-    -- For more information about RDS on Outposts, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
-    -- in the /Amazon RDS User Guide./
-    outpostCapable :: Prelude.Maybe Prelude.Bool,
     -- | The engine type of a DB instance.
     engine :: Prelude.Maybe Prelude.Text,
     -- | Minimum storage size for a DB instance.
     minStorageSize :: Prelude.Maybe Prelude.Int,
+    -- | Whether a DB instance supports RDS on Outposts.
+    --
+    -- For more information about RDS on Outposts, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
+    -- in the /Amazon RDS User Guide./
+    outpostCapable :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone group for a DB instance.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a DB instance is in a VPC.
@@ -109,27 +114,32 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- 'availabilityZones', 'orderableDBInstanceOption_availabilityZones' - A list of Availability Zones for a DB instance.
 --
--- 'supportsKerberosAuthentication', 'orderableDBInstanceOption_supportsKerberosAuthentication' - Whether a DB instance supports Kerberos Authentication.
---
 -- 'supportsIops', 'orderableDBInstanceOption_supportsIops' - Indicates whether a DB instance supports provisioned IOPS.
+--
+-- 'supportsKerberosAuthentication', 'orderableDBInstanceOption_supportsKerberosAuthentication' - Whether a DB instance supports Kerberos Authentication.
 --
 -- 'storageType', 'orderableDBInstanceOption_storageType' - Indicates the storage type for a DB instance.
 --
 -- 'supportsEnhancedMonitoring', 'orderableDBInstanceOption_supportsEnhancedMonitoring' - Indicates whether a DB instance supports Enhanced Monitoring at
 -- intervals from 1 to 60 seconds.
 --
--- 'availableProcessorFeatures', 'orderableDBInstanceOption_availableProcessorFeatures' - A list of the available processor features for the DB instance class of
--- a DB instance.
+-- 'supportedEngineModes', 'orderableDBInstanceOption_supportedEngineModes' - A list of the supported DB engine modes.
 --
 -- 'maxStorageSize', 'orderableDBInstanceOption_maxStorageSize' - Maximum storage size for a DB instance.
 --
--- 'supportedEngineModes', 'orderableDBInstanceOption_supportedEngineModes' - A list of the supported DB engine modes.
+-- 'availableProcessorFeatures', 'orderableDBInstanceOption_availableProcessorFeatures' - A list of the available processor features for the DB instance class of
+-- a DB instance.
 --
 -- 'maxIopsPerGib', 'orderableDBInstanceOption_maxIopsPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
 --
 -- 'supportsStorageEncryption', 'orderableDBInstanceOption_supportsStorageEncryption' - Indicates whether a DB instance supports encrypted storage.
 --
 -- 'multiAZCapable', 'orderableDBInstanceOption_multiAZCapable' - Indicates whether a DB instance is Multi-AZ capable.
+--
+-- 'supportedActivityStreamModes', 'orderableDBInstanceOption_supportedActivityStreamModes' - The list of supported modes for Database Activity Streams. Aurora
+-- PostgreSQL returns the value @[sync, async]@. Aurora MySQL and RDS for
+-- Oracle return @[async]@ only. If Database Activity Streams isn\'t
+-- supported, the return value is an empty list.
 --
 -- 'supportsStorageAutoscaling', 'orderableDBInstanceOption_supportsStorageAutoscaling' - Whether Amazon RDS can automatically scale storage for DB instances that
 -- use the specified DB instance class.
@@ -142,24 +152,24 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- 'licenseModel', 'orderableDBInstanceOption_licenseModel' - The license model for a DB instance.
 --
+-- 'maxIopsPerDbInstance', 'orderableDBInstanceOption_maxIopsPerDbInstance' - Maximum total provisioned IOPS for a DB instance.
+--
 -- 'supportsGlobalDatabases', 'orderableDBInstanceOption_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with
 -- a specific combination of other DB engine attributes.
 --
 -- 'supportsPerformanceInsights', 'orderableDBInstanceOption_supportsPerformanceInsights' - True if a DB instance supports Performance Insights, otherwise false.
 --
--- 'maxIopsPerDbInstance', 'orderableDBInstanceOption_maxIopsPerDbInstance' - Maximum total provisioned IOPS for a DB instance.
---
 -- 'dbInstanceClass', 'orderableDBInstanceOption_dbInstanceClass' - The DB instance class for a DB instance.
---
--- 'outpostCapable', 'orderableDBInstanceOption_outpostCapable' - Whether a DB instance supports RDS on Outposts.
---
--- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
--- in the /Amazon RDS User Guide./
 --
 -- 'engine', 'orderableDBInstanceOption_engine' - The engine type of a DB instance.
 --
 -- 'minStorageSize', 'orderableDBInstanceOption_minStorageSize' - Minimum storage size for a DB instance.
+--
+-- 'outpostCapable', 'orderableDBInstanceOption_outpostCapable' - Whether a DB instance supports RDS on Outposts.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide./
 --
 -- 'availabilityZoneGroup', 'orderableDBInstanceOption_availabilityZoneGroup' - The Availability Zone group for a DB instance.
 --
@@ -173,29 +183,30 @@ newOrderableDBInstanceOption =
     { minIopsPerDbInstance =
         Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
-      supportsKerberosAuthentication = Prelude.Nothing,
       supportsIops = Prelude.Nothing,
+      supportsKerberosAuthentication = Prelude.Nothing,
       storageType = Prelude.Nothing,
       supportsEnhancedMonitoring = Prelude.Nothing,
-      availableProcessorFeatures = Prelude.Nothing,
-      maxStorageSize = Prelude.Nothing,
       supportedEngineModes = Prelude.Nothing,
+      maxStorageSize = Prelude.Nothing,
+      availableProcessorFeatures = Prelude.Nothing,
       maxIopsPerGib = Prelude.Nothing,
       supportsStorageEncryption = Prelude.Nothing,
       multiAZCapable = Prelude.Nothing,
+      supportedActivityStreamModes = Prelude.Nothing,
       supportsStorageAutoscaling = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       minIopsPerGib = Prelude.Nothing,
       supportsIAMDatabaseAuthentication =
         Prelude.Nothing,
       licenseModel = Prelude.Nothing,
+      maxIopsPerDbInstance = Prelude.Nothing,
       supportsGlobalDatabases = Prelude.Nothing,
       supportsPerformanceInsights = Prelude.Nothing,
-      maxIopsPerDbInstance = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
-      outpostCapable = Prelude.Nothing,
       engine = Prelude.Nothing,
       minStorageSize = Prelude.Nothing,
+      outpostCapable = Prelude.Nothing,
       availabilityZoneGroup = Prelude.Nothing,
       vpc = Prelude.Nothing,
       readReplicaCapable = Prelude.Nothing
@@ -209,13 +220,13 @@ orderableDBInstanceOption_minIopsPerDbInstance = Lens.lens (\OrderableDBInstance
 orderableDBInstanceOption_availabilityZones :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [AvailabilityZone])
 orderableDBInstanceOption_availabilityZones = Lens.lens (\OrderableDBInstanceOption' {availabilityZones} -> availabilityZones) (\s@OrderableDBInstanceOption' {} a -> s {availabilityZones = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
 
--- | Whether a DB instance supports Kerberos Authentication.
-orderableDBInstanceOption_supportsKerberosAuthentication :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
-orderableDBInstanceOption_supportsKerberosAuthentication = Lens.lens (\OrderableDBInstanceOption' {supportsKerberosAuthentication} -> supportsKerberosAuthentication) (\s@OrderableDBInstanceOption' {} a -> s {supportsKerberosAuthentication = a} :: OrderableDBInstanceOption)
-
 -- | Indicates whether a DB instance supports provisioned IOPS.
 orderableDBInstanceOption_supportsIops :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_supportsIops = Lens.lens (\OrderableDBInstanceOption' {supportsIops} -> supportsIops) (\s@OrderableDBInstanceOption' {} a -> s {supportsIops = a} :: OrderableDBInstanceOption)
+
+-- | Whether a DB instance supports Kerberos Authentication.
+orderableDBInstanceOption_supportsKerberosAuthentication :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_supportsKerberosAuthentication = Lens.lens (\OrderableDBInstanceOption' {supportsKerberosAuthentication} -> supportsKerberosAuthentication) (\s@OrderableDBInstanceOption' {} a -> s {supportsKerberosAuthentication = a} :: OrderableDBInstanceOption)
 
 -- | Indicates the storage type for a DB instance.
 orderableDBInstanceOption_storageType :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
@@ -226,18 +237,18 @@ orderableDBInstanceOption_storageType = Lens.lens (\OrderableDBInstanceOption' {
 orderableDBInstanceOption_supportsEnhancedMonitoring :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_supportsEnhancedMonitoring = Lens.lens (\OrderableDBInstanceOption' {supportsEnhancedMonitoring} -> supportsEnhancedMonitoring) (\s@OrderableDBInstanceOption' {} a -> s {supportsEnhancedMonitoring = a} :: OrderableDBInstanceOption)
 
--- | A list of the available processor features for the DB instance class of
--- a DB instance.
-orderableDBInstanceOption_availableProcessorFeatures :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [AvailableProcessorFeature])
-orderableDBInstanceOption_availableProcessorFeatures = Lens.lens (\OrderableDBInstanceOption' {availableProcessorFeatures} -> availableProcessorFeatures) (\s@OrderableDBInstanceOption' {} a -> s {availableProcessorFeatures = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of the supported DB engine modes.
+orderableDBInstanceOption_supportedEngineModes :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [Prelude.Text])
+orderableDBInstanceOption_supportedEngineModes = Lens.lens (\OrderableDBInstanceOption' {supportedEngineModes} -> supportedEngineModes) (\s@OrderableDBInstanceOption' {} a -> s {supportedEngineModes = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Maximum storage size for a DB instance.
 orderableDBInstanceOption_maxStorageSize :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
 orderableDBInstanceOption_maxStorageSize = Lens.lens (\OrderableDBInstanceOption' {maxStorageSize} -> maxStorageSize) (\s@OrderableDBInstanceOption' {} a -> s {maxStorageSize = a} :: OrderableDBInstanceOption)
 
--- | A list of the supported DB engine modes.
-orderableDBInstanceOption_supportedEngineModes :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [Prelude.Text])
-orderableDBInstanceOption_supportedEngineModes = Lens.lens (\OrderableDBInstanceOption' {supportedEngineModes} -> supportedEngineModes) (\s@OrderableDBInstanceOption' {} a -> s {supportedEngineModes = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of the available processor features for the DB instance class of
+-- a DB instance.
+orderableDBInstanceOption_availableProcessorFeatures :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [AvailableProcessorFeature])
+orderableDBInstanceOption_availableProcessorFeatures = Lens.lens (\OrderableDBInstanceOption' {availableProcessorFeatures} -> availableProcessorFeatures) (\s@OrderableDBInstanceOption' {} a -> s {availableProcessorFeatures = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Maximum provisioned IOPS per GiB for a DB instance.
 orderableDBInstanceOption_maxIopsPerGib :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Double)
@@ -250,6 +261,13 @@ orderableDBInstanceOption_supportsStorageEncryption = Lens.lens (\OrderableDBIns
 -- | Indicates whether a DB instance is Multi-AZ capable.
 orderableDBInstanceOption_multiAZCapable :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_multiAZCapable = Lens.lens (\OrderableDBInstanceOption' {multiAZCapable} -> multiAZCapable) (\s@OrderableDBInstanceOption' {} a -> s {multiAZCapable = a} :: OrderableDBInstanceOption)
+
+-- | The list of supported modes for Database Activity Streams. Aurora
+-- PostgreSQL returns the value @[sync, async]@. Aurora MySQL and RDS for
+-- Oracle return @[async]@ only. If Database Activity Streams isn\'t
+-- supported, the return value is an empty list.
+orderableDBInstanceOption_supportedActivityStreamModes :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [Prelude.Text])
+orderableDBInstanceOption_supportedActivityStreamModes = Lens.lens (\OrderableDBInstanceOption' {supportedActivityStreamModes} -> supportedActivityStreamModes) (\s@OrderableDBInstanceOption' {} a -> s {supportedActivityStreamModes = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Whether Amazon RDS can automatically scale storage for DB instances that
 -- use the specified DB instance class.
@@ -272,6 +290,10 @@ orderableDBInstanceOption_supportsIAMDatabaseAuthentication = Lens.lens (\Ordera
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
 
+-- | Maximum total provisioned IOPS for a DB instance.
+orderableDBInstanceOption_maxIopsPerDbInstance :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
+orderableDBInstanceOption_maxIopsPerDbInstance = Lens.lens (\OrderableDBInstanceOption' {maxIopsPerDbInstance} -> maxIopsPerDbInstance) (\s@OrderableDBInstanceOption' {} a -> s {maxIopsPerDbInstance = a} :: OrderableDBInstanceOption)
+
 -- | A value that indicates whether you can use Aurora global databases with
 -- a specific combination of other DB engine attributes.
 orderableDBInstanceOption_supportsGlobalDatabases :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
@@ -281,21 +303,9 @@ orderableDBInstanceOption_supportsGlobalDatabases = Lens.lens (\OrderableDBInsta
 orderableDBInstanceOption_supportsPerformanceInsights :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_supportsPerformanceInsights = Lens.lens (\OrderableDBInstanceOption' {supportsPerformanceInsights} -> supportsPerformanceInsights) (\s@OrderableDBInstanceOption' {} a -> s {supportsPerformanceInsights = a} :: OrderableDBInstanceOption)
 
--- | Maximum total provisioned IOPS for a DB instance.
-orderableDBInstanceOption_maxIopsPerDbInstance :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
-orderableDBInstanceOption_maxIopsPerDbInstance = Lens.lens (\OrderableDBInstanceOption' {maxIopsPerDbInstance} -> maxIopsPerDbInstance) (\s@OrderableDBInstanceOption' {} a -> s {maxIopsPerDbInstance = a} :: OrderableDBInstanceOption)
-
 -- | The DB instance class for a DB instance.
 orderableDBInstanceOption_dbInstanceClass :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_dbInstanceClass = Lens.lens (\OrderableDBInstanceOption' {dbInstanceClass} -> dbInstanceClass) (\s@OrderableDBInstanceOption' {} a -> s {dbInstanceClass = a} :: OrderableDBInstanceOption)
-
--- | Whether a DB instance supports RDS on Outposts.
---
--- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
--- in the /Amazon RDS User Guide./
-orderableDBInstanceOption_outpostCapable :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
-orderableDBInstanceOption_outpostCapable = Lens.lens (\OrderableDBInstanceOption' {outpostCapable} -> outpostCapable) (\s@OrderableDBInstanceOption' {} a -> s {outpostCapable = a} :: OrderableDBInstanceOption)
 
 -- | The engine type of a DB instance.
 orderableDBInstanceOption_engine :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
@@ -304,6 +314,14 @@ orderableDBInstanceOption_engine = Lens.lens (\OrderableDBInstanceOption' {engin
 -- | Minimum storage size for a DB instance.
 orderableDBInstanceOption_minStorageSize :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
 orderableDBInstanceOption_minStorageSize = Lens.lens (\OrderableDBInstanceOption' {minStorageSize} -> minStorageSize) (\s@OrderableDBInstanceOption' {} a -> s {minStorageSize = a} :: OrderableDBInstanceOption)
+
+-- | Whether a DB instance supports RDS on Outposts.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide./
+orderableDBInstanceOption_outpostCapable :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_outpostCapable = Lens.lens (\OrderableDBInstanceOption' {outpostCapable} -> outpostCapable) (\s@OrderableDBInstanceOption' {} a -> s {outpostCapable = a} :: OrderableDBInstanceOption)
 
 -- | The Availability Zone group for a DB instance.
 orderableDBInstanceOption_availabilityZoneGroup :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
@@ -325,35 +343,39 @@ instance Core.FromXML OrderableDBInstanceOption where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "SupportsKerberosAuthentication")
       Prelude.<*> (x Core..@? "SupportsIops")
+      Prelude.<*> (x Core..@? "SupportsKerberosAuthentication")
       Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> (x Core..@? "SupportsEnhancedMonitoring")
+      Prelude.<*> ( x Core..@? "SupportedEngineModes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "MaxStorageSize")
       Prelude.<*> ( x Core..@? "AvailableProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Core.parseXMLList "AvailableProcessorFeature")
                   )
-      Prelude.<*> (x Core..@? "MaxStorageSize")
-      Prelude.<*> ( x Core..@? "SupportedEngineModes"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
-                  )
       Prelude.<*> (x Core..@? "MaxIopsPerGib")
       Prelude.<*> (x Core..@? "SupportsStorageEncryption")
       Prelude.<*> (x Core..@? "MultiAZCapable")
+      Prelude.<*> ( x Core..@? "SupportedActivityStreamModes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
       Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "MinIopsPerGib")
       Prelude.<*> (x Core..@? "SupportsIAMDatabaseAuthentication")
       Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
       Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Core..@? "SupportsPerformanceInsights")
-      Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
       Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "OutpostCapable")
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "MinStorageSize")
+      Prelude.<*> (x Core..@? "OutpostCapable")
       Prelude.<*> (x Core..@? "AvailabilityZoneGroup")
       Prelude.<*> (x Core..@? "Vpc")
       Prelude.<*> (x Core..@? "ReadReplicaCapable")

@@ -36,8 +36,8 @@ data EC2SecurityGroup = EC2SecurityGroup'
   { -- | Provides the status of the EC2 security group. Status can be
     -- \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
     status :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the AWS ID of the owner of the EC2 security group specified in
-    -- the @EC2SecurityGroupName@ field.
+    -- | Specifies the Amazon Web Services ID of the owner of the EC2 security
+    -- group specified in the @EC2SecurityGroupName@ field.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the id of the EC2 security group.
     eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
@@ -57,8 +57,8 @@ data EC2SecurityGroup = EC2SecurityGroup'
 -- 'status', 'eC2SecurityGroup_status' - Provides the status of the EC2 security group. Status can be
 -- \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
 --
--- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - Specifies the AWS ID of the owner of the EC2 security group specified in
--- the @EC2SecurityGroupName@ field.
+-- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - Specifies the Amazon Web Services ID of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ field.
 --
 -- 'eC2SecurityGroupId', 'eC2SecurityGroup_eC2SecurityGroupId' - Specifies the id of the EC2 security group.
 --
@@ -78,8 +78,8 @@ newEC2SecurityGroup =
 eC2SecurityGroup_status :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@EC2SecurityGroup' {} a -> s {status = a} :: EC2SecurityGroup)
 
--- | Specifies the AWS ID of the owner of the EC2 security group specified in
--- the @EC2SecurityGroupName@ field.
+-- | Specifies the Amazon Web Services ID of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ field.
 eC2SecurityGroup_eC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupOwnerId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
 

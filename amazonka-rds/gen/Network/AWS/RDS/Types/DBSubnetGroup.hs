@@ -39,10 +39,10 @@ data DBSubnetGroup = DBSubnetGroup'
     dbSubnetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the description of the DB subnet group.
     dbSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | Contains a list of @Subnet@ elements.
-    subnets :: Prelude.Maybe [Subnet],
     -- | Provides the VpcId of the DB subnet group.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Contains a list of @Subnet@ elements.
+    subnets :: Prelude.Maybe [Subnet]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,9 +62,9 @@ data DBSubnetGroup = DBSubnetGroup'
 --
 -- 'dbSubnetGroupDescription', 'dbSubnetGroup_dbSubnetGroupDescription' - Provides the description of the DB subnet group.
 --
--- 'subnets', 'dbSubnetGroup_subnets' - Contains a list of @Subnet@ elements.
---
 -- 'vpcId', 'dbSubnetGroup_vpcId' - Provides the VpcId of the DB subnet group.
+--
+-- 'subnets', 'dbSubnetGroup_subnets' - Contains a list of @Subnet@ elements.
 newDBSubnetGroup ::
   DBSubnetGroup
 newDBSubnetGroup =
@@ -73,8 +73,8 @@ newDBSubnetGroup =
       dbSubnetGroupName = Prelude.Nothing,
       dbSubnetGroupArn = Prelude.Nothing,
       dbSubnetGroupDescription = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      subnets = Prelude.Nothing
     }
 
 -- | Provides the status of the DB subnet group.
@@ -93,13 +93,13 @@ dbSubnetGroup_dbSubnetGroupArn = Lens.lens (\DBSubnetGroup' {dbSubnetGroupArn} -
 dbSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
 dbSubnetGroup_dbSubnetGroupDescription = Lens.lens (\DBSubnetGroup' {dbSubnetGroupDescription} -> dbSubnetGroupDescription) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupDescription = a} :: DBSubnetGroup)
 
--- | Contains a list of @Subnet@ elements.
-dbSubnetGroup_subnets :: Lens.Lens' DBSubnetGroup (Prelude.Maybe [Subnet])
-dbSubnetGroup_subnets = Lens.lens (\DBSubnetGroup' {subnets} -> subnets) (\s@DBSubnetGroup' {} a -> s {subnets = a} :: DBSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Provides the VpcId of the DB subnet group.
 dbSubnetGroup_vpcId :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
 dbSubnetGroup_vpcId = Lens.lens (\DBSubnetGroup' {vpcId} -> vpcId) (\s@DBSubnetGroup' {} a -> s {vpcId = a} :: DBSubnetGroup)
+
+-- | Contains a list of @Subnet@ elements.
+dbSubnetGroup_subnets :: Lens.Lens' DBSubnetGroup (Prelude.Maybe [Subnet])
+dbSubnetGroup_subnets = Lens.lens (\DBSubnetGroup' {subnets} -> subnets) (\s@DBSubnetGroup' {} a -> s {subnets = a} :: DBSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML DBSubnetGroup where
   parseXML x =
@@ -108,10 +108,10 @@ instance Core.FromXML DBSubnetGroup where
       Prelude.<*> (x Core..@? "DBSubnetGroupName")
       Prelude.<*> (x Core..@? "DBSubnetGroupArn")
       Prelude.<*> (x Core..@? "DBSubnetGroupDescription")
+      Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "VpcId")
 
 instance Prelude.Hashable DBSubnetGroup
 

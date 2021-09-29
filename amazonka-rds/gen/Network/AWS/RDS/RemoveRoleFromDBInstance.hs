@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates an AWS Identity and Access Management (IAM) role from a DB
--- instance.
+-- Disassociates an Amazon Web Services Identity and Access Management
+-- (IAM) role from a DB instance.
 module Network.AWS.RDS.RemoveRoleFromDBInstance
   ( -- * Creating a Request
     RemoveRoleFromDBInstance (..),

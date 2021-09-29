@@ -68,6 +68,7 @@ library
     Network.AWS.RDS.CreateDBInstanceReadReplica
     Network.AWS.RDS.CreateDBParameterGroup
     Network.AWS.RDS.CreateDBProxy
+    Network.AWS.RDS.CreateDBProxyEndpoint
     Network.AWS.RDS.CreateDBSecurityGroup
     Network.AWS.RDS.CreateDBSnapshot
     Network.AWS.RDS.CreateDBSubnetGroup
@@ -83,6 +84,7 @@ library
     Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
     Network.AWS.RDS.DeleteDBParameterGroup
     Network.AWS.RDS.DeleteDBProxy
+    Network.AWS.RDS.DeleteDBProxyEndpoint
     Network.AWS.RDS.DeleteDBSecurityGroup
     Network.AWS.RDS.DeleteDBSnapshot
     Network.AWS.RDS.DeleteDBSubnetGroup
@@ -108,6 +110,7 @@ library
     Network.AWS.RDS.DescribeDBParameterGroups
     Network.AWS.RDS.DescribeDBParameters
     Network.AWS.RDS.DescribeDBProxies
+    Network.AWS.RDS.DescribeDBProxyEndpoints
     Network.AWS.RDS.DescribeDBProxyTargetGroups
     Network.AWS.RDS.DescribeDBProxyTargets
     Network.AWS.RDS.DescribeDBSecurityGroups
@@ -145,6 +148,7 @@ library
     Network.AWS.RDS.ModifyDBInstance
     Network.AWS.RDS.ModifyDBParameterGroup
     Network.AWS.RDS.ModifyDBProxy
+    Network.AWS.RDS.ModifyDBProxyEndpoint
     Network.AWS.RDS.ModifyDBProxyTargetGroup
     Network.AWS.RDS.ModifyDBSnapshot
     Network.AWS.RDS.ModifyDBSnapshotAttribute
@@ -216,6 +220,9 @@ library
     Network.AWS.RDS.Types.DBParameterGroupNameMessage
     Network.AWS.RDS.Types.DBParameterGroupStatus
     Network.AWS.RDS.Types.DBProxy
+    Network.AWS.RDS.Types.DBProxyEndpoint
+    Network.AWS.RDS.Types.DBProxyEndpointStatus
+    Network.AWS.RDS.Types.DBProxyEndpointTargetRole
     Network.AWS.RDS.Types.DBProxyStatus
     Network.AWS.RDS.Types.DBProxyTarget
     Network.AWS.RDS.Types.DBProxyTargetGroup
@@ -276,6 +283,7 @@ library
     Network.AWS.RDS.Types.Tag
     Network.AWS.RDS.Types.TargetHealth
     Network.AWS.RDS.Types.TargetHealthReason
+    Network.AWS.RDS.Types.TargetRole
     Network.AWS.RDS.Types.TargetState
     Network.AWS.RDS.Types.TargetType
     Network.AWS.RDS.Types.Timezone

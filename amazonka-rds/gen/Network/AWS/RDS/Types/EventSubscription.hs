@@ -52,8 +52,8 @@ data EventSubscription = EventSubscription'
     eventSubscriptionArn :: Prelude.Maybe Prelude.Text,
     -- | The time the RDS event notification subscription was created.
     subscriptionCreationTime :: Prelude.Maybe Prelude.Text,
-    -- | The AWS customer account associated with the RDS event notification
-    -- subscription.
+    -- | The Amazon Web Services customer account associated with the RDS event
+    -- notification subscription.
     customerAwsId :: Prelude.Maybe Prelude.Text,
     -- | The source type for the RDS event notification subscription.
     sourceType :: Prelude.Maybe Prelude.Text,
@@ -94,8 +94,8 @@ data EventSubscription = EventSubscription'
 --
 -- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The time the RDS event notification subscription was created.
 --
--- 'customerAwsId', 'eventSubscription_customerAwsId' - The AWS customer account associated with the RDS event notification
--- subscription.
+-- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services customer account associated with the RDS event
+-- notification subscription.
 --
 -- 'sourceType', 'eventSubscription_sourceType' - The source type for the RDS event notification subscription.
 --
@@ -155,8 +155,8 @@ eventSubscription_eventSubscriptionArn = Lens.lens (\EventSubscription' {eventSu
 eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription)
 
--- | The AWS customer account associated with the RDS event notification
--- subscription.
+-- | The Amazon Web Services customer account associated with the RDS event
+-- notification subscription.
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 

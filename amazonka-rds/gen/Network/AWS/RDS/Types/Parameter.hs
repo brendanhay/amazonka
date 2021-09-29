@@ -32,10 +32,10 @@ import Network.AWS.RDS.Types.ApplyMethod
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | Specifies the valid range of values for the parameter.
-    allowedValues :: Prelude.Maybe Prelude.Text,
-    -- | The valid DB engine modes.
+  { -- | The valid DB engine modes.
     supportedEngineModes :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the valid range of values for the parameter.
+    allowedValues :: Prelude.Maybe Prelude.Text,
     -- | Indicates the source of the parameter value.
     source :: Prelude.Maybe Prelude.Text,
     -- | Specifies the value of the parameter.
@@ -67,9 +67,9 @@ data Parameter = Parameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowedValues', 'parameter_allowedValues' - Specifies the valid range of values for the parameter.
---
 -- 'supportedEngineModes', 'parameter_supportedEngineModes' - The valid DB engine modes.
+--
+-- 'allowedValues', 'parameter_allowedValues' - Specifies the valid range of values for the parameter.
 --
 -- 'source', 'parameter_source' - Indicates the source of the parameter value.
 --
@@ -94,8 +94,8 @@ newParameter ::
   Parameter
 newParameter =
   Parameter'
-    { allowedValues = Prelude.Nothing,
-      supportedEngineModes = Prelude.Nothing,
+    { supportedEngineModes = Prelude.Nothing,
+      allowedValues = Prelude.Nothing,
       source = Prelude.Nothing,
       parameterValue = Prelude.Nothing,
       applyType = Prelude.Nothing,
@@ -107,13 +107,13 @@ newParameter =
       minimumEngineVersion = Prelude.Nothing
     }
 
--- | Specifies the valid range of values for the parameter.
-parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
-
 -- | The valid DB engine modes.
 parameter_supportedEngineModes :: Lens.Lens' Parameter (Prelude.Maybe [Prelude.Text])
 parameter_supportedEngineModes = Lens.lens (\Parameter' {supportedEngineModes} -> supportedEngineModes) (\s@Parameter' {} a -> s {supportedEngineModes = a} :: Parameter) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies the valid range of values for the parameter.
+parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
 
 -- | Indicates the source of the parameter value.
 parameter_source :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
@@ -156,11 +156,11 @@ parameter_minimumEngineVersion = Lens.lens (\Parameter' {minimumEngineVersion} -
 instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Core..@? "AllowedValues")
-      Prelude.<*> ( x Core..@? "SupportedEngineModes"
+      Prelude.<$> ( x Core..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "AllowedValues")
       Prelude.<*> (x Core..@? "Source")
       Prelude.<*> (x Core..@? "ParameterValue")
       Prelude.<*> (x Core..@? "ApplyType")
@@ -178,12 +178,12 @@ instance Prelude.NFData Parameter
 instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
-      [ "AllowedValues" Core.=: allowedValues,
-        "SupportedEngineModes"
+      [ "SupportedEngineModes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> supportedEngineModes
             ),
+        "AllowedValues" Core.=: allowedValues,
         "Source" Core.=: source,
         "ParameterValue" Core.=: parameterValue,
         "ApplyType" Core.=: applyType,

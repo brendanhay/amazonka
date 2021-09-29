@@ -33,11 +33,11 @@ import Network.AWS.RDS.Types.Tag
 data DBClusterSnapshot = DBClusterSnapshot'
   { -- | Specifies whether the DB cluster snapshot is encrypted.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the status of this DB cluster snapshot.
-    status :: Prelude.Maybe Prelude.Text,
     -- | Provides the list of Availability Zones (AZs) where instances in the DB
     -- cluster snapshot can be restored.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the status of this DB cluster snapshot.
+    status :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time when the DB cluster was created, in Universal
     -- Coordinated Time (UTC).
     clusterCreateTime :: Prelude.Maybe Core.ISO8601,
@@ -49,11 +49,12 @@ data DBClusterSnapshot = DBClusterSnapshot'
     engineMode :: Prelude.Maybe Prelude.Text,
     -- | Provides the master username for this DB cluster snapshot.
     masterUsername :: Prelude.Maybe Prelude.Text,
-    -- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the
-    -- encrypted DB cluster snapshot.
+    -- | If @StorageEncrypted@ is true, the Amazon Web Services KMS key
+    -- identifier for the encrypted DB cluster snapshot.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK).
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK).
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the DB cluster identifier of the DB cluster that this DB
     -- cluster snapshot was created from.
@@ -84,11 +85,11 @@ data DBClusterSnapshot = DBClusterSnapshot'
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the allocated storage size in gibibytes (GiB).
     allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to
-    -- database accounts is enabled, and otherwise false.
-    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
-    dbClusterSnapshotArn :: Prelude.Maybe Prelude.Text
+    dbClusterSnapshotArn :: Prelude.Maybe Prelude.Text,
+    -- | True if mapping of Amazon Web Services Identity and Access Management
+    -- (IAM) accounts to database accounts is enabled, and otherwise false.
+    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,10 +103,10 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- 'storageEncrypted', 'dbClusterSnapshot_storageEncrypted' - Specifies whether the DB cluster snapshot is encrypted.
 --
--- 'status', 'dbClusterSnapshot_status' - Specifies the status of this DB cluster snapshot.
---
 -- 'availabilityZones', 'dbClusterSnapshot_availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB
 -- cluster snapshot can be restored.
+--
+-- 'status', 'dbClusterSnapshot_status' - Specifies the status of this DB cluster snapshot.
 --
 -- 'clusterCreateTime', 'dbClusterSnapshot_clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal
 -- Coordinated Time (UTC).
@@ -118,11 +119,12 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- 'masterUsername', 'dbClusterSnapshot_masterUsername' - Provides the master username for this DB cluster snapshot.
 --
--- 'kmsKeyId', 'dbClusterSnapshot_kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the
--- encrypted DB cluster snapshot.
+-- 'kmsKeyId', 'dbClusterSnapshot_kmsKeyId' - If @StorageEncrypted@ is true, the Amazon Web Services KMS key
+-- identifier for the encrypted DB cluster snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
 --
 -- 'dbClusterIdentifier', 'dbClusterSnapshot_dbClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB
 -- cluster snapshot was created from.
@@ -154,18 +156,18 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- 'allocatedStorage', 'dbClusterSnapshot_allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
 --
--- 'iAMDatabaseAuthenticationEnabled', 'dbClusterSnapshot_iAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled, and otherwise false.
---
 -- 'dbClusterSnapshotArn', 'dbClusterSnapshot_dbClusterSnapshotArn' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
+--
+-- 'iAMDatabaseAuthenticationEnabled', 'dbClusterSnapshot_iAMDatabaseAuthenticationEnabled' - True if mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled, and otherwise false.
 newDBClusterSnapshot ::
   DBClusterSnapshot
 newDBClusterSnapshot =
   DBClusterSnapshot'
     { storageEncrypted =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
+      status = Prelude.Nothing,
       clusterCreateTime = Prelude.Nothing,
       snapshotCreateTime = Prelude.Nothing,
       engineMode = Prelude.Nothing,
@@ -183,22 +185,22 @@ newDBClusterSnapshot =
       tagList = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       allocatedStorage = Prelude.Nothing,
-      iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
-      dbClusterSnapshotArn = Prelude.Nothing
+      dbClusterSnapshotArn = Prelude.Nothing,
+      iAMDatabaseAuthenticationEnabled = Prelude.Nothing
     }
 
 -- | Specifies whether the DB cluster snapshot is encrypted.
 dbClusterSnapshot_storageEncrypted :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Bool)
 dbClusterSnapshot_storageEncrypted = Lens.lens (\DBClusterSnapshot' {storageEncrypted} -> storageEncrypted) (\s@DBClusterSnapshot' {} a -> s {storageEncrypted = a} :: DBClusterSnapshot)
 
--- | Specifies the status of this DB cluster snapshot.
-dbClusterSnapshot_status :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
-dbClusterSnapshot_status = Lens.lens (\DBClusterSnapshot' {status} -> status) (\s@DBClusterSnapshot' {} a -> s {status = a} :: DBClusterSnapshot)
-
 -- | Provides the list of Availability Zones (AZs) where instances in the DB
 -- cluster snapshot can be restored.
 dbClusterSnapshot_availabilityZones :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe [Prelude.Text])
 dbClusterSnapshot_availabilityZones = Lens.lens (\DBClusterSnapshot' {availabilityZones} -> availabilityZones) (\s@DBClusterSnapshot' {} a -> s {availabilityZones = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies the status of this DB cluster snapshot.
+dbClusterSnapshot_status :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
+dbClusterSnapshot_status = Lens.lens (\DBClusterSnapshot' {status} -> status) (\s@DBClusterSnapshot' {} a -> s {status = a} :: DBClusterSnapshot)
 
 -- | Specifies the time when the DB cluster was created, in Universal
 -- Coordinated Time (UTC).
@@ -219,11 +221,12 @@ dbClusterSnapshot_engineMode = Lens.lens (\DBClusterSnapshot' {engineMode} -> en
 dbClusterSnapshot_masterUsername :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_masterUsername = Lens.lens (\DBClusterSnapshot' {masterUsername} -> masterUsername) (\s@DBClusterSnapshot' {} a -> s {masterUsername = a} :: DBClusterSnapshot)
 
--- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the
--- encrypted DB cluster snapshot.
+-- | If @StorageEncrypted@ is true, the Amazon Web Services KMS key
+-- identifier for the encrypted DB cluster snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
 dbClusterSnapshot_kmsKeyId :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_kmsKeyId = Lens.lens (\DBClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@DBClusterSnapshot' {} a -> s {kmsKeyId = a} :: DBClusterSnapshot)
 
@@ -281,24 +284,24 @@ dbClusterSnapshot_vpcId = Lens.lens (\DBClusterSnapshot' {vpcId} -> vpcId) (\s@D
 dbClusterSnapshot_allocatedStorage :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Int)
 dbClusterSnapshot_allocatedStorage = Lens.lens (\DBClusterSnapshot' {allocatedStorage} -> allocatedStorage) (\s@DBClusterSnapshot' {} a -> s {allocatedStorage = a} :: DBClusterSnapshot)
 
--- | True if mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled, and otherwise false.
-dbClusterSnapshot_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Bool)
-dbClusterSnapshot_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBClusterSnapshot' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBClusterSnapshot' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBClusterSnapshot)
-
 -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
 dbClusterSnapshot_dbClusterSnapshotArn :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_dbClusterSnapshotArn = Lens.lens (\DBClusterSnapshot' {dbClusterSnapshotArn} -> dbClusterSnapshotArn) (\s@DBClusterSnapshot' {} a -> s {dbClusterSnapshotArn = a} :: DBClusterSnapshot)
+
+-- | True if mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled, and otherwise false.
+dbClusterSnapshot_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Bool)
+dbClusterSnapshot_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBClusterSnapshot' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBClusterSnapshot' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBClusterSnapshot)
 
 instance Core.FromXML DBClusterSnapshot where
   parseXML x =
     DBClusterSnapshot'
       Prelude.<$> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> ( x Core..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
                   )
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "ClusterCreateTime")
       Prelude.<*> (x Core..@? "SnapshotCreateTime")
       Prelude.<*> (x Core..@? "EngineMode")
@@ -318,8 +321,8 @@ instance Core.FromXML DBClusterSnapshot where
                   )
       Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Core..@? "DBClusterSnapshotArn")
+      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
 
 instance Prelude.Hashable DBClusterSnapshot
 

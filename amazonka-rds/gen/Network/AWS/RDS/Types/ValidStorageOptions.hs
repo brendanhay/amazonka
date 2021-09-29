@@ -38,7 +38,8 @@ data ValidStorageOptions = ValidStorageOptions'
     -- | Whether or not Amazon RDS can automatically scale storage for DB
     -- instances that use the new instance class.
     supportsStorageAutoscaling :: Prelude.Maybe Prelude.Bool,
-    -- | The valid range of storage in gibibytes. For example, 100 to 16384.
+    -- | The valid range of storage in gibibytes (GiB). For example, 100 to
+    -- 16384.
     storageSize :: Prelude.Maybe [Range],
     -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
     -- For example, 3-10, which means that provisioned IOPS can be between 3
@@ -62,7 +63,8 @@ data ValidStorageOptions = ValidStorageOptions'
 -- 'supportsStorageAutoscaling', 'validStorageOptions_supportsStorageAutoscaling' - Whether or not Amazon RDS can automatically scale storage for DB
 -- instances that use the new instance class.
 --
--- 'storageSize', 'validStorageOptions_storageSize' - The valid range of storage in gibibytes. For example, 100 to 16384.
+-- 'storageSize', 'validStorageOptions_storageSize' - The valid range of storage in gibibytes (GiB). For example, 100 to
+-- 16384.
 --
 -- 'iopsToStorageRatio', 'validStorageOptions_iopsToStorageRatio' - The valid range of Provisioned IOPS to gibibytes of storage multiplier.
 -- For example, 3-10, which means that provisioned IOPS can be between 3
@@ -91,7 +93,8 @@ validStorageOptions_provisionedIops = Lens.lens (\ValidStorageOptions' {provisio
 validStorageOptions_supportsStorageAutoscaling :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Bool)
 validStorageOptions_supportsStorageAutoscaling = Lens.lens (\ValidStorageOptions' {supportsStorageAutoscaling} -> supportsStorageAutoscaling) (\s@ValidStorageOptions' {} a -> s {supportsStorageAutoscaling = a} :: ValidStorageOptions)
 
--- | The valid range of storage in gibibytes. For example, 100 to 16384.
+-- | The valid range of storage in gibibytes (GiB). For example, 100 to
+-- 16384.
 validStorageOptions_storageSize :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
 validStorageOptions_storageSize = Lens.lens (\ValidStorageOptions' {storageSize} -> storageSize) (\s@ValidStorageOptions' {} a -> s {storageSize = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens._Coerce
 

@@ -25,25 +25,26 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB snapshot attribute
 --
--- Manual DB snapshot attributes are used to authorize other AWS accounts
--- to restore a manual DB snapshot. For more information, see the
--- @ModifyDBSnapshotAttribute@ API.
+-- Manual DB snapshot attributes are used to authorize other Amazon Web
+-- Services accounts to restore a manual DB snapshot. For more information,
+-- see the @ModifyDBSnapshotAttribute@ API.
 --
 -- /See:/ 'newDBSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
   { -- | The name of the manual DB snapshot attribute.
     --
-    -- The attribute named @restore@ refers to the list of AWS accounts that
-    -- have permission to copy or restore the manual DB cluster snapshot. For
-    -- more information, see the @ModifyDBSnapshotAttribute@ API action.
+    -- The attribute named @restore@ refers to the list of Amazon Web Services
+    -- accounts that have permission to copy or restore the manual DB cluster
+    -- snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API
+    -- action.
     attributeName :: Prelude.Maybe Prelude.Text,
     -- | The value or values for the manual DB snapshot attribute.
     --
     -- If the @AttributeName@ field is set to @restore@, then this element
-    -- returns a list of IDs of the AWS accounts that are authorized to copy or
-    -- restore the manual DB snapshot. If a value of @all@ is in the list, then
-    -- the manual DB snapshot is public and available for any AWS account to
-    -- copy or restore.
+    -- returns a list of IDs of the Amazon Web Services accounts that are
+    -- authorized to copy or restore the manual DB snapshot. If a value of
+    -- @all@ is in the list, then the manual DB snapshot is public and
+    -- available for any Amazon Web Services account to copy or restore.
     attributeValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,17 +59,18 @@ data DBSnapshotAttribute = DBSnapshotAttribute'
 --
 -- 'attributeName', 'dbSnapshotAttribute_attributeName' - The name of the manual DB snapshot attribute.
 --
--- The attribute named @restore@ refers to the list of AWS accounts that
--- have permission to copy or restore the manual DB cluster snapshot. For
--- more information, see the @ModifyDBSnapshotAttribute@ API action.
+-- The attribute named @restore@ refers to the list of Amazon Web Services
+-- accounts that have permission to copy or restore the manual DB cluster
+-- snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API
+-- action.
 --
 -- 'attributeValues', 'dbSnapshotAttribute_attributeValues' - The value or values for the manual DB snapshot attribute.
 --
 -- If the @AttributeName@ field is set to @restore@, then this element
--- returns a list of IDs of the AWS accounts that are authorized to copy or
--- restore the manual DB snapshot. If a value of @all@ is in the list, then
--- the manual DB snapshot is public and available for any AWS account to
--- copy or restore.
+-- returns a list of IDs of the Amazon Web Services accounts that are
+-- authorized to copy or restore the manual DB snapshot. If a value of
+-- @all@ is in the list, then the manual DB snapshot is public and
+-- available for any Amazon Web Services account to copy or restore.
 newDBSnapshotAttribute ::
   DBSnapshotAttribute
 newDBSnapshotAttribute =
@@ -80,19 +82,20 @@ newDBSnapshotAttribute =
 
 -- | The name of the manual DB snapshot attribute.
 --
--- The attribute named @restore@ refers to the list of AWS accounts that
--- have permission to copy or restore the manual DB cluster snapshot. For
--- more information, see the @ModifyDBSnapshotAttribute@ API action.
+-- The attribute named @restore@ refers to the list of Amazon Web Services
+-- accounts that have permission to copy or restore the manual DB cluster
+-- snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API
+-- action.
 dbSnapshotAttribute_attributeName :: Lens.Lens' DBSnapshotAttribute (Prelude.Maybe Prelude.Text)
 dbSnapshotAttribute_attributeName = Lens.lens (\DBSnapshotAttribute' {attributeName} -> attributeName) (\s@DBSnapshotAttribute' {} a -> s {attributeName = a} :: DBSnapshotAttribute)
 
 -- | The value or values for the manual DB snapshot attribute.
 --
 -- If the @AttributeName@ field is set to @restore@, then this element
--- returns a list of IDs of the AWS accounts that are authorized to copy or
--- restore the manual DB snapshot. If a value of @all@ is in the list, then
--- the manual DB snapshot is public and available for any AWS account to
--- copy or restore.
+-- returns a list of IDs of the Amazon Web Services accounts that are
+-- authorized to copy or restore the manual DB snapshot. If a value of
+-- @all@ is in the list, then the manual DB snapshot is public and
+-- available for any Amazon Web Services account to copy or restore.
 dbSnapshotAttribute_attributeValues :: Lens.Lens' DBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 dbSnapshotAttribute_attributeValues = Lens.lens (\DBSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBSnapshotAttribute' {} a -> s {attributeValues = a} :: DBSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 

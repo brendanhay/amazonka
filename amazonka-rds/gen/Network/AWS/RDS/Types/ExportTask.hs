@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ExportTask = ExportTask'
   { -- | The time that the snapshot export task completed.
     taskEndTime :: Prelude.Maybe Core.ISO8601,
+    -- | The progress status of the export task.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role that is used to write to Amazon S3 when
     -- exporting a snapshot.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The progress status of the export task.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The total amount of data exported, in gigabytes.
     totalExtractedDataInGB :: Prelude.Maybe Prelude.Int,
     -- | A warning about the snapshot export task.
@@ -61,11 +61,12 @@ data ExportTask = ExportTask'
     --     database schema. This format is valid only for RDS for PostgreSQL
     --     and Aurora PostgreSQL.
     exportOnly :: Prelude.Maybe [Prelude.Text],
-    -- | The key identifier of the AWS KMS customer master key (CMK) that is used
-    -- to encrypt the snapshot when it\'s exported to Amazon S3. The AWS KMS
-    -- CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
-    -- role used for the snapshot export must have encryption and decryption
-    -- permissions to use this AWS KMS CMK.
+    -- | The key identifier of the Amazon Web Services KMS customer master key
+    -- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
+    -- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
+    -- alias ARN, or alias name. The IAM role used for the snapshot export must
+    -- have encryption and decryption permissions to use this Amazon Web
+    -- Services KMS CMK.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The reason the export failed, if it failed.
     failureCause :: Prelude.Maybe Prelude.Text,
@@ -94,10 +95,10 @@ data ExportTask = ExportTask'
 --
 -- 'taskEndTime', 'exportTask_taskEndTime' - The time that the snapshot export task completed.
 --
+-- 'status', 'exportTask_status' - The progress status of the export task.
+--
 -- 'iamRoleArn', 'exportTask_iamRoleArn' - The name of the IAM role that is used to write to Amazon S3 when
 -- exporting a snapshot.
---
--- 'status', 'exportTask_status' - The progress status of the export task.
 --
 -- 'totalExtractedDataInGB', 'exportTask_totalExtractedDataInGB' - The total amount of data exported, in gigabytes.
 --
@@ -123,11 +124,12 @@ data ExportTask = ExportTask'
 --     database schema. This format is valid only for RDS for PostgreSQL
 --     and Aurora PostgreSQL.
 --
--- 'kmsKeyId', 'exportTask_kmsKeyId' - The key identifier of the AWS KMS customer master key (CMK) that is used
--- to encrypt the snapshot when it\'s exported to Amazon S3. The AWS KMS
--- CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
--- role used for the snapshot export must have encryption and decryption
--- permissions to use this AWS KMS CMK.
+-- 'kmsKeyId', 'exportTask_kmsKeyId' - The key identifier of the Amazon Web Services KMS customer master key
+-- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
+-- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
+-- alias ARN, or alias name. The IAM role used for the snapshot export must
+-- have encryption and decryption permissions to use this Amazon Web
+-- Services KMS CMK.
 --
 -- 'failureCause', 'exportTask_failureCause' - The reason the export failed, if it failed.
 --
@@ -147,8 +149,8 @@ newExportTask ::
 newExportTask =
   ExportTask'
     { taskEndTime = Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing,
       status = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
       totalExtractedDataInGB = Prelude.Nothing,
       warningMessage = Prelude.Nothing,
       snapshotTime = Prelude.Nothing,
@@ -167,14 +169,14 @@ newExportTask =
 exportTask_taskEndTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
 exportTask_taskEndTime = Lens.lens (\ExportTask' {taskEndTime} -> taskEndTime) (\s@ExportTask' {} a -> s {taskEndTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
 
+-- | The progress status of the export task.
+exportTask_status :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
+exportTask_status = Lens.lens (\ExportTask' {status} -> status) (\s@ExportTask' {} a -> s {status = a} :: ExportTask)
+
 -- | The name of the IAM role that is used to write to Amazon S3 when
 -- exporting a snapshot.
 exportTask_iamRoleArn :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_iamRoleArn = Lens.lens (\ExportTask' {iamRoleArn} -> iamRoleArn) (\s@ExportTask' {} a -> s {iamRoleArn = a} :: ExportTask)
-
--- | The progress status of the export task.
-exportTask_status :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
-exportTask_status = Lens.lens (\ExportTask' {status} -> status) (\s@ExportTask' {} a -> s {status = a} :: ExportTask)
 
 -- | The total amount of data exported, in gigabytes.
 exportTask_totalExtractedDataInGB :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Int)
@@ -210,11 +212,12 @@ exportTask_s3Bucket = Lens.lens (\ExportTask' {s3Bucket} -> s3Bucket) (\s@Export
 exportTask_exportOnly :: Lens.Lens' ExportTask (Prelude.Maybe [Prelude.Text])
 exportTask_exportOnly = Lens.lens (\ExportTask' {exportOnly} -> exportOnly) (\s@ExportTask' {} a -> s {exportOnly = a} :: ExportTask) Prelude.. Lens.mapping Lens._Coerce
 
--- | The key identifier of the AWS KMS customer master key (CMK) that is used
--- to encrypt the snapshot when it\'s exported to Amazon S3. The AWS KMS
--- CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
--- role used for the snapshot export must have encryption and decryption
--- permissions to use this AWS KMS CMK.
+-- | The key identifier of the Amazon Web Services KMS customer master key
+-- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
+-- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
+-- alias ARN, or alias name. The IAM role used for the snapshot export must
+-- have encryption and decryption permissions to use this Amazon Web
+-- Services KMS CMK.
 exportTask_kmsKeyId :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_kmsKeyId = Lens.lens (\ExportTask' {kmsKeyId} -> kmsKeyId) (\s@ExportTask' {} a -> s {kmsKeyId = a} :: ExportTask)
 
@@ -248,8 +251,8 @@ instance Core.FromXML ExportTask where
   parseXML x =
     ExportTask'
       Prelude.<$> (x Core..@? "TaskEndTime")
-      Prelude.<*> (x Core..@? "IamRoleArn")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "IamRoleArn")
       Prelude.<*> (x Core..@? "TotalExtractedDataInGB")
       Prelude.<*> (x Core..@? "WarningMessage")
       Prelude.<*> (x Core..@? "SnapshotTime")

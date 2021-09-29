@@ -108,6 +108,26 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     -- __Aurora PostgreSQL__
     --
     -- Example: @aurora-postgresql9.6@
+    --
+    -- To list all of the available parameter group families for a DB engine,
+    -- use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+    --
+    -- For example, to list all of the available parameter group families for
+    -- the Aurora PostgreSQL DB engine, use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine aurora-postgresql@
+    --
+    -- The output contains duplicates.
+    --
+    -- The following are the valid DB engine values:
+    --
+    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+    --
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    --
+    -- -   @aurora-postgresql@
     dbParameterGroupFamily :: Prelude.Text,
     -- | The description for the DB cluster parameter group.
     description :: Prelude.Text
@@ -145,6 +165,26 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 -- __Aurora PostgreSQL__
 --
 -- Example: @aurora-postgresql9.6@
+--
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the Aurora PostgreSQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine aurora-postgresql@
+--
+-- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
 --
 -- 'description', 'createDBClusterParameterGroup_description' - The description for the DB cluster parameter group.
 newCreateDBClusterParameterGroup ::
@@ -196,6 +236,26 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 -- __Aurora PostgreSQL__
 --
 -- Example: @aurora-postgresql9.6@
+--
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the Aurora PostgreSQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine aurora-postgresql@
+--
+-- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
 createDBClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
 createDBClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBClusterParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBClusterParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
 

@@ -40,8 +40,8 @@ module Network.AWS.RDS.DescribeDBClusters
     describeDBClusters_includeShared,
     describeDBClusters_dbClusterIdentifier,
     describeDBClusters_filters,
-    describeDBClusters_marker,
     describeDBClusters_maxRecords,
+    describeDBClusters_marker,
 
     -- * Destructuring the Response
     DescribeDBClustersResponse (..),
@@ -66,7 +66,8 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
   { -- | Optional Boolean parameter that specifies whether the output includes
-    -- information about clusters shared from other AWS accounts.
+    -- information about clusters shared from other Amazon Web Services
+    -- accounts.
     includeShared :: Prelude.Maybe Prelude.Bool,
     -- | The user-supplied DB cluster identifier. If this parameter is specified,
     -- information from only the specific DB cluster is returned. This
@@ -80,14 +81,21 @@ data DescribeDBClusters = DescribeDBClusters'
     --
     -- Supported filters:
     --
+    -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
+    --     will only include information about the DB clusters associated with
+    --     these clone groups.
+    --
     -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
     --     Amazon Resource Names (ARNs). The results list will only include
     --     information about the DB clusters identified by these ARNs.
+    --
+    -- -   @domain@ - Accepts Active Directory directory IDs. The results list
+    --     will only include information about the DB clusters associated with
+    --     these domains.
+    --
+    -- -   @engine@ - Accepts engine names. The results list will only include
+    --     information about the DB clusters for these engines.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous @DescribeDBClusters@
-    -- request. If this parameter is specified, the response includes only
-    -- records beyond the marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -96,7 +104,11 @@ data DescribeDBClusters = DescribeDBClusters'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous @DescribeDBClusters@
+    -- request. If this parameter is specified, the response includes only
+    -- records beyond the marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +121,8 @@ data DescribeDBClusters = DescribeDBClusters'
 -- for backwards compatibility:
 --
 -- 'includeShared', 'describeDBClusters_includeShared' - Optional Boolean parameter that specifies whether the output includes
--- information about clusters shared from other AWS accounts.
+-- information about clusters shared from other Amazon Web Services
+-- accounts.
 --
 -- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified,
 -- information from only the specific DB cluster is returned. This
@@ -123,13 +136,20 @@ data DescribeDBClusters = DescribeDBClusters'
 --
 -- Supported filters:
 --
+-- -   @clone-group-id@ - Accepts clone group identifiers. The results list
+--     will only include information about the DB clusters associated with
+--     these clone groups.
+--
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
 --     Amazon Resource Names (ARNs). The results list will only include
 --     information about the DB clusters identified by these ARNs.
 --
--- 'marker', 'describeDBClusters_marker' - An optional pagination token provided by a previous @DescribeDBClusters@
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- -   @domain@ - Accepts Active Directory directory IDs. The results list
+--     will only include information about the DB clusters associated with
+--     these domains.
+--
+-- -   @engine@ - Accepts engine names. The results list will only include
+--     information about the DB clusters for these engines.
 --
 -- 'maxRecords', 'describeDBClusters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -139,6 +159,10 @@ data DescribeDBClusters = DescribeDBClusters'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBClusters_marker' - An optional pagination token provided by a previous @DescribeDBClusters@
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
 newDescribeDBClusters ::
   DescribeDBClusters
 newDescribeDBClusters =
@@ -147,12 +171,13 @@ newDescribeDBClusters =
         Prelude.Nothing,
       dbClusterIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Optional Boolean parameter that specifies whether the output includes
--- information about clusters shared from other AWS accounts.
+-- information about clusters shared from other Amazon Web Services
+-- accounts.
 describeDBClusters_includeShared :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Bool)
 describeDBClusters_includeShared = Lens.lens (\DescribeDBClusters' {includeShared} -> includeShared) (\s@DescribeDBClusters' {} a -> s {includeShared = a} :: DescribeDBClusters)
 
@@ -170,17 +195,22 @@ describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClus
 --
 -- Supported filters:
 --
+-- -   @clone-group-id@ - Accepts clone group identifiers. The results list
+--     will only include information about the DB clusters associated with
+--     these clone groups.
+--
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
 --     Amazon Resource Names (ARNs). The results list will only include
 --     information about the DB clusters identified by these ARNs.
+--
+-- -   @domain@ - Accepts Active Directory directory IDs. The results list
+--     will only include information about the DB clusters associated with
+--     these domains.
+--
+-- -   @engine@ - Accepts engine names. The results list will only include
+--     information about the DB clusters for these engines.
 describeDBClusters_filters :: Lens.Lens' DescribeDBClusters (Prelude.Maybe [Filter])
 describeDBClusters_filters = Lens.lens (\DescribeDBClusters' {filters} -> filters) (\s@DescribeDBClusters' {} a -> s {filters = a} :: DescribeDBClusters) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional pagination token provided by a previous @DescribeDBClusters@
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
-describeDBClusters_marker :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
-describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) (\s@DescribeDBClusters' {} a -> s {marker = a} :: DescribeDBClusters)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -192,6 +222,12 @@ describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) 
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusters_maxRecords :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Int)
 describeDBClusters_maxRecords = Lens.lens (\DescribeDBClusters' {maxRecords} -> maxRecords) (\s@DescribeDBClusters' {} a -> s {maxRecords = a} :: DescribeDBClusters)
+
+-- | An optional pagination token provided by a previous @DescribeDBClusters@
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
+describeDBClusters_marker :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
+describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) (\s@DescribeDBClusters' {} a -> s {marker = a} :: DescribeDBClusters)
 
 instance Core.AWSPager DescribeDBClusters where
   page rq rs
@@ -254,8 +290,8 @@ instance Core.ToQuery DescribeDBClusters where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the result of a successful invocation of the

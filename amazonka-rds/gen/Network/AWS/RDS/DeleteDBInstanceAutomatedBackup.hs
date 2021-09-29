@@ -57,7 +57,7 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
     -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
     dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB instance, which can\'t be changed and
-    -- which is unique to an AWS Region.
+    -- which is unique to an Amazon Web Services Region.
     dbiResourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
 --
 -- 'dbiResourceId', 'deleteDBInstanceAutomatedBackup_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an AWS Region.
+-- which is unique to an Amazon Web Services Region.
 newDeleteDBInstanceAutomatedBackup ::
   DeleteDBInstanceAutomatedBackup
 newDeleteDBInstanceAutomatedBackup =
@@ -92,7 +92,7 @@ deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' Dele
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DeleteDBInstanceAutomatedBackup)
 
 -- | The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an AWS Region.
+-- which is unique to an Amazon Web Services Region.
 deleteDBInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 deleteDBInstanceAutomatedBackup_dbiResourceId = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbiResourceId} -> dbiResourceId) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
 

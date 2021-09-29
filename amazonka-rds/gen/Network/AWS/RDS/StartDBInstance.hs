@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an Amazon RDS DB instance that was stopped using the AWS console,
--- the stop-db-instance AWS CLI command, or the StopDBInstance action.
+-- Starts an Amazon RDS DB instance that was stopped using the Amazon Web
+-- Services console, the stop-db-instance CLI command, or the
+-- StopDBInstance action.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html Starting an Amazon RDS DB instance That Was Previously Stopped>

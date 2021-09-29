@@ -25,25 +25,26 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB cluster snapshot attribute.
 --
--- Manual DB cluster snapshot attributes are used to authorize other AWS
--- accounts to restore a manual DB cluster snapshot. For more information,
--- see the @ModifyDBClusterSnapshotAttribute@ API action.
+-- Manual DB cluster snapshot attributes are used to authorize other Amazon
+-- Web Services accounts to restore a manual DB cluster snapshot. For more
+-- information, see the @ModifyDBClusterSnapshotAttribute@ API action.
 --
 -- /See:/ 'newDBClusterSnapshotAttribute' smart constructor.
 data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
   { -- | The name of the manual DB cluster snapshot attribute.
     --
-    -- The attribute named @restore@ refers to the list of AWS accounts that
-    -- have permission to copy or restore the manual DB cluster snapshot. For
-    -- more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
+    -- The attribute named @restore@ refers to the list of Amazon Web Services
+    -- accounts that have permission to copy or restore the manual DB cluster
+    -- snapshot. For more information, see the
+    -- @ModifyDBClusterSnapshotAttribute@ API action.
     attributeName :: Prelude.Maybe Prelude.Text,
     -- | The value(s) for the manual DB cluster snapshot attribute.
     --
     -- If the @AttributeName@ field is set to @restore@, then this element
-    -- returns a list of IDs of the AWS accounts that are authorized to copy or
-    -- restore the manual DB cluster snapshot. If a value of @all@ is in the
-    -- list, then the manual DB cluster snapshot is public and available for
-    -- any AWS account to copy or restore.
+    -- returns a list of IDs of the Amazon Web Services accounts that are
+    -- authorized to copy or restore the manual DB cluster snapshot. If a value
+    -- of @all@ is in the list, then the manual DB cluster snapshot is public
+    -- and available for any Amazon Web Services account to copy or restore.
     attributeValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,17 +59,18 @@ data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
 --
 -- 'attributeName', 'dbClusterSnapshotAttribute_attributeName' - The name of the manual DB cluster snapshot attribute.
 --
--- The attribute named @restore@ refers to the list of AWS accounts that
--- have permission to copy or restore the manual DB cluster snapshot. For
--- more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
+-- The attribute named @restore@ refers to the list of Amazon Web Services
+-- accounts that have permission to copy or restore the manual DB cluster
+-- snapshot. For more information, see the
+-- @ModifyDBClusterSnapshotAttribute@ API action.
 --
 -- 'attributeValues', 'dbClusterSnapshotAttribute_attributeValues' - The value(s) for the manual DB cluster snapshot attribute.
 --
 -- If the @AttributeName@ field is set to @restore@, then this element
--- returns a list of IDs of the AWS accounts that are authorized to copy or
--- restore the manual DB cluster snapshot. If a value of @all@ is in the
--- list, then the manual DB cluster snapshot is public and available for
--- any AWS account to copy or restore.
+-- returns a list of IDs of the Amazon Web Services accounts that are
+-- authorized to copy or restore the manual DB cluster snapshot. If a value
+-- of @all@ is in the list, then the manual DB cluster snapshot is public
+-- and available for any Amazon Web Services account to copy or restore.
 newDBClusterSnapshotAttribute ::
   DBClusterSnapshotAttribute
 newDBClusterSnapshotAttribute =
@@ -80,19 +82,20 @@ newDBClusterSnapshotAttribute =
 
 -- | The name of the manual DB cluster snapshot attribute.
 --
--- The attribute named @restore@ refers to the list of AWS accounts that
--- have permission to copy or restore the manual DB cluster snapshot. For
--- more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
+-- The attribute named @restore@ refers to the list of Amazon Web Services
+-- accounts that have permission to copy or restore the manual DB cluster
+-- snapshot. For more information, see the
+-- @ModifyDBClusterSnapshotAttribute@ API action.
 dbClusterSnapshotAttribute_attributeName :: Lens.Lens' DBClusterSnapshotAttribute (Prelude.Maybe Prelude.Text)
 dbClusterSnapshotAttribute_attributeName = Lens.lens (\DBClusterSnapshotAttribute' {attributeName} -> attributeName) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeName = a} :: DBClusterSnapshotAttribute)
 
 -- | The value(s) for the manual DB cluster snapshot attribute.
 --
 -- If the @AttributeName@ field is set to @restore@, then this element
--- returns a list of IDs of the AWS accounts that are authorized to copy or
--- restore the manual DB cluster snapshot. If a value of @all@ is in the
--- list, then the manual DB cluster snapshot is public and available for
--- any AWS account to copy or restore.
+-- returns a list of IDs of the Amazon Web Services accounts that are
+-- authorized to copy or restore the manual DB cluster snapshot. If a value
+-- of @all@ is in the list, then the manual DB cluster snapshot is public
+-- and available for any Amazon Web Services account to copy or restore.
 dbClusterSnapshotAttribute_attributeValues :: Lens.Lens' DBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 dbClusterSnapshotAttribute_attributeValues = Lens.lens (\DBClusterSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeValues = a} :: DBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 

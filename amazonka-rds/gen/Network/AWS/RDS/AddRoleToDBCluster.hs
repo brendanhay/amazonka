@@ -22,7 +22,7 @@
 --
 -- Associates an Identity and Access Management (IAM) role from an Amazon
 -- Aurora DB cluster. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html Authorizing Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your Behalf>
 -- in the /Amazon Aurora User Guide/.
 --
 -- This action only applies to Aurora DB clusters.

@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Request Lenses
     describeOptionGroupOptions_majorEngineVersion,
     describeOptionGroupOptions_filters,
-    describeOptionGroupOptions_marker,
     describeOptionGroupOptions_maxRecords,
+    describeOptionGroupOptions_marker,
     describeOptionGroupOptions_engineName,
 
     -- * Destructuring the Response
@@ -62,10 +62,6 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
     majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -75,6 +71,10 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A required parameter. Options available for the given engine name are
     -- described.
     --
@@ -86,11 +86,11 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
     --
     -- -   @oracle-ee@
     --
+    -- -   @oracle-ee-cdb@
+    --
     -- -   @oracle-se2@
     --
-    -- -   @oracle-se1@
-    --
-    -- -   @oracle-se@
+    -- -   @oracle-se2-cdb@
     --
     -- -   @postgres@
     --
@@ -118,10 +118,6 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 --
 -- 'filters', 'describeOptionGroupOptions_filters' - This parameter isn\'t currently supported.
 --
--- 'marker', 'describeOptionGroupOptions_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeOptionGroupOptions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -130,6 +126,10 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeOptionGroupOptions_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'engineName', 'describeOptionGroupOptions_engineName' - A required parameter. Options available for the given engine name are
 -- described.
@@ -142,11 +142,11 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -166,8 +166,8 @@ newDescribeOptionGroupOptions pEngineName_ =
     { majorEngineVersion =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       engineName = pEngineName_
     }
 
@@ -180,12 +180,6 @@ describeOptionGroupOptions_majorEngineVersion = Lens.lens (\DescribeOptionGroupO
 describeOptionGroupOptions_filters :: Lens.Lens' DescribeOptionGroupOptions (Prelude.Maybe [Filter])
 describeOptionGroupOptions_filters = Lens.lens (\DescribeOptionGroupOptions' {filters} -> filters) (\s@DescribeOptionGroupOptions' {} a -> s {filters = a} :: DescribeOptionGroupOptions) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeOptionGroupOptions_marker :: Lens.Lens' DescribeOptionGroupOptions (Prelude.Maybe Prelude.Text)
-describeOptionGroupOptions_marker = Lens.lens (\DescribeOptionGroupOptions' {marker} -> marker) (\s@DescribeOptionGroupOptions' {} a -> s {marker = a} :: DescribeOptionGroupOptions)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -196,6 +190,12 @@ describeOptionGroupOptions_marker = Lens.lens (\DescribeOptionGroupOptions' {mar
 -- Constraints: Minimum 20, maximum 100.
 describeOptionGroupOptions_maxRecords :: Lens.Lens' DescribeOptionGroupOptions (Prelude.Maybe Prelude.Int)
 describeOptionGroupOptions_maxRecords = Lens.lens (\DescribeOptionGroupOptions' {maxRecords} -> maxRecords) (\s@DescribeOptionGroupOptions' {} a -> s {maxRecords = a} :: DescribeOptionGroupOptions)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeOptionGroupOptions_marker :: Lens.Lens' DescribeOptionGroupOptions (Prelude.Maybe Prelude.Text)
+describeOptionGroupOptions_marker = Lens.lens (\DescribeOptionGroupOptions' {marker} -> marker) (\s@DescribeOptionGroupOptions' {} a -> s {marker = a} :: DescribeOptionGroupOptions)
 
 -- | A required parameter. Options available for the given engine name are
 -- described.
@@ -208,11 +208,11 @@ describeOptionGroupOptions_maxRecords = Lens.lens (\DescribeOptionGroupOptions' 
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -287,8 +287,8 @@ instance Core.ToQuery DescribeOptionGroupOptions where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "EngineName" Core.=: engineName
       ]
 

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB subnet group. DB subnet groups must contain at least
--- one subnet in at least two AZs in the AWS Region.
+-- one subnet in at least two AZs in the Amazon Web Services Region.
 module Network.AWS.RDS.CreateDBSubnetGroup
   ( -- * Creating a Request
     CreateDBSubnetGroup (..),

@@ -32,7 +32,7 @@
 --
 -- For more information about failing over an Amazon Aurora global
 -- database, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.managed-failover Managed planned failover for Amazon Aurora global databases>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover Managed planned failover for Amazon Aurora global databases>
 -- in the /Amazon Aurora User Guide./
 --
 -- This action applies to GlobalCluster (Aurora global databases) only. Use
@@ -80,7 +80,7 @@ data FailoverGlobalCluster = FailoverGlobalCluster'
     -- | Identifier of the secondary Aurora DB cluster that you want to promote
     -- to primary for the Aurora global database (GlobalCluster.) Use the
     -- Amazon Resource Name (ARN) for the identifier so that Aurora can locate
-    -- the cluster in its AWS Region.
+    -- the cluster in its Amazon Web Services Region.
     targetDbClusterIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,7 +106,7 @@ data FailoverGlobalCluster = FailoverGlobalCluster'
 -- 'targetDbClusterIdentifier', 'failoverGlobalCluster_targetDbClusterIdentifier' - Identifier of the secondary Aurora DB cluster that you want to promote
 -- to primary for the Aurora global database (GlobalCluster.) Use the
 -- Amazon Resource Name (ARN) for the identifier so that Aurora can locate
--- the cluster in its AWS Region.
+-- the cluster in its Amazon Web Services Region.
 newFailoverGlobalCluster ::
   -- | 'globalClusterIdentifier'
   Prelude.Text ->
@@ -138,7 +138,7 @@ failoverGlobalCluster_globalClusterIdentifier = Lens.lens (\FailoverGlobalCluste
 -- | Identifier of the secondary Aurora DB cluster that you want to promote
 -- to primary for the Aurora global database (GlobalCluster.) Use the
 -- Amazon Resource Name (ARN) for the identifier so that Aurora can locate
--- the cluster in its AWS Region.
+-- the cluster in its Amazon Web Services Region.
 failoverGlobalCluster_targetDbClusterIdentifier :: Lens.Lens' FailoverGlobalCluster Prelude.Text
 failoverGlobalCluster_targetDbClusterIdentifier = Lens.lens (\FailoverGlobalCluster' {targetDbClusterIdentifier} -> targetDbClusterIdentifier) (\s@FailoverGlobalCluster' {} a -> s {targetDbClusterIdentifier = a} :: FailoverGlobalCluster)
 

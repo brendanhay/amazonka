@@ -49,15 +49,17 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication,
     restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
     restoreDBClusterToPointInTime_optionGroupName,
-    restoreDBClusterToPointInTime_restoreType,
     restoreDBClusterToPointInTime_domain,
+    restoreDBClusterToPointInTime_restoreType,
+    restoreDBClusterToPointInTime_scalingConfiguration,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
+    restoreDBClusterToPointInTime_engineMode,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_kmsKeyId,
     restoreDBClusterToPointInTime_tags,
     restoreDBClusterToPointInTime_port,
-    restoreDBClusterToPointInTime_domainIAMRoleName,
     restoreDBClusterToPointInTime_restoreToTime,
+    restoreDBClusterToPointInTime_domainIAMRoleName,
     restoreDBClusterToPointInTime_copyTagsToSnapshot,
     restoreDBClusterToPointInTime_backtrackWindow,
     restoreDBClusterToPointInTime_dbClusterParameterGroupName,
@@ -90,9 +92,9 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether to enable mapping of AWS Identity and
-    -- Access Management (IAM) accounts to database accounts. By default,
-    -- mapping is disabled.
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -106,6 +108,15 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | The name of the option group for the new DB cluster.
     optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the Active Directory directory ID to restore the DB cluster in.
+    -- The domain must be created prior to this operation.
+    --
+    -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+    -- Authentication to authenticate users that connect to the DB cluster. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+    -- in the /Amazon Aurora User Guide/.
+    domain :: Prelude.Maybe Prelude.Text,
     -- | The type of restore to be performed. You can specify one of the
     -- following values:
     --
@@ -121,15 +132,9 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
     -- restored as a full copy of the source DB cluster.
     restoreType :: Prelude.Maybe Prelude.Text,
-    -- | Specify the Active Directory directory ID to restore the DB cluster in.
-    -- The domain must be created prior to this operation.
-    --
-    -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
-    -- Authentication to authenticate users that connect to the DB cluster. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
-    -- in the /Amazon Aurora User Guide/.
-    domain :: Prelude.Maybe Prelude.Text,
+    -- | For DB clusters in @serverless@ DB engine mode, the scaling properties
+    -- of the DB cluster.
+    scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
     -- | The DB subnet group name to use for the new DB cluster.
     --
     -- Constraints: If supplied, must match the name of an existing
@@ -137,26 +142,35 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The engine mode of the new cluster. Specify @provisioned@ or
+    -- @serverless@, depending on the type of the cluster you are creating. You
+    -- can create an Aurora Serverless clone from a provisioned cluster, or a
+    -- provisioned clone from an Aurora Serverless cluster. To create a clone
+    -- that is an Aurora Serverless cluster, the original cluster must be an
+    -- Aurora Serverless cluster or an encrypted provisioned cluster.
+    engineMode :: Prelude.Maybe Prelude.Text,
     -- | A list of VPC security groups that the new DB cluster belongs to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS KMS key identifier to use when restoring an encrypted DB cluster
-    -- from an encrypted DB cluster.
+    -- | The Amazon Web Services KMS key identifier to use when restoring an
+    -- encrypted DB cluster from an encrypted DB cluster.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK). To use a CMK in a
-    -- different AWS account, specify the key ARN or alias ARN.
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
+    -- the key ARN or alias ARN.
     --
     -- You can restore to a new DB cluster and encrypt the new DB cluster with
-    -- a AWS KMS CMK that is different than the AWS KMS key used to encrypt the
-    -- source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK
-    -- identified by the @KmsKeyId@ parameter.
+    -- a Amazon Web Services KMS CMK that is different than the Amazon Web
+    -- Services KMS key used to encrypt the source DB cluster. The new DB
+    -- cluster is encrypted with the Amazon Web Services KMS CMK identified by
+    -- the @KmsKeyId@ parameter.
     --
     -- If you don\'t specify a value for the @KmsKeyId@ parameter, then the
     -- following occurs:
     --
     -- -   If the DB cluster is encrypted, then the restored DB cluster is
-    --     encrypted using the AWS KMS CMK that was used to encrypt the source
-    --     DB cluster.
+    --     encrypted using the Amazon Web Services KMS CMK that was used to
+    --     encrypt the source DB cluster.
     --
     -- -   If the DB cluster isn\'t encrypted, then the restored DB cluster
     --     isn\'t encrypted.
@@ -171,9 +185,6 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Default: The default port for the engine.
     port :: Prelude.Maybe Prelude.Int,
-    -- | Specify the name of the IAM role to be used when making API calls to the
-    -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | The date and time to restore the DB cluster to.
     --
     -- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
@@ -194,6 +205,9 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Example: @2015-03-07T23:45:00Z@
     restoreToTime :: Prelude.Maybe Core.ISO8601,
+    -- | Specify the name of the IAM role to be used when making API calls to the
+    -- Directory Service.
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the restored DB
     -- cluster to snapshots of the restored DB cluster. The default is not to
     -- copy them.
@@ -263,9 +277,9 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
 --
--- 'enableIAMDatabaseAuthentication', 'restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- 'enableIAMDatabaseAuthentication', 'restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -278,6 +292,15 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- in the /Amazon Aurora User Guide/.
 --
 -- 'optionGroupName', 'restoreDBClusterToPointInTime_optionGroupName' - The name of the option group for the new DB cluster.
+--
+-- 'domain', 'restoreDBClusterToPointInTime_domain' - Specify the Active Directory directory ID to restore the DB cluster in.
+-- The domain must be created prior to this operation.
+--
+-- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+-- Authentication to authenticate users that connect to the DB cluster. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon Aurora User Guide/.
 --
 -- 'restoreType', 'restoreDBClusterToPointInTime_restoreType' - The type of restore to be performed. You can specify one of the
 -- following values:
@@ -294,14 +317,8 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
 -- restored as a full copy of the source DB cluster.
 --
--- 'domain', 'restoreDBClusterToPointInTime_domain' - Specify the Active Directory directory ID to restore the DB cluster in.
--- The domain must be created prior to this operation.
---
--- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon Aurora User Guide/.
+-- 'scalingConfiguration', 'restoreDBClusterToPointInTime_scalingConfiguration' - For DB clusters in @serverless@ DB engine mode, the scaling properties
+-- of the DB cluster.
 --
 -- 'dbSubnetGroupName', 'restoreDBClusterToPointInTime_dbSubnetGroupName' - The DB subnet group name to use for the new DB cluster.
 --
@@ -310,26 +327,35 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- Example: @mySubnetgroup@
 --
+-- 'engineMode', 'restoreDBClusterToPointInTime_engineMode' - The engine mode of the new cluster. Specify @provisioned@ or
+-- @serverless@, depending on the type of the cluster you are creating. You
+-- can create an Aurora Serverless clone from a provisioned cluster, or a
+-- provisioned clone from an Aurora Serverless cluster. To create a clone
+-- that is an Aurora Serverless cluster, the original cluster must be an
+-- Aurora Serverless cluster or an encrypted provisioned cluster.
+--
 -- 'vpcSecurityGroupIds', 'restoreDBClusterToPointInTime_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
 --
--- 'kmsKeyId', 'restoreDBClusterToPointInTime_kmsKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster
--- from an encrypted DB cluster.
+-- 'kmsKeyId', 'restoreDBClusterToPointInTime_kmsKeyId' - The Amazon Web Services KMS key identifier to use when restoring an
+-- encrypted DB cluster from an encrypted DB cluster.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- You can restore to a new DB cluster and encrypt the new DB cluster with
--- a AWS KMS CMK that is different than the AWS KMS key used to encrypt the
--- source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK
--- identified by the @KmsKeyId@ parameter.
+-- a Amazon Web Services KMS CMK that is different than the Amazon Web
+-- Services KMS key used to encrypt the source DB cluster. The new DB
+-- cluster is encrypted with the Amazon Web Services KMS CMK identified by
+-- the @KmsKeyId@ parameter.
 --
 -- If you don\'t specify a value for the @KmsKeyId@ parameter, then the
 -- following occurs:
 --
 -- -   If the DB cluster is encrypted, then the restored DB cluster is
---     encrypted using the AWS KMS CMK that was used to encrypt the source
---     DB cluster.
+--     encrypted using the Amazon Web Services KMS CMK that was used to
+--     encrypt the source DB cluster.
 --
 -- -   If the DB cluster isn\'t encrypted, then the restored DB cluster
 --     isn\'t encrypted.
@@ -344,9 +370,6 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- Constraints: A value from @1150-65535@.
 --
 -- Default: The default port for the engine.
---
--- 'domainIAMRoleName', 'restoreDBClusterToPointInTime_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
 --
 -- 'restoreToTime', 'restoreDBClusterToPointInTime_restoreToTime' - The date and time to restore the DB cluster to.
 --
@@ -367,6 +390,9 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --     @copy-on-write@
 --
 -- Example: @2015-03-07T23:45:00Z@
+--
+-- 'domainIAMRoleName', 'restoreDBClusterToPointInTime_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
 --
 -- 'copyTagsToSnapshot', 'restoreDBClusterToPointInTime_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
 -- cluster to snapshots of the restored DB cluster. The default is not to
@@ -438,15 +464,17 @@ newRestoreDBClusterToPointInTime
         enableCloudwatchLogsExports =
           Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
-        restoreType = Prelude.Nothing,
         domain = Prelude.Nothing,
+        restoreType = Prelude.Nothing,
+        scalingConfiguration = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
+        engineMode = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
         port = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
         restoreToTime = Prelude.Nothing,
+        domainIAMRoleName = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         backtrackWindow = Prelude.Nothing,
         dbClusterParameterGroupName =
@@ -463,9 +491,9 @@ newRestoreDBClusterToPointInTime
 restoreDBClusterToPointInTime_deletionProtection :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
 restoreDBClusterToPointInTime_deletionProtection = Lens.lens (\RestoreDBClusterToPointInTime' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterToPointInTime' {} a -> s {deletionProtection = a} :: RestoreDBClusterToPointInTime)
 
--- | A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -485,6 +513,17 @@ restoreDBClusterToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreD
 restoreDBClusterToPointInTime_optionGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_optionGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {optionGroupName = a} :: RestoreDBClusterToPointInTime)
 
+-- | Specify the Active Directory directory ID to restore the DB cluster in.
+-- The domain must be created prior to this operation.
+--
+-- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+-- Authentication to authenticate users that connect to the DB cluster. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon Aurora User Guide/.
+restoreDBClusterToPointInTime_domain :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_domain = Lens.lens (\RestoreDBClusterToPointInTime' {domain} -> domain) (\s@RestoreDBClusterToPointInTime' {} a -> s {domain = a} :: RestoreDBClusterToPointInTime)
+
 -- | The type of restore to be performed. You can specify one of the
 -- following values:
 --
@@ -502,16 +541,10 @@ restoreDBClusterToPointInTime_optionGroupName = Lens.lens (\RestoreDBClusterToPo
 restoreDBClusterToPointInTime_restoreType :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_restoreType = Lens.lens (\RestoreDBClusterToPointInTime' {restoreType} -> restoreType) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreType = a} :: RestoreDBClusterToPointInTime)
 
--- | Specify the Active Directory directory ID to restore the DB cluster in.
--- The domain must be created prior to this operation.
---
--- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon Aurora User Guide/.
-restoreDBClusterToPointInTime_domain :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
-restoreDBClusterToPointInTime_domain = Lens.lens (\RestoreDBClusterToPointInTime' {domain} -> domain) (\s@RestoreDBClusterToPointInTime' {} a -> s {domain = a} :: RestoreDBClusterToPointInTime)
+-- | For DB clusters in @serverless@ DB engine mode, the scaling properties
+-- of the DB cluster.
+restoreDBClusterToPointInTime_scalingConfiguration :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe ScalingConfiguration)
+restoreDBClusterToPointInTime_scalingConfiguration = Lens.lens (\RestoreDBClusterToPointInTime' {scalingConfiguration} -> scalingConfiguration) (\s@RestoreDBClusterToPointInTime' {} a -> s {scalingConfiguration = a} :: RestoreDBClusterToPointInTime)
 
 -- | The DB subnet group name to use for the new DB cluster.
 --
@@ -522,28 +555,39 @@ restoreDBClusterToPointInTime_domain = Lens.lens (\RestoreDBClusterToPointInTime
 restoreDBClusterToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_dbSubnetGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterToPointInTime)
 
+-- | The engine mode of the new cluster. Specify @provisioned@ or
+-- @serverless@, depending on the type of the cluster you are creating. You
+-- can create an Aurora Serverless clone from a provisioned cluster, or a
+-- provisioned clone from an Aurora Serverless cluster. To create a clone
+-- that is an Aurora Serverless cluster, the original cluster must be an
+-- Aurora Serverless cluster or an encrypted provisioned cluster.
+restoreDBClusterToPointInTime_engineMode :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_engineMode = Lens.lens (\RestoreDBClusterToPointInTime' {engineMode} -> engineMode) (\s@RestoreDBClusterToPointInTime' {} a -> s {engineMode = a} :: RestoreDBClusterToPointInTime)
+
 -- | A list of VPC security groups that the new DB cluster belongs to.
 restoreDBClusterToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
 restoreDBClusterToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterToPointInTime' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterToPointInTime' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS KMS key identifier to use when restoring an encrypted DB cluster
--- from an encrypted DB cluster.
+-- | The Amazon Web Services KMS key identifier to use when restoring an
+-- encrypted DB cluster from an encrypted DB cluster.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- You can restore to a new DB cluster and encrypt the new DB cluster with
--- a AWS KMS CMK that is different than the AWS KMS key used to encrypt the
--- source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK
--- identified by the @KmsKeyId@ parameter.
+-- a Amazon Web Services KMS CMK that is different than the Amazon Web
+-- Services KMS key used to encrypt the source DB cluster. The new DB
+-- cluster is encrypted with the Amazon Web Services KMS CMK identified by
+-- the @KmsKeyId@ parameter.
 --
 -- If you don\'t specify a value for the @KmsKeyId@ parameter, then the
 -- following occurs:
 --
 -- -   If the DB cluster is encrypted, then the restored DB cluster is
---     encrypted using the AWS KMS CMK that was used to encrypt the source
---     DB cluster.
+--     encrypted using the Amazon Web Services KMS CMK that was used to
+--     encrypt the source DB cluster.
 --
 -- -   If the DB cluster isn\'t encrypted, then the restored DB cluster
 --     isn\'t encrypted.
@@ -564,11 +608,6 @@ restoreDBClusterToPointInTime_tags = Lens.lens (\RestoreDBClusterToPointInTime' 
 -- Default: The default port for the engine.
 restoreDBClusterToPointInTime_port :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Int)
 restoreDBClusterToPointInTime_port = Lens.lens (\RestoreDBClusterToPointInTime' {port} -> port) (\s@RestoreDBClusterToPointInTime' {} a -> s {port = a} :: RestoreDBClusterToPointInTime)
-
--- | Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
-restoreDBClusterToPointInTime_domainIAMRoleName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
-restoreDBClusterToPointInTime_domainIAMRoleName = Lens.lens (\RestoreDBClusterToPointInTime' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBClusterToPointInTime' {} a -> s {domainIAMRoleName = a} :: RestoreDBClusterToPointInTime)
 
 -- | The date and time to restore the DB cluster to.
 --
@@ -591,6 +630,11 @@ restoreDBClusterToPointInTime_domainIAMRoleName = Lens.lens (\RestoreDBClusterTo
 -- Example: @2015-03-07T23:45:00Z@
 restoreDBClusterToPointInTime_restoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.UTCTime)
 restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPointInTime' {restoreToTime} -> restoreToTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Core._Time
+
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+restoreDBClusterToPointInTime_domainIAMRoleName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_domainIAMRoleName = Lens.lens (\RestoreDBClusterToPointInTime' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBClusterToPointInTime' {} a -> s {domainIAMRoleName = a} :: RestoreDBClusterToPointInTime)
 
 -- | A value that indicates whether to copy all tags from the restored DB
 -- cluster to snapshots of the restored DB cluster. The default is not to
@@ -705,9 +749,11 @@ instance Core.ToQuery RestoreDBClusterToPointInTime where
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "OptionGroupName" Core.=: optionGroupName,
-        "RestoreType" Core.=: restoreType,
         "Domain" Core.=: domain,
+        "RestoreType" Core.=: restoreType,
+        "ScalingConfiguration" Core.=: scalingConfiguration,
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "EngineMode" Core.=: engineMode,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
@@ -718,8 +764,8 @@ instance Core.ToQuery RestoreDBClusterToPointInTime where
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
         "RestoreToTime" Core.=: restoreToTime,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "BacktrackWindow" Core.=: backtrackWindow,
         "DBClusterParameterGroupName"

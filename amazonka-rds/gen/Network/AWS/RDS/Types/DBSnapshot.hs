@@ -34,6 +34,9 @@ import Network.AWS.RDS.Types.Tag
 data DBSnapshot = DBSnapshot'
   { -- | Specifies the status of this DB snapshot.
     status :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the time of the CreateDBSnapshot operation in Coordinated
+    -- Universal Time (UTC). Doesn\'t change when the snapshot is copied.
+    originalSnapshotCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the storage type associated with DB snapshot.
     storageType :: Prelude.Maybe Prelude.Text,
     -- | Specifies the identifier for the DB snapshot.
@@ -46,34 +49,35 @@ data DBSnapshot = DBSnapshot'
     -- instance, from which the snapshot was taken, was created.
     instanceCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | The identifier for the source DB instance, which can\'t be changed and
-    -- which is unique to an AWS Region.
+    -- which is unique to an Amazon Web Services Region.
     dbiResourceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the snapshot was taken in Coordinated Universal Time
-    -- (UTC).
+    -- (UTC). Changes for the copy when the snapshot is copied.
     snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | Provides the master username for the DB snapshot.
     masterUsername :: Prelude.Maybe Prelude.Text,
-    -- | If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB
-    -- snapshot.
+    -- | If @Encrypted@ is true, the Amazon Web Services KMS key identifier for
+    -- the encrypted DB snapshot.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK).
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK).
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the DB snapshot.
+    dbSnapshotArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the Availability Zone the DB instance was located
     -- in at the time of the DB snapshot.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the DB snapshot.
-    dbSnapshotArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the version of the database engine.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Provides the type of the DB snapshot.
     snapshotType :: Prelude.Maybe Prelude.Text,
-    -- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
-    -- copied from. It only has value in case of cross-customer or cross-region
-    -- copy.
-    sourceDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | License model information for the restored DB instance.
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
+    -- copied from. It only has a value in the case of a cross-account or
+    -- cross-Region copy.
+    sourceDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the DB instance identifier of the DB instance this DB snapshot
     -- was created from.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
@@ -100,14 +104,15 @@ data DBSnapshot = DBSnapshot'
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the allocated storage size in gibibytes (GiB).
     allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | The AWS Region that the DB snapshot was created in or copied from.
-    sourceRegion :: Prelude.Maybe Prelude.Text,
-    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to
-    -- database accounts is enabled, and otherwise false.
-    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the Provisioned IOPS (I\/O operations per second) value of the
     -- DB instance at the time of the snapshot.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Web Services Region that the DB snapshot was created in or
+    -- copied from.
+    sourceRegion :: Prelude.Maybe Prelude.Text,
+    -- | True if mapping of Amazon Web Services Identity and Access Management
+    -- (IAM) accounts to database accounts is enabled, and otherwise false.
+    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,6 +126,9 @@ data DBSnapshot = DBSnapshot'
 --
 -- 'status', 'dbSnapshot_status' - Specifies the status of this DB snapshot.
 --
+-- 'originalSnapshotCreateTime', 'dbSnapshot_originalSnapshotCreateTime' - Specifies the time of the CreateDBSnapshot operation in Coordinated
+-- Universal Time (UTC). Doesn\'t change when the snapshot is copied.
+--
 -- 'storageType', 'dbSnapshot_storageType' - Specifies the storage type associated with DB snapshot.
 --
 -- 'dbSnapshotIdentifier', 'dbSnapshot_dbSnapshotIdentifier' - Specifies the identifier for the DB snapshot.
@@ -133,33 +141,34 @@ data DBSnapshot = DBSnapshot'
 -- instance, from which the snapshot was taken, was created.
 --
 -- 'dbiResourceId', 'dbSnapshot_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an AWS Region.
+-- which is unique to an Amazon Web Services Region.
 --
 -- 'snapshotCreateTime', 'dbSnapshot_snapshotCreateTime' - Specifies when the snapshot was taken in Coordinated Universal Time
--- (UTC).
+-- (UTC). Changes for the copy when the snapshot is copied.
 --
 -- 'masterUsername', 'dbSnapshot_masterUsername' - Provides the master username for the DB snapshot.
 --
--- 'kmsKeyId', 'dbSnapshot_kmsKeyId' - If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB
--- snapshot.
+-- 'kmsKeyId', 'dbSnapshot_kmsKeyId' - If @Encrypted@ is true, the Amazon Web Services KMS key identifier for
+-- the encrypted DB snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
+--
+-- 'dbSnapshotArn', 'dbSnapshot_dbSnapshotArn' - The Amazon Resource Name (ARN) for the DB snapshot.
 --
 -- 'availabilityZone', 'dbSnapshot_availabilityZone' - Specifies the name of the Availability Zone the DB instance was located
 -- in at the time of the DB snapshot.
---
--- 'dbSnapshotArn', 'dbSnapshot_dbSnapshotArn' - The Amazon Resource Name (ARN) for the DB snapshot.
 --
 -- 'engineVersion', 'dbSnapshot_engineVersion' - Specifies the version of the database engine.
 --
 -- 'snapshotType', 'dbSnapshot_snapshotType' - Provides the type of the DB snapshot.
 --
--- 'sourceDBSnapshotIdentifier', 'dbSnapshot_sourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
--- copied from. It only has value in case of cross-customer or cross-region
--- copy.
---
 -- 'licenseModel', 'dbSnapshot_licenseModel' - License model information for the restored DB instance.
+--
+-- 'sourceDBSnapshotIdentifier', 'dbSnapshot_sourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
+-- copied from. It only has a value in the case of a cross-account or
+-- cross-Region copy.
 --
 -- 'dbInstanceIdentifier', 'dbSnapshot_dbInstanceIdentifier' - Specifies the DB instance identifier of the DB instance this DB snapshot
 -- was created from.
@@ -188,18 +197,20 @@ data DBSnapshot = DBSnapshot'
 --
 -- 'allocatedStorage', 'dbSnapshot_allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
 --
--- 'sourceRegion', 'dbSnapshot_sourceRegion' - The AWS Region that the DB snapshot was created in or copied from.
---
--- 'iAMDatabaseAuthenticationEnabled', 'dbSnapshot_iAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled, and otherwise false.
---
 -- 'iops', 'dbSnapshot_iops' - Specifies the Provisioned IOPS (I\/O operations per second) value of the
 -- DB instance at the time of the snapshot.
+--
+-- 'sourceRegion', 'dbSnapshot_sourceRegion' - The Amazon Web Services Region that the DB snapshot was created in or
+-- copied from.
+--
+-- 'iAMDatabaseAuthenticationEnabled', 'dbSnapshot_iAMDatabaseAuthenticationEnabled' - True if mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled, and otherwise false.
 newDBSnapshot ::
   DBSnapshot
 newDBSnapshot =
   DBSnapshot'
     { status = Prelude.Nothing,
+      originalSnapshotCreateTime = Prelude.Nothing,
       storageType = Prelude.Nothing,
       dbSnapshotIdentifier = Prelude.Nothing,
       encrypted = Prelude.Nothing,
@@ -209,12 +220,12 @@ newDBSnapshot =
       snapshotCreateTime = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
       dbSnapshotArn = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       snapshotType = Prelude.Nothing,
-      sourceDBSnapshotIdentifier = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
+      sourceDBSnapshotIdentifier = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
       processorFeatures = Prelude.Nothing,
       port = Prelude.Nothing,
@@ -225,14 +236,19 @@ newDBSnapshot =
       tagList = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       allocatedStorage = Prelude.Nothing,
+      iops = Prelude.Nothing,
       sourceRegion = Prelude.Nothing,
-      iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iAMDatabaseAuthenticationEnabled = Prelude.Nothing
     }
 
 -- | Specifies the status of this DB snapshot.
 dbSnapshot_status :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_status = Lens.lens (\DBSnapshot' {status} -> status) (\s@DBSnapshot' {} a -> s {status = a} :: DBSnapshot)
+
+-- | Specifies the time of the CreateDBSnapshot operation in Coordinated
+-- Universal Time (UTC). Doesn\'t change when the snapshot is copied.
+dbSnapshot_originalSnapshotCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
+dbSnapshot_originalSnapshotCreateTime = Lens.lens (\DBSnapshot' {originalSnapshotCreateTime} -> originalSnapshotCreateTime) (\s@DBSnapshot' {} a -> s {originalSnapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the storage type associated with DB snapshot.
 dbSnapshot_storageType :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
@@ -256,12 +272,12 @@ dbSnapshot_instanceCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UT
 dbSnapshot_instanceCreateTime = Lens.lens (\DBSnapshot' {instanceCreateTime} -> instanceCreateTime) (\s@DBSnapshot' {} a -> s {instanceCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an AWS Region.
+-- which is unique to an Amazon Web Services Region.
 dbSnapshot_dbiResourceId :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_dbiResourceId = Lens.lens (\DBSnapshot' {dbiResourceId} -> dbiResourceId) (\s@DBSnapshot' {} a -> s {dbiResourceId = a} :: DBSnapshot)
 
 -- | Specifies when the snapshot was taken in Coordinated Universal Time
--- (UTC).
+-- (UTC). Changes for the copy when the snapshot is copied.
 dbSnapshot_snapshotCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
 dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBSnapshot' {} a -> s {snapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
 
@@ -269,22 +285,23 @@ dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> 
 dbSnapshot_masterUsername :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_masterUsername = Lens.lens (\DBSnapshot' {masterUsername} -> masterUsername) (\s@DBSnapshot' {} a -> s {masterUsername = a} :: DBSnapshot)
 
--- | If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB
--- snapshot.
+-- | If @Encrypted@ is true, the Amazon Web Services KMS key identifier for
+-- the encrypted DB snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
 dbSnapshot_kmsKeyId :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_kmsKeyId = Lens.lens (\DBSnapshot' {kmsKeyId} -> kmsKeyId) (\s@DBSnapshot' {} a -> s {kmsKeyId = a} :: DBSnapshot)
+
+-- | The Amazon Resource Name (ARN) for the DB snapshot.
+dbSnapshot_dbSnapshotArn :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
+dbSnapshot_dbSnapshotArn = Lens.lens (\DBSnapshot' {dbSnapshotArn} -> dbSnapshotArn) (\s@DBSnapshot' {} a -> s {dbSnapshotArn = a} :: DBSnapshot)
 
 -- | Specifies the name of the Availability Zone the DB instance was located
 -- in at the time of the DB snapshot.
 dbSnapshot_availabilityZone :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_availabilityZone = Lens.lens (\DBSnapshot' {availabilityZone} -> availabilityZone) (\s@DBSnapshot' {} a -> s {availabilityZone = a} :: DBSnapshot)
-
--- | The Amazon Resource Name (ARN) for the DB snapshot.
-dbSnapshot_dbSnapshotArn :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
-dbSnapshot_dbSnapshotArn = Lens.lens (\DBSnapshot' {dbSnapshotArn} -> dbSnapshotArn) (\s@DBSnapshot' {} a -> s {dbSnapshotArn = a} :: DBSnapshot)
 
 -- | Specifies the version of the database engine.
 dbSnapshot_engineVersion :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
@@ -294,15 +311,15 @@ dbSnapshot_engineVersion = Lens.lens (\DBSnapshot' {engineVersion} -> engineVers
 dbSnapshot_snapshotType :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_snapshotType = Lens.lens (\DBSnapshot' {snapshotType} -> snapshotType) (\s@DBSnapshot' {} a -> s {snapshotType = a} :: DBSnapshot)
 
--- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
--- copied from. It only has value in case of cross-customer or cross-region
--- copy.
-dbSnapshot_sourceDBSnapshotIdentifier :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
-dbSnapshot_sourceDBSnapshotIdentifier = Lens.lens (\DBSnapshot' {sourceDBSnapshotIdentifier} -> sourceDBSnapshotIdentifier) (\s@DBSnapshot' {} a -> s {sourceDBSnapshotIdentifier = a} :: DBSnapshot)
-
 -- | License model information for the restored DB instance.
 dbSnapshot_licenseModel :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_licenseModel = Lens.lens (\DBSnapshot' {licenseModel} -> licenseModel) (\s@DBSnapshot' {} a -> s {licenseModel = a} :: DBSnapshot)
+
+-- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was
+-- copied from. It only has a value in the case of a cross-account or
+-- cross-Region copy.
+dbSnapshot_sourceDBSnapshotIdentifier :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
+dbSnapshot_sourceDBSnapshotIdentifier = Lens.lens (\DBSnapshot' {sourceDBSnapshotIdentifier} -> sourceDBSnapshotIdentifier) (\s@DBSnapshot' {} a -> s {sourceDBSnapshotIdentifier = a} :: DBSnapshot)
 
 -- | Specifies the DB instance identifier of the DB instance this DB snapshot
 -- was created from.
@@ -351,24 +368,26 @@ dbSnapshot_vpcId = Lens.lens (\DBSnapshot' {vpcId} -> vpcId) (\s@DBSnapshot' {} 
 dbSnapshot_allocatedStorage :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Int)
 dbSnapshot_allocatedStorage = Lens.lens (\DBSnapshot' {allocatedStorage} -> allocatedStorage) (\s@DBSnapshot' {} a -> s {allocatedStorage = a} :: DBSnapshot)
 
--- | The AWS Region that the DB snapshot was created in or copied from.
-dbSnapshot_sourceRegion :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
-dbSnapshot_sourceRegion = Lens.lens (\DBSnapshot' {sourceRegion} -> sourceRegion) (\s@DBSnapshot' {} a -> s {sourceRegion = a} :: DBSnapshot)
-
--- | True if mapping of AWS Identity and Access Management (IAM) accounts to
--- database accounts is enabled, and otherwise false.
-dbSnapshot_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Bool)
-dbSnapshot_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBSnapshot' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBSnapshot' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBSnapshot)
-
 -- | Specifies the Provisioned IOPS (I\/O operations per second) value of the
 -- DB instance at the time of the snapshot.
 dbSnapshot_iops :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Int)
 dbSnapshot_iops = Lens.lens (\DBSnapshot' {iops} -> iops) (\s@DBSnapshot' {} a -> s {iops = a} :: DBSnapshot)
 
+-- | The Amazon Web Services Region that the DB snapshot was created in or
+-- copied from.
+dbSnapshot_sourceRegion :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
+dbSnapshot_sourceRegion = Lens.lens (\DBSnapshot' {sourceRegion} -> sourceRegion) (\s@DBSnapshot' {} a -> s {sourceRegion = a} :: DBSnapshot)
+
+-- | True if mapping of Amazon Web Services Identity and Access Management
+-- (IAM) accounts to database accounts is enabled, and otherwise false.
+dbSnapshot_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Bool)
+dbSnapshot_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBSnapshot' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBSnapshot' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBSnapshot)
+
 instance Core.FromXML DBSnapshot where
   parseXML x =
     DBSnapshot'
       Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "OriginalSnapshotCreateTime")
       Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> (x Core..@? "DBSnapshotIdentifier")
       Prelude.<*> (x Core..@? "Encrypted")
@@ -378,12 +397,12 @@ instance Core.FromXML DBSnapshot where
       Prelude.<*> (x Core..@? "SnapshotCreateTime")
       Prelude.<*> (x Core..@? "MasterUsername")
       Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
       Prelude.<*> (x Core..@? "DBSnapshotArn")
+      Prelude.<*> (x Core..@? "AvailabilityZone")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "SnapshotType")
-      Prelude.<*> (x Core..@? "SourceDBSnapshotIdentifier")
       Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Core..@? "SourceDBSnapshotIdentifier")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
       Prelude.<*> ( x Core..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
@@ -399,9 +418,9 @@ instance Core.FromXML DBSnapshot where
                   )
       Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> (x Core..@? "AllocatedStorage")
+      Prelude.<*> (x Core..@? "Iops")
       Prelude.<*> (x Core..@? "SourceRegion")
       Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "Iops")
 
 instance Prelude.Hashable DBSnapshot
 

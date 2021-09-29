@@ -39,7 +39,7 @@ data Subnet = Subnet'
     -- Outpost.
     --
     -- For more information about RDS on Outposts, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide./
     subnetOutpost :: Prelude.Maybe Outpost
   }
@@ -63,7 +63,7 @@ data Subnet = Subnet'
 -- Outpost.
 --
 -- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide./
 newSubnet ::
   Subnet
@@ -91,7 +91,7 @@ subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> 
 -- Outpost.
 --
 -- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide./
 subnet_subnetOutpost :: Lens.Lens' Subnet (Prelude.Maybe Outpost)
 subnet_subnetOutpost = Lens.lens (\Subnet' {subnetOutpost} -> subnetOutpost) (\s@Subnet' {} a -> s {subnetOutpost = a} :: Subnet)

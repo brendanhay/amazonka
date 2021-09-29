@@ -42,13 +42,13 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
     -- | Boolean value where true indicates that a value must be specified for
     -- this option setting of the option group option.
     isRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The default value for the option group option.
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The description of the option group option.
     settingDescription :: Prelude.Maybe Prelude.Text,
     -- | Boolean value where true indicates that this option group option can be
     -- changed from the default value.
-    isModifiable :: Prelude.Maybe Prelude.Bool,
-    -- | The default value for the option group option.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    isModifiable :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,12 +72,12 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
 -- 'isRequired', 'optionGroupOptionSetting_isRequired' - Boolean value where true indicates that a value must be specified for
 -- this option setting of the option group option.
 --
+-- 'defaultValue', 'optionGroupOptionSetting_defaultValue' - The default value for the option group option.
+--
 -- 'settingDescription', 'optionGroupOptionSetting_settingDescription' - The description of the option group option.
 --
 -- 'isModifiable', 'optionGroupOptionSetting_isModifiable' - Boolean value where true indicates that this option group option can be
 -- changed from the default value.
---
--- 'defaultValue', 'optionGroupOptionSetting_defaultValue' - The default value for the option group option.
 newOptionGroupOptionSetting ::
   OptionGroupOptionSetting
 newOptionGroupOptionSetting =
@@ -88,9 +88,9 @@ newOptionGroupOptionSetting =
       applyType = Prelude.Nothing,
       settingName = Prelude.Nothing,
       isRequired = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
       settingDescription = Prelude.Nothing,
-      isModifiable = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      isModifiable = Prelude.Nothing
     }
 
 -- | The minimum DB engine version required for the corresponding allowed
@@ -115,6 +115,10 @@ optionGroupOptionSetting_settingName = Lens.lens (\OptionGroupOptionSetting' {se
 optionGroupOptionSetting_isRequired :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Bool)
 optionGroupOptionSetting_isRequired = Lens.lens (\OptionGroupOptionSetting' {isRequired} -> isRequired) (\s@OptionGroupOptionSetting' {} a -> s {isRequired = a} :: OptionGroupOptionSetting)
 
+-- | The default value for the option group option.
+optionGroupOptionSetting_defaultValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
+optionGroupOptionSetting_defaultValue = Lens.lens (\OptionGroupOptionSetting' {defaultValue} -> defaultValue) (\s@OptionGroupOptionSetting' {} a -> s {defaultValue = a} :: OptionGroupOptionSetting)
+
 -- | The description of the option group option.
 optionGroupOptionSetting_settingDescription :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
 optionGroupOptionSetting_settingDescription = Lens.lens (\OptionGroupOptionSetting' {settingDescription} -> settingDescription) (\s@OptionGroupOptionSetting' {} a -> s {settingDescription = a} :: OptionGroupOptionSetting)
@@ -123,10 +127,6 @@ optionGroupOptionSetting_settingDescription = Lens.lens (\OptionGroupOptionSetti
 -- changed from the default value.
 optionGroupOptionSetting_isModifiable :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Bool)
 optionGroupOptionSetting_isModifiable = Lens.lens (\OptionGroupOptionSetting' {isModifiable} -> isModifiable) (\s@OptionGroupOptionSetting' {} a -> s {isModifiable = a} :: OptionGroupOptionSetting)
-
--- | The default value for the option group option.
-optionGroupOptionSetting_defaultValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
-optionGroupOptionSetting_defaultValue = Lens.lens (\OptionGroupOptionSetting' {defaultValue} -> defaultValue) (\s@OptionGroupOptionSetting' {} a -> s {defaultValue = a} :: OptionGroupOptionSetting)
 
 instance Core.FromXML OptionGroupOptionSetting where
   parseXML x =
@@ -142,9 +142,9 @@ instance Core.FromXML OptionGroupOptionSetting where
       Prelude.<*> (x Core..@? "ApplyType")
       Prelude.<*> (x Core..@? "SettingName")
       Prelude.<*> (x Core..@? "IsRequired")
+      Prelude.<*> (x Core..@? "DefaultValue")
       Prelude.<*> (x Core..@? "SettingDescription")
       Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "DefaultValue")
 
 instance Prelude.Hashable OptionGroupOptionSetting
 

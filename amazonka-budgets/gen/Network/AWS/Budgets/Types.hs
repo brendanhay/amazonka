@@ -18,8 +18,8 @@ module Network.AWS.Budgets.Types
 
     -- * Errors
     _ResourceLockedException,
-    _NotFoundException,
     _ExpiredNextTokenException,
+    _NotFoundException,
     _InternalErrorException,
     _DuplicateRecordException,
     _InvalidNextTokenException,
@@ -103,8 +103,8 @@ module Network.AWS.Budgets.Types
     -- * Budget
     Budget (..),
     newBudget,
-    budget_costFilters,
     budget_timePeriod,
+    budget_costFilters,
     budget_costTypes,
     budget_plannedBudgetLimits,
     budget_calculatedSpend,
@@ -329,19 +329,19 @@ _ResourceLockedException =
     defaultService
     "ResourceLockedException"
 
--- | We can’t locate the resource that you specified.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-
 -- | The pagination token expired.
 _ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
     "ExpiredNextTokenException"
+
+-- | We can’t locate the resource that you specified.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.

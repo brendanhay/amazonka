@@ -27,11 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateBudgetAction $
---             newCreateBudgetAction
---
---         , requestDescribeBudgetActionsForAccount $
+--         [ requestDescribeBudgetActionsForAccount $
 --             newDescribeBudgetActionsForAccount
+--
+--         , requestCreateBudgetAction $
+--             newCreateBudgetAction
 --
 --         , requestExecuteBudgetAction $
 --             newExecuteBudgetAction
@@ -39,14 +39,14 @@ import Test.Tasty
 --         , requestDescribeBudgetAction $
 --             newDescribeBudgetAction
 --
---         , requestDescribeBudgetActionHistories $
---             newDescribeBudgetActionHistories
+--         , requestUpdateBudgetAction $
+--             newUpdateBudgetAction
 --
 --         , requestDeleteBudgetAction $
 --             newDeleteBudgetAction
 --
---         , requestUpdateBudgetAction $
---             newUpdateBudgetAction
+--         , requestDescribeBudgetActionHistories $
+--             newDescribeBudgetActionHistories
 --
 --         , requestDescribeSubscribersForNotification $
 --             newDescribeSubscribersForNotification
@@ -54,35 +54,35 @@ import Test.Tasty
 --         , requestUpdateBudget $
 --             newUpdateBudget
 --
+--         , requestDeleteNotification $
+--             newDeleteNotification
+--
 --         , requestDeleteBudget $
 --             newDeleteBudget
 --
 --         , requestUpdateNotification $
 --             newUpdateNotification
 --
---         , requestDeleteNotification $
---             newDeleteNotification
+--         , requestCreateBudget $
+--             newCreateBudget
 --
 --         , requestCreateNotification $
 --             newCreateNotification
 --
---         , requestCreateBudget $
---             newCreateBudget
---
 --         , requestCreateSubscriber $
 --             newCreateSubscriber
 --
---         , requestUpdateSubscriber $
---             newUpdateSubscriber
+--         , requestDescribeBudgets $
+--             newDescribeBudgets
 --
 --         , requestDeleteSubscriber $
 --             newDeleteSubscriber
 --
+--         , requestUpdateSubscriber $
+--             newUpdateSubscriber
+--
 --         , requestDescribeBudgetActionsForBudget $
 --             newDescribeBudgetActionsForBudget
---
---         , requestDescribeBudgets $
---             newDescribeBudgets
 --
 --         , requestDescribeBudget $
 --             newDescribeBudget
@@ -96,11 +96,11 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateBudgetAction $
---             newCreateBudgetActionResponse
---
---         , responseDescribeBudgetActionsForAccount $
+--         [ responseDescribeBudgetActionsForAccount $
 --             newDescribeBudgetActionsForAccountResponse
+--
+--         , responseCreateBudgetAction $
+--             newCreateBudgetActionResponse
 --
 --         , responseExecuteBudgetAction $
 --             newExecuteBudgetActionResponse
@@ -108,14 +108,14 @@ import Test.Tasty
 --         , responseDescribeBudgetAction $
 --             newDescribeBudgetActionResponse
 --
---         , responseDescribeBudgetActionHistories $
---             newDescribeBudgetActionHistoriesResponse
+--         , responseUpdateBudgetAction $
+--             newUpdateBudgetActionResponse
 --
 --         , responseDeleteBudgetAction $
 --             newDeleteBudgetActionResponse
 --
---         , responseUpdateBudgetAction $
---             newUpdateBudgetActionResponse
+--         , responseDescribeBudgetActionHistories $
+--             newDescribeBudgetActionHistoriesResponse
 --
 --         , responseDescribeSubscribersForNotification $
 --             newDescribeSubscribersForNotificationResponse
@@ -123,35 +123,35 @@ import Test.Tasty
 --         , responseUpdateBudget $
 --             newUpdateBudgetResponse
 --
+--         , responseDeleteNotification $
+--             newDeleteNotificationResponse
+--
 --         , responseDeleteBudget $
 --             newDeleteBudgetResponse
 --
 --         , responseUpdateNotification $
 --             newUpdateNotificationResponse
 --
---         , responseDeleteNotification $
---             newDeleteNotificationResponse
+--         , responseCreateBudget $
+--             newCreateBudgetResponse
 --
 --         , responseCreateNotification $
 --             newCreateNotificationResponse
 --
---         , responseCreateBudget $
---             newCreateBudgetResponse
---
 --         , responseCreateSubscriber $
 --             newCreateSubscriberResponse
 --
---         , responseUpdateSubscriber $
---             newUpdateSubscriberResponse
+--         , responseDescribeBudgets $
+--             newDescribeBudgetsResponse
 --
 --         , responseDeleteSubscriber $
 --             newDeleteSubscriberResponse
 --
+--         , responseUpdateSubscriber $
+--             newUpdateSubscriberResponse
+--
 --         , responseDescribeBudgetActionsForBudget $
 --             newDescribeBudgetActionsForBudgetResponse
---
---         , responseDescribeBudgets $
---             newDescribeBudgetsResponse
 --
 --         , responseDescribeBudget $
 --             newDescribeBudgetResponse
@@ -167,17 +167,17 @@ import Test.Tasty
 
 -- Requests
 
-requestCreateBudgetAction :: CreateBudgetAction -> TestTree
-requestCreateBudgetAction =
-  req
-    "CreateBudgetAction"
-    "fixture/CreateBudgetAction.yaml"
-
 requestDescribeBudgetActionsForAccount :: DescribeBudgetActionsForAccount -> TestTree
 requestDescribeBudgetActionsForAccount =
   req
     "DescribeBudgetActionsForAccount"
     "fixture/DescribeBudgetActionsForAccount.yaml"
+
+requestCreateBudgetAction :: CreateBudgetAction -> TestTree
+requestCreateBudgetAction =
+  req
+    "CreateBudgetAction"
+    "fixture/CreateBudgetAction.yaml"
 
 requestExecuteBudgetAction :: ExecuteBudgetAction -> TestTree
 requestExecuteBudgetAction =
@@ -191,11 +191,11 @@ requestDescribeBudgetAction =
     "DescribeBudgetAction"
     "fixture/DescribeBudgetAction.yaml"
 
-requestDescribeBudgetActionHistories :: DescribeBudgetActionHistories -> TestTree
-requestDescribeBudgetActionHistories =
+requestUpdateBudgetAction :: UpdateBudgetAction -> TestTree
+requestUpdateBudgetAction =
   req
-    "DescribeBudgetActionHistories"
-    "fixture/DescribeBudgetActionHistories.yaml"
+    "UpdateBudgetAction"
+    "fixture/UpdateBudgetAction.yaml"
 
 requestDeleteBudgetAction :: DeleteBudgetAction -> TestTree
 requestDeleteBudgetAction =
@@ -203,11 +203,11 @@ requestDeleteBudgetAction =
     "DeleteBudgetAction"
     "fixture/DeleteBudgetAction.yaml"
 
-requestUpdateBudgetAction :: UpdateBudgetAction -> TestTree
-requestUpdateBudgetAction =
+requestDescribeBudgetActionHistories :: DescribeBudgetActionHistories -> TestTree
+requestDescribeBudgetActionHistories =
   req
-    "UpdateBudgetAction"
-    "fixture/UpdateBudgetAction.yaml"
+    "DescribeBudgetActionHistories"
+    "fixture/DescribeBudgetActionHistories.yaml"
 
 requestDescribeSubscribersForNotification :: DescribeSubscribersForNotification -> TestTree
 requestDescribeSubscribersForNotification =
@@ -221,6 +221,12 @@ requestUpdateBudget =
     "UpdateBudget"
     "fixture/UpdateBudget.yaml"
 
+requestDeleteNotification :: DeleteNotification -> TestTree
+requestDeleteNotification =
+  req
+    "DeleteNotification"
+    "fixture/DeleteNotification.yaml"
+
 requestDeleteBudget :: DeleteBudget -> TestTree
 requestDeleteBudget =
   req
@@ -233,11 +239,11 @@ requestUpdateNotification =
     "UpdateNotification"
     "fixture/UpdateNotification.yaml"
 
-requestDeleteNotification :: DeleteNotification -> TestTree
-requestDeleteNotification =
+requestCreateBudget :: CreateBudget -> TestTree
+requestCreateBudget =
   req
-    "DeleteNotification"
-    "fixture/DeleteNotification.yaml"
+    "CreateBudget"
+    "fixture/CreateBudget.yaml"
 
 requestCreateNotification :: CreateNotification -> TestTree
 requestCreateNotification =
@@ -245,23 +251,17 @@ requestCreateNotification =
     "CreateNotification"
     "fixture/CreateNotification.yaml"
 
-requestCreateBudget :: CreateBudget -> TestTree
-requestCreateBudget =
-  req
-    "CreateBudget"
-    "fixture/CreateBudget.yaml"
-
 requestCreateSubscriber :: CreateSubscriber -> TestTree
 requestCreateSubscriber =
   req
     "CreateSubscriber"
     "fixture/CreateSubscriber.yaml"
 
-requestUpdateSubscriber :: UpdateSubscriber -> TestTree
-requestUpdateSubscriber =
+requestDescribeBudgets :: DescribeBudgets -> TestTree
+requestDescribeBudgets =
   req
-    "UpdateSubscriber"
-    "fixture/UpdateSubscriber.yaml"
+    "DescribeBudgets"
+    "fixture/DescribeBudgets.yaml"
 
 requestDeleteSubscriber :: DeleteSubscriber -> TestTree
 requestDeleteSubscriber =
@@ -269,17 +269,17 @@ requestDeleteSubscriber =
     "DeleteSubscriber"
     "fixture/DeleteSubscriber.yaml"
 
+requestUpdateSubscriber :: UpdateSubscriber -> TestTree
+requestUpdateSubscriber =
+  req
+    "UpdateSubscriber"
+    "fixture/UpdateSubscriber.yaml"
+
 requestDescribeBudgetActionsForBudget :: DescribeBudgetActionsForBudget -> TestTree
 requestDescribeBudgetActionsForBudget =
   req
     "DescribeBudgetActionsForBudget"
     "fixture/DescribeBudgetActionsForBudget.yaml"
-
-requestDescribeBudgets :: DescribeBudgets -> TestTree
-requestDescribeBudgets =
-  req
-    "DescribeBudgets"
-    "fixture/DescribeBudgets.yaml"
 
 requestDescribeBudget :: DescribeBudget -> TestTree
 requestDescribeBudget =
@@ -301,14 +301,6 @@ requestDescribeBudgetPerformanceHistory =
 
 -- Responses
 
-responseCreateBudgetAction :: CreateBudgetActionResponse -> TestTree
-responseCreateBudgetAction =
-  res
-    "CreateBudgetActionResponse"
-    "fixture/CreateBudgetActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateBudgetAction)
-
 responseDescribeBudgetActionsForAccount :: DescribeBudgetActionsForAccountResponse -> TestTree
 responseDescribeBudgetActionsForAccount =
   res
@@ -316,6 +308,14 @@ responseDescribeBudgetActionsForAccount =
     "fixture/DescribeBudgetActionsForAccountResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeBudgetActionsForAccount)
+
+responseCreateBudgetAction :: CreateBudgetActionResponse -> TestTree
+responseCreateBudgetAction =
+  res
+    "CreateBudgetActionResponse"
+    "fixture/CreateBudgetActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateBudgetAction)
 
 responseExecuteBudgetAction :: ExecuteBudgetActionResponse -> TestTree
 responseExecuteBudgetAction =
@@ -333,13 +333,13 @@ responseDescribeBudgetAction =
     defaultService
     (Proxy :: Proxy DescribeBudgetAction)
 
-responseDescribeBudgetActionHistories :: DescribeBudgetActionHistoriesResponse -> TestTree
-responseDescribeBudgetActionHistories =
+responseUpdateBudgetAction :: UpdateBudgetActionResponse -> TestTree
+responseUpdateBudgetAction =
   res
-    "DescribeBudgetActionHistoriesResponse"
-    "fixture/DescribeBudgetActionHistoriesResponse.proto"
+    "UpdateBudgetActionResponse"
+    "fixture/UpdateBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetActionHistories)
+    (Proxy :: Proxy UpdateBudgetAction)
 
 responseDeleteBudgetAction :: DeleteBudgetActionResponse -> TestTree
 responseDeleteBudgetAction =
@@ -349,13 +349,13 @@ responseDeleteBudgetAction =
     defaultService
     (Proxy :: Proxy DeleteBudgetAction)
 
-responseUpdateBudgetAction :: UpdateBudgetActionResponse -> TestTree
-responseUpdateBudgetAction =
+responseDescribeBudgetActionHistories :: DescribeBudgetActionHistoriesResponse -> TestTree
+responseDescribeBudgetActionHistories =
   res
-    "UpdateBudgetActionResponse"
-    "fixture/UpdateBudgetActionResponse.proto"
+    "DescribeBudgetActionHistoriesResponse"
+    "fixture/DescribeBudgetActionHistoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBudgetAction)
+    (Proxy :: Proxy DescribeBudgetActionHistories)
 
 responseDescribeSubscribersForNotification :: DescribeSubscribersForNotificationResponse -> TestTree
 responseDescribeSubscribersForNotification =
@@ -373,6 +373,14 @@ responseUpdateBudget =
     defaultService
     (Proxy :: Proxy UpdateBudget)
 
+responseDeleteNotification :: DeleteNotificationResponse -> TestTree
+responseDeleteNotification =
+  res
+    "DeleteNotificationResponse"
+    "fixture/DeleteNotificationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteNotification)
+
 responseDeleteBudget :: DeleteBudgetResponse -> TestTree
 responseDeleteBudget =
   res
@@ -389,13 +397,13 @@ responseUpdateNotification =
     defaultService
     (Proxy :: Proxy UpdateNotification)
 
-responseDeleteNotification :: DeleteNotificationResponse -> TestTree
-responseDeleteNotification =
+responseCreateBudget :: CreateBudgetResponse -> TestTree
+responseCreateBudget =
   res
-    "DeleteNotificationResponse"
-    "fixture/DeleteNotificationResponse.proto"
+    "CreateBudgetResponse"
+    "fixture/CreateBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotification)
+    (Proxy :: Proxy CreateBudget)
 
 responseCreateNotification :: CreateNotificationResponse -> TestTree
 responseCreateNotification =
@@ -405,14 +413,6 @@ responseCreateNotification =
     defaultService
     (Proxy :: Proxy CreateNotification)
 
-responseCreateBudget :: CreateBudgetResponse -> TestTree
-responseCreateBudget =
-  res
-    "CreateBudgetResponse"
-    "fixture/CreateBudgetResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateBudget)
-
 responseCreateSubscriber :: CreateSubscriberResponse -> TestTree
 responseCreateSubscriber =
   res
@@ -421,13 +421,13 @@ responseCreateSubscriber =
     defaultService
     (Proxy :: Proxy CreateSubscriber)
 
-responseUpdateSubscriber :: UpdateSubscriberResponse -> TestTree
-responseUpdateSubscriber =
+responseDescribeBudgets :: DescribeBudgetsResponse -> TestTree
+responseDescribeBudgets =
   res
-    "UpdateSubscriberResponse"
-    "fixture/UpdateSubscriberResponse.proto"
+    "DescribeBudgetsResponse"
+    "fixture/DescribeBudgetsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubscriber)
+    (Proxy :: Proxy DescribeBudgets)
 
 responseDeleteSubscriber :: DeleteSubscriberResponse -> TestTree
 responseDeleteSubscriber =
@@ -437,6 +437,14 @@ responseDeleteSubscriber =
     defaultService
     (Proxy :: Proxy DeleteSubscriber)
 
+responseUpdateSubscriber :: UpdateSubscriberResponse -> TestTree
+responseUpdateSubscriber =
+  res
+    "UpdateSubscriberResponse"
+    "fixture/UpdateSubscriberResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSubscriber)
+
 responseDescribeBudgetActionsForBudget :: DescribeBudgetActionsForBudgetResponse -> TestTree
 responseDescribeBudgetActionsForBudget =
   res
@@ -444,14 +452,6 @@ responseDescribeBudgetActionsForBudget =
     "fixture/DescribeBudgetActionsForBudgetResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeBudgetActionsForBudget)
-
-responseDescribeBudgets :: DescribeBudgetsResponse -> TestTree
-responseDescribeBudgets =
-  res
-    "DescribeBudgetsResponse"
-    "fixture/DescribeBudgetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeBudgets)
 
 responseDescribeBudget :: DescribeBudgetResponse -> TestTree
 responseDescribeBudget =

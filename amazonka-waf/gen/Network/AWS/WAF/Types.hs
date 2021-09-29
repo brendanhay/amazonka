@@ -17,9 +17,9 @@ module Network.AWS.WAF.Types
     defaultService,
 
     -- * Errors
+    _WAFSubscriptionNotFoundException,
     _WAFTagOperationInternalErrorException,
     _WAFInvalidAccountException,
-    _WAFSubscriptionNotFoundException,
     _WAFBadRequestException,
     _WAFDisallowedNameException,
     _WAFNonEmptyEntityException,
@@ -164,8 +164,8 @@ module Network.AWS.WAF.Types
     hTTPRequest_headers,
     hTTPRequest_uri,
     hTTPRequest_method,
-    hTTPRequest_clientIP,
     hTTPRequest_country,
+    hTTPRequest_clientIP,
     hTTPRequest_hTTPVersion,
 
     -- * IPSet
@@ -304,8 +304,8 @@ module Network.AWS.WAF.Types
     -- * SampledHTTPRequest
     SampledHTTPRequest (..),
     newSampledHTTPRequest,
-    sampledHTTPRequest_timestamp,
     sampledHTTPRequest_action,
+    sampledHTTPRequest_timestamp,
     sampledHTTPRequest_ruleWithinRuleGroup,
     sampledHTTPRequest_request,
     sampledHTTPRequest_weight,
@@ -590,6 +590,13 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | The specified subscription does not exist.
+_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFSubscriptionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "WAFSubscriptionNotFoundException"
+
 -- |
 _WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _WAFTagOperationInternalErrorException =
@@ -604,13 +611,6 @@ _WAFInvalidAccountException =
   Core._MatchServiceError
     defaultService
     "WAFInvalidAccountException"
-
--- | The specified subscription does not exist.
-_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFSubscriptionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "WAFSubscriptionNotFoundException"
 
 -- |
 _WAFBadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

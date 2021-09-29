@@ -66,8 +66,8 @@ module Network.AWS.SES.SendEmail
     -- * Request Lenses
     sendEmail_returnPath,
     sendEmail_returnPathArn,
-    sendEmail_replyToAddresses,
     sendEmail_tags,
+    sendEmail_replyToAddresses,
     sendEmail_sourceArn,
     sendEmail_configurationSetName,
     sendEmail_source,
@@ -121,13 +121,13 @@ data SendEmail = SendEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     returnPathArn :: Prelude.Maybe Prelude.Text,
-    -- | The reply-to email address(es) for the message. If the recipient replies
-    -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send using @SendEmail@. Tags correspond to characteristics of
     -- the email that you define, so that you can publish email sending events.
     tags :: Prelude.Maybe [MessageTag],
+    -- | The reply-to email address(es) for the message. If the recipient replies
+    -- to the message, each reply-to address will receive the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -211,12 +211,12 @@ data SendEmail = SendEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
---
 -- 'tags', 'sendEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using @SendEmail@. Tags correspond to characteristics of
 -- the email that you define, so that you can publish email sending events.
+--
+-- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
 --
 -- 'sourceArn', 'sendEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -277,8 +277,8 @@ newSendEmail pSource_ pDestination_ pMessage_ =
   SendEmail'
     { returnPath = Prelude.Nothing,
       returnPathArn = Prelude.Nothing,
-      replyToAddresses = Prelude.Nothing,
       tags = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
       source = pSource_,
@@ -314,16 +314,16 @@ sendEmail_returnPath = Lens.lens (\SendEmail' {returnPath} -> returnPath) (\s@Se
 sendEmail_returnPathArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPathArn = Lens.lens (\SendEmail' {returnPathArn} -> returnPathArn) (\s@SendEmail' {} a -> s {returnPathArn = a} :: SendEmail)
 
--- | The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
-sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
-sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using @SendEmail@. Tags correspond to characteristics of
 -- the email that you define, so that you can publish email sending events.
 sendEmail_tags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
 sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
+sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
+sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -414,14 +414,14 @@ instance Core.ToQuery SendEmail where
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ReturnPath" Core.=: returnPath,
         "ReturnPathArn" Core.=: returnPathArn,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
         "ReplyToAddresses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
         "SourceArn" Core.=: sourceArn,
         "ConfigurationSetName" Core.=: configurationSetName,
         "Source" Core.=: source,

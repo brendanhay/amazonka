@@ -68,8 +68,8 @@ module Network.AWS.SES.SendBulkTemplatedEmail
     sendBulkTemplatedEmail_defaultTags,
     sendBulkTemplatedEmail_replyToAddresses,
     sendBulkTemplatedEmail_sourceArn,
-    sendBulkTemplatedEmail_templateArn,
     sendBulkTemplatedEmail_configurationSetName,
+    sendBulkTemplatedEmail_templateArn,
     sendBulkTemplatedEmail_source,
     sendBulkTemplatedEmail_template,
     sendBulkTemplatedEmail_destinations,
@@ -150,11 +150,11 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the template to use when sending this email.
-    templateArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set to use when you send an email using
     -- @SendBulkTemplatedEmail@.
     configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the template to use when sending this email.
+    templateArn :: Prelude.Maybe Prelude.Text,
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -251,10 +251,10 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- 'templateArn', 'sendBulkTemplatedEmail_templateArn' - The ARN of the template to use when sending this email.
---
 -- 'configurationSetName', 'sendBulkTemplatedEmail_configurationSetName' - The name of the configuration set to use when you send an email using
 -- @SendBulkTemplatedEmail@.
+--
+-- 'templateArn', 'sendBulkTemplatedEmail_templateArn' - The ARN of the template to use when sending this email.
 --
 -- 'source', 'sendBulkTemplatedEmail_source' - The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -302,8 +302,8 @@ newSendBulkTemplatedEmail pSource_ pTemplate_ =
       defaultTags = Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
-      templateArn = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
+      templateArn = Prelude.Nothing,
       source = pSource_,
       template = pTemplate_,
       destinations = Prelude.mempty
@@ -374,14 +374,14 @@ sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {r
 sendBulkTemplatedEmail_sourceArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_sourceArn = Lens.lens (\SendBulkTemplatedEmail' {sourceArn} -> sourceArn) (\s@SendBulkTemplatedEmail' {} a -> s {sourceArn = a} :: SendBulkTemplatedEmail)
 
--- | The ARN of the template to use when sending this email.
-sendBulkTemplatedEmail_templateArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendBulkTemplatedEmail_templateArn = Lens.lens (\SendBulkTemplatedEmail' {templateArn} -> templateArn) (\s@SendBulkTemplatedEmail' {} a -> s {templateArn = a} :: SendBulkTemplatedEmail)
-
 -- | The name of the configuration set to use when you send an email using
 -- @SendBulkTemplatedEmail@.
 sendBulkTemplatedEmail_configurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_configurationSetName = Lens.lens (\SendBulkTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkTemplatedEmail' {} a -> s {configurationSetName = a} :: SendBulkTemplatedEmail)
+
+-- | The ARN of the template to use when sending this email.
+sendBulkTemplatedEmail_templateArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendBulkTemplatedEmail_templateArn = Lens.lens (\SendBulkTemplatedEmail' {templateArn} -> templateArn) (\s@SendBulkTemplatedEmail' {} a -> s {templateArn = a} :: SendBulkTemplatedEmail)
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -466,8 +466,8 @@ instance Core.ToQuery SendBulkTemplatedEmail where
                 Prelude.<$> replyToAddresses
             ),
         "SourceArn" Core.=: sourceArn,
-        "TemplateArn" Core.=: templateArn,
         "ConfigurationSetName" Core.=: configurationSetName,
+        "TemplateArn" Core.=: templateArn,
         "Source" Core.=: source,
         "Template" Core.=: template,
         "Destinations"

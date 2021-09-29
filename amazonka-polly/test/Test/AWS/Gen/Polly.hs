@@ -33,11 +33,11 @@ import Test.Tasty
 --         , requestGetLexicon $
 --             newGetLexicon
 --
---         , requestListLexicons $
---             newListLexicons
---
 --         , requestDeleteLexicon $
 --             newDeleteLexicon
+--
+--         , requestListLexicons $
+--             newListLexicons
 --
 --         , requestDescribeVoices $
 --             newDescribeVoices
@@ -63,11 +63,11 @@ import Test.Tasty
 --         , responseGetLexicon $
 --             newGetLexiconResponse
 --
---         , responseListLexicons $
---             newListLexiconsResponse
---
 --         , responseDeleteLexicon $
 --             newDeleteLexiconResponse
+--
+--         , responseListLexicons $
+--             newListLexiconsResponse
 --
 --         , responseDescribeVoices $
 --             newDescribeVoicesResponse
@@ -101,17 +101,17 @@ requestGetLexicon =
     "GetLexicon"
     "fixture/GetLexicon.yaml"
 
-requestListLexicons :: ListLexicons -> TestTree
-requestListLexicons =
-  req
-    "ListLexicons"
-    "fixture/ListLexicons.yaml"
-
 requestDeleteLexicon :: DeleteLexicon -> TestTree
 requestDeleteLexicon =
   req
     "DeleteLexicon"
     "fixture/DeleteLexicon.yaml"
+
+requestListLexicons :: ListLexicons -> TestTree
+requestListLexicons =
+  req
+    "ListLexicons"
+    "fixture/ListLexicons.yaml"
 
 requestDescribeVoices :: DescribeVoices -> TestTree
 requestDescribeVoices =
@@ -161,14 +161,6 @@ responseGetLexicon =
     defaultService
     (Proxy :: Proxy GetLexicon)
 
-responseListLexicons :: ListLexiconsResponse -> TestTree
-responseListLexicons =
-  res
-    "ListLexiconsResponse"
-    "fixture/ListLexiconsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListLexicons)
-
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
 responseDeleteLexicon =
   res
@@ -176,6 +168,14 @@ responseDeleteLexicon =
     "fixture/DeleteLexiconResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteLexicon)
+
+responseListLexicons :: ListLexiconsResponse -> TestTree
+responseListLexicons =
+  res
+    "ListLexiconsResponse"
+    "fixture/ListLexiconsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListLexicons)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
 responseDescribeVoices =

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
-  { -- | Provides lexicon metadata.
-    attributes :: Prelude.Maybe LexiconAttributes,
-    -- | Name of the lexicon.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | Name of the lexicon.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Provides lexicon metadata.
+    attributes :: Prelude.Maybe LexiconAttributes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data LexiconDescription = LexiconDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributes', 'lexiconDescription_attributes' - Provides lexicon metadata.
---
 -- 'name', 'lexiconDescription_name' - Name of the lexicon.
+--
+-- 'attributes', 'lexiconDescription_attributes' - Provides lexicon metadata.
 newLexiconDescription ::
   LexiconDescription
 newLexiconDescription =
   LexiconDescription'
-    { attributes = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
-
--- | Provides lexicon metadata.
-lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Prelude.Maybe LexiconAttributes)
-lexiconDescription_attributes = Lens.lens (\LexiconDescription' {attributes} -> attributes) (\s@LexiconDescription' {} a -> s {attributes = a} :: LexiconDescription)
 
 -- | Name of the lexicon.
 lexiconDescription_name :: Lens.Lens' LexiconDescription (Prelude.Maybe Prelude.Text)
 lexiconDescription_name = Lens.lens (\LexiconDescription' {name} -> name) (\s@LexiconDescription' {} a -> s {name = a} :: LexiconDescription)
+
+-- | Provides lexicon metadata.
+lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Prelude.Maybe LexiconAttributes)
+lexiconDescription_attributes = Lens.lens (\LexiconDescription' {attributes} -> attributes) (\s@LexiconDescription' {} a -> s {attributes = a} :: LexiconDescription)
 
 instance Core.FromJSON LexiconDescription where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON LexiconDescription where
       "LexiconDescription"
       ( \x ->
           LexiconDescription'
-            Prelude.<$> (x Core..:? "Attributes")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Attributes")
       )
 
 instance Prelude.Hashable LexiconDescription

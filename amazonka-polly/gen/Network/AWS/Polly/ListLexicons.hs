@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of pronunciation lexicons stored in an AWS Region. For
--- more information, see
+-- Returns a list of pronunciation lexicons stored in an Amazon Web
+-- Services Region. For more information, see
 -- <https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons>.
 --
 -- This operation returns paginated results.

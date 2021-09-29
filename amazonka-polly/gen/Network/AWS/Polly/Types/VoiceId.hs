@@ -22,7 +22,9 @@ module Network.AWS.Polly.Types.VoiceId
       ( ..,
         VoiceId_Aditi,
         VoiceId_Amy,
+        VoiceId_Aria,
         VoiceId_Astrid,
+        VoiceId_Ayanda,
         VoiceId_Bianca,
         VoiceId_Brian,
         VoiceId_Camila,
@@ -37,6 +39,7 @@ module Network.AWS.Polly.Types.VoiceId
         VoiceId_Enrique,
         VoiceId_Ewa,
         VoiceId_Filiz,
+        VoiceId_Gabrielle,
         VoiceId_Geraint,
         VoiceId_Giorgio,
         VoiceId_Gwyneth,
@@ -120,8 +123,14 @@ pattern VoiceId_Aditi = VoiceId' "Aditi"
 pattern VoiceId_Amy :: VoiceId
 pattern VoiceId_Amy = VoiceId' "Amy"
 
+pattern VoiceId_Aria :: VoiceId
+pattern VoiceId_Aria = VoiceId' "Aria"
+
 pattern VoiceId_Astrid :: VoiceId
 pattern VoiceId_Astrid = VoiceId' "Astrid"
+
+pattern VoiceId_Ayanda :: VoiceId
+pattern VoiceId_Ayanda = VoiceId' "Ayanda"
 
 pattern VoiceId_Bianca :: VoiceId
 pattern VoiceId_Bianca = VoiceId' "Bianca"
@@ -164,6 +173,9 @@ pattern VoiceId_Ewa = VoiceId' "Ewa"
 
 pattern VoiceId_Filiz :: VoiceId
 pattern VoiceId_Filiz = VoiceId' "Filiz"
+
+pattern VoiceId_Gabrielle :: VoiceId
+pattern VoiceId_Gabrielle = VoiceId' "Gabrielle"
 
 pattern VoiceId_Geraint :: VoiceId
 pattern VoiceId_Geraint = VoiceId' "Geraint"
@@ -303,7 +315,9 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
 {-# COMPLETE
   VoiceId_Aditi,
   VoiceId_Amy,
+  VoiceId_Aria,
   VoiceId_Astrid,
+  VoiceId_Ayanda,
   VoiceId_Bianca,
   VoiceId_Brian,
   VoiceId_Camila,
@@ -318,6 +332,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Enrique,
   VoiceId_Ewa,
   VoiceId_Filiz,
+  VoiceId_Gabrielle,
   VoiceId_Geraint,
   VoiceId_Giorgio,
   VoiceId_Gwyneth,

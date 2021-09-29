@@ -25,15 +25,15 @@ module Network.AWS.Polly.Lens
     getLexiconResponse_lexicon,
     getLexiconResponse_httpStatus,
 
+    -- ** DeleteLexicon
+    deleteLexicon_name,
+    deleteLexiconResponse_httpStatus,
+
     -- ** ListLexicons
     listLexicons_nextToken,
     listLexiconsResponse_nextToken,
     listLexiconsResponse_lexicons,
     listLexiconsResponse_httpStatus,
-
-    -- ** DeleteLexicon
-    deleteLexicon_name,
-    deleteLexiconResponse_httpStatus,
 
     -- ** DescribeVoices
     describeVoices_languageCode,
@@ -46,8 +46,8 @@ module Network.AWS.Polly.Lens
 
     -- ** StartSpeechSynthesisTask
     startSpeechSynthesisTask_languageCode,
-    startSpeechSynthesisTask_speechMarkTypes,
     startSpeechSynthesisTask_lexiconNames,
+    startSpeechSynthesisTask_speechMarkTypes,
     startSpeechSynthesisTask_textType,
     startSpeechSynthesisTask_sampleRate,
     startSpeechSynthesisTask_engine,
@@ -67,8 +67,8 @@ module Network.AWS.Polly.Lens
 
     -- ** SynthesizeSpeech
     synthesizeSpeech_languageCode,
-    synthesizeSpeech_speechMarkTypes,
     synthesizeSpeech_lexiconNames,
+    synthesizeSpeech_speechMarkTypes,
     synthesizeSpeech_textType,
     synthesizeSpeech_sampleRate,
     synthesizeSpeech_engine,
@@ -96,22 +96,22 @@ module Network.AWS.Polly.Lens
 
     -- ** LexiconAttributes
     lexiconAttributes_languageCode,
-    lexiconAttributes_lexiconArn,
     lexiconAttributes_alphabet,
+    lexiconAttributes_lexiconArn,
     lexiconAttributes_lexemesCount,
     lexiconAttributes_lastModified,
     lexiconAttributes_size,
 
     -- ** LexiconDescription
-    lexiconDescription_attributes,
     lexiconDescription_name,
+    lexiconDescription_attributes,
 
     -- ** SynthesisTask
     synthesisTask_languageCode,
     synthesisTask_creationTime,
     synthesisTask_outputUri,
-    synthesisTask_speechMarkTypes,
     synthesisTask_lexiconNames,
+    synthesisTask_speechMarkTypes,
     synthesisTask_voiceId,
     synthesisTask_taskId,
     synthesisTask_textType,
@@ -126,8 +126,8 @@ module Network.AWS.Polly.Lens
     -- ** Voice
     voice_languageCode,
     voice_id,
-    voice_gender,
     voice_name,
+    voice_gender,
     voice_supportedEngines,
     voice_additionalLanguageCodes,
     voice_languageName,

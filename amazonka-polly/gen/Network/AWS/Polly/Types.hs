@@ -22,14 +22,14 @@ module Network.AWS.Polly.Types
     _InvalidS3KeyException,
     _LexiconNotFoundException,
     _MaxLexemeLengthExceededException,
-    _SynthesisTaskNotFoundException,
     _TextLengthExceededException,
-    _UnsupportedPlsAlphabetException,
-    _MaxLexiconsNumberExceededException,
-    _InvalidNextTokenException,
-    _MarksNotSupportedForFormatException,
+    _SynthesisTaskNotFoundException,
     _InvalidSampleRateException,
     _ServiceFailureException,
+    _MarksNotSupportedForFormatException,
+    _MaxLexiconsNumberExceededException,
+    _UnsupportedPlsAlphabetException,
+    _InvalidNextTokenException,
     _UnsupportedPlsLanguageException,
     _InvalidSnsTopicArnException,
     _InvalidTaskIdException,
@@ -73,8 +73,8 @@ module Network.AWS.Polly.Types
     LexiconAttributes (..),
     newLexiconAttributes,
     lexiconAttributes_languageCode,
-    lexiconAttributes_lexiconArn,
     lexiconAttributes_alphabet,
+    lexiconAttributes_lexiconArn,
     lexiconAttributes_lexemesCount,
     lexiconAttributes_lastModified,
     lexiconAttributes_size,
@@ -82,8 +82,8 @@ module Network.AWS.Polly.Types
     -- * LexiconDescription
     LexiconDescription (..),
     newLexiconDescription,
-    lexiconDescription_attributes,
     lexiconDescription_name,
+    lexiconDescription_attributes,
 
     -- * SynthesisTask
     SynthesisTask (..),
@@ -91,8 +91,8 @@ module Network.AWS.Polly.Types
     synthesisTask_languageCode,
     synthesisTask_creationTime,
     synthesisTask_outputUri,
-    synthesisTask_speechMarkTypes,
     synthesisTask_lexiconNames,
+    synthesisTask_speechMarkTypes,
     synthesisTask_voiceId,
     synthesisTask_taskId,
     synthesisTask_textType,
@@ -109,8 +109,8 @@ module Network.AWS.Polly.Types
     newVoice,
     voice_languageCode,
     voice_id,
-    voice_gender,
     voice_name,
+    voice_gender,
     voice_supportedEngines,
     voice_additionalLanguageCodes,
     voice_languageName,
@@ -253,14 +253,6 @@ _MaxLexemeLengthExceededException =
     "MaxLexemeLengthExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The Speech Synthesis task with requested Task ID cannot be found.
-_SynthesisTaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SynthesisTaskNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "SynthesisTaskNotFoundException"
-    Prelude.. Core.hasStatus 400
-
 -- | The value of the \"Text\" parameter is longer than the accepted limits.
 -- For the @SynthesizeSpeech@ API, the limit for input text is a maximum of
 -- 6000 characters total, of which no more than 3000 can be billed
@@ -274,39 +266,12 @@ _TextLengthExceededException =
     "TextLengthExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The alphabet specified by the lexicon is not a supported alphabet. Valid
--- values are @x-sampa@ and @ipa@.
-_UnsupportedPlsAlphabetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedPlsAlphabetException =
+-- | The Speech Synthesis task with requested Task ID cannot be found.
+_SynthesisTaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SynthesisTaskNotFoundException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedPlsAlphabetException"
-    Prelude.. Core.hasStatus 400
-
--- | The maximum number of lexicons would be exceeded by this operation.
-_MaxLexiconsNumberExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxLexiconsNumberExceededException =
-  Core._MatchServiceError
-    defaultService
-    "MaxLexiconsNumberExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | The NextToken is invalid. Verify that it\'s spelled correctly, and then
--- try again.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-    Prelude.. Core.hasStatus 400
-
--- | Speech marks are not supported for the @OutputFormat@ selected. Speech
--- marks are only available for content in @json@ format.
-_MarksNotSupportedForFormatException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MarksNotSupportedForFormatException =
-  Core._MatchServiceError
-    defaultService
-    "MarksNotSupportedForFormatException"
+    "SynthesisTaskNotFoundException"
     Prelude.. Core.hasStatus 400
 
 -- | The specified sample rate is not valid.
@@ -324,6 +289,41 @@ _ServiceFailureException =
     defaultService
     "ServiceFailureException"
     Prelude.. Core.hasStatus 500
+
+-- | Speech marks are not supported for the @OutputFormat@ selected. Speech
+-- marks are only available for content in @json@ format.
+_MarksNotSupportedForFormatException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MarksNotSupportedForFormatException =
+  Core._MatchServiceError
+    defaultService
+    "MarksNotSupportedForFormatException"
+    Prelude.. Core.hasStatus 400
+
+-- | The maximum number of lexicons would be exceeded by this operation.
+_MaxLexiconsNumberExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxLexiconsNumberExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxLexiconsNumberExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The alphabet specified by the lexicon is not a supported alphabet. Valid
+-- values are @x-sampa@ and @ipa@.
+_UnsupportedPlsAlphabetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedPlsAlphabetException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedPlsAlphabetException"
+    Prelude.. Core.hasStatus 400
+
+-- | The NextToken is invalid. Verify that it\'s spelled correctly, and then
+-- try again.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+    Prelude.. Core.hasStatus 400
 
 -- | The language specified in the lexicon is unsupported. For a list of
 -- supported languages, see

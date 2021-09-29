@@ -81,9 +81,9 @@ data DescribeImages = DescribeImages'
     -- and a @nextToken@ value, if applicable. This option cannot be used when
     -- you specify images with @imageIds@.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to describe images. If you do not specify a
-    -- registry, the default registry is assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to describe images. If you do not
+    -- specify a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The filter key and value with which to filter your @DescribeImages@
     -- results.
@@ -120,9 +120,9 @@ data DescribeImages = DescribeImages'
 -- and a @nextToken@ value, if applicable. This option cannot be used when
 -- you specify images with @imageIds@.
 --
--- 'registryId', 'describeImages_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default registry is assumed.
+-- 'registryId', 'describeImages_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to describe images. If you do not
+-- specify a registry, the default registry is assumed.
 --
 -- 'filter'', 'describeImages_filter' - The filter key and value with which to filter your @DescribeImages@
 -- results.
@@ -167,9 +167,9 @@ describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\
 describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
 describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to describe images. If you do not
+-- specify a registry, the default registry is assumed.
 describeImages_registryId :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_registryId = Lens.lens (\DescribeImages' {registryId} -> registryId) (\s@DescribeImages' {} a -> s {registryId = a} :: DescribeImages)
 

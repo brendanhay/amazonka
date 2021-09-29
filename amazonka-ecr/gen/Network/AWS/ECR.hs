@@ -20,6 +20,11 @@
 -- Open Container Initiative (OCI) images. Amazon ECR supports private
 -- repositories with resource-based permissions using IAM so that specific
 -- users or Amazon EC2 instances can access repositories and images.
+--
+-- Amazon ECR has service endpoints in each supported Region. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/ecr.html Amazon ECR endpoints>
+-- in the /Amazon Web Services General Reference/.
 module Network.AWS.ECR
   ( -- * Service Configuration
     defaultService,
@@ -54,11 +59,11 @@ module Network.AWS.ECR
     -- ** LayerPartTooSmallException
     _LayerPartTooSmallException,
 
-    -- ** InvalidLayerException
-    _InvalidLayerException,
-
     -- ** InvalidTagParameterException
     _InvalidTagParameterException,
+
+    -- ** InvalidLayerException
+    _InvalidLayerException,
 
     -- ** InvalidLayerPartException
     _InvalidLayerPartException,
@@ -69,23 +74,23 @@ module Network.AWS.ECR
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** LayersNotFoundException
     _LayersNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** EmptyUploadException
+    _EmptyUploadException,
 
     -- ** RegistryPolicyNotFoundException
     _RegistryPolicyNotFoundException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** LifecyclePolicyPreviewInProgressException
     _LifecyclePolicyPreviewInProgressException,
-
-    -- ** EmptyUploadException
-    _EmptyUploadException,
 
     -- ** RepositoryPolicyNotFoundException
     _RepositoryPolicyNotFoundException,
@@ -96,26 +101,26 @@ module Network.AWS.ECR
     -- ** LifecyclePolicyPreviewNotFoundException
     _LifecyclePolicyPreviewNotFoundException,
 
-    -- ** UnsupportedImageTypeException
-    _UnsupportedImageTypeException,
+    -- ** LayerInaccessibleException
+    _LayerInaccessibleException,
 
     -- ** RepositoryNotEmptyException
     _RepositoryNotEmptyException,
 
-    -- ** LayerInaccessibleException
-    _LayerInaccessibleException,
+    -- ** UnsupportedImageTypeException
+    _UnsupportedImageTypeException,
 
     -- ** LifecyclePolicyNotFoundException
     _LifecyclePolicyNotFoundException,
 
-    -- ** KmsException
-    _KmsException,
+    -- ** LayerAlreadyExistsException
+    _LayerAlreadyExistsException,
 
     -- ** ServerException
     _ServerException,
 
-    -- ** LayerAlreadyExistsException
-    _LayerAlreadyExistsException,
+    -- ** KmsException
+    _KmsException,
 
     -- * Waiters
     -- $waiters
@@ -159,23 +164,17 @@ module Network.AWS.ECR
     DescribeRepositoriesResponse (DescribeRepositoriesResponse'),
     newDescribeRepositoriesResponse,
 
-    -- ** ListImages (Paginated)
-    ListImages (ListImages'),
-    newListImages,
-    ListImagesResponse (ListImagesResponse'),
-    newListImagesResponse,
-
     -- ** PutImage
     PutImage (PutImage'),
     newPutImage,
     PutImageResponse (PutImageResponse'),
     newPutImageResponse,
 
-    -- ** InitiateLayerUpload
-    InitiateLayerUpload (InitiateLayerUpload'),
-    newInitiateLayerUpload,
-    InitiateLayerUploadResponse (InitiateLayerUploadResponse'),
-    newInitiateLayerUploadResponse,
+    -- ** ListImages (Paginated)
+    ListImages (ListImages'),
+    newListImages,
+    ListImagesResponse (ListImagesResponse'),
+    newListImagesResponse,
 
     -- ** GetRegistryPolicy
     GetRegistryPolicy (GetRegistryPolicy'),
@@ -183,11 +182,11 @@ module Network.AWS.ECR
     GetRegistryPolicyResponse (GetRegistryPolicyResponse'),
     newGetRegistryPolicyResponse,
 
-    -- ** DeleteRepositoryPolicy
-    DeleteRepositoryPolicy (DeleteRepositoryPolicy'),
-    newDeleteRepositoryPolicy,
-    DeleteRepositoryPolicyResponse (DeleteRepositoryPolicyResponse'),
-    newDeleteRepositoryPolicyResponse,
+    -- ** InitiateLayerUpload
+    InitiateLayerUpload (InitiateLayerUpload'),
+    newInitiateLayerUpload,
+    InitiateLayerUploadResponse (InitiateLayerUploadResponse'),
+    newInitiateLayerUploadResponse,
 
     -- ** DescribeImageScanFindings (Paginated)
     DescribeImageScanFindings (DescribeImageScanFindings'),
@@ -195,11 +194,23 @@ module Network.AWS.ECR
     DescribeImageScanFindingsResponse (DescribeImageScanFindingsResponse'),
     newDescribeImageScanFindingsResponse,
 
+    -- ** DeleteRepositoryPolicy
+    DeleteRepositoryPolicy (DeleteRepositoryPolicy'),
+    newDeleteRepositoryPolicy,
+    DeleteRepositoryPolicyResponse (DeleteRepositoryPolicyResponse'),
+    newDeleteRepositoryPolicyResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** SetRepositoryPolicy
     SetRepositoryPolicy (SetRepositoryPolicy'),
@@ -212,12 +223,6 @@ module Network.AWS.ECR
     newDescribeRegistry,
     DescribeRegistryResponse (DescribeRegistryResponse'),
     newDescribeRegistryResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
 
     -- ** BatchDeleteImage
     BatchDeleteImage (BatchDeleteImage'),
@@ -249,11 +254,11 @@ module Network.AWS.ECR
     GetRepositoryPolicyResponse (GetRepositoryPolicyResponse'),
     newGetRepositoryPolicyResponse,
 
-    -- ** DescribeImages (Paginated)
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
+    -- ** CompleteLayerUpload
+    CompleteLayerUpload (CompleteLayerUpload'),
+    newCompleteLayerUpload,
+    CompleteLayerUploadResponse (CompleteLayerUploadResponse'),
+    newCompleteLayerUploadResponse,
 
     -- ** GetDownloadUrlForLayer
     GetDownloadUrlForLayer (GetDownloadUrlForLayer'),
@@ -261,11 +266,11 @@ module Network.AWS.ECR
     GetDownloadUrlForLayerResponse (GetDownloadUrlForLayerResponse'),
     newGetDownloadUrlForLayerResponse,
 
-    -- ** CompleteLayerUpload
-    CompleteLayerUpload (CompleteLayerUpload'),
-    newCompleteLayerUpload,
-    CompleteLayerUploadResponse (CompleteLayerUploadResponse'),
-    newCompleteLayerUploadResponse,
+    -- ** DescribeImages (Paginated)
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
 
     -- ** GetAuthorizationToken
     GetAuthorizationToken (GetAuthorizationToken'),
@@ -285,12 +290,6 @@ module Network.AWS.ECR
     DeleteRepositoryResponse (DeleteRepositoryResponse'),
     newDeleteRepositoryResponse,
 
-    -- ** BatchCheckLayerAvailability
-    BatchCheckLayerAvailability (BatchCheckLayerAvailability'),
-    newBatchCheckLayerAvailability,
-    BatchCheckLayerAvailabilityResponse (BatchCheckLayerAvailabilityResponse'),
-    newBatchCheckLayerAvailabilityResponse,
-
     -- ** GetLifecyclePolicy
     GetLifecyclePolicy (GetLifecyclePolicy'),
     newGetLifecyclePolicy,
@@ -303,11 +302,11 @@ module Network.AWS.ECR
     StartImageScanResponse (StartImageScanResponse'),
     newStartImageScanResponse,
 
-    -- ** PutReplicationConfiguration
-    PutReplicationConfiguration (PutReplicationConfiguration'),
-    newPutReplicationConfiguration,
-    PutReplicationConfigurationResponse (PutReplicationConfigurationResponse'),
-    newPutReplicationConfigurationResponse,
+    -- ** BatchCheckLayerAvailability
+    BatchCheckLayerAvailability (BatchCheckLayerAvailability'),
+    newBatchCheckLayerAvailability,
+    BatchCheckLayerAvailabilityResponse (BatchCheckLayerAvailabilityResponse'),
+    newBatchCheckLayerAvailabilityResponse,
 
     -- ** BatchGetImage
     BatchGetImage (BatchGetImage'),
@@ -315,17 +314,29 @@ module Network.AWS.ECR
     BatchGetImageResponse (BatchGetImageResponse'),
     newBatchGetImageResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** PutReplicationConfiguration
+    PutReplicationConfiguration (PutReplicationConfiguration'),
+    newPutReplicationConfiguration,
+    PutReplicationConfigurationResponse (PutReplicationConfigurationResponse'),
+    newPutReplicationConfigurationResponse,
 
     -- ** PutImageTagMutability
     PutImageTagMutability (PutImageTagMutability'),
     newPutImageTagMutability,
     PutImageTagMutabilityResponse (PutImageTagMutabilityResponse'),
     newPutImageTagMutabilityResponse,
+
+    -- ** DescribeImageReplicationStatus
+    DescribeImageReplicationStatus (DescribeImageReplicationStatus'),
+    newDescribeImageReplicationStatus,
+    DescribeImageReplicationStatusResponse (DescribeImageReplicationStatusResponse'),
+    newDescribeImageReplicationStatusResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** GetLifecyclePolicyPreview (Paginated)
     GetLifecyclePolicyPreview (GetLifecyclePolicyPreview'),
@@ -358,6 +369,12 @@ module Network.AWS.ECR
 
     -- ** LifecyclePolicyPreviewStatus
     LifecyclePolicyPreviewStatus (..),
+
+    -- ** ReplicationStatus
+    ReplicationStatus (..),
+
+    -- ** RepositoryFilterType
+    RepositoryFilterType (..),
 
     -- ** ScanStatus
     ScanStatus (..),
@@ -396,6 +413,10 @@ module Network.AWS.ECR
     -- ** ImageIdentifier
     ImageIdentifier (ImageIdentifier'),
     newImageIdentifier,
+
+    -- ** ImageReplicationStatus
+    ImageReplicationStatus (ImageReplicationStatus'),
+    newImageReplicationStatus,
 
     -- ** ImageScanFinding
     ImageScanFinding (ImageScanFinding'),
@@ -461,6 +482,10 @@ module Network.AWS.ECR
     Repository (Repository'),
     newRepository,
 
+    -- ** RepositoryFilter
+    RepositoryFilter (RepositoryFilter'),
+    newRepositoryFilter,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -476,6 +501,7 @@ import Network.AWS.ECR.DeleteLifecyclePolicy
 import Network.AWS.ECR.DeleteRegistryPolicy
 import Network.AWS.ECR.DeleteRepository
 import Network.AWS.ECR.DeleteRepositoryPolicy
+import Network.AWS.ECR.DescribeImageReplicationStatus
 import Network.AWS.ECR.DescribeImageScanFindings
 import Network.AWS.ECR.DescribeImages
 import Network.AWS.ECR.DescribeRegistry

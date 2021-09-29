@@ -52,9 +52,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutImageScanningConfiguration' smart constructor.
 data PutImageScanningConfiguration = PutImageScanningConfiguration'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to update the image scanning configuration setting.
-    -- If you do not specify a registry, the default registry is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to update the image scanning
+    -- configuration setting. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in which to update the image scanning
     -- configuration setting.
@@ -74,9 +75,10 @@ data PutImageScanningConfiguration = PutImageScanningConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'putImageScanningConfiguration_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to update the image scanning configuration setting.
--- If you do not specify a registry, the default registry is assumed.
+-- 'registryId', 'putImageScanningConfiguration_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to update the image scanning
+-- configuration setting. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'repositoryName', 'putImageScanningConfiguration_repositoryName' - The name of the repository in which to update the image scanning
 -- configuration setting.
@@ -101,9 +103,10 @@ newPutImageScanningConfiguration
           pImageScanningConfiguration_
       }
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to update the image scanning configuration setting.
--- If you do not specify a registry, the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to update the image scanning
+-- configuration setting. If you do not specify a registry, the default
+-- registry is assumed.
 putImageScanningConfiguration_registryId :: Lens.Lens' PutImageScanningConfiguration (Prelude.Maybe Prelude.Text)
 putImageScanningConfiguration_registryId = Lens.lens (\PutImageScanningConfiguration' {registryId} -> registryId) (\s@PutImageScanningConfiguration' {} a -> s {registryId = a} :: PutImageScanningConfiguration)
 

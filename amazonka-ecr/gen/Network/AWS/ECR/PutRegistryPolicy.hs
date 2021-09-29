@@ -22,9 +22,9 @@
 --
 -- Creates or updates the permissions policy for your registry.
 --
--- A registry policy is used to specify permissions for another AWS account
--- and is used when configuring cross-account replication. For more
--- information, see
+-- A registry policy is used to specify permissions for another Amazon Web
+-- Services account and is used when configuring cross-account replication.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html Registry permissions>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.PutRegistryPolicy

@@ -27,9 +27,9 @@
 --
 -- The @authorizationToken@ returned is a base64 encoded string that can be
 -- decoded and used in a @docker login@ command to authenticate to a
--- registry. The AWS CLI offers an @get-login-password@ command that
--- simplifies the login process. For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth Registry Authentication>
+-- registry. The CLI offers an @get-login-password@ command that simplifies
+-- the login process. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth Registry authentication>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.GetAuthorizationToken
   ( -- * Creating a Request
@@ -58,9 +58,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAuthorizationToken' smart constructor.
 data GetAuthorizationToken = GetAuthorizationToken'
-  { -- | A list of AWS account IDs that are associated with the registries for
-    -- which to get AuthorizationData objects. If you do not specify a
-    -- registry, the default registry is assumed.
+  { -- | A list of Amazon Web Services account IDs that are associated with the
+    -- registries for which to get AuthorizationData objects. If you do not
+    -- specify a registry, the default registry is assumed.
     registryIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,9 +73,9 @@ data GetAuthorizationToken = GetAuthorizationToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryIds', 'getAuthorizationToken_registryIds' - A list of AWS account IDs that are associated with the registries for
--- which to get AuthorizationData objects. If you do not specify a
--- registry, the default registry is assumed.
+-- 'registryIds', 'getAuthorizationToken_registryIds' - A list of Amazon Web Services account IDs that are associated with the
+-- registries for which to get AuthorizationData objects. If you do not
+-- specify a registry, the default registry is assumed.
 newGetAuthorizationToken ::
   GetAuthorizationToken
 newGetAuthorizationToken =
@@ -84,9 +84,9 @@ newGetAuthorizationToken =
         Prelude.Nothing
     }
 
--- | A list of AWS account IDs that are associated with the registries for
--- which to get AuthorizationData objects. If you do not specify a
--- registry, the default registry is assumed.
+-- | A list of Amazon Web Services account IDs that are associated with the
+-- registries for which to get AuthorizationData objects. If you do not
+-- specify a registry, the default registry is assumed.
 getAuthorizationToken_registryIds :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getAuthorizationToken_registryIds = Lens.lens (\GetAuthorizationToken' {registryIds} -> registryIds) (\s@GetAuthorizationToken' {} a -> s {registryIds = a} :: GetAuthorizationToken) Prelude.. Lens.mapping Lens._Coerce
 

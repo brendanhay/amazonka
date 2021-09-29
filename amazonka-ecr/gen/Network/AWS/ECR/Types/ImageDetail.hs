@@ -36,8 +36,8 @@ data ImageDetail = ImageDetail'
     imageScanStatus :: Prelude.Maybe ImageScanStatus,
     -- | The list of tags associated with this image.
     imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS account ID associated with the registry to which this image
-    -- belongs.
+    -- | The Amazon Web Services account ID associated with the registry to which
+    -- this image belongs.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to which this image belongs.
     repositoryName :: Prelude.Maybe Prelude.Text,
@@ -78,8 +78,8 @@ data ImageDetail = ImageDetail'
 --
 -- 'imageTags', 'imageDetail_imageTags' - The list of tags associated with this image.
 --
--- 'registryId', 'imageDetail_registryId' - The AWS account ID associated with the registry to which this image
--- belongs.
+-- 'registryId', 'imageDetail_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- this image belongs.
 --
 -- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
 --
@@ -130,8 +130,8 @@ imageDetail_imageScanStatus = Lens.lens (\ImageDetail' {imageScanStatus} -> imag
 imageDetail_imageTags :: Lens.Lens' ImageDetail (Prelude.Maybe [Prelude.Text])
 imageDetail_imageTags = Lens.lens (\ImageDetail' {imageTags} -> imageTags) (\s@ImageDetail' {} a -> s {imageTags = a} :: ImageDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS account ID associated with the registry to which this image
--- belongs.
+-- | The Amazon Web Services account ID associated with the registry to which
+-- this image belongs.
 imageDetail_registryId :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_registryId = Lens.lens (\ImageDetail' {registryId} -> registryId) (\s@ImageDetail' {} a -> s {registryId = a} :: ImageDetail)
 

@@ -59,9 +59,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInitiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { -- | The AWS account ID associated with the registry to which you intend to
-    -- upload layers. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry to which
+    -- you intend to upload layers. If you do not specify a registry, the
+    -- default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to which you intend to upload layers.
     repositoryName :: Prelude.Text
@@ -76,9 +76,9 @@ data InitiateLayerUpload = InitiateLayerUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'initiateLayerUpload_registryId' - The AWS account ID associated with the registry to which you intend to
--- upload layers. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'initiateLayerUpload_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- you intend to upload layers. If you do not specify a registry, the
+-- default registry is assumed.
 --
 -- 'repositoryName', 'initiateLayerUpload_repositoryName' - The name of the repository to which you intend to upload layers.
 newInitiateLayerUpload ::
@@ -91,9 +91,9 @@ newInitiateLayerUpload pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry to which you intend to
--- upload layers. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry to which
+-- you intend to upload layers. If you do not specify a registry, the
+-- default registry is assumed.
 initiateLayerUpload_registryId :: Lens.Lens' InitiateLayerUpload (Prelude.Maybe Prelude.Text)
 initiateLayerUpload_registryId = Lens.lens (\InitiateLayerUpload' {registryId} -> registryId) (\s@InitiateLayerUpload' {} a -> s {registryId = a} :: InitiateLayerUpload)
 

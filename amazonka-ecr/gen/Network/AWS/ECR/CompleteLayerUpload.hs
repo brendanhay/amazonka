@@ -64,9 +64,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCompleteLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-  { -- | The AWS account ID associated with the registry to which to upload
-    -- layers. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry to which
+    -- to upload layers. If you do not specify a registry, the default registry
+    -- is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to associate with the image layer.
     repositoryName :: Prelude.Text,
@@ -86,9 +86,9 @@ data CompleteLayerUpload = CompleteLayerUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'completeLayerUpload_registryId' - The AWS account ID associated with the registry to which to upload
--- layers. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'completeLayerUpload_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- to upload layers. If you do not specify a registry, the default registry
+-- is assumed.
 --
 -- 'repositoryName', 'completeLayerUpload_repositoryName' - The name of the repository to associate with the image layer.
 --
@@ -115,9 +115,9 @@ newCompleteLayerUpload
         layerDigests = Lens._Coerce Lens.# pLayerDigests_
       }
 
--- | The AWS account ID associated with the registry to which to upload
--- layers. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry to which
+-- to upload layers. If you do not specify a registry, the default registry
+-- is assumed.
 completeLayerUpload_registryId :: Lens.Lens' CompleteLayerUpload (Prelude.Maybe Prelude.Text)
 completeLayerUpload_registryId = Lens.lens (\CompleteLayerUpload' {registryId} -> registryId) (\s@CompleteLayerUpload' {} a -> s {registryId = a} :: CompleteLayerUpload)
 

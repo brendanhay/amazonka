@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts an image vulnerability scan. An image scan can only be started
--- once per day on an individual image. This limit includes if an image was
--- scanned on initial push. For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html Image Scanning>
+-- once per 24 hours on an individual image. This limit includes if an
+-- image was scanned on initial push. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html Image scanning>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.StartImageScan
   ( -- * Creating a Request
@@ -57,9 +57,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartImageScan' smart constructor.
 data StartImageScan = StartImageScan'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to start an image scan request. If you do not
-    -- specify a registry, the default registry is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to start an image scan request. If you
+    -- do not specify a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the images to scan.
     repositoryName :: Prelude.Text,
@@ -75,9 +75,9 @@ data StartImageScan = StartImageScan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'startImageScan_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to start an image scan request. If you do not
--- specify a registry, the default registry is assumed.
+-- 'registryId', 'startImageScan_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to start an image scan request. If you
+-- do not specify a registry, the default registry is assumed.
 --
 -- 'repositoryName', 'startImageScan_repositoryName' - The name of the repository that contains the images to scan.
 --
@@ -95,9 +95,9 @@ newStartImageScan pRepositoryName_ pImageId_ =
       imageId = pImageId_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to start an image scan request. If you do not
--- specify a registry, the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to start an image scan request. If you
+-- do not specify a registry, the default registry is assumed.
 startImageScan_registryId :: Lens.Lens' StartImageScan (Prelude.Maybe Prelude.Text)
 startImageScan_registryId = Lens.lens (\StartImageScan' {registryId} -> registryId) (\s@StartImageScan' {} a -> s {registryId = a} :: StartImageScan)
 

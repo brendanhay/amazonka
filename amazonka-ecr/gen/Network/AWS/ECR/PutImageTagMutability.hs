@@ -22,7 +22,7 @@
 --
 -- Updates the image tag mutability settings for the specified repository.
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html Image Tag Mutability>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html Image tag mutability>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.PutImageTagMutability
   ( -- * Creating a Request
@@ -55,9 +55,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutImageTagMutability' smart constructor.
 data PutImageTagMutability = PutImageTagMutability'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to update the image tag mutability settings. If you
-    -- do not specify a registry, the default registry is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to update the image tag mutability
+    -- settings. If you do not specify a registry, the default registry is
+    -- assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in which to update the image tag mutability
     -- settings.
@@ -78,9 +79,10 @@ data PutImageTagMutability = PutImageTagMutability'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'putImageTagMutability_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to update the image tag mutability settings. If you
--- do not specify a registry, the default registry is assumed.
+-- 'registryId', 'putImageTagMutability_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to update the image tag mutability
+-- settings. If you do not specify a registry, the default registry is
+-- assumed.
 --
 -- 'repositoryName', 'putImageTagMutability_repositoryName' - The name of the repository in which to update the image tag mutability
 -- settings.
@@ -105,9 +107,10 @@ newPutImageTagMutability
         imageTagMutability = pImageTagMutability_
       }
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to update the image tag mutability settings. If you
--- do not specify a registry, the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to update the image tag mutability
+-- settings. If you do not specify a registry, the default registry is
+-- assumed.
 putImageTagMutability_registryId :: Lens.Lens' PutImageTagMutability (Prelude.Maybe Prelude.Text)
 putImageTagMutability_registryId = Lens.lens (\PutImageTagMutability' {registryId} -> registryId) (\s@PutImageTagMutability' {} a -> s {registryId = a} :: PutImageTagMutability)
 

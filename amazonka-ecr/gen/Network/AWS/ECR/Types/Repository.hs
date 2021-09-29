@@ -36,8 +36,8 @@ data Repository = Repository'
     -- | The URI for the repository. You can use this URI for container image
     -- @push@ and @pull@ operations.
     repositoryUri :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in JavaScript date format, when the repository was
     -- created.
@@ -46,8 +46,8 @@ data Repository = Repository'
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN
     -- contains the @arn:aws:ecr@ namespace, followed by the region of the
-    -- repository, AWS account ID of the repository owner, repository
-    -- namespace, and repository name. For example,
+    -- repository, Amazon Web Services account ID of the repository owner,
+    -- repository namespace, and repository name. For example,
     -- @arn:aws:ecr:region:012345678910:repository\/test@.
     repositoryArn :: Prelude.Maybe Prelude.Text,
     imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
@@ -70,8 +70,8 @@ data Repository = Repository'
 -- 'repositoryUri', 'repository_repositoryUri' - The URI for the repository. You can use this URI for container image
 -- @push@ and @pull@ operations.
 --
--- 'registryId', 'repository_registryId' - The AWS account ID associated with the registry that contains the
--- repository.
+-- 'registryId', 'repository_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository.
 --
 -- 'createdAt', 'repository_createdAt' - The date and time, in JavaScript date format, when the repository was
 -- created.
@@ -80,8 +80,8 @@ data Repository = Repository'
 --
 -- 'repositoryArn', 'repository_repositoryArn' - The Amazon Resource Name (ARN) that identifies the repository. The ARN
 -- contains the @arn:aws:ecr@ namespace, followed by the region of the
--- repository, AWS account ID of the repository owner, repository
--- namespace, and repository name. For example,
+-- repository, Amazon Web Services account ID of the repository owner,
+-- repository namespace, and repository name. For example,
 -- @arn:aws:ecr:region:012345678910:repository\/test@.
 --
 -- 'imageScanningConfiguration', 'repository_imageScanningConfiguration' - Undocumented member.
@@ -112,8 +112,8 @@ repository_encryptionConfiguration = Lens.lens (\Repository' {encryptionConfigur
 repository_repositoryUri :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_repositoryUri = Lens.lens (\Repository' {repositoryUri} -> repositoryUri) (\s@Repository' {} a -> s {repositoryUri = a} :: Repository)
 
--- | The AWS account ID associated with the registry that contains the
--- repository.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository.
 repository_registryId :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_registryId = Lens.lens (\Repository' {registryId} -> registryId) (\s@Repository' {} a -> s {registryId = a} :: Repository)
 
@@ -128,8 +128,8 @@ repository_repositoryName = Lens.lens (\Repository' {repositoryName} -> reposito
 
 -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN
 -- contains the @arn:aws:ecr@ namespace, followed by the region of the
--- repository, AWS account ID of the repository owner, repository
--- namespace, and repository name. For example,
+-- repository, Amazon Web Services account ID of the repository owner,
+-- repository namespace, and repository name. For example,
 -- @arn:aws:ecr:region:012345678910:repository\/test@.
 repository_repositoryArn :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_repositoryArn = Lens.lens (\Repository' {repositoryArn} -> repositoryArn) (\s@Repository' {} a -> s {repositoryArn = a} :: Repository)

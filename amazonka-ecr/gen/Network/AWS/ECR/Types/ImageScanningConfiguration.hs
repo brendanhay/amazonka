@@ -31,7 +31,9 @@ data ImageScanningConfiguration = ImageScanningConfiguration'
     -- pushed to a repository. If set to @true@, images will be scanned after
     -- being pushed. If this parameter is not specified, it will default to
     -- @false@ and images will not be scanned unless a scan is manually started
-    -- with the StartImageScan API.
+    -- with the
+    -- <https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html API_StartImageScan>
+    -- API.
     scanOnPush :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +50,9 @@ data ImageScanningConfiguration = ImageScanningConfiguration'
 -- pushed to a repository. If set to @true@, images will be scanned after
 -- being pushed. If this parameter is not specified, it will default to
 -- @false@ and images will not be scanned unless a scan is manually started
--- with the StartImageScan API.
+-- with the
+-- <https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html API_StartImageScan>
+-- API.
 newImageScanningConfiguration ::
   ImageScanningConfiguration
 newImageScanningConfiguration =
@@ -61,7 +65,9 @@ newImageScanningConfiguration =
 -- pushed to a repository. If set to @true@, images will be scanned after
 -- being pushed. If this parameter is not specified, it will default to
 -- @false@ and images will not be scanned unless a scan is manually started
--- with the StartImageScan API.
+-- with the
+-- <https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html API_StartImageScan>
+-- API.
 imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Prelude.Maybe Prelude.Bool)
 imageScanningConfiguration_scanOnPush = Lens.lens (\ImageScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@ImageScanningConfiguration' {} a -> s {scanOnPush = a} :: ImageScanningConfiguration)
 

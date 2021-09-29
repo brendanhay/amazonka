@@ -30,8 +30,8 @@ module Network.AWS.ECR.DescribeRepositories
 
     -- * Request Lenses
     describeRepositories_nextToken,
-    describeRepositories_maxResults,
     describeRepositories_repositoryNames,
+    describeRepositories_maxResults,
     describeRepositories_registryId,
 
     -- * Destructuring the Response
@@ -66,6 +66,9 @@ data DescribeRepositories = DescribeRepositories'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of repositories to describe. If this parameter is omitted, then
+    -- all repositories in a registry are described.
+    repositoryNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of repository results returned by
     -- @DescribeRepositories@ in paginated output. When this parameter is used,
     -- @DescribeRepositories@ only returns @maxResults@ results in a single
@@ -77,12 +80,9 @@ data DescribeRepositories = DescribeRepositories'
     -- value, if applicable. This option cannot be used when you specify
     -- repositories with @repositoryNames@.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A list of repositories to describe. If this parameter is omitted, then
-    -- all repositories in a registry are described.
-    repositoryNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The AWS account ID associated with the registry that contains the
-    -- repositories to be described. If you do not specify a registry, the
-    -- default registry is assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repositories to be described. If you do not specify a
+    -- registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,6 +107,9 @@ data DescribeRepositories = DescribeRepositories'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
+-- 'repositoryNames', 'describeRepositories_repositoryNames' - A list of repositories to describe. If this parameter is omitted, then
+-- all repositories in a registry are described.
+--
 -- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by
 -- @DescribeRepositories@ in paginated output. When this parameter is used,
 -- @DescribeRepositories@ only returns @maxResults@ results in a single
@@ -118,19 +121,16 @@ data DescribeRepositories = DescribeRepositories'
 -- value, if applicable. This option cannot be used when you specify
 -- repositories with @repositoryNames@.
 --
--- 'repositoryNames', 'describeRepositories_repositoryNames' - A list of repositories to describe. If this parameter is omitted, then
--- all repositories in a registry are described.
---
--- 'registryId', 'describeRepositories_registryId' - The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default registry is assumed.
+-- 'registryId', 'describeRepositories_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repositories to be described. If you do not specify a
+-- registry, the default registry is assumed.
 newDescribeRepositories ::
   DescribeRepositories
 newDescribeRepositories =
   DescribeRepositories'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       repositoryNames = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       registryId = Prelude.Nothing
     }
 
@@ -148,6 +148,11 @@ newDescribeRepositories =
 describeRepositories_nextToken :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -> nextToken) (\s@DescribeRepositories' {} a -> s {nextToken = a} :: DescribeRepositories)
 
+-- | A list of repositories to describe. If this parameter is omitted, then
+-- all repositories in a registry are described.
+describeRepositories_repositoryNames :: Lens.Lens' DescribeRepositories (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeRepositories_repositoryNames = Lens.lens (\DescribeRepositories' {repositoryNames} -> repositoryNames) (\s@DescribeRepositories' {} a -> s {repositoryNames = a} :: DescribeRepositories) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The maximum number of repository results returned by
 -- @DescribeRepositories@ in paginated output. When this parameter is used,
 -- @DescribeRepositories@ only returns @maxResults@ results in a single
@@ -161,14 +166,9 @@ describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -
 describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Natural)
 describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults} -> maxResults) (\s@DescribeRepositories' {} a -> s {maxResults = a} :: DescribeRepositories)
 
--- | A list of repositories to describe. If this parameter is omitted, then
--- all repositories in a registry are described.
-describeRepositories_repositoryNames :: Lens.Lens' DescribeRepositories (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeRepositories_repositoryNames = Lens.lens (\DescribeRepositories' {repositoryNames} -> repositoryNames) (\s@DescribeRepositories' {} a -> s {repositoryNames = a} :: DescribeRepositories) Prelude.. Lens.mapping Lens._Coerce
-
--- | The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repositories to be described. If you do not specify a
+-- registry, the default registry is assumed.
 describeRepositories_registryId :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_registryId = Lens.lens (\DescribeRepositories' {registryId} -> registryId) (\s@DescribeRepositories' {} a -> s {registryId = a} :: DescribeRepositories)
 
@@ -232,9 +232,9 @@ instance Core.ToJSON DescribeRepositories where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("repositoryNames" Core..=)
               Prelude.<$> repositoryNames,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("registryId" Core..=) Prelude.<$> registryId
           ]
       )

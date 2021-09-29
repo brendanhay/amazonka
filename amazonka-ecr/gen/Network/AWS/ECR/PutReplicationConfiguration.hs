@@ -26,7 +26,7 @@
 -- PutReplicationConfiguration API is called, a service-linked IAM role is
 -- created in your account for the replication process. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECR>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html Using service-linked roles for Amazon ECR>
 -- in the /Amazon Elastic Container Registry User Guide/.
 --
 -- When configuring cross-account replication, the destination account must

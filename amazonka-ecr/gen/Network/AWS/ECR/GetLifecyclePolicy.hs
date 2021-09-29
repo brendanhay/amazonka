@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLifecyclePolicy' smart constructor.
 data GetLifecyclePolicy = GetLifecyclePolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
     repositoryName :: Prelude.Text
@@ -69,9 +69,9 @@ data GetLifecyclePolicy = GetLifecyclePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'getLifecyclePolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'getLifecyclePolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'repositoryName', 'getLifecyclePolicy_repositoryName' - The name of the repository.
 newGetLifecyclePolicy ::
@@ -84,9 +84,9 @@ newGetLifecyclePolicy pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 getLifecyclePolicy_registryId :: Lens.Lens' GetLifecyclePolicy (Prelude.Maybe Prelude.Text)
 getLifecyclePolicy_registryId = Lens.lens (\GetLifecyclePolicy' {registryId} -> registryId) (\s@GetLifecyclePolicy' {} a -> s {registryId = a} :: GetLifecyclePolicy)
 

@@ -28,10 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReplicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
-  { -- | An array of objects representing the replication rules for a replication
-    -- configuration. A replication configuration may contain only one
-    -- replication rule but the rule may contain one or more replication
-    -- destinations.
+  { -- | An array of objects representing the replication destinations and
+    -- repository filters for a replication configuration.
     rules :: [ReplicationRule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,19 +42,15 @@ data ReplicationConfiguration = ReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'replicationConfiguration_rules' - An array of objects representing the replication rules for a replication
--- configuration. A replication configuration may contain only one
--- replication rule but the rule may contain one or more replication
--- destinations.
+-- 'rules', 'replicationConfiguration_rules' - An array of objects representing the replication destinations and
+-- repository filters for a replication configuration.
 newReplicationConfiguration ::
   ReplicationConfiguration
 newReplicationConfiguration =
   ReplicationConfiguration' {rules = Prelude.mempty}
 
--- | An array of objects representing the replication rules for a replication
--- configuration. A replication configuration may contain only one
--- replication rule but the rule may contain one or more replication
--- destinations.
+-- | An array of objects representing the replication destinations and
+-- repository filters for a replication configuration.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
 replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens._Coerce
 

@@ -23,6 +23,7 @@ module Network.AWS.AppSync.Types.AuthenticationType
         AuthenticationType_AMAZON_COGNITO_USER_POOLS,
         AuthenticationType_API_KEY,
         AuthenticationType_AWS_IAM,
+        AuthenticationType_AWS_LAMBDA,
         AuthenticationType_OPENID_CONNECT
       ),
   )
@@ -68,6 +69,9 @@ pattern AuthenticationType_API_KEY = AuthenticationType' "API_KEY"
 pattern AuthenticationType_AWS_IAM :: AuthenticationType
 pattern AuthenticationType_AWS_IAM = AuthenticationType' "AWS_IAM"
 
+pattern AuthenticationType_AWS_LAMBDA :: AuthenticationType
+pattern AuthenticationType_AWS_LAMBDA = AuthenticationType' "AWS_LAMBDA"
+
 pattern AuthenticationType_OPENID_CONNECT :: AuthenticationType
 pattern AuthenticationType_OPENID_CONNECT = AuthenticationType' "OPENID_CONNECT"
 
@@ -75,6 +79,7 @@ pattern AuthenticationType_OPENID_CONNECT = AuthenticationType' "OPENID_CONNECT"
   AuthenticationType_AMAZON_COGNITO_USER_POOLS,
   AuthenticationType_API_KEY,
   AuthenticationType_AWS_IAM,
+  AuthenticationType_AWS_LAMBDA,
   AuthenticationType_OPENID_CONNECT,
   AuthenticationType'
   #-}

@@ -24,12 +24,13 @@ module Network.AWS.AppSync.Lens
     listResolversResponse_httpStatus,
 
     -- ** UpdateDataSource
-    updateDataSource_relationalDatabaseConfig,
     updateDataSource_serviceRoleArn,
+    updateDataSource_relationalDatabaseConfig,
     updateDataSource_elasticsearchConfig,
     updateDataSource_lambdaConfig,
     updateDataSource_dynamodbConfig,
     updateDataSource_description,
+    updateDataSource_openSearchServiceConfig,
     updateDataSource_httpConfig,
     updateDataSource_apiId,
     updateDataSource_name,
@@ -45,6 +46,12 @@ module Network.AWS.AppSync.Lens
     listDataSourcesResponse_dataSources,
     listDataSourcesResponse_httpStatus,
 
+    -- ** GetFunction
+    getFunction_apiId,
+    getFunction_functionId,
+    getFunctionResponse_functionConfiguration,
+    getFunctionResponse_httpStatus,
+
     -- ** CreateType
     createType_apiId,
     createType_definition,
@@ -52,24 +59,27 @@ module Network.AWS.AppSync.Lens
     createTypeResponse_type,
     createTypeResponse_httpStatus,
 
-    -- ** GetFunction
-    getFunction_apiId,
-    getFunction_functionId,
-    getFunctionResponse_functionConfiguration,
-    getFunctionResponse_httpStatus,
-
     -- ** DeleteDataSource
     deleteDataSource_apiId,
     deleteDataSource_name,
     deleteDataSourceResponse_httpStatus,
 
+    -- ** UpdateType
+    updateType_definition,
+    updateType_apiId,
+    updateType_typeName,
+    updateType_format,
+    updateTypeResponse_type,
+    updateTypeResponse_httpStatus,
+
     -- ** CreateDataSource
-    createDataSource_relationalDatabaseConfig,
     createDataSource_serviceRoleArn,
+    createDataSource_relationalDatabaseConfig,
     createDataSource_elasticsearchConfig,
     createDataSource_lambdaConfig,
     createDataSource_dynamodbConfig,
     createDataSource_description,
+    createDataSource_openSearchServiceConfig,
     createDataSource_httpConfig,
     createDataSource_apiId,
     createDataSource_name,
@@ -82,14 +92,6 @@ module Network.AWS.AppSync.Lens
     deleteType_typeName,
     deleteTypeResponse_httpStatus,
 
-    -- ** UpdateType
-    updateType_definition,
-    updateType_apiId,
-    updateType_typeName,
-    updateType_format,
-    updateTypeResponse_type,
-    updateTypeResponse_httpStatus,
-
     -- ** ListResolversByFunction
     listResolversByFunction_nextToken,
     listResolversByFunction_maxResults,
@@ -99,11 +101,6 @@ module Network.AWS.AppSync.Lens
     listResolversByFunctionResponse_resolvers,
     listResolversByFunctionResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
     -- ** ListFunctions
     listFunctions_nextToken,
     listFunctions_maxResults,
@@ -112,36 +109,10 @@ module Network.AWS.AppSync.Lens
     listFunctionsResponse_functions,
     listFunctionsResponse_httpStatus,
 
-    -- ** GetIntrospectionSchema
-    getIntrospectionSchema_includeDirectives,
-    getIntrospectionSchema_apiId,
-    getIntrospectionSchema_format,
-    getIntrospectionSchemaResponse_schema,
-    getIntrospectionSchemaResponse_httpStatus,
-
-    -- ** UpdateGraphqlApi
-    updateGraphqlApi_openIDConnectConfig,
-    updateGraphqlApi_userPoolConfig,
-    updateGraphqlApi_xrayEnabled,
-    updateGraphqlApi_logConfig,
-    updateGraphqlApi_additionalAuthenticationProviders,
-    updateGraphqlApi_authenticationType,
-    updateGraphqlApi_apiId,
-    updateGraphqlApi_name,
-    updateGraphqlApiResponse_graphqlApi,
-    updateGraphqlApiResponse_httpStatus,
-
-    -- ** ListGraphqlApis
-    listGraphqlApis_nextToken,
-    listGraphqlApis_maxResults,
-    listGraphqlApisResponse_nextToken,
-    listGraphqlApisResponse_graphqlApis,
-    listGraphqlApisResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** DeleteGraphqlApi
     deleteGraphqlApi_apiId,
@@ -154,9 +125,37 @@ module Network.AWS.AppSync.Lens
     getResolverResponse_resolver,
     getResolverResponse_httpStatus,
 
-    -- ** DeleteApiCache
-    deleteApiCache_apiId,
-    deleteApiCacheResponse_httpStatus,
+    -- ** GetIntrospectionSchema
+    getIntrospectionSchema_includeDirectives,
+    getIntrospectionSchema_apiId,
+    getIntrospectionSchema_format,
+    getIntrospectionSchemaResponse_schema,
+    getIntrospectionSchemaResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** ListGraphqlApis
+    listGraphqlApis_nextToken,
+    listGraphqlApis_maxResults,
+    listGraphqlApisResponse_nextToken,
+    listGraphqlApisResponse_graphqlApis,
+    listGraphqlApisResponse_httpStatus,
+
+    -- ** UpdateGraphqlApi
+    updateGraphqlApi_openIDConnectConfig,
+    updateGraphqlApi_userPoolConfig,
+    updateGraphqlApi_xrayEnabled,
+    updateGraphqlApi_lambdaAuthorizerConfig,
+    updateGraphqlApi_logConfig,
+    updateGraphqlApi_additionalAuthenticationProviders,
+    updateGraphqlApi_authenticationType,
+    updateGraphqlApi_apiId,
+    updateGraphqlApi_name,
+    updateGraphqlApiResponse_graphqlApi,
+    updateGraphqlApiResponse_httpStatus,
 
     -- ** UpdateApiCache
     updateApiCache_apiId,
@@ -165,6 +164,10 @@ module Network.AWS.AppSync.Lens
     updateApiCache_type,
     updateApiCacheResponse_apiCache,
     updateApiCacheResponse_httpStatus,
+
+    -- ** DeleteApiCache
+    deleteApiCache_apiId,
+    deleteApiCacheResponse_httpStatus,
 
     -- ** GetSchemaCreationStatus
     getSchemaCreationStatus_apiId,
@@ -176,6 +179,11 @@ module Network.AWS.AppSync.Lens
     getApiCache_apiId,
     getApiCacheResponse_apiCache,
     getApiCacheResponse_httpStatus,
+
+    -- ** GetGraphqlApi
+    getGraphqlApi_apiId,
+    getGraphqlApiResponse_graphqlApi,
+    getGraphqlApiResponse_httpStatus,
 
     -- ** UpdateResolver
     updateResolver_responseMappingTemplate,
@@ -196,11 +204,6 @@ module Network.AWS.AppSync.Lens
     deleteResolver_typeName,
     deleteResolver_fieldName,
     deleteResolverResponse_httpStatus,
-
-    -- ** GetGraphqlApi
-    getGraphqlApi_apiId,
-    getGraphqlApiResponse_graphqlApi,
-    getGraphqlApiResponse_httpStatus,
 
     -- ** ListTypes
     listTypes_nextToken,
@@ -230,6 +233,11 @@ module Network.AWS.AppSync.Lens
     createFunctionResponse_functionConfiguration,
     createFunctionResponse_httpStatus,
 
+    -- ** DeleteApiKey
+    deleteApiKey_apiId,
+    deleteApiKey_id,
+    deleteApiKeyResponse_httpStatus,
+
     -- ** ListApiKeys
     listApiKeys_nextToken,
     listApiKeys_maxResults,
@@ -237,11 +245,6 @@ module Network.AWS.AppSync.Lens
     listApiKeysResponse_nextToken,
     listApiKeysResponse_apiKeys,
     listApiKeysResponse_httpStatus,
-
-    -- ** DeleteApiKey
-    deleteApiKey_apiId,
-    deleteApiKey_id,
-    deleteApiKeyResponse_httpStatus,
 
     -- ** UpdateApiKey
     updateApiKey_description,
@@ -251,11 +254,12 @@ module Network.AWS.AppSync.Lens
     updateApiKeyResponse_apiKey,
     updateApiKeyResponse_httpStatus,
 
-    -- ** GetDataSource
-    getDataSource_apiId,
-    getDataSource_name,
-    getDataSourceResponse_dataSource,
-    getDataSourceResponse_httpStatus,
+    -- ** CreateApiKey
+    createApiKey_description,
+    createApiKey_expires,
+    createApiKey_apiId,
+    createApiKeyResponse_apiKey,
+    createApiKeyResponse_httpStatus,
 
     -- ** DeleteFunction
     deleteFunction_apiId,
@@ -275,22 +279,17 @@ module Network.AWS.AppSync.Lens
     updateFunctionResponse_functionConfiguration,
     updateFunctionResponse_httpStatus,
 
-    -- ** CreateApiKey
-    createApiKey_description,
-    createApiKey_expires,
-    createApiKey_apiId,
-    createApiKeyResponse_apiKey,
-    createApiKeyResponse_httpStatus,
+    -- ** GetDataSource
+    getDataSource_apiId,
+    getDataSource_name,
+    getDataSourceResponse_dataSource,
+    getDataSourceResponse_httpStatus,
 
     -- ** StartSchemaCreation
     startSchemaCreation_apiId,
     startSchemaCreation_definition,
     startSchemaCreationResponse_status,
     startSchemaCreationResponse_httpStatus,
-
-    -- ** FlushApiCache
-    flushApiCache_apiId,
-    flushApiCacheResponse_httpStatus,
 
     -- ** CreateApiCache
     createApiCache_atRestEncryptionEnabled,
@@ -302,10 +301,15 @@ module Network.AWS.AppSync.Lens
     createApiCacheResponse_apiCache,
     createApiCacheResponse_httpStatus,
 
+    -- ** FlushApiCache
+    flushApiCache_apiId,
+    flushApiCacheResponse_httpStatus,
+
     -- ** CreateGraphqlApi
     createGraphqlApi_openIDConnectConfig,
     createGraphqlApi_userPoolConfig,
     createGraphqlApi_xrayEnabled,
+    createGraphqlApi_lambdaAuthorizerConfig,
     createGraphqlApi_tags,
     createGraphqlApi_logConfig,
     createGraphqlApi_additionalAuthenticationProviders,
@@ -338,6 +342,7 @@ module Network.AWS.AppSync.Lens
     -- ** AdditionalAuthenticationProvider
     additionalAuthenticationProvider_openIDConnectConfig,
     additionalAuthenticationProvider_userPoolConfig,
+    additionalAuthenticationProvider_lambdaAuthorizerConfig,
     additionalAuthenticationProvider_authenticationType,
 
     -- ** ApiCache
@@ -372,8 +377,8 @@ module Network.AWS.AppSync.Lens
     cognitoUserPoolConfig_awsRegion,
 
     -- ** DataSource
-    dataSource_relationalDatabaseConfig,
     dataSource_serviceRoleArn,
+    dataSource_relationalDatabaseConfig,
     dataSource_elasticsearchConfig,
     dataSource_lambdaConfig,
     dataSource_name,
@@ -381,6 +386,7 @@ module Network.AWS.AppSync.Lens
     dataSource_description,
     dataSource_dataSourceArn,
     dataSource_type,
+    dataSource_openSearchServiceConfig,
     dataSource_httpConfig,
 
     -- ** DeltaSyncConfig
@@ -404,20 +410,21 @@ module Network.AWS.AppSync.Lens
     functionConfiguration_functionVersion,
     functionConfiguration_syncConfig,
     functionConfiguration_dataSourceName,
+    functionConfiguration_functionArn,
     functionConfiguration_name,
     functionConfiguration_functionId,
-    functionConfiguration_functionArn,
     functionConfiguration_description,
     functionConfiguration_requestMappingTemplate,
 
     -- ** GraphqlApi
     graphqlApi_wafWebAclArn,
-    graphqlApi_openIDConnectConfig,
     graphqlApi_apiId,
     graphqlApi_arn,
-    graphqlApi_name,
+    graphqlApi_openIDConnectConfig,
     graphqlApi_userPoolConfig,
     graphqlApi_xrayEnabled,
+    graphqlApi_name,
+    graphqlApi_lambdaAuthorizerConfig,
     graphqlApi_tags,
     graphqlApi_logConfig,
     graphqlApi_additionalAuthenticationProviders,
@@ -427,6 +434,11 @@ module Network.AWS.AppSync.Lens
     -- ** HttpDataSourceConfig
     httpDataSourceConfig_authorizationConfig,
     httpDataSourceConfig_endpoint,
+
+    -- ** LambdaAuthorizerConfig
+    lambdaAuthorizerConfig_identityValidationExpression,
+    lambdaAuthorizerConfig_authorizerResultTtlInSeconds,
+    lambdaAuthorizerConfig_authorizerUri,
 
     -- ** LambdaConflictHandlerConfig
     lambdaConflictHandlerConfig_lambdaConflictHandlerArn,
@@ -445,12 +457,16 @@ module Network.AWS.AppSync.Lens
     openIDConnectConfig_iatTTL,
     openIDConnectConfig_issuer,
 
+    -- ** OpenSearchServiceDataSourceConfig
+    openSearchServiceDataSourceConfig_endpoint,
+    openSearchServiceDataSourceConfig_awsRegion,
+
     -- ** PipelineConfig
     pipelineConfig_functions,
 
     -- ** RdsHttpEndpointConfig
-    rdsHttpEndpointConfig_awsSecretStoreArn,
     rdsHttpEndpointConfig_schema,
+    rdsHttpEndpointConfig_awsSecretStoreArn,
     rdsHttpEndpointConfig_dbClusterIdentifier,
     rdsHttpEndpointConfig_awsRegion,
     rdsHttpEndpointConfig_databaseName,
@@ -465,11 +481,11 @@ module Network.AWS.AppSync.Lens
     resolver_kind,
     resolver_syncConfig,
     resolver_dataSourceName,
-    resolver_cachingConfig,
     resolver_resolverArn,
+    resolver_cachingConfig,
     resolver_pipelineConfig,
-    resolver_fieldName,
     resolver_requestMappingTemplate,
+    resolver_fieldName,
 
     -- ** SyncConfig
     syncConfig_conflictHandler,
@@ -538,10 +554,12 @@ import Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
 import Network.AWS.AppSync.Types.FunctionConfiguration
 import Network.AWS.AppSync.Types.GraphqlApi
 import Network.AWS.AppSync.Types.HttpDataSourceConfig
+import Network.AWS.AppSync.Types.LambdaAuthorizerConfig
 import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
 import Network.AWS.AppSync.Types.LambdaDataSourceConfig
 import Network.AWS.AppSync.Types.LogConfig
 import Network.AWS.AppSync.Types.OpenIDConnectConfig
+import Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
 import Network.AWS.AppSync.Types.PipelineConfig
 import Network.AWS.AppSync.Types.RdsHttpEndpointConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig

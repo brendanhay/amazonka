@@ -32,7 +32,7 @@ data CognitoUserPoolConfig = CognitoUserPoolConfig'
     appIdClientRegex :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The AWS Region in which the user pool was created.
+    -- | The Amazon Web Services Region in which the user pool was created.
     awsRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data CognitoUserPoolConfig = CognitoUserPoolConfig'
 --
 -- 'userPoolId', 'cognitoUserPoolConfig_userPoolId' - The user pool ID.
 --
--- 'awsRegion', 'cognitoUserPoolConfig_awsRegion' - The AWS Region in which the user pool was created.
+-- 'awsRegion', 'cognitoUserPoolConfig_awsRegion' - The Amazon Web Services Region in which the user pool was created.
 newCognitoUserPoolConfig ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -74,7 +74,7 @@ cognitoUserPoolConfig_appIdClientRegex = Lens.lens (\CognitoUserPoolConfig' {app
 cognitoUserPoolConfig_userPoolId :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
 cognitoUserPoolConfig_userPoolId = Lens.lens (\CognitoUserPoolConfig' {userPoolId} -> userPoolId) (\s@CognitoUserPoolConfig' {} a -> s {userPoolId = a} :: CognitoUserPoolConfig)
 
--- | The AWS Region in which the user pool was created.
+-- | The Amazon Web Services Region in which the user pool was created.
 cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
 cognitoUserPoolConfig_awsRegion = Lens.lens (\CognitoUserPoolConfig' {awsRegion} -> awsRegion) (\s@CognitoUserPoolConfig' {} a -> s {awsRegion = a} :: CognitoUserPoolConfig)
 

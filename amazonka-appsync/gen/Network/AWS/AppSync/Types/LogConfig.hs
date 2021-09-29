@@ -54,7 +54,7 @@ data LogConfig = LogConfig'
     --     -   The generated request\/response functions that got resolved for
     --         each field.
     fieldLogLevel :: FieldLogLevel,
-    -- | The service role that AWS AppSync will assume to publish to Amazon
+    -- | The service role that AppSync will assume to publish to Amazon
     -- CloudWatch logs in your account.
     cloudWatchLogsRoleArn :: Prelude.Text
   }
@@ -94,7 +94,7 @@ data LogConfig = LogConfig'
 --     -   The generated request\/response functions that got resolved for
 --         each field.
 --
--- 'cloudWatchLogsRoleArn', 'logConfig_cloudWatchLogsRoleArn' - The service role that AWS AppSync will assume to publish to Amazon
+-- 'cloudWatchLogsRoleArn', 'logConfig_cloudWatchLogsRoleArn' - The service role that AppSync will assume to publish to Amazon
 -- CloudWatch logs in your account.
 newLogConfig ::
   -- | 'fieldLogLevel'
@@ -139,7 +139,7 @@ logConfig_excludeVerboseContent = Lens.lens (\LogConfig' {excludeVerboseContent}
 logConfig_fieldLogLevel :: Lens.Lens' LogConfig FieldLogLevel
 logConfig_fieldLogLevel = Lens.lens (\LogConfig' {fieldLogLevel} -> fieldLogLevel) (\s@LogConfig' {} a -> s {fieldLogLevel = a} :: LogConfig)
 
--- | The service role that AWS AppSync will assume to publish to Amazon
+-- | The service role that AppSync will assume to publish to Amazon
 -- CloudWatch logs in your account.
 logConfig_cloudWatchLogsRoleArn :: Lens.Lens' LogConfig Prelude.Text
 logConfig_cloudWatchLogsRoleArn = Lens.lens (\LogConfig' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@LogConfig' {} a -> s {cloudWatchLogsRoleArn = a} :: LogConfig)

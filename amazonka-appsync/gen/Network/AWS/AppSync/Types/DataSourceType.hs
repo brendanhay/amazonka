@@ -22,6 +22,7 @@ module Network.AWS.AppSync.Types.DataSourceType
       ( ..,
         DataSourceType_AMAZON_DYNAMODB,
         DataSourceType_AMAZON_ELASTICSEARCH,
+        DataSourceType_AMAZON_OPENSEARCH_SERVICE,
         DataSourceType_AWS_LAMBDA,
         DataSourceType_HTTP,
         DataSourceType_NONE,
@@ -67,6 +68,9 @@ pattern DataSourceType_AMAZON_DYNAMODB = DataSourceType' "AMAZON_DYNAMODB"
 pattern DataSourceType_AMAZON_ELASTICSEARCH :: DataSourceType
 pattern DataSourceType_AMAZON_ELASTICSEARCH = DataSourceType' "AMAZON_ELASTICSEARCH"
 
+pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE :: DataSourceType
+pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE = DataSourceType' "AMAZON_OPENSEARCH_SERVICE"
+
 pattern DataSourceType_AWS_LAMBDA :: DataSourceType
 pattern DataSourceType_AWS_LAMBDA = DataSourceType' "AWS_LAMBDA"
 
@@ -82,6 +86,7 @@ pattern DataSourceType_RELATIONAL_DATABASE = DataSourceType' "RELATIONAL_DATABAS
 {-# COMPLETE
   DataSourceType_AMAZON_DYNAMODB,
   DataSourceType_AMAZON_ELASTICSEARCH,
+  DataSourceType_AMAZON_OPENSEARCH_SERVICE,
   DataSourceType_AWS_LAMBDA,
   DataSourceType_HTTP,
   DataSourceType_NONE,

@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an API key.
 --
--- Customers invoke AWS AppSync GraphQL API operations with API keys as an
+-- Customers invoke AppSync GraphQL API operations with API keys as an
 -- identity mechanism. There are two key versions:
 --
 -- __da1__: This version was introduced at launch in November 2017. These

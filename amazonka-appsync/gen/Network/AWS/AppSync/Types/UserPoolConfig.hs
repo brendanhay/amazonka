@@ -33,7 +33,7 @@ data UserPoolConfig = UserPoolConfig'
     appIdClientRegex :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The AWS Region in which the user pool was created.
+    -- | The Amazon Web Services Region in which the user pool was created.
     awsRegion :: Prelude.Text,
     -- | The action that you want your GraphQL API to take when a request that
     -- uses Amazon Cognito user pool authentication doesn\'t match the Amazon
@@ -55,7 +55,7 @@ data UserPoolConfig = UserPoolConfig'
 --
 -- 'userPoolId', 'userPoolConfig_userPoolId' - The user pool ID.
 --
--- 'awsRegion', 'userPoolConfig_awsRegion' - The AWS Region in which the user pool was created.
+-- 'awsRegion', 'userPoolConfig_awsRegion' - The Amazon Web Services Region in which the user pool was created.
 --
 -- 'defaultAction', 'userPoolConfig_defaultAction' - The action that you want your GraphQL API to take when a request that
 -- uses Amazon Cognito user pool authentication doesn\'t match the Amazon
@@ -88,7 +88,7 @@ userPoolConfig_appIdClientRegex = Lens.lens (\UserPoolConfig' {appIdClientRegex}
 userPoolConfig_userPoolId :: Lens.Lens' UserPoolConfig Prelude.Text
 userPoolConfig_userPoolId = Lens.lens (\UserPoolConfig' {userPoolId} -> userPoolId) (\s@UserPoolConfig' {} a -> s {userPoolId = a} :: UserPoolConfig)
 
--- | The AWS Region in which the user pool was created.
+-- | The Amazon Web Services Region in which the user pool was created.
 userPoolConfig_awsRegion :: Lens.Lens' UserPoolConfig Prelude.Text
 userPoolConfig_awsRegion = Lens.lens (\UserPoolConfig' {awsRegion} -> awsRegion) (\s@UserPoolConfig' {} a -> s {awsRegion = a} :: UserPoolConfig)
 

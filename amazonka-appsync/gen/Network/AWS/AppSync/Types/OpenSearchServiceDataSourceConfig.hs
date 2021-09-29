@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
+-- Module      : Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig where
+module Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -25,12 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an OpenSearch data source configuration.
 --
--- As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch
--- Service. This configuration is deprecated. For new data sources, use
--- OpenSearchServiceDataSourceConfig to specify an OpenSearch data source.
---
--- /See:/ 'newElasticsearchDataSourceConfig' smart constructor.
-data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
+-- /See:/ 'newOpenSearchServiceDataSourceConfig' smart constructor.
+data OpenSearchServiceDataSourceConfig = OpenSearchServiceDataSourceConfig'
   { -- | The endpoint.
     endpoint :: Prelude.Text,
     -- | The Amazon Web Services Region.
@@ -39,57 +35,65 @@ data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'ElasticsearchDataSourceConfig' with all optional fields omitted.
+-- Create a value of 'OpenSearchServiceDataSourceConfig' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpoint', 'elasticsearchDataSourceConfig_endpoint' - The endpoint.
+-- 'endpoint', 'openSearchServiceDataSourceConfig_endpoint' - The endpoint.
 --
--- 'awsRegion', 'elasticsearchDataSourceConfig_awsRegion' - The Amazon Web Services Region.
-newElasticsearchDataSourceConfig ::
+-- 'awsRegion', 'openSearchServiceDataSourceConfig_awsRegion' - The Amazon Web Services Region.
+newOpenSearchServiceDataSourceConfig ::
   -- | 'endpoint'
   Prelude.Text ->
   -- | 'awsRegion'
   Prelude.Text ->
-  ElasticsearchDataSourceConfig
-newElasticsearchDataSourceConfig
+  OpenSearchServiceDataSourceConfig
+newOpenSearchServiceDataSourceConfig
   pEndpoint_
   pAwsRegion_ =
-    ElasticsearchDataSourceConfig'
+    OpenSearchServiceDataSourceConfig'
       { endpoint =
           pEndpoint_,
         awsRegion = pAwsRegion_
       }
 
 -- | The endpoint.
-elasticsearchDataSourceConfig_endpoint :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
-elasticsearchDataSourceConfig_endpoint = Lens.lens (\ElasticsearchDataSourceConfig' {endpoint} -> endpoint) (\s@ElasticsearchDataSourceConfig' {} a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
+openSearchServiceDataSourceConfig_endpoint :: Lens.Lens' OpenSearchServiceDataSourceConfig Prelude.Text
+openSearchServiceDataSourceConfig_endpoint = Lens.lens (\OpenSearchServiceDataSourceConfig' {endpoint} -> endpoint) (\s@OpenSearchServiceDataSourceConfig' {} a -> s {endpoint = a} :: OpenSearchServiceDataSourceConfig)
 
 -- | The Amazon Web Services Region.
-elasticsearchDataSourceConfig_awsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
-elasticsearchDataSourceConfig_awsRegion = Lens.lens (\ElasticsearchDataSourceConfig' {awsRegion} -> awsRegion) (\s@ElasticsearchDataSourceConfig' {} a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
+openSearchServiceDataSourceConfig_awsRegion :: Lens.Lens' OpenSearchServiceDataSourceConfig Prelude.Text
+openSearchServiceDataSourceConfig_awsRegion = Lens.lens (\OpenSearchServiceDataSourceConfig' {awsRegion} -> awsRegion) (\s@OpenSearchServiceDataSourceConfig' {} a -> s {awsRegion = a} :: OpenSearchServiceDataSourceConfig)
 
-instance Core.FromJSON ElasticsearchDataSourceConfig where
+instance
+  Core.FromJSON
+    OpenSearchServiceDataSourceConfig
+  where
   parseJSON =
     Core.withObject
-      "ElasticsearchDataSourceConfig"
+      "OpenSearchServiceDataSourceConfig"
       ( \x ->
-          ElasticsearchDataSourceConfig'
+          OpenSearchServiceDataSourceConfig'
             Prelude.<$> (x Core..: "endpoint")
             Prelude.<*> (x Core..: "awsRegion")
       )
 
 instance
   Prelude.Hashable
-    ElasticsearchDataSourceConfig
+    OpenSearchServiceDataSourceConfig
 
-instance Prelude.NFData ElasticsearchDataSourceConfig
+instance
+  Prelude.NFData
+    OpenSearchServiceDataSourceConfig
 
-instance Core.ToJSON ElasticsearchDataSourceConfig where
-  toJSON ElasticsearchDataSourceConfig' {..} =
+instance
+  Core.ToJSON
+    OpenSearchServiceDataSourceConfig
+  where
+  toJSON OpenSearchServiceDataSourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
           [ Prelude.Just ("endpoint" Core..= endpoint),

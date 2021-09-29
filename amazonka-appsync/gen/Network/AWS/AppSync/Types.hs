@@ -79,6 +79,7 @@ module Network.AWS.AppSync.Types
     newAdditionalAuthenticationProvider,
     additionalAuthenticationProvider_openIDConnectConfig,
     additionalAuthenticationProvider_userPoolConfig,
+    additionalAuthenticationProvider_lambdaAuthorizerConfig,
     additionalAuthenticationProvider_authenticationType,
 
     -- * ApiCache
@@ -127,8 +128,8 @@ module Network.AWS.AppSync.Types
     -- * DataSource
     DataSource (..),
     newDataSource,
-    dataSource_relationalDatabaseConfig,
     dataSource_serviceRoleArn,
+    dataSource_relationalDatabaseConfig,
     dataSource_elasticsearchConfig,
     dataSource_lambdaConfig,
     dataSource_name,
@@ -136,6 +137,7 @@ module Network.AWS.AppSync.Types
     dataSource_description,
     dataSource_dataSourceArn,
     dataSource_type,
+    dataSource_openSearchServiceConfig,
     dataSource_httpConfig,
 
     -- * DeltaSyncConfig
@@ -167,9 +169,9 @@ module Network.AWS.AppSync.Types
     functionConfiguration_functionVersion,
     functionConfiguration_syncConfig,
     functionConfiguration_dataSourceName,
+    functionConfiguration_functionArn,
     functionConfiguration_name,
     functionConfiguration_functionId,
-    functionConfiguration_functionArn,
     functionConfiguration_description,
     functionConfiguration_requestMappingTemplate,
 
@@ -177,12 +179,13 @@ module Network.AWS.AppSync.Types
     GraphqlApi (..),
     newGraphqlApi,
     graphqlApi_wafWebAclArn,
-    graphqlApi_openIDConnectConfig,
     graphqlApi_apiId,
     graphqlApi_arn,
-    graphqlApi_name,
+    graphqlApi_openIDConnectConfig,
     graphqlApi_userPoolConfig,
     graphqlApi_xrayEnabled,
+    graphqlApi_name,
+    graphqlApi_lambdaAuthorizerConfig,
     graphqlApi_tags,
     graphqlApi_logConfig,
     graphqlApi_additionalAuthenticationProviders,
@@ -194,6 +197,13 @@ module Network.AWS.AppSync.Types
     newHttpDataSourceConfig,
     httpDataSourceConfig_authorizationConfig,
     httpDataSourceConfig_endpoint,
+
+    -- * LambdaAuthorizerConfig
+    LambdaAuthorizerConfig (..),
+    newLambdaAuthorizerConfig,
+    lambdaAuthorizerConfig_identityValidationExpression,
+    lambdaAuthorizerConfig_authorizerResultTtlInSeconds,
+    lambdaAuthorizerConfig_authorizerUri,
 
     -- * LambdaConflictHandlerConfig
     LambdaConflictHandlerConfig (..),
@@ -220,6 +230,12 @@ module Network.AWS.AppSync.Types
     openIDConnectConfig_iatTTL,
     openIDConnectConfig_issuer,
 
+    -- * OpenSearchServiceDataSourceConfig
+    OpenSearchServiceDataSourceConfig (..),
+    newOpenSearchServiceDataSourceConfig,
+    openSearchServiceDataSourceConfig_endpoint,
+    openSearchServiceDataSourceConfig_awsRegion,
+
     -- * PipelineConfig
     PipelineConfig (..),
     newPipelineConfig,
@@ -228,8 +244,8 @@ module Network.AWS.AppSync.Types
     -- * RdsHttpEndpointConfig
     RdsHttpEndpointConfig (..),
     newRdsHttpEndpointConfig,
-    rdsHttpEndpointConfig_awsSecretStoreArn,
     rdsHttpEndpointConfig_schema,
+    rdsHttpEndpointConfig_awsSecretStoreArn,
     rdsHttpEndpointConfig_dbClusterIdentifier,
     rdsHttpEndpointConfig_awsRegion,
     rdsHttpEndpointConfig_databaseName,
@@ -248,11 +264,11 @@ module Network.AWS.AppSync.Types
     resolver_kind,
     resolver_syncConfig,
     resolver_dataSourceName,
-    resolver_cachingConfig,
     resolver_resolverArn,
+    resolver_cachingConfig,
     resolver_pipelineConfig,
-    resolver_fieldName,
     resolver_requestMappingTemplate,
+    resolver_fieldName,
 
     -- * SyncConfig
     SyncConfig (..),
@@ -304,10 +320,12 @@ import Network.AWS.AppSync.Types.FieldLogLevel
 import Network.AWS.AppSync.Types.FunctionConfiguration
 import Network.AWS.AppSync.Types.GraphqlApi
 import Network.AWS.AppSync.Types.HttpDataSourceConfig
+import Network.AWS.AppSync.Types.LambdaAuthorizerConfig
 import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
 import Network.AWS.AppSync.Types.LambdaDataSourceConfig
 import Network.AWS.AppSync.Types.LogConfig
 import Network.AWS.AppSync.Types.OpenIDConnectConfig
+import Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
 import Network.AWS.AppSync.Types.OutputType
 import Network.AWS.AppSync.Types.PipelineConfig
 import Network.AWS.AppSync.Types.RdsHttpEndpointConfig
@@ -479,7 +497,7 @@ _ApiKeyLimitExceededException =
     "ApiKeyLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | An internal AWS AppSync error occurred. Try your request again.
+-- | An internal AppSync error occurred. Try your request again.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError

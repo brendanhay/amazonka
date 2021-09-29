@@ -48,10 +48,10 @@ module Network.AWS.ServerlessApplicationRepository.UpdateApplication
     updateApplicationResponse_labels,
     updateApplicationResponse_author,
     updateApplicationResponse_version,
-    updateApplicationResponse_homePageUrl,
     updateApplicationResponse_name,
-    updateApplicationResponse_isVerifiedAuthor,
+    updateApplicationResponse_homePageUrl,
     updateApplicationResponse_readmeUrl,
+    updateApplicationResponse_isVerifiedAuthor,
     updateApplicationResponse_description,
     updateApplicationResponse_httpStatus,
   )
@@ -215,10 +215,10 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<*> (x Core..?> "labels" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "author")
             Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "homePageUrl")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "isVerifiedAuthor")
+            Prelude.<*> (x Core..?> "homePageUrl")
             Prelude.<*> (x Core..?> "readmeUrl")
+            Prelude.<*> (x Core..?> "isVerifiedAuthor")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -289,25 +289,25 @@ data UpdateApplicationResponse = UpdateApplicationResponse'
     author :: Prelude.Maybe Prelude.Text,
     -- | Version information about the application.
     version :: Prelude.Maybe Version,
-    -- | A URL with more information about the application, for example the
-    -- location of your GitHub repository for the application.
-    homePageUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of the application.
     --
     -- Minimum length=1. Maximum length=140
     --
     -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
     name :: Prelude.Maybe Prelude.Text,
-    -- | Whether the author of this application has been verified. This means
-    -- means that AWS has made a good faith review, as a reasonable and prudent
-    -- service provider, of the information provided by the requester and has
-    -- confirmed that the requester\'s identity is as claimed.
-    isVerifiedAuthor :: Prelude.Maybe Prelude.Bool,
+    -- | A URL with more information about the application, for example the
+    -- location of your GitHub repository for the application.
+    homePageUrl :: Prelude.Maybe Prelude.Text,
     -- | A link to the readme file in Markdown language that contains a more
     -- detailed description of the application and how it works.
     --
     -- Maximum size 5 MB
     readmeUrl :: Prelude.Maybe Prelude.Text,
+    -- | Whether the author of this application has been verified. This means
+    -- means that AWS has made a good faith review, as a reasonable and prudent
+    -- service provider, of the information provided by the requester and has
+    -- confirmed that the requester\'s identity is as claimed.
+    isVerifiedAuthor :: Prelude.Maybe Prelude.Bool,
     -- | The description of the application.
     --
     -- Minimum length=1. Maximum length=256
@@ -353,24 +353,24 @@ data UpdateApplicationResponse = UpdateApplicationResponse'
 --
 -- 'version', 'updateApplicationResponse_version' - Version information about the application.
 --
--- 'homePageUrl', 'updateApplicationResponse_homePageUrl' - A URL with more information about the application, for example the
--- location of your GitHub repository for the application.
---
 -- 'name', 'updateApplicationResponse_name' - The name of the application.
 --
 -- Minimum length=1. Maximum length=140
 --
 -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
 --
--- 'isVerifiedAuthor', 'updateApplicationResponse_isVerifiedAuthor' - Whether the author of this application has been verified. This means
--- means that AWS has made a good faith review, as a reasonable and prudent
--- service provider, of the information provided by the requester and has
--- confirmed that the requester\'s identity is as claimed.
+-- 'homePageUrl', 'updateApplicationResponse_homePageUrl' - A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
 --
 -- 'readmeUrl', 'updateApplicationResponse_readmeUrl' - A link to the readme file in Markdown language that contains a more
 -- detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
+--
+-- 'isVerifiedAuthor', 'updateApplicationResponse_isVerifiedAuthor' - Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
 --
 -- 'description', 'updateApplicationResponse_description' - The description of the application.
 --
@@ -392,10 +392,10 @@ newUpdateApplicationResponse pHttpStatus_ =
       labels = Prelude.Nothing,
       author = Prelude.Nothing,
       version = Prelude.Nothing,
-      homePageUrl = Prelude.Nothing,
       name = Prelude.Nothing,
-      isVerifiedAuthor = Prelude.Nothing,
+      homePageUrl = Prelude.Nothing,
       readmeUrl = Prelude.Nothing,
+      isVerifiedAuthor = Prelude.Nothing,
       description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -444,11 +444,6 @@ updateApplicationResponse_author = Lens.lens (\UpdateApplicationResponse' {autho
 updateApplicationResponse_version :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Version)
 updateApplicationResponse_version = Lens.lens (\UpdateApplicationResponse' {version} -> version) (\s@UpdateApplicationResponse' {} a -> s {version = a} :: UpdateApplicationResponse)
 
--- | A URL with more information about the application, for example the
--- location of your GitHub repository for the application.
-updateApplicationResponse_homePageUrl :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Text)
-updateApplicationResponse_homePageUrl = Lens.lens (\UpdateApplicationResponse' {homePageUrl} -> homePageUrl) (\s@UpdateApplicationResponse' {} a -> s {homePageUrl = a} :: UpdateApplicationResponse)
-
 -- | The name of the application.
 --
 -- Minimum length=1. Maximum length=140
@@ -457,12 +452,10 @@ updateApplicationResponse_homePageUrl = Lens.lens (\UpdateApplicationResponse' {
 updateApplicationResponse_name :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Text)
 updateApplicationResponse_name = Lens.lens (\UpdateApplicationResponse' {name} -> name) (\s@UpdateApplicationResponse' {} a -> s {name = a} :: UpdateApplicationResponse)
 
--- | Whether the author of this application has been verified. This means
--- means that AWS has made a good faith review, as a reasonable and prudent
--- service provider, of the information provided by the requester and has
--- confirmed that the requester\'s identity is as claimed.
-updateApplicationResponse_isVerifiedAuthor :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Bool)
-updateApplicationResponse_isVerifiedAuthor = Lens.lens (\UpdateApplicationResponse' {isVerifiedAuthor} -> isVerifiedAuthor) (\s@UpdateApplicationResponse' {} a -> s {isVerifiedAuthor = a} :: UpdateApplicationResponse)
+-- | A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+updateApplicationResponse_homePageUrl :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Text)
+updateApplicationResponse_homePageUrl = Lens.lens (\UpdateApplicationResponse' {homePageUrl} -> homePageUrl) (\s@UpdateApplicationResponse' {} a -> s {homePageUrl = a} :: UpdateApplicationResponse)
 
 -- | A link to the readme file in Markdown language that contains a more
 -- detailed description of the application and how it works.
@@ -470,6 +463,13 @@ updateApplicationResponse_isVerifiedAuthor = Lens.lens (\UpdateApplicationRespon
 -- Maximum size 5 MB
 updateApplicationResponse_readmeUrl :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Text)
 updateApplicationResponse_readmeUrl = Lens.lens (\UpdateApplicationResponse' {readmeUrl} -> readmeUrl) (\s@UpdateApplicationResponse' {} a -> s {readmeUrl = a} :: UpdateApplicationResponse)
+
+-- | Whether the author of this application has been verified. This means
+-- means that AWS has made a good faith review, as a reasonable and prudent
+-- service provider, of the information provided by the requester and has
+-- confirmed that the requester\'s identity is as claimed.
+updateApplicationResponse_isVerifiedAuthor :: Lens.Lens' UpdateApplicationResponse (Prelude.Maybe Prelude.Bool)
+updateApplicationResponse_isVerifiedAuthor = Lens.lens (\UpdateApplicationResponse' {isVerifiedAuthor} -> isVerifiedAuthor) (\s@UpdateApplicationResponse' {} a -> s {isVerifiedAuthor = a} :: UpdateApplicationResponse)
 
 -- | The description of the application.
 --

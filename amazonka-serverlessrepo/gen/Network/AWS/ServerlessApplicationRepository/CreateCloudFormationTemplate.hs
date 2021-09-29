@@ -36,8 +36,8 @@ module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
 
     -- * Response Lenses
     createCloudFormationTemplateResponse_applicationId,
-    createCloudFormationTemplateResponse_status,
     createCloudFormationTemplateResponse_creationTime,
+    createCloudFormationTemplateResponse_status,
     createCloudFormationTemplateResponse_expirationTime,
     createCloudFormationTemplateResponse_templateUrl,
     createCloudFormationTemplateResponse_semanticVersion,
@@ -108,8 +108,8 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
       ( \s h x ->
           CreateCloudFormationTemplateResponse'
             Prelude.<$> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "expirationTime")
             Prelude.<*> (x Core..?> "templateUrl")
             Prelude.<*> (x Core..?> "semanticVersion")
@@ -158,12 +158,12 @@ instance Core.ToQuery CreateCloudFormationTemplate where
 data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse'
   { -- | The application Amazon Resource Name (ARN).
     applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | Status of the template creation workflow.
     --
     -- Possible values: PREPARING | ACTIVE | EXPIRED
     status :: Prelude.Maybe Status,
-    -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
     -- | The date and time this template expires. Templates expire 1 hour after
     -- creation.
     expirationTime :: Prelude.Maybe Prelude.Text,
@@ -194,11 +194,11 @@ data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse
 --
 -- 'applicationId', 'createCloudFormationTemplateResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
+-- 'creationTime', 'createCloudFormationTemplateResponse_creationTime' - The date and time this resource was created.
+--
 -- 'status', 'createCloudFormationTemplateResponse_status' - Status of the template creation workflow.
 --
 -- Possible values: PREPARING | ACTIVE | EXPIRED
---
--- 'creationTime', 'createCloudFormationTemplateResponse_creationTime' - The date and time this resource was created.
 --
 -- 'expirationTime', 'createCloudFormationTemplateResponse_expirationTime' - The date and time this template expires. Templates expire 1 hour after
 -- creation.
@@ -224,8 +224,8 @@ newCreateCloudFormationTemplateResponse pHttpStatus_ =
   CreateCloudFormationTemplateResponse'
     { applicationId =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       expirationTime = Prelude.Nothing,
       templateUrl = Prelude.Nothing,
       semanticVersion = Prelude.Nothing,
@@ -237,15 +237,15 @@ newCreateCloudFormationTemplateResponse pHttpStatus_ =
 createCloudFormationTemplateResponse_applicationId :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
 createCloudFormationTemplateResponse_applicationId = Lens.lens (\CreateCloudFormationTemplateResponse' {applicationId} -> applicationId) (\s@CreateCloudFormationTemplateResponse' {} a -> s {applicationId = a} :: CreateCloudFormationTemplateResponse)
 
+-- | The date and time this resource was created.
+createCloudFormationTemplateResponse_creationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
+createCloudFormationTemplateResponse_creationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {creationTime} -> creationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {creationTime = a} :: CreateCloudFormationTemplateResponse)
+
 -- | Status of the template creation workflow.
 --
 -- Possible values: PREPARING | ACTIVE | EXPIRED
 createCloudFormationTemplateResponse_status :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Status)
 createCloudFormationTemplateResponse_status = Lens.lens (\CreateCloudFormationTemplateResponse' {status} -> status) (\s@CreateCloudFormationTemplateResponse' {} a -> s {status = a} :: CreateCloudFormationTemplateResponse)
-
--- | The date and time this resource was created.
-createCloudFormationTemplateResponse_creationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
-createCloudFormationTemplateResponse_creationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {creationTime} -> creationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {creationTime = a} :: CreateCloudFormationTemplateResponse)
 
 -- | The date and time this template expires. Templates expire 1 hour after
 -- creation.

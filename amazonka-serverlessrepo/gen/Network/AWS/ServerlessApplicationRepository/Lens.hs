@@ -19,12 +19,30 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     getApplicationPolicyResponse_statements,
     getApplicationPolicyResponse_httpStatus,
 
+    -- ** CreateApplicationVersion
+    createApplicationVersion_templateUrl,
+    createApplicationVersion_sourceCodeArchiveUrl,
+    createApplicationVersion_sourceCodeUrl,
+    createApplicationVersion_templateBody,
+    createApplicationVersion_applicationId,
+    createApplicationVersion_semanticVersion,
+    createApplicationVersionResponse_applicationId,
+    createApplicationVersionResponse_requiredCapabilities,
+    createApplicationVersionResponse_resourcesSupported,
+    createApplicationVersionResponse_parameterDefinitions,
+    createApplicationVersionResponse_creationTime,
+    createApplicationVersionResponse_templateUrl,
+    createApplicationVersionResponse_sourceCodeArchiveUrl,
+    createApplicationVersionResponse_sourceCodeUrl,
+    createApplicationVersionResponse_semanticVersion,
+    createApplicationVersionResponse_httpStatus,
+
     -- ** GetCloudFormationTemplate
     getCloudFormationTemplate_applicationId,
     getCloudFormationTemplate_templateId,
     getCloudFormationTemplateResponse_applicationId,
-    getCloudFormationTemplateResponse_status,
     getCloudFormationTemplateResponse_creationTime,
+    getCloudFormationTemplateResponse_status,
     getCloudFormationTemplateResponse_expirationTime,
     getCloudFormationTemplateResponse_templateUrl,
     getCloudFormationTemplateResponse_semanticVersion,
@@ -35,28 +53,10 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     unshareApplication_applicationId,
     unshareApplication_organizationId,
 
-    -- ** CreateApplicationVersion
-    createApplicationVersion_templateUrl,
-    createApplicationVersion_sourceCodeArchiveUrl,
-    createApplicationVersion_sourceCodeUrl,
-    createApplicationVersion_templateBody,
-    createApplicationVersion_applicationId,
-    createApplicationVersion_semanticVersion,
-    createApplicationVersionResponse_parameterDefinitions,
-    createApplicationVersionResponse_applicationId,
-    createApplicationVersionResponse_requiredCapabilities,
-    createApplicationVersionResponse_resourcesSupported,
-    createApplicationVersionResponse_creationTime,
-    createApplicationVersionResponse_templateUrl,
-    createApplicationVersionResponse_sourceCodeArchiveUrl,
-    createApplicationVersionResponse_sourceCodeUrl,
-    createApplicationVersionResponse_semanticVersion,
-    createApplicationVersionResponse_httpStatus,
-
     -- ** CreateApplication
     createApplication_spdxLicenseId,
-    createApplication_templateUrl,
     createApplication_licenseBody,
+    createApplication_templateUrl,
     createApplication_licenseUrl,
     createApplication_labels,
     createApplication_readmeBody,
@@ -64,8 +64,8 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     createApplication_sourceCodeArchiveUrl,
     createApplication_readmeUrl,
     createApplication_sourceCodeUrl,
-    createApplication_semanticVersion,
     createApplication_templateBody,
+    createApplication_semanticVersion,
     createApplication_description,
     createApplication_name,
     createApplication_author,
@@ -77,10 +77,10 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     createApplicationResponse_labels,
     createApplicationResponse_author,
     createApplicationResponse_version,
-    createApplicationResponse_homePageUrl,
     createApplicationResponse_name,
-    createApplicationResponse_isVerifiedAuthor,
+    createApplicationResponse_homePageUrl,
     createApplicationResponse_readmeUrl,
+    createApplicationResponse_isVerifiedAuthor,
     createApplicationResponse_description,
     createApplicationResponse_httpStatus,
 
@@ -115,10 +115,10 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     getApplicationResponse_labels,
     getApplicationResponse_author,
     getApplicationResponse_version,
-    getApplicationResponse_homePageUrl,
     getApplicationResponse_name,
-    getApplicationResponse_isVerifiedAuthor,
+    getApplicationResponse_homePageUrl,
     getApplicationResponse_readmeUrl,
+    getApplicationResponse_isVerifiedAuthor,
     getApplicationResponse_description,
     getApplicationResponse_httpStatus,
 
@@ -143,22 +143,13 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     createCloudFormationTemplate_semanticVersion,
     createCloudFormationTemplate_applicationId,
     createCloudFormationTemplateResponse_applicationId,
-    createCloudFormationTemplateResponse_status,
     createCloudFormationTemplateResponse_creationTime,
+    createCloudFormationTemplateResponse_status,
     createCloudFormationTemplateResponse_expirationTime,
     createCloudFormationTemplateResponse_templateUrl,
     createCloudFormationTemplateResponse_semanticVersion,
     createCloudFormationTemplateResponse_templateId,
     createCloudFormationTemplateResponse_httpStatus,
-
-    -- ** PutApplicationPolicy
-    putApplicationPolicy_applicationId,
-    putApplicationPolicy_statements,
-    putApplicationPolicyResponse_statements,
-    putApplicationPolicyResponse_httpStatus,
-
-    -- ** DeleteApplication
-    deleteApplication_applicationId,
 
     -- ** ListApplications
     listApplications_nextToken,
@@ -166,6 +157,9 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     listApplicationsResponse_nextToken,
     listApplicationsResponse_applications,
     listApplicationsResponse_httpStatus,
+
+    -- ** DeleteApplication
+    deleteApplication_applicationId,
 
     -- ** UpdateApplication
     updateApplication_labels,
@@ -183,12 +177,18 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     updateApplicationResponse_labels,
     updateApplicationResponse_author,
     updateApplicationResponse_version,
-    updateApplicationResponse_homePageUrl,
     updateApplicationResponse_name,
-    updateApplicationResponse_isVerifiedAuthor,
+    updateApplicationResponse_homePageUrl,
     updateApplicationResponse_readmeUrl,
+    updateApplicationResponse_isVerifiedAuthor,
     updateApplicationResponse_description,
     updateApplicationResponse_httpStatus,
+
+    -- ** PutApplicationPolicy
+    putApplicationPolicy_applicationId,
+    putApplicationPolicy_statements,
+    putApplicationPolicyResponse_statements,
+    putApplicationPolicyResponse_httpStatus,
 
     -- * Types
 
@@ -219,11 +219,11 @@ module Network.AWS.ServerlessApplicationRepository.Lens
     parameterDefinition_minValue,
     parameterDefinition_description,
     parameterDefinition_constraintDescription,
+    parameterDefinition_maxLength,
+    parameterDefinition_defaultValue,
+    parameterDefinition_allowedPattern,
     parameterDefinition_type,
     parameterDefinition_noEcho,
-    parameterDefinition_maxLength,
-    parameterDefinition_allowedPattern,
-    parameterDefinition_defaultValue,
     parameterDefinition_referencedByResources,
     parameterDefinition_name,
 

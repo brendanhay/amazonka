@@ -9,6 +9,11 @@
                 "name": "Core.AccessKey",
                 "underive": []
             }
+        },
+        "User": {
+            "optionalFields": [
+                "Path"
+            ]
         }
     }
 }

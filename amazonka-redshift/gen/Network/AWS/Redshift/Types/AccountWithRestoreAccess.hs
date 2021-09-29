@@ -24,14 +24,16 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
--- | Describes an AWS customer account authorized to restore a snapshot.
+-- | Describes an Amazon Web Services account authorized to restore a
+-- snapshot.
 --
 -- /See:/ 'newAccountWithRestoreAccess' smart constructor.
 data AccountWithRestoreAccess = AccountWithRestoreAccess'
-  { -- | The identifier of an AWS support account authorized to restore a
-    -- snapshot. For AWS support, the identifier is @amazon-redshift-support@.
+  { -- | The identifier of an Amazon Web Services support account authorized to
+    -- restore a snapshot. For Amazon Web Services Support, the identifier is
+    -- @amazon-redshift-support@.
     accountAlias :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of an AWS customer account authorized to restore a
+    -- | The identifier of an Amazon Web Services account authorized to restore a
     -- snapshot.
     accountId :: Prelude.Maybe Prelude.Text
   }
@@ -45,10 +47,11 @@ data AccountWithRestoreAccess = AccountWithRestoreAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountAlias', 'accountWithRestoreAccess_accountAlias' - The identifier of an AWS support account authorized to restore a
--- snapshot. For AWS support, the identifier is @amazon-redshift-support@.
+-- 'accountAlias', 'accountWithRestoreAccess_accountAlias' - The identifier of an Amazon Web Services support account authorized to
+-- restore a snapshot. For Amazon Web Services Support, the identifier is
+-- @amazon-redshift-support@.
 --
--- 'accountId', 'accountWithRestoreAccess_accountId' - The identifier of an AWS customer account authorized to restore a
+-- 'accountId', 'accountWithRestoreAccess_accountId' - The identifier of an Amazon Web Services account authorized to restore a
 -- snapshot.
 newAccountWithRestoreAccess ::
   AccountWithRestoreAccess
@@ -59,12 +62,13 @@ newAccountWithRestoreAccess =
       accountId = Prelude.Nothing
     }
 
--- | The identifier of an AWS support account authorized to restore a
--- snapshot. For AWS support, the identifier is @amazon-redshift-support@.
+-- | The identifier of an Amazon Web Services support account authorized to
+-- restore a snapshot. For Amazon Web Services Support, the identifier is
+-- @amazon-redshift-support@.
 accountWithRestoreAccess_accountAlias :: Lens.Lens' AccountWithRestoreAccess (Prelude.Maybe Prelude.Text)
 accountWithRestoreAccess_accountAlias = Lens.lens (\AccountWithRestoreAccess' {accountAlias} -> accountAlias) (\s@AccountWithRestoreAccess' {} a -> s {accountAlias = a} :: AccountWithRestoreAccess)
 
--- | The identifier of an AWS customer account authorized to restore a
+-- | The identifier of an Amazon Web Services account authorized to restore a
 -- snapshot.
 accountWithRestoreAccess_accountId :: Lens.Lens' AccountWithRestoreAccess (Prelude.Maybe Prelude.Text)
 accountWithRestoreAccess_accountId = Lens.lens (\AccountWithRestoreAccess' {accountId} -> accountId) (\s@AccountWithRestoreAccess' {} a -> s {accountId = a} :: AccountWithRestoreAccess)

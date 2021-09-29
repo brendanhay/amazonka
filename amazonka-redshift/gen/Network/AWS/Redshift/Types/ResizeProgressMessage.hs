@@ -64,12 +64,18 @@ data ResizeProgressMessage = ResizeProgressMessage'
     -- began. After the resize operation completes, this value shows the total
     -- actual time, in seconds, for the resize operation.
     elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The number of nodes that the cluster will have after the resize
-    -- operation is complete.
-    targetNumberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The estimated total amount of data, in megabytes, on the cluster before
     -- the resize operation began.
     totalResizeDataInMegaBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of nodes that the cluster will have after the resize
+    -- operation is complete.
+    targetNumberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | The percent of data transferred from source cluster to target cluster.
+    dataTransferProgressPercent :: Prelude.Maybe Prelude.Double,
+    -- | The names of tables that have been completely imported .
+    --
+    -- Valid Values: List of table names.
+    importTablesCompleted :: Prelude.Maybe [Prelude.Text],
     -- | While the resize operation is in progress, this value shows the current
     -- amount of data, in megabytes, that has been processed so far. When the
     -- resize operation is complete, this value shows the total amount of data,
@@ -77,12 +83,6 @@ data ResizeProgressMessage = ResizeProgressMessage'
     -- TotalResizeDataInMegaBytes (the estimated total amount of data before
     -- resize).
     progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The percent of data transferred from source cluster to target cluster.
-    dataTransferProgressPercent :: Prelude.Maybe Prelude.Double,
-    -- | The names of tables that have been completely imported .
-    --
-    -- Valid Values: List of table names.
-    importTablesCompleted :: Prelude.Maybe [Prelude.Text],
     -- | The names of tables that are being currently imported.
     --
     -- Valid Values: List of table names.
@@ -137,11 +137,17 @@ data ResizeProgressMessage = ResizeProgressMessage'
 -- began. After the resize operation completes, this value shows the total
 -- actual time, in seconds, for the resize operation.
 --
+-- 'totalResizeDataInMegaBytes', 'resizeProgressMessage_totalResizeDataInMegaBytes' - The estimated total amount of data, in megabytes, on the cluster before
+-- the resize operation began.
+--
 -- 'targetNumberOfNodes', 'resizeProgressMessage_targetNumberOfNodes' - The number of nodes that the cluster will have after the resize
 -- operation is complete.
 --
--- 'totalResizeDataInMegaBytes', 'resizeProgressMessage_totalResizeDataInMegaBytes' - The estimated total amount of data, in megabytes, on the cluster before
--- the resize operation began.
+-- 'dataTransferProgressPercent', 'resizeProgressMessage_dataTransferProgressPercent' - The percent of data transferred from source cluster to target cluster.
+--
+-- 'importTablesCompleted', 'resizeProgressMessage_importTablesCompleted' - The names of tables that have been completely imported .
+--
+-- Valid Values: List of table names.
 --
 -- 'progressInMegaBytes', 'resizeProgressMessage_progressInMegaBytes' - While the resize operation is in progress, this value shows the current
 -- amount of data, in megabytes, that has been processed so far. When the
@@ -149,12 +155,6 @@ data ResizeProgressMessage = ResizeProgressMessage'
 -- in megabytes, on the cluster, which may be more or less than
 -- TotalResizeDataInMegaBytes (the estimated total amount of data before
 -- resize).
---
--- 'dataTransferProgressPercent', 'resizeProgressMessage_dataTransferProgressPercent' - The percent of data transferred from source cluster to target cluster.
---
--- 'importTablesCompleted', 'resizeProgressMessage_importTablesCompleted' - The names of tables that have been completely imported .
---
--- Valid Values: List of table names.
 --
 -- 'importTablesInProgress', 'resizeProgressMessage_importTablesInProgress' - The names of tables that are being currently imported.
 --
@@ -175,11 +175,11 @@ newResizeProgressMessage =
       avgResizeRateInMegaBytesPerSecond = Prelude.Nothing,
       targetEncryptionType = Prelude.Nothing,
       elapsedTimeInSeconds = Prelude.Nothing,
-      targetNumberOfNodes = Prelude.Nothing,
       totalResizeDataInMegaBytes = Prelude.Nothing,
-      progressInMegaBytes = Prelude.Nothing,
+      targetNumberOfNodes = Prelude.Nothing,
       dataTransferProgressPercent = Prelude.Nothing,
       importTablesCompleted = Prelude.Nothing,
+      progressInMegaBytes = Prelude.Nothing,
       importTablesInProgress = Prelude.Nothing,
       resizeType = Prelude.Nothing
     }
@@ -238,24 +238,15 @@ resizeProgressMessage_targetEncryptionType = Lens.lens (\ResizeProgressMessage' 
 resizeProgressMessage_elapsedTimeInSeconds :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Integer)
 resizeProgressMessage_elapsedTimeInSeconds = Lens.lens (\ResizeProgressMessage' {elapsedTimeInSeconds} -> elapsedTimeInSeconds) (\s@ResizeProgressMessage' {} a -> s {elapsedTimeInSeconds = a} :: ResizeProgressMessage)
 
--- | The number of nodes that the cluster will have after the resize
--- operation is complete.
-resizeProgressMessage_targetNumberOfNodes :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Int)
-resizeProgressMessage_targetNumberOfNodes = Lens.lens (\ResizeProgressMessage' {targetNumberOfNodes} -> targetNumberOfNodes) (\s@ResizeProgressMessage' {} a -> s {targetNumberOfNodes = a} :: ResizeProgressMessage)
-
 -- | The estimated total amount of data, in megabytes, on the cluster before
 -- the resize operation began.
 resizeProgressMessage_totalResizeDataInMegaBytes :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Integer)
 resizeProgressMessage_totalResizeDataInMegaBytes = Lens.lens (\ResizeProgressMessage' {totalResizeDataInMegaBytes} -> totalResizeDataInMegaBytes) (\s@ResizeProgressMessage' {} a -> s {totalResizeDataInMegaBytes = a} :: ResizeProgressMessage)
 
--- | While the resize operation is in progress, this value shows the current
--- amount of data, in megabytes, that has been processed so far. When the
--- resize operation is complete, this value shows the total amount of data,
--- in megabytes, on the cluster, which may be more or less than
--- TotalResizeDataInMegaBytes (the estimated total amount of data before
--- resize).
-resizeProgressMessage_progressInMegaBytes :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Integer)
-resizeProgressMessage_progressInMegaBytes = Lens.lens (\ResizeProgressMessage' {progressInMegaBytes} -> progressInMegaBytes) (\s@ResizeProgressMessage' {} a -> s {progressInMegaBytes = a} :: ResizeProgressMessage)
+-- | The number of nodes that the cluster will have after the resize
+-- operation is complete.
+resizeProgressMessage_targetNumberOfNodes :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Int)
+resizeProgressMessage_targetNumberOfNodes = Lens.lens (\ResizeProgressMessage' {targetNumberOfNodes} -> targetNumberOfNodes) (\s@ResizeProgressMessage' {} a -> s {targetNumberOfNodes = a} :: ResizeProgressMessage)
 
 -- | The percent of data transferred from source cluster to target cluster.
 resizeProgressMessage_dataTransferProgressPercent :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Double)
@@ -266,6 +257,15 @@ resizeProgressMessage_dataTransferProgressPercent = Lens.lens (\ResizeProgressMe
 -- Valid Values: List of table names.
 resizeProgressMessage_importTablesCompleted :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe [Prelude.Text])
 resizeProgressMessage_importTablesCompleted = Lens.lens (\ResizeProgressMessage' {importTablesCompleted} -> importTablesCompleted) (\s@ResizeProgressMessage' {} a -> s {importTablesCompleted = a} :: ResizeProgressMessage) Prelude.. Lens.mapping Lens._Coerce
+
+-- | While the resize operation is in progress, this value shows the current
+-- amount of data, in megabytes, that has been processed so far. When the
+-- resize operation is complete, this value shows the total amount of data,
+-- in megabytes, on the cluster, which may be more or less than
+-- TotalResizeDataInMegaBytes (the estimated total amount of data before
+-- resize).
+resizeProgressMessage_progressInMegaBytes :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Integer)
+resizeProgressMessage_progressInMegaBytes = Lens.lens (\ResizeProgressMessage' {progressInMegaBytes} -> progressInMegaBytes) (\s@ResizeProgressMessage' {} a -> s {progressInMegaBytes = a} :: ResizeProgressMessage)
 
 -- | The names of tables that are being currently imported.
 --
@@ -293,14 +293,14 @@ instance Core.FromXML ResizeProgressMessage where
       Prelude.<*> (x Core..@? "AvgResizeRateInMegaBytesPerSecond")
       Prelude.<*> (x Core..@? "TargetEncryptionType")
       Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
-      Prelude.<*> (x Core..@? "TargetNumberOfNodes")
       Prelude.<*> (x Core..@? "TotalResizeDataInMegaBytes")
-      Prelude.<*> (x Core..@? "ProgressInMegaBytes")
+      Prelude.<*> (x Core..@? "TargetNumberOfNodes")
       Prelude.<*> (x Core..@? "DataTransferProgressPercent")
       Prelude.<*> ( x Core..@? "ImportTablesCompleted"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "ProgressInMegaBytes")
       Prelude.<*> ( x Core..@? "ImportTablesInProgress"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")

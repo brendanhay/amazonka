@@ -14,6 +14,23 @@
 module Network.AWS.Redshift.Lens
   ( -- * Operations
 
+    -- ** DisableLogging
+    disableLogging_clusterIdentifier,
+    loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_bucketName,
+    loggingStatus_loggingEnabled,
+    loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
+    loggingStatus_lastFailureMessage,
+
+    -- ** AddPartner
+    addPartner_accountId,
+    addPartner_clusterIdentifier,
+    addPartner_databaseName,
+    addPartner_partnerName,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
+
     -- ** PurchaseReservedNodeOffering
     purchaseReservedNodeOffering_nodeCount,
     purchaseReservedNodeOffering_reservedNodeOfferingId,
@@ -25,33 +42,108 @@ module Network.AWS.Redshift.Lens
     describeEventCategoriesResponse_eventCategoriesMapList,
     describeEventCategoriesResponse_httpStatus,
 
+    -- ** ModifyEndpointAccess
+    modifyEndpointAccess_vpcSecurityGroupIds,
+    modifyEndpointAccess_endpointName,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_endpointName,
+    endpointAccess_address,
+    endpointAccess_resourceOwner,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointStatus,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_port,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_subnetGroupName,
+
     -- ** DeleteClusterSubnetGroup
     deleteClusterSubnetGroup_clusterSubnetGroupName,
 
-    -- ** DisableLogging
-    disableLogging_clusterIdentifier,
-    loggingStatus_lastSuccessfulDeliveryTime,
-    loggingStatus_bucketName,
-    loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureMessage,
+    -- ** AssociateDataShareConsumer
+    associateDataShareConsumer_associateEntireAccount,
+    associateDataShareConsumer_consumerArn,
+    associateDataShareConsumer_dataShareArn,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
+
+    -- ** RevokeEndpointAccess
+    revokeEndpointAccess_force,
+    revokeEndpointAccess_account,
+    revokeEndpointAccess_clusterIdentifier,
+    revokeEndpointAccess_vpcIds,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_status,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_grantor,
+    endpointAuthorization_endpointCount,
+
+    -- ** DeletePartner
+    deletePartner_accountId,
+    deletePartner_clusterIdentifier,
+    deletePartner_databaseName,
+    deletePartner_partnerName,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
+
+    -- ** CreateAuthenticationProfile
+    createAuthenticationProfile_authenticationProfileName,
+    createAuthenticationProfile_authenticationProfileContent,
+    createAuthenticationProfileResponse_authenticationProfileName,
+    createAuthenticationProfileResponse_authenticationProfileContent,
+    createAuthenticationProfileResponse_httpStatus,
+
+    -- ** ModifyAquaConfiguration
+    modifyAquaConfiguration_aquaConfigurationStatus,
+    modifyAquaConfiguration_clusterIdentifier,
+    modifyAquaConfigurationResponse_aquaConfiguration,
+    modifyAquaConfigurationResponse_httpStatus,
+
+    -- ** CreateUsageLimit
+    createUsageLimit_breachAction,
+    createUsageLimit_tags,
+    createUsageLimit_period,
+    createUsageLimit_clusterIdentifier,
+    createUsageLimit_featureType,
+    createUsageLimit_limitType,
+    createUsageLimit_amount,
+    usageLimit_amount,
+    usageLimit_featureType,
+    usageLimit_breachAction,
+    usageLimit_limitType,
+    usageLimit_tags,
+    usageLimit_clusterIdentifier,
+    usageLimit_period,
+    usageLimit_usageLimitId,
+
+    -- ** AuthorizeEndpointAccess
+    authorizeEndpointAccess_clusterIdentifier,
+    authorizeEndpointAccess_vpcIds,
+    authorizeEndpointAccess_account,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_status,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_grantor,
+    endpointAuthorization_endpointCount,
 
     -- ** DescribeHsmClientCertificates
     describeHsmClientCertificates_hsmClientCertificateIdentifier,
     describeHsmClientCertificates_tagKeys,
     describeHsmClientCertificates_tagValues,
-    describeHsmClientCertificates_marker,
     describeHsmClientCertificates_maxRecords,
+    describeHsmClientCertificates_marker,
     describeHsmClientCertificatesResponse_hsmClientCertificates,
     describeHsmClientCertificatesResponse_marker,
     describeHsmClientCertificatesResponse_httpStatus,
-
-    -- ** ModifyClusterParameterGroup
-    modifyClusterParameterGroup_parameterGroupName,
-    modifyClusterParameterGroup_parameters,
-    clusterParameterGroupNameMessage_parameterGroupStatus,
-    clusterParameterGroupNameMessage_parameterGroupName,
 
     -- ** CancelResize
     cancelResize_clusterIdentifier,
@@ -64,11 +156,11 @@ module Network.AWS.Redshift.Lens
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
     resizeProgressMessage_targetEncryptionType,
     resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_dataTransferProgressPercent,
     resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
 
@@ -76,8 +168,8 @@ module Network.AWS.Redshift.Lens
     describeClusters_tagKeys,
     describeClusters_clusterIdentifier,
     describeClusters_tagValues,
-    describeClusters_marker,
     describeClusters_maxRecords,
+    describeClusters_marker,
     describeClustersResponse_clusters,
     describeClustersResponse_marker,
     describeClustersResponse_httpStatus,
@@ -94,6 +186,23 @@ module Network.AWS.Redshift.Lens
     getClusterCredentialsResponse_dbPassword,
     getClusterCredentialsResponse_httpStatus,
 
+    -- ** DescribeTags
+    describeTags_tagKeys,
+    describeTags_resourceType,
+    describeTags_resourceName,
+    describeTags_tagValues,
+    describeTags_maxRecords,
+    describeTags_marker,
+    describeTagsResponse_taggedResources,
+    describeTagsResponse_marker,
+    describeTagsResponse_httpStatus,
+
+    -- ** ModifyClusterParameterGroup
+    modifyClusterParameterGroup_parameterGroupName,
+    modifyClusterParameterGroup_parameters,
+    clusterParameterGroupNameMessage_parameterGroupStatus,
+    clusterParameterGroupNameMessage_parameterGroupName,
+
     -- ** RevokeClusterSecurityGroupIngress
     revokeClusterSecurityGroupIngress_cidrip,
     revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
@@ -102,36 +211,28 @@ module Network.AWS.Redshift.Lens
     revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
     revokeClusterSecurityGroupIngressResponse_httpStatus,
 
-    -- ** CreateUsageLimit
-    createUsageLimit_breachAction,
-    createUsageLimit_tags,
-    createUsageLimit_period,
-    createUsageLimit_clusterIdentifier,
-    createUsageLimit_featureType,
-    createUsageLimit_limitType,
-    createUsageLimit_amount,
-    usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
-    usageLimit_limitType,
-    usageLimit_clusterIdentifier,
-    usageLimit_tags,
-    usageLimit_period,
-    usageLimit_usageLimitId,
-
-    -- ** DescribeTags
-    describeTags_tagKeys,
-    describeTags_resourceType,
-    describeTags_resourceName,
-    describeTags_tagValues,
-    describeTags_marker,
-    describeTags_maxRecords,
-    describeTagsResponse_taggedResources,
-    describeTagsResponse_marker,
-    describeTagsResponse_httpStatus,
+    -- ** ResetClusterParameterGroup
+    resetClusterParameterGroup_resetAllParameters,
+    resetClusterParameterGroup_parameters,
+    resetClusterParameterGroup_parameterGroupName,
+    clusterParameterGroupNameMessage_parameterGroupStatus,
+    clusterParameterGroupNameMessage_parameterGroupName,
 
     -- ** DeleteUsageLimit
     deleteUsageLimit_usageLimitId,
+
+    -- ** DescribeClusterDbRevisions
+    describeClusterDbRevisions_clusterIdentifier,
+    describeClusterDbRevisions_maxRecords,
+    describeClusterDbRevisions_marker,
+    describeClusterDbRevisionsResponse_clusterDbRevisions,
+    describeClusterDbRevisionsResponse_marker,
+    describeClusterDbRevisionsResponse_httpStatus,
+
+    -- ** RotateEncryptionKey
+    rotateEncryptionKey_clusterIdentifier,
+    rotateEncryptionKeyResponse_cluster,
+    rotateEncryptionKeyResponse_httpStatus,
 
     -- ** DescribeScheduledActions
     describeScheduledActions_startTime,
@@ -140,41 +241,40 @@ module Network.AWS.Redshift.Lens
     describeScheduledActions_active,
     describeScheduledActions_filters,
     describeScheduledActions_scheduledActionName,
-    describeScheduledActions_marker,
     describeScheduledActions_maxRecords,
+    describeScheduledActions_marker,
     describeScheduledActionsResponse_scheduledActions,
     describeScheduledActionsResponse_marker,
     describeScheduledActionsResponse_httpStatus,
-
-    -- ** RotateEncryptionKey
-    rotateEncryptionKey_clusterIdentifier,
-    rotateEncryptionKeyResponse_cluster,
-    rotateEncryptionKeyResponse_httpStatus,
-
-    -- ** DescribeClusterDbRevisions
-    describeClusterDbRevisions_clusterIdentifier,
-    describeClusterDbRevisions_marker,
-    describeClusterDbRevisions_maxRecords,
-    describeClusterDbRevisionsResponse_clusterDbRevisions,
-    describeClusterDbRevisionsResponse_marker,
-    describeClusterDbRevisionsResponse_httpStatus,
 
     -- ** DescribeEventSubscriptions
     describeEventSubscriptions_subscriptionName,
     describeEventSubscriptions_tagKeys,
     describeEventSubscriptions_tagValues,
-    describeEventSubscriptions_marker,
     describeEventSubscriptions_maxRecords,
+    describeEventSubscriptions_marker,
     describeEventSubscriptionsResponse_eventSubscriptionsList,
     describeEventSubscriptionsResponse_marker,
     describeEventSubscriptionsResponse_httpStatus,
 
-    -- ** ResetClusterParameterGroup
-    resetClusterParameterGroup_resetAllParameters,
-    resetClusterParameterGroup_parameters,
-    resetClusterParameterGroup_parameterGroupName,
-    clusterParameterGroupNameMessage_parameterGroupStatus,
-    clusterParameterGroupNameMessage_parameterGroupName,
+    -- ** DeleteEventSubscription
+    deleteEventSubscription_subscriptionName,
+
+    -- ** DescribeDataSharesForConsumer
+    describeDataSharesForConsumer_status,
+    describeDataSharesForConsumer_consumerArn,
+    describeDataSharesForConsumer_maxRecords,
+    describeDataSharesForConsumer_marker,
+    describeDataSharesForConsumerResponse_dataShares,
+    describeDataSharesForConsumerResponse_marker,
+    describeDataSharesForConsumerResponse_httpStatus,
+
+    -- ** ModifyClusterSnapshot
+    modifyClusterSnapshot_force,
+    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
+    modifyClusterSnapshot_snapshotIdentifier,
+    modifyClusterSnapshotResponse_snapshot,
+    modifyClusterSnapshotResponse_httpStatus,
 
     -- ** ModifyClusterSubnetGroup
     modifyClusterSubnetGroup_description,
@@ -183,10 +283,27 @@ module Network.AWS.Redshift.Lens
     modifyClusterSubnetGroupResponse_clusterSubnetGroup,
     modifyClusterSubnetGroupResponse_httpStatus,
 
+    -- ** DeleteScheduledAction
+    deleteScheduledAction_scheduledActionName,
+
+    -- ** DeleteEndpointAccess
+    deleteEndpointAccess_endpointName,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_endpointName,
+    endpointAccess_address,
+    endpointAccess_resourceOwner,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointStatus,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_port,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_subnetGroupName,
+
     -- ** RestoreTableFromClusterSnapshot
     restoreTableFromClusterSnapshot_targetSchemaName,
-    restoreTableFromClusterSnapshot_targetDatabaseName,
     restoreTableFromClusterSnapshot_sourceSchemaName,
+    restoreTableFromClusterSnapshot_targetDatabaseName,
+    restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier,
     restoreTableFromClusterSnapshot_clusterIdentifier,
     restoreTableFromClusterSnapshot_snapshotIdentifier,
     restoreTableFromClusterSnapshot_sourceDatabaseName,
@@ -194,9 +311,6 @@ module Network.AWS.Redshift.Lens
     restoreTableFromClusterSnapshot_newTableName,
     restoreTableFromClusterSnapshotResponse_tableRestoreStatus,
     restoreTableFromClusterSnapshotResponse_httpStatus,
-
-    -- ** DeleteEventSubscription
-    deleteEventSubscription_subscriptionName,
 
     -- ** CreateCluster
     createCluster_enhancedVpcRouting,
@@ -206,25 +320,26 @@ module Network.AWS.Redshift.Lens
     createCluster_hsmClientCertificateIdentifier,
     createCluster_encrypted,
     createCluster_allowVersionUpgrade,
-    createCluster_automatedSnapshotRetentionPeriod,
     createCluster_clusterParameterGroupName,
+    createCluster_automatedSnapshotRetentionPeriod,
     createCluster_availabilityZoneRelocation,
-    createCluster_snapshotScheduleIdentifier,
     createCluster_publiclyAccessible,
-    createCluster_vpcSecurityGroupIds,
     createCluster_clusterType,
-    createCluster_manualSnapshotRetentionPeriod,
+    createCluster_snapshotScheduleIdentifier,
+    createCluster_vpcSecurityGroupIds,
     createCluster_kmsKeyId,
+    createCluster_manualSnapshotRetentionPeriod,
     createCluster_availabilityZone,
     createCluster_preferredMaintenanceWindow,
     createCluster_tags,
-    createCluster_numberOfNodes,
-    createCluster_port,
     createCluster_dbName,
+    createCluster_port,
+    createCluster_numberOfNodes,
     createCluster_clusterVersion,
     createCluster_clusterSecurityGroups,
-    createCluster_maintenanceTrackName,
+    createCluster_aquaConfigurationStatus,
     createCluster_hsmConfigurationIdentifier,
+    createCluster_maintenanceTrackName,
     createCluster_iamRoles,
     createCluster_clusterIdentifier,
     createCluster_nodeType,
@@ -233,20 +348,39 @@ module Network.AWS.Redshift.Lens
     createClusterResponse_cluster,
     createClusterResponse_httpStatus,
 
-    -- ** ModifyClusterSnapshot
-    modifyClusterSnapshot_force,
-    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
-    modifyClusterSnapshot_snapshotIdentifier,
-    modifyClusterSnapshotResponse_snapshot,
-    modifyClusterSnapshotResponse_httpStatus,
+    -- ** CreateEndpointAccess
+    createEndpointAccess_resourceOwner,
+    createEndpointAccess_vpcSecurityGroupIds,
+    createEndpointAccess_clusterIdentifier,
+    createEndpointAccess_endpointName,
+    createEndpointAccess_subnetGroupName,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_endpointName,
+    endpointAccess_address,
+    endpointAccess_resourceOwner,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointStatus,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_port,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_subnetGroupName,
 
-    -- ** DeleteScheduledAction
-    deleteScheduledAction_scheduledActionName,
+    -- ** ModifyClusterSnapshotSchedule
+    modifyClusterSnapshotSchedule_disassociateSchedule,
+    modifyClusterSnapshotSchedule_scheduleIdentifier,
+    modifyClusterSnapshotSchedule_clusterIdentifier,
 
     -- ** DescribeAccountAttributes
     describeAccountAttributes_attributeNames,
     describeAccountAttributesResponse_accountAttributes,
     describeAccountAttributesResponse_httpStatus,
+
+    -- ** ModifyAuthenticationProfile
+    modifyAuthenticationProfile_authenticationProfileName,
+    modifyAuthenticationProfile_authenticationProfileContent,
+    modifyAuthenticationProfileResponse_authenticationProfileName,
+    modifyAuthenticationProfileResponse_authenticationProfileContent,
+    modifyAuthenticationProfileResponse_httpStatus,
 
     -- ** CopyClusterSnapshot
     copyClusterSnapshot_manualSnapshotRetentionPeriod,
@@ -263,18 +397,51 @@ module Network.AWS.Redshift.Lens
     createSnapshotCopyGrantResponse_snapshotCopyGrant,
     createSnapshotCopyGrantResponse_httpStatus,
 
-    -- ** ModifyClusterSnapshotSchedule
-    modifyClusterSnapshotSchedule_disassociateSchedule,
-    modifyClusterSnapshotSchedule_scheduleIdentifier,
-    modifyClusterSnapshotSchedule_clusterIdentifier,
+    -- ** UpdatePartnerStatus
+    updatePartnerStatus_statusMessage,
+    updatePartnerStatus_accountId,
+    updatePartnerStatus_clusterIdentifier,
+    updatePartnerStatus_databaseName,
+    updatePartnerStatus_partnerName,
+    updatePartnerStatus_status,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
 
-    -- ** CreateClusterParameterGroup
-    createClusterParameterGroup_tags,
-    createClusterParameterGroup_parameterGroupName,
-    createClusterParameterGroup_parameterGroupFamily,
-    createClusterParameterGroup_description,
-    createClusterParameterGroupResponse_clusterParameterGroup,
-    createClusterParameterGroupResponse_httpStatus,
+    -- ** DescribeDataSharesForProducer
+    describeDataSharesForProducer_status,
+    describeDataSharesForProducer_producerArn,
+    describeDataSharesForProducer_maxRecords,
+    describeDataSharesForProducer_marker,
+    describeDataSharesForProducerResponse_dataShares,
+    describeDataSharesForProducerResponse_marker,
+    describeDataSharesForProducerResponse_httpStatus,
+
+    -- ** DescribeHsmConfigurations
+    describeHsmConfigurations_tagKeys,
+    describeHsmConfigurations_hsmConfigurationIdentifier,
+    describeHsmConfigurations_tagValues,
+    describeHsmConfigurations_maxRecords,
+    describeHsmConfigurations_marker,
+    describeHsmConfigurationsResponse_hsmConfigurations,
+    describeHsmConfigurationsResponse_marker,
+    describeHsmConfigurationsResponse_httpStatus,
+
+    -- ** DescribeClusterSnapshots
+    describeClusterSnapshots_sortingEntities,
+    describeClusterSnapshots_snapshotIdentifier,
+    describeClusterSnapshots_tagKeys,
+    describeClusterSnapshots_startTime,
+    describeClusterSnapshots_endTime,
+    describeClusterSnapshots_snapshotType,
+    describeClusterSnapshots_clusterIdentifier,
+    describeClusterSnapshots_ownerAccount,
+    describeClusterSnapshots_tagValues,
+    describeClusterSnapshots_maxRecords,
+    describeClusterSnapshots_marker,
+    describeClusterSnapshots_clusterExists,
+    describeClusterSnapshotsResponse_snapshots,
+    describeClusterSnapshotsResponse_marker,
+    describeClusterSnapshotsResponse_httpStatus,
 
     -- ** DeleteTags
     deleteTags_resourceName,
@@ -289,33 +456,6 @@ module Network.AWS.Redshift.Lens
     enableSnapshotCopyResponse_cluster,
     enableSnapshotCopyResponse_httpStatus,
 
-    -- ** DescribeClusterSnapshots
-    describeClusterSnapshots_snapshotIdentifier,
-    describeClusterSnapshots_sortingEntities,
-    describeClusterSnapshots_tagKeys,
-    describeClusterSnapshots_startTime,
-    describeClusterSnapshots_endTime,
-    describeClusterSnapshots_snapshotType,
-    describeClusterSnapshots_clusterIdentifier,
-    describeClusterSnapshots_ownerAccount,
-    describeClusterSnapshots_clusterExists,
-    describeClusterSnapshots_tagValues,
-    describeClusterSnapshots_marker,
-    describeClusterSnapshots_maxRecords,
-    describeClusterSnapshotsResponse_snapshots,
-    describeClusterSnapshotsResponse_marker,
-    describeClusterSnapshotsResponse_httpStatus,
-
-    -- ** DescribeHsmConfigurations
-    describeHsmConfigurations_tagKeys,
-    describeHsmConfigurations_hsmConfigurationIdentifier,
-    describeHsmConfigurations_tagValues,
-    describeHsmConfigurations_marker,
-    describeHsmConfigurations_maxRecords,
-    describeHsmConfigurationsResponse_hsmConfigurations,
-    describeHsmConfigurationsResponse_marker,
-    describeHsmConfigurationsResponse_httpStatus,
-
     -- ** ModifyUsageLimit
     modifyUsageLimit_amount,
     modifyUsageLimit_breachAction,
@@ -324,28 +464,23 @@ module Network.AWS.Redshift.Lens
     usageLimit_featureType,
     usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_clusterIdentifier,
     usageLimit_tags,
+    usageLimit_clusterIdentifier,
     usageLimit_period,
     usageLimit_usageLimitId,
 
-    -- ** DescribeClusterSecurityGroups
-    describeClusterSecurityGroups_tagKeys,
-    describeClusterSecurityGroups_clusterSecurityGroupName,
-    describeClusterSecurityGroups_tagValues,
-    describeClusterSecurityGroups_marker,
-    describeClusterSecurityGroups_maxRecords,
-    describeClusterSecurityGroupsResponse_clusterSecurityGroups,
-    describeClusterSecurityGroupsResponse_marker,
-    describeClusterSecurityGroupsResponse_httpStatus,
-
-    -- ** DeleteClusterParameterGroup
-    deleteClusterParameterGroup_parameterGroupName,
+    -- ** CreateClusterParameterGroup
+    createClusterParameterGroup_tags,
+    createClusterParameterGroup_parameterGroupName,
+    createClusterParameterGroup_parameterGroupFamily,
+    createClusterParameterGroup_description,
+    createClusterParameterGroupResponse_clusterParameterGroup,
+    createClusterParameterGroupResponse_httpStatus,
 
     -- ** CreateSnapshotSchedule
     createSnapshotSchedule_nextInvocations,
-    createSnapshotSchedule_dryRun,
     createSnapshotSchedule_scheduleIdentifier,
+    createSnapshotSchedule_dryRun,
     createSnapshotSchedule_scheduleDescription,
     createSnapshotSchedule_scheduleDefinitions,
     createSnapshotSchedule_tags,
@@ -354,39 +489,59 @@ module Network.AWS.Redshift.Lens
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
+    snapshotSchedule_associatedClusterCount,
+
+    -- ** DescribeEndpointAuthorization
+    describeEndpointAuthorization_account,
+    describeEndpointAuthorization_clusterIdentifier,
+    describeEndpointAuthorization_grantee,
+    describeEndpointAuthorization_maxRecords,
+    describeEndpointAuthorization_marker,
+    describeEndpointAuthorizationResponse_endpointAuthorizationList,
+    describeEndpointAuthorizationResponse_marker,
+    describeEndpointAuthorizationResponse_httpStatus,
+
+    -- ** DeleteClusterParameterGroup
+    deleteClusterParameterGroup_parameterGroupName,
+
+    -- ** DescribeClusterSecurityGroups
+    describeClusterSecurityGroups_tagKeys,
+    describeClusterSecurityGroups_clusterSecurityGroupName,
+    describeClusterSecurityGroups_tagValues,
+    describeClusterSecurityGroups_maxRecords,
+    describeClusterSecurityGroups_marker,
+    describeClusterSecurityGroupsResponse_clusterSecurityGroups,
+    describeClusterSecurityGroupsResponse_marker,
+    describeClusterSecurityGroupsResponse_httpStatus,
 
     -- ** DescribeNodeConfigurationOptions
     describeNodeConfigurationOptions_snapshotIdentifier,
     describeNodeConfigurationOptions_clusterIdentifier,
     describeNodeConfigurationOptions_filters,
     describeNodeConfigurationOptions_ownerAccount,
-    describeNodeConfigurationOptions_marker,
     describeNodeConfigurationOptions_maxRecords,
+    describeNodeConfigurationOptions_marker,
     describeNodeConfigurationOptions_actionType,
     describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList,
     describeNodeConfigurationOptionsResponse_marker,
     describeNodeConfigurationOptionsResponse_httpStatus,
 
-    -- ** DescribeClusterParameterGroups
-    describeClusterParameterGroups_tagKeys,
-    describeClusterParameterGroups_parameterGroupName,
-    describeClusterParameterGroups_tagValues,
-    describeClusterParameterGroups_marker,
-    describeClusterParameterGroups_maxRecords,
-    describeClusterParameterGroupsResponse_parameterGroups,
-    describeClusterParameterGroupsResponse_marker,
-    describeClusterParameterGroupsResponse_httpStatus,
+    -- ** DescribeAuthenticationProfiles
+    describeAuthenticationProfiles_authenticationProfileName,
+    describeAuthenticationProfilesResponse_authenticationProfiles,
+    describeAuthenticationProfilesResponse_httpStatus,
 
-    -- ** DescribeLoggingStatus
-    describeLoggingStatus_clusterIdentifier,
-    loggingStatus_lastSuccessfulDeliveryTime,
-    loggingStatus_bucketName,
-    loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureMessage,
+    -- ** DescribeEndpointAccess
+    describeEndpointAccess_endpointName,
+    describeEndpointAccess_resourceOwner,
+    describeEndpointAccess_clusterIdentifier,
+    describeEndpointAccess_vpcId,
+    describeEndpointAccess_maxRecords,
+    describeEndpointAccess_marker,
+    describeEndpointAccessResponse_endpointAccessList,
+    describeEndpointAccessResponse_marker,
+    describeEndpointAccessResponse_httpStatus,
 
     -- ** DescribeEvents
     describeEvents_duration,
@@ -394,8 +549,8 @@ module Network.AWS.Redshift.Lens
     describeEvents_endTime,
     describeEvents_sourceIdentifier,
     describeEvents_sourceType,
-    describeEvents_marker,
     describeEvents_maxRecords,
+    describeEvents_marker,
     describeEventsResponse_events,
     describeEventsResponse_marker,
     describeEventsResponse_httpStatus,
@@ -408,6 +563,69 @@ module Network.AWS.Redshift.Lens
     createClusterSnapshotResponse_snapshot,
     createClusterSnapshotResponse_httpStatus,
 
+    -- ** DescribeLoggingStatus
+    describeLoggingStatus_clusterIdentifier,
+    loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_bucketName,
+    loggingStatus_loggingEnabled,
+    loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
+    loggingStatus_lastFailureMessage,
+
+    -- ** DescribeClusterParameterGroups
+    describeClusterParameterGroups_tagKeys,
+    describeClusterParameterGroups_parameterGroupName,
+    describeClusterParameterGroups_tagValues,
+    describeClusterParameterGroups_maxRecords,
+    describeClusterParameterGroups_marker,
+    describeClusterParameterGroupsResponse_parameterGroups,
+    describeClusterParameterGroupsResponse_marker,
+    describeClusterParameterGroupsResponse_httpStatus,
+
+    -- ** ModifyCluster
+    modifyCluster_enhancedVpcRouting,
+    modifyCluster_elasticIp,
+    modifyCluster_hsmClientCertificateIdentifier,
+    modifyCluster_encrypted,
+    modifyCluster_allowVersionUpgrade,
+    modifyCluster_clusterParameterGroupName,
+    modifyCluster_automatedSnapshotRetentionPeriod,
+    modifyCluster_availabilityZoneRelocation,
+    modifyCluster_newClusterIdentifier,
+    modifyCluster_masterUserPassword,
+    modifyCluster_publiclyAccessible,
+    modifyCluster_clusterType,
+    modifyCluster_vpcSecurityGroupIds,
+    modifyCluster_kmsKeyId,
+    modifyCluster_manualSnapshotRetentionPeriod,
+    modifyCluster_availabilityZone,
+    modifyCluster_preferredMaintenanceWindow,
+    modifyCluster_port,
+    modifyCluster_numberOfNodes,
+    modifyCluster_clusterVersion,
+    modifyCluster_clusterSecurityGroups,
+    modifyCluster_nodeType,
+    modifyCluster_hsmConfigurationIdentifier,
+    modifyCluster_maintenanceTrackName,
+    modifyCluster_clusterIdentifier,
+    modifyClusterResponse_cluster,
+    modifyClusterResponse_httpStatus,
+
+    -- ** GetReservedNodeExchangeOfferings
+    getReservedNodeExchangeOfferings_maxRecords,
+    getReservedNodeExchangeOfferings_marker,
+    getReservedNodeExchangeOfferings_reservedNodeId,
+    getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings,
+    getReservedNodeExchangeOfferingsResponse_marker,
+    getReservedNodeExchangeOfferingsResponse_httpStatus,
+
+    -- ** RejectDataShare
+    rejectDataShare_dataShareArn,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
+
     -- ** CreateClusterSubnetGroup
     createClusterSubnetGroup_tags,
     createClusterSubnetGroup_clusterSubnetGroupName,
@@ -416,64 +634,17 @@ module Network.AWS.Redshift.Lens
     createClusterSubnetGroupResponse_clusterSubnetGroup,
     createClusterSubnetGroupResponse_httpStatus,
 
-    -- ** ModifyCluster
-    modifyCluster_enhancedVpcRouting,
-    modifyCluster_elasticIp,
-    modifyCluster_hsmClientCertificateIdentifier,
-    modifyCluster_encrypted,
-    modifyCluster_allowVersionUpgrade,
-    modifyCluster_automatedSnapshotRetentionPeriod,
-    modifyCluster_clusterParameterGroupName,
-    modifyCluster_newClusterIdentifier,
-    modifyCluster_availabilityZoneRelocation,
-    modifyCluster_masterUserPassword,
-    modifyCluster_publiclyAccessible,
-    modifyCluster_vpcSecurityGroupIds,
-    modifyCluster_clusterType,
-    modifyCluster_manualSnapshotRetentionPeriod,
-    modifyCluster_kmsKeyId,
-    modifyCluster_availabilityZone,
-    modifyCluster_preferredMaintenanceWindow,
-    modifyCluster_numberOfNodes,
-    modifyCluster_port,
-    modifyCluster_nodeType,
-    modifyCluster_clusterVersion,
-    modifyCluster_clusterSecurityGroups,
-    modifyCluster_maintenanceTrackName,
-    modifyCluster_hsmConfigurationIdentifier,
-    modifyCluster_clusterIdentifier,
-    modifyClusterResponse_cluster,
-    modifyClusterResponse_httpStatus,
-
-    -- ** GetReservedNodeExchangeOfferings
-    getReservedNodeExchangeOfferings_marker,
-    getReservedNodeExchangeOfferings_maxRecords,
-    getReservedNodeExchangeOfferings_reservedNodeId,
-    getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings,
-    getReservedNodeExchangeOfferingsResponse_marker,
-    getReservedNodeExchangeOfferingsResponse_httpStatus,
-
-    -- ** DescribeResize
-    describeResize_clusterIdentifier,
-    resizeProgressMessage_status,
-    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
-    resizeProgressMessage_importTablesNotStarted,
-    resizeProgressMessage_targetNodeType,
-    resizeProgressMessage_message,
-    resizeProgressMessage_targetClusterType,
-    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
-    resizeProgressMessage_targetEncryptionType,
-    resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
-    resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
-    resizeProgressMessage_dataTransferProgressPercent,
-    resizeProgressMessage_importTablesCompleted,
-    resizeProgressMessage_importTablesInProgress,
-    resizeProgressMessage_resizeType,
-
     -- ** DeleteHsmConfiguration
     deleteHsmConfiguration_hsmConfigurationIdentifier,
+
+    -- ** DescribeTableRestoreStatus
+    describeTableRestoreStatus_clusterIdentifier,
+    describeTableRestoreStatus_maxRecords,
+    describeTableRestoreStatus_tableRestoreRequestId,
+    describeTableRestoreStatus_marker,
+    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
+    describeTableRestoreStatusResponse_marker,
+    describeTableRestoreStatusResponse_httpStatus,
 
     -- ** DeleteClusterSnapshot
     deleteClusterSnapshot_snapshotClusterIdentifier,
@@ -481,24 +652,33 @@ module Network.AWS.Redshift.Lens
     deleteClusterSnapshotResponse_snapshot,
     deleteClusterSnapshotResponse_httpStatus,
 
-    -- ** CreateClusterSecurityGroup
-    createClusterSecurityGroup_tags,
-    createClusterSecurityGroup_clusterSecurityGroupName,
-    createClusterSecurityGroup_description,
-    createClusterSecurityGroupResponse_clusterSecurityGroup,
-    createClusterSecurityGroupResponse_httpStatus,
+    -- ** ModifyClusterDbRevision
+    modifyClusterDbRevision_clusterIdentifier,
+    modifyClusterDbRevision_revisionTarget,
+    modifyClusterDbRevisionResponse_cluster,
+    modifyClusterDbRevisionResponse_httpStatus,
 
-    -- ** AcceptReservedNodeExchange
-    acceptReservedNodeExchange_reservedNodeId,
-    acceptReservedNodeExchange_targetReservedNodeOfferingId,
-    acceptReservedNodeExchangeResponse_exchangedReservedNode,
-    acceptReservedNodeExchangeResponse_httpStatus,
+    -- ** AuthorizeClusterSecurityGroupIngress
+    authorizeClusterSecurityGroupIngress_cidrip,
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
+    authorizeClusterSecurityGroupIngress_clusterSecurityGroupName,
+    authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
+    authorizeClusterSecurityGroupIngressResponse_httpStatus,
+
+    -- ** DeauthorizeDataShare
+    deauthorizeDataShare_dataShareArn,
+    deauthorizeDataShare_consumerIdentifier,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
 
     -- ** ModifyScheduledAction
     modifyScheduledAction_targetAction,
-    modifyScheduledAction_enable,
     modifyScheduledAction_iamRole,
     modifyScheduledAction_scheduledActionDescription,
+    modifyScheduledAction_enable,
     modifyScheduledAction_startTime,
     modifyScheduledAction_endTime,
     modifyScheduledAction_schedule,
@@ -524,25 +704,48 @@ module Network.AWS.Redshift.Lens
     modifyEventSubscriptionResponse_eventSubscription,
     modifyEventSubscriptionResponse_httpStatus,
 
+    -- ** CreateClusterSecurityGroup
+    createClusterSecurityGroup_tags,
+    createClusterSecurityGroup_clusterSecurityGroupName,
+    createClusterSecurityGroup_description,
+    createClusterSecurityGroupResponse_clusterSecurityGroup,
+    createClusterSecurityGroupResponse_httpStatus,
+
+    -- ** DescribeResize
+    describeResize_clusterIdentifier,
+    resizeProgressMessage_status,
+    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
+    resizeProgressMessage_importTablesNotStarted,
+    resizeProgressMessage_targetNodeType,
+    resizeProgressMessage_message,
+    resizeProgressMessage_targetClusterType,
+    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
+    resizeProgressMessage_targetEncryptionType,
+    resizeProgressMessage_elapsedTimeInSeconds,
+    resizeProgressMessage_totalResizeDataInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
+    resizeProgressMessage_dataTransferProgressPercent,
+    resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_importTablesInProgress,
+    resizeProgressMessage_resizeType,
+
+    -- ** AcceptReservedNodeExchange
+    acceptReservedNodeExchange_reservedNodeId,
+    acceptReservedNodeExchange_targetReservedNodeOfferingId,
+    acceptReservedNodeExchangeResponse_exchangedReservedNode,
+    acceptReservedNodeExchangeResponse_httpStatus,
+
     -- ** DescribeSnapshotSchedules
-    describeSnapshotSchedules_tagKeys,
     describeSnapshotSchedules_scheduleIdentifier,
+    describeSnapshotSchedules_tagKeys,
     describeSnapshotSchedules_clusterIdentifier,
     describeSnapshotSchedules_tagValues,
-    describeSnapshotSchedules_marker,
     describeSnapshotSchedules_maxRecords,
+    describeSnapshotSchedules_marker,
     describeSnapshotSchedulesResponse_snapshotSchedules,
     describeSnapshotSchedulesResponse_marker,
     describeSnapshotSchedulesResponse_httpStatus,
-
-    -- ** DescribeTableRestoreStatus
-    describeTableRestoreStatus_clusterIdentifier,
-    describeTableRestoreStatus_marker,
-    describeTableRestoreStatus_tableRestoreRequestId,
-    describeTableRestoreStatus_maxRecords,
-    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
-    describeTableRestoreStatusResponse_marker,
-    describeTableRestoreStatusResponse_httpStatus,
 
     -- ** ModifyClusterMaintenance
     modifyClusterMaintenance_deferMaintenanceIdentifier,
@@ -554,34 +757,19 @@ module Network.AWS.Redshift.Lens
     modifyClusterMaintenanceResponse_cluster,
     modifyClusterMaintenanceResponse_httpStatus,
 
-    -- ** AuthorizeClusterSecurityGroupIngress
-    authorizeClusterSecurityGroupIngress_cidrip,
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
-    authorizeClusterSecurityGroupIngress_clusterSecurityGroupName,
-    authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
-    authorizeClusterSecurityGroupIngressResponse_httpStatus,
-
-    -- ** ModifyClusterDbRevision
-    modifyClusterDbRevision_clusterIdentifier,
-    modifyClusterDbRevision_revisionTarget,
-    modifyClusterDbRevisionResponse_cluster,
-    modifyClusterDbRevisionResponse_httpStatus,
-
     -- ** DescribeStorage
     describeStorageResponse_totalProvisionedStorageInMegaBytes,
     describeStorageResponse_totalBackupSizeInMegaBytes,
     describeStorageResponse_httpStatus,
 
-    -- ** DescribeSnapshotCopyGrants
-    describeSnapshotCopyGrants_tagKeys,
-    describeSnapshotCopyGrants_snapshotCopyGrantName,
-    describeSnapshotCopyGrants_tagValues,
-    describeSnapshotCopyGrants_marker,
-    describeSnapshotCopyGrants_maxRecords,
-    describeSnapshotCopyGrantsResponse_snapshotCopyGrants,
-    describeSnapshotCopyGrantsResponse_marker,
-    describeSnapshotCopyGrantsResponse_httpStatus,
+    -- ** DisassociateDataShareConsumer
+    disassociateDataShareConsumer_consumerArn,
+    disassociateDataShareConsumer_disassociateEntireAccount,
+    disassociateDataShareConsumer_dataShareArn,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
 
     -- ** BatchModifyClusterSnapshots
     batchModifyClusterSnapshots_force,
@@ -591,6 +779,16 @@ module Network.AWS.Redshift.Lens
     batchModifyClusterSnapshotsResponse_errors,
     batchModifyClusterSnapshotsResponse_httpStatus,
 
+    -- ** DescribeSnapshotCopyGrants
+    describeSnapshotCopyGrants_tagKeys,
+    describeSnapshotCopyGrants_snapshotCopyGrantName,
+    describeSnapshotCopyGrants_tagValues,
+    describeSnapshotCopyGrants_maxRecords,
+    describeSnapshotCopyGrants_marker,
+    describeSnapshotCopyGrantsResponse_snapshotCopyGrants,
+    describeSnapshotCopyGrantsResponse_marker,
+    describeSnapshotCopyGrantsResponse_httpStatus,
+
     -- ** ModifySnapshotSchedule
     modifySnapshotSchedule_scheduleIdentifier,
     modifySnapshotSchedule_scheduleDefinitions,
@@ -599,30 +797,8 @@ module Network.AWS.Redshift.Lens
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
-
-    -- ** DeleteSnapshotCopyGrant
-    deleteSnapshotCopyGrant_snapshotCopyGrantName,
-
-    -- ** DescribeUsageLimits
-    describeUsageLimits_featureType,
-    describeUsageLimits_tagKeys,
-    describeUsageLimits_clusterIdentifier,
-    describeUsageLimits_usageLimitId,
-    describeUsageLimits_tagValues,
-    describeUsageLimits_marker,
-    describeUsageLimits_maxRecords,
-    describeUsageLimitsResponse_usageLimits,
-    describeUsageLimitsResponse_marker,
-    describeUsageLimitsResponse_httpStatus,
-
-    -- ** DescribeDefaultClusterParameters
-    describeDefaultClusterParameters_marker,
-    describeDefaultClusterParameters_maxRecords,
-    describeDefaultClusterParameters_parameterGroupFamily,
-    describeDefaultClusterParametersResponse_httpStatus,
-    describeDefaultClusterParametersResponse_defaultClusterParameters,
+    snapshotSchedule_associatedClusterCount,
 
     -- ** CreateHsmClientCertificate
     createHsmClientCertificate_tags,
@@ -633,36 +809,58 @@ module Network.AWS.Redshift.Lens
     -- ** DescribeClusterVersions
     describeClusterVersions_clusterParameterGroupFamily,
     describeClusterVersions_clusterVersion,
-    describeClusterVersions_marker,
     describeClusterVersions_maxRecords,
+    describeClusterVersions_marker,
     describeClusterVersionsResponse_clusterVersions,
     describeClusterVersionsResponse_marker,
     describeClusterVersionsResponse_httpStatus,
 
+    -- ** AuthorizeDataShare
+    authorizeDataShare_dataShareArn,
+    authorizeDataShare_consumerIdentifier,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
+
+    -- ** DescribeDefaultClusterParameters
+    describeDefaultClusterParameters_maxRecords,
+    describeDefaultClusterParameters_marker,
+    describeDefaultClusterParameters_parameterGroupFamily,
+    describeDefaultClusterParametersResponse_httpStatus,
+    describeDefaultClusterParametersResponse_defaultClusterParameters,
+
+    -- ** DeleteSnapshotCopyGrant
+    deleteSnapshotCopyGrant_snapshotCopyGrantName,
+
+    -- ** DescribeUsageLimits
+    describeUsageLimits_featureType,
+    describeUsageLimits_tagKeys,
+    describeUsageLimits_clusterIdentifier,
+    describeUsageLimits_usageLimitId,
+    describeUsageLimits_tagValues,
+    describeUsageLimits_maxRecords,
+    describeUsageLimits_marker,
+    describeUsageLimitsResponse_usageLimits,
+    describeUsageLimitsResponse_marker,
+    describeUsageLimitsResponse_httpStatus,
+
+    -- ** DescribeClusterTracks
+    describeClusterTracks_maintenanceTrackName,
+    describeClusterTracks_maxRecords,
+    describeClusterTracks_marker,
+    describeClusterTracksResponse_maintenanceTracks,
+    describeClusterTracksResponse_marker,
+    describeClusterTracksResponse_httpStatus,
+
     -- ** DescribeOrderableClusterOptions
-    describeOrderableClusterOptions_nodeType,
     describeOrderableClusterOptions_clusterVersion,
-    describeOrderableClusterOptions_marker,
+    describeOrderableClusterOptions_nodeType,
     describeOrderableClusterOptions_maxRecords,
+    describeOrderableClusterOptions_marker,
     describeOrderableClusterOptionsResponse_orderableClusterOptions,
     describeOrderableClusterOptionsResponse_marker,
     describeOrderableClusterOptionsResponse_httpStatus,
-
-    -- ** DeleteHsmClientCertificate
-    deleteHsmClientCertificate_hsmClientCertificateIdentifier,
-
-    -- ** RebootCluster
-    rebootCluster_clusterIdentifier,
-    rebootClusterResponse_cluster,
-    rebootClusterResponse_httpStatus,
-
-    -- ** DeleteCluster
-    deleteCluster_finalClusterSnapshotIdentifier,
-    deleteCluster_skipFinalClusterSnapshot,
-    deleteCluster_finalClusterSnapshotRetentionPeriod,
-    deleteCluster_clusterIdentifier,
-    deleteClusterResponse_cluster,
-    deleteClusterResponse_httpStatus,
 
     -- ** CreateEventSubscription
     createEventSubscription_sourceIds,
@@ -676,29 +874,9 @@ module Network.AWS.Redshift.Lens
     createEventSubscriptionResponse_eventSubscription,
     createEventSubscriptionResponse_httpStatus,
 
-    -- ** AuthorizeSnapshotAccess
-    authorizeSnapshotAccess_snapshotClusterIdentifier,
-    authorizeSnapshotAccess_snapshotIdentifier,
-    authorizeSnapshotAccess_accountWithRestoreAccess,
-    authorizeSnapshotAccessResponse_snapshot,
-    authorizeSnapshotAccessResponse_httpStatus,
-
-    -- ** ResumeCluster
-    resumeCluster_clusterIdentifier,
-    resumeClusterResponse_cluster,
-    resumeClusterResponse_httpStatus,
-
-    -- ** DescribeClusterTracks
-    describeClusterTracks_maintenanceTrackName,
-    describeClusterTracks_marker,
-    describeClusterTracks_maxRecords,
-    describeClusterTracksResponse_maintenanceTracks,
-    describeClusterTracksResponse_marker,
-    describeClusterTracksResponse_httpStatus,
-
     -- ** CreateScheduledAction
-    createScheduledAction_enable,
     createScheduledAction_scheduledActionDescription,
+    createScheduledAction_enable,
     createScheduledAction_startTime,
     createScheduledAction_endTime,
     createScheduledAction_scheduledActionName,
@@ -715,24 +893,41 @@ module Network.AWS.Redshift.Lens
     scheduledAction_scheduledActionName,
     scheduledAction_schedule,
 
-    -- ** DeleteSnapshotSchedule
-    deleteSnapshotSchedule_scheduleIdentifier,
+    -- ** AuthorizeSnapshotAccess
+    authorizeSnapshotAccess_snapshotClusterIdentifier,
+    authorizeSnapshotAccess_snapshotIdentifier,
+    authorizeSnapshotAccess_accountWithRestoreAccess,
+    authorizeSnapshotAccessResponse_snapshot,
+    authorizeSnapshotAccessResponse_httpStatus,
 
-    -- ** DescribeClusterSubnetGroups
-    describeClusterSubnetGroups_clusterSubnetGroupName,
-    describeClusterSubnetGroups_tagKeys,
-    describeClusterSubnetGroups_tagValues,
-    describeClusterSubnetGroups_marker,
-    describeClusterSubnetGroups_maxRecords,
-    describeClusterSubnetGroupsResponse_clusterSubnetGroups,
-    describeClusterSubnetGroupsResponse_marker,
-    describeClusterSubnetGroupsResponse_httpStatus,
+    -- ** DeleteHsmClientCertificate
+    deleteHsmClientCertificate_hsmClientCertificateIdentifier,
 
-    -- ** BatchDeleteClusterSnapshots
-    batchDeleteClusterSnapshots_identifiers,
-    batchDeleteClusterSnapshotsResponse_resources,
-    batchDeleteClusterSnapshotsResponse_errors,
-    batchDeleteClusterSnapshotsResponse_httpStatus,
+    -- ** DeleteCluster
+    deleteCluster_finalClusterSnapshotIdentifier,
+    deleteCluster_skipFinalClusterSnapshot,
+    deleteCluster_finalClusterSnapshotRetentionPeriod,
+    deleteCluster_clusterIdentifier,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
+
+    -- ** DescribeDataShares
+    describeDataShares_dataShareArn,
+    describeDataShares_maxRecords,
+    describeDataShares_marker,
+    describeDataSharesResponse_dataShares,
+    describeDataSharesResponse_marker,
+    describeDataSharesResponse_httpStatus,
+
+    -- ** RebootCluster
+    rebootCluster_clusterIdentifier,
+    rebootClusterResponse_cluster,
+    rebootClusterResponse_httpStatus,
+
+    -- ** ResumeCluster
+    resumeCluster_clusterIdentifier,
+    resumeClusterResponse_cluster,
+    resumeClusterResponse_httpStatus,
 
     -- ** ModifyClusterIamRoles
     modifyClusterIamRoles_removeIamRoles,
@@ -740,6 +935,63 @@ module Network.AWS.Redshift.Lens
     modifyClusterIamRoles_clusterIdentifier,
     modifyClusterIamRolesResponse_cluster,
     modifyClusterIamRolesResponse_httpStatus,
+
+    -- ** RestoreFromClusterSnapshot
+    restoreFromClusterSnapshot_enhancedVpcRouting,
+    restoreFromClusterSnapshot_additionalInfo,
+    restoreFromClusterSnapshot_elasticIp,
+    restoreFromClusterSnapshot_clusterSubnetGroupName,
+    restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
+    restoreFromClusterSnapshot_allowVersionUpgrade,
+    restoreFromClusterSnapshot_clusterParameterGroupName,
+    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
+    restoreFromClusterSnapshot_availabilityZoneRelocation,
+    restoreFromClusterSnapshot_snapshotClusterIdentifier,
+    restoreFromClusterSnapshot_publiclyAccessible,
+    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
+    restoreFromClusterSnapshot_vpcSecurityGroupIds,
+    restoreFromClusterSnapshot_kmsKeyId,
+    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
+    restoreFromClusterSnapshot_availabilityZone,
+    restoreFromClusterSnapshot_preferredMaintenanceWindow,
+    restoreFromClusterSnapshot_port,
+    restoreFromClusterSnapshot_numberOfNodes,
+    restoreFromClusterSnapshot_clusterSecurityGroups,
+    restoreFromClusterSnapshot_ownerAccount,
+    restoreFromClusterSnapshot_nodeType,
+    restoreFromClusterSnapshot_aquaConfigurationStatus,
+    restoreFromClusterSnapshot_hsmConfigurationIdentifier,
+    restoreFromClusterSnapshot_maintenanceTrackName,
+    restoreFromClusterSnapshot_iamRoles,
+    restoreFromClusterSnapshot_clusterIdentifier,
+    restoreFromClusterSnapshot_snapshotIdentifier,
+    restoreFromClusterSnapshotResponse_cluster,
+    restoreFromClusterSnapshotResponse_httpStatus,
+
+    -- ** PauseCluster
+    pauseCluster_clusterIdentifier,
+    pauseClusterResponse_cluster,
+    pauseClusterResponse_httpStatus,
+
+    -- ** DeleteSnapshotSchedule
+    deleteSnapshotSchedule_scheduleIdentifier,
+
+    -- ** ModifySnapshotCopyRetentionPeriod
+    modifySnapshotCopyRetentionPeriod_manual,
+    modifySnapshotCopyRetentionPeriod_clusterIdentifier,
+    modifySnapshotCopyRetentionPeriod_retentionPeriod,
+    modifySnapshotCopyRetentionPeriodResponse_cluster,
+    modifySnapshotCopyRetentionPeriodResponse_httpStatus,
+
+    -- ** DescribeClusterSubnetGroups
+    describeClusterSubnetGroups_clusterSubnetGroupName,
+    describeClusterSubnetGroups_tagKeys,
+    describeClusterSubnetGroups_tagValues,
+    describeClusterSubnetGroups_maxRecords,
+    describeClusterSubnetGroups_marker,
+    describeClusterSubnetGroupsResponse_clusterSubnetGroups,
+    describeClusterSubnetGroupsResponse_marker,
+    describeClusterSubnetGroupsResponse_httpStatus,
 
     -- ** ResizeCluster
     resizeCluster_classic,
@@ -750,43 +1002,19 @@ module Network.AWS.Redshift.Lens
     resizeClusterResponse_cluster,
     resizeClusterResponse_httpStatus,
 
-    -- ** ModifySnapshotCopyRetentionPeriod
-    modifySnapshotCopyRetentionPeriod_manual,
-    modifySnapshotCopyRetentionPeriod_clusterIdentifier,
-    modifySnapshotCopyRetentionPeriod_retentionPeriod,
-    modifySnapshotCopyRetentionPeriodResponse_cluster,
-    modifySnapshotCopyRetentionPeriodResponse_httpStatus,
+    -- ** BatchDeleteClusterSnapshots
+    batchDeleteClusterSnapshots_identifiers,
+    batchDeleteClusterSnapshotsResponse_resources,
+    batchDeleteClusterSnapshotsResponse_errors,
+    batchDeleteClusterSnapshotsResponse_httpStatus,
 
-    -- ** RestoreFromClusterSnapshot
-    restoreFromClusterSnapshot_enhancedVpcRouting,
-    restoreFromClusterSnapshot_additionalInfo,
-    restoreFromClusterSnapshot_elasticIp,
-    restoreFromClusterSnapshot_clusterSubnetGroupName,
-    restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
-    restoreFromClusterSnapshot_allowVersionUpgrade,
-    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
-    restoreFromClusterSnapshot_clusterParameterGroupName,
-    restoreFromClusterSnapshot_snapshotClusterIdentifier,
-    restoreFromClusterSnapshot_availabilityZoneRelocation,
-    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
-    restoreFromClusterSnapshot_publiclyAccessible,
-    restoreFromClusterSnapshot_vpcSecurityGroupIds,
-    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
-    restoreFromClusterSnapshot_kmsKeyId,
-    restoreFromClusterSnapshot_availabilityZone,
-    restoreFromClusterSnapshot_preferredMaintenanceWindow,
-    restoreFromClusterSnapshot_numberOfNodes,
-    restoreFromClusterSnapshot_port,
-    restoreFromClusterSnapshot_nodeType,
-    restoreFromClusterSnapshot_ownerAccount,
-    restoreFromClusterSnapshot_clusterSecurityGroups,
-    restoreFromClusterSnapshot_maintenanceTrackName,
-    restoreFromClusterSnapshot_hsmConfigurationIdentifier,
-    restoreFromClusterSnapshot_iamRoles,
-    restoreFromClusterSnapshot_clusterIdentifier,
-    restoreFromClusterSnapshot_snapshotIdentifier,
-    restoreFromClusterSnapshotResponse_cluster,
-    restoreFromClusterSnapshotResponse_httpStatus,
+    -- ** DescribePartners
+    describePartners_partnerName,
+    describePartners_databaseName,
+    describePartners_accountId,
+    describePartners_clusterIdentifier,
+    describePartnersResponse_partnerIntegrationInfoList,
+    describePartnersResponse_httpStatus,
 
     -- ** RevokeSnapshotAccess
     revokeSnapshotAccess_snapshotClusterIdentifier,
@@ -795,39 +1023,39 @@ module Network.AWS.Redshift.Lens
     revokeSnapshotAccessResponse_snapshot,
     revokeSnapshotAccessResponse_httpStatus,
 
-    -- ** PauseCluster
-    pauseCluster_clusterIdentifier,
-    pauseClusterResponse_cluster,
-    pauseClusterResponse_httpStatus,
-
-    -- ** DescribeClusterParameters
-    describeClusterParameters_source,
-    describeClusterParameters_marker,
-    describeClusterParameters_maxRecords,
-    describeClusterParameters_parameterGroupName,
-    describeClusterParametersResponse_parameters,
-    describeClusterParametersResponse_marker,
-    describeClusterParametersResponse_httpStatus,
+    -- ** CreateTags
+    createTags_resourceName,
+    createTags_tags,
 
     -- ** DisableSnapshotCopy
     disableSnapshotCopy_clusterIdentifier,
     disableSnapshotCopyResponse_cluster,
     disableSnapshotCopyResponse_httpStatus,
 
-    -- ** CreateTags
-    createTags_resourceName,
-    createTags_tags,
+    -- ** DescribeClusterParameters
+    describeClusterParameters_source,
+    describeClusterParameters_maxRecords,
+    describeClusterParameters_marker,
+    describeClusterParameters_parameterGroupName,
+    describeClusterParametersResponse_parameters,
+    describeClusterParametersResponse_marker,
+    describeClusterParametersResponse_httpStatus,
 
-    -- ** DescribeReservedNodeOfferings
-    describeReservedNodeOfferings_reservedNodeOfferingId,
-    describeReservedNodeOfferings_marker,
-    describeReservedNodeOfferings_maxRecords,
-    describeReservedNodeOfferingsResponse_reservedNodeOfferings,
-    describeReservedNodeOfferingsResponse_marker,
-    describeReservedNodeOfferingsResponse_httpStatus,
+    -- ** DeleteAuthenticationProfile
+    deleteAuthenticationProfile_authenticationProfileName,
+    deleteAuthenticationProfileResponse_authenticationProfileName,
+    deleteAuthenticationProfileResponse_httpStatus,
 
     -- ** DeleteClusterSecurityGroup
     deleteClusterSecurityGroup_clusterSecurityGroupName,
+
+    -- ** DescribeReservedNodeOfferings
+    describeReservedNodeOfferings_reservedNodeOfferingId,
+    describeReservedNodeOfferings_maxRecords,
+    describeReservedNodeOfferings_marker,
+    describeReservedNodeOfferingsResponse_reservedNodeOfferings,
+    describeReservedNodeOfferingsResponse_marker,
+    describeReservedNodeOfferingsResponse_httpStatus,
 
     -- ** EnableLogging
     enableLogging_s3KeyPrefix,
@@ -836,9 +1064,17 @@ module Network.AWS.Redshift.Lens
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
     loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
+
+    -- ** DescribeReservedNodes
+    describeReservedNodes_reservedNodeId,
+    describeReservedNodes_maxRecords,
+    describeReservedNodes_marker,
+    describeReservedNodesResponse_reservedNodes,
+    describeReservedNodesResponse_marker,
+    describeReservedNodesResponse_httpStatus,
 
     -- ** CreateHsmConfiguration
     createHsmConfiguration_tags,
@@ -851,14 +1087,6 @@ module Network.AWS.Redshift.Lens
     createHsmConfigurationResponse_hsmConfiguration,
     createHsmConfigurationResponse_httpStatus,
 
-    -- ** DescribeReservedNodes
-    describeReservedNodes_reservedNodeId,
-    describeReservedNodes_marker,
-    describeReservedNodes_maxRecords,
-    describeReservedNodesResponse_reservedNodes,
-    describeReservedNodesResponse_marker,
-    describeReservedNodesResponse_httpStatus,
-
     -- * Types
 
     -- ** AccountAttribute
@@ -869,62 +1097,72 @@ module Network.AWS.Redshift.Lens
     accountWithRestoreAccess_accountAlias,
     accountWithRestoreAccess_accountId,
 
+    -- ** AquaConfiguration
+    aquaConfiguration_aquaStatus,
+    aquaConfiguration_aquaConfigurationStatus,
+
     -- ** AttributeValueTarget
     attributeValueTarget_attributeValue,
+
+    -- ** AuthenticationProfile
+    authenticationProfile_authenticationProfileName,
+    authenticationProfile_authenticationProfileContent,
 
     -- ** AvailabilityZone
     availabilityZone_name,
     availabilityZone_supportedPlatforms,
 
     -- ** Cluster
-    cluster_enhancedVpcRouting,
+    cluster_totalStorageCapacityInMegaBytes,
     cluster_vpcSecurityGroups,
-    cluster_resizeInfo,
+    cluster_enhancedVpcRouting,
     cluster_clusterNamespaceArn,
+    cluster_resizeInfo,
     cluster_clusterSubnetGroupName,
-    cluster_deferredMaintenanceWindows,
     cluster_expectedNextSnapshotScheduleTimeStatus,
+    cluster_deferredMaintenanceWindows,
     cluster_snapshotScheduleState,
     cluster_encrypted,
-    cluster_allowVersionUpgrade,
     cluster_clusterCreateTime,
+    cluster_allowVersionUpgrade,
     cluster_automatedSnapshotRetentionPeriod,
     cluster_elasticIpStatus,
-    cluster_hsmStatus,
-    cluster_snapshotScheduleIdentifier,
-    cluster_masterUsername,
     cluster_publiclyAccessible,
-    cluster_clusterAvailabilityStatus,
-    cluster_manualSnapshotRetentionPeriod,
+    cluster_masterUsername,
+    cluster_snapshotScheduleIdentifier,
+    cluster_hsmStatus,
     cluster_kmsKeyId,
-    cluster_clusterSnapshotCopyStatus,
-    cluster_availabilityZone,
+    cluster_manualSnapshotRetentionPeriod,
     cluster_clusterParameterGroups,
+    cluster_clusterSnapshotCopyStatus,
+    cluster_clusterAvailabilityStatus,
+    cluster_availabilityZone,
+    cluster_modifyStatus,
     cluster_preferredMaintenanceWindow,
     cluster_clusterPublicKey,
     cluster_restoreStatus,
-    cluster_modifyStatus,
-    cluster_clusterIdentifier,
+    cluster_aquaConfiguration,
     cluster_tags,
     cluster_clusterNodes,
-    cluster_numberOfNodes,
-    cluster_availabilityZoneRelocationStatus,
     cluster_dbName,
+    cluster_availabilityZoneRelocationStatus,
+    cluster_clusterIdentifier,
+    cluster_numberOfNodes,
     cluster_dataTransferProgress,
-    cluster_clusterStatus,
     cluster_pendingModifiedValues,
+    cluster_clusterStatus,
     cluster_endpoint,
     cluster_nextMaintenanceWindowStartTime,
-    cluster_nodeType,
     cluster_clusterVersion,
-    cluster_vpcId,
     cluster_clusterSecurityGroups,
-    cluster_elasticResizeNumberOfNodeOptions,
+    cluster_vpcId,
+    cluster_nodeType,
     cluster_expectedNextSnapshotScheduleTime,
+    cluster_elasticResizeNumberOfNodeOptions,
     cluster_maintenanceTrackName,
-    cluster_clusterRevisionNumber,
     cluster_iamRoles,
     cluster_pendingActions,
+    cluster_clusterRevisionNumber,
 
     -- ** ClusterAssociatedToSchedule
     clusterAssociatedToSchedule_scheduleAssociationState,
@@ -987,13 +1225,25 @@ module Network.AWS.Redshift.Lens
     clusterSubnetGroup_subnetGroupStatus,
     clusterSubnetGroup_tags,
     clusterSubnetGroup_description,
-    clusterSubnetGroup_subnets,
     clusterSubnetGroup_vpcId,
+    clusterSubnetGroup_subnets,
 
     -- ** ClusterVersion
     clusterVersion_clusterParameterGroupFamily,
     clusterVersion_description,
     clusterVersion_clusterVersion,
+
+    -- ** DataShare
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
+
+    -- ** DataShareAssociation
+    dataShareAssociation_createdDate,
+    dataShareAssociation_status,
+    dataShareAssociation_statusChangeDate,
+    dataShareAssociation_consumerIdentifier,
 
     -- ** DataTransferProgress
     dataTransferProgress_status,
@@ -1024,13 +1274,36 @@ module Network.AWS.Redshift.Lens
     eC2SecurityGroup_eC2SecurityGroupName,
 
     -- ** ElasticIpStatus
-    elasticIpStatus_elasticIp,
     elasticIpStatus_status,
+    elasticIpStatus_elasticIp,
 
     -- ** Endpoint
     endpoint_address,
     endpoint_vpcEndpoints,
     endpoint_port,
+
+    -- ** EndpointAccess
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_endpointName,
+    endpointAccess_address,
+    endpointAccess_resourceOwner,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointStatus,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_port,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_subnetGroupName,
+
+    -- ** EndpointAuthorization
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_status,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_grantor,
+    endpointAuthorization_endpointCount,
 
     -- ** Event
     event_eventId,
@@ -1048,8 +1321,8 @@ module Network.AWS.Redshift.Lens
     -- ** EventInfoMap
     eventInfoMap_eventId,
     eventInfoMap_severity,
-    eventInfoMap_eventDescription,
     eventInfoMap_eventCategories,
+    eventInfoMap_eventDescription,
 
     -- ** EventSubscription
     eventSubscription_custSubscriptionId,
@@ -1090,14 +1363,20 @@ module Network.AWS.Redshift.Lens
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
     loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
 
     -- ** MaintenanceTrack
     maintenanceTrack_updateTargets,
     maintenanceTrack_databaseVersion,
     maintenanceTrack_maintenanceTrackName,
+
+    -- ** NetworkInterface
+    networkInterface_availabilityZone,
+    networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
+    networkInterface_privateIpAddress,
 
     -- ** NodeConfigurationOption
     nodeConfigurationOption_mode,
@@ -1113,8 +1392,8 @@ module Network.AWS.Redshift.Lens
     -- ** OrderableClusterOption
     orderableClusterOption_availabilityZones,
     orderableClusterOption_clusterType,
-    orderableClusterOption_nodeType,
     orderableClusterOption_clusterVersion,
+    orderableClusterOption_nodeType,
 
     -- ** Parameter
     parameter_allowedValues,
@@ -1127,20 +1406,38 @@ module Network.AWS.Redshift.Lens
     parameter_isModifiable,
     parameter_minimumEngineVersion,
 
+    -- ** PartnerIntegrationInfo
+    partnerIntegrationInfo_statusMessage,
+    partnerIntegrationInfo_status,
+    partnerIntegrationInfo_updatedAt,
+    partnerIntegrationInfo_createdAt,
+    partnerIntegrationInfo_partnerName,
+    partnerIntegrationInfo_databaseName,
+
+    -- ** PartnerIntegrationInputMessage
+    partnerIntegrationInputMessage_accountId,
+    partnerIntegrationInputMessage_clusterIdentifier,
+    partnerIntegrationInputMessage_databaseName,
+    partnerIntegrationInputMessage_partnerName,
+
+    -- ** PartnerIntegrationOutputMessage
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
+
     -- ** PauseClusterMessage
     pauseClusterMessage_clusterIdentifier,
 
     -- ** PendingModifiedValues
-    pendingModifiedValues_encryptionType,
     pendingModifiedValues_enhancedVpcRouting,
+    pendingModifiedValues_encryptionType,
     pendingModifiedValues_automatedSnapshotRetentionPeriod,
     pendingModifiedValues_masterUserPassword,
     pendingModifiedValues_publiclyAccessible,
     pendingModifiedValues_clusterType,
     pendingModifiedValues_clusterIdentifier,
     pendingModifiedValues_numberOfNodes,
-    pendingModifiedValues_nodeType,
     pendingModifiedValues_clusterVersion,
+    pendingModifiedValues_nodeType,
     pendingModifiedValues_maintenanceTrackName,
 
     -- ** RecurringCharge
@@ -1194,11 +1491,11 @@ module Network.AWS.Redshift.Lens
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
     resizeProgressMessage_targetEncryptionType,
     resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_dataTransferProgressPercent,
     resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
 
@@ -1235,8 +1532,8 @@ module Network.AWS.Redshift.Lens
 
     -- ** ScheduledActionType
     scheduledActionType_resumeCluster,
-    scheduledActionType_resizeCluster,
     scheduledActionType_pauseCluster,
+    scheduledActionType_resizeCluster,
 
     -- ** Snapshot
     snapshot_enhancedVpcRouting,
@@ -1247,29 +1544,29 @@ module Network.AWS.Redshift.Lens
     snapshot_clusterCreateTime,
     snapshot_manualSnapshotRemainingDays,
     snapshot_snapshotCreateTime,
+    snapshot_encryptedWithHSM,
     snapshot_currentBackupRateInMegaBytesPerSecond,
     snapshot_masterUsername,
-    snapshot_encryptedWithHSM,
-    snapshot_manualSnapshotRetentionPeriod,
     snapshot_kmsKeyId,
+    snapshot_manualSnapshotRetentionPeriod,
     snapshot_engineFullVersion,
     snapshot_availabilityZone,
-    snapshot_restorableNodeTypes,
     snapshot_snapshotType,
+    snapshot_restorableNodeTypes,
     snapshot_accountsWithRestoreAccess,
+    snapshot_tags,
+    snapshot_dbName,
     snapshot_actualIncrementalBackupSizeInMegaBytes,
     snapshot_clusterIdentifier,
-    snapshot_tags,
-    snapshot_numberOfNodes,
-    snapshot_port,
     snapshot_totalBackupSizeInMegaBytes,
-    snapshot_dbName,
-    snapshot_backupProgressInMegaBytes,
+    snapshot_port,
+    snapshot_numberOfNodes,
     snapshot_elapsedTimeInSeconds,
-    snapshot_nodeType,
-    snapshot_ownerAccount,
+    snapshot_backupProgressInMegaBytes,
     snapshot_clusterVersion,
     snapshot_vpcId,
+    snapshot_ownerAccount,
+    snapshot_nodeType,
     snapshot_sourceRegion,
     snapshot_snapshotRetentionStartTime,
     snapshot_maintenanceTrackName,
@@ -1291,8 +1588,8 @@ module Network.AWS.Redshift.Lens
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
+    snapshotSchedule_associatedClusterCount,
 
     -- ** SnapshotSortingEntity
     snapshotSortingEntity_sortOrder,
@@ -1310,20 +1607,20 @@ module Network.AWS.Redshift.Lens
     supportedPlatform_name,
 
     -- ** TableRestoreStatus
-    tableRestoreStatus_sourceDatabaseName,
-    tableRestoreStatus_snapshotIdentifier,
     tableRestoreStatus_targetSchemaName,
+    tableRestoreStatus_snapshotIdentifier,
+    tableRestoreStatus_sourceDatabaseName,
     tableRestoreStatus_status,
-    tableRestoreStatus_requestTime,
     tableRestoreStatus_sourceTableName,
+    tableRestoreStatus_requestTime,
+    tableRestoreStatus_sourceSchemaName,
     tableRestoreStatus_targetDatabaseName,
     tableRestoreStatus_message,
-    tableRestoreStatus_sourceSchemaName,
     tableRestoreStatus_clusterIdentifier,
-    tableRestoreStatus_progressInMegaBytes,
     tableRestoreStatus_newTableName,
-    tableRestoreStatus_totalDataInMegaBytes,
+    tableRestoreStatus_progressInMegaBytes,
     tableRestoreStatus_tableRestoreRequestId,
+    tableRestoreStatus_totalDataInMegaBytes,
 
     -- ** Tag
     tag_key,
@@ -1344,13 +1641,15 @@ module Network.AWS.Redshift.Lens
     usageLimit_featureType,
     usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_clusterIdentifier,
     usageLimit_tags,
+    usageLimit_clusterIdentifier,
     usageLimit_period,
     usageLimit_usageLimitId,
 
     -- ** VpcEndpoint
     vpcEndpoint_vpcEndpointId,
+    vpcEndpoint_vpcId,
+    vpcEndpoint_networkInterfaces,
 
     -- ** VpcSecurityGroupMembership
     vpcSecurityGroupMembership_status,
@@ -1359,17 +1658,23 @@ module Network.AWS.Redshift.Lens
 where
 
 import Network.AWS.Redshift.AcceptReservedNodeExchange
+import Network.AWS.Redshift.AddPartner
+import Network.AWS.Redshift.AssociateDataShareConsumer
 import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+import Network.AWS.Redshift.AuthorizeDataShare
+import Network.AWS.Redshift.AuthorizeEndpointAccess
 import Network.AWS.Redshift.AuthorizeSnapshotAccess
 import Network.AWS.Redshift.BatchDeleteClusterSnapshots
 import Network.AWS.Redshift.BatchModifyClusterSnapshots
 import Network.AWS.Redshift.CancelResize
 import Network.AWS.Redshift.CopyClusterSnapshot
+import Network.AWS.Redshift.CreateAuthenticationProfile
 import Network.AWS.Redshift.CreateCluster
 import Network.AWS.Redshift.CreateClusterParameterGroup
 import Network.AWS.Redshift.CreateClusterSecurityGroup
 import Network.AWS.Redshift.CreateClusterSnapshot
 import Network.AWS.Redshift.CreateClusterSubnetGroup
+import Network.AWS.Redshift.CreateEndpointAccess
 import Network.AWS.Redshift.CreateEventSubscription
 import Network.AWS.Redshift.CreateHsmClientCertificate
 import Network.AWS.Redshift.CreateHsmConfiguration
@@ -1378,20 +1683,25 @@ import Network.AWS.Redshift.CreateSnapshotCopyGrant
 import Network.AWS.Redshift.CreateSnapshotSchedule
 import Network.AWS.Redshift.CreateTags
 import Network.AWS.Redshift.CreateUsageLimit
+import Network.AWS.Redshift.DeauthorizeDataShare
+import Network.AWS.Redshift.DeleteAuthenticationProfile
 import Network.AWS.Redshift.DeleteCluster
 import Network.AWS.Redshift.DeleteClusterParameterGroup
 import Network.AWS.Redshift.DeleteClusterSecurityGroup
 import Network.AWS.Redshift.DeleteClusterSnapshot
 import Network.AWS.Redshift.DeleteClusterSubnetGroup
+import Network.AWS.Redshift.DeleteEndpointAccess
 import Network.AWS.Redshift.DeleteEventSubscription
 import Network.AWS.Redshift.DeleteHsmClientCertificate
 import Network.AWS.Redshift.DeleteHsmConfiguration
+import Network.AWS.Redshift.DeletePartner
 import Network.AWS.Redshift.DeleteScheduledAction
 import Network.AWS.Redshift.DeleteSnapshotCopyGrant
 import Network.AWS.Redshift.DeleteSnapshotSchedule
 import Network.AWS.Redshift.DeleteTags
 import Network.AWS.Redshift.DeleteUsageLimit
 import Network.AWS.Redshift.DescribeAccountAttributes
+import Network.AWS.Redshift.DescribeAuthenticationProfiles
 import Network.AWS.Redshift.DescribeClusterDbRevisions
 import Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Redshift.DescribeClusterParameters
@@ -1401,7 +1711,12 @@ import Network.AWS.Redshift.DescribeClusterSubnetGroups
 import Network.AWS.Redshift.DescribeClusterTracks
 import Network.AWS.Redshift.DescribeClusterVersions
 import Network.AWS.Redshift.DescribeClusters
+import Network.AWS.Redshift.DescribeDataShares
+import Network.AWS.Redshift.DescribeDataSharesForConsumer
+import Network.AWS.Redshift.DescribeDataSharesForProducer
 import Network.AWS.Redshift.DescribeDefaultClusterParameters
+import Network.AWS.Redshift.DescribeEndpointAccess
+import Network.AWS.Redshift.DescribeEndpointAuthorization
 import Network.AWS.Redshift.DescribeEventCategories
 import Network.AWS.Redshift.DescribeEventSubscriptions
 import Network.AWS.Redshift.DescribeEvents
@@ -1410,6 +1725,7 @@ import Network.AWS.Redshift.DescribeHsmConfigurations
 import Network.AWS.Redshift.DescribeLoggingStatus
 import Network.AWS.Redshift.DescribeNodeConfigurationOptions
 import Network.AWS.Redshift.DescribeOrderableClusterOptions
+import Network.AWS.Redshift.DescribePartners
 import Network.AWS.Redshift.DescribeReservedNodeOfferings
 import Network.AWS.Redshift.DescribeReservedNodes
 import Network.AWS.Redshift.DescribeResize
@@ -1422,10 +1738,13 @@ import Network.AWS.Redshift.DescribeTags
 import Network.AWS.Redshift.DescribeUsageLimits
 import Network.AWS.Redshift.DisableLogging
 import Network.AWS.Redshift.DisableSnapshotCopy
+import Network.AWS.Redshift.DisassociateDataShareConsumer
 import Network.AWS.Redshift.EnableLogging
 import Network.AWS.Redshift.EnableSnapshotCopy
 import Network.AWS.Redshift.GetClusterCredentials
 import Network.AWS.Redshift.GetReservedNodeExchangeOfferings
+import Network.AWS.Redshift.ModifyAquaConfiguration
+import Network.AWS.Redshift.ModifyAuthenticationProfile
 import Network.AWS.Redshift.ModifyCluster
 import Network.AWS.Redshift.ModifyClusterDbRevision
 import Network.AWS.Redshift.ModifyClusterIamRoles
@@ -1434,6 +1753,7 @@ import Network.AWS.Redshift.ModifyClusterParameterGroup
 import Network.AWS.Redshift.ModifyClusterSnapshot
 import Network.AWS.Redshift.ModifyClusterSnapshotSchedule
 import Network.AWS.Redshift.ModifyClusterSubnetGroup
+import Network.AWS.Redshift.ModifyEndpointAccess
 import Network.AWS.Redshift.ModifyEventSubscription
 import Network.AWS.Redshift.ModifyScheduledAction
 import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
@@ -1442,17 +1762,21 @@ import Network.AWS.Redshift.ModifyUsageLimit
 import Network.AWS.Redshift.PauseCluster
 import Network.AWS.Redshift.PurchaseReservedNodeOffering
 import Network.AWS.Redshift.RebootCluster
+import Network.AWS.Redshift.RejectDataShare
 import Network.AWS.Redshift.ResetClusterParameterGroup
 import Network.AWS.Redshift.ResizeCluster
 import Network.AWS.Redshift.RestoreFromClusterSnapshot
 import Network.AWS.Redshift.RestoreTableFromClusterSnapshot
 import Network.AWS.Redshift.ResumeCluster
 import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+import Network.AWS.Redshift.RevokeEndpointAccess
 import Network.AWS.Redshift.RevokeSnapshotAccess
 import Network.AWS.Redshift.RotateEncryptionKey
 import Network.AWS.Redshift.Types.AccountAttribute
 import Network.AWS.Redshift.Types.AccountWithRestoreAccess
+import Network.AWS.Redshift.Types.AquaConfiguration
 import Network.AWS.Redshift.Types.AttributeValueTarget
+import Network.AWS.Redshift.Types.AuthenticationProfile
 import Network.AWS.Redshift.Types.AvailabilityZone
 import Network.AWS.Redshift.Types.Cluster
 import Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
@@ -1468,6 +1792,8 @@ import Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
 import Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
 import Network.AWS.Redshift.Types.ClusterSubnetGroup
 import Network.AWS.Redshift.Types.ClusterVersion
+import Network.AWS.Redshift.Types.DataShare
+import Network.AWS.Redshift.Types.DataShareAssociation
 import Network.AWS.Redshift.Types.DataTransferProgress
 import Network.AWS.Redshift.Types.DefaultClusterParameters
 import Network.AWS.Redshift.Types.DeferredMaintenanceWindow
@@ -1475,6 +1801,8 @@ import Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage
 import Network.AWS.Redshift.Types.EC2SecurityGroup
 import Network.AWS.Redshift.Types.ElasticIpStatus
 import Network.AWS.Redshift.Types.Endpoint
+import Network.AWS.Redshift.Types.EndpointAccess
+import Network.AWS.Redshift.Types.EndpointAuthorization
 import Network.AWS.Redshift.Types.Event
 import Network.AWS.Redshift.Types.EventCategoriesMap
 import Network.AWS.Redshift.Types.EventInfoMap
@@ -1485,10 +1813,14 @@ import Network.AWS.Redshift.Types.HsmStatus
 import Network.AWS.Redshift.Types.IPRange
 import Network.AWS.Redshift.Types.LoggingStatus
 import Network.AWS.Redshift.Types.MaintenanceTrack
+import Network.AWS.Redshift.Types.NetworkInterface
 import Network.AWS.Redshift.Types.NodeConfigurationOption
 import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter
 import Network.AWS.Redshift.Types.OrderableClusterOption
 import Network.AWS.Redshift.Types.Parameter
+import Network.AWS.Redshift.Types.PartnerIntegrationInfo
+import Network.AWS.Redshift.Types.PartnerIntegrationInputMessage
+import Network.AWS.Redshift.Types.PartnerIntegrationOutputMessage
 import Network.AWS.Redshift.Types.PauseClusterMessage
 import Network.AWS.Redshift.Types.PendingModifiedValues
 import Network.AWS.Redshift.Types.RecurringCharge
@@ -1518,3 +1850,4 @@ import Network.AWS.Redshift.Types.UpdateTarget
 import Network.AWS.Redshift.Types.UsageLimit
 import Network.AWS.Redshift.Types.VpcEndpoint
 import Network.AWS.Redshift.Types.VpcSecurityGroupMembership
+import Network.AWS.Redshift.UpdatePartnerStatus

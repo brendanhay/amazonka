@@ -54,7 +54,7 @@ data EventSubscription = EventSubscription'
     -- | The list of Amazon Redshift event categories specified in the event
     -- notification subscription.
     --
-    -- Values: Configuration, Management, Monitoring, Security
+    -- Values: Configuration, Management, Monitoring, Security, Pending
     eventCategoriesList :: Prelude.Maybe [Prelude.Text],
     -- | A boolean value indicating whether the subscription is enabled; @true@
     -- indicates that the subscription is enabled.
@@ -62,8 +62,8 @@ data EventSubscription = EventSubscription'
     -- | The date and time the Amazon Redshift event notification subscription
     -- was created.
     subscriptionCreationTime :: Prelude.Maybe Core.ISO8601,
-    -- | The AWS customer account associated with the Amazon Redshift event
-    -- notification subscription.
+    -- | The Amazon Web Services account associated with the Amazon Redshift
+    -- event notification subscription.
     customerAwsId :: Prelude.Maybe Prelude.Text,
     -- | The list of tags for the event subscription.
     tags :: Prelude.Maybe [Tag],
@@ -110,7 +110,7 @@ data EventSubscription = EventSubscription'
 -- 'eventCategoriesList', 'eventSubscription_eventCategoriesList' - The list of Amazon Redshift event categories specified in the event
 -- notification subscription.
 --
--- Values: Configuration, Management, Monitoring, Security
+-- Values: Configuration, Management, Monitoring, Security, Pending
 --
 -- 'enabled', 'eventSubscription_enabled' - A boolean value indicating whether the subscription is enabled; @true@
 -- indicates that the subscription is enabled.
@@ -118,8 +118,8 @@ data EventSubscription = EventSubscription'
 -- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The date and time the Amazon Redshift event notification subscription
 -- was created.
 --
--- 'customerAwsId', 'eventSubscription_customerAwsId' - The AWS customer account associated with the Amazon Redshift event
--- notification subscription.
+-- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services account associated with the Amazon Redshift
+-- event notification subscription.
 --
 -- 'tags', 'eventSubscription_tags' - The list of tags for the event subscription.
 --
@@ -180,7 +180,7 @@ eventSubscription_severity = Lens.lens (\EventSubscription' {severity} -> severi
 -- | The list of Amazon Redshift event categories specified in the event
 -- notification subscription.
 --
--- Values: Configuration, Management, Monitoring, Security
+-- Values: Configuration, Management, Monitoring, Security, Pending
 eventSubscription_eventCategoriesList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
 eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCategoriesList} -> eventCategoriesList) (\s@EventSubscription' {} a -> s {eventCategoriesList = a} :: EventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
@@ -194,8 +194,8 @@ eventSubscription_enabled = Lens.lens (\EventSubscription' {enabled} -> enabled)
 eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.UTCTime)
 eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription) Prelude.. Lens.mapping Core._Time
 
--- | The AWS customer account associated with the Amazon Redshift event
--- notification subscription.
+-- | The Amazon Web Services account associated with the Amazon Redshift
+-- event notification subscription.
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 

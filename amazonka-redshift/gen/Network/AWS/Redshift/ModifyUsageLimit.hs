@@ -41,8 +41,8 @@ module Network.AWS.Redshift.ModifyUsageLimit
     usageLimit_featureType,
     usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_clusterIdentifier,
     usageLimit_tags,
+    usageLimit_clusterIdentifier,
     usageLimit_period,
     usageLimit_usageLimitId,
   )

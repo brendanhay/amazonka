@@ -68,8 +68,8 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
     --
     -- -   Must not be \"Default\".
     --
-    -- -   Must be unique for all security groups that are created by your AWS
-    --     account.
+    -- -   Must be unique for all security groups that are created by your
+    --     Amazon Web Services account.
     --
     -- Example: @examplesecuritygroup@
     clusterSecurityGroupName :: Prelude.Text,
@@ -97,8 +97,8 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
 --
 -- -   Must not be \"Default\".
 --
--- -   Must be unique for all security groups that are created by your AWS
---     account.
+-- -   Must be unique for all security groups that are created by your
+--     Amazon Web Services account.
 --
 -- Example: @examplesecuritygroup@
 --
@@ -132,8 +132,8 @@ createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags}
 --
 -- -   Must not be \"Default\".
 --
--- -   Must be unique for all security groups that are created by your AWS
---     account.
+-- -   Must be unique for all security groups that are created by your
+--     Amazon Web Services account.
 --
 -- Example: @examplesecuritygroup@
 createClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' CreateClusterSecurityGroup Prelude.Text

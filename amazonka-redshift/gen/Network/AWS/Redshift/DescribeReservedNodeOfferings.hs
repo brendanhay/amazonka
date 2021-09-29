@@ -40,8 +40,8 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
 
     -- * Request Lenses
     describeReservedNodeOfferings_reservedNodeOfferingId,
-    describeReservedNodeOfferings_marker,
     describeReservedNodeOfferings_maxRecords,
+    describeReservedNodeOfferings_marker,
 
     -- * Destructuring the Response
     DescribeReservedNodeOfferingsResponse (..),
@@ -67,13 +67,6 @@ import qualified Network.AWS.Response as Response
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
   { -- | The unique identifier for the offering.
     reservedNodeOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeReservedNodeOfferings
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -83,7 +76,14 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeReservedNodeOfferings
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,13 +97,6 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
 --
 -- 'reservedNodeOfferingId', 'describeReservedNodeOfferings_reservedNodeOfferingId' - The unique identifier for the offering.
 --
--- 'marker', 'describeReservedNodeOfferings_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodeOfferings
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeReservedNodeOfferings_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -113,28 +106,26 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeReservedNodeOfferings_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeReservedNodeOfferings
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeReservedNodeOfferings ::
   DescribeReservedNodeOfferings
 newDescribeReservedNodeOfferings =
   DescribeReservedNodeOfferings'
     { reservedNodeOfferingId =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The unique identifier for the offering.
 describeReservedNodeOfferings_reservedNodeOfferingId :: Lens.Lens' DescribeReservedNodeOfferings (Prelude.Maybe Prelude.Text)
 describeReservedNodeOfferings_reservedNodeOfferingId = Lens.lens (\DescribeReservedNodeOfferings' {reservedNodeOfferingId} -> reservedNodeOfferingId) (\s@DescribeReservedNodeOfferings' {} a -> s {reservedNodeOfferingId = a} :: DescribeReservedNodeOfferings)
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodeOfferings
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeReservedNodeOfferings_marker :: Lens.Lens' DescribeReservedNodeOfferings (Prelude.Maybe Prelude.Text)
-describeReservedNodeOfferings_marker = Lens.lens (\DescribeReservedNodeOfferings' {marker} -> marker) (\s@DescribeReservedNodeOfferings' {} a -> s {marker = a} :: DescribeReservedNodeOfferings)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -147,6 +138,15 @@ describeReservedNodeOfferings_marker = Lens.lens (\DescribeReservedNodeOfferings
 -- Constraints: minimum 20, maximum 100.
 describeReservedNodeOfferings_maxRecords :: Lens.Lens' DescribeReservedNodeOfferings (Prelude.Maybe Prelude.Int)
 describeReservedNodeOfferings_maxRecords = Lens.lens (\DescribeReservedNodeOfferings' {maxRecords} -> maxRecords) (\s@DescribeReservedNodeOfferings' {} a -> s {maxRecords = a} :: DescribeReservedNodeOfferings)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeReservedNodeOfferings
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeReservedNodeOfferings_marker :: Lens.Lens' DescribeReservedNodeOfferings (Prelude.Maybe Prelude.Text)
+describeReservedNodeOfferings_marker = Lens.lens (\DescribeReservedNodeOfferings' {marker} -> marker) (\s@DescribeReservedNodeOfferings' {} a -> s {marker = a} :: DescribeReservedNodeOfferings)
 
 instance Core.AWSPager DescribeReservedNodeOfferings where
   page rq rs
@@ -214,8 +214,8 @@ instance Core.ToQuery DescribeReservedNodeOfferings where
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ReservedNodeOfferingId"
           Core.=: reservedNodeOfferingId,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

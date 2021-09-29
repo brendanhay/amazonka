@@ -43,11 +43,11 @@ module Network.AWS.Redshift.CancelResize
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
     resizeProgressMessage_targetEncryptionType,
     resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_dataTransferProgressPercent,
     resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
   )

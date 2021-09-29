@@ -56,8 +56,8 @@ module Network.AWS.Redshift.DescribeTags
     describeTags_resourceType,
     describeTags_resourceName,
     describeTags_tagValues,
-    describeTags_marker,
     describeTags_maxRecords,
+    describeTags_marker,
 
     -- * Destructuring the Response
     DescribeTagsResponse (..),
@@ -126,19 +126,19 @@ data DescribeTags = DescribeTags'
     -- request, Amazon Redshift returns a response with all resources that have
     -- either or both of these tag values associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number or response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned @marker@ value.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @marker@ parameter and retrying the command. If the
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number or response records to return in each call. If the
-    -- number of remaining response records exceeds the specified @MaxRecords@
-    -- value, a value is returned in a @marker@ field of the response. You can
-    -- retrieve the next set of records by retrying the command with the
-    -- returned @marker@ value.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -195,18 +195,18 @@ data DescribeTags = DescribeTags'
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
 --
+-- 'maxRecords', 'describeTags_maxRecords' - The maximum number or response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned @marker@ value.
+--
 -- 'marker', 'describeTags_marker' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- marker value in the @marker@ parameter and retrying the command. If the
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
---
--- 'maxRecords', 'describeTags_maxRecords' - The maximum number or response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned @marker@ value.
 newDescribeTags ::
   DescribeTags
 newDescribeTags =
@@ -215,8 +215,8 @@ newDescribeTags =
       resourceType = Prelude.Nothing,
       resourceName = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching resources
@@ -272,6 +272,14 @@ describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resource
 describeTags_tagValues :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
 describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number or response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned @marker@ value.
+describeTags_maxRecords :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
+describeTags_maxRecords = Lens.lens (\DescribeTags' {maxRecords} -> maxRecords) (\s@DescribeTags' {} a -> s {maxRecords = a} :: DescribeTags)
+
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -280,14 +288,6 @@ describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s
 -- the request.
 describeTags_marker :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_marker = Lens.lens (\DescribeTags' {marker} -> marker) (\s@DescribeTags' {} a -> s {marker = a} :: DescribeTags)
-
--- | The maximum number or response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned @marker@ value.
-describeTags_maxRecords :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
-describeTags_maxRecords = Lens.lens (\DescribeTags' {maxRecords} -> maxRecords) (\s@DescribeTags' {} a -> s {maxRecords = a} :: DescribeTags)
 
 instance Core.AWSPager DescribeTags where
   page rq rs
@@ -349,8 +349,8 @@ instance Core.ToQuery DescribeTags where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

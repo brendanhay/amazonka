@@ -30,8 +30,8 @@ module Network.AWS.Redshift.GetReservedNodeExchangeOfferings
     newGetReservedNodeExchangeOfferings,
 
     -- * Request Lenses
-    getReservedNodeExchangeOfferings_marker,
     getReservedNodeExchangeOfferings_maxRecords,
+    getReservedNodeExchangeOfferings_marker,
     getReservedNodeExchangeOfferings_reservedNodeId,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetReservedNodeExchangeOfferings' smart constructor.
 data GetReservedNodeExchangeOfferings = GetReservedNodeExchangeOfferings'
-  { -- | A value that indicates the starting point for the next set of
-    -- ReservedNodeOfferings.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | An integer setting the maximum number of ReservedNodeOfferings to
+  { -- | An integer setting the maximum number of ReservedNodeOfferings to
     -- retrieve.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates the starting point for the next set of
+    -- ReservedNodeOfferings.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A string representing the node identifier for the DC1 Reserved Node to
     -- be exchanged.
     reservedNodeId :: Prelude.Text
@@ -76,11 +76,11 @@ data GetReservedNodeExchangeOfferings = GetReservedNodeExchangeOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'getReservedNodeExchangeOfferings_marker' - A value that indicates the starting point for the next set of
--- ReservedNodeOfferings.
---
 -- 'maxRecords', 'getReservedNodeExchangeOfferings_maxRecords' - An integer setting the maximum number of ReservedNodeOfferings to
 -- retrieve.
+--
+-- 'marker', 'getReservedNodeExchangeOfferings_marker' - A value that indicates the starting point for the next set of
+-- ReservedNodeOfferings.
 --
 -- 'reservedNodeId', 'getReservedNodeExchangeOfferings_reservedNodeId' - A string representing the node identifier for the DC1 Reserved Node to
 -- be exchanged.
@@ -90,21 +90,21 @@ newGetReservedNodeExchangeOfferings ::
   GetReservedNodeExchangeOfferings
 newGetReservedNodeExchangeOfferings pReservedNodeId_ =
   GetReservedNodeExchangeOfferings'
-    { marker =
+    { maxRecords =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       reservedNodeId = pReservedNodeId_
     }
-
--- | A value that indicates the starting point for the next set of
--- ReservedNodeOfferings.
-getReservedNodeExchangeOfferings_marker :: Lens.Lens' GetReservedNodeExchangeOfferings (Prelude.Maybe Prelude.Text)
-getReservedNodeExchangeOfferings_marker = Lens.lens (\GetReservedNodeExchangeOfferings' {marker} -> marker) (\s@GetReservedNodeExchangeOfferings' {} a -> s {marker = a} :: GetReservedNodeExchangeOfferings)
 
 -- | An integer setting the maximum number of ReservedNodeOfferings to
 -- retrieve.
 getReservedNodeExchangeOfferings_maxRecords :: Lens.Lens' GetReservedNodeExchangeOfferings (Prelude.Maybe Prelude.Int)
 getReservedNodeExchangeOfferings_maxRecords = Lens.lens (\GetReservedNodeExchangeOfferings' {maxRecords} -> maxRecords) (\s@GetReservedNodeExchangeOfferings' {} a -> s {maxRecords = a} :: GetReservedNodeExchangeOfferings)
+
+-- | A value that indicates the starting point for the next set of
+-- ReservedNodeOfferings.
+getReservedNodeExchangeOfferings_marker :: Lens.Lens' GetReservedNodeExchangeOfferings (Prelude.Maybe Prelude.Text)
+getReservedNodeExchangeOfferings_marker = Lens.lens (\GetReservedNodeExchangeOfferings' {marker} -> marker) (\s@GetReservedNodeExchangeOfferings' {} a -> s {marker = a} :: GetReservedNodeExchangeOfferings)
 
 -- | A string representing the node identifier for the DC1 Reserved Node to
 -- be exchanged.
@@ -186,8 +186,8 @@ instance
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "ReservedNodeId" Core.=: reservedNodeId
       ]
 

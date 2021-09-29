@@ -47,26 +47,35 @@ module Network.AWS.Redshift
     -- * Errors
     -- $errors
 
+    -- ** BucketNotFoundFault
+    _BucketNotFoundFault,
+
+    -- ** InvalidSubscriptionStateFault
+    _InvalidSubscriptionStateFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** ScheduleDefinitionTypeUnsupportedFault
+    _ScheduleDefinitionTypeUnsupportedFault,
+
     -- ** ClusterSecurityGroupAlreadyExistsFault
     _ClusterSecurityGroupAlreadyExistsFault,
 
     -- ** ClusterSnapshotNotFoundFault
     _ClusterSnapshotNotFoundFault,
 
-    -- ** ScheduleDefinitionTypeUnsupportedFault
-    _ScheduleDefinitionTypeUnsupportedFault,
+    -- ** InvalidEndpointStateFault
+    _InvalidEndpointStateFault,
 
     -- ** ClusterSubnetGroupNotFoundFault
     _ClusterSubnetGroupNotFoundFault,
 
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
+    -- ** InvalidScheduledActionFault
+    _InvalidScheduledActionFault,
 
-    -- ** InvalidSubscriptionStateFault
-    _InvalidSubscriptionStateFault,
-
-    -- ** BucketNotFoundFault
-    _BucketNotFoundFault,
+    -- ** ClusterSecurityGroupQuotaExceededFault
+    _ClusterSecurityGroupQuotaExceededFault,
 
     -- ** LimitExceededFault
     _LimitExceededFault,
@@ -74,26 +83,29 @@ module Network.AWS.Redshift
     -- ** SubscriptionAlreadyExistFault
     _SubscriptionAlreadyExistFault,
 
-    -- ** ClusterSecurityGroupQuotaExceededFault
-    _ClusterSecurityGroupQuotaExceededFault,
+    -- ** HsmConfigurationQuotaExceededFault
+    _HsmConfigurationQuotaExceededFault,
 
-    -- ** InvalidScheduledActionFault
-    _InvalidScheduledActionFault,
+    -- ** EndpointAuthorizationNotFoundFault
+    _EndpointAuthorizationNotFoundFault,
 
-    -- ** SubscriptionSeverityNotFoundFault
-    _SubscriptionSeverityNotFoundFault,
+    -- ** EndpointsPerClusterLimitExceededFault
+    _EndpointsPerClusterLimitExceededFault,
 
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
+    -- ** InvalidAuthenticationProfileRequestFault
+    _InvalidAuthenticationProfileRequestFault,
 
     -- ** InsufficientS3BucketPolicyFault
     _InsufficientS3BucketPolicyFault,
 
+    -- ** SubscriptionSeverityNotFoundFault
+    _SubscriptionSeverityNotFoundFault,
+
     -- ** InsufficientClusterCapacityFault
     _InsufficientClusterCapacityFault,
 
-    -- ** HsmConfigurationQuotaExceededFault
-    _HsmConfigurationQuotaExceededFault,
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
 
     -- ** UsageLimitNotFoundFault
     _UsageLimitNotFoundFault,
@@ -104,89 +116,101 @@ module Network.AWS.Redshift
     -- ** SnapshotScheduleQuotaExceededFault
     _SnapshotScheduleQuotaExceededFault,
 
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
     -- ** ScheduledActionNotFoundFault
     _ScheduledActionNotFoundFault,
 
     -- ** HsmClientCertificateAlreadyExistsFault
     _HsmClientCertificateAlreadyExistsFault,
 
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
 
     -- ** InvalidRestoreFault
     _InvalidRestoreFault,
 
-    -- ** ScheduledActionAlreadyExistsFault
-    _ScheduledActionAlreadyExistsFault,
-
     -- ** ClusterNotFoundFault
     _ClusterNotFoundFault,
 
-    -- ** ScheduledActionQuotaExceededFault
-    _ScheduledActionQuotaExceededFault,
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
 
-    -- ** ScheduledActionTypeUnsupportedFault
-    _ScheduledActionTypeUnsupportedFault,
+    -- ** ScheduledActionAlreadyExistsFault
+    _ScheduledActionAlreadyExistsFault,
 
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
-    -- ** SnapshotScheduleNotFoundFault
-    _SnapshotScheduleNotFoundFault,
-
-    -- ** InvalidReservedNodeStateFault
-    _InvalidReservedNodeStateFault,
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
 
     -- ** SnapshotScheduleUpdateInProgressFault
     _SnapshotScheduleUpdateInProgressFault,
 
-    -- ** BatchModifyClusterSnapshotsLimitExceededFault
-    _BatchModifyClusterSnapshotsLimitExceededFault,
+    -- ** InvalidReservedNodeStateFault
+    _InvalidReservedNodeStateFault,
 
-    -- ** ReservedNodeAlreadyMigratedFault
-    _ReservedNodeAlreadyMigratedFault,
+    -- ** SnapshotScheduleNotFoundFault
+    _SnapshotScheduleNotFoundFault,
+
+    -- ** ScheduledActionQuotaExceededFault
+    _ScheduledActionQuotaExceededFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** ScheduledActionTypeUnsupportedFault
+    _ScheduledActionTypeUnsupportedFault,
+
+    -- ** EndpointsPerAuthorizationLimitExceededFault
+    _EndpointsPerAuthorizationLimitExceededFault,
 
     -- ** IncompatibleOrderableOptions
     _IncompatibleOrderableOptions,
 
-    -- ** InvalidClusterSubnetStateFault
-    _InvalidClusterSubnetStateFault,
-
     -- ** ClusterQuotaExceededFault
     _ClusterQuotaExceededFault,
 
-    -- ** InvalidS3BucketNameFault
-    _InvalidS3BucketNameFault,
+    -- ** InvalidClusterSubnetStateFault
+    _InvalidClusterSubnetStateFault,
 
-    -- ** InvalidClusterSubnetGroupStateFault
-    _InvalidClusterSubnetGroupStateFault,
+    -- ** ReservedNodeAlreadyMigratedFault
+    _ReservedNodeAlreadyMigratedFault,
 
-    -- ** HsmConfigurationAlreadyExistsFault
-    _HsmConfigurationAlreadyExistsFault,
-
-    -- ** ClusterSecurityGroupNotFoundFault
-    _ClusterSecurityGroupNotFoundFault,
+    -- ** BatchModifyClusterSnapshotsLimitExceededFault
+    _BatchModifyClusterSnapshotsLimitExceededFault,
 
     -- ** UnsupportedOperationFault
     _UnsupportedOperationFault,
 
+    -- ** HsmConfigurationAlreadyExistsFault
+    _HsmConfigurationAlreadyExistsFault,
+
+    -- ** InvalidS3BucketNameFault
+    _InvalidS3BucketNameFault,
+
+    -- ** ClusterSecurityGroupNotFoundFault
+    _ClusterSecurityGroupNotFoundFault,
+
+    -- ** InvalidClusterSubnetGroupStateFault
+    _InvalidClusterSubnetGroupStateFault,
+
     -- ** InvalidElasticIpFault
     _InvalidElasticIpFault,
 
-    -- ** InvalidClusterSnapshotScheduleStateFault
-    _InvalidClusterSnapshotScheduleStateFault,
+    -- ** EndpointAlreadyExistsFault
+    _EndpointAlreadyExistsFault,
+
+    -- ** InvalidAuthorizationStateFault
+    _InvalidAuthorizationStateFault,
 
     -- ** TableRestoreNotFoundFault
     _TableRestoreNotFoundFault,
 
+    -- ** AuthenticationProfileAlreadyExistsFault
+    _AuthenticationProfileAlreadyExistsFault,
+
     -- ** HsmConfigurationNotFoundFault
     _HsmConfigurationNotFoundFault,
+
+    -- ** PartnerNotFoundFault
+    _PartnerNotFoundFault,
 
     -- ** AuthorizationAlreadyExistsFault
     _AuthorizationAlreadyExistsFault,
@@ -194,44 +218,80 @@ module Network.AWS.Redshift
     -- ** InvalidClusterSecurityGroupStateFault
     _InvalidClusterSecurityGroupStateFault,
 
-    -- ** UsageLimitAlreadyExistsFault
-    _UsageLimitAlreadyExistsFault,
+    -- ** InvalidClusterSnapshotScheduleStateFault
+    _InvalidClusterSnapshotScheduleStateFault,
 
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
-    -- ** SourceNotFoundFault
-    _SourceNotFoundFault,
+    -- ** EndpointAuthorizationAlreadyExistsFault
+    _EndpointAuthorizationAlreadyExistsFault,
 
     -- ** InvalidS3KeyPrefixFault
     _InvalidS3KeyPrefixFault,
 
-    -- ** UnsupportedOptionFault
-    _UnsupportedOptionFault,
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
 
-    -- ** AuthorizationQuotaExceededFault
-    _AuthorizationQuotaExceededFault,
-
-    -- ** DependentServiceUnavailableFault
-    _DependentServiceUnavailableFault,
+    -- ** UsageLimitAlreadyExistsFault
+    _UsageLimitAlreadyExistsFault,
 
     -- ** CopyToRegionDisabledFault
     _CopyToRegionDisabledFault,
 
-    -- ** ClusterOnLatestRevisionFault
-    _ClusterOnLatestRevisionFault,
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
 
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
+    -- ** DependentServiceUnavailableFault
+    _DependentServiceUnavailableFault,
 
-    -- ** ClusterSubnetGroupQuotaExceededFault
-    _ClusterSubnetGroupQuotaExceededFault,
+    -- ** AuthenticationProfileQuotaExceededFault
+    _AuthenticationProfileQuotaExceededFault,
+
+    -- ** AuthorizationQuotaExceededFault
+    _AuthorizationQuotaExceededFault,
+
+    -- ** UnsupportedOptionFault
+    _UnsupportedOptionFault,
 
     -- ** ClusterSnapshotQuotaExceededFault
     _ClusterSnapshotQuotaExceededFault,
 
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** ClusterOnLatestRevisionFault
+    _ClusterOnLatestRevisionFault,
+
+    -- ** ClusterSubnetGroupQuotaExceededFault
+    _ClusterSubnetGroupQuotaExceededFault,
+
+    -- ** InvalidClusterTrackFault
+    _InvalidClusterTrackFault,
+
+    -- ** TagLimitExceededFault
+    _TagLimitExceededFault,
+
     -- ** InvalidScheduleFault
     _InvalidScheduleFault,
+
+    -- ** InvalidHsmClientCertificateStateFault
+    _InvalidHsmClientCertificateStateFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** InvalidTableRestoreArgumentFault
+    _InvalidTableRestoreArgumentFault,
+
+    -- ** SnapshotCopyGrantNotFoundFault
+    _SnapshotCopyGrantNotFoundFault,
+
+    -- ** UnauthorizedPartnerIntegrationFault
+    _UnauthorizedPartnerIntegrationFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** InvalidDataShareFault
+    _InvalidDataShareFault,
 
     -- ** ClusterSubnetQuotaExceededFault
     _ClusterSubnetQuotaExceededFault,
@@ -242,74 +302,47 @@ module Network.AWS.Redshift
     -- ** NumberOfNodesQuotaExceededFault
     _NumberOfNodesQuotaExceededFault,
 
-    -- ** InvalidTableRestoreArgumentFault
-    _InvalidTableRestoreArgumentFault,
-
-    -- ** InvalidClusterTrackFault
-    _InvalidClusterTrackFault,
-
-    -- ** InvalidHsmClientCertificateStateFault
-    _InvalidHsmClientCertificateStateFault,
-
-    -- ** TagLimitExceededFault
-    _TagLimitExceededFault,
-
-    -- ** SnapshotCopyGrantNotFoundFault
-    _SnapshotCopyGrantNotFoundFault,
-
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
-
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
-
-    -- ** ClusterParameterGroupQuotaExceededFault
-    _ClusterParameterGroupQuotaExceededFault,
-
-    -- ** UnknownSnapshotCopyRegionFault
-    _UnknownSnapshotCopyRegionFault,
-
-    -- ** SnapshotCopyDisabledFault
-    _SnapshotCopyDisabledFault,
-
-    -- ** InvalidUsageLimitFault
-    _InvalidUsageLimitFault,
-
-    -- ** InProgressTableRestoreQuotaExceededFault
-    _InProgressTableRestoreQuotaExceededFault,
-
-    -- ** ReservedNodeQuotaExceededFault
-    _ReservedNodeQuotaExceededFault,
-
-    -- ** HsmClientCertificateNotFoundFault
-    _HsmClientCertificateNotFoundFault,
-
     -- ** SubscriptionEventIdNotFoundFault
     _SubscriptionEventIdNotFoundFault,
 
     -- ** InvalidSnapshotCopyGrantStateFault
     _InvalidSnapshotCopyGrantStateFault,
 
+    -- ** InProgressTableRestoreQuotaExceededFault
+    _InProgressTableRestoreQuotaExceededFault,
+
+    -- ** ClusterParameterGroupQuotaExceededFault
+    _ClusterParameterGroupQuotaExceededFault,
+
     -- ** SnapshotCopyGrantAlreadyExistsFault
     _SnapshotCopyGrantAlreadyExistsFault,
+
+    -- ** SnapshotCopyDisabledFault
+    _SnapshotCopyDisabledFault,
+
+    -- ** HsmClientCertificateNotFoundFault
+    _HsmClientCertificateNotFoundFault,
+
+    -- ** InvalidUsageLimitFault
+    _InvalidUsageLimitFault,
 
     -- ** ResizeNotFoundFault
     _ResizeNotFoundFault,
 
-    -- ** SnapshotCopyAlreadyEnabledFault
-    _SnapshotCopyAlreadyEnabledFault,
+    -- ** ReservedNodeQuotaExceededFault
+    _ReservedNodeQuotaExceededFault,
+
+    -- ** UnknownSnapshotCopyRegionFault
+    _UnknownSnapshotCopyRegionFault,
 
     -- ** BatchDeleteRequestSizeExceededFault
     _BatchDeleteRequestSizeExceededFault,
 
+    -- ** InvalidNamespaceFault
+    _InvalidNamespaceFault,
+
     -- ** NumberOfNodesPerClusterLimitExceededFault
     _NumberOfNodesPerClusterLimitExceededFault,
-
-    -- ** ReservedNodeAlreadyExistsFault
-    _ReservedNodeAlreadyExistsFault,
-
-    -- ** ClusterParameterGroupAlreadyExistsFault
-    _ClusterParameterGroupAlreadyExistsFault,
 
     -- ** SnapshotCopyGrantQuotaExceededFault
     _SnapshotCopyGrantQuotaExceededFault,
@@ -317,11 +350,23 @@ module Network.AWS.Redshift
     -- ** InvalidClusterParameterGroupStateFault
     _InvalidClusterParameterGroupStateFault,
 
-    -- ** SnapshotCopyAlreadyDisabledFault
-    _SnapshotCopyAlreadyDisabledFault,
+    -- ** SnapshotCopyAlreadyEnabledFault
+    _SnapshotCopyAlreadyEnabledFault,
+
+    -- ** ClusterParameterGroupAlreadyExistsFault
+    _ClusterParameterGroupAlreadyExistsFault,
+
+    -- ** AccessToClusterDeniedFault
+    _AccessToClusterDeniedFault,
+
+    -- ** ReservedNodeAlreadyExistsFault
+    _ReservedNodeAlreadyExistsFault,
 
     -- ** SnapshotScheduleAlreadyExistsFault
     _SnapshotScheduleAlreadyExistsFault,
+
+    -- ** ClusterParameterGroupNotFoundFault
+    _ClusterParameterGroupNotFoundFault,
 
     -- ** ReservedNodeOfferingNotFoundFault
     _ReservedNodeOfferingNotFoundFault,
@@ -329,35 +374,29 @@ module Network.AWS.Redshift
     -- ** ReservedNodeNotFoundFault
     _ReservedNodeNotFoundFault,
 
+    -- ** SnapshotCopyAlreadyDisabledFault
+    _SnapshotCopyAlreadyDisabledFault,
+
     -- ** HsmClientCertificateQuotaExceededFault
     _HsmClientCertificateQuotaExceededFault,
 
-    -- ** ClusterParameterGroupNotFoundFault
-    _ClusterParameterGroupNotFoundFault,
+    -- ** EndpointNotFoundFault
+    _EndpointNotFoundFault,
 
     -- ** SubscriptionCategoryNotFoundFault
     _SubscriptionCategoryNotFoundFault,
 
-    -- ** AuthorizationNotFoundFault
-    _AuthorizationNotFoundFault,
-
-    -- ** TableLimitExceededFault
-    _TableLimitExceededFault,
+    -- ** EndpointAuthorizationsPerClusterLimitExceededFault
+    _EndpointAuthorizationsPerClusterLimitExceededFault,
 
     -- ** InvalidClusterSnapshotStateFault
     _InvalidClusterSnapshotStateFault,
 
+    -- ** DependentServiceRequestThrottlingFault
+    _DependentServiceRequestThrottlingFault,
+
     -- ** InvalidRetentionPeriodFault
     _InvalidRetentionPeriodFault,
-
-    -- ** ClusterSubnetGroupAlreadyExistsFault
-    _ClusterSubnetGroupAlreadyExistsFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
 
     -- ** ClusterSnapshotAlreadyExistsFault
     _ClusterSnapshotAlreadyExistsFault,
@@ -365,8 +404,23 @@ module Network.AWS.Redshift
     -- ** InvalidHsmConfigurationStateFault
     _InvalidHsmConfigurationStateFault,
 
-    -- ** DependentServiceRequestThrottlingFault
-    _DependentServiceRequestThrottlingFault,
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
+
+    -- ** TableLimitExceededFault
+    _TableLimitExceededFault,
+
+    -- ** AuthenticationProfileNotFoundFault
+    _AuthenticationProfileNotFoundFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** ClusterSubnetGroupAlreadyExistsFault
+    _ClusterSubnetGroupAlreadyExistsFault,
 
     -- * Waiters
     -- $waiters
@@ -386,6 +440,18 @@ module Network.AWS.Redshift
     -- * Operations
     -- $operations
 
+    -- ** DisableLogging
+    DisableLogging (DisableLogging'),
+    newDisableLogging,
+    LoggingStatus (LoggingStatus'),
+    newLoggingStatus,
+
+    -- ** AddPartner
+    AddPartner (AddPartner'),
+    newAddPartner,
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
+
     -- ** PurchaseReservedNodeOffering
     PurchaseReservedNodeOffering (PurchaseReservedNodeOffering'),
     newPurchaseReservedNodeOffering,
@@ -398,29 +464,65 @@ module Network.AWS.Redshift
     DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
     newDescribeEventCategoriesResponse,
 
+    -- ** ModifyEndpointAccess
+    ModifyEndpointAccess (ModifyEndpointAccess'),
+    newModifyEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
     -- ** DeleteClusterSubnetGroup
     DeleteClusterSubnetGroup (DeleteClusterSubnetGroup'),
     newDeleteClusterSubnetGroup,
     DeleteClusterSubnetGroupResponse (DeleteClusterSubnetGroupResponse'),
     newDeleteClusterSubnetGroupResponse,
 
-    -- ** DisableLogging
-    DisableLogging (DisableLogging'),
-    newDisableLogging,
-    LoggingStatus (LoggingStatus'),
-    newLoggingStatus,
+    -- ** AssociateDataShareConsumer
+    AssociateDataShareConsumer (AssociateDataShareConsumer'),
+    newAssociateDataShareConsumer,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** RevokeEndpointAccess
+    RevokeEndpointAccess (RevokeEndpointAccess'),
+    newRevokeEndpointAccess,
+    EndpointAuthorization (EndpointAuthorization'),
+    newEndpointAuthorization,
+
+    -- ** DeletePartner
+    DeletePartner (DeletePartner'),
+    newDeletePartner,
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
+
+    -- ** CreateAuthenticationProfile
+    CreateAuthenticationProfile (CreateAuthenticationProfile'),
+    newCreateAuthenticationProfile,
+    CreateAuthenticationProfileResponse (CreateAuthenticationProfileResponse'),
+    newCreateAuthenticationProfileResponse,
+
+    -- ** ModifyAquaConfiguration
+    ModifyAquaConfiguration (ModifyAquaConfiguration'),
+    newModifyAquaConfiguration,
+    ModifyAquaConfigurationResponse (ModifyAquaConfigurationResponse'),
+    newModifyAquaConfigurationResponse,
+
+    -- ** CreateUsageLimit
+    CreateUsageLimit (CreateUsageLimit'),
+    newCreateUsageLimit,
+    UsageLimit (UsageLimit'),
+    newUsageLimit,
+
+    -- ** AuthorizeEndpointAccess
+    AuthorizeEndpointAccess (AuthorizeEndpointAccess'),
+    newAuthorizeEndpointAccess,
+    EndpointAuthorization (EndpointAuthorization'),
+    newEndpointAuthorization,
 
     -- ** DescribeHsmClientCertificates (Paginated)
     DescribeHsmClientCertificates (DescribeHsmClientCertificates'),
     newDescribeHsmClientCertificates,
     DescribeHsmClientCertificatesResponse (DescribeHsmClientCertificatesResponse'),
     newDescribeHsmClientCertificatesResponse,
-
-    -- ** ModifyClusterParameterGroup
-    ModifyClusterParameterGroup (ModifyClusterParameterGroup'),
-    newModifyClusterParameterGroup,
-    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
-    newClusterParameterGroupNameMessage,
 
     -- ** CancelResize
     CancelResize (CancelResize'),
@@ -440,53 +542,23 @@ module Network.AWS.Redshift
     GetClusterCredentialsResponse (GetClusterCredentialsResponse'),
     newGetClusterCredentialsResponse,
 
-    -- ** RevokeClusterSecurityGroupIngress
-    RevokeClusterSecurityGroupIngress (RevokeClusterSecurityGroupIngress'),
-    newRevokeClusterSecurityGroupIngress,
-    RevokeClusterSecurityGroupIngressResponse (RevokeClusterSecurityGroupIngressResponse'),
-    newRevokeClusterSecurityGroupIngressResponse,
-
-    -- ** CreateUsageLimit
-    CreateUsageLimit (CreateUsageLimit'),
-    newCreateUsageLimit,
-    UsageLimit (UsageLimit'),
-    newUsageLimit,
-
     -- ** DescribeTags (Paginated)
     DescribeTags (DescribeTags'),
     newDescribeTags,
     DescribeTagsResponse (DescribeTagsResponse'),
     newDescribeTagsResponse,
 
-    -- ** DeleteUsageLimit
-    DeleteUsageLimit (DeleteUsageLimit'),
-    newDeleteUsageLimit,
-    DeleteUsageLimitResponse (DeleteUsageLimitResponse'),
-    newDeleteUsageLimitResponse,
+    -- ** ModifyClusterParameterGroup
+    ModifyClusterParameterGroup (ModifyClusterParameterGroup'),
+    newModifyClusterParameterGroup,
+    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
+    newClusterParameterGroupNameMessage,
 
-    -- ** DescribeScheduledActions (Paginated)
-    DescribeScheduledActions (DescribeScheduledActions'),
-    newDescribeScheduledActions,
-    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
-    newDescribeScheduledActionsResponse,
-
-    -- ** RotateEncryptionKey
-    RotateEncryptionKey (RotateEncryptionKey'),
-    newRotateEncryptionKey,
-    RotateEncryptionKeyResponse (RotateEncryptionKeyResponse'),
-    newRotateEncryptionKeyResponse,
-
-    -- ** DescribeClusterDbRevisions (Paginated)
-    DescribeClusterDbRevisions (DescribeClusterDbRevisions'),
-    newDescribeClusterDbRevisions,
-    DescribeClusterDbRevisionsResponse (DescribeClusterDbRevisionsResponse'),
-    newDescribeClusterDbRevisionsResponse,
-
-    -- ** DescribeEventSubscriptions (Paginated)
-    DescribeEventSubscriptions (DescribeEventSubscriptions'),
-    newDescribeEventSubscriptions,
-    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
-    newDescribeEventSubscriptionsResponse,
+    -- ** RevokeClusterSecurityGroupIngress
+    RevokeClusterSecurityGroupIngress (RevokeClusterSecurityGroupIngress'),
+    newRevokeClusterSecurityGroupIngress,
+    RevokeClusterSecurityGroupIngressResponse (RevokeClusterSecurityGroupIngressResponse'),
+    newRevokeClusterSecurityGroupIngressResponse,
 
     -- ** ResetClusterParameterGroup
     ResetClusterParameterGroup (ResetClusterParameterGroup'),
@@ -494,17 +566,35 @@ module Network.AWS.Redshift
     ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
     newClusterParameterGroupNameMessage,
 
-    -- ** ModifyClusterSubnetGroup
-    ModifyClusterSubnetGroup (ModifyClusterSubnetGroup'),
-    newModifyClusterSubnetGroup,
-    ModifyClusterSubnetGroupResponse (ModifyClusterSubnetGroupResponse'),
-    newModifyClusterSubnetGroupResponse,
+    -- ** DeleteUsageLimit
+    DeleteUsageLimit (DeleteUsageLimit'),
+    newDeleteUsageLimit,
+    DeleteUsageLimitResponse (DeleteUsageLimitResponse'),
+    newDeleteUsageLimitResponse,
 
-    -- ** RestoreTableFromClusterSnapshot
-    RestoreTableFromClusterSnapshot (RestoreTableFromClusterSnapshot'),
-    newRestoreTableFromClusterSnapshot,
-    RestoreTableFromClusterSnapshotResponse (RestoreTableFromClusterSnapshotResponse'),
-    newRestoreTableFromClusterSnapshotResponse,
+    -- ** DescribeClusterDbRevisions (Paginated)
+    DescribeClusterDbRevisions (DescribeClusterDbRevisions'),
+    newDescribeClusterDbRevisions,
+    DescribeClusterDbRevisionsResponse (DescribeClusterDbRevisionsResponse'),
+    newDescribeClusterDbRevisionsResponse,
+
+    -- ** RotateEncryptionKey
+    RotateEncryptionKey (RotateEncryptionKey'),
+    newRotateEncryptionKey,
+    RotateEncryptionKeyResponse (RotateEncryptionKeyResponse'),
+    newRotateEncryptionKeyResponse,
+
+    -- ** DescribeScheduledActions (Paginated)
+    DescribeScheduledActions (DescribeScheduledActions'),
+    newDescribeScheduledActions,
+    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
+    newDescribeScheduledActionsResponse,
+
+    -- ** DescribeEventSubscriptions (Paginated)
+    DescribeEventSubscriptions (DescribeEventSubscriptions'),
+    newDescribeEventSubscriptions,
+    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
+    newDescribeEventSubscriptionsResponse,
 
     -- ** DeleteEventSubscription
     DeleteEventSubscription (DeleteEventSubscription'),
@@ -512,11 +602,11 @@ module Network.AWS.Redshift
     DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
     newDeleteEventSubscriptionResponse,
 
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
+    -- ** DescribeDataSharesForConsumer
+    DescribeDataSharesForConsumer (DescribeDataSharesForConsumer'),
+    newDescribeDataSharesForConsumer,
+    DescribeDataSharesForConsumerResponse (DescribeDataSharesForConsumerResponse'),
+    newDescribeDataSharesForConsumerResponse,
 
     -- ** ModifyClusterSnapshot
     ModifyClusterSnapshot (ModifyClusterSnapshot'),
@@ -524,17 +614,59 @@ module Network.AWS.Redshift
     ModifyClusterSnapshotResponse (ModifyClusterSnapshotResponse'),
     newModifyClusterSnapshotResponse,
 
+    -- ** ModifyClusterSubnetGroup
+    ModifyClusterSubnetGroup (ModifyClusterSubnetGroup'),
+    newModifyClusterSubnetGroup,
+    ModifyClusterSubnetGroupResponse (ModifyClusterSubnetGroupResponse'),
+    newModifyClusterSubnetGroupResponse,
+
     -- ** DeleteScheduledAction
     DeleteScheduledAction (DeleteScheduledAction'),
     newDeleteScheduledAction,
     DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
     newDeleteScheduledActionResponse,
 
+    -- ** DeleteEndpointAccess
+    DeleteEndpointAccess (DeleteEndpointAccess'),
+    newDeleteEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** RestoreTableFromClusterSnapshot
+    RestoreTableFromClusterSnapshot (RestoreTableFromClusterSnapshot'),
+    newRestoreTableFromClusterSnapshot,
+    RestoreTableFromClusterSnapshotResponse (RestoreTableFromClusterSnapshotResponse'),
+    newRestoreTableFromClusterSnapshotResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** CreateEndpointAccess
+    CreateEndpointAccess (CreateEndpointAccess'),
+    newCreateEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** ModifyClusterSnapshotSchedule
+    ModifyClusterSnapshotSchedule (ModifyClusterSnapshotSchedule'),
+    newModifyClusterSnapshotSchedule,
+    ModifyClusterSnapshotScheduleResponse (ModifyClusterSnapshotScheduleResponse'),
+    newModifyClusterSnapshotScheduleResponse,
+
     -- ** DescribeAccountAttributes
     DescribeAccountAttributes (DescribeAccountAttributes'),
     newDescribeAccountAttributes,
     DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
     newDescribeAccountAttributesResponse,
+
+    -- ** ModifyAuthenticationProfile
+    ModifyAuthenticationProfile (ModifyAuthenticationProfile'),
+    newModifyAuthenticationProfile,
+    ModifyAuthenticationProfileResponse (ModifyAuthenticationProfileResponse'),
+    newModifyAuthenticationProfileResponse,
 
     -- ** CopyClusterSnapshot
     CopyClusterSnapshot (CopyClusterSnapshot'),
@@ -548,17 +680,29 @@ module Network.AWS.Redshift
     CreateSnapshotCopyGrantResponse (CreateSnapshotCopyGrantResponse'),
     newCreateSnapshotCopyGrantResponse,
 
-    -- ** ModifyClusterSnapshotSchedule
-    ModifyClusterSnapshotSchedule (ModifyClusterSnapshotSchedule'),
-    newModifyClusterSnapshotSchedule,
-    ModifyClusterSnapshotScheduleResponse (ModifyClusterSnapshotScheduleResponse'),
-    newModifyClusterSnapshotScheduleResponse,
+    -- ** UpdatePartnerStatus
+    UpdatePartnerStatus (UpdatePartnerStatus'),
+    newUpdatePartnerStatus,
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
 
-    -- ** CreateClusterParameterGroup
-    CreateClusterParameterGroup (CreateClusterParameterGroup'),
-    newCreateClusterParameterGroup,
-    CreateClusterParameterGroupResponse (CreateClusterParameterGroupResponse'),
-    newCreateClusterParameterGroupResponse,
+    -- ** DescribeDataSharesForProducer
+    DescribeDataSharesForProducer (DescribeDataSharesForProducer'),
+    newDescribeDataSharesForProducer,
+    DescribeDataSharesForProducerResponse (DescribeDataSharesForProducerResponse'),
+    newDescribeDataSharesForProducerResponse,
+
+    -- ** DescribeHsmConfigurations (Paginated)
+    DescribeHsmConfigurations (DescribeHsmConfigurations'),
+    newDescribeHsmConfigurations,
+    DescribeHsmConfigurationsResponse (DescribeHsmConfigurationsResponse'),
+    newDescribeHsmConfigurationsResponse,
+
+    -- ** DescribeClusterSnapshots (Paginated)
+    DescribeClusterSnapshots (DescribeClusterSnapshots'),
+    newDescribeClusterSnapshots,
+    DescribeClusterSnapshotsResponse (DescribeClusterSnapshotsResponse'),
+    newDescribeClusterSnapshotsResponse,
 
     -- ** DeleteTags
     DeleteTags (DeleteTags'),
@@ -572,35 +716,17 @@ module Network.AWS.Redshift
     EnableSnapshotCopyResponse (EnableSnapshotCopyResponse'),
     newEnableSnapshotCopyResponse,
 
-    -- ** DescribeClusterSnapshots (Paginated)
-    DescribeClusterSnapshots (DescribeClusterSnapshots'),
-    newDescribeClusterSnapshots,
-    DescribeClusterSnapshotsResponse (DescribeClusterSnapshotsResponse'),
-    newDescribeClusterSnapshotsResponse,
-
-    -- ** DescribeHsmConfigurations (Paginated)
-    DescribeHsmConfigurations (DescribeHsmConfigurations'),
-    newDescribeHsmConfigurations,
-    DescribeHsmConfigurationsResponse (DescribeHsmConfigurationsResponse'),
-    newDescribeHsmConfigurationsResponse,
-
     -- ** ModifyUsageLimit
     ModifyUsageLimit (ModifyUsageLimit'),
     newModifyUsageLimit,
     UsageLimit (UsageLimit'),
     newUsageLimit,
 
-    -- ** DescribeClusterSecurityGroups (Paginated)
-    DescribeClusterSecurityGroups (DescribeClusterSecurityGroups'),
-    newDescribeClusterSecurityGroups,
-    DescribeClusterSecurityGroupsResponse (DescribeClusterSecurityGroupsResponse'),
-    newDescribeClusterSecurityGroupsResponse,
-
-    -- ** DeleteClusterParameterGroup
-    DeleteClusterParameterGroup (DeleteClusterParameterGroup'),
-    newDeleteClusterParameterGroup,
-    DeleteClusterParameterGroupResponse (DeleteClusterParameterGroupResponse'),
-    newDeleteClusterParameterGroupResponse,
+    -- ** CreateClusterParameterGroup
+    CreateClusterParameterGroup (CreateClusterParameterGroup'),
+    newCreateClusterParameterGroup,
+    CreateClusterParameterGroupResponse (CreateClusterParameterGroupResponse'),
+    newCreateClusterParameterGroupResponse,
 
     -- ** CreateSnapshotSchedule
     CreateSnapshotSchedule (CreateSnapshotSchedule'),
@@ -608,23 +734,41 @@ module Network.AWS.Redshift
     SnapshotSchedule (SnapshotSchedule'),
     newSnapshotSchedule,
 
+    -- ** DescribeEndpointAuthorization (Paginated)
+    DescribeEndpointAuthorization (DescribeEndpointAuthorization'),
+    newDescribeEndpointAuthorization,
+    DescribeEndpointAuthorizationResponse (DescribeEndpointAuthorizationResponse'),
+    newDescribeEndpointAuthorizationResponse,
+
+    -- ** DeleteClusterParameterGroup
+    DeleteClusterParameterGroup (DeleteClusterParameterGroup'),
+    newDeleteClusterParameterGroup,
+    DeleteClusterParameterGroupResponse (DeleteClusterParameterGroupResponse'),
+    newDeleteClusterParameterGroupResponse,
+
+    -- ** DescribeClusterSecurityGroups (Paginated)
+    DescribeClusterSecurityGroups (DescribeClusterSecurityGroups'),
+    newDescribeClusterSecurityGroups,
+    DescribeClusterSecurityGroupsResponse (DescribeClusterSecurityGroupsResponse'),
+    newDescribeClusterSecurityGroupsResponse,
+
     -- ** DescribeNodeConfigurationOptions (Paginated)
     DescribeNodeConfigurationOptions (DescribeNodeConfigurationOptions'),
     newDescribeNodeConfigurationOptions,
     DescribeNodeConfigurationOptionsResponse (DescribeNodeConfigurationOptionsResponse'),
     newDescribeNodeConfigurationOptionsResponse,
 
-    -- ** DescribeClusterParameterGroups (Paginated)
-    DescribeClusterParameterGroups (DescribeClusterParameterGroups'),
-    newDescribeClusterParameterGroups,
-    DescribeClusterParameterGroupsResponse (DescribeClusterParameterGroupsResponse'),
-    newDescribeClusterParameterGroupsResponse,
+    -- ** DescribeAuthenticationProfiles
+    DescribeAuthenticationProfiles (DescribeAuthenticationProfiles'),
+    newDescribeAuthenticationProfiles,
+    DescribeAuthenticationProfilesResponse (DescribeAuthenticationProfilesResponse'),
+    newDescribeAuthenticationProfilesResponse,
 
-    -- ** DescribeLoggingStatus
-    DescribeLoggingStatus (DescribeLoggingStatus'),
-    newDescribeLoggingStatus,
-    LoggingStatus (LoggingStatus'),
-    newLoggingStatus,
+    -- ** DescribeEndpointAccess (Paginated)
+    DescribeEndpointAccess (DescribeEndpointAccess'),
+    newDescribeEndpointAccess,
+    DescribeEndpointAccessResponse (DescribeEndpointAccessResponse'),
+    newDescribeEndpointAccessResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -638,11 +782,17 @@ module Network.AWS.Redshift
     CreateClusterSnapshotResponse (CreateClusterSnapshotResponse'),
     newCreateClusterSnapshotResponse,
 
-    -- ** CreateClusterSubnetGroup
-    CreateClusterSubnetGroup (CreateClusterSubnetGroup'),
-    newCreateClusterSubnetGroup,
-    CreateClusterSubnetGroupResponse (CreateClusterSubnetGroupResponse'),
-    newCreateClusterSubnetGroupResponse,
+    -- ** DescribeLoggingStatus
+    DescribeLoggingStatus (DescribeLoggingStatus'),
+    newDescribeLoggingStatus,
+    LoggingStatus (LoggingStatus'),
+    newLoggingStatus,
+
+    -- ** DescribeClusterParameterGroups (Paginated)
+    DescribeClusterParameterGroups (DescribeClusterParameterGroups'),
+    newDescribeClusterParameterGroups,
+    DescribeClusterParameterGroupsResponse (DescribeClusterParameterGroupsResponse'),
+    newDescribeClusterParameterGroupsResponse,
 
     -- ** ModifyCluster
     ModifyCluster (ModifyCluster'),
@@ -656,11 +806,17 @@ module Network.AWS.Redshift
     GetReservedNodeExchangeOfferingsResponse (GetReservedNodeExchangeOfferingsResponse'),
     newGetReservedNodeExchangeOfferingsResponse,
 
-    -- ** DescribeResize
-    DescribeResize (DescribeResize'),
-    newDescribeResize,
-    ResizeProgressMessage (ResizeProgressMessage'),
-    newResizeProgressMessage,
+    -- ** RejectDataShare
+    RejectDataShare (RejectDataShare'),
+    newRejectDataShare,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** CreateClusterSubnetGroup
+    CreateClusterSubnetGroup (CreateClusterSubnetGroup'),
+    newCreateClusterSubnetGroup,
+    CreateClusterSubnetGroupResponse (CreateClusterSubnetGroupResponse'),
+    newCreateClusterSubnetGroupResponse,
 
     -- ** DeleteHsmConfiguration
     DeleteHsmConfiguration (DeleteHsmConfiguration'),
@@ -668,23 +824,35 @@ module Network.AWS.Redshift
     DeleteHsmConfigurationResponse (DeleteHsmConfigurationResponse'),
     newDeleteHsmConfigurationResponse,
 
+    -- ** DescribeTableRestoreStatus (Paginated)
+    DescribeTableRestoreStatus (DescribeTableRestoreStatus'),
+    newDescribeTableRestoreStatus,
+    DescribeTableRestoreStatusResponse (DescribeTableRestoreStatusResponse'),
+    newDescribeTableRestoreStatusResponse,
+
     -- ** DeleteClusterSnapshot
     DeleteClusterSnapshot (DeleteClusterSnapshot'),
     newDeleteClusterSnapshot,
     DeleteClusterSnapshotResponse (DeleteClusterSnapshotResponse'),
     newDeleteClusterSnapshotResponse,
 
-    -- ** CreateClusterSecurityGroup
-    CreateClusterSecurityGroup (CreateClusterSecurityGroup'),
-    newCreateClusterSecurityGroup,
-    CreateClusterSecurityGroupResponse (CreateClusterSecurityGroupResponse'),
-    newCreateClusterSecurityGroupResponse,
+    -- ** ModifyClusterDbRevision
+    ModifyClusterDbRevision (ModifyClusterDbRevision'),
+    newModifyClusterDbRevision,
+    ModifyClusterDbRevisionResponse (ModifyClusterDbRevisionResponse'),
+    newModifyClusterDbRevisionResponse,
 
-    -- ** AcceptReservedNodeExchange
-    AcceptReservedNodeExchange (AcceptReservedNodeExchange'),
-    newAcceptReservedNodeExchange,
-    AcceptReservedNodeExchangeResponse (AcceptReservedNodeExchangeResponse'),
-    newAcceptReservedNodeExchangeResponse,
+    -- ** AuthorizeClusterSecurityGroupIngress
+    AuthorizeClusterSecurityGroupIngress (AuthorizeClusterSecurityGroupIngress'),
+    newAuthorizeClusterSecurityGroupIngress,
+    AuthorizeClusterSecurityGroupIngressResponse (AuthorizeClusterSecurityGroupIngressResponse'),
+    newAuthorizeClusterSecurityGroupIngressResponse,
+
+    -- ** DeauthorizeDataShare
+    DeauthorizeDataShare (DeauthorizeDataShare'),
+    newDeauthorizeDataShare,
+    DataShare (DataShare'),
+    newDataShare,
 
     -- ** ModifyScheduledAction
     ModifyScheduledAction (ModifyScheduledAction'),
@@ -698,17 +866,29 @@ module Network.AWS.Redshift
     ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
     newModifyEventSubscriptionResponse,
 
+    -- ** CreateClusterSecurityGroup
+    CreateClusterSecurityGroup (CreateClusterSecurityGroup'),
+    newCreateClusterSecurityGroup,
+    CreateClusterSecurityGroupResponse (CreateClusterSecurityGroupResponse'),
+    newCreateClusterSecurityGroupResponse,
+
+    -- ** DescribeResize
+    DescribeResize (DescribeResize'),
+    newDescribeResize,
+    ResizeProgressMessage (ResizeProgressMessage'),
+    newResizeProgressMessage,
+
+    -- ** AcceptReservedNodeExchange
+    AcceptReservedNodeExchange (AcceptReservedNodeExchange'),
+    newAcceptReservedNodeExchange,
+    AcceptReservedNodeExchangeResponse (AcceptReservedNodeExchangeResponse'),
+    newAcceptReservedNodeExchangeResponse,
+
     -- ** DescribeSnapshotSchedules (Paginated)
     DescribeSnapshotSchedules (DescribeSnapshotSchedules'),
     newDescribeSnapshotSchedules,
     DescribeSnapshotSchedulesResponse (DescribeSnapshotSchedulesResponse'),
     newDescribeSnapshotSchedulesResponse,
-
-    -- ** DescribeTableRestoreStatus (Paginated)
-    DescribeTableRestoreStatus (DescribeTableRestoreStatus'),
-    newDescribeTableRestoreStatus,
-    DescribeTableRestoreStatusResponse (DescribeTableRestoreStatusResponse'),
-    newDescribeTableRestoreStatusResponse,
 
     -- ** ModifyClusterMaintenance
     ModifyClusterMaintenance (ModifyClusterMaintenance'),
@@ -716,29 +896,17 @@ module Network.AWS.Redshift
     ModifyClusterMaintenanceResponse (ModifyClusterMaintenanceResponse'),
     newModifyClusterMaintenanceResponse,
 
-    -- ** AuthorizeClusterSecurityGroupIngress
-    AuthorizeClusterSecurityGroupIngress (AuthorizeClusterSecurityGroupIngress'),
-    newAuthorizeClusterSecurityGroupIngress,
-    AuthorizeClusterSecurityGroupIngressResponse (AuthorizeClusterSecurityGroupIngressResponse'),
-    newAuthorizeClusterSecurityGroupIngressResponse,
-
-    -- ** ModifyClusterDbRevision
-    ModifyClusterDbRevision (ModifyClusterDbRevision'),
-    newModifyClusterDbRevision,
-    ModifyClusterDbRevisionResponse (ModifyClusterDbRevisionResponse'),
-    newModifyClusterDbRevisionResponse,
-
     -- ** DescribeStorage
     DescribeStorage (DescribeStorage'),
     newDescribeStorage,
     DescribeStorageResponse (DescribeStorageResponse'),
     newDescribeStorageResponse,
 
-    -- ** DescribeSnapshotCopyGrants (Paginated)
-    DescribeSnapshotCopyGrants (DescribeSnapshotCopyGrants'),
-    newDescribeSnapshotCopyGrants,
-    DescribeSnapshotCopyGrantsResponse (DescribeSnapshotCopyGrantsResponse'),
-    newDescribeSnapshotCopyGrantsResponse,
+    -- ** DisassociateDataShareConsumer
+    DisassociateDataShareConsumer (DisassociateDataShareConsumer'),
+    newDisassociateDataShareConsumer,
+    DataShare (DataShare'),
+    newDataShare,
 
     -- ** BatchModifyClusterSnapshots
     BatchModifyClusterSnapshots (BatchModifyClusterSnapshots'),
@@ -746,29 +914,17 @@ module Network.AWS.Redshift
     BatchModifyClusterSnapshotsResponse (BatchModifyClusterSnapshotsResponse'),
     newBatchModifyClusterSnapshotsResponse,
 
+    -- ** DescribeSnapshotCopyGrants (Paginated)
+    DescribeSnapshotCopyGrants (DescribeSnapshotCopyGrants'),
+    newDescribeSnapshotCopyGrants,
+    DescribeSnapshotCopyGrantsResponse (DescribeSnapshotCopyGrantsResponse'),
+    newDescribeSnapshotCopyGrantsResponse,
+
     -- ** ModifySnapshotSchedule
     ModifySnapshotSchedule (ModifySnapshotSchedule'),
     newModifySnapshotSchedule,
     SnapshotSchedule (SnapshotSchedule'),
     newSnapshotSchedule,
-
-    -- ** DeleteSnapshotCopyGrant
-    DeleteSnapshotCopyGrant (DeleteSnapshotCopyGrant'),
-    newDeleteSnapshotCopyGrant,
-    DeleteSnapshotCopyGrantResponse (DeleteSnapshotCopyGrantResponse'),
-    newDeleteSnapshotCopyGrantResponse,
-
-    -- ** DescribeUsageLimits (Paginated)
-    DescribeUsageLimits (DescribeUsageLimits'),
-    newDescribeUsageLimits,
-    DescribeUsageLimitsResponse (DescribeUsageLimitsResponse'),
-    newDescribeUsageLimitsResponse,
-
-    -- ** DescribeDefaultClusterParameters (Paginated)
-    DescribeDefaultClusterParameters (DescribeDefaultClusterParameters'),
-    newDescribeDefaultClusterParameters,
-    DescribeDefaultClusterParametersResponse (DescribeDefaultClusterParametersResponse'),
-    newDescribeDefaultClusterParametersResponse,
 
     -- ** CreateHsmClientCertificate
     CreateHsmClientCertificate (CreateHsmClientCertificate'),
@@ -782,47 +938,29 @@ module Network.AWS.Redshift
     DescribeClusterVersionsResponse (DescribeClusterVersionsResponse'),
     newDescribeClusterVersionsResponse,
 
-    -- ** DescribeOrderableClusterOptions (Paginated)
-    DescribeOrderableClusterOptions (DescribeOrderableClusterOptions'),
-    newDescribeOrderableClusterOptions,
-    DescribeOrderableClusterOptionsResponse (DescribeOrderableClusterOptionsResponse'),
-    newDescribeOrderableClusterOptionsResponse,
+    -- ** AuthorizeDataShare
+    AuthorizeDataShare (AuthorizeDataShare'),
+    newAuthorizeDataShare,
+    DataShare (DataShare'),
+    newDataShare,
 
-    -- ** DeleteHsmClientCertificate
-    DeleteHsmClientCertificate (DeleteHsmClientCertificate'),
-    newDeleteHsmClientCertificate,
-    DeleteHsmClientCertificateResponse (DeleteHsmClientCertificateResponse'),
-    newDeleteHsmClientCertificateResponse,
+    -- ** DescribeDefaultClusterParameters (Paginated)
+    DescribeDefaultClusterParameters (DescribeDefaultClusterParameters'),
+    newDescribeDefaultClusterParameters,
+    DescribeDefaultClusterParametersResponse (DescribeDefaultClusterParametersResponse'),
+    newDescribeDefaultClusterParametersResponse,
 
-    -- ** RebootCluster
-    RebootCluster (RebootCluster'),
-    newRebootCluster,
-    RebootClusterResponse (RebootClusterResponse'),
-    newRebootClusterResponse,
+    -- ** DeleteSnapshotCopyGrant
+    DeleteSnapshotCopyGrant (DeleteSnapshotCopyGrant'),
+    newDeleteSnapshotCopyGrant,
+    DeleteSnapshotCopyGrantResponse (DeleteSnapshotCopyGrantResponse'),
+    newDeleteSnapshotCopyGrantResponse,
 
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** CreateEventSubscription
-    CreateEventSubscription (CreateEventSubscription'),
-    newCreateEventSubscription,
-    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
-    newCreateEventSubscriptionResponse,
-
-    -- ** AuthorizeSnapshotAccess
-    AuthorizeSnapshotAccess (AuthorizeSnapshotAccess'),
-    newAuthorizeSnapshotAccess,
-    AuthorizeSnapshotAccessResponse (AuthorizeSnapshotAccessResponse'),
-    newAuthorizeSnapshotAccessResponse,
-
-    -- ** ResumeCluster
-    ResumeCluster (ResumeCluster'),
-    newResumeCluster,
-    ResumeClusterResponse (ResumeClusterResponse'),
-    newResumeClusterResponse,
+    -- ** DescribeUsageLimits (Paginated)
+    DescribeUsageLimits (DescribeUsageLimits'),
+    newDescribeUsageLimits,
+    DescribeUsageLimitsResponse (DescribeUsageLimitsResponse'),
+    newDescribeUsageLimitsResponse,
 
     -- ** DescribeClusterTracks (Paginated)
     DescribeClusterTracks (DescribeClusterTracks'),
@@ -830,29 +968,59 @@ module Network.AWS.Redshift
     DescribeClusterTracksResponse (DescribeClusterTracksResponse'),
     newDescribeClusterTracksResponse,
 
+    -- ** DescribeOrderableClusterOptions (Paginated)
+    DescribeOrderableClusterOptions (DescribeOrderableClusterOptions'),
+    newDescribeOrderableClusterOptions,
+    DescribeOrderableClusterOptionsResponse (DescribeOrderableClusterOptionsResponse'),
+    newDescribeOrderableClusterOptionsResponse,
+
+    -- ** CreateEventSubscription
+    CreateEventSubscription (CreateEventSubscription'),
+    newCreateEventSubscription,
+    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
+    newCreateEventSubscriptionResponse,
+
     -- ** CreateScheduledAction
     CreateScheduledAction (CreateScheduledAction'),
     newCreateScheduledAction,
     ScheduledAction (ScheduledAction'),
     newScheduledAction,
 
-    -- ** DeleteSnapshotSchedule
-    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
-    newDeleteSnapshotSchedule,
-    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
-    newDeleteSnapshotScheduleResponse,
+    -- ** AuthorizeSnapshotAccess
+    AuthorizeSnapshotAccess (AuthorizeSnapshotAccess'),
+    newAuthorizeSnapshotAccess,
+    AuthorizeSnapshotAccessResponse (AuthorizeSnapshotAccessResponse'),
+    newAuthorizeSnapshotAccessResponse,
 
-    -- ** DescribeClusterSubnetGroups (Paginated)
-    DescribeClusterSubnetGroups (DescribeClusterSubnetGroups'),
-    newDescribeClusterSubnetGroups,
-    DescribeClusterSubnetGroupsResponse (DescribeClusterSubnetGroupsResponse'),
-    newDescribeClusterSubnetGroupsResponse,
+    -- ** DeleteHsmClientCertificate
+    DeleteHsmClientCertificate (DeleteHsmClientCertificate'),
+    newDeleteHsmClientCertificate,
+    DeleteHsmClientCertificateResponse (DeleteHsmClientCertificateResponse'),
+    newDeleteHsmClientCertificateResponse,
 
-    -- ** BatchDeleteClusterSnapshots
-    BatchDeleteClusterSnapshots (BatchDeleteClusterSnapshots'),
-    newBatchDeleteClusterSnapshots,
-    BatchDeleteClusterSnapshotsResponse (BatchDeleteClusterSnapshotsResponse'),
-    newBatchDeleteClusterSnapshotsResponse,
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** DescribeDataShares
+    DescribeDataShares (DescribeDataShares'),
+    newDescribeDataShares,
+    DescribeDataSharesResponse (DescribeDataSharesResponse'),
+    newDescribeDataSharesResponse,
+
+    -- ** RebootCluster
+    RebootCluster (RebootCluster'),
+    newRebootCluster,
+    RebootClusterResponse (RebootClusterResponse'),
+    newRebootClusterResponse,
+
+    -- ** ResumeCluster
+    ResumeCluster (ResumeCluster'),
+    newResumeCluster,
+    ResumeClusterResponse (ResumeClusterResponse'),
+    newResumeClusterResponse,
 
     -- ** ModifyClusterIamRoles
     ModifyClusterIamRoles (ModifyClusterIamRoles'),
@@ -860,29 +1028,11 @@ module Network.AWS.Redshift
     ModifyClusterIamRolesResponse (ModifyClusterIamRolesResponse'),
     newModifyClusterIamRolesResponse,
 
-    -- ** ResizeCluster
-    ResizeCluster (ResizeCluster'),
-    newResizeCluster,
-    ResizeClusterResponse (ResizeClusterResponse'),
-    newResizeClusterResponse,
-
-    -- ** ModifySnapshotCopyRetentionPeriod
-    ModifySnapshotCopyRetentionPeriod (ModifySnapshotCopyRetentionPeriod'),
-    newModifySnapshotCopyRetentionPeriod,
-    ModifySnapshotCopyRetentionPeriodResponse (ModifySnapshotCopyRetentionPeriodResponse'),
-    newModifySnapshotCopyRetentionPeriodResponse,
-
     -- ** RestoreFromClusterSnapshot
     RestoreFromClusterSnapshot (RestoreFromClusterSnapshot'),
     newRestoreFromClusterSnapshot,
     RestoreFromClusterSnapshotResponse (RestoreFromClusterSnapshotResponse'),
     newRestoreFromClusterSnapshotResponse,
-
-    -- ** RevokeSnapshotAccess
-    RevokeSnapshotAccess (RevokeSnapshotAccess'),
-    newRevokeSnapshotAccess,
-    RevokeSnapshotAccessResponse (RevokeSnapshotAccessResponse'),
-    newRevokeSnapshotAccessResponse,
 
     -- ** PauseCluster
     PauseCluster (PauseCluster'),
@@ -890,17 +1040,47 @@ module Network.AWS.Redshift
     PauseClusterResponse (PauseClusterResponse'),
     newPauseClusterResponse,
 
-    -- ** DescribeClusterParameters (Paginated)
-    DescribeClusterParameters (DescribeClusterParameters'),
-    newDescribeClusterParameters,
-    DescribeClusterParametersResponse (DescribeClusterParametersResponse'),
-    newDescribeClusterParametersResponse,
+    -- ** DeleteSnapshotSchedule
+    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
+    newDeleteSnapshotSchedule,
+    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
+    newDeleteSnapshotScheduleResponse,
 
-    -- ** DisableSnapshotCopy
-    DisableSnapshotCopy (DisableSnapshotCopy'),
-    newDisableSnapshotCopy,
-    DisableSnapshotCopyResponse (DisableSnapshotCopyResponse'),
-    newDisableSnapshotCopyResponse,
+    -- ** ModifySnapshotCopyRetentionPeriod
+    ModifySnapshotCopyRetentionPeriod (ModifySnapshotCopyRetentionPeriod'),
+    newModifySnapshotCopyRetentionPeriod,
+    ModifySnapshotCopyRetentionPeriodResponse (ModifySnapshotCopyRetentionPeriodResponse'),
+    newModifySnapshotCopyRetentionPeriodResponse,
+
+    -- ** DescribeClusterSubnetGroups (Paginated)
+    DescribeClusterSubnetGroups (DescribeClusterSubnetGroups'),
+    newDescribeClusterSubnetGroups,
+    DescribeClusterSubnetGroupsResponse (DescribeClusterSubnetGroupsResponse'),
+    newDescribeClusterSubnetGroupsResponse,
+
+    -- ** ResizeCluster
+    ResizeCluster (ResizeCluster'),
+    newResizeCluster,
+    ResizeClusterResponse (ResizeClusterResponse'),
+    newResizeClusterResponse,
+
+    -- ** BatchDeleteClusterSnapshots
+    BatchDeleteClusterSnapshots (BatchDeleteClusterSnapshots'),
+    newBatchDeleteClusterSnapshots,
+    BatchDeleteClusterSnapshotsResponse (BatchDeleteClusterSnapshotsResponse'),
+    newBatchDeleteClusterSnapshotsResponse,
+
+    -- ** DescribePartners
+    DescribePartners (DescribePartners'),
+    newDescribePartners,
+    DescribePartnersResponse (DescribePartnersResponse'),
+    newDescribePartnersResponse,
+
+    -- ** RevokeSnapshotAccess
+    RevokeSnapshotAccess (RevokeSnapshotAccess'),
+    newRevokeSnapshotAccess,
+    RevokeSnapshotAccessResponse (RevokeSnapshotAccessResponse'),
+    newRevokeSnapshotAccessResponse,
 
     -- ** CreateTags
     CreateTags (CreateTags'),
@@ -908,11 +1088,23 @@ module Network.AWS.Redshift
     CreateTagsResponse (CreateTagsResponse'),
     newCreateTagsResponse,
 
-    -- ** DescribeReservedNodeOfferings (Paginated)
-    DescribeReservedNodeOfferings (DescribeReservedNodeOfferings'),
-    newDescribeReservedNodeOfferings,
-    DescribeReservedNodeOfferingsResponse (DescribeReservedNodeOfferingsResponse'),
-    newDescribeReservedNodeOfferingsResponse,
+    -- ** DisableSnapshotCopy
+    DisableSnapshotCopy (DisableSnapshotCopy'),
+    newDisableSnapshotCopy,
+    DisableSnapshotCopyResponse (DisableSnapshotCopyResponse'),
+    newDisableSnapshotCopyResponse,
+
+    -- ** DescribeClusterParameters (Paginated)
+    DescribeClusterParameters (DescribeClusterParameters'),
+    newDescribeClusterParameters,
+    DescribeClusterParametersResponse (DescribeClusterParametersResponse'),
+    newDescribeClusterParametersResponse,
+
+    -- ** DeleteAuthenticationProfile
+    DeleteAuthenticationProfile (DeleteAuthenticationProfile'),
+    newDeleteAuthenticationProfile,
+    DeleteAuthenticationProfileResponse (DeleteAuthenticationProfileResponse'),
+    newDeleteAuthenticationProfileResponse,
 
     -- ** DeleteClusterSecurityGroup
     DeleteClusterSecurityGroup (DeleteClusterSecurityGroup'),
@@ -920,23 +1112,29 @@ module Network.AWS.Redshift
     DeleteClusterSecurityGroupResponse (DeleteClusterSecurityGroupResponse'),
     newDeleteClusterSecurityGroupResponse,
 
+    -- ** DescribeReservedNodeOfferings (Paginated)
+    DescribeReservedNodeOfferings (DescribeReservedNodeOfferings'),
+    newDescribeReservedNodeOfferings,
+    DescribeReservedNodeOfferingsResponse (DescribeReservedNodeOfferingsResponse'),
+    newDescribeReservedNodeOfferingsResponse,
+
     -- ** EnableLogging
     EnableLogging (EnableLogging'),
     newEnableLogging,
     LoggingStatus (LoggingStatus'),
     newLoggingStatus,
 
-    -- ** CreateHsmConfiguration
-    CreateHsmConfiguration (CreateHsmConfiguration'),
-    newCreateHsmConfiguration,
-    CreateHsmConfigurationResponse (CreateHsmConfigurationResponse'),
-    newCreateHsmConfigurationResponse,
-
     -- ** DescribeReservedNodes (Paginated)
     DescribeReservedNodes (DescribeReservedNodes'),
     newDescribeReservedNodes,
     DescribeReservedNodesResponse (DescribeReservedNodesResponse'),
     newDescribeReservedNodesResponse,
+
+    -- ** CreateHsmConfiguration
+    CreateHsmConfiguration (CreateHsmConfiguration'),
+    newCreateHsmConfiguration,
+    CreateHsmConfigurationResponse (CreateHsmConfigurationResponse'),
+    newCreateHsmConfigurationResponse,
 
     -- * Types
 
@@ -945,6 +1143,24 @@ module Network.AWS.Redshift
 
     -- ** ActionType
     ActionType (..),
+
+    -- ** AquaConfigurationStatus
+    AquaConfigurationStatus (..),
+
+    -- ** AquaStatus
+    AquaStatus (..),
+
+    -- ** AuthorizationStatus
+    AuthorizationStatus (..),
+
+    -- ** DataShareStatus
+    DataShareStatus (..),
+
+    -- ** DataShareStatusForConsumer
+    DataShareStatusForConsumer (..),
+
+    -- ** DataShareStatusForProducer
+    DataShareStatusForProducer (..),
 
     -- ** Mode
     Mode (..),
@@ -957,6 +1173,9 @@ module Network.AWS.Redshift
 
     -- ** ParameterApplyType
     ParameterApplyType (..),
+
+    -- ** PartnerIntegrationStatus
+    PartnerIntegrationStatus (..),
 
     -- ** ReservedNodeOfferingType
     ReservedNodeOfferingType (..),
@@ -1005,9 +1224,17 @@ module Network.AWS.Redshift
     AccountWithRestoreAccess (AccountWithRestoreAccess'),
     newAccountWithRestoreAccess,
 
+    -- ** AquaConfiguration
+    AquaConfiguration (AquaConfiguration'),
+    newAquaConfiguration,
+
     -- ** AttributeValueTarget
     AttributeValueTarget (AttributeValueTarget'),
     newAttributeValueTarget,
+
+    -- ** AuthenticationProfile
+    AuthenticationProfile (AuthenticationProfile'),
+    newAuthenticationProfile,
 
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),
@@ -1069,6 +1296,14 @@ module Network.AWS.Redshift
     ClusterVersion (ClusterVersion'),
     newClusterVersion,
 
+    -- ** DataShare
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** DataShareAssociation
+    DataShareAssociation (DataShareAssociation'),
+    newDataShareAssociation,
+
     -- ** DataTransferProgress
     DataTransferProgress (DataTransferProgress'),
     newDataTransferProgress,
@@ -1096,6 +1331,14 @@ module Network.AWS.Redshift
     -- ** Endpoint
     Endpoint (Endpoint'),
     newEndpoint,
+
+    -- ** EndpointAccess
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** EndpointAuthorization
+    EndpointAuthorization (EndpointAuthorization'),
+    newEndpointAuthorization,
 
     -- ** Event
     Event (Event'),
@@ -1137,6 +1380,10 @@ module Network.AWS.Redshift
     MaintenanceTrack (MaintenanceTrack'),
     newMaintenanceTrack,
 
+    -- ** NetworkInterface
+    NetworkInterface (NetworkInterface'),
+    newNetworkInterface,
+
     -- ** NodeConfigurationOption
     NodeConfigurationOption (NodeConfigurationOption'),
     newNodeConfigurationOption,
@@ -1152,6 +1399,18 @@ module Network.AWS.Redshift
     -- ** Parameter
     Parameter (Parameter'),
     newParameter,
+
+    -- ** PartnerIntegrationInfo
+    PartnerIntegrationInfo (PartnerIntegrationInfo'),
+    newPartnerIntegrationInfo,
+
+    -- ** PartnerIntegrationInputMessage
+    PartnerIntegrationInputMessage (PartnerIntegrationInputMessage'),
+    newPartnerIntegrationInputMessage,
+
+    -- ** PartnerIntegrationOutputMessage
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
 
     -- ** PauseClusterMessage
     PauseClusterMessage (PauseClusterMessage'),
@@ -1272,17 +1531,23 @@ module Network.AWS.Redshift
 where
 
 import Network.AWS.Redshift.AcceptReservedNodeExchange
+import Network.AWS.Redshift.AddPartner
+import Network.AWS.Redshift.AssociateDataShareConsumer
 import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+import Network.AWS.Redshift.AuthorizeDataShare
+import Network.AWS.Redshift.AuthorizeEndpointAccess
 import Network.AWS.Redshift.AuthorizeSnapshotAccess
 import Network.AWS.Redshift.BatchDeleteClusterSnapshots
 import Network.AWS.Redshift.BatchModifyClusterSnapshots
 import Network.AWS.Redshift.CancelResize
 import Network.AWS.Redshift.CopyClusterSnapshot
+import Network.AWS.Redshift.CreateAuthenticationProfile
 import Network.AWS.Redshift.CreateCluster
 import Network.AWS.Redshift.CreateClusterParameterGroup
 import Network.AWS.Redshift.CreateClusterSecurityGroup
 import Network.AWS.Redshift.CreateClusterSnapshot
 import Network.AWS.Redshift.CreateClusterSubnetGroup
+import Network.AWS.Redshift.CreateEndpointAccess
 import Network.AWS.Redshift.CreateEventSubscription
 import Network.AWS.Redshift.CreateHsmClientCertificate
 import Network.AWS.Redshift.CreateHsmConfiguration
@@ -1291,20 +1556,25 @@ import Network.AWS.Redshift.CreateSnapshotCopyGrant
 import Network.AWS.Redshift.CreateSnapshotSchedule
 import Network.AWS.Redshift.CreateTags
 import Network.AWS.Redshift.CreateUsageLimit
+import Network.AWS.Redshift.DeauthorizeDataShare
+import Network.AWS.Redshift.DeleteAuthenticationProfile
 import Network.AWS.Redshift.DeleteCluster
 import Network.AWS.Redshift.DeleteClusterParameterGroup
 import Network.AWS.Redshift.DeleteClusterSecurityGroup
 import Network.AWS.Redshift.DeleteClusterSnapshot
 import Network.AWS.Redshift.DeleteClusterSubnetGroup
+import Network.AWS.Redshift.DeleteEndpointAccess
 import Network.AWS.Redshift.DeleteEventSubscription
 import Network.AWS.Redshift.DeleteHsmClientCertificate
 import Network.AWS.Redshift.DeleteHsmConfiguration
+import Network.AWS.Redshift.DeletePartner
 import Network.AWS.Redshift.DeleteScheduledAction
 import Network.AWS.Redshift.DeleteSnapshotCopyGrant
 import Network.AWS.Redshift.DeleteSnapshotSchedule
 import Network.AWS.Redshift.DeleteTags
 import Network.AWS.Redshift.DeleteUsageLimit
 import Network.AWS.Redshift.DescribeAccountAttributes
+import Network.AWS.Redshift.DescribeAuthenticationProfiles
 import Network.AWS.Redshift.DescribeClusterDbRevisions
 import Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Redshift.DescribeClusterParameters
@@ -1314,7 +1584,12 @@ import Network.AWS.Redshift.DescribeClusterSubnetGroups
 import Network.AWS.Redshift.DescribeClusterTracks
 import Network.AWS.Redshift.DescribeClusterVersions
 import Network.AWS.Redshift.DescribeClusters
+import Network.AWS.Redshift.DescribeDataShares
+import Network.AWS.Redshift.DescribeDataSharesForConsumer
+import Network.AWS.Redshift.DescribeDataSharesForProducer
 import Network.AWS.Redshift.DescribeDefaultClusterParameters
+import Network.AWS.Redshift.DescribeEndpointAccess
+import Network.AWS.Redshift.DescribeEndpointAuthorization
 import Network.AWS.Redshift.DescribeEventCategories
 import Network.AWS.Redshift.DescribeEventSubscriptions
 import Network.AWS.Redshift.DescribeEvents
@@ -1323,6 +1598,7 @@ import Network.AWS.Redshift.DescribeHsmConfigurations
 import Network.AWS.Redshift.DescribeLoggingStatus
 import Network.AWS.Redshift.DescribeNodeConfigurationOptions
 import Network.AWS.Redshift.DescribeOrderableClusterOptions
+import Network.AWS.Redshift.DescribePartners
 import Network.AWS.Redshift.DescribeReservedNodeOfferings
 import Network.AWS.Redshift.DescribeReservedNodes
 import Network.AWS.Redshift.DescribeResize
@@ -1335,12 +1611,15 @@ import Network.AWS.Redshift.DescribeTags
 import Network.AWS.Redshift.DescribeUsageLimits
 import Network.AWS.Redshift.DisableLogging
 import Network.AWS.Redshift.DisableSnapshotCopy
+import Network.AWS.Redshift.DisassociateDataShareConsumer
 import Network.AWS.Redshift.EnableLogging
 import Network.AWS.Redshift.EnableSnapshotCopy
 import Network.AWS.Redshift.GetClusterCredentials
 import Network.AWS.Redshift.GetReservedNodeExchangeOfferings
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Lens
+import Network.AWS.Redshift.ModifyAquaConfiguration
+import Network.AWS.Redshift.ModifyAuthenticationProfile
 import Network.AWS.Redshift.ModifyCluster
 import Network.AWS.Redshift.ModifyClusterDbRevision
 import Network.AWS.Redshift.ModifyClusterIamRoles
@@ -1349,6 +1628,7 @@ import Network.AWS.Redshift.ModifyClusterParameterGroup
 import Network.AWS.Redshift.ModifyClusterSnapshot
 import Network.AWS.Redshift.ModifyClusterSnapshotSchedule
 import Network.AWS.Redshift.ModifyClusterSubnetGroup
+import Network.AWS.Redshift.ModifyEndpointAccess
 import Network.AWS.Redshift.ModifyEventSubscription
 import Network.AWS.Redshift.ModifyScheduledAction
 import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
@@ -1357,15 +1637,18 @@ import Network.AWS.Redshift.ModifyUsageLimit
 import Network.AWS.Redshift.PauseCluster
 import Network.AWS.Redshift.PurchaseReservedNodeOffering
 import Network.AWS.Redshift.RebootCluster
+import Network.AWS.Redshift.RejectDataShare
 import Network.AWS.Redshift.ResetClusterParameterGroup
 import Network.AWS.Redshift.ResizeCluster
 import Network.AWS.Redshift.RestoreFromClusterSnapshot
 import Network.AWS.Redshift.RestoreTableFromClusterSnapshot
 import Network.AWS.Redshift.ResumeCluster
 import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+import Network.AWS.Redshift.RevokeEndpointAccess
 import Network.AWS.Redshift.RevokeSnapshotAccess
 import Network.AWS.Redshift.RotateEncryptionKey
 import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.UpdatePartnerStatus
 import Network.AWS.Redshift.Waiters
 
 -- $errors

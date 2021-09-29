@@ -35,8 +35,8 @@ module Network.AWS.Redshift.DescribeScheduledActions
     describeScheduledActions_active,
     describeScheduledActions_filters,
     describeScheduledActions_scheduledActionName,
-    describeScheduledActions_marker,
     describeScheduledActions_maxRecords,
+    describeScheduledActions_marker,
 
     -- * Destructuring the Response
     DescribeScheduledActionsResponse (..),
@@ -73,13 +73,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
     filters :: Prelude.Maybe [ScheduledActionFilter],
     -- | The name of the scheduled action to retrieve.
     scheduledActionName :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeScheduledActions
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -89,7 +82,14 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeScheduledActions
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,13 +116,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- 'scheduledActionName', 'describeScheduledActions_scheduledActionName' - The name of the scheduled action to retrieve.
 --
--- 'marker', 'describeScheduledActions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeScheduledActions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeScheduledActions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -132,6 +125,13 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeScheduledActions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeScheduledActions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions =
@@ -143,8 +143,8 @@ newDescribeScheduledActions =
       active = Prelude.Nothing,
       filters = Prelude.Nothing,
       scheduledActionName = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The start time in UTC of the scheduled actions to retrieve. Only active
@@ -174,15 +174,6 @@ describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filter
 describeScheduledActions_scheduledActionName :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_scheduledActionName = Lens.lens (\DescribeScheduledActions' {scheduledActionName} -> scheduledActionName) (\s@DescribeScheduledActions' {} a -> s {scheduledActionName = a} :: DescribeScheduledActions)
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeScheduledActions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeScheduledActions_marker :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
-describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker} -> marker) (\s@DescribeScheduledActions' {} a -> s {marker = a} :: DescribeScheduledActions)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -194,6 +185,15 @@ describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker}
 -- Constraints: minimum 20, maximum 100.
 describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
 describeScheduledActions_maxRecords = Lens.lens (\DescribeScheduledActions' {maxRecords} -> maxRecords) (\s@DescribeScheduledActions' {} a -> s {maxRecords = a} :: DescribeScheduledActions)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeScheduledActions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeScheduledActions_marker :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
+describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker} -> marker) (\s@DescribeScheduledActions' {} a -> s {marker = a} :: DescribeScheduledActions)
 
 instance Core.AWSPager DescribeScheduledActions where
   page rq rs
@@ -262,8 +262,8 @@ instance Core.ToQuery DescribeScheduledActions where
                 Prelude.<$> filters
             ),
         "ScheduledActionName" Core.=: scheduledActionName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.
@@ -272,10 +272,10 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     scheduledActions :: Prelude.Maybe [ScheduledAction],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeScheduledActions
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -294,10 +294,10 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 --
 -- 'marker', 'describeScheduledActionsResponse_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeScheduledActions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- 'httpStatus', 'describeScheduledActionsResponse_httpStatus' - The response's http status code.
 newDescribeScheduledActionsResponse ::
@@ -318,10 +318,10 @@ describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeSchedule
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeScheduledActions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 describeScheduledActionsResponse_marker :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe Prelude.Text)
 describeScheduledActionsResponse_marker = Lens.lens (\DescribeScheduledActionsResponse' {marker} -> marker) (\s@DescribeScheduledActionsResponse' {} a -> s {marker = a} :: DescribeScheduledActionsResponse)
 

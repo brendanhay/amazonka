@@ -45,8 +45,8 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     describeEventSubscriptions_subscriptionName,
     describeEventSubscriptions_tagKeys,
     describeEventSubscriptions_tagValues,
-    describeEventSubscriptions_marker,
     describeEventSubscriptions_maxRecords,
+    describeEventSubscriptions_marker,
 
     -- * Destructuring the Response
     DescribeEventSubscriptionsResponse (..),
@@ -89,13 +89,6 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- the subscriptions that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeEventSubscriptions
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -105,7 +98,14 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeEventSubscriptions
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,13 +136,6 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- the subscriptions that have either or both of these tag values
 -- associated with them.
 --
--- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -152,6 +145,13 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeEventSubscriptions ::
   DescribeEventSubscriptions
 newDescribeEventSubscriptions =
@@ -160,8 +160,8 @@ newDescribeEventSubscriptions =
         Prelude.Nothing,
       tagKeys = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
@@ -189,15 +189,6 @@ describeEventSubscriptions_tagKeys = Lens.lens (\DescribeEventSubscriptions' {ta
 describeEventSubscriptions_tagValues :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
 describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {tagValues} -> tagValues) (\s@DescribeEventSubscriptions' {} a -> s {tagValues = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
-describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -209,6 +200,15 @@ describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {mar
 -- Constraints: minimum 20, maximum 100.
 describeEventSubscriptions_maxRecords :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Int)
 describeEventSubscriptions_maxRecords = Lens.lens (\DescribeEventSubscriptions' {maxRecords} -> maxRecords) (\s@DescribeEventSubscriptions' {} a -> s {maxRecords = a} :: DescribeEventSubscriptions)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
+describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
 
 instance Core.AWSPager DescribeEventSubscriptions where
   page rq rs
@@ -274,8 +274,8 @@ instance Core.ToQuery DescribeEventSubscriptions where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

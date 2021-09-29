@@ -39,10 +39,10 @@ data ClusterSubnetGroup = ClusterSubnetGroup'
     tags :: Prelude.Maybe [Tag],
     -- | The description of the cluster subnet group.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of the VPC Subnet elements.
-    subnets :: Prelude.Maybe [Subnet],
     -- | The VPC ID of the cluster subnet group.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A list of the VPC Subnet elements.
+    subnets :: Prelude.Maybe [Subnet]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +63,9 @@ data ClusterSubnetGroup = ClusterSubnetGroup'
 --
 -- 'description', 'clusterSubnetGroup_description' - The description of the cluster subnet group.
 --
--- 'subnets', 'clusterSubnetGroup_subnets' - A list of the VPC Subnet elements.
---
 -- 'vpcId', 'clusterSubnetGroup_vpcId' - The VPC ID of the cluster subnet group.
+--
+-- 'subnets', 'clusterSubnetGroup_subnets' - A list of the VPC Subnet elements.
 newClusterSubnetGroup ::
   ClusterSubnetGroup
 newClusterSubnetGroup =
@@ -75,8 +75,8 @@ newClusterSubnetGroup =
       subnetGroupStatus = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      subnets = Prelude.Nothing
     }
 
 -- | The name of the cluster subnet group.
@@ -96,13 +96,13 @@ clusterSubnetGroup_tags = Lens.lens (\ClusterSubnetGroup' {tags} -> tags) (\s@Cl
 clusterSubnetGroup_description :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
 clusterSubnetGroup_description = Lens.lens (\ClusterSubnetGroup' {description} -> description) (\s@ClusterSubnetGroup' {} a -> s {description = a} :: ClusterSubnetGroup)
 
--- | A list of the VPC Subnet elements.
-clusterSubnetGroup_subnets :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe [Subnet])
-clusterSubnetGroup_subnets = Lens.lens (\ClusterSubnetGroup' {subnets} -> subnets) (\s@ClusterSubnetGroup' {} a -> s {subnets = a} :: ClusterSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The VPC ID of the cluster subnet group.
 clusterSubnetGroup_vpcId :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
 clusterSubnetGroup_vpcId = Lens.lens (\ClusterSubnetGroup' {vpcId} -> vpcId) (\s@ClusterSubnetGroup' {} a -> s {vpcId = a} :: ClusterSubnetGroup)
+
+-- | A list of the VPC Subnet elements.
+clusterSubnetGroup_subnets :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe [Subnet])
+clusterSubnetGroup_subnets = Lens.lens (\ClusterSubnetGroup' {subnets} -> subnets) (\s@ClusterSubnetGroup' {} a -> s {subnets = a} :: ClusterSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ClusterSubnetGroup where
   parseXML x =
@@ -113,10 +113,10 @@ instance Core.FromXML ClusterSubnetGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
       Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "VpcId")
 
 instance Prelude.Hashable ClusterSubnetGroup
 

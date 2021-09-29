@@ -29,8 +29,8 @@
 --
 -- If you authorize access to an Amazon EC2 security group, specify
 -- /EC2SecurityGroupName/ and /EC2SecurityGroupOwnerId/. The Amazon EC2
--- security group and Amazon Redshift cluster must be in the same AWS
--- Region.
+-- security group and Amazon Redshift cluster must be in the same Amazon
+-- Web Services Region.
 --
 -- If you authorize access to a CIDR\/IP address range, specify /CIDRIP/.
 -- For an overview of CIDR blocks, see the Wikipedia article on
@@ -76,9 +76,9 @@ import qualified Network.AWS.Response as Response
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
   { -- | The IP range to be added the Amazon Redshift security group.
     cidrip :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account number of the owner of the security group specified by
-    -- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
-    -- acceptable value.
+    -- | The Amazon Web Services account number of the owner of the security
+    -- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
+    -- Services Access Key ID is not an acceptable value.
     --
     -- Example: @111122223333@
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
@@ -99,9 +99,9 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 --
 -- 'cidrip', 'authorizeClusterSecurityGroupIngress_cidrip' - The IP range to be added the Amazon Redshift security group.
 --
--- 'eC2SecurityGroupOwnerId', 'authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId' - The AWS account number of the owner of the security group specified by
--- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
--- acceptable value.
+-- 'eC2SecurityGroupOwnerId', 'authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon Web Services account number of the owner of the security
+-- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
+-- Services Access Key ID is not an acceptable value.
 --
 -- Example: @111122223333@
 --
@@ -129,9 +129,9 @@ newAuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeClusterSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeClusterSecurityGroupIngress)
 
--- | The AWS account number of the owner of the security group specified by
--- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
--- acceptable value.
+-- | The Amazon Web Services account number of the owner of the security
+-- group specified by the /EC2SecurityGroupName/ parameter. The Amazon Web
+-- Services Access Key ID is not an acceptable value.
 --
 -- Example: @111122223333@
 authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)

@@ -22,7 +22,8 @@
 --
 -- Returns information about the specified Amazon Redshift HSM
 -- configuration. If no configuration ID is specified, returns information
--- about all the HSM configurations owned by your AWS customer account.
+-- about all the HSM configurations owned by your Amazon Web Services
+-- account.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all HSM connections that match any combination of the
@@ -44,8 +45,8 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     describeHsmConfigurations_tagKeys,
     describeHsmConfigurations_hsmConfigurationIdentifier,
     describeHsmConfigurations_tagValues,
-    describeHsmConfigurations_marker,
     describeHsmConfigurations_maxRecords,
+    describeHsmConfigurations_marker,
 
     -- * Destructuring the Response
     DescribeHsmConfigurationsResponse (..),
@@ -79,7 +80,7 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of a specific Amazon Redshift HSM configuration to be
     -- described. If no identifier is specified, information is returned for
-    -- all HSM configurations owned by your AWS customer account.
+    -- all HSM configurations owned by your Amazon Web Services account.
     hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A tag value or values for which you want to return all matching HSM
     -- configurations that are associated with the specified tag value or
@@ -89,13 +90,6 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- the HSM configurations that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeHsmConfigurations
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -105,7 +99,14 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeHsmConfigurations
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,7 +128,7 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 --
 -- 'hsmConfigurationIdentifier', 'describeHsmConfigurations_hsmConfigurationIdentifier' - The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
--- all HSM configurations owned by your AWS customer account.
+-- all HSM configurations owned by your Amazon Web Services account.
 --
 -- 'tagValues', 'describeHsmConfigurations_tagValues' - A tag value or values for which you want to return all matching HSM
 -- configurations that are associated with the specified tag value or
@@ -136,13 +137,6 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
---
--- 'marker', 'describeHsmConfigurations_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmConfigurations
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
 --
 -- 'maxRecords', 'describeHsmConfigurations_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -153,6 +147,13 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeHsmConfigurations_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmConfigurations
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeHsmConfigurations ::
   DescribeHsmConfigurations
 newDescribeHsmConfigurations =
@@ -161,8 +162,8 @@ newDescribeHsmConfigurations =
         Prelude.Nothing,
       hsmConfigurationIdentifier = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching HSM
@@ -177,7 +178,7 @@ describeHsmConfigurations_tagKeys = Lens.lens (\DescribeHsmConfigurations' {tagK
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
--- all HSM configurations owned by your AWS customer account.
+-- all HSM configurations owned by your Amazon Web Services account.
 describeHsmConfigurations_hsmConfigurationIdentifier :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
 describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmConfigurations' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@DescribeHsmConfigurations' {} a -> s {hsmConfigurationIdentifier = a} :: DescribeHsmConfigurations)
 
@@ -191,15 +192,6 @@ describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmCo
 describeHsmConfigurations_tagValues :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe [Prelude.Text])
 describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {tagValues} -> tagValues) (\s@DescribeHsmConfigurations' {} a -> s {tagValues = a} :: DescribeHsmConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmConfigurations
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeHsmConfigurations_marker :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
-describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marker} -> marker) (\s@DescribeHsmConfigurations' {} a -> s {marker = a} :: DescribeHsmConfigurations)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -211,6 +203,15 @@ describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marke
 -- Constraints: minimum 20, maximum 100.
 describeHsmConfigurations_maxRecords :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Int)
 describeHsmConfigurations_maxRecords = Lens.lens (\DescribeHsmConfigurations' {maxRecords} -> maxRecords) (\s@DescribeHsmConfigurations' {} a -> s {maxRecords = a} :: DescribeHsmConfigurations)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmConfigurations
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeHsmConfigurations_marker :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
+describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marker} -> marker) (\s@DescribeHsmConfigurations' {} a -> s {marker = a} :: DescribeHsmConfigurations)
 
 instance Core.AWSPager DescribeHsmConfigurations where
   page rq rs
@@ -277,8 +278,8 @@ instance Core.ToQuery DescribeHsmConfigurations where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

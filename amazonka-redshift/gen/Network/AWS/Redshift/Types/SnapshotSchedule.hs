@@ -42,10 +42,10 @@ data SnapshotSchedule = SnapshotSchedule'
     scheduleDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of ScheduleDefinitions.
     scheduleDefinitions :: Prelude.Maybe [Prelude.Text],
-    -- | The number of clusters associated with the schedule.
-    associatedClusterCount :: Prelude.Maybe Prelude.Int,
     -- | An optional set of tags describing the schedule.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag],
+    -- | The number of clusters associated with the schedule.
+    associatedClusterCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,9 +68,9 @@ data SnapshotSchedule = SnapshotSchedule'
 --
 -- 'scheduleDefinitions', 'snapshotSchedule_scheduleDefinitions' - A list of ScheduleDefinitions.
 --
--- 'associatedClusterCount', 'snapshotSchedule_associatedClusterCount' - The number of clusters associated with the schedule.
---
 -- 'tags', 'snapshotSchedule_tags' - An optional set of tags describing the schedule.
+--
+-- 'associatedClusterCount', 'snapshotSchedule_associatedClusterCount' - The number of clusters associated with the schedule.
 newSnapshotSchedule ::
   SnapshotSchedule
 newSnapshotSchedule =
@@ -81,8 +81,8 @@ newSnapshotSchedule =
       scheduleIdentifier = Prelude.Nothing,
       scheduleDescription = Prelude.Nothing,
       scheduleDefinitions = Prelude.Nothing,
-      associatedClusterCount = Prelude.Nothing,
-      tags = Prelude.Nothing
+      tags = Prelude.Nothing,
+      associatedClusterCount = Prelude.Nothing
     }
 
 -- |
@@ -106,13 +106,13 @@ snapshotSchedule_scheduleDescription = Lens.lens (\SnapshotSchedule' {scheduleDe
 snapshotSchedule_scheduleDefinitions :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.Text])
 snapshotSchedule_scheduleDefinitions = Lens.lens (\SnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@SnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
 
--- | The number of clusters associated with the schedule.
-snapshotSchedule_associatedClusterCount :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Int)
-snapshotSchedule_associatedClusterCount = Lens.lens (\SnapshotSchedule' {associatedClusterCount} -> associatedClusterCount) (\s@SnapshotSchedule' {} a -> s {associatedClusterCount = a} :: SnapshotSchedule)
-
 -- | An optional set of tags describing the schedule.
 snapshotSchedule_tags :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Tag])
 snapshotSchedule_tags = Lens.lens (\SnapshotSchedule' {tags} -> tags) (\s@SnapshotSchedule' {} a -> s {tags = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The number of clusters associated with the schedule.
+snapshotSchedule_associatedClusterCount :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Int)
+snapshotSchedule_associatedClusterCount = Lens.lens (\SnapshotSchedule' {associatedClusterCount} -> associatedClusterCount) (\s@SnapshotSchedule' {} a -> s {associatedClusterCount = a} :: SnapshotSchedule)
 
 instance Core.FromXML SnapshotSchedule where
   parseXML x =
@@ -131,10 +131,10 @@ instance Core.FromXML SnapshotSchedule where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ScheduleDefinition")
                   )
-      Prelude.<*> (x Core..@? "AssociatedClusterCount")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "AssociatedClusterCount")
 
 instance Prelude.Hashable SnapshotSchedule
 

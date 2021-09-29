@@ -76,7 +76,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
-    -- -   Must be unique withing your AWS account.
+    -- -   Must be unique withing your Amazon Web Services account.
     --
     -- This value is stored as a lower-case string.
     parameterGroupName :: Prelude.Text,
@@ -85,11 +85,11 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
     --
     -- To get a list of valid parameter group family names, you can call
     -- DescribeClusterParameterGroups. By default, Amazon Redshift returns a
-    -- list of all the parameter groups that are owned by your AWS account,
-    -- including the default parameter groups for each Amazon Redshift engine
-    -- version. The parameter group family names associated with the default
-    -- parameter groups provide you the valid values. For example, a valid
-    -- family name is \"redshift-1.0\".
+    -- list of all the parameter groups that are owned by your Amazon Web
+    -- Services account, including the default parameter groups for each Amazon
+    -- Redshift engine version. The parameter group family names associated
+    -- with the default parameter groups provide you the valid values. For
+    -- example, a valid family name is \"redshift-1.0\".
     parameterGroupFamily :: Prelude.Text,
     -- | A description of the parameter group.
     description :: Prelude.Text
@@ -116,7 +116,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique withing your AWS account.
+-- -   Must be unique withing your Amazon Web Services account.
 --
 -- This value is stored as a lower-case string.
 --
@@ -125,11 +125,11 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
 --
 -- To get a list of valid parameter group family names, you can call
 -- DescribeClusterParameterGroups. By default, Amazon Redshift returns a
--- list of all the parameter groups that are owned by your AWS account,
--- including the default parameter groups for each Amazon Redshift engine
--- version. The parameter group family names associated with the default
--- parameter groups provide you the valid values. For example, a valid
--- family name is \"redshift-1.0\".
+-- list of all the parameter groups that are owned by your Amazon Web
+-- Services account, including the default parameter groups for each Amazon
+-- Redshift engine version. The parameter group family names associated
+-- with the default parameter groups provide you the valid values. For
+-- example, a valid family name is \"redshift-1.0\".
 --
 -- 'description', 'createClusterParameterGroup_description' - A description of the parameter group.
 newCreateClusterParameterGroup ::
@@ -166,7 +166,7 @@ createClusterParameterGroup_tags = Lens.lens (\CreateClusterParameterGroup' {tag
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique withing your AWS account.
+-- -   Must be unique withing your Amazon Web Services account.
 --
 -- This value is stored as a lower-case string.
 createClusterParameterGroup_parameterGroupName :: Lens.Lens' CreateClusterParameterGroup Prelude.Text
@@ -177,11 +177,11 @@ createClusterParameterGroup_parameterGroupName = Lens.lens (\CreateClusterParame
 --
 -- To get a list of valid parameter group family names, you can call
 -- DescribeClusterParameterGroups. By default, Amazon Redshift returns a
--- list of all the parameter groups that are owned by your AWS account,
--- including the default parameter groups for each Amazon Redshift engine
--- version. The parameter group family names associated with the default
--- parameter groups provide you the valid values. For example, a valid
--- family name is \"redshift-1.0\".
+-- list of all the parameter groups that are owned by your Amazon Web
+-- Services account, including the default parameter groups for each Amazon
+-- Redshift engine version. The parameter group family names associated
+-- with the default parameter groups provide you the valid values. For
+-- example, a valid family name is \"redshift-1.0\".
 createClusterParameterGroup_parameterGroupFamily :: Lens.Lens' CreateClusterParameterGroup Prelude.Text
 createClusterParameterGroup_parameterGroupFamily = Lens.lens (\CreateClusterParameterGroup' {parameterGroupFamily} -> parameterGroupFamily) (\s@CreateClusterParameterGroup' {} a -> s {parameterGroupFamily = a} :: CreateClusterParameterGroup)
 

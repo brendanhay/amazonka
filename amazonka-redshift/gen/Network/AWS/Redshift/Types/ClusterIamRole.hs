@@ -24,8 +24,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
--- | An AWS Identity and Access Management (IAM) role that can be used by the
--- associated Amazon Redshift cluster to access other AWS services.
+-- | An Identity and Access Management (IAM) role that can be used by the
+-- associated Amazon Redshift cluster to access other Amazon Web Services
+-- services.
 --
 -- /See:/ 'newClusterIamRole' smart constructor.
 data ClusterIamRole = ClusterIamRole'

@@ -17,119 +17,155 @@ module Network.AWS.Redshift.Types
     defaultService,
 
     -- * Errors
+    _BucketNotFoundFault,
+    _InvalidSubscriptionStateFault,
+    _InvalidVPCNetworkStateFault,
+    _ScheduleDefinitionTypeUnsupportedFault,
     _ClusterSecurityGroupAlreadyExistsFault,
     _ClusterSnapshotNotFoundFault,
-    _ScheduleDefinitionTypeUnsupportedFault,
+    _InvalidEndpointStateFault,
     _ClusterSubnetGroupNotFoundFault,
-    _InvalidVPCNetworkStateFault,
-    _InvalidSubscriptionStateFault,
-    _BucketNotFoundFault,
+    _InvalidScheduledActionFault,
+    _ClusterSecurityGroupQuotaExceededFault,
     _LimitExceededFault,
     _SubscriptionAlreadyExistFault,
-    _ClusterSecurityGroupQuotaExceededFault,
-    _InvalidScheduledActionFault,
-    _SubscriptionSeverityNotFoundFault,
-    _UnauthorizedOperation,
-    _InsufficientS3BucketPolicyFault,
-    _InsufficientClusterCapacityFault,
     _HsmConfigurationQuotaExceededFault,
+    _EndpointAuthorizationNotFoundFault,
+    _EndpointsPerClusterLimitExceededFault,
+    _InvalidAuthenticationProfileRequestFault,
+    _InsufficientS3BucketPolicyFault,
+    _SubscriptionSeverityNotFoundFault,
+    _InsufficientClusterCapacityFault,
+    _UnauthorizedOperation,
     _UsageLimitNotFoundFault,
     _InvalidTagFault,
     _SnapshotScheduleQuotaExceededFault,
-    _SNSNoAuthorizationFault,
     _ScheduledActionNotFoundFault,
     _HsmClientCertificateAlreadyExistsFault,
-    _ResourceNotFoundFault,
-    _SNSTopicArnNotFoundFault,
+    _SNSNoAuthorizationFault,
     _InvalidRestoreFault,
-    _ScheduledActionAlreadyExistsFault,
     _ClusterNotFoundFault,
-    _ScheduledActionQuotaExceededFault,
-    _ScheduledActionTypeUnsupportedFault,
-    _EventSubscriptionQuotaExceededFault,
-    _SnapshotScheduleNotFoundFault,
-    _InvalidReservedNodeStateFault,
+    _ResourceNotFoundFault,
+    _ScheduledActionAlreadyExistsFault,
+    _SNSTopicArnNotFoundFault,
     _SnapshotScheduleUpdateInProgressFault,
-    _BatchModifyClusterSnapshotsLimitExceededFault,
-    _ReservedNodeAlreadyMigratedFault,
+    _InvalidReservedNodeStateFault,
+    _SnapshotScheduleNotFoundFault,
+    _ScheduledActionQuotaExceededFault,
+    _EventSubscriptionQuotaExceededFault,
+    _ScheduledActionTypeUnsupportedFault,
+    _EndpointsPerAuthorizationLimitExceededFault,
     _IncompatibleOrderableOptions,
-    _InvalidClusterSubnetStateFault,
     _ClusterQuotaExceededFault,
-    _InvalidS3BucketNameFault,
-    _InvalidClusterSubnetGroupStateFault,
-    _HsmConfigurationAlreadyExistsFault,
-    _ClusterSecurityGroupNotFoundFault,
+    _InvalidClusterSubnetStateFault,
+    _ReservedNodeAlreadyMigratedFault,
+    _BatchModifyClusterSnapshotsLimitExceededFault,
     _UnsupportedOperationFault,
+    _HsmConfigurationAlreadyExistsFault,
+    _InvalidS3BucketNameFault,
+    _ClusterSecurityGroupNotFoundFault,
+    _InvalidClusterSubnetGroupStateFault,
     _InvalidElasticIpFault,
-    _InvalidClusterSnapshotScheduleStateFault,
+    _EndpointAlreadyExistsFault,
+    _InvalidAuthorizationStateFault,
     _TableRestoreNotFoundFault,
+    _AuthenticationProfileAlreadyExistsFault,
     _HsmConfigurationNotFoundFault,
+    _PartnerNotFoundFault,
     _AuthorizationAlreadyExistsFault,
     _InvalidClusterSecurityGroupStateFault,
-    _UsageLimitAlreadyExistsFault,
-    _SNSInvalidTopicFault,
-    _SourceNotFoundFault,
+    _InvalidClusterSnapshotScheduleStateFault,
+    _EndpointAuthorizationAlreadyExistsFault,
     _InvalidS3KeyPrefixFault,
-    _UnsupportedOptionFault,
-    _AuthorizationQuotaExceededFault,
-    _DependentServiceUnavailableFault,
+    _SourceNotFoundFault,
+    _UsageLimitAlreadyExistsFault,
     _CopyToRegionDisabledFault,
-    _ClusterOnLatestRevisionFault,
-    _SubnetAlreadyInUse,
-    _ClusterSubnetGroupQuotaExceededFault,
+    _SNSInvalidTopicFault,
+    _DependentServiceUnavailableFault,
+    _AuthenticationProfileQuotaExceededFault,
+    _AuthorizationQuotaExceededFault,
+    _UnsupportedOptionFault,
     _ClusterSnapshotQuotaExceededFault,
+    _SubnetAlreadyInUse,
+    _ClusterOnLatestRevisionFault,
+    _ClusterSubnetGroupQuotaExceededFault,
+    _InvalidClusterTrackFault,
+    _TagLimitExceededFault,
     _InvalidScheduleFault,
+    _InvalidHsmClientCertificateStateFault,
+    _ClusterAlreadyExistsFault,
+    _InvalidTableRestoreArgumentFault,
+    _SnapshotCopyGrantNotFoundFault,
+    _UnauthorizedPartnerIntegrationFault,
+    _InvalidClusterStateFault,
+    _InvalidDataShareFault,
     _ClusterSubnetQuotaExceededFault,
     _AccessToSnapshotDeniedFault,
     _NumberOfNodesQuotaExceededFault,
-    _InvalidTableRestoreArgumentFault,
-    _InvalidClusterTrackFault,
-    _InvalidHsmClientCertificateStateFault,
-    _TagLimitExceededFault,
-    _SnapshotCopyGrantNotFoundFault,
-    _ClusterAlreadyExistsFault,
-    _InvalidClusterStateFault,
-    _ClusterParameterGroupQuotaExceededFault,
-    _UnknownSnapshotCopyRegionFault,
-    _SnapshotCopyDisabledFault,
-    _InvalidUsageLimitFault,
-    _InProgressTableRestoreQuotaExceededFault,
-    _ReservedNodeQuotaExceededFault,
-    _HsmClientCertificateNotFoundFault,
     _SubscriptionEventIdNotFoundFault,
     _InvalidSnapshotCopyGrantStateFault,
+    _InProgressTableRestoreQuotaExceededFault,
+    _ClusterParameterGroupQuotaExceededFault,
     _SnapshotCopyGrantAlreadyExistsFault,
+    _SnapshotCopyDisabledFault,
+    _HsmClientCertificateNotFoundFault,
+    _InvalidUsageLimitFault,
     _ResizeNotFoundFault,
-    _SnapshotCopyAlreadyEnabledFault,
+    _ReservedNodeQuotaExceededFault,
+    _UnknownSnapshotCopyRegionFault,
     _BatchDeleteRequestSizeExceededFault,
+    _InvalidNamespaceFault,
     _NumberOfNodesPerClusterLimitExceededFault,
-    _ReservedNodeAlreadyExistsFault,
-    _ClusterParameterGroupAlreadyExistsFault,
     _SnapshotCopyGrantQuotaExceededFault,
     _InvalidClusterParameterGroupStateFault,
-    _SnapshotCopyAlreadyDisabledFault,
+    _SnapshotCopyAlreadyEnabledFault,
+    _ClusterParameterGroupAlreadyExistsFault,
+    _AccessToClusterDeniedFault,
+    _ReservedNodeAlreadyExistsFault,
     _SnapshotScheduleAlreadyExistsFault,
+    _ClusterParameterGroupNotFoundFault,
     _ReservedNodeOfferingNotFoundFault,
     _ReservedNodeNotFoundFault,
+    _SnapshotCopyAlreadyDisabledFault,
     _HsmClientCertificateQuotaExceededFault,
-    _ClusterParameterGroupNotFoundFault,
+    _EndpointNotFoundFault,
     _SubscriptionCategoryNotFoundFault,
-    _AuthorizationNotFoundFault,
-    _TableLimitExceededFault,
+    _EndpointAuthorizationsPerClusterLimitExceededFault,
     _InvalidClusterSnapshotStateFault,
+    _DependentServiceRequestThrottlingFault,
     _InvalidRetentionPeriodFault,
-    _ClusterSubnetGroupAlreadyExistsFault,
-    _InvalidSubnet,
-    _SubscriptionNotFoundFault,
     _ClusterSnapshotAlreadyExistsFault,
     _InvalidHsmConfigurationStateFault,
-    _DependentServiceRequestThrottlingFault,
+    _SubscriptionNotFoundFault,
+    _AuthorizationNotFoundFault,
+    _TableLimitExceededFault,
+    _AuthenticationProfileNotFoundFault,
+    _InvalidSubnet,
+    _ClusterSubnetGroupAlreadyExistsFault,
 
     -- * Re-exported Types
     module Network.AWS.Redshift.Internal,
 
     -- * ActionType
     ActionType (..),
+
+    -- * AquaConfigurationStatus
+    AquaConfigurationStatus (..),
+
+    -- * AquaStatus
+    AquaStatus (..),
+
+    -- * AuthorizationStatus
+    AuthorizationStatus (..),
+
+    -- * DataShareStatus
+    DataShareStatus (..),
+
+    -- * DataShareStatusForConsumer
+    DataShareStatusForConsumer (..),
+
+    -- * DataShareStatusForProducer
+    DataShareStatusForProducer (..),
 
     -- * Mode
     Mode (..),
@@ -142,6 +178,9 @@ module Network.AWS.Redshift.Types
 
     -- * ParameterApplyType
     ParameterApplyType (..),
+
+    -- * PartnerIntegrationStatus
+    PartnerIntegrationStatus (..),
 
     -- * ReservedNodeOfferingType
     ReservedNodeOfferingType (..),
@@ -194,10 +233,22 @@ module Network.AWS.Redshift.Types
     accountWithRestoreAccess_accountAlias,
     accountWithRestoreAccess_accountId,
 
+    -- * AquaConfiguration
+    AquaConfiguration (..),
+    newAquaConfiguration,
+    aquaConfiguration_aquaStatus,
+    aquaConfiguration_aquaConfigurationStatus,
+
     -- * AttributeValueTarget
     AttributeValueTarget (..),
     newAttributeValueTarget,
     attributeValueTarget_attributeValue,
+
+    -- * AuthenticationProfile
+    AuthenticationProfile (..),
+    newAuthenticationProfile,
+    authenticationProfile_authenticationProfileName,
+    authenticationProfile_authenticationProfileContent,
 
     -- * AvailabilityZone
     AvailabilityZone (..),
@@ -208,54 +259,56 @@ module Network.AWS.Redshift.Types
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_enhancedVpcRouting,
+    cluster_totalStorageCapacityInMegaBytes,
     cluster_vpcSecurityGroups,
-    cluster_resizeInfo,
+    cluster_enhancedVpcRouting,
     cluster_clusterNamespaceArn,
+    cluster_resizeInfo,
     cluster_clusterSubnetGroupName,
-    cluster_deferredMaintenanceWindows,
     cluster_expectedNextSnapshotScheduleTimeStatus,
+    cluster_deferredMaintenanceWindows,
     cluster_snapshotScheduleState,
     cluster_encrypted,
-    cluster_allowVersionUpgrade,
     cluster_clusterCreateTime,
+    cluster_allowVersionUpgrade,
     cluster_automatedSnapshotRetentionPeriod,
     cluster_elasticIpStatus,
-    cluster_hsmStatus,
-    cluster_snapshotScheduleIdentifier,
-    cluster_masterUsername,
     cluster_publiclyAccessible,
-    cluster_clusterAvailabilityStatus,
-    cluster_manualSnapshotRetentionPeriod,
+    cluster_masterUsername,
+    cluster_snapshotScheduleIdentifier,
+    cluster_hsmStatus,
     cluster_kmsKeyId,
-    cluster_clusterSnapshotCopyStatus,
-    cluster_availabilityZone,
+    cluster_manualSnapshotRetentionPeriod,
     cluster_clusterParameterGroups,
+    cluster_clusterSnapshotCopyStatus,
+    cluster_clusterAvailabilityStatus,
+    cluster_availabilityZone,
+    cluster_modifyStatus,
     cluster_preferredMaintenanceWindow,
     cluster_clusterPublicKey,
     cluster_restoreStatus,
-    cluster_modifyStatus,
-    cluster_clusterIdentifier,
+    cluster_aquaConfiguration,
     cluster_tags,
     cluster_clusterNodes,
-    cluster_numberOfNodes,
-    cluster_availabilityZoneRelocationStatus,
     cluster_dbName,
+    cluster_availabilityZoneRelocationStatus,
+    cluster_clusterIdentifier,
+    cluster_numberOfNodes,
     cluster_dataTransferProgress,
-    cluster_clusterStatus,
     cluster_pendingModifiedValues,
+    cluster_clusterStatus,
     cluster_endpoint,
     cluster_nextMaintenanceWindowStartTime,
-    cluster_nodeType,
     cluster_clusterVersion,
-    cluster_vpcId,
     cluster_clusterSecurityGroups,
-    cluster_elasticResizeNumberOfNodeOptions,
+    cluster_vpcId,
+    cluster_nodeType,
     cluster_expectedNextSnapshotScheduleTime,
+    cluster_elasticResizeNumberOfNodeOptions,
     cluster_maintenanceTrackName,
-    cluster_clusterRevisionNumber,
     cluster_iamRoles,
     cluster_pendingActions,
+    cluster_clusterRevisionNumber,
 
     -- * ClusterAssociatedToSchedule
     ClusterAssociatedToSchedule (..),
@@ -342,8 +395,8 @@ module Network.AWS.Redshift.Types
     clusterSubnetGroup_subnetGroupStatus,
     clusterSubnetGroup_tags,
     clusterSubnetGroup_description,
-    clusterSubnetGroup_subnets,
     clusterSubnetGroup_vpcId,
+    clusterSubnetGroup_subnets,
 
     -- * ClusterVersion
     ClusterVersion (..),
@@ -351,6 +404,22 @@ module Network.AWS.Redshift.Types
     clusterVersion_clusterParameterGroupFamily,
     clusterVersion_description,
     clusterVersion_clusterVersion,
+
+    -- * DataShare
+    DataShare (..),
+    newDataShare,
+    dataShare_dataShareAssociations,
+    dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_producerArn,
+    dataShare_dataShareArn,
+
+    -- * DataShareAssociation
+    DataShareAssociation (..),
+    newDataShareAssociation,
+    dataShareAssociation_createdDate,
+    dataShareAssociation_status,
+    dataShareAssociation_statusChangeDate,
+    dataShareAssociation_consumerIdentifier,
 
     -- * DataTransferProgress
     DataTransferProgress (..),
@@ -393,8 +462,8 @@ module Network.AWS.Redshift.Types
     -- * ElasticIpStatus
     ElasticIpStatus (..),
     newElasticIpStatus,
-    elasticIpStatus_elasticIp,
     elasticIpStatus_status,
+    elasticIpStatus_elasticIp,
 
     -- * Endpoint
     Endpoint (..),
@@ -402,6 +471,33 @@ module Network.AWS.Redshift.Types
     endpoint_address,
     endpoint_vpcEndpoints,
     endpoint_port,
+
+    -- * EndpointAccess
+    EndpointAccess (..),
+    newEndpointAccess,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_endpointName,
+    endpointAccess_address,
+    endpointAccess_resourceOwner,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointStatus,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_port,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_subnetGroupName,
+
+    -- * EndpointAuthorization
+    EndpointAuthorization (..),
+    newEndpointAuthorization,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_status,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_grantor,
+    endpointAuthorization_endpointCount,
 
     -- * Event
     Event (..),
@@ -425,8 +521,8 @@ module Network.AWS.Redshift.Types
     newEventInfoMap,
     eventInfoMap_eventId,
     eventInfoMap_severity,
-    eventInfoMap_eventDescription,
     eventInfoMap_eventCategories,
+    eventInfoMap_eventDescription,
 
     -- * EventSubscription
     EventSubscription (..),
@@ -479,8 +575,8 @@ module Network.AWS.Redshift.Types
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
     loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
 
     -- * MaintenanceTrack
@@ -489,6 +585,14 @@ module Network.AWS.Redshift.Types
     maintenanceTrack_updateTargets,
     maintenanceTrack_databaseVersion,
     maintenanceTrack_maintenanceTrackName,
+
+    -- * NetworkInterface
+    NetworkInterface (..),
+    newNetworkInterface,
+    networkInterface_availabilityZone,
+    networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
+    networkInterface_privateIpAddress,
 
     -- * NodeConfigurationOption
     NodeConfigurationOption (..),
@@ -510,8 +614,8 @@ module Network.AWS.Redshift.Types
     newOrderableClusterOption,
     orderableClusterOption_availabilityZones,
     orderableClusterOption_clusterType,
-    orderableClusterOption_nodeType,
     orderableClusterOption_clusterVersion,
+    orderableClusterOption_nodeType,
 
     -- * Parameter
     Parameter (..),
@@ -526,6 +630,30 @@ module Network.AWS.Redshift.Types
     parameter_isModifiable,
     parameter_minimumEngineVersion,
 
+    -- * PartnerIntegrationInfo
+    PartnerIntegrationInfo (..),
+    newPartnerIntegrationInfo,
+    partnerIntegrationInfo_statusMessage,
+    partnerIntegrationInfo_status,
+    partnerIntegrationInfo_updatedAt,
+    partnerIntegrationInfo_createdAt,
+    partnerIntegrationInfo_partnerName,
+    partnerIntegrationInfo_databaseName,
+
+    -- * PartnerIntegrationInputMessage
+    PartnerIntegrationInputMessage (..),
+    newPartnerIntegrationInputMessage,
+    partnerIntegrationInputMessage_accountId,
+    partnerIntegrationInputMessage_clusterIdentifier,
+    partnerIntegrationInputMessage_databaseName,
+    partnerIntegrationInputMessage_partnerName,
+
+    -- * PartnerIntegrationOutputMessage
+    PartnerIntegrationOutputMessage (..),
+    newPartnerIntegrationOutputMessage,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
+
     -- * PauseClusterMessage
     PauseClusterMessage (..),
     newPauseClusterMessage,
@@ -534,16 +662,16 @@ module Network.AWS.Redshift.Types
     -- * PendingModifiedValues
     PendingModifiedValues (..),
     newPendingModifiedValues,
-    pendingModifiedValues_encryptionType,
     pendingModifiedValues_enhancedVpcRouting,
+    pendingModifiedValues_encryptionType,
     pendingModifiedValues_automatedSnapshotRetentionPeriod,
     pendingModifiedValues_masterUserPassword,
     pendingModifiedValues_publiclyAccessible,
     pendingModifiedValues_clusterType,
     pendingModifiedValues_clusterIdentifier,
     pendingModifiedValues_numberOfNodes,
-    pendingModifiedValues_nodeType,
     pendingModifiedValues_clusterVersion,
+    pendingModifiedValues_nodeType,
     pendingModifiedValues_maintenanceTrackName,
 
     -- * RecurringCharge
@@ -609,11 +737,11 @@ module Network.AWS.Redshift.Types
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
     resizeProgressMessage_targetEncryptionType,
     resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_dataTransferProgressPercent,
     resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
 
@@ -662,8 +790,8 @@ module Network.AWS.Redshift.Types
     ScheduledActionType (..),
     newScheduledActionType,
     scheduledActionType_resumeCluster,
-    scheduledActionType_resizeCluster,
     scheduledActionType_pauseCluster,
+    scheduledActionType_resizeCluster,
 
     -- * Snapshot
     Snapshot (..),
@@ -676,29 +804,29 @@ module Network.AWS.Redshift.Types
     snapshot_clusterCreateTime,
     snapshot_manualSnapshotRemainingDays,
     snapshot_snapshotCreateTime,
+    snapshot_encryptedWithHSM,
     snapshot_currentBackupRateInMegaBytesPerSecond,
     snapshot_masterUsername,
-    snapshot_encryptedWithHSM,
-    snapshot_manualSnapshotRetentionPeriod,
     snapshot_kmsKeyId,
+    snapshot_manualSnapshotRetentionPeriod,
     snapshot_engineFullVersion,
     snapshot_availabilityZone,
-    snapshot_restorableNodeTypes,
     snapshot_snapshotType,
+    snapshot_restorableNodeTypes,
     snapshot_accountsWithRestoreAccess,
+    snapshot_tags,
+    snapshot_dbName,
     snapshot_actualIncrementalBackupSizeInMegaBytes,
     snapshot_clusterIdentifier,
-    snapshot_tags,
-    snapshot_numberOfNodes,
-    snapshot_port,
     snapshot_totalBackupSizeInMegaBytes,
-    snapshot_dbName,
-    snapshot_backupProgressInMegaBytes,
+    snapshot_port,
+    snapshot_numberOfNodes,
     snapshot_elapsedTimeInSeconds,
-    snapshot_nodeType,
-    snapshot_ownerAccount,
+    snapshot_backupProgressInMegaBytes,
     snapshot_clusterVersion,
     snapshot_vpcId,
+    snapshot_ownerAccount,
+    snapshot_nodeType,
     snapshot_sourceRegion,
     snapshot_snapshotRetentionStartTime,
     snapshot_maintenanceTrackName,
@@ -726,8 +854,8 @@ module Network.AWS.Redshift.Types
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
+    snapshotSchedule_associatedClusterCount,
 
     -- * SnapshotSortingEntity
     SnapshotSortingEntity (..),
@@ -755,20 +883,20 @@ module Network.AWS.Redshift.Types
     -- * TableRestoreStatus
     TableRestoreStatus (..),
     newTableRestoreStatus,
-    tableRestoreStatus_sourceDatabaseName,
-    tableRestoreStatus_snapshotIdentifier,
     tableRestoreStatus_targetSchemaName,
+    tableRestoreStatus_snapshotIdentifier,
+    tableRestoreStatus_sourceDatabaseName,
     tableRestoreStatus_status,
-    tableRestoreStatus_requestTime,
     tableRestoreStatus_sourceTableName,
+    tableRestoreStatus_requestTime,
+    tableRestoreStatus_sourceSchemaName,
     tableRestoreStatus_targetDatabaseName,
     tableRestoreStatus_message,
-    tableRestoreStatus_sourceSchemaName,
     tableRestoreStatus_clusterIdentifier,
-    tableRestoreStatus_progressInMegaBytes,
     tableRestoreStatus_newTableName,
-    tableRestoreStatus_totalDataInMegaBytes,
+    tableRestoreStatus_progressInMegaBytes,
     tableRestoreStatus_tableRestoreRequestId,
+    tableRestoreStatus_totalDataInMegaBytes,
 
     -- * Tag
     Tag (..),
@@ -797,8 +925,8 @@ module Network.AWS.Redshift.Types
     usageLimit_featureType,
     usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_clusterIdentifier,
     usageLimit_tags,
+    usageLimit_clusterIdentifier,
     usageLimit_period,
     usageLimit_usageLimitId,
 
@@ -806,6 +934,8 @@ module Network.AWS.Redshift.Types
     VpcEndpoint (..),
     newVpcEndpoint,
     vpcEndpoint_vpcEndpointId,
+    vpcEndpoint_vpcId,
+    vpcEndpoint_networkInterfaces,
 
     -- * VpcSecurityGroupMembership
     VpcSecurityGroupMembership (..),
@@ -822,7 +952,12 @@ import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.AccountAttribute
 import Network.AWS.Redshift.Types.AccountWithRestoreAccess
 import Network.AWS.Redshift.Types.ActionType
+import Network.AWS.Redshift.Types.AquaConfiguration
+import Network.AWS.Redshift.Types.AquaConfigurationStatus
+import Network.AWS.Redshift.Types.AquaStatus
 import Network.AWS.Redshift.Types.AttributeValueTarget
+import Network.AWS.Redshift.Types.AuthenticationProfile
+import Network.AWS.Redshift.Types.AuthorizationStatus
 import Network.AWS.Redshift.Types.AvailabilityZone
 import Network.AWS.Redshift.Types.Cluster
 import Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
@@ -838,6 +973,11 @@ import Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
 import Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
 import Network.AWS.Redshift.Types.ClusterSubnetGroup
 import Network.AWS.Redshift.Types.ClusterVersion
+import Network.AWS.Redshift.Types.DataShare
+import Network.AWS.Redshift.Types.DataShareAssociation
+import Network.AWS.Redshift.Types.DataShareStatus
+import Network.AWS.Redshift.Types.DataShareStatusForConsumer
+import Network.AWS.Redshift.Types.DataShareStatusForProducer
 import Network.AWS.Redshift.Types.DataTransferProgress
 import Network.AWS.Redshift.Types.DefaultClusterParameters
 import Network.AWS.Redshift.Types.DeferredMaintenanceWindow
@@ -845,6 +985,8 @@ import Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage
 import Network.AWS.Redshift.Types.EC2SecurityGroup
 import Network.AWS.Redshift.Types.ElasticIpStatus
 import Network.AWS.Redshift.Types.Endpoint
+import Network.AWS.Redshift.Types.EndpointAccess
+import Network.AWS.Redshift.Types.EndpointAuthorization
 import Network.AWS.Redshift.Types.Event
 import Network.AWS.Redshift.Types.EventCategoriesMap
 import Network.AWS.Redshift.Types.EventInfoMap
@@ -856,6 +998,7 @@ import Network.AWS.Redshift.Types.IPRange
 import Network.AWS.Redshift.Types.LoggingStatus
 import Network.AWS.Redshift.Types.MaintenanceTrack
 import Network.AWS.Redshift.Types.Mode
+import Network.AWS.Redshift.Types.NetworkInterface
 import Network.AWS.Redshift.Types.NodeConfigurationOption
 import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter
 import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
@@ -863,6 +1006,10 @@ import Network.AWS.Redshift.Types.OperatorType
 import Network.AWS.Redshift.Types.OrderableClusterOption
 import Network.AWS.Redshift.Types.Parameter
 import Network.AWS.Redshift.Types.ParameterApplyType
+import Network.AWS.Redshift.Types.PartnerIntegrationInfo
+import Network.AWS.Redshift.Types.PartnerIntegrationInputMessage
+import Network.AWS.Redshift.Types.PartnerIntegrationOutputMessage
+import Network.AWS.Redshift.Types.PartnerIntegrationStatus
 import Network.AWS.Redshift.Types.PauseClusterMessage
 import Network.AWS.Redshift.Types.PendingModifiedValues
 import Network.AWS.Redshift.Types.RecurringCharge
@@ -977,6 +1124,39 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Could not find the specified S3 bucket.
+_BucketNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "BucketNotFoundFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The subscription request is invalid because it is a duplicate request.
+-- This subscription request is already in progress.
+_InvalidSubscriptionStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubscriptionStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubscriptionStateFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The cluster subnet group does not cover all Availability Zones.
+_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidVPCNetworkStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidVPCNetworkStateFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The definition you submitted is not supported.
+_ScheduleDefinitionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScheduleDefinitionTypeUnsupportedFault =
+  Core._MatchServiceError
+    defaultService
+    "ScheduleDefinitionTypeUnsupported"
+    Prelude.. Core.hasStatus 400
+
 -- | A cluster security group with the same name already exists.
 _ClusterSecurityGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterSecurityGroupAlreadyExistsFault =
@@ -993,12 +1173,12 @@ _ClusterSnapshotNotFoundFault =
     "ClusterSnapshotNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The definition you submitted is not supported.
-_ScheduleDefinitionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ScheduleDefinitionTypeUnsupportedFault =
+-- | The status of the endpoint is not valid.
+_InvalidEndpointStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEndpointStateFault =
   Core._MatchServiceError
     defaultService
-    "ScheduleDefinitionTypeUnsupported"
+    "InvalidEndpointState"
     Prelude.. Core.hasStatus 400
 
 -- | The cluster subnet group name does not refer to an existing cluster
@@ -1010,32 +1190,28 @@ _ClusterSubnetGroupNotFoundFault =
     "ClusterSubnetGroupNotFoundFault"
     Prelude.. Core.hasStatus 400
 
--- | The cluster subnet group does not cover all Availability Zones.
-_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidVPCNetworkStateFault =
+-- | The scheduled action is not valid.
+_InvalidScheduledActionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidScheduledActionFault =
   Core._MatchServiceError
     defaultService
-    "InvalidVPCNetworkStateFault"
+    "InvalidScheduledAction"
     Prelude.. Core.hasStatus 400
 
--- | The subscription request is invalid because it is a duplicate request.
--- This subscription request is already in progress.
-_InvalidSubscriptionStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubscriptionStateFault =
+-- | The request would result in the user exceeding the allowed number of
+-- cluster security groups. For information about increasing your quota, go
+-- to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterSecurityGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "InvalidSubscriptionStateFault"
+    "QuotaExceeded.ClusterSecurityGroup"
     Prelude.. Core.hasStatus 400
 
--- | Could not find the specified S3 bucket.
-_BucketNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BucketNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "BucketNotFoundFault"
-    Prelude.. Core.hasStatus 400
-
--- | The encryption key has exceeded its grant limit in AWS KMS.
+-- | The encryption key has exceeded its grant limit in Amazon Web Services
+-- KMS.
 _LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededFault =
   Core._MatchServiceError
@@ -1052,24 +1228,51 @@ _SubscriptionAlreadyExistFault =
     "SubscriptionAlreadyExist"
     Prelude.. Core.hasStatus 400
 
--- | The request would result in the user exceeding the allowed number of
--- cluster security groups. For information about increasing your quota, go
--- to
+-- | The quota for HSM configurations has been reached. For information about
+-- increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterSecurityGroupQuotaExceededFault =
+_HsmConfigurationQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HsmConfigurationQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "QuotaExceeded.ClusterSecurityGroup"
+    "HsmConfigurationQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
--- | The scheduled action is not valid.
-_InvalidScheduledActionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidScheduledActionFault =
+-- | The authorization for this endpoint can\'t be found.
+_EndpointAuthorizationNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAuthorizationNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "InvalidScheduledAction"
+    "EndpointAuthorizationNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The number of Redshift-managed VPC endpoints per cluster has exceeded
+-- its limit.
+_EndpointsPerClusterLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointsPerClusterLimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "EndpointsPerClusterLimitExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The authentication profile request is not valid. The profile name can\'t
+-- be null or empty. The authentication profile API operation must be
+-- available in the Amazon Web Services Region.
+_InvalidAuthenticationProfileRequestFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthenticationProfileRequestFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAuthenticationProfileRequestFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The cluster does not have read bucket or put object permissions on the
+-- S3 bucket specified when enabling logging.
+_InsufficientS3BucketPolicyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientS3BucketPolicyFault =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientS3BucketPolicyFault"
     Prelude.. Core.hasStatus 400
 
 -- | The value specified for the event severity was not one of the allowed
@@ -1082,23 +1285,6 @@ _SubscriptionSeverityNotFoundFault =
     "SubscriptionSeverityNotFound"
     Prelude.. Core.hasStatus 404
 
--- | Your account is not authorized to perform the requested operation.
-_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedOperation =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedOperation"
-    Prelude.. Core.hasStatus 400
-
--- | The cluster does not have read bucket or put object permissions on the
--- S3 bucket specified when enabling logging.
-_InsufficientS3BucketPolicyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientS3BucketPolicyFault =
-  Core._MatchServiceError
-    defaultService
-    "InsufficientS3BucketPolicyFault"
-    Prelude.. Core.hasStatus 400
-
 -- | The number of nodes specified exceeds the allotted capacity of the
 -- cluster.
 _InsufficientClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1108,15 +1294,12 @@ _InsufficientClusterCapacityFault =
     "InsufficientClusterCapacity"
     Prelude.. Core.hasStatus 400
 
--- | The quota for HSM configurations has been reached. For information about
--- increasing your quota, go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
--- in the /Amazon Redshift Cluster Management Guide/.
-_HsmConfigurationQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HsmConfigurationQuotaExceededFault =
+-- | Your account is not authorized to perform the requested operation.
+_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperation =
   Core._MatchServiceError
     defaultService
-    "HsmConfigurationQuotaExceededFault"
+    "UnauthorizedOperation"
     Prelude.. Core.hasStatus 400
 
 -- | The usage limit identifier can\'t be found.
@@ -1143,14 +1326,6 @@ _SnapshotScheduleQuotaExceededFault =
     "SnapshotScheduleQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | You do not have permission to publish to the specified Amazon SNS topic.
-_SNSNoAuthorizationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SNSNoAuthorizationFault =
-  Core._MatchServiceError
-    defaultService
-    "SNSNoAuthorization"
-    Prelude.. Core.hasStatus 400
-
 -- | The scheduled action cannot be found.
 _ScheduledActionNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ScheduledActionNotFoundFault =
@@ -1168,6 +1343,30 @@ _HsmClientCertificateAlreadyExistsFault =
     "HsmClientCertificateAlreadyExistsFault"
     Prelude.. Core.hasStatus 400
 
+-- | You do not have permission to publish to the specified Amazon SNS topic.
+_SNSNoAuthorizationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SNSNoAuthorizationFault =
+  Core._MatchServiceError
+    defaultService
+    "SNSNoAuthorization"
+    Prelude.. Core.hasStatus 400
+
+-- | The restore is invalid.
+_InvalidRestoreFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRestoreFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRestore"
+    Prelude.. Core.hasStatus 406
+
+-- | The @ClusterIdentifier@ parameter does not refer to an existing cluster.
+_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterNotFound"
+    Prelude.. Core.hasStatus 404
+
 -- | The resource could not be found.
 _ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundFault =
@@ -1175,6 +1374,14 @@ _ResourceNotFoundFault =
     defaultService
     "ResourceNotFoundFault"
     Prelude.. Core.hasStatus 404
+
+-- | The scheduled action already exists.
+_ScheduledActionAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScheduledActionAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ScheduledActionAlreadyExists"
+    Prelude.. Core.hasStatus 400
 
 -- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does
 -- not exist.
@@ -1185,29 +1392,30 @@ _SNSTopicArnNotFoundFault =
     "SNSTopicArnNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The restore is invalid.
-_InvalidRestoreFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRestoreFault =
+-- | The specified snapshot schedule is already being updated.
+_SnapshotScheduleUpdateInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotScheduleUpdateInProgressFault =
   Core._MatchServiceError
     defaultService
-    "InvalidRestore"
-    Prelude.. Core.hasStatus 406
-
--- | The scheduled action already exists.
-_ScheduledActionAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ScheduledActionAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ScheduledActionAlreadyExists"
+    "SnapshotScheduleUpdateInProgress"
     Prelude.. Core.hasStatus 400
 
--- | The @ClusterIdentifier@ parameter does not refer to an existing cluster.
-_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterNotFoundFault =
+-- | Indicates that the Reserved Node being exchanged is not in an active
+-- state.
+_InvalidReservedNodeStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReservedNodeStateFault =
   Core._MatchServiceError
     defaultService
-    "ClusterNotFound"
-    Prelude.. Core.hasStatus 404
+    "InvalidReservedNodeState"
+    Prelude.. Core.hasStatus 400
+
+-- | We could not find the specified snapshot schedule.
+_SnapshotScheduleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotScheduleNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotScheduleNotFound"
+    Prelude.. Core.hasStatus 400
 
 -- | The quota for scheduled actions exceeded.
 _ScheduledActionQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1215,14 +1423,6 @@ _ScheduledActionQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ScheduledActionQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The action type specified for a scheduled action is not supported.
-_ScheduledActionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ScheduledActionTypeUnsupportedFault =
-  Core._MatchServiceError
-    defaultService
-    "ScheduledActionTypeUnsupported"
     Prelude.. Core.hasStatus 400
 
 -- | The request would exceed the allowed number of event subscriptions for
@@ -1236,46 +1436,21 @@ _EventSubscriptionQuotaExceededFault =
     "EventSubscriptionQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | We could not find the specified snapshot schedule.
-_SnapshotScheduleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotScheduleNotFoundFault =
+-- | The action type specified for a scheduled action is not supported.
+_ScheduledActionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScheduledActionTypeUnsupportedFault =
   Core._MatchServiceError
     defaultService
-    "SnapshotScheduleNotFound"
+    "ScheduledActionTypeUnsupported"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the Reserved Node being exchanged is not in an active
--- state.
-_InvalidReservedNodeStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidReservedNodeStateFault =
+-- | The number of Redshift-managed VPC endpoints per authorization has
+-- exceeded its limit.
+_EndpointsPerAuthorizationLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointsPerAuthorizationLimitExceededFault =
   Core._MatchServiceError
     defaultService
-    "InvalidReservedNodeState"
-    Prelude.. Core.hasStatus 400
-
--- | The specified snapshot schedule is already being updated.
-_SnapshotScheduleUpdateInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotScheduleUpdateInProgressFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotScheduleUpdateInProgress"
-    Prelude.. Core.hasStatus 400
-
--- | The maximum number for snapshot identifiers has been reached. The limit
--- is 100.
-_BatchModifyClusterSnapshotsLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BatchModifyClusterSnapshotsLimitExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "BatchModifyClusterSnapshotsLimitExceededFault"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the reserved node has already been exchanged.
-_ReservedNodeAlreadyMigratedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedNodeAlreadyMigratedFault =
-  Core._MatchServiceError
-    defaultService
-    "ReservedNodeAlreadyMigrated"
+    "EndpointsPerAuthorizationLimitExceeded"
     Prelude.. Core.hasStatus 400
 
 -- | The specified options are incompatible.
@@ -1284,14 +1459,6 @@ _IncompatibleOrderableOptions =
   Core._MatchServiceError
     defaultService
     "IncompatibleOrderableOptions"
-    Prelude.. Core.hasStatus 400
-
--- | The state of the subnet is invalid.
-_InvalidClusterSubnetStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterSubnetStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidClusterSubnetStateFault"
     Prelude.. Core.hasStatus 400
 
 -- | The request would exceed the allowed number of cluster instances for
@@ -1305,23 +1472,37 @@ _ClusterQuotaExceededFault =
     "ClusterQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The S3 bucket name is invalid. For more information about naming rules,
--- go to
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
--- in the Amazon Simple Storage Service (S3) Developer Guide.
-_InvalidS3BucketNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3BucketNameFault =
+-- | The state of the subnet is invalid.
+_InvalidClusterSubnetStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterSubnetStateFault =
   Core._MatchServiceError
     defaultService
-    "InvalidS3BucketNameFault"
+    "InvalidClusterSubnetStateFault"
     Prelude.. Core.hasStatus 400
 
--- | The cluster subnet group cannot be deleted because it is in use.
-_InvalidClusterSubnetGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterSubnetGroupStateFault =
+-- | Indicates that the reserved node has already been exchanged.
+_ReservedNodeAlreadyMigratedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedNodeAlreadyMigratedFault =
   Core._MatchServiceError
     defaultService
-    "InvalidClusterSubnetGroupStateFault"
+    "ReservedNodeAlreadyMigrated"
+    Prelude.. Core.hasStatus 400
+
+-- | The maximum number for snapshot identifiers has been reached. The limit
+-- is 100.
+_BatchModifyClusterSnapshotsLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchModifyClusterSnapshotsLimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "BatchModifyClusterSnapshotsLimitExceededFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested operation isn\'t supported.
+_UnsupportedOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationFault =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperation"
     Prelude.. Core.hasStatus 400
 
 -- | There is already an existing Amazon Redshift HSM configuration with the
@@ -1333,6 +1514,17 @@ _HsmConfigurationAlreadyExistsFault =
     "HsmConfigurationAlreadyExistsFault"
     Prelude.. Core.hasStatus 400
 
+-- | The S3 bucket name is invalid. For more information about naming rules,
+-- go to
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
+-- in the Amazon Simple Storage Service (S3) Developer Guide.
+_InvalidS3BucketNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3BucketNameFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3BucketNameFault"
+    Prelude.. Core.hasStatus 400
+
 -- | The cluster security group name does not refer to an existing cluster
 -- security group.
 _ClusterSecurityGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1342,12 +1534,12 @@ _ClusterSecurityGroupNotFoundFault =
     "ClusterSecurityGroupNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The requested operation isn\'t supported.
-_UnsupportedOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationFault =
+-- | The cluster subnet group cannot be deleted because it is in use.
+_InvalidClusterSubnetGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterSubnetGroupStateFault =
   Core._MatchServiceError
     defaultService
-    "UnsupportedOperation"
+    "InvalidClusterSubnetGroupStateFault"
     Prelude.. Core.hasStatus 400
 
 -- | The Elastic IP (EIP) is invalid or cannot be found.
@@ -1358,12 +1550,21 @@ _InvalidElasticIpFault =
     "InvalidElasticIpFault"
     Prelude.. Core.hasStatus 400
 
--- | The cluster snapshot schedule state is not valid.
-_InvalidClusterSnapshotScheduleStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterSnapshotScheduleStateFault =
+-- | The account already has a Redshift-managed VPC endpoint with the given
+-- identifier.
+_EndpointAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "InvalidClusterSnapshotScheduleState"
+    "EndpointAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | The status of the authorization is not valid.
+_InvalidAuthorizationStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthorizationStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAuthorizationState"
     Prelude.. Core.hasStatus 400
 
 -- | The specified @TableRestoreRequestId@ value was not found.
@@ -1374,6 +1575,14 @@ _TableRestoreNotFoundFault =
     "TableRestoreNotFoundFault"
     Prelude.. Core.hasStatus 400
 
+-- | The authentication profile already exists.
+_AuthenticationProfileAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthenticationProfileAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "AuthenticationProfileAlreadyExistsFault"
+    Prelude.. Core.hasStatus 400
+
 -- | There is no Amazon Redshift HSM configuration with the specified
 -- identifier.
 _HsmConfigurationNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1382,6 +1591,14 @@ _HsmConfigurationNotFoundFault =
     defaultService
     "HsmConfigurationNotFoundFault"
     Prelude.. Core.hasStatus 400
+
+-- | The name of the partner was not found.
+_PartnerNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PartnerNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "PartnerNotFound"
+    Prelude.. Core.hasStatus 404
 
 -- | The specified CIDR block or EC2 security group is already authorized for
 -- the specified cluster security group.
@@ -1400,30 +1617,21 @@ _InvalidClusterSecurityGroupStateFault =
     "InvalidClusterSecurityGroupState"
     Prelude.. Core.hasStatus 400
 
--- | The usage limit already exists.
-_UsageLimitAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UsageLimitAlreadyExistsFault =
+-- | The cluster snapshot schedule state is not valid.
+_InvalidClusterSnapshotScheduleStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterSnapshotScheduleStateFault =
   Core._MatchServiceError
     defaultService
-    "UsageLimitAlreadyExists"
+    "InvalidClusterSnapshotScheduleState"
     Prelude.. Core.hasStatus 400
 
--- | Amazon SNS has responded that there is a problem with the specified
--- Amazon SNS topic.
-_SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SNSInvalidTopicFault =
+-- | The authorization already exists for this endpoint.
+_EndpointAuthorizationAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAuthorizationAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "SNSInvalidTopic"
+    "EndpointAuthorizationAlreadyExists"
     Prelude.. Core.hasStatus 400
-
--- | The specified Amazon Redshift event source could not be found.
-_SourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SourceNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "SourceNotFound"
-    Prelude.. Core.hasStatus 404
 
 -- | The string specified for the logging S3 key prefix does not comply with
 -- the documented constraints.
@@ -1434,29 +1642,20 @@ _InvalidS3KeyPrefixFault =
     "InvalidS3KeyPrefixFault"
     Prelude.. Core.hasStatus 400
 
--- | A request option was specified that is not supported.
-_UnsupportedOptionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOptionFault =
+-- | The specified Amazon Redshift event source could not be found.
+_SourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SourceNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "UnsupportedOptionFault"
-    Prelude.. Core.hasStatus 400
+    "SourceNotFound"
+    Prelude.. Core.hasStatus 404
 
--- | The authorization quota for the cluster security group has been reached.
-_AuthorizationQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AuthorizationQuotaExceededFault =
+-- | The usage limit already exists.
+_UsageLimitAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UsageLimitAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "AuthorizationQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | Your request cannot be completed because a dependent internal service is
--- temporarily unavailable. Wait 30 to 60 seconds and try again.
-_DependentServiceUnavailableFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DependentServiceUnavailableFault =
-  Core._MatchServiceError
-    defaultService
-    "DependentServiceUnavailableFault"
+    "UsageLimitAlreadyExists"
     Prelude.. Core.hasStatus 400
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
@@ -1468,12 +1667,57 @@ _CopyToRegionDisabledFault =
     "CopyToRegionDisabledFault"
     Prelude.. Core.hasStatus 400
 
--- | Cluster is already on the latest database revision.
-_ClusterOnLatestRevisionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterOnLatestRevisionFault =
+-- | Amazon SNS has responded that there is a problem with the specified
+-- Amazon SNS topic.
+_SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SNSInvalidTopicFault =
   Core._MatchServiceError
     defaultService
-    "ClusterOnLatestRevision"
+    "SNSInvalidTopic"
+    Prelude.. Core.hasStatus 400
+
+-- | Your request cannot be completed because a dependent internal service is
+-- temporarily unavailable. Wait 30 to 60 seconds and try again.
+_DependentServiceUnavailableFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependentServiceUnavailableFault =
+  Core._MatchServiceError
+    defaultService
+    "DependentServiceUnavailableFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The size or number of authentication profiles has exceeded the quota.
+-- The maximum length of the JSON string and maximum number of
+-- authentication profiles is determined by a quota for your account.
+_AuthenticationProfileQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthenticationProfileQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "AuthenticationProfileQuotaExceededFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The authorization quota for the cluster security group has been reached.
+_AuthorizationQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "AuthorizationQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | A request option was specified that is not supported.
+_UnsupportedOptionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOptionFault =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOptionFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster snapshots.
+_ClusterSnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterSnapshotQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterSnapshotQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
 -- | A specified subnet is already in use by another cluster.
@@ -1482,6 +1726,14 @@ _SubnetAlreadyInUse =
   Core._MatchServiceError
     defaultService
     "SubnetAlreadyInUse"
+    Prelude.. Core.hasStatus 400
+
+-- | Cluster is already on the latest database revision.
+_ClusterOnLatestRevisionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterOnLatestRevisionFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterOnLatestRevision"
     Prelude.. Core.hasStatus 400
 
 -- | The request would result in user exceeding the allowed number of cluster
@@ -1495,13 +1747,20 @@ _ClusterSubnetGroupQuotaExceededFault =
     "ClusterSubnetGroupQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The request would result in the user exceeding the allowed number of
--- cluster snapshots.
-_ClusterSnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterSnapshotQuotaExceededFault =
+-- | The provided cluster track name is not valid.
+_InvalidClusterTrackFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterTrackFault =
   Core._MatchServiceError
     defaultService
-    "ClusterSnapshotQuotaExceeded"
+    "InvalidClusterTrack"
+    Prelude.. Core.hasStatus 400
+
+-- | You have exceeded the number of tags allowed.
+_TagLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "TagLimitExceededFault"
     Prelude.. Core.hasStatus 400
 
 -- | The schedule you submitted isn\'t valid.
@@ -1510,6 +1769,67 @@ _InvalidScheduleFault =
   Core._MatchServiceError
     defaultService
     "InvalidSchedule"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified HSM client certificate is not in the @available@ state, or
+-- it is still in use by one or more Amazon Redshift clusters.
+_InvalidHsmClientCertificateStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidHsmClientCertificateStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidHsmClientCertificateStateFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The account already has a cluster with the given identifier.
+_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | The value specified for the @sourceDatabaseName@, @sourceSchemaName@, or
+-- @sourceTableName@ parameter, or a combination of these, doesn\'t exist
+-- in the snapshot.
+_InvalidTableRestoreArgumentFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTableRestoreArgumentFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTableRestoreArgument"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified snapshot copy grant can\'t be found. Make sure that the
+-- name is typed correctly and that the grant exists in the destination
+-- region.
+_SnapshotCopyGrantNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotCopyGrantNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotCopyGrantNotFoundFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The partner integration is not authorized.
+_UnauthorizedPartnerIntegrationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedPartnerIntegrationFault =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedPartnerIntegration"
+    Prelude.. Core.hasStatus 401
+
+-- | The specified cluster is not in the @available@ state.
+_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClusterState"
+    Prelude.. Core.hasStatus 400
+
+-- | There is an error with the datashare.
+_InvalidDataShareFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDataShareFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDataShareFault"
     Prelude.. Core.hasStatus 400
 
 -- | The request would result in user exceeding the allowed number of subnets
@@ -1544,134 +1864,6 @@ _NumberOfNodesQuotaExceededFault =
     "NumberOfNodesQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The value specified for the @sourceDatabaseName@, @sourceSchemaName@, or
--- @sourceTableName@ parameter, or a combination of these, doesn\'t exist
--- in the snapshot.
-_InvalidTableRestoreArgumentFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTableRestoreArgumentFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTableRestoreArgument"
-    Prelude.. Core.hasStatus 400
-
--- | The provided cluster track name is not valid.
-_InvalidClusterTrackFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterTrackFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidClusterTrack"
-    Prelude.. Core.hasStatus 400
-
--- | The specified HSM client certificate is not in the @available@ state, or
--- it is still in use by one or more Amazon Redshift clusters.
-_InvalidHsmClientCertificateStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidHsmClientCertificateStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidHsmClientCertificateStateFault"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded the number of tags allowed.
-_TagLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagLimitExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "TagLimitExceededFault"
-    Prelude.. Core.hasStatus 400
-
--- | The specified snapshot copy grant can\'t be found. Make sure that the
--- name is typed correctly and that the grant exists in the destination
--- region.
-_SnapshotCopyGrantNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotCopyGrantNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotCopyGrantNotFoundFault"
-    Prelude.. Core.hasStatus 400
-
--- | The account already has a cluster with the given identifier.
-_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The specified cluster is not in the @available@ state.
-_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidClusterState"
-    Prelude.. Core.hasStatus 400
-
--- | The request would result in the user exceeding the allowed number of
--- cluster parameter groups. For information about increasing your quota,
--- go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
--- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterParameterGroupQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterParameterGroupQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The specified region is incorrect or does not exist.
-_UnknownSnapshotCopyRegionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnknownSnapshotCopyRegionFault =
-  Core._MatchServiceError
-    defaultService
-    "UnknownSnapshotCopyRegionFault"
-    Prelude.. Core.hasStatus 404
-
--- | Cross-region snapshot copy was temporarily disabled. Try your request
--- again.
-_SnapshotCopyDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotCopyDisabledFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotCopyDisabledFault"
-    Prelude.. Core.hasStatus 400
-
--- | The usage limit is not valid.
-_InvalidUsageLimitFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUsageLimitFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidUsageLimit"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded the allowed number of table restore requests. Wait for
--- your current table restore requests to complete before making a new
--- request.
-_InProgressTableRestoreQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InProgressTableRestoreQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "InProgressTableRestoreQuotaExceededFault"
-    Prelude.. Core.hasStatus 400
-
--- | Request would exceed the user\'s compute node quota. For information
--- about increasing your quota, go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
--- in the /Amazon Redshift Cluster Management Guide/.
-_ReservedNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedNodeQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "ReservedNodeQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | There is no Amazon Redshift HSM client certificate with the specified
--- identifier.
-_HsmClientCertificateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HsmClientCertificateNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "HsmClientCertificateNotFoundFault"
-    Prelude.. Core.hasStatus 400
-
 -- | An Amazon Redshift event with the specified event ID does not exist.
 _SubscriptionEventIdNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SubscriptionEventIdNotFoundFault =
@@ -1689,6 +1881,28 @@ _InvalidSnapshotCopyGrantStateFault =
     "InvalidSnapshotCopyGrantStateFault"
     Prelude.. Core.hasStatus 400
 
+-- | You have exceeded the allowed number of table restore requests. Wait for
+-- your current table restore requests to complete before making a new
+-- request.
+_InProgressTableRestoreQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InProgressTableRestoreQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "InProgressTableRestoreQuotaExceededFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster parameter groups. For information about increasing your quota,
+-- go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterParameterGroupQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterParameterGroupQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
 -- | The snapshot copy grant can\'t be created because a grant with the same
 -- name already exists.
 _SnapshotCopyGrantAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1696,6 +1910,32 @@ _SnapshotCopyGrantAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "SnapshotCopyGrantAlreadyExistsFault"
+    Prelude.. Core.hasStatus 400
+
+-- | Cross-region snapshot copy was temporarily disabled. Try your request
+-- again.
+_SnapshotCopyDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotCopyDisabledFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotCopyDisabledFault"
+    Prelude.. Core.hasStatus 400
+
+-- | There is no Amazon Redshift HSM client certificate with the specified
+-- identifier.
+_HsmClientCertificateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HsmClientCertificateNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "HsmClientCertificateNotFoundFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The usage limit is not valid.
+_InvalidUsageLimitFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUsageLimitFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidUsageLimit"
     Prelude.. Core.hasStatus 400
 
 -- | A resize operation for the specified cluster is not found.
@@ -1706,13 +1946,24 @@ _ResizeNotFoundFault =
     "ResizeNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The cluster already has cross-region snapshot copy enabled.
-_SnapshotCopyAlreadyEnabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotCopyAlreadyEnabledFault =
+-- | Request would exceed the user\'s compute node quota. For information
+-- about increasing your quota, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ReservedNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedNodeQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "SnapshotCopyAlreadyEnabledFault"
+    "ReservedNodeQuotaExceeded"
     Prelude.. Core.hasStatus 400
+
+-- | The specified region is incorrect or does not exist.
+_UnknownSnapshotCopyRegionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownSnapshotCopyRegionFault =
+  Core._MatchServiceError
+    defaultService
+    "UnknownSnapshotCopyRegionFault"
+    Prelude.. Core.hasStatus 404
 
 -- | The maximum number for a batch delete of snapshots has been reached. The
 -- limit is 100.
@@ -1723,6 +1974,15 @@ _BatchDeleteRequestSizeExceededFault =
     "BatchDeleteRequestSizeExceeded"
     Prelude.. Core.hasStatus 400
 
+-- | The namespace isn\'t valid because the namespace doesn\'t exist. Provide
+-- a valid namespace.
+_InvalidNamespaceFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNamespaceFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNamespaceFault"
+    Prelude.. Core.hasStatus 400
+
 -- | The operation would exceed the number of nodes allowed for a cluster.
 _NumberOfNodesPerClusterLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberOfNodesPerClusterLimitExceededFault =
@@ -1731,24 +1991,8 @@ _NumberOfNodesPerClusterLimitExceededFault =
     "NumberOfNodesPerClusterLimitExceeded"
     Prelude.. Core.hasStatus 400
 
--- | User already has a reservation with the given identifier.
-_ReservedNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedNodeAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ReservedNodeAlreadyExists"
-    Prelude.. Core.hasStatus 404
-
--- | A cluster parameter group with the same name already exists.
-_ClusterParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterParameterGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterParameterGroupAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The AWS account has exceeded the maximum number of snapshot copy grants
--- in this region.
+-- | The Amazon Web Services account has exceeded the maximum number of
+-- snapshot copy grants in this region.
 _SnapshotCopyGrantQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyGrantQuotaExceededFault =
   Core._MatchServiceError
@@ -1766,13 +2010,37 @@ _InvalidClusterParameterGroupStateFault =
     "InvalidClusterParameterGroupState"
     Prelude.. Core.hasStatus 400
 
--- | The cluster already has cross-region snapshot copy disabled.
-_SnapshotCopyAlreadyDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotCopyAlreadyDisabledFault =
+-- | The cluster already has cross-region snapshot copy enabled.
+_SnapshotCopyAlreadyEnabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotCopyAlreadyEnabledFault =
   Core._MatchServiceError
     defaultService
-    "SnapshotCopyAlreadyDisabledFault"
+    "SnapshotCopyAlreadyEnabledFault"
     Prelude.. Core.hasStatus 400
+
+-- | A cluster parameter group with the same name already exists.
+_ClusterParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterParameterGroupAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterParameterGroupAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | You are not authorized to access the cluster.
+_AccessToClusterDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessToClusterDeniedFault =
+  Core._MatchServiceError
+    defaultService
+    "AccessToClusterDenied"
+    Prelude.. Core.hasStatus 400
+
+-- | User already has a reservation with the given identifier.
+_ReservedNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedNodeAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ReservedNodeAlreadyExists"
+    Prelude.. Core.hasStatus 404
 
 -- | The specified snapshot schedule already exists.
 _SnapshotScheduleAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1781,6 +2049,14 @@ _SnapshotScheduleAlreadyExistsFault =
     defaultService
     "SnapshotScheduleAlreadyExists"
     Prelude.. Core.hasStatus 400
+
+-- | The parameter group name does not refer to an existing parameter group.
+_ClusterParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterParameterGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterParameterGroupNotFound"
+    Prelude.. Core.hasStatus 404
 
 -- | Specified offering does not exist.
 _ReservedNodeOfferingNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1798,6 +2074,14 @@ _ReservedNodeNotFoundFault =
     "ReservedNodeNotFound"
     Prelude.. Core.hasStatus 404
 
+-- | The cluster already has cross-region snapshot copy disabled.
+_SnapshotCopyAlreadyDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotCopyAlreadyDisabledFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotCopyAlreadyDisabledFault"
+    Prelude.. Core.hasStatus 400
+
 -- | The quota for HSM client certificates has been reached. For information
 -- about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
@@ -1809,12 +2093,12 @@ _HsmClientCertificateQuotaExceededFault =
     "HsmClientCertificateQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
--- | The parameter group name does not refer to an existing parameter group.
-_ClusterParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterParameterGroupNotFoundFault =
+-- | The endpoint name doesn\'t refer to an existing endpoint.
+_EndpointNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "ClusterParameterGroupNotFound"
+    "EndpointNotFound"
     Prelude.. Core.hasStatus 404
 
 -- | The value specified for the event category was not one of the allowed
@@ -1826,6 +2110,72 @@ _SubscriptionCategoryNotFoundFault =
   Core._MatchServiceError
     defaultService
     "SubscriptionCategoryNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The number of endpoint authorizations per cluster has exceeded its
+-- limit.
+_EndpointAuthorizationsPerClusterLimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAuthorizationsPerClusterLimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "EndpointAuthorizationsPerClusterLimitExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified cluster snapshot is not in the @available@ state, or other
+-- accounts are authorized to access the snapshot.
+_InvalidClusterSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterSnapshotStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClusterSnapshotState"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be completed because a dependent service is
+-- throttling requests made by Amazon Redshift on your behalf. Wait and
+-- retry the request.
+_DependentServiceRequestThrottlingFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependentServiceRequestThrottlingFault =
+  Core._MatchServiceError
+    defaultService
+    "DependentServiceRequestThrottlingFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The retention period specified is either in the past or is not a valid
+-- value.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+_InvalidRetentionPeriodFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRetentionPeriodFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRetentionPeriodFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The value specified as a snapshot identifier is already used by an
+-- existing snapshot.
+_ClusterSnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterSnapshotAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterSnapshotAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified HSM configuration is not in the @available@ state, or it
+-- is still in use by one or more Amazon Redshift clusters.
+_InvalidHsmConfigurationStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidHsmConfigurationStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidHsmConfigurationStateFault"
+    Prelude.. Core.hasStatus 400
+
+-- | An Amazon Redshift event notification subscription with the specified
+-- name does not exist.
+_SubscriptionNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubscriptionNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "SubscriptionNotFound"
     Prelude.. Core.hasStatus 404
 
 -- | The specified CIDR IP range or EC2 security group is not authorized for
@@ -1846,34 +2196,13 @@ _TableLimitExceededFault =
     "TableLimitExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The specified cluster snapshot is not in the @available@ state, or other
--- accounts are authorized to access the snapshot.
-_InvalidClusterSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterSnapshotStateFault =
+-- | The authentication profile can\'t be found.
+_AuthenticationProfileNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthenticationProfileNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "InvalidClusterSnapshotState"
-    Prelude.. Core.hasStatus 400
-
--- | The retention period specified is either in the past or is not a valid
--- value.
---
--- The value must be either -1 or an integer between 1 and 3,653.
-_InvalidRetentionPeriodFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRetentionPeriodFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRetentionPeriodFault"
-    Prelude.. Core.hasStatus 400
-
--- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
--- group.
-_ClusterSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterSubnetGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterSubnetGroupAlreadyExists"
-    Prelude.. Core.hasStatus 400
+    "AuthenticationProfileNotFoundFault"
+    Prelude.. Core.hasStatus 404
 
 -- | The requested subnet is not valid, or not all of the subnets are in the
 -- same VPC.
@@ -1884,39 +2213,11 @@ _InvalidSubnet =
     "InvalidSubnet"
     Prelude.. Core.hasStatus 400
 
--- | An Amazon Redshift event notification subscription with the specified
--- name does not exist.
-_SubscriptionNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubscriptionNotFoundFault =
+-- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
+-- group.
+_ClusterSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterSubnetGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "SubscriptionNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The value specified as a snapshot identifier is already used by an
--- existing snapshot.
-_ClusterSnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterSnapshotAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterSnapshotAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The specified HSM configuration is not in the @available@ state, or it
--- is still in use by one or more Amazon Redshift clusters.
-_InvalidHsmConfigurationStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidHsmConfigurationStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidHsmConfigurationStateFault"
-    Prelude.. Core.hasStatus 400
-
--- | The request cannot be completed because a dependent service is
--- throttling requests made by Amazon Redshift on your behalf. Wait and
--- retry the request.
-_DependentServiceRequestThrottlingFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DependentServiceRequestThrottlingFault =
-  Core._MatchServiceError
-    defaultService
-    "DependentServiceRequestThrottlingFault"
+    "ClusterSubnetGroupAlreadyExists"
     Prelude.. Core.hasStatus 400

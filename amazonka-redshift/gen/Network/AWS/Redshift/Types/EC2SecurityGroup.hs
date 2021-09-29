@@ -33,8 +33,8 @@ data EC2SecurityGroup = EC2SecurityGroup'
     status :: Prelude.Maybe Prelude.Text,
     -- | The list of tags for the EC2 security group.
     tags :: Prelude.Maybe [Tag],
-    -- | The AWS ID of the owner of the EC2 security group specified in the
-    -- @EC2SecurityGroupName@ field.
+    -- | The Amazon Web Services account ID of the owner of the EC2 security
+    -- group specified in the @EC2SecurityGroupName@ field.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The name of the EC2 Security Group.
     eC2SecurityGroupName :: Prelude.Maybe Prelude.Text
@@ -53,8 +53,8 @@ data EC2SecurityGroup = EC2SecurityGroup'
 --
 -- 'tags', 'eC2SecurityGroup_tags' - The list of tags for the EC2 security group.
 --
--- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the
--- @EC2SecurityGroupName@ field.
+-- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - The Amazon Web Services account ID of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ field.
 --
 -- 'eC2SecurityGroupName', 'eC2SecurityGroup_eC2SecurityGroupName' - The name of the EC2 Security Group.
 newEC2SecurityGroup ::
@@ -75,8 +75,8 @@ eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@
 eC2SecurityGroup_tags :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe [Tag])
 eC2SecurityGroup_tags = Lens.lens (\EC2SecurityGroup' {tags} -> tags) (\s@EC2SecurityGroup' {} a -> s {tags = a} :: EC2SecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS ID of the owner of the EC2 security group specified in the
--- @EC2SecurityGroupName@ field.
+-- | The Amazon Web Services account ID of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ field.
 eC2SecurityGroup_eC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupOwnerId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
 

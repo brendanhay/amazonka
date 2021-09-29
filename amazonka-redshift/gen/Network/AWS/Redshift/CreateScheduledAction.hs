@@ -29,8 +29,8 @@ module Network.AWS.Redshift.CreateScheduledAction
     newCreateScheduledAction,
 
     -- * Request Lenses
-    createScheduledAction_enable,
     createScheduledAction_scheduledActionDescription,
+    createScheduledAction_enable,
     createScheduledAction_startTime,
     createScheduledAction_endTime,
     createScheduledAction_scheduledActionName,
@@ -64,12 +64,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateScheduledAction' smart constructor.
 data CreateScheduledAction = CreateScheduledAction'
-  { -- | If true, the schedule is enabled. If false, the scheduled action does
+  { -- | The description of the scheduled action.
+    scheduledActionDescription :: Prelude.Maybe Prelude.Text,
+    -- | If true, the schedule is enabled. If false, the scheduled action does
     -- not trigger. For more information about @state@ of the scheduled action,
     -- see ScheduledAction.
     enable :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the scheduled action.
-    scheduledActionDescription :: Prelude.Maybe Prelude.Text,
     -- | The start time in UTC of the scheduled action. Before this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
@@ -102,11 +102,11 @@ data CreateScheduledAction = CreateScheduledAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scheduledActionDescription', 'createScheduledAction_scheduledActionDescription' - The description of the scheduled action.
+--
 -- 'enable', 'createScheduledAction_enable' - If true, the schedule is enabled. If false, the scheduled action does
 -- not trigger. For more information about @state@ of the scheduled action,
 -- see ScheduledAction.
---
--- 'scheduledActionDescription', 'createScheduledAction_scheduledActionDescription' - The description of the scheduled action.
 --
 -- 'startTime', 'createScheduledAction_startTime' - The start time in UTC of the scheduled action. Before this time, the
 -- scheduled action does not trigger. For more information about this
@@ -144,8 +144,9 @@ newCreateScheduledAction
   pSchedule_
   pIamRole_ =
     CreateScheduledAction'
-      { enable = Prelude.Nothing,
-        scheduledActionDescription = Prelude.Nothing,
+      { scheduledActionDescription =
+          Prelude.Nothing,
+        enable = Prelude.Nothing,
         startTime = Prelude.Nothing,
         endTime = Prelude.Nothing,
         scheduledActionName = pScheduledActionName_,
@@ -154,15 +155,15 @@ newCreateScheduledAction
         iamRole = pIamRole_
       }
 
+-- | The description of the scheduled action.
+createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Text)
+createScheduledAction_scheduledActionDescription = Lens.lens (\CreateScheduledAction' {scheduledActionDescription} -> scheduledActionDescription) (\s@CreateScheduledAction' {} a -> s {scheduledActionDescription = a} :: CreateScheduledAction)
+
 -- | If true, the schedule is enabled. If false, the scheduled action does
 -- not trigger. For more information about @state@ of the scheduled action,
 -- see ScheduledAction.
 createScheduledAction_enable :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Bool)
 createScheduledAction_enable = Lens.lens (\CreateScheduledAction' {enable} -> enable) (\s@CreateScheduledAction' {} a -> s {enable = a} :: CreateScheduledAction)
-
--- | The description of the scheduled action.
-createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Text)
-createScheduledAction_scheduledActionDescription = Lens.lens (\CreateScheduledAction' {scheduledActionDescription} -> scheduledActionDescription) (\s@CreateScheduledAction' {} a -> s {scheduledActionDescription = a} :: CreateScheduledAction)
 
 -- | The start time in UTC of the scheduled action. Before this time, the
 -- scheduled action does not trigger. For more information about this
@@ -224,9 +225,9 @@ instance Core.ToQuery CreateScheduledAction where
           Core.=: ("CreateScheduledAction" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Enable" Core.=: enable,
         "ScheduledActionDescription"
           Core.=: scheduledActionDescription,
+        "Enable" Core.=: enable,
         "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "ScheduledActionName" Core.=: scheduledActionName,

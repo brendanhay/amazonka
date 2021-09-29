@@ -41,8 +41,8 @@ module Network.AWS.Redshift.ModifySnapshotSchedule
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
+    snapshotSchedule_associatedClusterCount,
   )
 where
 

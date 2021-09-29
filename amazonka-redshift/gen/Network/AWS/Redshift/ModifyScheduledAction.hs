@@ -28,9 +28,9 @@ module Network.AWS.Redshift.ModifyScheduledAction
 
     -- * Request Lenses
     modifyScheduledAction_targetAction,
-    modifyScheduledAction_enable,
     modifyScheduledAction_iamRole,
     modifyScheduledAction_scheduledActionDescription,
+    modifyScheduledAction_enable,
     modifyScheduledAction_startTime,
     modifyScheduledAction_endTime,
     modifyScheduledAction_schedule,
@@ -65,14 +65,14 @@ data ModifyScheduledAction = ModifyScheduledAction'
   { -- | A modified JSON format of the scheduled action. For more information
     -- about this parameter, see ScheduledAction.
     targetAction :: Prelude.Maybe ScheduledActionType,
-    -- | A modified enable flag of the scheduled action. If true, the scheduled
-    -- action is active. If false, the scheduled action is disabled.
-    enable :: Prelude.Maybe Prelude.Bool,
     -- | A different IAM role to assume to run the target action. For more
     -- information about this parameter, see ScheduledAction.
     iamRole :: Prelude.Maybe Prelude.Text,
     -- | A modified description of the scheduled action.
     scheduledActionDescription :: Prelude.Maybe Prelude.Text,
+    -- | A modified enable flag of the scheduled action. If true, the scheduled
+    -- action is active. If false, the scheduled action is disabled.
+    enable :: Prelude.Maybe Prelude.Bool,
     -- | A modified start time of the scheduled action. For more information
     -- about this parameter, see ScheduledAction.
     startTime :: Prelude.Maybe Core.ISO8601,
@@ -98,13 +98,13 @@ data ModifyScheduledAction = ModifyScheduledAction'
 -- 'targetAction', 'modifyScheduledAction_targetAction' - A modified JSON format of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
 --
--- 'enable', 'modifyScheduledAction_enable' - A modified enable flag of the scheduled action. If true, the scheduled
--- action is active. If false, the scheduled action is disabled.
---
 -- 'iamRole', 'modifyScheduledAction_iamRole' - A different IAM role to assume to run the target action. For more
 -- information about this parameter, see ScheduledAction.
 --
 -- 'scheduledActionDescription', 'modifyScheduledAction_scheduledActionDescription' - A modified description of the scheduled action.
+--
+-- 'enable', 'modifyScheduledAction_enable' - A modified enable flag of the scheduled action. If true, the scheduled
+-- action is active. If false, the scheduled action is disabled.
 --
 -- 'startTime', 'modifyScheduledAction_startTime' - A modified start time of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
@@ -124,9 +124,9 @@ newModifyScheduledAction pScheduledActionName_ =
   ModifyScheduledAction'
     { targetAction =
         Prelude.Nothing,
-      enable = Prelude.Nothing,
       iamRole = Prelude.Nothing,
       scheduledActionDescription = Prelude.Nothing,
+      enable = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       schedule = Prelude.Nothing,
@@ -138,11 +138,6 @@ newModifyScheduledAction pScheduledActionName_ =
 modifyScheduledAction_targetAction :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe ScheduledActionType)
 modifyScheduledAction_targetAction = Lens.lens (\ModifyScheduledAction' {targetAction} -> targetAction) (\s@ModifyScheduledAction' {} a -> s {targetAction = a} :: ModifyScheduledAction)
 
--- | A modified enable flag of the scheduled action. If true, the scheduled
--- action is active. If false, the scheduled action is disabled.
-modifyScheduledAction_enable :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Bool)
-modifyScheduledAction_enable = Lens.lens (\ModifyScheduledAction' {enable} -> enable) (\s@ModifyScheduledAction' {} a -> s {enable = a} :: ModifyScheduledAction)
-
 -- | A different IAM role to assume to run the target action. For more
 -- information about this parameter, see ScheduledAction.
 modifyScheduledAction_iamRole :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
@@ -151,6 +146,11 @@ modifyScheduledAction_iamRole = Lens.lens (\ModifyScheduledAction' {iamRole} -> 
 -- | A modified description of the scheduled action.
 modifyScheduledAction_scheduledActionDescription :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
 modifyScheduledAction_scheduledActionDescription = Lens.lens (\ModifyScheduledAction' {scheduledActionDescription} -> scheduledActionDescription) (\s@ModifyScheduledAction' {} a -> s {scheduledActionDescription = a} :: ModifyScheduledAction)
+
+-- | A modified enable flag of the scheduled action. If true, the scheduled
+-- action is active. If false, the scheduled action is disabled.
+modifyScheduledAction_enable :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Bool)
+modifyScheduledAction_enable = Lens.lens (\ModifyScheduledAction' {enable} -> enable) (\s@ModifyScheduledAction' {} a -> s {enable = a} :: ModifyScheduledAction)
 
 -- | A modified start time of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
@@ -199,10 +199,10 @@ instance Core.ToQuery ModifyScheduledAction where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "TargetAction" Core.=: targetAction,
-        "Enable" Core.=: enable,
         "IamRole" Core.=: iamRole,
         "ScheduledActionDescription"
           Core.=: scheduledActionDescription,
+        "Enable" Core.=: enable,
         "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "Schedule" Core.=: schedule,

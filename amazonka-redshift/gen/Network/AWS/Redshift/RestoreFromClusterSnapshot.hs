@@ -48,24 +48,25 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     restoreFromClusterSnapshot_clusterSubnetGroupName,
     restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
     restoreFromClusterSnapshot_allowVersionUpgrade,
-    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
     restoreFromClusterSnapshot_clusterParameterGroupName,
-    restoreFromClusterSnapshot_snapshotClusterIdentifier,
+    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
     restoreFromClusterSnapshot_availabilityZoneRelocation,
-    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
+    restoreFromClusterSnapshot_snapshotClusterIdentifier,
     restoreFromClusterSnapshot_publiclyAccessible,
+    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
     restoreFromClusterSnapshot_vpcSecurityGroupIds,
-    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
     restoreFromClusterSnapshot_kmsKeyId,
+    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
     restoreFromClusterSnapshot_availabilityZone,
     restoreFromClusterSnapshot_preferredMaintenanceWindow,
-    restoreFromClusterSnapshot_numberOfNodes,
     restoreFromClusterSnapshot_port,
-    restoreFromClusterSnapshot_nodeType,
-    restoreFromClusterSnapshot_ownerAccount,
+    restoreFromClusterSnapshot_numberOfNodes,
     restoreFromClusterSnapshot_clusterSecurityGroups,
-    restoreFromClusterSnapshot_maintenanceTrackName,
+    restoreFromClusterSnapshot_ownerAccount,
+    restoreFromClusterSnapshot_nodeType,
+    restoreFromClusterSnapshot_aquaConfigurationStatus,
     restoreFromClusterSnapshot_hsmConfigurationIdentifier,
+    restoreFromClusterSnapshot_maintenanceTrackName,
     restoreFromClusterSnapshot_iamRoles,
     restoreFromClusterSnapshot_clusterIdentifier,
     restoreFromClusterSnapshot_snapshotIdentifier,
@@ -118,16 +119,6 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- Default: @true@
     allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The number of days that automated snapshots are retained. If the value
-    -- is 0, automated snapshots are disabled. Even if automated snapshots are
-    -- disabled, you can still create manual snapshots when you want with
-    -- CreateClusterSnapshot.
-    --
-    -- Default: The value selected for the cluster from which the snapshot was
-    -- taken.
-    --
-    -- Constraints: Must be a value from 0 to 35.
-    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the parameter group to be associated with this cluster.
     --
     -- Default: The default Amazon Redshift cluster parameter group. For
@@ -142,18 +133,31 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The number of days that automated snapshots are retained. If the value
+    -- is 0, automated snapshots are disabled. Even if automated snapshots are
+    -- disabled, you can still create manual snapshots when you want with
+    -- CreateClusterSnapshot.
+    --
+    -- You can\'t disable automated snapshots for RA3 node types. Set the
+    -- automated retention period from 1-35 days.
+    --
+    -- Default: The value selected for the cluster from which the snapshot was
+    -- taken.
+    --
+    -- Constraints: Must be a value from 0 to 35.
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The option to enable relocation for an Amazon Redshift cluster between
+    -- Availability Zones after the cluster is restored.
+    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
     -- | The name of the cluster the source snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The option to enable relocation for an Amazon Redshift cluster between
-    -- Availability Zones after the cluster is restored.
-    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
-    -- | A unique identifier for the snapshot schedule.
-    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the cluster can be accessed from a public network.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | A unique identifier for the snapshot schedule.
+    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of Virtual Private Cloud (VPC) security groups to be associated
     -- with the cluster.
     --
@@ -161,16 +165,16 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- VPC security groups only apply to clusters in VPCs.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Key Management Service (KMS) key ID of the encryption key that you
+    -- want to use to encrypt data in the cluster that you restore from a
+    -- shared snapshot.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
     -- the retention period of existing snapshots.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The AWS Key Management Service (KMS) key ID of the encryption key that
-    -- you want to use to encrypt data in the cluster that you restore from a
-    -- shared snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Availability Zone in which to restore the cluster.
     --
     -- Default: A random, system-chosen Availability Zone.
@@ -191,14 +195,24 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- Constraints: Minimum 30-minute window.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The number of nodes specified when provisioning the restored cluster.
-    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The port number on which the cluster accepts connections.
     --
     -- Default: The same port as the original cluster.
     --
     -- Constraints: Must be between @1115@ and @65535@.
     port :: Prelude.Maybe Prelude.Int,
+    -- | The number of nodes specified when provisioning the restored cluster.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | A list of security groups to be associated with this cluster.
+    --
+    -- Default: The default cluster security group for Amazon Redshift.
+    --
+    -- Cluster security groups only apply to clusters outside of VPCs.
+    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services account used to create or copy the snapshot.
+    -- Required if you are restoring a snapshot you do not own, optional if you
+    -- own the snapshot.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The node type that the restored cluster will be provisioned with.
     --
     -- Default: The node type of the cluster from which the snapshot was taken.
@@ -214,16 +228,21 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
     -- in the /Amazon Redshift Cluster Management Guide/.
     nodeType :: Prelude.Maybe Prelude.Text,
-    -- | The AWS customer account used to create or copy the snapshot. Required
-    -- if you are restoring a snapshot you do not own, optional if you own the
-    -- snapshot.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | A list of security groups to be associated with this cluster.
+    -- | The value represents how the cluster is configured to use AQUA (Advanced
+    -- Query Accelerator) after the cluster is restored. Possible values
+    -- include the following.
     --
-    -- Default: The default cluster security group for Amazon Redshift.
+    -- -   enabled - Use AQUA if it is available for the current Amazon Web
+    --     Services Region and Amazon Redshift node type.
     --
-    -- Cluster security groups only apply to clusters outside of VPCs.
-    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- -   disabled - Don\'t use AQUA.
+    --
+    -- -   auto - Amazon Redshift determines whether to use AQUA.
+    aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
+    -- | Specifies the name of the HSM configuration that contains the
+    -- information the Amazon Redshift cluster can use to retrieve and store
+    -- keys in an HSM.
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the maintenance track for the restored cluster. When you
     -- take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from
     -- the cluster. The snapshot might be on a different track than the cluster
@@ -232,14 +251,10 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- cluster to be on the trailing track. In this case, the snapshot and the
     -- source cluster are on different tracks.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the HSM configuration that contains the
-    -- information the Amazon Redshift cluster can use to retrieve and store
-    -- keys in an HSM.
-    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A list of AWS Identity and Access Management (IAM) roles that can be
-    -- used by the cluster to access other AWS services. You must supply the
-    -- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
-    -- to 10 IAM roles in a single request.
+    -- | A list of Identity and Access Management (IAM) roles that can be used by
+    -- the cluster to access other Amazon Web Services services. You must
+    -- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+    -- supply up to 10 IAM roles in a single request.
     --
     -- A cluster can have up to 10 IAM roles associated at any time.
     iamRoles :: Prelude.Maybe [Prelude.Text],
@@ -256,7 +271,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
-    -- -   Must be unique for all clusters within an AWS account.
+    -- -   Must be unique for all clusters within an Amazon Web Services
+    --     account.
     clusterIdentifier :: Prelude.Text,
     -- | The name of the snapshot from which to create the new cluster. This
     -- parameter isn\'t case sensitive.
@@ -301,16 +317,6 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- Default: @true@
 --
--- 'automatedSnapshotRetentionPeriod', 'restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value
--- is 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
---
--- Default: The value selected for the cluster from which the snapshot was
--- taken.
---
--- Constraints: Must be a value from 0 to 35.
---
 -- 'clusterParameterGroupName', 'restoreFromClusterSnapshot_clusterParameterGroupName' - The name of the parameter group to be associated with this cluster.
 --
 -- Default: The default Amazon Redshift cluster parameter group. For
@@ -325,17 +331,30 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
+-- 'automatedSnapshotRetentionPeriod', 'restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- You can\'t disable automated snapshots for RA3 node types. Set the
+-- automated retention period from 1-35 days.
+--
+-- Default: The value selected for the cluster from which the snapshot was
+-- taken.
+--
+-- Constraints: Must be a value from 0 to 35.
+--
+-- 'availabilityZoneRelocation', 'restoreFromClusterSnapshot_availabilityZoneRelocation' - The option to enable relocation for an Amazon Redshift cluster between
+-- Availability Zones after the cluster is restored.
+--
 -- 'snapshotClusterIdentifier', 'restoreFromClusterSnapshot_snapshotClusterIdentifier' - The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
 --
--- 'availabilityZoneRelocation', 'restoreFromClusterSnapshot_availabilityZoneRelocation' - The option to enable relocation for an Amazon Redshift cluster between
--- Availability Zones after the cluster is restored.
+-- 'publiclyAccessible', 'restoreFromClusterSnapshot_publiclyAccessible' - If @true@, the cluster can be accessed from a public network.
 --
 -- 'snapshotScheduleIdentifier', 'restoreFromClusterSnapshot_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
---
--- 'publiclyAccessible', 'restoreFromClusterSnapshot_publiclyAccessible' - If @true@, the cluster can be accessed from a public network.
 --
 -- 'vpcSecurityGroupIds', 'restoreFromClusterSnapshot_vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
@@ -344,15 +363,15 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- VPC security groups only apply to clusters in VPCs.
 --
+-- 'kmsKeyId', 'restoreFromClusterSnapshot_kmsKeyId' - The Key Management Service (KMS) key ID of the encryption key that you
+-- want to use to encrypt data in the cluster that you restore from a
+-- shared snapshot.
+--
 -- 'manualSnapshotRetentionPeriod', 'restoreFromClusterSnapshot_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
 -- the retention period of existing snapshots.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
---
--- 'kmsKeyId', 'restoreFromClusterSnapshot_kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster that you restore from a
--- shared snapshot.
 --
 -- 'availabilityZone', 'restoreFromClusterSnapshot_availabilityZone' - The Amazon EC2 Availability Zone in which to restore the cluster.
 --
@@ -374,13 +393,23 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- Constraints: Minimum 30-minute window.
 --
--- 'numberOfNodes', 'restoreFromClusterSnapshot_numberOfNodes' - The number of nodes specified when provisioning the restored cluster.
---
 -- 'port', 'restoreFromClusterSnapshot_port' - The port number on which the cluster accepts connections.
 --
 -- Default: The same port as the original cluster.
 --
 -- Constraints: Must be between @1115@ and @65535@.
+--
+-- 'numberOfNodes', 'restoreFromClusterSnapshot_numberOfNodes' - The number of nodes specified when provisioning the restored cluster.
+--
+-- 'clusterSecurityGroups', 'restoreFromClusterSnapshot_clusterSecurityGroups' - A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+--
+-- Cluster security groups only apply to clusters outside of VPCs.
+--
+-- 'ownerAccount', 'restoreFromClusterSnapshot_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot.
+-- Required if you are restoring a snapshot you do not own, optional if you
+-- own the snapshot.
 --
 -- 'nodeType', 'restoreFromClusterSnapshot_nodeType' - The node type that the restored cluster will be provisioned with.
 --
@@ -397,15 +426,20 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- 'ownerAccount', 'restoreFromClusterSnapshot_ownerAccount' - The AWS customer account used to create or copy the snapshot. Required
--- if you are restoring a snapshot you do not own, optional if you own the
--- snapshot.
+-- 'aquaConfigurationStatus', 'restoreFromClusterSnapshot_aquaConfigurationStatus' - The value represents how the cluster is configured to use AQUA (Advanced
+-- Query Accelerator) after the cluster is restored. Possible values
+-- include the following.
 --
--- 'clusterSecurityGroups', 'restoreFromClusterSnapshot_clusterSecurityGroups' - A list of security groups to be associated with this cluster.
+-- -   enabled - Use AQUA if it is available for the current Amazon Web
+--     Services Region and Amazon Redshift node type.
 --
--- Default: The default cluster security group for Amazon Redshift.
+-- -   disabled - Don\'t use AQUA.
 --
--- Cluster security groups only apply to clusters outside of VPCs.
+-- -   auto - Amazon Redshift determines whether to use AQUA.
+--
+-- 'hsmConfigurationIdentifier', 'restoreFromClusterSnapshot_hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the
+-- information the Amazon Redshift cluster can use to retrieve and store
+-- keys in an HSM.
 --
 -- 'maintenanceTrackName', 'restoreFromClusterSnapshot_maintenanceTrackName' - The name of the maintenance track for the restored cluster. When you
 -- take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from
@@ -415,14 +449,10 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- cluster to be on the trailing track. In this case, the snapshot and the
 -- source cluster are on different tracks.
 --
--- 'hsmConfigurationIdentifier', 'restoreFromClusterSnapshot_hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the
--- information the Amazon Redshift cluster can use to retrieve and store
--- keys in an HSM.
---
--- 'iamRoles', 'restoreFromClusterSnapshot_iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services. You must supply the
--- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
--- to 10 IAM roles in a single request.
+-- 'iamRoles', 'restoreFromClusterSnapshot_iamRoles' - A list of Identity and Access Management (IAM) roles that can be used by
+-- the cluster to access other Amazon Web Services services. You must
+-- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+-- supply up to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
 --
@@ -439,7 +469,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 --
 -- 'snapshotIdentifier', 'restoreFromClusterSnapshot_snapshotIdentifier' - The name of the snapshot from which to create the new cluster. This
 -- parameter isn\'t case sensitive.
@@ -463,25 +494,26 @@ newRestoreFromClusterSnapshot
         hsmClientCertificateIdentifier =
           Prelude.Nothing,
         allowVersionUpgrade = Prelude.Nothing,
+        clusterParameterGroupName = Prelude.Nothing,
         automatedSnapshotRetentionPeriod =
           Prelude.Nothing,
-        clusterParameterGroupName = Prelude.Nothing,
-        snapshotClusterIdentifier = Prelude.Nothing,
         availabilityZoneRelocation = Prelude.Nothing,
-        snapshotScheduleIdentifier = Prelude.Nothing,
+        snapshotClusterIdentifier = Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
+        snapshotScheduleIdentifier = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
-        manualSnapshotRetentionPeriod = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        manualSnapshotRetentionPeriod = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
-        numberOfNodes = Prelude.Nothing,
         port = Prelude.Nothing,
-        nodeType = Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
+        numberOfNodes = Prelude.Nothing,
         clusterSecurityGroups = Prelude.Nothing,
-        maintenanceTrackName = Prelude.Nothing,
+        ownerAccount = Prelude.Nothing,
+        nodeType = Prelude.Nothing,
+        aquaConfigurationStatus = Prelude.Nothing,
         hsmConfigurationIdentifier = Prelude.Nothing,
+        maintenanceTrackName = Prelude.Nothing,
         iamRoles = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         snapshotIdentifier = pSnapshotIdentifier_
@@ -526,18 +558,6 @@ restoreFromClusterSnapshot_hsmClientCertificateIdentifier = Lens.lens (\RestoreF
 restoreFromClusterSnapshot_allowVersionUpgrade :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
 restoreFromClusterSnapshot_allowVersionUpgrade = Lens.lens (\RestoreFromClusterSnapshot' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@RestoreFromClusterSnapshot' {} a -> s {allowVersionUpgrade = a} :: RestoreFromClusterSnapshot)
 
--- | The number of days that automated snapshots are retained. If the value
--- is 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
---
--- Default: The value selected for the cluster from which the snapshot was
--- taken.
---
--- Constraints: Must be a value from 0 to 35.
-restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
-restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod = Lens.lens (\RestoreFromClusterSnapshot' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@RestoreFromClusterSnapshot' {} a -> s {automatedSnapshotRetentionPeriod = a} :: RestoreFromClusterSnapshot)
-
 -- | The name of the parameter group to be associated with this cluster.
 --
 -- Default: The default Amazon Redshift cluster parameter group. For
@@ -554,6 +574,26 @@ restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod = Lens.lens (\Restor
 restoreFromClusterSnapshot_clusterParameterGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_clusterParameterGroupName = Lens.lens (\RestoreFromClusterSnapshot' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterParameterGroupName = a} :: RestoreFromClusterSnapshot)
 
+-- | The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- You can\'t disable automated snapshots for RA3 node types. Set the
+-- automated retention period from 1-35 days.
+--
+-- Default: The value selected for the cluster from which the snapshot was
+-- taken.
+--
+-- Constraints: Must be a value from 0 to 35.
+restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod = Lens.lens (\RestoreFromClusterSnapshot' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@RestoreFromClusterSnapshot' {} a -> s {automatedSnapshotRetentionPeriod = a} :: RestoreFromClusterSnapshot)
+
+-- | The option to enable relocation for an Amazon Redshift cluster between
+-- Availability Zones after the cluster is restored.
+restoreFromClusterSnapshot_availabilityZoneRelocation :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_availabilityZoneRelocation = Lens.lens (\RestoreFromClusterSnapshot' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@RestoreFromClusterSnapshot' {} a -> s {availabilityZoneRelocation = a} :: RestoreFromClusterSnapshot)
+
 -- | The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
@@ -561,18 +601,13 @@ restoreFromClusterSnapshot_clusterParameterGroupName = Lens.lens (\RestoreFromCl
 restoreFromClusterSnapshot_snapshotClusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_snapshotClusterIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotClusterIdentifier = a} :: RestoreFromClusterSnapshot)
 
--- | The option to enable relocation for an Amazon Redshift cluster between
--- Availability Zones after the cluster is restored.
-restoreFromClusterSnapshot_availabilityZoneRelocation :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
-restoreFromClusterSnapshot_availabilityZoneRelocation = Lens.lens (\RestoreFromClusterSnapshot' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@RestoreFromClusterSnapshot' {} a -> s {availabilityZoneRelocation = a} :: RestoreFromClusterSnapshot)
+-- | If @true@, the cluster can be accessed from a public network.
+restoreFromClusterSnapshot_publiclyAccessible :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_publiclyAccessible = Lens.lens (\RestoreFromClusterSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreFromClusterSnapshot' {} a -> s {publiclyAccessible = a} :: RestoreFromClusterSnapshot)
 
 -- | A unique identifier for the snapshot schedule.
 restoreFromClusterSnapshot_snapshotScheduleIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_snapshotScheduleIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotScheduleIdentifier = a} :: RestoreFromClusterSnapshot)
-
--- | If @true@, the cluster can be accessed from a public network.
-restoreFromClusterSnapshot_publiclyAccessible :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
-restoreFromClusterSnapshot_publiclyAccessible = Lens.lens (\RestoreFromClusterSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreFromClusterSnapshot' {} a -> s {publiclyAccessible = a} :: RestoreFromClusterSnapshot)
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
@@ -583,6 +618,12 @@ restoreFromClusterSnapshot_publiclyAccessible = Lens.lens (\RestoreFromClusterSn
 restoreFromClusterSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
 restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreFromClusterSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The Key Management Service (KMS) key ID of the encryption key that you
+-- want to use to encrypt data in the cluster that you restore from a
+-- shared snapshot.
+restoreFromClusterSnapshot_kmsKeyId :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_kmsKeyId = Lens.lens (\RestoreFromClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@RestoreFromClusterSnapshot' {} a -> s {kmsKeyId = a} :: RestoreFromClusterSnapshot)
+
 -- | The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
 -- the retention period of existing snapshots.
@@ -590,12 +631,6 @@ restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterS
 -- The value must be either -1 or an integer between 1 and 3,653.
 restoreFromClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
 restoreFromClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\RestoreFromClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@RestoreFromClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: RestoreFromClusterSnapshot)
-
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster that you restore from a
--- shared snapshot.
-restoreFromClusterSnapshot_kmsKeyId :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
-restoreFromClusterSnapshot_kmsKeyId = Lens.lens (\RestoreFromClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@RestoreFromClusterSnapshot' {} a -> s {kmsKeyId = a} :: RestoreFromClusterSnapshot)
 
 -- | The Amazon EC2 Availability Zone in which to restore the cluster.
 --
@@ -621,10 +656,6 @@ restoreFromClusterSnapshot_availabilityZone = Lens.lens (\RestoreFromClusterSnap
 restoreFromClusterSnapshot_preferredMaintenanceWindow :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_preferredMaintenanceWindow = Lens.lens (\RestoreFromClusterSnapshot' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreFromClusterSnapshot' {} a -> s {preferredMaintenanceWindow = a} :: RestoreFromClusterSnapshot)
 
--- | The number of nodes specified when provisioning the restored cluster.
-restoreFromClusterSnapshot_numberOfNodes :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
-restoreFromClusterSnapshot_numberOfNodes = Lens.lens (\RestoreFromClusterSnapshot' {numberOfNodes} -> numberOfNodes) (\s@RestoreFromClusterSnapshot' {} a -> s {numberOfNodes = a} :: RestoreFromClusterSnapshot)
-
 -- | The port number on which the cluster accepts connections.
 --
 -- Default: The same port as the original cluster.
@@ -632,6 +663,24 @@ restoreFromClusterSnapshot_numberOfNodes = Lens.lens (\RestoreFromClusterSnapsho
 -- Constraints: Must be between @1115@ and @65535@.
 restoreFromClusterSnapshot_port :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
 restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port} -> port) (\s@RestoreFromClusterSnapshot' {} a -> s {port = a} :: RestoreFromClusterSnapshot)
+
+-- | The number of nodes specified when provisioning the restored cluster.
+restoreFromClusterSnapshot_numberOfNodes :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_numberOfNodes = Lens.lens (\RestoreFromClusterSnapshot' {numberOfNodes} -> numberOfNodes) (\s@RestoreFromClusterSnapshot' {} a -> s {numberOfNodes = a} :: RestoreFromClusterSnapshot)
+
+-- | A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+--
+-- Cluster security groups only apply to clusters outside of VPCs.
+restoreFromClusterSnapshot_clusterSecurityGroups :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
+restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromClusterSnapshot' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterSecurityGroups = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Web Services account used to create or copy the snapshot.
+-- Required if you are restoring a snapshot you do not own, optional if you
+-- own the snapshot.
+restoreFromClusterSnapshot_ownerAccount :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_ownerAccount = Lens.lens (\RestoreFromClusterSnapshot' {ownerAccount} -> ownerAccount) (\s@RestoreFromClusterSnapshot' {} a -> s {ownerAccount = a} :: RestoreFromClusterSnapshot)
 
 -- | The node type that the restored cluster will be provisioned with.
 --
@@ -650,19 +699,24 @@ restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port}
 restoreFromClusterSnapshot_nodeType :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_nodeType = Lens.lens (\RestoreFromClusterSnapshot' {nodeType} -> nodeType) (\s@RestoreFromClusterSnapshot' {} a -> s {nodeType = a} :: RestoreFromClusterSnapshot)
 
--- | The AWS customer account used to create or copy the snapshot. Required
--- if you are restoring a snapshot you do not own, optional if you own the
--- snapshot.
-restoreFromClusterSnapshot_ownerAccount :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
-restoreFromClusterSnapshot_ownerAccount = Lens.lens (\RestoreFromClusterSnapshot' {ownerAccount} -> ownerAccount) (\s@RestoreFromClusterSnapshot' {} a -> s {ownerAccount = a} :: RestoreFromClusterSnapshot)
+-- | The value represents how the cluster is configured to use AQUA (Advanced
+-- Query Accelerator) after the cluster is restored. Possible values
+-- include the following.
+--
+-- -   enabled - Use AQUA if it is available for the current Amazon Web
+--     Services Region and Amazon Redshift node type.
+--
+-- -   disabled - Don\'t use AQUA.
+--
+-- -   auto - Amazon Redshift determines whether to use AQUA.
+restoreFromClusterSnapshot_aquaConfigurationStatus :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe AquaConfigurationStatus)
+restoreFromClusterSnapshot_aquaConfigurationStatus = Lens.lens (\RestoreFromClusterSnapshot' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@RestoreFromClusterSnapshot' {} a -> s {aquaConfigurationStatus = a} :: RestoreFromClusterSnapshot)
 
--- | A list of security groups to be associated with this cluster.
---
--- Default: The default cluster security group for Amazon Redshift.
---
--- Cluster security groups only apply to clusters outside of VPCs.
-restoreFromClusterSnapshot_clusterSecurityGroups :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
-restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromClusterSnapshot' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterSecurityGroups = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
+-- | Specifies the name of the HSM configuration that contains the
+-- information the Amazon Redshift cluster can use to retrieve and store
+-- keys in an HSM.
+restoreFromClusterSnapshot_hsmConfigurationIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_hsmConfigurationIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {hsmConfigurationIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the maintenance track for the restored cluster. When you
 -- take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from
@@ -674,16 +728,10 @@ restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromCluste
 restoreFromClusterSnapshot_maintenanceTrackName :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_maintenanceTrackName = Lens.lens (\RestoreFromClusterSnapshot' {maintenanceTrackName} -> maintenanceTrackName) (\s@RestoreFromClusterSnapshot' {} a -> s {maintenanceTrackName = a} :: RestoreFromClusterSnapshot)
 
--- | Specifies the name of the HSM configuration that contains the
--- information the Amazon Redshift cluster can use to retrieve and store
--- keys in an HSM.
-restoreFromClusterSnapshot_hsmConfigurationIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
-restoreFromClusterSnapshot_hsmConfigurationIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {hsmConfigurationIdentifier = a} :: RestoreFromClusterSnapshot)
-
--- | A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services. You must supply the
--- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
--- to 10 IAM roles in a single request.
+-- | A list of Identity and Access Management (IAM) roles that can be used by
+-- the cluster to access other Amazon Web Services services. You must
+-- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+-- supply up to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
 restoreFromClusterSnapshot_iamRoles :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
@@ -702,7 +750,8 @@ restoreFromClusterSnapshot_iamRoles = Lens.lens (\RestoreFromClusterSnapshot' {i
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 restoreFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Prelude.Text
 restoreFromClusterSnapshot_clusterIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {clusterIdentifier} -> clusterIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterIdentifier = a} :: RestoreFromClusterSnapshot)
 
@@ -752,40 +801,42 @@ instance Core.ToQuery RestoreFromClusterSnapshot where
         "HsmClientCertificateIdentifier"
           Core.=: hsmClientCertificateIdentifier,
         "AllowVersionUpgrade" Core.=: allowVersionUpgrade,
-        "AutomatedSnapshotRetentionPeriod"
-          Core.=: automatedSnapshotRetentionPeriod,
         "ClusterParameterGroupName"
           Core.=: clusterParameterGroupName,
-        "SnapshotClusterIdentifier"
-          Core.=: snapshotClusterIdentifier,
+        "AutomatedSnapshotRetentionPeriod"
+          Core.=: automatedSnapshotRetentionPeriod,
         "AvailabilityZoneRelocation"
           Core.=: availabilityZoneRelocation,
+        "SnapshotClusterIdentifier"
+          Core.=: snapshotClusterIdentifier,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
         "SnapshotScheduleIdentifier"
           Core.=: snapshotScheduleIdentifier,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
+        "KmsKeyId" Core.=: kmsKeyId,
         "ManualSnapshotRetentionPeriod"
           Core.=: manualSnapshotRetentionPeriod,
-        "KmsKeyId" Core.=: kmsKeyId,
         "AvailabilityZone" Core.=: availabilityZone,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
-        "NumberOfNodes" Core.=: numberOfNodes,
         "Port" Core.=: port,
-        "NodeType" Core.=: nodeType,
-        "OwnerAccount" Core.=: ownerAccount,
+        "NumberOfNodes" Core.=: numberOfNodes,
         "ClusterSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "ClusterSecurityGroupName"
                 Prelude.<$> clusterSecurityGroups
             ),
-        "MaintenanceTrackName" Core.=: maintenanceTrackName,
+        "OwnerAccount" Core.=: ownerAccount,
+        "NodeType" Core.=: nodeType,
+        "AquaConfigurationStatus"
+          Core.=: aquaConfigurationStatus,
         "HsmConfigurationIdentifier"
           Core.=: hsmConfigurationIdentifier,
+        "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "IamRoles"
           Core.=: Core.toQuery
             (Core.toQueryList "IamRoleArn" Prelude.<$> iamRoles),

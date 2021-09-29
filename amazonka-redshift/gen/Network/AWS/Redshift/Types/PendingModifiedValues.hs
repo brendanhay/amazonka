@@ -30,9 +30,7 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'newPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { -- | The encryption type for a cluster. Possible values are: KMS and None.
-    encryptionType :: Prelude.Maybe Prelude.Text,
-    -- | An option that specifies whether to create the cluster with enhanced VPC
+  { -- | An option that specifies whether to create the cluster with enhanced VPC
     -- routing enabled. To create a cluster that uses enhanced VPC routing, the
     -- cluster must be in a VPC. For more information, see
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing>
@@ -42,10 +40,12 @@ data PendingModifiedValues = PendingModifiedValues'
     --
     -- Default: false
     enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
+    -- | The encryption type for a cluster. Possible values are: KMS and None.
+    encryptionType :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change of the automated snapshot retention
     -- period.
     automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The pending or in-progress change of the master user password for the
+    -- | The pending or in-progress change of the admin user password for the
     -- cluster.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change of the ability to connect to the
@@ -57,10 +57,10 @@ data PendingModifiedValues = PendingModifiedValues'
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change of the number of nodes in the cluster.
     numberOfNodes :: Prelude.Maybe Prelude.Int,
-    -- | The pending or in-progress change of the cluster\'s node type.
-    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change of the service version.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The pending or in-progress change of the cluster\'s node type.
+    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The name of the maintenance track that the cluster will change to during
     -- the next maintenance window.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text
@@ -75,8 +75,6 @@ data PendingModifiedValues = PendingModifiedValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionType', 'pendingModifiedValues_encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.
---
 -- 'enhancedVpcRouting', 'pendingModifiedValues_enhancedVpcRouting' - An option that specifies whether to create the cluster with enhanced VPC
 -- routing enabled. To create a cluster that uses enhanced VPC routing, the
 -- cluster must be in a VPC. For more information, see
@@ -87,10 +85,12 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- Default: false
 --
+-- 'encryptionType', 'pendingModifiedValues_encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.
+--
 -- 'automatedSnapshotRetentionPeriod', 'pendingModifiedValues_automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention
 -- period.
 --
--- 'masterUserPassword', 'pendingModifiedValues_masterUserPassword' - The pending or in-progress change of the master user password for the
+-- 'masterUserPassword', 'pendingModifiedValues_masterUserPassword' - The pending or in-progress change of the admin user password for the
 -- cluster.
 --
 -- 'publiclyAccessible', 'pendingModifiedValues_publiclyAccessible' - The pending or in-progress change of the ability to connect to the
@@ -102,9 +102,9 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- 'numberOfNodes', 'pendingModifiedValues_numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
 --
--- 'nodeType', 'pendingModifiedValues_nodeType' - The pending or in-progress change of the cluster\'s node type.
---
 -- 'clusterVersion', 'pendingModifiedValues_clusterVersion' - The pending or in-progress change of the service version.
+--
+-- 'nodeType', 'pendingModifiedValues_nodeType' - The pending or in-progress change of the cluster\'s node type.
 --
 -- 'maintenanceTrackName', 'pendingModifiedValues_maintenanceTrackName' - The name of the maintenance track that the cluster will change to during
 -- the next maintenance window.
@@ -112,23 +112,19 @@ newPendingModifiedValues ::
   PendingModifiedValues
 newPendingModifiedValues =
   PendingModifiedValues'
-    { encryptionType =
+    { enhancedVpcRouting =
         Prelude.Nothing,
-      enhancedVpcRouting = Prelude.Nothing,
+      encryptionType = Prelude.Nothing,
       automatedSnapshotRetentionPeriod = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
       publiclyAccessible = Prelude.Nothing,
       clusterType = Prelude.Nothing,
       clusterIdentifier = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
-      nodeType = Prelude.Nothing,
       clusterVersion = Prelude.Nothing,
+      nodeType = Prelude.Nothing,
       maintenanceTrackName = Prelude.Nothing
     }
-
--- | The encryption type for a cluster. Possible values are: KMS and None.
-pendingModifiedValues_encryptionType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
-pendingModifiedValues_encryptionType = Lens.lens (\PendingModifiedValues' {encryptionType} -> encryptionType) (\s@PendingModifiedValues' {} a -> s {encryptionType = a} :: PendingModifiedValues)
 
 -- | An option that specifies whether to create the cluster with enhanced VPC
 -- routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -142,12 +138,16 @@ pendingModifiedValues_encryptionType = Lens.lens (\PendingModifiedValues' {encry
 pendingModifiedValues_enhancedVpcRouting :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Bool)
 pendingModifiedValues_enhancedVpcRouting = Lens.lens (\PendingModifiedValues' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@PendingModifiedValues' {} a -> s {enhancedVpcRouting = a} :: PendingModifiedValues)
 
+-- | The encryption type for a cluster. Possible values are: KMS and None.
+pendingModifiedValues_encryptionType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
+pendingModifiedValues_encryptionType = Lens.lens (\PendingModifiedValues' {encryptionType} -> encryptionType) (\s@PendingModifiedValues' {} a -> s {encryptionType = a} :: PendingModifiedValues)
+
 -- | The pending or in-progress change of the automated snapshot retention
 -- period.
 pendingModifiedValues_automatedSnapshotRetentionPeriod :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_automatedSnapshotRetentionPeriod = Lens.lens (\PendingModifiedValues' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@PendingModifiedValues' {} a -> s {automatedSnapshotRetentionPeriod = a} :: PendingModifiedValues)
 
--- | The pending or in-progress change of the master user password for the
+-- | The pending or in-progress change of the admin user password for the
 -- cluster.
 pendingModifiedValues_masterUserPassword :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_masterUserPassword = Lens.lens (\PendingModifiedValues' {masterUserPassword} -> masterUserPassword) (\s@PendingModifiedValues' {} a -> s {masterUserPassword = a} :: PendingModifiedValues)
@@ -169,13 +169,13 @@ pendingModifiedValues_clusterIdentifier = Lens.lens (\PendingModifiedValues' {cl
 pendingModifiedValues_numberOfNodes :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_numberOfNodes = Lens.lens (\PendingModifiedValues' {numberOfNodes} -> numberOfNodes) (\s@PendingModifiedValues' {} a -> s {numberOfNodes = a} :: PendingModifiedValues)
 
--- | The pending or in-progress change of the cluster\'s node type.
-pendingModifiedValues_nodeType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
-pendingModifiedValues_nodeType = Lens.lens (\PendingModifiedValues' {nodeType} -> nodeType) (\s@PendingModifiedValues' {} a -> s {nodeType = a} :: PendingModifiedValues)
-
 -- | The pending or in-progress change of the service version.
 pendingModifiedValues_clusterVersion :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_clusterVersion = Lens.lens (\PendingModifiedValues' {clusterVersion} -> clusterVersion) (\s@PendingModifiedValues' {} a -> s {clusterVersion = a} :: PendingModifiedValues)
+
+-- | The pending or in-progress change of the cluster\'s node type.
+pendingModifiedValues_nodeType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
+pendingModifiedValues_nodeType = Lens.lens (\PendingModifiedValues' {nodeType} -> nodeType) (\s@PendingModifiedValues' {} a -> s {nodeType = a} :: PendingModifiedValues)
 
 -- | The name of the maintenance track that the cluster will change to during
 -- the next maintenance window.
@@ -185,16 +185,16 @@ pendingModifiedValues_maintenanceTrackName = Lens.lens (\PendingModifiedValues' 
 instance Core.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> (x Core..@? "EncryptionType")
-      Prelude.<*> (x Core..@? "EnhancedVpcRouting")
+      Prelude.<$> (x Core..@? "EnhancedVpcRouting")
+      Prelude.<*> (x Core..@? "EncryptionType")
       Prelude.<*> (x Core..@? "AutomatedSnapshotRetentionPeriod")
       Prelude.<*> (x Core..@? "MasterUserPassword")
       Prelude.<*> (x Core..@? "PubliclyAccessible")
       Prelude.<*> (x Core..@? "ClusterType")
       Prelude.<*> (x Core..@? "ClusterIdentifier")
       Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@? "ClusterVersion")
+      Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@? "MaintenanceTrackName")
 
 instance Prelude.Hashable PendingModifiedValues

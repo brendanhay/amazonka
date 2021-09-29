@@ -22,12 +22,12 @@
 --
 -- Returns a list of orderable cluster options. Before you create a new
 -- cluster you can use this operation to find what options are available,
--- such as the EC2 Availability Zones (AZ) in the specific AWS Region that
--- you can specify, and the node types you can request. The node types
--- differ by available storage, memory, CPU and price. With the cost
--- involved you might want to obtain a list of cluster options in the
--- specific region and specify values when creating a cluster. For more
--- information about managing clusters, go to
+-- such as the EC2 Availability Zones (AZ) in the specific Amazon Web
+-- Services Region that you can specify, and the node types you can
+-- request. The node types differ by available storage, memory, CPU and
+-- price. With the cost involved you might want to obtain a list of cluster
+-- options in the specific region and specify values when creating a
+-- cluster. For more information about managing clusters, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
@@ -38,10 +38,10 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     newDescribeOrderableClusterOptions,
 
     -- * Request Lenses
-    describeOrderableClusterOptions_nodeType,
     describeOrderableClusterOptions_clusterVersion,
-    describeOrderableClusterOptions_marker,
+    describeOrderableClusterOptions_nodeType,
     describeOrderableClusterOptions_maxRecords,
+    describeOrderableClusterOptions_marker,
 
     -- * Destructuring the Response
     DescribeOrderableClusterOptionsResponse (..),
@@ -65,10 +65,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeOrderableClusterOptions' smart constructor.
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-  { -- | The node type filter value. Specify this parameter to show only the
-    -- available offerings matching the specified node type.
-    nodeType :: Prelude.Maybe Prelude.Text,
-    -- | The version filter value. Specify this parameter to show only the
+  { -- | The version filter value. Specify this parameter to show only the
     -- available offerings matching the specified version.
     --
     -- Default: All versions.
@@ -76,14 +73,9 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     -- Constraints: Must be one of the version returned from
     -- DescribeClusterVersions.
     clusterVersion :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a
-    -- DescribeOrderableClusterOptions request exceed the value specified in
-    -- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
-    -- You can retrieve the next set of response records by providing the
-    -- returned marker value in the @Marker@ parameter and retrying the
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | The node type filter value. Specify this parameter to show only the
+    -- available offerings matching the specified node type.
+    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -93,7 +85,15 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a
+    -- DescribeOrderableClusterOptions request exceed the value specified in
+    -- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+    -- of the response. You can retrieve the next set of response records by
+    -- providing the returned marker value in the @Marker@ parameter and
+    -- retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,9 +105,6 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeType', 'describeOrderableClusterOptions_nodeType' - The node type filter value. Specify this parameter to show only the
--- available offerings matching the specified node type.
---
 -- 'clusterVersion', 'describeOrderableClusterOptions_clusterVersion' - The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
 --
@@ -116,13 +113,8 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 -- Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
 --
--- 'marker', 'describeOrderableClusterOptions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeOrderableClusterOptions request exceed the value specified in
--- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the @Marker@ parameter and retrying the
--- request.
+-- 'nodeType', 'describeOrderableClusterOptions_nodeType' - The node type filter value. Specify this parameter to show only the
+-- available offerings matching the specified node type.
 --
 -- 'maxRecords', 'describeOrderableClusterOptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -133,21 +125,24 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeOrderableClusterOptions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeOrderableClusterOptions request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
 newDescribeOrderableClusterOptions ::
   DescribeOrderableClusterOptions
 newDescribeOrderableClusterOptions =
   DescribeOrderableClusterOptions'
-    { nodeType =
+    { clusterVersion =
         Prelude.Nothing,
-      clusterVersion = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      nodeType = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
-
--- | The node type filter value. Specify this parameter to show only the
--- available offerings matching the specified node type.
-describeOrderableClusterOptions_nodeType :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
-describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterOptions' {nodeType} -> nodeType) (\s@DescribeOrderableClusterOptions' {} a -> s {nodeType = a} :: DescribeOrderableClusterOptions)
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
@@ -159,15 +154,10 @@ describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterO
 describeOrderableClusterOptions_clusterVersion :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
 describeOrderableClusterOptions_clusterVersion = Lens.lens (\DescribeOrderableClusterOptions' {clusterVersion} -> clusterVersion) (\s@DescribeOrderableClusterOptions' {} a -> s {clusterVersion = a} :: DescribeOrderableClusterOptions)
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeOrderableClusterOptions request exceed the value specified in
--- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the @Marker@ parameter and retrying the
--- request.
-describeOrderableClusterOptions_marker :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
-describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOptions' {marker} -> marker) (\s@DescribeOrderableClusterOptions' {} a -> s {marker = a} :: DescribeOrderableClusterOptions)
+-- | The node type filter value. Specify this parameter to show only the
+-- available offerings matching the specified node type.
+describeOrderableClusterOptions_nodeType :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterOptions' {nodeType} -> nodeType) (\s@DescribeOrderableClusterOptions' {} a -> s {nodeType = a} :: DescribeOrderableClusterOptions)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -180,6 +170,16 @@ describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOpt
 -- Constraints: minimum 20, maximum 100.
 describeOrderableClusterOptions_maxRecords :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Int)
 describeOrderableClusterOptions_maxRecords = Lens.lens (\DescribeOrderableClusterOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableClusterOptions' {} a -> s {maxRecords = a} :: DescribeOrderableClusterOptions)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeOrderableClusterOptions request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
+describeOrderableClusterOptions_marker :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOptions' {marker} -> marker) (\s@DescribeOrderableClusterOptions' {} a -> s {marker = a} :: DescribeOrderableClusterOptions)
 
 instance
   Core.AWSPager
@@ -254,10 +254,10 @@ instance Core.ToQuery DescribeOrderableClusterOptions where
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "NodeType" Core.=: nodeType,
         "ClusterVersion" Core.=: clusterVersion,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "NodeType" Core.=: nodeType,
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.

@@ -63,11 +63,11 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
     -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
     -- cannot be provided.
     cidrip :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account number of the owner of the security group specified in
-    -- the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an
-    -- acceptable value. If @EC2SecurityGroupOwnerId@ is specified,
-    -- @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be
-    -- provided.
+    -- | The Amazon Web Services account number of the owner of the security
+    -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+    -- Services access key ID is not an acceptable value. If
+    -- @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also
+    -- be provided. and @CIDRIP@ cannot be provided.
     --
     -- Example: @111122223333@
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
@@ -93,11 +93,11 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
 -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
 -- cannot be provided.
 --
--- 'eC2SecurityGroupOwnerId', 'revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId' - The AWS account number of the owner of the security group specified in
--- the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an
--- acceptable value. If @EC2SecurityGroupOwnerId@ is specified,
--- @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be
--- provided.
+-- 'eC2SecurityGroupOwnerId', 'revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon Web Services account number of the owner of the security
+-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+-- Services access key ID is not an acceptable value. If
+-- @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also
+-- be provided. and @CIDRIP@ cannot be provided.
 --
 -- Example: @111122223333@
 --
@@ -129,11 +129,11 @@ newRevokeClusterSecurityGroupIngress
 revokeClusterSecurityGroupIngress_cidrip :: Lens.Lens' RevokeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeClusterSecurityGroupIngress_cidrip = Lens.lens (\RevokeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeClusterSecurityGroupIngress)
 
--- | The AWS account number of the owner of the security group specified in
--- the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an
--- acceptable value. If @EC2SecurityGroupOwnerId@ is specified,
--- @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be
--- provided.
+-- | The Amazon Web Services account number of the owner of the security
+-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+-- Services access key ID is not an acceptable value. If
+-- @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also
+-- be provided. and @CIDRIP@ cannot be provided.
 --
 -- Example: @111122223333@
 revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)

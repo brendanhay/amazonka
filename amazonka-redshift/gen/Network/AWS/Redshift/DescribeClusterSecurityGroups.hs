@@ -48,8 +48,8 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     describeClusterSecurityGroups_tagKeys,
     describeClusterSecurityGroups_clusterSecurityGroupName,
     describeClusterSecurityGroups_tagValues,
-    describeClusterSecurityGroups_marker,
     describeClusterSecurityGroups_maxRecords,
+    describeClusterSecurityGroups_marker,
 
     -- * Destructuring the Response
     DescribeClusterSecurityGroupsResponse (..),
@@ -94,16 +94,6 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- the security groups that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusterSecurityGroups
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    --
-    -- Constraints: You can specify either the __ClusterSecurityGroupName__
-    -- parameter or the __Marker__ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -113,7 +103,17 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterSecurityGroups
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __ClusterSecurityGroupName__
+    -- parameter or the __Marker__ parameter, but not both.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -146,16 +146,6 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 -- the security groups that have either or both of these tag values
 -- associated with them.
 --
--- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterSecurityGroupName__
--- parameter or the __Marker__ parameter, but not both.
---
 -- 'maxRecords', 'describeClusterSecurityGroups_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -165,6 +155,16 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSecurityGroups
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- parameter or the __Marker__ parameter, but not both.
 newDescribeClusterSecurityGroups ::
   DescribeClusterSecurityGroups
 newDescribeClusterSecurityGroups =
@@ -173,8 +173,8 @@ newDescribeClusterSecurityGroups =
         Prelude.Nothing,
       clusterSecurityGroupName = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -204,18 +204,6 @@ describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClu
 describeClusterSecurityGroups_tagValues :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
 describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGroups' {tagValues} -> tagValues) (\s@DescribeClusterSecurityGroups' {} a -> s {tagValues = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterSecurityGroupName__
--- parameter or the __Marker__ parameter, but not both.
-describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
-describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups' {marker} -> marker) (\s@DescribeClusterSecurityGroups' {} a -> s {marker = a} :: DescribeClusterSecurityGroups)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -227,6 +215,18 @@ describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups
 -- Constraints: minimum 20, maximum 100.
 describeClusterSecurityGroups_maxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Int)
 describeClusterSecurityGroups_maxRecords = Lens.lens (\DescribeClusterSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSecurityGroups' {} a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSecurityGroups
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- parameter or the __Marker__ parameter, but not both.
+describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
+describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups' {marker} -> marker) (\s@DescribeClusterSecurityGroups' {} a -> s {marker = a} :: DescribeClusterSecurityGroups)
 
 instance Core.AWSPager DescribeClusterSecurityGroups where
   page rq rs
@@ -300,8 +300,8 @@ instance Core.ToQuery DescribeClusterSecurityGroups where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

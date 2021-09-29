@@ -51,10 +51,10 @@ data UsageLimit = UsageLimit'
     -- | The type of limit. Depending on the feature type, this can be based on a
     -- time duration or data size.
     limitType :: Prelude.Maybe UsageLimitLimitType,
-    -- | The identifier of the cluster with a usage limit.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
+    -- | The identifier of the cluster with a usage limit.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The time period that the amount applies to. A @weekly@ period begins on
     -- Sunday. The default is @monthly@.
     period :: Prelude.Maybe UsageLimitPeriod,
@@ -89,9 +89,9 @@ data UsageLimit = UsageLimit'
 -- 'limitType', 'usageLimit_limitType' - The type of limit. Depending on the feature type, this can be based on a
 -- time duration or data size.
 --
--- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.
---
 -- 'tags', 'usageLimit_tags' - A list of tag instances.
+--
+-- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.
 --
 -- 'period', 'usageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on
 -- Sunday. The default is @monthly@.
@@ -105,8 +105,8 @@ newUsageLimit =
       featureType = Prelude.Nothing,
       breachAction = Prelude.Nothing,
       limitType = Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
       tags = Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
       period = Prelude.Nothing,
       usageLimitId = Prelude.Nothing
     }
@@ -137,13 +137,13 @@ usageLimit_breachAction = Lens.lens (\UsageLimit' {breachAction} -> breachAction
 usageLimit_limitType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitLimitType)
 usageLimit_limitType = Lens.lens (\UsageLimit' {limitType} -> limitType) (\s@UsageLimit' {} a -> s {limitType = a} :: UsageLimit)
 
--- | The identifier of the cluster with a usage limit.
-usageLimit_clusterIdentifier :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
-usageLimit_clusterIdentifier = Lens.lens (\UsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@UsageLimit' {} a -> s {clusterIdentifier = a} :: UsageLimit)
-
 -- | A list of tag instances.
 usageLimit_tags :: Lens.Lens' UsageLimit (Prelude.Maybe [Tag])
 usageLimit_tags = Lens.lens (\UsageLimit' {tags} -> tags) (\s@UsageLimit' {} a -> s {tags = a} :: UsageLimit) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The identifier of the cluster with a usage limit.
+usageLimit_clusterIdentifier :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
+usageLimit_clusterIdentifier = Lens.lens (\UsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@UsageLimit' {} a -> s {clusterIdentifier = a} :: UsageLimit)
 
 -- | The time period that the amount applies to. A @weekly@ period begins on
 -- Sunday. The default is @monthly@.
@@ -161,10 +161,10 @@ instance Core.FromXML UsageLimit where
       Prelude.<*> (x Core..@? "FeatureType")
       Prelude.<*> (x Core..@? "BreachAction")
       Prelude.<*> (x Core..@? "LimitType")
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "ClusterIdentifier")
       Prelude.<*> (x Core..@? "Period")
       Prelude.<*> (x Core..@? "UsageLimitId")
 

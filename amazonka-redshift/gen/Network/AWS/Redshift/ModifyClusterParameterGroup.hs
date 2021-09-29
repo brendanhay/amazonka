@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the parameters of a parameter group.
+-- Modifies the parameters of a parameter group. For the parameters
+-- parameter, it can\'t contain ASCII characters.
 --
 -- For more information about parameters and parameter groups, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>

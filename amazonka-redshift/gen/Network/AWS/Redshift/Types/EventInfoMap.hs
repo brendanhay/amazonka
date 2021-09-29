@@ -34,10 +34,10 @@ data EventInfoMap = EventInfoMap'
     --
     -- Values: ERROR, INFO
     severity :: Prelude.Maybe Prelude.Text,
-    -- | The description of an Amazon Redshift event.
-    eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The category of an Amazon Redshift event.
-    eventCategories :: Prelude.Maybe [Prelude.Text]
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The description of an Amazon Redshift event.
+    eventDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,17 +55,17 @@ data EventInfoMap = EventInfoMap'
 --
 -- Values: ERROR, INFO
 --
--- 'eventDescription', 'eventInfoMap_eventDescription' - The description of an Amazon Redshift event.
---
 -- 'eventCategories', 'eventInfoMap_eventCategories' - The category of an Amazon Redshift event.
+--
+-- 'eventDescription', 'eventInfoMap_eventDescription' - The description of an Amazon Redshift event.
 newEventInfoMap ::
   EventInfoMap
 newEventInfoMap =
   EventInfoMap'
     { eventId = Prelude.Nothing,
       severity = Prelude.Nothing,
-      eventDescription = Prelude.Nothing,
-      eventCategories = Prelude.Nothing
+      eventCategories = Prelude.Nothing,
+      eventDescription = Prelude.Nothing
     }
 
 -- | The identifier of an Amazon Redshift event.
@@ -78,23 +78,23 @@ eventInfoMap_eventId = Lens.lens (\EventInfoMap' {eventId} -> eventId) (\s@Event
 eventInfoMap_severity :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
 eventInfoMap_severity = Lens.lens (\EventInfoMap' {severity} -> severity) (\s@EventInfoMap' {} a -> s {severity = a} :: EventInfoMap)
 
--- | The description of an Amazon Redshift event.
-eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
-eventInfoMap_eventDescription = Lens.lens (\EventInfoMap' {eventDescription} -> eventDescription) (\s@EventInfoMap' {} a -> s {eventDescription = a} :: EventInfoMap)
-
 -- | The category of an Amazon Redshift event.
 eventInfoMap_eventCategories :: Lens.Lens' EventInfoMap (Prelude.Maybe [Prelude.Text])
 eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> eventCategories) (\s@EventInfoMap' {} a -> s {eventCategories = a} :: EventInfoMap) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The description of an Amazon Redshift event.
+eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
+eventInfoMap_eventDescription = Lens.lens (\EventInfoMap' {eventDescription} -> eventDescription) (\s@EventInfoMap' {} a -> s {eventDescription = a} :: EventInfoMap)
 
 instance Core.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
       Prelude.<$> (x Core..@? "EventId")
       Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "EventDescription")
       Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
                   )
+      Prelude.<*> (x Core..@? "EventDescription")
 
 instance Prelude.Hashable EventInfoMap
 

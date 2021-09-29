@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the specified AWS customer account to restore the specified
--- snapshot.
+-- Authorizes the specified Amazon Web Services account to restore the
+-- specified snapshot.
 --
 -- For more information about working with snapshots, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
@@ -64,10 +64,11 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot the account is authorized to restore.
     snapshotIdentifier :: Prelude.Text,
-    -- | The identifier of the AWS customer account authorized to restore the
-    -- specified snapshot.
+    -- | The identifier of the Amazon Web Services account authorized to restore
+    -- the specified snapshot.
     --
-    -- To share a snapshot with AWS support, specify amazon-redshift-support.
+    -- To share a snapshot with Amazon Web Services Support, specify
+    -- amazon-redshift-support.
     accountWithRestoreAccess :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,10 +88,11 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 --
 -- 'snapshotIdentifier', 'authorizeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
 --
--- 'accountWithRestoreAccess', 'authorizeSnapshotAccess_accountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the
--- specified snapshot.
+-- 'accountWithRestoreAccess', 'authorizeSnapshotAccess_accountWithRestoreAccess' - The identifier of the Amazon Web Services account authorized to restore
+-- the specified snapshot.
 --
--- To share a snapshot with AWS support, specify amazon-redshift-support.
+-- To share a snapshot with Amazon Web Services Support, specify
+-- amazon-redshift-support.
 newAuthorizeSnapshotAccess ::
   -- | 'snapshotIdentifier'
   Prelude.Text ->
@@ -119,10 +121,11 @@ authorizeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\AuthorizeSnapsho
 authorizeSnapshotAccess_snapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess Prelude.Text
 authorizeSnapshotAccess_snapshotIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: AuthorizeSnapshotAccess)
 
--- | The identifier of the AWS customer account authorized to restore the
--- specified snapshot.
+-- | The identifier of the Amazon Web Services account authorized to restore
+-- the specified snapshot.
 --
--- To share a snapshot with AWS support, specify amazon-redshift-support.
+-- To share a snapshot with Amazon Web Services Support, specify
+-- amazon-redshift-support.
 authorizeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' AuthorizeSnapshotAccess Prelude.Text
 authorizeSnapshotAccess_accountWithRestoreAccess = Lens.lens (\AuthorizeSnapshotAccess' {accountWithRestoreAccess} -> accountWithRestoreAccess) (\s@AuthorizeSnapshotAccess' {} a -> s {accountWithRestoreAccess = a} :: AuthorizeSnapshotAccess)
 

@@ -101,7 +101,8 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
-    -- -   Must be unique for the AWS account that is making the request.
+    -- -   Must be unique for the Amazon Web Services account that is making
+    --     the request.
     targetSnapshotIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -149,7 +150,8 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for the AWS account that is making the request.
+-- -   Must be unique for the Amazon Web Services account that is making
+--     the request.
 newCopyClusterSnapshot ::
   -- | 'sourceSnapshotIdentifier'
   Prelude.Text ->
@@ -210,7 +212,8 @@ copyClusterSnapshot_sourceSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' 
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for the AWS account that is making the request.
+-- -   Must be unique for the Amazon Web Services account that is making
+--     the request.
 copyClusterSnapshot_targetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Prelude.Text
 copyClusterSnapshot_targetSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' {targetSnapshotIdentifier} -> targetSnapshotIdentifier) (\s@CopyClusterSnapshot' {} a -> s {targetSnapshotIdentifier = a} :: CopyClusterSnapshot)
 

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of snapshot copy grants owned by the AWS account in the
--- destination region.
+-- Returns a list of snapshot copy grants owned by the Amazon Web Services
+-- account in the destination region.
 --
 -- For more information about managing snapshot copy grants, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
@@ -37,8 +37,8 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     describeSnapshotCopyGrants_tagKeys,
     describeSnapshotCopyGrants_snapshotCopyGrantName,
     describeSnapshotCopyGrants_tagValues,
-    describeSnapshotCopyGrants_marker,
     describeSnapshotCopyGrants_maxRecords,
+    describeSnapshotCopyGrants_marker,
 
     -- * Destructuring the Response
     DescribeSnapshotCopyGrantsResponse (..),
@@ -78,16 +78,6 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
     -- request, Amazon Redshift returns a response with all resources that have
     -- either or both of these tag values associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a @DescribeSnapshotCopyGrant@
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    --
-    -- Constraints: You can specify either the __SnapshotCopyGrantName__
-    -- parameter or the __Marker__ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -97,7 +87,17 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a @DescribeSnapshotCopyGrant@
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __SnapshotCopyGrantName__
+    -- parameter or the __Marker__ parameter, but not both.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,16 +125,6 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
 --
--- 'marker', 'describeSnapshotCopyGrants_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a @DescribeSnapshotCopyGrant@
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __SnapshotCopyGrantName__
--- parameter or the __Marker__ parameter, but not both.
---
 -- 'maxRecords', 'describeSnapshotCopyGrants_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -144,6 +134,16 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeSnapshotCopyGrants_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a @DescribeSnapshotCopyGrant@
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __SnapshotCopyGrantName__
+-- parameter or the __Marker__ parameter, but not both.
 newDescribeSnapshotCopyGrants ::
   DescribeSnapshotCopyGrants
 newDescribeSnapshotCopyGrants =
@@ -152,8 +152,8 @@ newDescribeSnapshotCopyGrants =
         Prelude.Nothing,
       snapshotCopyGrantName = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching resources
@@ -178,18 +178,6 @@ describeSnapshotCopyGrants_snapshotCopyGrantName = Lens.lens (\DescribeSnapshotC
 describeSnapshotCopyGrants_tagValues :: Lens.Lens' DescribeSnapshotCopyGrants (Prelude.Maybe [Prelude.Text])
 describeSnapshotCopyGrants_tagValues = Lens.lens (\DescribeSnapshotCopyGrants' {tagValues} -> tagValues) (\s@DescribeSnapshotCopyGrants' {} a -> s {tagValues = a} :: DescribeSnapshotCopyGrants) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a @DescribeSnapshotCopyGrant@
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __SnapshotCopyGrantName__
--- parameter or the __Marker__ parameter, but not both.
-describeSnapshotCopyGrants_marker :: Lens.Lens' DescribeSnapshotCopyGrants (Prelude.Maybe Prelude.Text)
-describeSnapshotCopyGrants_marker = Lens.lens (\DescribeSnapshotCopyGrants' {marker} -> marker) (\s@DescribeSnapshotCopyGrants' {} a -> s {marker = a} :: DescribeSnapshotCopyGrants)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -201,6 +189,18 @@ describeSnapshotCopyGrants_marker = Lens.lens (\DescribeSnapshotCopyGrants' {mar
 -- Constraints: minimum 20, maximum 100.
 describeSnapshotCopyGrants_maxRecords :: Lens.Lens' DescribeSnapshotCopyGrants (Prelude.Maybe Prelude.Int)
 describeSnapshotCopyGrants_maxRecords = Lens.lens (\DescribeSnapshotCopyGrants' {maxRecords} -> maxRecords) (\s@DescribeSnapshotCopyGrants' {} a -> s {maxRecords = a} :: DescribeSnapshotCopyGrants)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a @DescribeSnapshotCopyGrant@
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __SnapshotCopyGrantName__
+-- parameter or the __Marker__ parameter, but not both.
+describeSnapshotCopyGrants_marker :: Lens.Lens' DescribeSnapshotCopyGrants (Prelude.Maybe Prelude.Text)
+describeSnapshotCopyGrants_marker = Lens.lens (\DescribeSnapshotCopyGrants' {marker} -> marker) (\s@DescribeSnapshotCopyGrants' {} a -> s {marker = a} :: DescribeSnapshotCopyGrants)
 
 instance Core.AWSPager DescribeSnapshotCopyGrants where
   page rq rs
@@ -267,8 +267,8 @@ instance Core.ToQuery DescribeSnapshotCopyGrants where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |
@@ -279,10 +279,10 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
     snapshotCopyGrants :: Prelude.Maybe [SnapshotCopyGrant],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a @DescribeSnapshotCopyGrant@
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
     --
     -- Constraints: You can specify either the __SnapshotCopyGrantName__
     -- parameter or the __Marker__ parameter, but not both.
@@ -304,10 +304,10 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
 --
 -- 'marker', 'describeSnapshotCopyGrantsResponse_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeSnapshotCopyGrant@
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__
 -- parameter or the __Marker__ parameter, but not both.
@@ -331,10 +331,10 @@ describeSnapshotCopyGrantsResponse_snapshotCopyGrants = Lens.lens (\DescribeSnap
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeSnapshotCopyGrant@
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__
 -- parameter or the __Marker__ parameter, but not both.

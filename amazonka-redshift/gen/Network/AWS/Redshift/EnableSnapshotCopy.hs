@@ -55,12 +55,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newEnableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-  { -- | The name of the snapshot copy grant to use when snapshots of an AWS
-    -- KMS-encrypted cluster are copied to the destination region.
+  { -- | The name of the snapshot copy grant to use when snapshots of an Amazon
+    -- Web Services KMS-encrypted cluster are copied to the destination region.
     snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain newly copied snapshots in the destination
-    -- AWS Region after they are copied from the source AWS Region. If the
-    -- value is -1, the manual snapshot is retained indefinitely.
+    -- Amazon Web Services Region after they are copied from the source Amazon
+    -- Web Services Region. If the value is -1, the manual snapshot is retained
+    -- indefinitely.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
@@ -76,10 +77,11 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
     -- Constraints: Must be the valid name of an existing cluster that does not
     -- already have cross-region snapshot copy enabled.
     clusterIdentifier :: Prelude.Text,
-    -- | The destination AWS Region that you want to copy snapshots to.
+    -- | The destination Amazon Web Services Region that you want to copy
+    -- snapshots to.
     --
-    -- Constraints: Must be the name of a valid AWS Region. For more
-    -- information, see
+    -- Constraints: Must be the name of a valid Amazon Web Services Region. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints>
     -- in the Amazon Web Services General Reference.
     destinationRegion :: Prelude.Text
@@ -94,12 +96,13 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an AWS
--- KMS-encrypted cluster are copied to the destination region.
+-- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
 --
 -- 'manualSnapshotRetentionPeriod', 'enableSnapshotCopy_manualSnapshotRetentionPeriod' - The number of days to retain newly copied snapshots in the destination
--- AWS Region after they are copied from the source AWS Region. If the
--- value is -1, the manual snapshot is retained indefinitely.
+-- Amazon Web Services Region after they are copied from the source Amazon
+-- Web Services Region. If the value is -1, the manual snapshot is retained
+-- indefinitely.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
@@ -115,10 +118,11 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
 --
--- 'destinationRegion', 'enableSnapshotCopy_destinationRegion' - The destination AWS Region that you want to copy snapshots to.
+-- 'destinationRegion', 'enableSnapshotCopy_destinationRegion' - The destination Amazon Web Services Region that you want to copy
+-- snapshots to.
 --
--- Constraints: Must be the name of a valid AWS Region. For more
--- information, see
+-- Constraints: Must be the name of a valid Amazon Web Services Region. For
+-- more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints>
 -- in the Amazon Web Services General Reference.
 newEnableSnapshotCopy ::
@@ -139,14 +143,15 @@ newEnableSnapshotCopy
         destinationRegion = pDestinationRegion_
       }
 
--- | The name of the snapshot copy grant to use when snapshots of an AWS
--- KMS-encrypted cluster are copied to the destination region.
+-- | The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
 enableSnapshotCopy_snapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Text)
 enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@EnableSnapshotCopy' {} a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
 
 -- | The number of days to retain newly copied snapshots in the destination
--- AWS Region after they are copied from the source AWS Region. If the
--- value is -1, the manual snapshot is retained indefinitely.
+-- Amazon Web Services Region after they are copied from the source Amazon
+-- Web Services Region. If the value is -1, the manual snapshot is retained
+-- indefinitely.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 enableSnapshotCopy_manualSnapshotRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Int)
@@ -168,10 +173,11 @@ enableSnapshotCopy_retentionPeriod = Lens.lens (\EnableSnapshotCopy' {retentionP
 enableSnapshotCopy_clusterIdentifier :: Lens.Lens' EnableSnapshotCopy Prelude.Text
 enableSnapshotCopy_clusterIdentifier = Lens.lens (\EnableSnapshotCopy' {clusterIdentifier} -> clusterIdentifier) (\s@EnableSnapshotCopy' {} a -> s {clusterIdentifier = a} :: EnableSnapshotCopy)
 
--- | The destination AWS Region that you want to copy snapshots to.
+-- | The destination Amazon Web Services Region that you want to copy
+-- snapshots to.
 --
--- Constraints: Must be the name of a valid AWS Region. For more
--- information, see
+-- Constraints: Must be the name of a valid Amazon Web Services Region. For
+-- more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints>
 -- in the Amazon Web Services General Reference.
 enableSnapshotCopy_destinationRegion :: Lens.Lens' EnableSnapshotCopy Prelude.Text

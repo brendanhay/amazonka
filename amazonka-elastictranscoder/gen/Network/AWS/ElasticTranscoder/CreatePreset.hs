@@ -46,8 +46,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Request Lenses
     createPreset_thumbnails,
     createPreset_video,
-    createPreset_audio,
     createPreset_description,
+    createPreset_audio,
     createPreset_name,
     createPreset_container,
 
@@ -78,10 +78,10 @@ data CreatePreset = CreatePreset'
     thumbnails :: Prelude.Maybe Thumbnails,
     -- | A section of the request body that specifies the video parameters.
     video :: Prelude.Maybe VideoParameters,
-    -- | A section of the request body that specifies the audio parameters.
-    audio :: Prelude.Maybe AudioParameters,
     -- | A description of the preset.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A section of the request body that specifies the audio parameters.
+    audio :: Prelude.Maybe AudioParameters,
     -- | The name of the preset. We recommend that the name be unique within the
     -- AWS account, but uniqueness is not enforced.
     name :: Prelude.Text,
@@ -105,9 +105,9 @@ data CreatePreset = CreatePreset'
 --
 -- 'video', 'createPreset_video' - A section of the request body that specifies the video parameters.
 --
--- 'audio', 'createPreset_audio' - A section of the request body that specifies the audio parameters.
---
 -- 'description', 'createPreset_description' - A description of the preset.
+--
+-- 'audio', 'createPreset_audio' - A section of the request body that specifies the audio parameters.
 --
 -- 'name', 'createPreset_name' - The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -125,8 +125,8 @@ newCreatePreset pName_ pContainer_ =
   CreatePreset'
     { thumbnails = Prelude.Nothing,
       video = Prelude.Nothing,
-      audio = Prelude.Nothing,
       description = Prelude.Nothing,
+      audio = Prelude.Nothing,
       name = pName_,
       container = pContainer_
     }
@@ -140,13 +140,13 @@ createPreset_thumbnails = Lens.lens (\CreatePreset' {thumbnails} -> thumbnails) 
 createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
 createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
 
--- | A section of the request body that specifies the audio parameters.
-createPreset_audio :: Lens.Lens' CreatePreset (Prelude.Maybe AudioParameters)
-createPreset_audio = Lens.lens (\CreatePreset' {audio} -> audio) (\s@CreatePreset' {} a -> s {audio = a} :: CreatePreset)
-
 -- | A description of the preset.
 createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
 createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
+
+-- | A section of the request body that specifies the audio parameters.
+createPreset_audio :: Lens.Lens' CreatePreset (Prelude.Maybe AudioParameters)
+createPreset_audio = Lens.lens (\CreatePreset' {audio} -> audio) (\s@CreatePreset' {} a -> s {audio = a} :: CreatePreset)
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -184,8 +184,8 @@ instance Core.ToJSON CreatePreset where
       ( Prelude.catMaybes
           [ ("Thumbnails" Core..=) Prelude.<$> thumbnails,
             ("Video" Core..=) Prelude.<$> video,
-            ("Audio" Core..=) Prelude.<$> audio,
             ("Description" Core..=) Prelude.<$> description,
+            ("Audio" Core..=) Prelude.<$> audio,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Container" Core..= container)
           ]

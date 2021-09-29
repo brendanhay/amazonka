@@ -14,6 +14,12 @@
 module Network.AWS.ElasticTranscoder.Lens
   ( -- * Operations
 
+    -- ** UpdatePipelineStatus
+    updatePipelineStatus_id,
+    updatePipelineStatus_status,
+    updatePipelineStatusResponse_pipeline,
+    updatePipelineStatusResponse_httpStatus,
+
     -- ** ListJobsByPipeline
     listJobsByPipeline_ascending,
     listJobsByPipeline_pageToken,
@@ -22,11 +28,9 @@ module Network.AWS.ElasticTranscoder.Lens
     listJobsByPipelineResponse_jobs,
     listJobsByPipelineResponse_httpStatus,
 
-    -- ** UpdatePipelineStatus
-    updatePipelineStatus_id,
-    updatePipelineStatus_status,
-    updatePipelineStatusResponse_pipeline,
-    updatePipelineStatusResponse_httpStatus,
+    -- ** DeletePreset
+    deletePreset_id,
+    deletePresetResponse_httpStatus,
 
     -- ** ListPresets
     listPresets_ascending,
@@ -35,29 +39,25 @@ module Network.AWS.ElasticTranscoder.Lens
     listPresetsResponse_nextPageToken,
     listPresetsResponse_httpStatus,
 
-    -- ** DeletePreset
-    deletePreset_id,
-    deletePresetResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_id,
-    cancelJobResponse_httpStatus,
-
     -- ** CreatePreset
     createPreset_thumbnails,
     createPreset_video,
-    createPreset_audio,
     createPreset_description,
+    createPreset_audio,
     createPreset_name,
     createPreset_container,
     createPresetResponse_preset,
     createPresetResponse_warning,
     createPresetResponse_httpStatus,
 
+    -- ** CancelJob
+    cancelJob_id,
+    cancelJobResponse_httpStatus,
+
     -- ** CreatePipeline
     createPipeline_outputBucket,
-    createPipeline_notifications,
     createPipeline_thumbnailConfig,
+    createPipeline_notifications,
     createPipeline_contentConfig,
     createPipeline_awsKmsKeyArn,
     createPipeline_name,
@@ -67,11 +67,15 @@ module Network.AWS.ElasticTranscoder.Lens
     createPipelineResponse_pipeline,
     createPipelineResponse_httpStatus,
 
+    -- ** DeletePipeline
+    deletePipeline_id,
+    deletePipelineResponse_httpStatus,
+
     -- ** UpdatePipeline
     updatePipeline_name,
     updatePipeline_role,
-    updatePipeline_notifications,
     updatePipeline_thumbnailConfig,
+    updatePipeline_notifications,
     updatePipeline_contentConfig,
     updatePipeline_inputBucket,
     updatePipeline_awsKmsKeyArn,
@@ -79,10 +83,6 @@ module Network.AWS.ElasticTranscoder.Lens
     updatePipelineResponse_warnings,
     updatePipelineResponse_pipeline,
     updatePipelineResponse_httpStatus,
-
-    -- ** DeletePipeline
-    deletePipeline_id,
-    deletePipelineResponse_httpStatus,
 
     -- ** ReadPreset
     readPreset_id,
@@ -103,8 +103,8 @@ module Network.AWS.ElasticTranscoder.Lens
     createJob_outputKeyPrefix,
     createJob_output,
     createJob_userMetadata,
-    createJob_inputs,
     createJob_playlists,
+    createJob_inputs,
     createJob_pipelineId,
     createJobResponse_job,
     createJobResponse_httpStatus,
@@ -154,8 +154,8 @@ module Network.AWS.ElasticTranscoder.Lens
     audioParameters_codecOptions,
     audioParameters_codec,
     audioParameters_channels,
-    audioParameters_sampleRate,
     audioParameters_audioPackingMode,
+    audioParameters_sampleRate,
     audioParameters_bitRate,
 
     -- ** CaptionFormat
@@ -183,13 +183,13 @@ module Network.AWS.ElasticTranscoder.Lens
     createJobOutput_thumbnailPattern,
     createJobOutput_thumbnailEncryption,
     createJobOutput_watermarks,
-    createJobOutput_presetId,
     createJobOutput_albumArt,
+    createJobOutput_presetId,
     createJobOutput_encryption,
     createJobOutput_rotate,
     createJobOutput_composition,
-    createJobOutput_segmentDuration,
     createJobOutput_captions,
+    createJobOutput_segmentDuration,
 
     -- ** CreateJobPlaylist
     createJobPlaylist_playReadyDrm,
@@ -207,8 +207,8 @@ module Network.AWS.ElasticTranscoder.Lens
 
     -- ** Encryption
     encryption_key,
-    encryption_mode,
     encryption_keyMd5,
+    encryption_mode,
     encryption_initializationVector,
 
     -- ** HlsContentProtection
@@ -234,16 +234,16 @@ module Network.AWS.ElasticTranscoder.Lens
     job'_output,
     job'_userMetadata,
     job'_timing,
-    job'_inputs,
     job'_playlists,
+    job'_inputs,
 
     -- ** JobAlbumArt
     jobAlbumArt_artwork,
     jobAlbumArt_mergePolicy,
 
     -- ** JobInput
-    jobInput_container,
     jobInput_key,
+    jobInput_container,
     jobInput_timeSpan,
     jobInput_inputCaptions,
     jobInput_encryption,
@@ -254,27 +254,27 @@ module Network.AWS.ElasticTranscoder.Lens
     jobInput_interlaced,
 
     -- ** JobOutput
-    jobOutput_height,
     jobOutput_key,
-    jobOutput_status,
+    jobOutput_height,
     jobOutput_thumbnailPattern,
-    jobOutput_duration,
+    jobOutput_status,
     jobOutput_width,
+    jobOutput_duration,
     jobOutput_thumbnailEncryption,
-    jobOutput_watermarks,
     jobOutput_fileSize,
-    jobOutput_presetId,
+    jobOutput_watermarks,
     jobOutput_albumArt,
-    jobOutput_id,
+    jobOutput_presetId,
     jobOutput_statusDetail,
+    jobOutput_id,
     jobOutput_encryption,
     jobOutput_frameRate,
     jobOutput_appliedColorSpaceConversion,
     jobOutput_rotate,
     jobOutput_durationMillis,
     jobOutput_composition,
-    jobOutput_segmentDuration,
     jobOutput_captions,
+    jobOutput_segmentDuration,
 
     -- ** JobWatermark
     jobWatermark_inputKey,
@@ -299,8 +299,8 @@ module Network.AWS.ElasticTranscoder.Lens
     pipeline_id,
     pipeline_name,
     pipeline_role,
-    pipeline_notifications,
     pipeline_thumbnailConfig,
+    pipeline_notifications,
     pipeline_contentConfig,
     pipeline_inputBucket,
     pipeline_awsKmsKeyArn,
@@ -323,19 +323,19 @@ module Network.AWS.ElasticTranscoder.Lens
     playlist_playReadyDrm,
     playlist_outputKeys,
     playlist_format,
-    playlist_hlsContentProtection,
     playlist_statusDetail,
+    playlist_hlsContentProtection,
     playlist_name,
 
     -- ** Preset
     preset_container,
     preset_arn,
     preset_id,
-    preset_thumbnails,
     preset_name,
+    preset_thumbnails,
     preset_video,
-    preset_audio,
     preset_description,
+    preset_audio,
     preset_type,
 
     -- ** PresetWatermark
@@ -374,9 +374,9 @@ module Network.AWS.ElasticTranscoder.Lens
     videoParameters_codecOptions,
     videoParameters_fixedGOP,
     videoParameters_codec,
-    videoParameters_watermarks,
     videoParameters_maxFrameRate,
     videoParameters_displayAspectRatio,
+    videoParameters_watermarks,
     videoParameters_sizingPolicy,
     videoParameters_frameRate,
     videoParameters_aspectRatio,

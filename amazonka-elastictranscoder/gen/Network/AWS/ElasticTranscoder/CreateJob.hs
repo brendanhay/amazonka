@@ -39,8 +39,8 @@ module Network.AWS.ElasticTranscoder.CreateJob
     createJob_outputKeyPrefix,
     createJob_output,
     createJob_userMetadata,
-    createJob_inputs,
     createJob_playlists,
+    createJob_inputs,
     createJob_pipelineId,
 
     -- * Destructuring the Response
@@ -85,15 +85,15 @@ data CreateJob = CreateJob'
     -- guarantee that @key\/value@ pairs are returned in the same order in
     -- which you specify them.
     userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A section of the request body that provides information about the files
-    -- that are being transcoded.
-    inputs :: Prelude.Maybe [JobInput],
     -- | If you specify a preset in @PresetId@ for which the value of @Container@
     -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
     -- about the master playlists that you want Elastic Transcoder to create.
     --
     -- The maximum number of master playlists in a job is 30.
     playlists :: Prelude.Maybe [CreateJobPlaylist],
+    -- | A section of the request body that provides information about the files
+    -- that are being transcoded.
+    inputs :: Prelude.Maybe [JobInput],
     -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
     -- transcoding. The pipeline determines several settings, including the
     -- Amazon S3 bucket from which Elastic Transcoder gets the files to
@@ -132,14 +132,14 @@ data CreateJob = CreateJob'
 -- guarantee that @key\/value@ pairs are returned in the same order in
 -- which you specify them.
 --
--- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
--- that are being transcoded.
---
 -- 'playlists', 'createJob_playlists' - If you specify a preset in @PresetId@ for which the value of @Container@
 -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
+--
+-- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
+-- that are being transcoded.
 --
 -- 'pipelineId', 'createJob_pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -157,8 +157,8 @@ newCreateJob pPipelineId_ =
       outputKeyPrefix = Prelude.Nothing,
       output = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
-      inputs = Prelude.Nothing,
       playlists = Prelude.Nothing,
+      inputs = Prelude.Nothing,
       pipelineId = pPipelineId_
     }
 
@@ -193,11 +193,6 @@ createJob_output = Lens.lens (\CreateJob' {output} -> output) (\s@CreateJob' {} 
 createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
--- | A section of the request body that provides information about the files
--- that are being transcoded.
-createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
-createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
-
 -- | If you specify a preset in @PresetId@ for which the value of @Container@
 -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
@@ -205,6 +200,11 @@ createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} 
 -- The maximum number of master playlists in a job is 30.
 createJob_playlists :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobPlaylist])
 createJob_playlists = Lens.lens (\CreateJob' {playlists} -> playlists) (\s@CreateJob' {} a -> s {playlists = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A section of the request body that provides information about the files
+-- that are being transcoded.
+createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
+createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -242,8 +242,8 @@ instance Core.ToJSON CreateJob where
               Prelude.<$> outputKeyPrefix,
             ("Output" Core..=) Prelude.<$> output,
             ("UserMetadata" Core..=) Prelude.<$> userMetadata,
-            ("Inputs" Core..=) Prelude.<$> inputs,
             ("Playlists" Core..=) Prelude.<$> playlists,
+            ("Inputs" Core..=) Prelude.<$> inputs,
             Prelude.Just ("PipelineId" Core..= pipelineId)
           ]
       )

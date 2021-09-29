@@ -37,36 +37,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobOutput' smart constructor.
 data JobOutput = JobOutput'
-  { -- | Height of the output file, in pixels.
-    height :: Prelude.Maybe Prelude.Int,
-    -- | The name to assign to the transcoded file. Elastic Transcoder saves the
+  { -- | The name to assign to the transcoded file. Elastic Transcoder saves the
     -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
     -- the pipeline that is specified by the pipeline ID.
     key :: Prelude.Maybe Prelude.Text,
-    -- | The status of one output in a job. If you specified only one output for
-    -- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
-    -- specified more than one output:
-    --
-    -- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
-    --     Submitted until Elastic Transcoder starts to process the first
-    --     output.
-    --
-    -- -   When Elastic Transcoder starts to process the first output,
-    --     @Outputs:Status@ for that output and @Job:Status@ both change to
-    --     Progressing. For each output, the value of @Outputs:Status@ remains
-    --     Submitted until Elastic Transcoder starts to process the output.
-    --
-    -- -   Job:Status remains Progressing until all of the outputs reach a
-    --     terminal status, either Complete or Error.
-    --
-    -- -   When all of the outputs reach a terminal status, @Job:Status@
-    --     changes to Complete only if @Outputs:Status@ for all of the outputs
-    --     is @Complete@. If @Outputs:Status@ for one or more outputs is
-    --     @Error@, the terminal status for @Job:Status@ is also @Error@.
-    --
-    -- The value of @Status@ is one of the following: @Submitted@,
-    -- @Progressing@, @Complete@, @Canceled@, or @Error@.
-    status :: Prelude.Maybe Prelude.Text,
+    -- | Height of the output file, in pixels.
+    height :: Prelude.Maybe Prelude.Int,
     -- | Whether you want Elastic Transcoder to create thumbnails for your videos
     -- and, if so, how you want Elastic Transcoder to name the files.
     --
@@ -102,13 +78,39 @@ data JobOutput = JobOutput'
     -- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
     -- Transcoder also appends the applicable file name extension.
     thumbnailPattern :: Prelude.Maybe Prelude.Text,
-    -- | Duration of the output file, in seconds.
-    duration :: Prelude.Maybe Prelude.Integer,
+    -- | The status of one output in a job. If you specified only one output for
+    -- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
+    -- specified more than one output:
+    --
+    -- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
+    --     Submitted until Elastic Transcoder starts to process the first
+    --     output.
+    --
+    -- -   When Elastic Transcoder starts to process the first output,
+    --     @Outputs:Status@ for that output and @Job:Status@ both change to
+    --     Progressing. For each output, the value of @Outputs:Status@ remains
+    --     Submitted until Elastic Transcoder starts to process the output.
+    --
+    -- -   Job:Status remains Progressing until all of the outputs reach a
+    --     terminal status, either Complete or Error.
+    --
+    -- -   When all of the outputs reach a terminal status, @Job:Status@
+    --     changes to Complete only if @Outputs:Status@ for all of the outputs
+    --     is @Complete@. If @Outputs:Status@ for one or more outputs is
+    --     @Error@, the terminal status for @Job:Status@ is also @Error@.
+    --
+    -- The value of @Status@ is one of the following: @Submitted@,
+    -- @Progressing@, @Complete@, @Canceled@, or @Error@.
+    status :: Prelude.Maybe Prelude.Text,
     -- | Specifies the width of the output file in pixels.
     width :: Prelude.Maybe Prelude.Int,
+    -- | Duration of the output file, in seconds.
+    duration :: Prelude.Maybe Prelude.Integer,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your thumbnail.
     thumbnailEncryption :: Prelude.Maybe Encryption,
+    -- | File size of the output file, in bytes.
+    fileSize :: Prelude.Maybe Prelude.Integer,
     -- | Information about the watermarks that you want Elastic Transcoder to add
     -- to the video during transcoding. You can specify up to four watermarks
     -- for each output. Settings for each watermark must be defined in the
@@ -122,8 +124,8 @@ data JobOutput = JobOutput'
     -- watermark that you add covers the first one, the third one covers the
     -- second, and the fourth one covers the third.
     watermarks :: Prelude.Maybe [JobWatermark],
-    -- | File size of the output file, in bytes.
-    fileSize :: Prelude.Maybe Prelude.Integer,
+    -- | The album art to be associated with the output file, if any.
+    albumArt :: Prelude.Maybe JobAlbumArt,
     -- | The value of the @Id@ object for the preset that you want to use for
     -- this job. The preset determines the audio, video, and thumbnail settings
     -- that Elastic Transcoder uses for transcoding. To use a preset that you
@@ -131,14 +133,12 @@ data JobOutput = JobOutput'
     -- response when you created the preset. You can also use the Elastic
     -- Transcoder system presets, which you can get with @ListPresets@.
     presetId :: Prelude.Maybe Prelude.Text,
-    -- | The album art to be associated with the output file, if any.
-    albumArt :: Prelude.Maybe JobAlbumArt,
+    -- | Information that further explains @Status@.
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | A sequential counter, starting with 1, that identifies an output among
     -- the outputs from the current job. In the Output syntax, this value is
     -- always 1.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Information that further explains @Status@.
-    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your output files. If you choose to use encryption, you must
     -- specify a mode to use. If you choose not to use encryption, Elastic
@@ -169,26 +169,6 @@ data JobOutput = JobOutput'
     -- specify settings for a single clip per output file. The Composition
     -- object cannot be null.
     composition :: Prelude.Maybe [Clip],
-    -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
-    --
-    -- If you specify a preset in @PresetId@ for which the value of @Container@
-    -- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
-    -- target maximum duration of each segment in seconds. For @HLSv3@ format
-    -- playlists, each media segment is stored in a separate @.ts@ file. For
-    -- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
-    -- output are stored in a single file. Each segment is approximately the
-    -- length of the @SegmentDuration@, though individual segments might be
-    -- shorter or longer.
-    --
-    -- The range of valid values is 1 to 60 seconds. If the duration of the
-    -- video is not evenly divisible by @SegmentDuration@, the duration of the
-    -- last segment is the remainder of total length\/SegmentDuration.
-    --
-    -- Elastic Transcoder creates an output-specific playlist for each output
-    -- @HLS@ output that you specify in OutputKeys. To add an output to the
-    -- master playlist for this job, include it in the @OutputKeys@ of the
-    -- associated playlist.
-    segmentDuration :: Prelude.Maybe Prelude.Text,
     -- | You can configure Elastic Transcoder to transcode captions, or
     -- subtitles, from one format to another. All captions must be in UTF-8.
     -- Elastic Transcoder supports two types of captions:
@@ -239,7 +219,27 @@ data JobOutput = JobOutput'
     --
     -- For more information on sidecar files, see the Extensible Metadata
     -- Platform and Sidecar file Wikipedia pages.
-    captions :: Prelude.Maybe Captions
+    captions :: Prelude.Maybe Captions,
+    -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
+    --
+    -- If you specify a preset in @PresetId@ for which the value of @Container@
+    -- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+    -- target maximum duration of each segment in seconds. For @HLSv3@ format
+    -- playlists, each media segment is stored in a separate @.ts@ file. For
+    -- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
+    -- output are stored in a single file. Each segment is approximately the
+    -- length of the @SegmentDuration@, though individual segments might be
+    -- shorter or longer.
+    --
+    -- The range of valid values is 1 to 60 seconds. If the duration of the
+    -- video is not evenly divisible by @SegmentDuration@, the duration of the
+    -- last segment is the remainder of total length\/SegmentDuration.
+    --
+    -- Elastic Transcoder creates an output-specific playlist for each output
+    -- @HLS@ output that you specify in OutputKeys. To add an output to the
+    -- master playlist for this job, include it in the @OutputKeys@ of the
+    -- associated playlist.
+    segmentDuration :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -251,35 +251,11 @@ data JobOutput = JobOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'height', 'jobOutput_height' - Height of the output file, in pixels.
---
 -- 'key', 'jobOutput_key' - The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
 -- the pipeline that is specified by the pipeline ID.
 --
--- 'status', 'jobOutput_status' - The status of one output in a job. If you specified only one output for
--- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
--- specified more than one output:
---
--- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
---     Submitted until Elastic Transcoder starts to process the first
---     output.
---
--- -   When Elastic Transcoder starts to process the first output,
---     @Outputs:Status@ for that output and @Job:Status@ both change to
---     Progressing. For each output, the value of @Outputs:Status@ remains
---     Submitted until Elastic Transcoder starts to process the output.
---
--- -   Job:Status remains Progressing until all of the outputs reach a
---     terminal status, either Complete or Error.
---
--- -   When all of the outputs reach a terminal status, @Job:Status@
---     changes to Complete only if @Outputs:Status@ for all of the outputs
---     is @Complete@. If @Outputs:Status@ for one or more outputs is
---     @Error@, the terminal status for @Job:Status@ is also @Error@.
---
--- The value of @Status@ is one of the following: @Submitted@,
--- @Progressing@, @Complete@, @Canceled@, or @Error@.
+-- 'height', 'jobOutput_height' - Height of the output file, in pixels.
 --
 -- 'thumbnailPattern', 'jobOutput_thumbnailPattern' - Whether you want Elastic Transcoder to create thumbnails for your videos
 -- and, if so, how you want Elastic Transcoder to name the files.
@@ -316,12 +292,38 @@ data JobOutput = JobOutput'
 -- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
 -- Transcoder also appends the applicable file name extension.
 --
--- 'duration', 'jobOutput_duration' - Duration of the output file, in seconds.
+-- 'status', 'jobOutput_status' - The status of one output in a job. If you specified only one output for
+-- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
+-- specified more than one output:
+--
+-- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
+--     Submitted until Elastic Transcoder starts to process the first
+--     output.
+--
+-- -   When Elastic Transcoder starts to process the first output,
+--     @Outputs:Status@ for that output and @Job:Status@ both change to
+--     Progressing. For each output, the value of @Outputs:Status@ remains
+--     Submitted until Elastic Transcoder starts to process the output.
+--
+-- -   Job:Status remains Progressing until all of the outputs reach a
+--     terminal status, either Complete or Error.
+--
+-- -   When all of the outputs reach a terminal status, @Job:Status@
+--     changes to Complete only if @Outputs:Status@ for all of the outputs
+--     is @Complete@. If @Outputs:Status@ for one or more outputs is
+--     @Error@, the terminal status for @Job:Status@ is also @Error@.
+--
+-- The value of @Status@ is one of the following: @Submitted@,
+-- @Progressing@, @Complete@, @Canceled@, or @Error@.
 --
 -- 'width', 'jobOutput_width' - Specifies the width of the output file in pixels.
 --
+-- 'duration', 'jobOutput_duration' - Duration of the output file, in seconds.
+--
 -- 'thumbnailEncryption', 'jobOutput_thumbnailEncryption' - The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your thumbnail.
+--
+-- 'fileSize', 'jobOutput_fileSize' - File size of the output file, in bytes.
 --
 -- 'watermarks', 'jobOutput_watermarks' - Information about the watermarks that you want Elastic Transcoder to add
 -- to the video during transcoding. You can specify up to four watermarks
@@ -336,7 +338,7 @@ data JobOutput = JobOutput'
 -- watermark that you add covers the first one, the third one covers the
 -- second, and the fourth one covers the third.
 --
--- 'fileSize', 'jobOutput_fileSize' - File size of the output file, in bytes.
+-- 'albumArt', 'jobOutput_albumArt' - The album art to be associated with the output file, if any.
 --
 -- 'presetId', 'jobOutput_presetId' - The value of the @Id@ object for the preset that you want to use for
 -- this job. The preset determines the audio, video, and thumbnail settings
@@ -345,13 +347,11 @@ data JobOutput = JobOutput'
 -- response when you created the preset. You can also use the Elastic
 -- Transcoder system presets, which you can get with @ListPresets@.
 --
--- 'albumArt', 'jobOutput_albumArt' - The album art to be associated with the output file, if any.
+-- 'statusDetail', 'jobOutput_statusDetail' - Information that further explains @Status@.
 --
 -- 'id', 'jobOutput_id' - A sequential counter, starting with 1, that identifies an output among
 -- the outputs from the current job. In the Output syntax, this value is
 -- always 1.
---
--- 'statusDetail', 'jobOutput_statusDetail' - Information that further explains @Status@.
 --
 -- 'encryption', 'jobOutput_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your output files. If you choose to use encryption, you must
@@ -382,26 +382,6 @@ data JobOutput = JobOutput'
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
---
--- 'segmentDuration', 'jobOutput_segmentDuration' - (Outputs in Fragmented MP4 or MPEG-TS format only.
---
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
--- output are stored in a single file. Each segment is approximately the
--- length of the @SegmentDuration@, though individual segments might be
--- shorter or longer.
---
--- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
--- last segment is the remainder of total length\/SegmentDuration.
---
--- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
--- associated playlist.
 --
 -- 'captions', 'jobOutput_captions' - You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -453,36 +433,52 @@ data JobOutput = JobOutput'
 --
 -- For more information on sidecar files, see the Extensible Metadata
 -- Platform and Sidecar file Wikipedia pages.
+--
+-- 'segmentDuration', 'jobOutput_segmentDuration' - (Outputs in Fragmented MP4 or MPEG-TS format only.
+--
+-- If you specify a preset in @PresetId@ for which the value of @Container@
+-- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+-- target maximum duration of each segment in seconds. For @HLSv3@ format
+-- playlists, each media segment is stored in a separate @.ts@ file. For
+-- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
+-- output are stored in a single file. Each segment is approximately the
+-- length of the @SegmentDuration@, though individual segments might be
+-- shorter or longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the
+-- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- last segment is the remainder of total length\/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output
+-- @HLS@ output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the @OutputKeys@ of the
+-- associated playlist.
 newJobOutput ::
   JobOutput
 newJobOutput =
   JobOutput'
-    { height = Prelude.Nothing,
-      key = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { key = Prelude.Nothing,
+      height = Prelude.Nothing,
       thumbnailPattern = Prelude.Nothing,
-      duration = Prelude.Nothing,
+      status = Prelude.Nothing,
       width = Prelude.Nothing,
+      duration = Prelude.Nothing,
       thumbnailEncryption = Prelude.Nothing,
-      watermarks = Prelude.Nothing,
       fileSize = Prelude.Nothing,
-      presetId = Prelude.Nothing,
+      watermarks = Prelude.Nothing,
       albumArt = Prelude.Nothing,
-      id = Prelude.Nothing,
+      presetId = Prelude.Nothing,
       statusDetail = Prelude.Nothing,
+      id = Prelude.Nothing,
       encryption = Prelude.Nothing,
       frameRate = Prelude.Nothing,
       appliedColorSpaceConversion = Prelude.Nothing,
       rotate = Prelude.Nothing,
       durationMillis = Prelude.Nothing,
       composition = Prelude.Nothing,
-      segmentDuration = Prelude.Nothing,
-      captions = Prelude.Nothing
+      captions = Prelude.Nothing,
+      segmentDuration = Prelude.Nothing
     }
-
--- | Height of the output file, in pixels.
-jobOutput_height :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Int)
-jobOutput_height = Lens.lens (\JobOutput' {height} -> height) (\s@JobOutput' {} a -> s {height = a} :: JobOutput)
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
@@ -490,31 +486,9 @@ jobOutput_height = Lens.lens (\JobOutput' {height} -> height) (\s@JobOutput' {} 
 jobOutput_key :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
 jobOutput_key = Lens.lens (\JobOutput' {key} -> key) (\s@JobOutput' {} a -> s {key = a} :: JobOutput)
 
--- | The status of one output in a job. If you specified only one output for
--- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
--- specified more than one output:
---
--- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
---     Submitted until Elastic Transcoder starts to process the first
---     output.
---
--- -   When Elastic Transcoder starts to process the first output,
---     @Outputs:Status@ for that output and @Job:Status@ both change to
---     Progressing. For each output, the value of @Outputs:Status@ remains
---     Submitted until Elastic Transcoder starts to process the output.
---
--- -   Job:Status remains Progressing until all of the outputs reach a
---     terminal status, either Complete or Error.
---
--- -   When all of the outputs reach a terminal status, @Job:Status@
---     changes to Complete only if @Outputs:Status@ for all of the outputs
---     is @Complete@. If @Outputs:Status@ for one or more outputs is
---     @Error@, the terminal status for @Job:Status@ is also @Error@.
---
--- The value of @Status@ is one of the following: @Submitted@,
--- @Progressing@, @Complete@, @Canceled@, or @Error@.
-jobOutput_status :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
-jobOutput_status = Lens.lens (\JobOutput' {status} -> status) (\s@JobOutput' {} a -> s {status = a} :: JobOutput)
+-- | Height of the output file, in pixels.
+jobOutput_height :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Int)
+jobOutput_height = Lens.lens (\JobOutput' {height} -> height) (\s@JobOutput' {} a -> s {height = a} :: JobOutput)
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos
 -- and, if so, how you want Elastic Transcoder to name the files.
@@ -553,18 +527,48 @@ jobOutput_status = Lens.lens (\JobOutput' {status} -> status) (\s@JobOutput' {} 
 jobOutput_thumbnailPattern :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
 jobOutput_thumbnailPattern = Lens.lens (\JobOutput' {thumbnailPattern} -> thumbnailPattern) (\s@JobOutput' {} a -> s {thumbnailPattern = a} :: JobOutput)
 
--- | Duration of the output file, in seconds.
-jobOutput_duration :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Integer)
-jobOutput_duration = Lens.lens (\JobOutput' {duration} -> duration) (\s@JobOutput' {} a -> s {duration = a} :: JobOutput)
+-- | The status of one output in a job. If you specified only one output for
+-- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
+-- specified more than one output:
+--
+-- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
+--     Submitted until Elastic Transcoder starts to process the first
+--     output.
+--
+-- -   When Elastic Transcoder starts to process the first output,
+--     @Outputs:Status@ for that output and @Job:Status@ both change to
+--     Progressing. For each output, the value of @Outputs:Status@ remains
+--     Submitted until Elastic Transcoder starts to process the output.
+--
+-- -   Job:Status remains Progressing until all of the outputs reach a
+--     terminal status, either Complete or Error.
+--
+-- -   When all of the outputs reach a terminal status, @Job:Status@
+--     changes to Complete only if @Outputs:Status@ for all of the outputs
+--     is @Complete@. If @Outputs:Status@ for one or more outputs is
+--     @Error@, the terminal status for @Job:Status@ is also @Error@.
+--
+-- The value of @Status@ is one of the following: @Submitted@,
+-- @Progressing@, @Complete@, @Canceled@, or @Error@.
+jobOutput_status :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
+jobOutput_status = Lens.lens (\JobOutput' {status} -> status) (\s@JobOutput' {} a -> s {status = a} :: JobOutput)
 
 -- | Specifies the width of the output file in pixels.
 jobOutput_width :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Int)
 jobOutput_width = Lens.lens (\JobOutput' {width} -> width) (\s@JobOutput' {} a -> s {width = a} :: JobOutput)
 
+-- | Duration of the output file, in seconds.
+jobOutput_duration :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Integer)
+jobOutput_duration = Lens.lens (\JobOutput' {duration} -> duration) (\s@JobOutput' {} a -> s {duration = a} :: JobOutput)
+
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your thumbnail.
 jobOutput_thumbnailEncryption :: Lens.Lens' JobOutput (Prelude.Maybe Encryption)
 jobOutput_thumbnailEncryption = Lens.lens (\JobOutput' {thumbnailEncryption} -> thumbnailEncryption) (\s@JobOutput' {} a -> s {thumbnailEncryption = a} :: JobOutput)
+
+-- | File size of the output file, in bytes.
+jobOutput_fileSize :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Integer)
+jobOutput_fileSize = Lens.lens (\JobOutput' {fileSize} -> fileSize) (\s@JobOutput' {} a -> s {fileSize = a} :: JobOutput)
 
 -- | Information about the watermarks that you want Elastic Transcoder to add
 -- to the video during transcoding. You can specify up to four watermarks
@@ -581,9 +585,9 @@ jobOutput_thumbnailEncryption = Lens.lens (\JobOutput' {thumbnailEncryption} -> 
 jobOutput_watermarks :: Lens.Lens' JobOutput (Prelude.Maybe [JobWatermark])
 jobOutput_watermarks = Lens.lens (\JobOutput' {watermarks} -> watermarks) (\s@JobOutput' {} a -> s {watermarks = a} :: JobOutput) Prelude.. Lens.mapping Lens._Coerce
 
--- | File size of the output file, in bytes.
-jobOutput_fileSize :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Integer)
-jobOutput_fileSize = Lens.lens (\JobOutput' {fileSize} -> fileSize) (\s@JobOutput' {} a -> s {fileSize = a} :: JobOutput)
+-- | The album art to be associated with the output file, if any.
+jobOutput_albumArt :: Lens.Lens' JobOutput (Prelude.Maybe JobAlbumArt)
+jobOutput_albumArt = Lens.lens (\JobOutput' {albumArt} -> albumArt) (\s@JobOutput' {} a -> s {albumArt = a} :: JobOutput)
 
 -- | The value of the @Id@ object for the preset that you want to use for
 -- this job. The preset determines the audio, video, and thumbnail settings
@@ -594,19 +598,15 @@ jobOutput_fileSize = Lens.lens (\JobOutput' {fileSize} -> fileSize) (\s@JobOutpu
 jobOutput_presetId :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
 jobOutput_presetId = Lens.lens (\JobOutput' {presetId} -> presetId) (\s@JobOutput' {} a -> s {presetId = a} :: JobOutput)
 
--- | The album art to be associated with the output file, if any.
-jobOutput_albumArt :: Lens.Lens' JobOutput (Prelude.Maybe JobAlbumArt)
-jobOutput_albumArt = Lens.lens (\JobOutput' {albumArt} -> albumArt) (\s@JobOutput' {} a -> s {albumArt = a} :: JobOutput)
+-- | Information that further explains @Status@.
+jobOutput_statusDetail :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
+jobOutput_statusDetail = Lens.lens (\JobOutput' {statusDetail} -> statusDetail) (\s@JobOutput' {} a -> s {statusDetail = a} :: JobOutput)
 
 -- | A sequential counter, starting with 1, that identifies an output among
 -- the outputs from the current job. In the Output syntax, this value is
 -- always 1.
 jobOutput_id :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
 jobOutput_id = Lens.lens (\JobOutput' {id} -> id) (\s@JobOutput' {} a -> s {id = a} :: JobOutput)
-
--- | Information that further explains @Status@.
-jobOutput_statusDetail :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
-jobOutput_statusDetail = Lens.lens (\JobOutput' {statusDetail} -> statusDetail) (\s@JobOutput' {} a -> s {statusDetail = a} :: JobOutput)
 
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your output files. If you choose to use encryption, you must
@@ -649,28 +649,6 @@ jobOutput_durationMillis = Lens.lens (\JobOutput' {durationMillis} -> durationMi
 -- object cannot be null.
 jobOutput_composition :: Lens.Lens' JobOutput (Prelude.Maybe [Clip])
 jobOutput_composition = Lens.lens (\JobOutput' {composition} -> composition) (\s@JobOutput' {} a -> s {composition = a} :: JobOutput) Prelude.. Lens.mapping Lens._Coerce
-
--- | (Outputs in Fragmented MP4 or MPEG-TS format only.
---
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
--- output are stored in a single file. Each segment is approximately the
--- length of the @SegmentDuration@, though individual segments might be
--- shorter or longer.
---
--- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
--- last segment is the remainder of total length\/SegmentDuration.
---
--- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
--- associated playlist.
-jobOutput_segmentDuration :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
-jobOutput_segmentDuration = Lens.lens (\JobOutput' {segmentDuration} -> segmentDuration) (\s@JobOutput' {} a -> s {segmentDuration = a} :: JobOutput)
 
 -- | You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -725,33 +703,55 @@ jobOutput_segmentDuration = Lens.lens (\JobOutput' {segmentDuration} -> segmentD
 jobOutput_captions :: Lens.Lens' JobOutput (Prelude.Maybe Captions)
 jobOutput_captions = Lens.lens (\JobOutput' {captions} -> captions) (\s@JobOutput' {} a -> s {captions = a} :: JobOutput)
 
+-- | (Outputs in Fragmented MP4 or MPEG-TS format only.
+--
+-- If you specify a preset in @PresetId@ for which the value of @Container@
+-- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+-- target maximum duration of each segment in seconds. For @HLSv3@ format
+-- playlists, each media segment is stored in a separate @.ts@ file. For
+-- @HLSv4@, @MPEG-DASH@, and @Smooth@ playlists, all media segments for an
+-- output are stored in a single file. Each segment is approximately the
+-- length of the @SegmentDuration@, though individual segments might be
+-- shorter or longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the
+-- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- last segment is the remainder of total length\/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output
+-- @HLS@ output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the @OutputKeys@ of the
+-- associated playlist.
+jobOutput_segmentDuration :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
+jobOutput_segmentDuration = Lens.lens (\JobOutput' {segmentDuration} -> segmentDuration) (\s@JobOutput' {} a -> s {segmentDuration = a} :: JobOutput)
+
 instance Core.FromJSON JobOutput where
   parseJSON =
     Core.withObject
       "JobOutput"
       ( \x ->
           JobOutput'
-            Prelude.<$> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Height")
             Prelude.<*> (x Core..:? "ThumbnailPattern")
-            Prelude.<*> (x Core..:? "Duration")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Width")
+            Prelude.<*> (x Core..:? "Duration")
             Prelude.<*> (x Core..:? "ThumbnailEncryption")
-            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "FileSize")
-            Prelude.<*> (x Core..:? "PresetId")
+            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AlbumArt")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "PresetId")
             Prelude.<*> (x Core..:? "StatusDetail")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Encryption")
             Prelude.<*> (x Core..:? "FrameRate")
             Prelude.<*> (x Core..:? "AppliedColorSpaceConversion")
             Prelude.<*> (x Core..:? "Rotate")
             Prelude.<*> (x Core..:? "DurationMillis")
             Prelude.<*> (x Core..:? "Composition" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SegmentDuration")
             Prelude.<*> (x Core..:? "Captions")
+            Prelude.<*> (x Core..:? "SegmentDuration")
       )
 
 instance Prelude.Hashable JobOutput

@@ -83,11 +83,11 @@ data Playlist = Playlist'
     -- | The format of the output playlist. Valid formats include @HLSv3@,
     -- @HLSv4@, and @Smooth@.
     format :: Prelude.Maybe Prelude.Text,
+    -- | Information that further explains the status.
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The HLS content protection settings, if any, that you want Elastic
     -- Transcoder to apply to the output files associated with this playlist.
     hlsContentProtection :: Prelude.Maybe HlsContentProtection,
-    -- | Information that further explains the status.
-    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The name that you want Elastic Transcoder to assign to the master
     -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
     -- character, the section of the name before the last @\/@ must be
@@ -159,10 +159,10 @@ data Playlist = Playlist'
 -- 'format', 'playlist_format' - The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
 --
+-- 'statusDetail', 'playlist_statusDetail' - Information that further explains the status.
+--
 -- 'hlsContentProtection', 'playlist_hlsContentProtection' - The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to the output files associated with this playlist.
---
--- 'statusDetail', 'playlist_statusDetail' - Information that further explains the status.
 --
 -- 'name', 'playlist_name' - The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
@@ -182,8 +182,8 @@ newPlaylist =
       playReadyDrm = Prelude.Nothing,
       outputKeys = Prelude.Nothing,
       format = Prelude.Nothing,
-      hlsContentProtection = Prelude.Nothing,
       statusDetail = Prelude.Nothing,
+      hlsContentProtection = Prelude.Nothing,
       name = Prelude.Nothing
     }
 
@@ -244,14 +244,14 @@ playlist_outputKeys = Lens.lens (\Playlist' {outputKeys} -> outputKeys) (\s@Play
 playlist_format :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
 playlist_format = Lens.lens (\Playlist' {format} -> format) (\s@Playlist' {} a -> s {format = a} :: Playlist)
 
+-- | Information that further explains the status.
+playlist_statusDetail :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
+playlist_statusDetail = Lens.lens (\Playlist' {statusDetail} -> statusDetail) (\s@Playlist' {} a -> s {statusDetail = a} :: Playlist)
+
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to the output files associated with this playlist.
 playlist_hlsContentProtection :: Lens.Lens' Playlist (Prelude.Maybe HlsContentProtection)
 playlist_hlsContentProtection = Lens.lens (\Playlist' {hlsContentProtection} -> hlsContentProtection) (\s@Playlist' {} a -> s {hlsContentProtection = a} :: Playlist)
-
--- | Information that further explains the status.
-playlist_statusDetail :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
-playlist_statusDetail = Lens.lens (\Playlist' {statusDetail} -> statusDetail) (\s@Playlist' {} a -> s {statusDetail = a} :: Playlist)
 
 -- | The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
@@ -276,8 +276,8 @@ instance Core.FromJSON Playlist where
             Prelude.<*> (x Core..:? "PlayReadyDrm")
             Prelude.<*> (x Core..:? "OutputKeys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "HlsContentProtection")
             Prelude.<*> (x Core..:? "StatusDetail")
+            Prelude.<*> (x Core..:? "HlsContentProtection")
             Prelude.<*> (x Core..:? "Name")
       )
 

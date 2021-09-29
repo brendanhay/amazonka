@@ -219,6 +219,16 @@ data VideoParameters = VideoParameters'
     -- when the container type is @webm@, @gif@ when the container type is
     -- @gif@, and @mpeg2@ when the container type is @mpg@.
     codec :: Prelude.Maybe Prelude.Text,
+    -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+    -- rate of the input video for the frame rate of the output video. Specify
+    -- the maximum frame rate that you want Elastic Transcoder to use when the
+    -- frame rate of the input video is greater than the desired maximum frame
+    -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+    -- @24@, @25@, @29.97@, @30@, @60@.
+    maxFrameRate :: Prelude.Maybe Prelude.Text,
+    -- | The value that Elastic Transcoder adds to the metadata in the output
+    -- file.
+    displayAspectRatio :: Prelude.Maybe Prelude.Text,
     -- | Settings for the size, location, and opacity of graphics that you want
     -- Elastic Transcoder to overlay over videos that are transcoded using this
     -- preset. You can specify settings for up to four watermarks. Watermarks
@@ -235,16 +245,6 @@ data VideoParameters = VideoParameters'
     -- specify watermark settings in the preset, which allows you to use the
     -- same preset for up to four watermarks that have different dimensions.
     watermarks :: Prelude.Maybe [PresetWatermark],
-    -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
-    -- rate of the input video for the frame rate of the output video. Specify
-    -- the maximum frame rate that you want Elastic Transcoder to use when the
-    -- frame rate of the input video is greater than the desired maximum frame
-    -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
-    -- @24@, @25@, @29.97@, @30@, @60@.
-    maxFrameRate :: Prelude.Maybe Prelude.Text,
-    -- | The value that Elastic Transcoder adds to the metadata in the output
-    -- file.
-    displayAspectRatio :: Prelude.Maybe Prelude.Text,
     -- | Specify one of the following values to control scaling of the output
     -- video:
     --
@@ -654,6 +654,16 @@ data VideoParameters = VideoParameters'
 -- when the container type is @webm@, @gif@ when the container type is
 -- @gif@, and @mpeg2@ when the container type is @mpg@.
 --
+-- 'maxFrameRate', 'videoParameters_maxFrameRate' - If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+-- rate of the input video for the frame rate of the output video. Specify
+-- the maximum frame rate that you want Elastic Transcoder to use when the
+-- frame rate of the input video is greater than the desired maximum frame
+-- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+-- @24@, @25@, @29.97@, @30@, @60@.
+--
+-- 'displayAspectRatio', 'videoParameters_displayAspectRatio' - The value that Elastic Transcoder adds to the metadata in the output
+-- file.
+--
 -- 'watermarks', 'videoParameters_watermarks' - Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
 -- preset. You can specify settings for up to four watermarks. Watermarks
@@ -669,16 +679,6 @@ data VideoParameters = VideoParameters'
 -- transcoded videos. You can specify fewer graphics in the job than you
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
---
--- 'maxFrameRate', 'videoParameters_maxFrameRate' - If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
--- rate of the input video for the frame rate of the output video. Specify
--- the maximum frame rate that you want Elastic Transcoder to use when the
--- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: @10@, @15@, @23.97@,
--- @24@, @25@, @29.97@, @30@, @60@.
---
--- 'displayAspectRatio', 'videoParameters_displayAspectRatio' - The value that Elastic Transcoder adds to the metadata in the output
--- file.
 --
 -- 'sizingPolicy', 'videoParameters_sizingPolicy' - Specify one of the following values to control scaling of the output
 -- video:
@@ -895,9 +895,9 @@ newVideoParameters =
       codecOptions = Prelude.Nothing,
       fixedGOP = Prelude.Nothing,
       codec = Prelude.Nothing,
-      watermarks = Prelude.Nothing,
       maxFrameRate = Prelude.Nothing,
       displayAspectRatio = Prelude.Nothing,
+      watermarks = Prelude.Nothing,
       sizingPolicy = Prelude.Nothing,
       frameRate = Prelude.Nothing,
       aspectRatio = Prelude.Nothing,
@@ -1107,6 +1107,20 @@ videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) 
 videoParameters_codec :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
 videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@VideoParameters' {} a -> s {codec = a} :: VideoParameters)
 
+-- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+-- rate of the input video for the frame rate of the output video. Specify
+-- the maximum frame rate that you want Elastic Transcoder to use when the
+-- frame rate of the input video is greater than the desired maximum frame
+-- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+-- @24@, @25@, @29.97@, @30@, @60@.
+videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> maxFrameRate) (\s@VideoParameters' {} a -> s {maxFrameRate = a} :: VideoParameters)
+
+-- | The value that Elastic Transcoder adds to the metadata in the output
+-- file.
+videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspectRatio} -> displayAspectRatio) (\s@VideoParameters' {} a -> s {displayAspectRatio = a} :: VideoParameters)
+
 -- | Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
 -- preset. You can specify settings for up to four watermarks. Watermarks
@@ -1124,20 +1138,6 @@ videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@Video
 -- same preset for up to four watermarks that have different dimensions.
 videoParameters_watermarks :: Lens.Lens' VideoParameters (Prelude.Maybe [PresetWatermark])
 videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Lens._Coerce
-
--- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
--- rate of the input video for the frame rate of the output video. Specify
--- the maximum frame rate that you want Elastic Transcoder to use when the
--- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: @10@, @15@, @23.97@,
--- @24@, @25@, @29.97@, @30@, @60@.
-videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> maxFrameRate) (\s@VideoParameters' {} a -> s {maxFrameRate = a} :: VideoParameters)
-
--- | The value that Elastic Transcoder adds to the metadata in the output
--- file.
-videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspectRatio} -> displayAspectRatio) (\s@VideoParameters' {} a -> s {displayAspectRatio = a} :: VideoParameters)
 
 -- | Specify one of the following values to control scaling of the output
 -- video:
@@ -1372,9 +1372,9 @@ instance Core.FromJSON VideoParameters where
             Prelude.<*> (x Core..:? "CodecOptions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "FixedGOP")
             Prelude.<*> (x Core..:? "Codec")
-            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "MaxFrameRate")
             Prelude.<*> (x Core..:? "DisplayAspectRatio")
+            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SizingPolicy")
             Prelude.<*> (x Core..:? "FrameRate")
             Prelude.<*> (x Core..:? "AspectRatio")
@@ -1398,10 +1398,10 @@ instance Core.ToJSON VideoParameters where
             ("CodecOptions" Core..=) Prelude.<$> codecOptions,
             ("FixedGOP" Core..=) Prelude.<$> fixedGOP,
             ("Codec" Core..=) Prelude.<$> codec,
-            ("Watermarks" Core..=) Prelude.<$> watermarks,
             ("MaxFrameRate" Core..=) Prelude.<$> maxFrameRate,
             ("DisplayAspectRatio" Core..=)
               Prelude.<$> displayAspectRatio,
+            ("Watermarks" Core..=) Prelude.<$> watermarks,
             ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
             ("FrameRate" Core..=) Prelude.<$> frameRate,
             ("AspectRatio" Core..=) Prelude.<$> aspectRatio,

@@ -27,32 +27,32 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListJobsByPipeline $
---             newListJobsByPipeline
---
---         , requestUpdatePipelineStatus $
+--         [ requestUpdatePipelineStatus $
 --             newUpdatePipelineStatus
 --
---         , requestListPresets $
---             newListPresets
+--         , requestListJobsByPipeline $
+--             newListJobsByPipeline
 --
 --         , requestDeletePreset $
 --             newDeletePreset
 --
---         , requestCancelJob $
---             newCancelJob
+--         , requestListPresets $
+--             newListPresets
 --
 --         , requestCreatePreset $
 --             newCreatePreset
 --
+--         , requestCancelJob $
+--             newCancelJob
+--
 --         , requestCreatePipeline $
 --             newCreatePipeline
 --
---         , requestUpdatePipeline $
---             newUpdatePipeline
---
 --         , requestDeletePipeline $
 --             newDeletePipeline
+--
+--         , requestUpdatePipeline $
+--             newUpdatePipeline
 --
 --         , requestReadPreset $
 --             newReadPreset
@@ -78,32 +78,32 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseListJobsByPipeline $
---             newListJobsByPipelineResponse
---
---         , responseUpdatePipelineStatus $
+--         [ responseUpdatePipelineStatus $
 --             newUpdatePipelineStatusResponse
 --
---         , responseListPresets $
---             newListPresetsResponse
+--         , responseListJobsByPipeline $
+--             newListJobsByPipelineResponse
 --
 --         , responseDeletePreset $
 --             newDeletePresetResponse
 --
---         , responseCancelJob $
---             newCancelJobResponse
+--         , responseListPresets $
+--             newListPresetsResponse
 --
 --         , responseCreatePreset $
 --             newCreatePresetResponse
 --
+--         , responseCancelJob $
+--             newCancelJobResponse
+--
 --         , responseCreatePipeline $
 --             newCreatePipelineResponse
 --
---         , responseUpdatePipeline $
---             newUpdatePipelineResponse
---
 --         , responseDeletePipeline $
 --             newDeletePipelineResponse
+--
+--         , responseUpdatePipeline $
+--             newUpdatePipelineResponse
 --
 --         , responseReadPreset $
 --             newReadPresetResponse
@@ -131,23 +131,17 @@ import Test.Tasty
 
 -- Requests
 
-requestListJobsByPipeline :: ListJobsByPipeline -> TestTree
-requestListJobsByPipeline =
-  req
-    "ListJobsByPipeline"
-    "fixture/ListJobsByPipeline.yaml"
-
 requestUpdatePipelineStatus :: UpdatePipelineStatus -> TestTree
 requestUpdatePipelineStatus =
   req
     "UpdatePipelineStatus"
     "fixture/UpdatePipelineStatus.yaml"
 
-requestListPresets :: ListPresets -> TestTree
-requestListPresets =
+requestListJobsByPipeline :: ListJobsByPipeline -> TestTree
+requestListJobsByPipeline =
   req
-    "ListPresets"
-    "fixture/ListPresets.yaml"
+    "ListJobsByPipeline"
+    "fixture/ListJobsByPipeline.yaml"
 
 requestDeletePreset :: DeletePreset -> TestTree
 requestDeletePreset =
@@ -155,11 +149,11 @@ requestDeletePreset =
     "DeletePreset"
     "fixture/DeletePreset.yaml"
 
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
+requestListPresets :: ListPresets -> TestTree
+requestListPresets =
   req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
+    "ListPresets"
+    "fixture/ListPresets.yaml"
 
 requestCreatePreset :: CreatePreset -> TestTree
 requestCreatePreset =
@@ -167,23 +161,29 @@ requestCreatePreset =
     "CreatePreset"
     "fixture/CreatePreset.yaml"
 
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
 requestCreatePipeline :: CreatePipeline -> TestTree
 requestCreatePipeline =
   req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
-requestUpdatePipeline :: UpdatePipeline -> TestTree
-requestUpdatePipeline =
-  req
-    "UpdatePipeline"
-    "fixture/UpdatePipeline.yaml"
-
 requestDeletePipeline :: DeletePipeline -> TestTree
 requestDeletePipeline =
   req
     "DeletePipeline"
     "fixture/DeletePipeline.yaml"
+
+requestUpdatePipeline :: UpdatePipeline -> TestTree
+requestUpdatePipeline =
+  req
+    "UpdatePipeline"
+    "fixture/UpdatePipeline.yaml"
 
 requestReadPreset :: ReadPreset -> TestTree
 requestReadPreset =
@@ -229,14 +229,6 @@ requestReadJob =
 
 -- Responses
 
-responseListJobsByPipeline :: ListJobsByPipelineResponse -> TestTree
-responseListJobsByPipeline =
-  res
-    "ListJobsByPipelineResponse"
-    "fixture/ListJobsByPipelineResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListJobsByPipeline)
-
 responseUpdatePipelineStatus :: UpdatePipelineStatusResponse -> TestTree
 responseUpdatePipelineStatus =
   res
@@ -245,13 +237,13 @@ responseUpdatePipelineStatus =
     defaultService
     (Proxy :: Proxy UpdatePipelineStatus)
 
-responseListPresets :: ListPresetsResponse -> TestTree
-responseListPresets =
+responseListJobsByPipeline :: ListJobsByPipelineResponse -> TestTree
+responseListJobsByPipeline =
   res
-    "ListPresetsResponse"
-    "fixture/ListPresetsResponse.proto"
+    "ListJobsByPipelineResponse"
+    "fixture/ListJobsByPipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPresets)
+    (Proxy :: Proxy ListJobsByPipeline)
 
 responseDeletePreset :: DeletePresetResponse -> TestTree
 responseDeletePreset =
@@ -261,13 +253,13 @@ responseDeletePreset =
     defaultService
     (Proxy :: Proxy DeletePreset)
 
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
+responseListPresets :: ListPresetsResponse -> TestTree
+responseListPresets =
   res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
+    "ListPresetsResponse"
+    "fixture/ListPresetsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy :: Proxy ListPresets)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
 responseCreatePreset =
@@ -277,6 +269,14 @@ responseCreatePreset =
     defaultService
     (Proxy :: Proxy CreatePreset)
 
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJob)
+
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
   res
@@ -285,14 +285,6 @@ responseCreatePipeline =
     defaultService
     (Proxy :: Proxy CreatePipeline)
 
-responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
-responseUpdatePipeline =
-  res
-    "UpdatePipelineResponse"
-    "fixture/UpdatePipelineResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdatePipeline)
-
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
   res
@@ -300,6 +292,14 @@ responseDeletePipeline =
     "fixture/DeletePipelineResponse.proto"
     defaultService
     (Proxy :: Proxy DeletePipeline)
+
+responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
+responseUpdatePipeline =
+  res
+    "UpdatePipelineResponse"
+    "fixture/UpdatePipelineResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePipeline)
 
 responseReadPreset :: ReadPresetResponse -> TestTree
 responseReadPreset =

@@ -21,8 +21,8 @@ module Network.AWS.ElasticTranscoder.Types
     _InternalServiceException,
     _AccessDeniedException,
     _ValidationException,
-    _ResourceInUseException,
     _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
 
     -- * Artwork
@@ -50,8 +50,8 @@ module Network.AWS.ElasticTranscoder.Types
     audioParameters_codecOptions,
     audioParameters_codec,
     audioParameters_channels,
-    audioParameters_sampleRate,
     audioParameters_audioPackingMode,
+    audioParameters_sampleRate,
     audioParameters_bitRate,
 
     -- * CaptionFormat
@@ -89,13 +89,13 @@ module Network.AWS.ElasticTranscoder.Types
     createJobOutput_thumbnailPattern,
     createJobOutput_thumbnailEncryption,
     createJobOutput_watermarks,
-    createJobOutput_presetId,
     createJobOutput_albumArt,
+    createJobOutput_presetId,
     createJobOutput_encryption,
     createJobOutput_rotate,
     createJobOutput_composition,
-    createJobOutput_segmentDuration,
     createJobOutput_captions,
+    createJobOutput_segmentDuration,
 
     -- * CreateJobPlaylist
     CreateJobPlaylist (..),
@@ -119,8 +119,8 @@ module Network.AWS.ElasticTranscoder.Types
     Encryption (..),
     newEncryption,
     encryption_key,
-    encryption_mode,
     encryption_keyMd5,
+    encryption_mode,
     encryption_initializationVector,
 
     -- * HlsContentProtection
@@ -152,8 +152,8 @@ module Network.AWS.ElasticTranscoder.Types
     job'_output,
     job'_userMetadata,
     job'_timing,
-    job'_inputs,
     job'_playlists,
+    job'_inputs,
 
     -- * JobAlbumArt
     JobAlbumArt (..),
@@ -164,8 +164,8 @@ module Network.AWS.ElasticTranscoder.Types
     -- * JobInput
     JobInput (..),
     newJobInput,
-    jobInput_container,
     jobInput_key,
+    jobInput_container,
     jobInput_timeSpan,
     jobInput_inputCaptions,
     jobInput_encryption,
@@ -178,27 +178,27 @@ module Network.AWS.ElasticTranscoder.Types
     -- * JobOutput
     JobOutput (..),
     newJobOutput,
-    jobOutput_height,
     jobOutput_key,
-    jobOutput_status,
+    jobOutput_height,
     jobOutput_thumbnailPattern,
-    jobOutput_duration,
+    jobOutput_status,
     jobOutput_width,
+    jobOutput_duration,
     jobOutput_thumbnailEncryption,
-    jobOutput_watermarks,
     jobOutput_fileSize,
-    jobOutput_presetId,
+    jobOutput_watermarks,
     jobOutput_albumArt,
-    jobOutput_id,
+    jobOutput_presetId,
     jobOutput_statusDetail,
+    jobOutput_id,
     jobOutput_encryption,
     jobOutput_frameRate,
     jobOutput_appliedColorSpaceConversion,
     jobOutput_rotate,
     jobOutput_durationMillis,
     jobOutput_composition,
-    jobOutput_segmentDuration,
     jobOutput_captions,
+    jobOutput_segmentDuration,
 
     -- * JobWatermark
     JobWatermark (..),
@@ -231,8 +231,8 @@ module Network.AWS.ElasticTranscoder.Types
     pipeline_id,
     pipeline_name,
     pipeline_role,
-    pipeline_notifications,
     pipeline_thumbnailConfig,
+    pipeline_notifications,
     pipeline_contentConfig,
     pipeline_inputBucket,
     pipeline_awsKmsKeyArn,
@@ -261,8 +261,8 @@ module Network.AWS.ElasticTranscoder.Types
     playlist_playReadyDrm,
     playlist_outputKeys,
     playlist_format,
-    playlist_hlsContentProtection,
     playlist_statusDetail,
+    playlist_hlsContentProtection,
     playlist_name,
 
     -- * Preset
@@ -271,11 +271,11 @@ module Network.AWS.ElasticTranscoder.Types
     preset_container,
     preset_arn,
     preset_id,
-    preset_thumbnails,
     preset_name,
+    preset_thumbnails,
     preset_video,
-    preset_audio,
     preset_description,
+    preset_audio,
     preset_type,
 
     -- * PresetWatermark
@@ -324,9 +324,9 @@ module Network.AWS.ElasticTranscoder.Types
     videoParameters_codecOptions,
     videoParameters_fixedGOP,
     videoParameters_codec,
-    videoParameters_watermarks,
     videoParameters_maxFrameRate,
     videoParameters_displayAspectRatio,
+    videoParameters_watermarks,
     videoParameters_sizingPolicy,
     videoParameters_frameRate,
     videoParameters_aspectRatio,
@@ -484,15 +484,6 @@ _ValidationException =
     "ValidationException"
     Prelude.. Core.hasStatus 400
 
--- | The resource you are attempting to change is in use. For example, you
--- are attempting to delete a pipeline that is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 409
-
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -501,6 +492,15 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 429
+
+-- | The resource you are attempting to change is in use. For example, you
+-- are attempting to delete a pipeline that is currently in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+    Prelude.. Core.hasStatus 409
 
 -- | The requested resource does not exist or is not available. For example,
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is

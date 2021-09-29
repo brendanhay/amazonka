@@ -29,8 +29,8 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
 
     -- * Request Lenses
     createPipeline_outputBucket,
-    createPipeline_notifications,
     createPipeline_thumbnailConfig,
+    createPipeline_notifications,
     createPipeline_contentConfig,
     createPipeline_awsKmsKeyArn,
     createPipeline_name,
@@ -87,34 +87,6 @@ data CreatePipeline = CreatePipeline'
     -- S3 storage class, omit @OutputBucket@ and specify values for
     -- @ContentConfig@ and @ThumbnailConfig@ instead.
     outputBucket :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
-    -- to notify to report job status.
-    --
-    -- To receive notifications, you must also subscribe to the new topic in
-    -- the Amazon SNS console.
-    --
-    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
-    --     Service (Amazon SNS) topic that you want to notify when Elastic
-    --     Transcoder has started to process a job in this pipeline. This is
-    --     the ARN that Amazon SNS returned when you created the topic. For
-    --     more information, see Create a Topic in the Amazon Simple
-    --     Notification Service Developer Guide.
-    --
-    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
-    --     to notify when Elastic Transcoder has finished processing a job in
-    --     this pipeline. This is the ARN that Amazon SNS returned when you
-    --     created the topic.
-    --
-    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters a warning condition while
-    --     processing a job in this pipeline. This is the ARN that Amazon SNS
-    --     returned when you created the topic.
-    --
-    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters an error condition while
-    --     processing a job in this pipeline. This is the ARN that Amazon SNS
-    --     returned when you created the topic.
-    notifications :: Prelude.Maybe Notifications,
     -- | The @ThumbnailConfig@ object specifies several values, including the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
     -- files, which users you want to have access to the files, the type of
@@ -180,6 +152,34 @@ data CreatePipeline = CreatePipeline'
     --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
     --     the thumbnails that it stores in your Amazon S3 bucket.
     thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
+    -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
+    -- to notify to report job status.
+    --
+    -- To receive notifications, you must also subscribe to the new topic in
+    -- the Amazon SNS console.
+    --
+    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+    --     Service (Amazon SNS) topic that you want to notify when Elastic
+    --     Transcoder has started to process a job in this pipeline. This is
+    --     the ARN that Amazon SNS returned when you created the topic. For
+    --     more information, see Create a Topic in the Amazon Simple
+    --     Notification Service Developer Guide.
+    --
+    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+    --     to notify when Elastic Transcoder has finished processing a job in
+    --     this pipeline. This is the ARN that Amazon SNS returned when you
+    --     created the topic.
+    --
+    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters a warning condition while
+    --     processing a job in this pipeline. This is the ARN that Amazon SNS
+    --     returned when you created the topic.
+    --
+    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters an error condition while
+    --     processing a job in this pipeline. This is the ARN that Amazon SNS
+    --     returned when you created the topic.
+    notifications :: Prelude.Maybe Notifications,
     -- | The optional @ContentConfig@ object specifies information about the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
     -- files and playlists: which bucket to use, which users you want to have
@@ -311,34 +311,6 @@ data CreatePipeline = CreatePipeline'
 -- S3 storage class, omit @OutputBucket@ and specify values for
 -- @ContentConfig@ and @ThumbnailConfig@ instead.
 --
--- 'notifications', 'createPipeline_notifications' - The Amazon Simple Notification Service (Amazon SNS) topic that you want
--- to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process a job in this pipeline. This is
---     the ARN that Amazon SNS returned when you created the topic. For
---     more information, see Create a Topic in the Amazon Simple
---     Notification Service Developer Guide.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job in
---     this pipeline. This is the ARN that Amazon SNS returned when you
---     created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
---
 -- 'thumbnailConfig', 'createPipeline_thumbnailConfig' - The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
@@ -403,6 +375,34 @@ data CreatePipeline = CreatePipeline'
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
+--
+-- 'notifications', 'createPipeline_notifications' - The Amazon Simple Notification Service (Amazon SNS) topic that you want
+-- to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process a job in this pipeline. This is
+--     the ARN that Amazon SNS returned when you created the topic. For
+--     more information, see Create a Topic in the Amazon Simple
+--     Notification Service Developer Guide.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job in
+--     this pipeline. This is the ARN that Amazon SNS returned when you
+--     created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
 --
 -- 'contentConfig', 'createPipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -506,8 +506,8 @@ newCreatePipeline ::
 newCreatePipeline pName_ pInputBucket_ pRole_ =
   CreatePipeline'
     { outputBucket = Prelude.Nothing,
-      notifications = Prelude.Nothing,
       thumbnailConfig = Prelude.Nothing,
+      notifications = Prelude.Nothing,
       contentConfig = Prelude.Nothing,
       awsKmsKeyArn = Prelude.Nothing,
       name = pName_,
@@ -544,36 +544,6 @@ newCreatePipeline pName_ pInputBucket_ pRole_ =
 -- @ContentConfig@ and @ThumbnailConfig@ instead.
 createPipeline_outputBucket :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_outputBucket = Lens.lens (\CreatePipeline' {outputBucket} -> outputBucket) (\s@CreatePipeline' {} a -> s {outputBucket = a} :: CreatePipeline)
-
--- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
--- to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process a job in this pipeline. This is
---     the ARN that Amazon SNS returned when you created the topic. For
---     more information, see Create a Topic in the Amazon Simple
---     Notification Service Developer Guide.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job in
---     this pipeline. This is the ARN that Amazon SNS returned when you
---     created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
-createPipeline_notifications :: Lens.Lens' CreatePipeline (Prelude.Maybe Notifications)
-createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> notifications) (\s@CreatePipeline' {} a -> s {notifications = a} :: CreatePipeline)
 
 -- | The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
@@ -641,6 +611,36 @@ createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> no
 --     the thumbnails that it stores in your Amazon S3 bucket.
 createPipeline_thumbnailConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
 createPipeline_thumbnailConfig = Lens.lens (\CreatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@CreatePipeline' {} a -> s {thumbnailConfig = a} :: CreatePipeline)
+
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
+-- to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process a job in this pipeline. This is
+--     the ARN that Amazon SNS returned when you created the topic. For
+--     more information, see Create a Topic in the Amazon Simple
+--     Notification Service Developer Guide.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job in
+--     this pipeline. This is the ARN that Amazon SNS returned when you
+--     created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
+createPipeline_notifications :: Lens.Lens' CreatePipeline (Prelude.Maybe Notifications)
+createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> notifications) (\s@CreatePipeline' {} a -> s {notifications = a} :: CreatePipeline)
 
 -- | The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -770,9 +770,9 @@ instance Core.ToJSON CreatePipeline where
     Core.object
       ( Prelude.catMaybes
           [ ("OutputBucket" Core..=) Prelude.<$> outputBucket,
-            ("Notifications" Core..=) Prelude.<$> notifications,
             ("ThumbnailConfig" Core..=)
               Prelude.<$> thumbnailConfig,
+            ("Notifications" Core..=) Prelude.<$> notifications,
             ("ContentConfig" Core..=) Prelude.<$> contentConfig,
             ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
             Prelude.Just ("Name" Core..= name),

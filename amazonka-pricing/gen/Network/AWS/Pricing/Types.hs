@@ -17,8 +17,8 @@ module Network.AWS.Pricing.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
     _ExpiredNextTokenException,
+    _NotFoundException,
     _InternalErrorException,
     _InvalidNextTokenException,
     _InvalidParameterException,
@@ -125,19 +125,19 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The requested resource can\'t be found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-
 -- | The pagination token expired. Try again without a pagination token.
 _ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
     "ExpiredNextTokenException"
+
+-- | The requested resource can\'t be found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.

@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPricingService' smart constructor.
 data PricingService = PricingService'
-  { -- | The code for the AWS service.
+  { -- | The code for the Amazon Web Services service.
     serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The attributes that are available for this service.
     attributeNames :: Prelude.Maybe [Prelude.Text]
@@ -43,7 +43,7 @@ data PricingService = PricingService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceCode', 'pricingService_serviceCode' - The code for the AWS service.
+-- 'serviceCode', 'pricingService_serviceCode' - The code for the Amazon Web Services service.
 --
 -- 'attributeNames', 'pricingService_attributeNames' - The attributes that are available for this service.
 newPricingService ::
@@ -54,7 +54,7 @@ newPricingService =
       attributeNames = Prelude.Nothing
     }
 
--- | The code for the AWS service.
+-- | The code for the Amazon Web Services service.
 pricingService_serviceCode :: Lens.Lens' PricingService (Prelude.Maybe Prelude.Text)
 pricingService_serviceCode = Lens.lens (\PricingService' {serviceCode} -> serviceCode) (\s@PricingService' {} a -> s {serviceCode = a} :: PricingService)
 
